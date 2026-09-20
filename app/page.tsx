@@ -12,51 +12,10 @@ import ParkProof from "@/components/zone1/ParkProof"
 import FieldNotes from "@/components/zone1/FieldNotes"
 import DesignPartner from "@/components/zone1/DesignPartner"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
-import { releaseScroll, suppressScroll } from "@/lib/scroll-suppress"
 
 export default function Home() {
-  const scrollToMain = () => {
-    const element = document.getElementById("main-content")
-    if (!element) return
-
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    let fallbackId: number | null = null
-
-    const finishScroll = () => {
-      releaseScroll()
-      window.removeEventListener("scrollend", finishScroll)
-
-      if (fallbackId) {
-        window.clearTimeout(fallbackId)
-        fallbackId = null
-      }
-    }
-
-    suppressScroll()
-    element.scrollIntoView({
-      behavior: prefersReducedMotion ? "auto" : "smooth",
-      block: "start",
-    })
-    element.focus({ preventScroll: true })
-
-    window.addEventListener("scrollend", finishScroll, { once: true })
-    fallbackId = window.setTimeout(finishScroll, prefersReducedMotion ? 50 : 1500)
-    history.replaceState(null, "", "/")
-  }
-
   return (
     <>
-      <button
-        type="button"
-        onClick={(e) => {
-          scrollToMain()
-          e.currentTarget.blur()
-        }}
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-primary/60 focus:bg-primary focus:px-4 focus:py-2 focus:font-sans focus:text-xs focus:font-bold focus:uppercase focus:tracking-widest focus:text-white focus:outline-none"
-      >
-        Skip to Content
-      </button>
-
       <main
         className="relative min-h-screen w-full bg-background text-foreground"
         style={{ overflowX: "clip" }}
