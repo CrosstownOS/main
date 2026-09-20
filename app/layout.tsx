@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/images/opengraph.jpg',
-        width: 1200,
-        height: 630,
+        url: '/images/opengraph.jpg?v=2',
+        width: 1024,
+        height: 1024,
         alt: 'CrosstownOS // Acquire — evidence-backed acquisition intelligence',
       },
     ],
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'CrosstownOS // Acquire',
     description:
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
-    images: ['/images/opengraph.jpg'],
+    images: ['/images/opengraph.jpg?v=2'],
   },
   robots: {
     index: true,

@@ -29,11 +29,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `/blog/${slug}`,
       publishedTime: post.date,
       authors: ["CrosstownOS"],
+      images: [
+        {
+          url: "/images/opengraph.jpg?v=2",
+          width: 1024,
+          height: 1024,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: ["/images/opengraph.jpg?v=2"],
     },
   }
 }
