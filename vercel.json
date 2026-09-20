@@ -1,1 +1,1 @@
-{}
+{"redirects":[{"destination":"https://www.crosstownosrv.camp/$1","has":[{"type":"host","value":"crosstownosrv.camp"}],"permanent":true,"source":"/(.*)"}]}
