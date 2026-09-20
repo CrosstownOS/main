@@ -1,0 +1,152 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import ReactMarkdown from "react-markdown"
+import Navigation from "@/components/ui/navigation"
+import { getAllSlugs, getPost } from "@/lib/blog"
+
+interface PageProps {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }))
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPost(slug)
+  if (!post) return { title: "Not found | CrosstownOS // Acquire" }
+
+  return {
+    title: `${post.title} | CrosstownOS // Acquire`,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      url: `/blog/${slug}`,
+    },
+  }
+}
+
+function formatDate(iso: string) {
+  const d = new Date(iso + "T12:00:00")
+  if (Number.isNaN(d.getTime())) return iso
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+}
+
+export default async function BlogPost({ params }: PageProps) {
+  const { slug } = await params
+  const post = getPost(slug)
+  if (!post) notFound()
+
+  return (
+    <>
+      <Navigation />
+      <main className="relative min-h-screen w-full bg-background text-foreground">
+        <article className="mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+          <Link
+            href="/blog"
+            className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary hover:underline"
+          >
+            &larr; All field notes
+          </Link>
+
+          <p className="mono-label mb-4 mt-8">Field Note</p>
+          <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
+            {post.title}
+          </h1>
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
+              {formatDate(post.date)}
+            </p>
+            {post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="prose-blog mt-10">
+            <ReactMarkdown
+              components={{
+                h2: ({ children }) => (
+                  <h2 className="serif-display mb-4 mt-10 text-2xl tracking-tight sm:text-3xl">
+                    {children}
+                  </h2>
+                ),
+                h3: ({ children }) => (
+                  <h3 className="mb-3 mt-8 text-lg font-bold tracking-tight">
+                    {children}
+                  </h3>
+                ),
+                p: ({ children }) => (
+                  <p className="mb-5 text-base leading-relaxed text-foreground/90">
+                    {children}
+                  </p>
+                ),
+                ul: ({ children }) => (
+                  <ul className="mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-foreground/90">
+                    {children}
+                  </ul>
+                ),
+                ol: ({ children }) => (
+                  <ol className="mb-5 list-decimal space-y-2 pl-6 text-base leading-relaxed text-foreground/90">
+                    {children}
+                  </ol>
+                ),
+                blockquote: ({ children }) => (
+                  <blockquote className="mb-5 border-l-2 border-primary bg-card px-5 py-4 text-base italic leading-relaxed text-foreground/90">
+                    {children}
+                  </blockquote>
+                ),
+                strong: ({ children }) => (
+                  <strong className="font-bold text-foreground">{children}</strong>
+                ),
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    className="text-primary underline underline-offset-2 hover:no-underline"
+                  >
+                    {children}
+                  </a>
+                ),
+                hr: () => <hr className="my-10 border-border" />,
+              }}
+            >
+              {post.content}
+            </ReactMarkdown>
+          </div>
+
+          <div className="mt-16 border border-border bg-card p-6 sm:p-8">
+            <p className="mono-label mb-3">CrosstownOS // Acquire</p>
+            <p className="text-sm leading-relaxed text-muted">
+              Acquisition intelligence for RV park and manufactured-housing
+              buyers. We turn diligence chaos into verified decisions before you
+              commit capital.
+            </p>
+            <Link
+              href="/#design-partner"
+              className="mt-5 inline-block border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90"
+            >
+              Join the Q4 Cohort
+            </Link>
+          </div>
+        </article>
+      </main>
+    </>
+  )
+}
