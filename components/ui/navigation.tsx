@@ -1,0 +1,390 @@
+"use client"
+
+import { useCallback, useEffect, useRef, useState } from "react"
+import { Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { getIsScrolling, releaseScroll, suppressScroll } from "@/lib/scroll-suppress"
+
+export const OPEN_DESIGN_PARTNER_EVENT = "crosstown:open-design-partner"
+
+const NAV_ITEMS = [
+  { id: "thesis", index: "01", label: "Thesis" },
+  { id: "acquire", index: "02", label: "Acquire" },
+  { id: "parkproof", index: "03", label: "ParkProof" },
+  { id: "design-partner", index: "04", label: "Partners" },
+  { id: "contact", index: "05", label: "Contact" },
+] as const
+
+const HEADER_OFFSET = 104
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+export default function Navigation() {
+  const [active, setActive] = useState<string>("")
+  const [open, setOpen] = useState(false)
+  const [progress, setProgress] = useState(0)
+
+  const rafId = useRef<number | null>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const wasOpenRef = useRef(false)
+  const scrollEndHandlerRef = useRef<EventListener | null>(null)
+  const scrollFallbackRef = useRef<number | null>(null)
+
+  const clearScrollWatchers = useCallback(() => {
+    if (scrollEndHandlerRef.current) {
+      window.removeEventListener("scrollend", scrollEndHandlerRef.current)
+      scrollEndHandlerRef.current = null
+    }
+
+    if (scrollFallbackRef.current) {
+      window.clearTimeout(scrollFallbackRef.current)
+      scrollFallbackRef.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
+      Boolean,
+    ) as HTMLElement[]
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (getIsScrolling()) return
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id)
+          }
+        })
+      },
+      { rootMargin: "-20% 0px -65% 0px", threshold: 0 },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    const updateProgress = () => {
+      if (rafId.current) return
+
+      rafId.current = requestAnimationFrame(() => {
+        const documentElement = document.documentElement
+        const scrollableHeight = documentElement.scrollHeight - window.innerHeight
+        const scrolled = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0
+        setProgress(Math.min(100, Math.max(0, scrolled * 100)))
+        rafId.current = null
+      })
+    }
+
+    updateProgress()
+    window.addEventListener("scroll", updateProgress, { passive: true })
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener("scroll", updateProgress)
+      if (rafId.current) cancelAnimationFrame(rafId.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    const closeOnDesktop = () => {
+      if (window.innerWidth >= 1024) setOpen(false)
+    }
+
+    window.addEventListener("resize", closeOnDesktop)
+    return () => window.removeEventListener("resize", closeOnDesktop)
+  }, [])
+
+  useEffect(() => {
+    if (!open) {
+      document.body.style.overflow = ""
+
+      if (wasOpenRef.current) {
+        wasOpenRef.current = false
+        menuButtonRef.current?.focus()
+      }
+
+      return
+    }
+
+    wasOpenRef.current = true
+    document.body.style.overflow = "hidden"
+
+    const focusFrame = requestAnimationFrame(() => {
+      const focusable = drawerRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      focusable?.[0]?.focus()
+    })
+
+    const trapFocus = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault()
+        setOpen(false)
+        return
+      }
+
+      if (event.key !== "Tab" || !drawerRef.current) return
+
+      const focusable = Array.from(
+        drawerRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+      ).filter((element) => !element.hasAttribute("disabled") && element.tabIndex !== -1)
+
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const activeElement = document.activeElement as HTMLElement | null
+      const focusIsInside = activeElement ? drawerRef.current.contains(activeElement) : false
+
+      if (event.shiftKey && (!focusIsInside || activeElement === first)) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && (!focusIsInside || activeElement === last)) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener("keydown", trapFocus)
+
+    return () => {
+      cancelAnimationFrame(focusFrame)
+      document.removeEventListener("keydown", trapFocus)
+      document.body.style.overflow = ""
+    }
+  }, [open])
+
+  useEffect(() => {
+    return () => {
+      clearScrollWatchers()
+      releaseScroll()
+    }
+  }, [clearScrollWatchers])
+
+  const jump = useCallback(
+    (id: string) => {
+      const element = document.getElementById(id)
+      setOpen(false)
+
+      if (!element) return
+
+      setActive(id)
+      clearScrollWatchers()
+      releaseScroll()
+
+      requestAnimationFrame(() => {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        const top = Math.max(
+          element.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET,
+          0,
+        )
+
+        suppressScroll()
+        window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : "smooth" })
+        history.replaceState(null, "", `#${id}`)
+
+        const finishScroll = () => {
+          releaseScroll()
+          window.removeEventListener("scrollend", finishScroll)
+
+          if (scrollFallbackRef.current) {
+            window.clearTimeout(scrollFallbackRef.current)
+            scrollFallbackRef.current = null
+          }
+
+          scrollEndHandlerRef.current = null
+        }
+
+        scrollEndHandlerRef.current = finishScroll
+        window.addEventListener("scrollend", finishScroll, { once: true })
+        scrollFallbackRef.current = window.setTimeout(
+          finishScroll,
+          prefersReducedMotion ? 50 : 1500,
+        )
+      })
+    },
+    [clearScrollWatchers],
+  )
+
+  const openDesignPartner = useCallback(() => {
+    window.dispatchEvent(
+      new CustomEvent(OPEN_DESIGN_PARTNER_EVENT, {
+        detail: { source: "navigation" },
+      }),
+    )
+    jump("design-partner")
+  }, [jump])
+
+  return (
+    <>
+      <div className="fixed inset-x-0 top-0 z-50">
+        <div className="h-0.5 bg-border" aria-hidden="true">
+          <div
+            className="h-full bg-primary shadow-[0_0_8px_rgba(58,134,242,0.95),0_0_18px_rgba(58,134,242,0.55)] transition-[width] duration-150"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        <div className="flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 backdrop-blur">
+          <p className="flex items-center gap-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
+            <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
+            CrosstownOS // Acquire is preparing for a limited design-partner cohort.
+          </p>
+        </div>
+
+        <header className="border-b border-border bg-background/90 backdrop-blur">
+          <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+            <button
+              type="button"
+              onClick={() => jump("hero")}
+              className="group flex min-w-fit items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              aria-label="Return to the beginning of the page"
+            >
+              <span className="font-serif text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                Crosstown<span className="align-super text-[0.58em] text-primary">™</span>
+              </span>
+              <span className="hidden border-l border-border pl-3 font-mono text-[9px] uppercase tracking-[0.24em] text-muted sm:block">
+                CrosstownOS // Acquire
+              </span>
+            </button>
+
+            <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center lg:flex">
+              <ul className="flex items-center gap-1 xl:gap-2">
+                {NAV_ITEMS.map((item) => {
+                  const isActive = active === item.id
+
+                  return (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        aria-current={isActive ? "location" : undefined}
+                        onClick={(event) => {
+                          event.preventDefault()
+                          jump(item.id)
+                        }}
+                        className={cn(
+                          "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
+                          "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
+                          isActive
+                            ? "text-primary after:bg-primary"
+                            : "text-muted after:bg-transparent hover:text-foreground hover:after:bg-border",
+                        )}
+                      >
+                        <span className={cn("hidden text-[8px]", isActive ? "text-primary" : "text-muted/60", "xl:inline")}>
+                          {item.index}
+                        </span>
+                        <span>{item.label}</span>
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </nav>
+
+            <button
+              type="button"
+              onClick={openDesignPartner}
+              aria-haspopup="dialog"
+              className="hidden min-w-fit border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
+            >
+              Request Design Partner Access
+            </button>
+
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setOpen((value) => !value)}
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+              aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+              className="flex h-10 w-10 items-center justify-center border border-border text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+            >
+              {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
+            </button>
+          </div>
+        </header>
+      </div>
+
+      {open ? (
+        <>
+          <button
+            type="button"
+            aria-label="Close navigation menu"
+            onClick={() => setOpen(false)}
+            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-40 cursor-default bg-background/70 backdrop-blur-sm lg:hidden"
+          />
+
+          <div
+            ref={drawerRef}
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-navigation-title"
+            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-40 overflow-y-auto border-t border-border bg-background lg:hidden"
+          >
+            <div className="flex items-center justify-between border-b border-border px-5 py-4">
+              <p
+                id="mobile-navigation-title"
+                className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary"
+              >
+                Section Index
+              </p>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close navigation menu"
+                className="flex h-9 w-9 items-center justify-center border border-border text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <X className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </div>
+
+            <nav aria-label="Mobile primary" className="px-5 py-5">
+              <ul className="space-y-1">
+                {NAV_ITEMS.map((item) => {
+                  const isActive = active === item.id
+
+                  return (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        aria-current={isActive ? "location" : undefined}
+                        onClick={(event) => {
+                          event.preventDefault()
+                          jump(item.id)
+                        }}
+                        className={cn(
+                          "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                          isActive
+                            ? "border-l-primary bg-primary/10 text-primary"
+                            : "border-l-transparent text-muted hover:border-l-border hover:bg-card/60 hover:text-foreground",
+                        )}
+                      >
+                        <span className={cn("font-mono text-[10px] tracking-[0.2em]", isActive ? "text-primary" : "text-muted/60")}>
+                          {item.index}
+                        </span>
+                        <span className="font-serif text-lg tracking-tight">{item.label}</span>
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </nav>
+
+            <div className="border-t border-border px-5 py-5">
+              <button
+                type="button"
+                onClick={openDesignPartner}
+                aria-haspopup="dialog"
+                className="w-full border border-primary/60 bg-primary px-4 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Request Design Partner Access
+              </button>
+              <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
+                Early access is limited. Each request is reviewed personally.
+              </p>
+            </div>
+          </div>
+        </>
+      ) : null}
+    </>
+  )
+}
