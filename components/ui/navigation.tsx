@@ -1,6 +1,7 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { getIsScrolling, releaseScroll, suppressScroll } from "@/lib/scroll-suppress"
@@ -23,6 +24,10 @@ export default function Navigation() {
   const [active, setActive] = useState<string>("")
   const [open, setOpen] = useState(false)
   const [progress, setProgress] = useState(0)
+
+  const pathname = usePathname()
+  const router = useRouter()
+  const isHome = pathname === "/"
 
   const rafId = useRef<number | null>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
@@ -205,13 +210,42 @@ export default function Navigation() {
   )
 
   const openDesignPartner = useCallback(() => {
+    if (!isHome) {
+      setOpen(false)
+      router.push("/#design-partner")
+      return
+    }
+
     window.dispatchEvent(
       new CustomEvent(OPEN_DESIGN_PARTNER_EVENT, {
         detail: { source: "navigation" },
       }),
     )
     jump("design-partner")
-  }, [jump])
+  }, [jump, isHome, router])
+
+  const handleSectionClick = useCallback(
+    (event: MouseEvent<HTMLAnchorElement>, id: string) => {
+      if (isHome) {
+        event.preventDefault()
+        jump(id)
+        return
+      }
+
+      setOpen(false)
+    },
+    [isHome, jump],
+  )
+
+  const goHome = useCallback(() => {
+    if (isHome) {
+      jump("hero")
+      return
+    }
+
+    setOpen(false)
+    router.push("/")
+  }, [isHome, jump, router])
 
   return (
     <>
@@ -234,9 +268,9 @@ export default function Navigation() {
           <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
             <button
               type="button"
-              onClick={() => jump("hero")}
+              onClick={goHome}
               className="group flex min-w-fit items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              aria-label="Return to the beginning of the page"
+              aria-label="Return to the CrosstownOS homepage"
             >
               <span className="font-serif text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
                 Crosstown<span className="align-super text-[0.58em] text-primary">™</span>
@@ -254,12 +288,9 @@ export default function Navigation() {
                   return (
                     <li key={item.id}>
                       <a
-                        href={`#${item.id}`}
+                        href={isHome ? `#${item.id}` : `/#${item.id}`}
                         aria-current={isActive ? "location" : undefined}
-                        onClick={(event) => {
-                          event.preventDefault()
-                          jump(item.id)
-                        }}
+                        onClick={(event) => handleSectionClick(event, item.id)}
                         className={cn(
                           "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
                           "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
@@ -354,12 +385,9 @@ export default function Navigation() {
                   return (
                     <li key={item.id}>
                       <a
-                        href={`#${item.id}`}
+                        href={isHome ? `#${item.id}` : `/#${item.id}`}
                         aria-current={isActive ? "location" : undefined}
-                        onClick={(event) => {
-                          event.preventDefault()
-                          jump(item.id)
-                        }}
+                        onClick={(event) => handleSectionClick(event, item.id)}
                         className={cn(
                           "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                           isActive
