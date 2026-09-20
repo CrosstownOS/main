@@ -3,7 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import Navigation from "@/components/ui/navigation"
-import { getAllSlugs, getPost } from "@/lib/blog"
+import { getAllSlugs, getPost, getRelatedPosts } from "@/lib/blog"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -27,6 +27,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.excerpt,
       type: "article",
       url: `/blog/${slug}`,
+      publishedTime: post.date,
+      authors: ["CrosstownOS"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
     },
   }
 }
@@ -46,11 +53,42 @@ export default async function BlogPost({ params }: PageProps) {
   const post = getPost(slug)
   if (!post) notFound()
 
+  const related = getRelatedPosts(slug, 3)
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: "CrosstownOS",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "CrosstownOS",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.crosstownosrv.camp/logo.jpg",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.crosstownosrv.camp/blog/${slug}`,
+    },
+  }
+
   return (
     <>
       <Navigation />
       <main className="relative min-h-screen w-full bg-background text-foreground">
         <article className="mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
           <Link
             href="/blog"
             className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary hover:underline"
@@ -145,6 +183,45 @@ export default async function BlogPost({ params }: PageProps) {
               Join the Q4 Cohort
             </Link>
           </div>
+
+          {related.length > 0 && (
+            <div className="mt-16">
+              <p className="mono-label mb-6">More field notes</p>
+              <div className="space-y-2">
+                {related.map((rel) => (
+                  <Link
+                    key={rel.slug}
+                    href={`/blog/${rel.slug}`}
+                    className="group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
+                  >
+                    <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                      {formatDate(rel.date)}
+                    </p>
+                    <h2 className="serif-display mt-2 text-2xl tracking-tight transition-colors group-hover:text-primary sm:text-3xl">
+                      {rel.title}
+                    </h2>
+                    {rel.excerpt && (
+                      <p className="mt-3 text-sm leading-relaxed text-muted">
+                        {rel.excerpt}
+                      </p>
+                    )}
+                    {rel.tags.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {rel.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="border border-border px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </article>
       </main>
     </>

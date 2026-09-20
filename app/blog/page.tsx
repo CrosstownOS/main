@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   description:
     "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Field Notes | CrosstownOS // Acquire",
+    description:
+      "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
+    type: "website",
+    url: "/blog",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Field Notes | CrosstownOS // Acquire",
+    description:
+      "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
+  },
 }
 
 function formatDate(iso: string) {

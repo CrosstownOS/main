@@ -68,3 +68,16 @@ export function getAllSlugs(): string[] {
     .filter((f) => f.endsWith(".md"))
     .map((f) => f.replace(/\.md$/, ""))
 }
+
+export function getRelatedPosts(slug: string, limit = 3): PostMeta[] {
+  const posts = getAllPosts()
+  const current = posts.find((p) => p.slug === slug)
+  if (!current) return []
+
+  return posts
+    .filter(
+      (p) =>
+        p.slug !== slug && p.tags.some((tag) => current.tags.includes(tag)),
+    )
+    .slice(0, limit)
+}
