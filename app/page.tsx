@@ -9,6 +9,7 @@ import Chapter7 from "@/components/chapters/chapter7"
 import Thesis from "@/components/zone1/Thesis"
 import FieldReality from "@/components/zone1/FieldReality"
 import ParkProof from "@/components/zone1/ParkProof"
+import FieldNotes from "@/components/zone1/FieldNotes"
 import DesignPartner from "@/components/zone1/DesignPartner"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
 import { releaseScroll, suppressScroll } from "@/lib/scroll-suppress"
@@ -90,6 +91,7 @@ export default function Home() {
           <FieldReality />
           <WorkspaceCapabilities />
           <ParkProof />
+          <FieldNotes />
           <DesignPartner />
 
           {/* Accessible modal/drawer form layer for Design-Partner, Outpost, and Basecamp. */}
