@@ -48,7 +48,10 @@ export default function Home() {
     <>
       <button
         type="button"
-        onClick={scrollToMain}
+        onClick={(e) => {
+          scrollToMain()
+          e.currentTarget.blur()
+        }}
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-primary/60 focus:bg-primary focus:px-4 focus:py-2 focus:font-sans focus:text-xs focus:font-bold focus:uppercase focus:tracking-widest focus:text-white focus:outline-none"
       >
         Skip to Content
