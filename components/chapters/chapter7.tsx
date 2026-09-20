@@ -233,6 +233,14 @@ export default function Chapter7() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href="/blog"
+                    className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                  >
+                    Field Notes
+                  </a>
+                </li>
               </ul>
             </nav>
 
