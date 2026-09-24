@@ -1,6 +1,6 @@
 ---
 title: "Speed Is a Strategy for Sellers, Not Buyers"
-date: "2026-09-27"
+date: "2026-09-24"
 excerpt: "When the seller sets the closing clock, speed stops being your strategy and starts being theirs. Verification is the only way to take the clock back."
 tags: ["diligence", "negotiation", "field notes"]
 ---
