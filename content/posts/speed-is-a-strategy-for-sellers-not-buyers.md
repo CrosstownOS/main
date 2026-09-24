@@ -5,9 +5,9 @@ excerpt: "When the seller sets the closing clock, speed stops being your strateg
 tags: ["diligence", "negotiation", "field notes"]
 ---
 
-This week a pitch landed in my inbox. An RV resort on a destination lake. Asking price $425,000, broker-reported. And four words doing all the work: "priced to sell quickly."
+Every season the same pitch shows up. A good park at a good price, broker-reported numbers, and four words doing all the work: "priced to sell quickly."
 
-I have seen those four words a hundred times. They are never about your schedule.
+Any operator who has been at this a while has seen those four words a hundred times. They are never about your schedule.
 
 ## Whose strategy is it
 
