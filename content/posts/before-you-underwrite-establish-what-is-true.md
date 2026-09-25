@@ -1,6 +1,6 @@
 ---
 title: "Before You Underwrite the Deal, Establish What Is True"
-date: "2026-09-20"
+date: "2026-09-15"
 excerpt: "Every deal arrives as a stack of claims dressed as facts. The buyer's real job, before any valuation math, is to label every material number. Here is the four-label system for doing it."
 tags: ["diligence", "underwriting", "field notes"]
 ---
