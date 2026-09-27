@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const siteDescription =
-  'CrosstownOS helps RV park and manufactured-housing acquisition teams turn broker packages, diligence documents, operating data, and field evidence into one organized, evidence-backed workflow—so teams can surface discrepancies, verify material risks, underwrite with discipline, and make better decisions before close.'
+  'CrosstownOS helps RV park and manufactured-housing acquisition teams turn broker packages, diligence documents, operating data, and field evidence into one organized, evidence-backed workflow.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.crosstownosrv.camp'),
