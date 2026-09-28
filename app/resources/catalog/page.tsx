@@ -52,31 +52,8 @@ export default function CatalogPage() {
     <>
       <Navigation />
       <main className="relative min-h-screen w-full bg-background text-foreground">
-        <div className="w-full bg-black text-white">
-          <div className="mx-auto flex w-full max-w-5xl items-center gap-5 px-4 pb-10 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-            <img
-              src="/images/badge.png"
-              alt="CrosstownOS badge"
-              className="h-16 w-16 shrink-0 rounded-full sm:h-20 sm:w-20"
-            />
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] sm:text-sm">
-                CrosstownOS // Acquire
-              </p>
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-white/70 sm:text-xs">
-                Acquisition Signal Resource
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto w-full max-w-5xl px-4 pb-24 sm:px-6 lg:px-8">
-          <p className="mono-label mb-4 mt-12 text-primary">
-            <a href="/resources" className="hover:underline">
-              Resources
-            </a>{" "}
-            / Catalog
-          </p>
+        <div className="mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             All 35 tools, in journey order.
           </h1>
