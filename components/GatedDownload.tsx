@@ -57,6 +57,7 @@ export function GatedDownloadButton({ file, label, className }: Props) {
         body: JSON.stringify({
           email,
           tool: label,
+          file,
           website: formData.get('website'),
         }),
       })
