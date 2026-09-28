@@ -316,6 +316,15 @@ export default function Navigation() {
                     <span>Field Notes</span>
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/resources"
+                    className="relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-muted transition-colors after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-transparent after:transition-colors hover:text-foreground hover:after:bg-border focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3 xl:after:left-3 xl:after:right-3"
+                  >
+                    <span className="hidden text-[8px] text-muted/60 xl:inline">07</span>
+                    <span>Resources</span>
+                  </a>
+                </li>
               </ul>
             </nav>
 
@@ -412,6 +421,17 @@ export default function Navigation() {
                       06
                     </span>
                     <span className="font-serif text-lg tracking-tight">Field Notes</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/resources"
+                    className="flex items-center gap-4 border-l-2 border-l-transparent px-4 py-3 text-muted transition-colors hover:border-l-border hover:bg-card/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-muted/60">
+                      07
+                    </span>
+                    <span className="font-serif text-lg tracking-tight">Resources</span>
                   </a>
                 </li>
               </ul>
