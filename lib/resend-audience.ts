@@ -22,6 +22,10 @@ function isConfigured(id: string): boolean {
   return !!id && !id.startsWith('REPLACE_WITH')
 }
 
+export function isAudienceConfigured(audience: AudienceKey): boolean {
+  return isConfigured(AUDIENCE_IDS[audience])
+}
+
 function splitName(fullName: string): { firstName?: string; lastName?: string } {
   const parts = fullName.trim().split(/\s+/).filter(Boolean)
   if (parts.length === 0) return {}
