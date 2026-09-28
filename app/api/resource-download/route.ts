@@ -59,10 +59,16 @@ function buildDownloadEmail({
     'One email unlocked the whole library. Browse all 38 tools any time:',
     `${SITE_URL}/resources`,
     '',
-    '— Jeremy',
-    'Jeremy Cross, Founder, CrosstownOS // Acquire',
+    '—',
+    'Jeremy Cross',
+    'Founder',
+    'CrosstownOS // Acquire',
+    '',
+    'Acquisition Intelligence | Diligence Software | ParkProof Reports',
+    '',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
+    'Join the Q4 Cohort here: https://www.crosstownosrv.camp/#design-partner',
   ].join('\n')
 
   return { html, text }
