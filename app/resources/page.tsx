@@ -196,7 +196,7 @@ export default async function ResourcesPage({
       <Navigation />
       <main className="relative min-h-screen w-full bg-background text-foreground">
         <div className="mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-          <p className="mono-label mb-4">CrosstownOS // Acquire</p>
+          <p className="mono-label mb-4">CrosstownOS // Acquisition Signals</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             What is happening with your deal right now?
           </h1>
