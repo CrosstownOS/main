@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { addToAudience, type AudienceKey } from '@/lib/resend-audience'
 
 export const runtime = 'nodejs'
 
@@ -934,6 +935,18 @@ export async function POST(request: NextRequest) {
         { error: config.failureMessage },
         { status: 500 },
       )
+    }
+
+    // Best-effort: land the contact in the matching Resend audience.
+    // Never blocks the submission — the notification emails above are the
+    // critical path.
+    const audienceForType: Record<string, AudienceKey | null> = {
+      design_partner: 'designPartners',
+      founding_circle: 'fieldNetwork',
+    }
+    const audience = audienceForType[formType] ?? null
+    if (audience && data.email) {
+      await addToAudience(resend, audience, data.email, data.name ?? '')
     }
 
     return NextResponse.json({

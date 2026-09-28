@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
+import { GatedDownloadButton } from "@/components/GatedDownload"
 import { PARTS, TOOLS } from "@/lib/resources"
 
 export const metadata: Metadata = {
   title: "Resource Catalog | CrosstownOS // Acquire",
   description:
-    "All 35 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order. Free PDF downloads, no signup.",
+    "All 35 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
   alternates: { canonical: "/resources/catalog" },
   openGraph: {
     title: "Resource Catalog | CrosstownOS // Acquire",
@@ -82,8 +83,8 @@ export default function CatalogPage() {
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
             Seven Parts, one order. Each Part answers one question about your
             deal. Run the tools in a Part in order; each tool&apos;s Hands to
-            line tells you the next one. No signup. Tap a download and take it
-            to the truck.
+            line tells you the next one. One email unlocks every download. Tap a
+            download and take it to the truck.
           </p>
 
           <div className="mt-14 space-y-14">
@@ -122,13 +123,11 @@ export default function CatalogPage() {
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                           {tool.description}
                         </p>
-                        <a
-                          href={tool.file}
-                          download
-                          className="mt-5 inline-flex w-fit items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                        >
-                          Download PDF
-                        </a>
+                        <GatedDownloadButton
+                          file={tool.file}
+                          label={tool.code}
+                          className="mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                        />
                       </div>
                     ))}
                   </div>

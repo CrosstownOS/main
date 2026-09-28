@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
+import { GatedDownloadButton } from "@/components/GatedDownload"
 import {
   SITUATIONS,
   SITUATION_B_BRANCHES,
@@ -59,13 +60,11 @@ function ToolCard({ code, note }: { code: string; note?: string }) {
       <p className="mt-2 text-sm leading-relaxed text-muted">
         {tool.description}
       </p>
-      <a
-        href={tool.file}
-        download
-        className="mt-5 inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-      >
-        Download PDF
-      </a>
+      <GatedDownloadButton
+        file={tool.file}
+        label={tool.code}
+        className="mt-5 inline-flex cursor-pointer items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+      />
     </div>
   )
 }
@@ -98,13 +97,11 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
                 <p className="mt-1 text-sm leading-relaxed text-muted">
                   {step.why}
                 </p>
-                <a
-                  href={tool.file}
-                  download
-                  className="mt-3 inline-block text-sm font-semibold text-primary hover:underline"
-                >
-                  Download PDF
-                </a>
+                <GatedDownloadButton
+                  file={tool.file}
+                  label={tool.code}
+                  className="mt-3 inline-block cursor-pointer bg-transparent p-0 text-left text-sm font-semibold text-primary hover:underline"
+                />
               </div>
             </li>
           )
@@ -266,13 +263,11 @@ export default async function ResourcesPage({
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {sp.description}
                   </p>
-                  <a
-                    href={sp.file}
-                    download
-                    className="mt-4 inline-block text-sm font-semibold text-primary hover:underline"
-                  >
-                    Download PDF
-                  </a>
+                  <GatedDownloadButton
+                    file={sp.file}
+                    label={sp.title}
+                    className="mt-4 inline-block cursor-pointer bg-transparent p-0 text-left text-sm font-semibold text-primary hover:underline"
+                  />
                 </div>
               ))}
             </div>

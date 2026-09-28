@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { addToAudience } from '@/lib/resend-audience'
 
 export const runtime = 'nodejs'
 
@@ -502,6 +503,10 @@ export async function POST(request: NextRequest) {
         { status: 500 },
       )
     }
+
+    // Best-effort: land the contact in the Crosstown Updates audience.
+    // Never blocks the subscription — the emails above are the critical path.
+    await addToAudience(resend, 'updates', email)
 
     return NextResponse.json({
       success: true,
