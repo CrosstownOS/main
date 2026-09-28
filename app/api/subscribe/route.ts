@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { addToAudience } from '@/lib/resend-audience'
+import { addToSegment } from '@/lib/resend-segments'
 
 export const runtime = 'nodejs'
 
@@ -504,9 +504,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Best-effort: land the contact in the Crosstown Updates audience.
+    // Best-effort: land the contact in the Crosstown Updates segment.
     // Never blocks the subscription — the emails above are the critical path.
-    await addToAudience(resend, 'updates', email)
+    await addToSegment(resend, 'updates', email)
 
     return NextResponse.json({
       success: true,

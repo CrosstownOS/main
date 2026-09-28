@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { addToAudience, isAudienceConfigured } from '@/lib/resend-audience'
+import { addToSegment } from '@/lib/resend-segments'
 import {
   FROM_ADDRESS,
   INTERNAL_RECIPIENT,
@@ -116,33 +116,14 @@ export async function POST(request: NextRequest) {
 
     const resend = new Resend(process.env.RESEND_API_KEY)
 
-    if (isAudienceConfigured('resources')) {
-      // Required gate: the download only proceeds when the contact lands.
-      const saved = await addToAudience(resend, 'resources', email)
-      if (!saved) {
-        return NextResponse.json(
-          { error: 'We could not save your email. Please try again.' },
-          { status: 500 },
-        )
-      }
-    } else {
-      // Audience not wired yet: collect via notification email so the
-      // download never breaks. Switches to the audience automatically
-      // once the ID is configured.
-      const { error } = await resend.emails.send({
-        from: FROM_ADDRESS,
-        to: [INTERNAL_RECIPIENT],
-        replyTo: [email],
-        subject: `Resource download: ${tool || 'library'} — ${email}`,
-        text: `Email: ${email}\nTool: ${tool || 'unknown'}\nTime: ${new Date().toISOString()}\n\nNote: the Resources Resend audience is not configured yet; this download was collected by email.`,
-      })
-      if (error) {
-        console.error('Resource download notification error:', error)
-        return NextResponse.json(
-          { error: 'We could not save your email. Please try again.' },
-          { status: 500 },
-        )
-      }
+    // Required gate: the download only proceeds when the contact lands in
+    // the Acquisition Signal Resources segment.
+    const saved = await addToSegment(resend, 'acquisitionResources', email)
+    if (!saved) {
+      return NextResponse.json(
+        { error: 'We could not save your email. Please try again.' },
+        { status: 500 },
+      )
     }
 
     // Welcome email to the downloader. Best-effort: never blocks the download.

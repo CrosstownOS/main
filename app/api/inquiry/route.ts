@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { addToAudience, type AudienceKey } from '@/lib/resend-audience'
+import { addToSegment, type SegmentKey } from '@/lib/resend-segments'
 
 export const runtime = 'nodejs'
 
@@ -937,16 +937,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Best-effort: land the contact in the matching Resend audience.
+    // Best-effort: land the contact in the matching Resend segment.
     // Never blocks the submission — the notification emails above are the
-    // critical path.
-    const audienceForType: Record<string, AudienceKey | null> = {
-      design_partner: 'designPartners',
-      founding_circle: 'fieldNetwork',
+    // critical path. Design Partner, Field Network (Founding Circle), and
+    // Referral Alliance share one segment (free-tier limit).
+    const segmentForType: Record<string, SegmentKey | null> = {
+      design_partner: 'partners',
+      founding_circle: 'partners',
+      referral_network: 'partners',
     }
-    const audience = audienceForType[formType] ?? null
-    if (audience && data.email) {
-      await addToAudience(resend, audience, data.email, data.name ?? '')
+    const segment = segmentForType[formType] ?? null
+    if (segment && data.email) {
+      await addToSegment(resend, segment, data.email, data.name ?? '')
     }
 
     return NextResponse.json({
