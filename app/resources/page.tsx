@@ -259,7 +259,7 @@ export default async function ResourcesPage({
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {SPINES.map((sp) => (
-                <div key={sp.code} className="border border-border bg-card p-6">
+                <div key={sp.title} className="border border-border bg-card p-6">
                   <h3 className="serif-display text-xl tracking-tight">
                     {sp.title}
                   </h3>

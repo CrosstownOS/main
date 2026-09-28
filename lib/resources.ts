@@ -74,7 +74,6 @@ export const TOOL_BY_CODE: Record<string, Tool> = Object.fromEntries(
 )
 
 export type Spine = {
-  code: string
   title: string
   file: string
   description: string
@@ -82,19 +81,16 @@ export type Spine = {
 
 export const SPINES: Spine[] = [
   {
-    code: "SP-03",
     title: "Start Here",
     file: `${R}/CrosstownOS-Start-Here.pdf`,
     description: "How the 35 tools fit together. Read this before you print anything.",
   },
   {
-    code: "SP-01",
     title: "The Journey Map",
     file: `${R}/CrosstownOS-Journey-Map.pdf`,
     description: "Thirty-five tools, one order. Find the Part that matches where you are.",
   },
   {
-    code: "SP-02",
     title: "The Evidence Status Standard",
     file: `${R}/CrosstownOS-Evidence-Status-Standard.pdf`,
     description: "Every claim carries one letter: V, B, M, A, C, U. The letter is the status, not the strength.",
