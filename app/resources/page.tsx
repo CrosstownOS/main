@@ -260,10 +260,7 @@ export default async function ResourcesPage({
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {SPINES.map((sp) => (
                 <div key={sp.code} className="border border-border bg-card p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                    {sp.code}
-                  </p>
-                  <h3 className="serif-display mt-2 text-xl tracking-tight">
+                  <h3 className="serif-display text-xl tracking-tight">
                     {sp.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
