@@ -1,15 +1,22 @@
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
+import {
+  SITUATIONS,
+  SITUATION_B_BRANCHES,
+  SPINES,
+  TOOL_BY_CODE,
+  type Situation,
+} from "@/lib/resources"
 
 export const metadata: Metadata = {
   title: "Acquisition Signal Resources | CrosstownOS // Acquire",
   description:
-    "Eighteen free diligence tools for RV park and manufactured-housing buyers: screeners, scripts, checklists, and worksheets. No signup. Download and use on your next deal.",
+    "Thirty-five free diligence tools for RV park and manufactured-housing buyers, plus the three spine pages. Tell us where your deal stands and get the right tool first.",
   alternates: { canonical: "/resources" },
   openGraph: {
     title: "Acquisition Signal Resources | CrosstownOS // Acquire",
     description:
-      "Eighteen free diligence tools for RV park and manufactured-housing buyers. Screeners, scripts, checklists, and worksheets. No signup.",
+      "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
     type: "website",
     url: "/resources",
     images: [
@@ -25,192 +32,169 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Acquisition Signal Resources | CrosstownOS // Acquire",
     description:
-      "Eighteen free diligence tools for RV park and manufactured-housing buyers. No signup.",
+      "Thirty-five free diligence tools for RV park and manufactured-housing buyers.",
     images: ["/images/opengraph.jpg?v=2"],
   },
 }
 
-type Resource = {
-  file: string
-  title: string
-  description: string
+function ToolCard({ code, note }: { code: string; note?: string }) {
+  const tool = TOOL_BY_CODE[code]
+  if (!tool) return null
+  return (
+    <div className="border border-border bg-card p-6 sm:p-8">
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+          {tool.code}
+        </span>
+        <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary">
+          Acquisition Signal Resource
+        </span>
+      </div>
+      <h3 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+        {tool.title}
+      </h3>
+      {note && (
+        <p className="mt-2 text-sm leading-relaxed text-muted">{note}</p>
+      )}
+      <p className="mt-2 text-sm leading-relaxed text-muted">
+        {tool.description}
+      </p>
+      <a
+        href={tool.file}
+        download
+        className="mt-5 inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+      >
+        Download PDF
+      </a>
+    </div>
+  )
 }
 
-type Shelf = {
-  name: string
-  description: string
-  resources: Resource[]
+function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
+  return (
+    <div className="mt-10">
+      <h3 className="serif-display text-xl tracking-tight sm:text-2xl">
+        Your next three, in order
+      </h3>
+      <p className="mt-1 text-sm text-muted">
+        Each tool hands its output to the next. Run them in this order.
+      </p>
+      <ol className="mt-6 space-y-4">
+        {steps.map((step, i) => {
+          const tool = TOOL_BY_CODE[step.code]
+          if (!tool) return null
+          return (
+            <li
+              key={step.code}
+              className="flex gap-4 border border-border bg-card p-5 sm:p-6"
+            >
+              <span className="serif-display flex-none text-2xl text-primary">
+                {i + 1}
+              </span>
+              <div className="min-w-0">
+                <p className="font-semibold">
+                  {tool.code}: {tool.title}
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted">
+                  {step.why}
+                </p>
+                <a
+                  href={tool.file}
+                  download
+                  className="mt-3 inline-block text-sm font-semibold text-primary hover:underline"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </li>
+          )
+        })}
+      </ol>
+    </div>
+  )
 }
 
-const SHELVES: Shelf[] = [
-  {
-    name: "Read the Deal",
-    description:
-      "Everything you gather before the numbers get serious. The package, the people, the first call.",
-    resources: [
-      {
-        file: "CrosstownOS_60-Second-Deal-Screener.pdf",
-        title: "60-Second Deal Screener",
-        description:
-          "Six numbers, one minute, no spreadsheet. If a deal cannot survive this page, it does not deserve a phone call.",
-      },
-      {
-        file: "CrosstownOS_Broker-Package-Intake-Checklist.pdf",
-        title: "Broker-Package Intake Checklist",
-        description:
-          "Every package arrives as a stack of claims. Log what you received, flag what is missing, label everything.",
-      },
-      {
-        file: "CrosstownOS_27-Question-Seller-Call-Script.pdf",
-        title: "27-Question Seller Call Script",
-        description:
-          "The questions that separate a real seller from a storyteller. Ask them on the first call, before you spend a dollar on diligence.",
-      },
-      {
-        file: "CrosstownOS_5-Minute-Mystery-Shopper-Script.pdf",
-        title: "5-Minute Mystery Shopper Script",
-        description:
-          "Call the park like a prospective tenant. What the office tells a renter is often truer than what the seller tells a buyer.",
-      },
-      {
-        file: "CrosstownOS_Manager-Tell-All-Interview.pdf",
-        title: "Manager Tell-All Interview",
-        description:
-          "The on-site manager knows where every body is buried. These questions get them talking.",
-      },
-    ],
-  },
-  {
-    name: "Verify the Money",
-    description:
-      "Where the seller's story meets the buyer's math. Every claim gets a check.",
-    resources: [
-      {
-        file: "CrosstownOS_Rent-Roll-Truth-Check.pdf",
-        title: "Rent-Roll Truth Check",
-        description:
-          "Rebuild reported occupancy from deposits and find the gap. The rent roll is a claim. This is the verification.",
-      },
-      {
-        file: "CrosstownOS_Mom-and-Pop-Expense-Normalizer.pdf",
-        title: "Mom-and-Pop Expense Normalizer",
-        description:
-          "Restate the seller's expenses for the operation you will actually run. Related-party costs back on, personal costs off.",
-      },
-      {
-        file: "CrosstownOS_POH-TOH-Split-Valuation-Worksheet.pdf",
-        title: "POH-TOH Split-Valuation Worksheet",
-        description:
-          "Park-owned homes and tenant-owned homes are two different businesses wearing one price tag. Value them separately.",
-      },
-      {
-        file: "CrosstownOS_Vacant-Pad-Fill-Calculator.pdf",
-        title: "Vacant-Pad Fill Calculator",
-        description:
-          "Vacant pads are the upside story in every package. This prices what filling them actually costs and actually returns.",
-      },
-    ],
-  },
-  {
-    name: "Walk the Asset",
-    description:
-      "The physical truth. What the ground, the lots, and the pipes tell you that paper never will.",
-    resources: [
-      {
-        file: "CrosstownOS_Lot-by-Lot-Walkthrough.pdf",
-        title: "Lot-by-Lot Walkthrough",
-        description:
-          "Walk every pad, write down what you see. The physical truth of the park, one lot at a time.",
-      },
-      {
-        file: "CrosstownOS_Utility-Wastewater-Diligence-Checklist.pdf",
-        title: "Utility and Wastewater Diligence Checklist",
-        description:
-          "The system nobody underwrites. Condition, capacity, and compliance for water, sewer, and electric before they become your emergency.",
-      },
-    ],
-  },
-  {
-    name: "Control the Decision",
-    description:
-      "The moment of commitment. Terms, red flags, deadlines, and the discipline to walk.",
-    resources: [
-      {
-        file: "CrosstownOS_Red-Flag-Triage-Board.pdf",
-        title: "Red-Flag Triage Board",
-        description:
-          "Every deal collects red flags. This sorts them into watch, verify, and walk so nothing festers unlabeled.",
-      },
-      {
-        file: "CrosstownOS_Offer-Term-Sheet-Builder.pdf",
-        title: "Offer Term-Sheet Builder",
-        description:
-          "Build your offer terms before the broker builds them for you. Price, contingencies, and timelines on your paper first.",
-      },
-      {
-        file: "CrosstownOS_Walk-Away-Pact.pdf",
-        title: "Walk-Away Pact",
-        description:
-          "Decide your walk-away conditions before you fall in love with the deal. Sign it with yourself while you are still rational.",
-      },
-      {
-        file: "CrosstownOS_EMD-Countdown-Tracker.pdf",
-        title: "EMD Countdown Tracker",
-        description:
-          "Your earnest money has a clock on it. This tracks every deadline between contract and close so a date never surprises you.",
-      },
-    ],
-  },
-  {
-    name: "Carry the Record Forward",
-    description:
-      "The file that survives closing. What you hand the lender, the team, and your future self.",
-    resources: [
-      {
-        file: "CrosstownOS_Evidence-Request-List.pdf",
-        title: "Evidence-Request List",
-        description:
-          "The complete ask list for diligence. What to request, from whom, and what stays missing evidence until it arrives.",
-      },
-      {
-        file: "CrosstownOS_Lender-One-Pager.pdf",
-        title: "Lender One-Pager",
-        description:
-          "Your deal on one page, in the language a lender reads. Hand them the story before they ask for it.",
-      },
-      {
-        file: "CrosstownOS_First-30-Days-Takeover-Checklist.pdf",
-        title: "First-30-Days Takeover Checklist",
-        description:
-          "Day one is not the finish line. The first thirty days of ownership, sequenced so nothing critical slips.",
-      },
-    ],
-  },
-]
+function SituationResult({ situation, branch }: { situation: Situation; branch?: string }) {
+  if (situation.id === "b" && branch !== "mhc" && branch !== "rv") {
+    return (
+      <div className="mt-10 border border-primary/40 bg-card p-6 sm:p-8">
+        <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+          Which kind of park?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          {situation.question}
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <a
+            href="/resources?situation=b&branch=mhc"
+            className="block border border-border bg-background p-6 transition-colors hover:border-primary/60"
+          >
+            <p className="serif-display text-xl tracking-tight">
+              Manufactured-housing community
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              Lot-rent math. Start with AS-15, The Rent-Roll Truth Check.
+            </p>
+          </a>
+          <a
+            href="/resources?situation=b&branch=rv"
+            className="block border border-border bg-background p-6 transition-colors hover:border-primary/60"
+          >
+            <p className="serif-display text-xl tracking-tight">RV park</p>
+            <p className="mt-2 text-sm text-muted">
+              Transient-site math. Start with AS-15R, Rent-Roll Truth Check: RV
+              Edition.
+            </p>
+          </a>
+        </div>
+      </div>
+    )
+  }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Acquisition Signal Resource Library",
-  description:
-    "Free diligence tools for RV park and manufactured-housing buyers from CrosstownOS // Acquire.",
-  numberOfItems: 18,
-  itemListElement: SHELVES.flatMap((shelf, si) =>
-    shelf.resources.map((r, ri) => ({
-      "@type": "ListItem",
-      position: si * 10 + ri + 1,
-      name: r.title,
-      description: r.description,
-    }))
-  ),
+  const starts =
+    situation.id === "b"
+      ? situation.starts.filter((s) =>
+          branch === "mhc" ? s.code === "AS-15" : s.code === "AS-15R"
+        )
+      : situation.starts
+  const steps =
+    situation.id === "b"
+      ? SITUATION_B_BRANCHES[branch === "mhc" ? "AS-15" : "AS-15R"]
+      : situation.next
+
+  return (
+    <div className="mt-10">
+      <div className="border-l-2 border-primary pl-4">
+        <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+          Start here
+        </h2>
+        <p className="mt-1 text-sm leading-relaxed text-muted">
+          {situation.question}
+        </p>
+      </div>
+      <div className="mt-6 grid gap-4">
+        {starts.map((s) => (
+          <ToolCard key={s.code} code={s.code} note={s.note} />
+        ))}
+      </div>
+      <NextSteps steps={steps} />
+    </div>
+  )
 }
 
-export default function ResourcesPage() {
+export default async function ResourcesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ situation?: string; branch?: string }>
+}) {
+  const params = await searchParams
+  const activeId = params.situation
+  const active = SITUATIONS.find((s) => s.id === activeId)
+
   return (
     <>
       <Navigation />
       <main className="relative min-h-screen w-full bg-background text-foreground">
-        {/* Black banner hero, matching the resource PDFs */}
         <div className="w-full bg-black text-white">
           <div className="mx-auto flex w-full max-w-5xl items-center gap-5 px-4 pb-10 pt-28 sm:px-6 sm:pt-32 lg:px-8">
             <img
@@ -230,61 +214,91 @@ export default function ResourcesPage() {
         </div>
 
         <div className="mx-auto w-full max-w-5xl px-4 pb-24 sm:px-6 lg:px-8">
-          <p className="mono-label mb-4 mt-12 text-primary">
-            The Resource Library
-          </p>
-          <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            Free tools for buyers who verify before they wire.
+          <h1 className="serif-display mt-12 text-4xl tracking-tight sm:text-5xl">
+            What is happening with your deal right now?
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-            Eighteen worksheets, scripts, and checklists from the CrosstownOS
-            diligence desk. Every one exists because a buyer needed it on a
-            real deal. No signup. Tap a download, use it on your next park,
-            keep the record.
+            Pick the situation that matches. You get the right first tool and
+            the three that come next, in order. No guessing, no wall of
+            options.
           </p>
 
-          <div className="mt-16 space-y-16">
-            {SHELVES.map((shelf) => (
-              <section key={shelf.name} aria-label={shelf.name}>
-                <div className="border-l-2 border-primary pl-4">
-                  <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
-                    {shelf.name}
-                  </h2>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">
-                    {shelf.description}
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {SITUATIONS.map((s, i) => {
+              const isActive = active?.id === s.id
+              return (
+                <a
+                  key={s.id}
+                  href={isActive ? "/resources" : `/resources?situation=${s.id}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={
+                    isActive
+                      ? "border-2 border-primary bg-primary/10 p-5"
+                      : "border border-border bg-card p-5 transition-colors hover:border-primary/60"
+                  }
+                >
+                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                    Situation {String.fromCharCode(65 + i)}
                   </p>
-                </div>
-
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {shelf.resources.map((r) => (
-                    <div
-                      key={r.file}
-                      className="flex flex-col border border-border bg-card p-6"
-                    >
-                      <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary">
-                        Acquisition Signal Resource
-                      </p>
-                      <h3 className="serif-display mt-2 text-xl tracking-tight">
-                        {r.title}
-                      </h3>
-                      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                        {r.description}
-                      </p>
-                      <a
-                        href={`/resources/${r.file}`}
-                        download
-                        className="mt-5 inline-flex w-fit items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                      >
-                        Download PDF
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            ))}
+                  <p className="mt-2 font-semibold leading-snug">{s.label}</p>
+                </a>
+              )
+            })}
+            <a
+              href="/resources/catalog"
+              className="border border-dashed border-border bg-transparent p-5 transition-colors hover:border-primary/60"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
+                Full catalog
+              </p>
+              <p className="mt-2 font-semibold leading-snug">
+                Browse all 35 tools by Part
+              </p>
+            </a>
           </div>
 
-          <div className="mt-20 border border-border bg-card p-8 text-center">
+          {active && (
+            <SituationResult
+              situation={active}
+              branch={params.branch}
+            />
+          )}
+
+          <div className="mt-20">
+            <div className="border-l-2 border-primary pl-4">
+              <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+                Start with the spine
+              </h2>
+              <p className="mt-1 text-sm leading-relaxed text-muted">
+                Three pages hold the whole library together. Read these before
+                you print anything.
+              </p>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {SPINES.map((sp) => (
+                <div key={sp.code} className="border border-border bg-card p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                    {sp.code}
+                  </p>
+                  <h3 className="serif-display mt-2 text-xl tracking-tight">
+                    {sp.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {sp.description}
+                  </p>
+                  <a
+                    href={sp.file}
+                    download
+                    className="mt-4 inline-block text-sm font-semibold text-primary hover:underline"
+                  >
+                    Download PDF
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 border border-border bg-card p-8 text-center">
             <p className="serif-display text-2xl tracking-tight">
               Know what is true before you buy.
             </p>
@@ -301,10 +315,6 @@ export default function ResourcesPage() {
           </div>
         </div>
       </main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
     </>
   )
 }
