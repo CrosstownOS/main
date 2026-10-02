@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react"
+import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -8,13 +9,24 @@ import { getIsScrolling, releaseScroll, suppressScroll } from "@/lib/scroll-supp
 
 export const OPEN_DESIGN_PARTNER_EVENT = "crosstown:open-design-partner"
 
-const NAV_ITEMS = [
-  { id: "thesis", index: "01", label: "Thesis" },
-  { id: "acquire", index: "02", label: "Acquire" },
-  { id: "parkproof", index: "03", label: "ParkProof" },
-  { id: "design-partner", index: "04", label: "Partners" },
-  { id: "contact", index: "05", label: "Contact" },
-] as const
+type NavEntry = {
+  index: string
+  label: string
+  anchorId?: string
+  href?: string
+}
+
+const NAV_ITEMS: NavEntry[] = [
+  { index: "01", label: "Product", anchorId: "product" },
+  { index: "02", label: "Deal Desk", href: "/deal-desk" },
+  { index: "03", label: "Resources", href: "/resources" },
+  { index: "04", label: "Field Notes", href: "/blog" },
+  { index: "05", label: "Paths", anchorId: "paths" },
+]
+
+const ANCHOR_IDS = NAV_ITEMS.map((item) => item.anchorId).filter(
+  (id): id is string => Boolean(id),
+)
 
 const HEADER_OFFSET = 104
 const FOCUSABLE_SELECTOR =
@@ -49,7 +61,7 @@ export default function Navigation() {
   }, [])
 
   useEffect(() => {
-    const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
+    const sections = ANCHOR_IDS.map((id) => document.getElementById(id)).filter(
       Boolean,
     ) as HTMLElement[]
 
@@ -209,22 +221,7 @@ export default function Navigation() {
     [clearScrollWatchers],
   )
 
-  const openDesignPartner = useCallback(() => {
-    if (!isHome) {
-      setOpen(false)
-      router.push("/#design-partner")
-      return
-    }
-
-    window.dispatchEvent(
-      new CustomEvent(OPEN_DESIGN_PARTNER_EVENT, {
-        detail: { source: "navigation" },
-      }),
-    )
-    jump("design-partner")
-  }, [jump, isHome, router])
-
-  const handleSectionClick = useCallback(
+  const handleAnchorClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>, id: string) => {
       if (isHome) {
         event.preventDefault()
@@ -247,6 +244,96 @@ export default function Navigation() {
     router.push("/")
   }, [isHome, jump, router])
 
+  const renderEntry = (item: NavEntry, variant: "desktop" | "mobile") => {
+    if (item.href) {
+      const isCurrent = pathname === item.href
+
+      if (variant === "desktop") {
+        return (
+          <Link
+            href={item.href}
+            aria-current={isCurrent ? "page" : undefined}
+            className={cn(
+              "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
+              "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
+              isCurrent
+                ? "text-primary after:bg-primary"
+                : "text-muted after:bg-transparent hover:text-foreground hover:after:bg-border",
+            )}
+          >
+            <span className={cn("hidden text-[8px]", isCurrent ? "text-primary" : "text-muted/60", "xl:inline")}>
+              {item.index}
+            </span>
+            <span>{item.label}</span>
+          </Link>
+        )
+      }
+
+      return (
+        <Link
+          href={item.href}
+          aria-current={isCurrent ? "page" : undefined}
+          onClick={() => setOpen(false)}
+          className={cn(
+            "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+            isCurrent
+              ? "border-l-primary bg-primary/10 text-primary"
+              : "border-l-transparent text-muted hover:border-l-border hover:bg-card/60 hover:text-foreground",
+          )}
+        >
+          <span className={cn("font-mono text-[10px] tracking-[0.2em]", isCurrent ? "text-primary" : "text-muted/60")}>
+            {item.index}
+          </span>
+          <span className="font-serif text-lg tracking-tight">{item.label}</span>
+        </Link>
+      )
+    }
+
+    const id = item.anchorId as string
+    const isActive = active === id
+
+    if (variant === "desktop") {
+      return (
+        <a
+          href={isHome ? `#${id}` : `/#${id}`}
+          aria-current={isActive ? "location" : undefined}
+          onClick={(event) => handleAnchorClick(event, id)}
+          className={cn(
+            "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
+            "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
+            isActive
+              ? "text-primary after:bg-primary"
+              : "text-muted after:bg-transparent hover:text-foreground hover:after:bg-border",
+          )}
+        >
+          <span className={cn("hidden text-[8px]", isActive ? "text-primary" : "text-muted/60", "xl:inline")}>
+            {item.index}
+          </span>
+          <span>{item.label}</span>
+        </a>
+      )
+    }
+
+    return (
+      <a
+        href={isHome ? `#${id}` : `/#${id}`}
+        aria-current={isActive ? "location" : undefined}
+        onClick={(event) => handleAnchorClick(event, id)}
+        className={cn(
+          "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          isActive
+            ? "border-l-primary bg-primary/10 text-primary"
+            : "border-l-transparent text-muted hover:border-l-border hover:bg-card/60 hover:text-foreground",
+        )}
+      >
+        <span className={cn("font-mono text-[10px] tracking-[0.2em]", isActive ? "text-primary" : "text-muted/60")}>
+          {item.index}
+        </span>
+        <span className="font-serif text-lg tracking-tight">{item.label}</span>
+      </a>
+    )
+  }
+
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-50">
@@ -260,7 +347,7 @@ export default function Navigation() {
         <div className="flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 backdrop-blur">
           <p className="flex items-center gap-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
             <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
-            CrosstownOS // Acquire is preparing for a limited design-partner cohort.
+            The Founding Deal Desk opens November 2026. Five buyers. One live deal each.
           </p>
         </div>
 
@@ -282,60 +369,18 @@ export default function Navigation() {
 
             <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center lg:flex">
               <ul className="flex items-center gap-1 xl:gap-2">
-                {NAV_ITEMS.map((item) => {
-                  const isActive = active === item.id
-
-                  return (
-                    <li key={item.id}>
-                      <a
-                        href={isHome ? `#${item.id}` : `/#${item.id}`}
-                        aria-current={isActive ? "location" : undefined}
-                        onClick={(event) => handleSectionClick(event, item.id)}
-                        className={cn(
-                          "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
-                          "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
-                          isActive
-                            ? "text-primary after:bg-primary"
-                            : "text-muted after:bg-transparent hover:text-foreground hover:after:bg-border",
-                        )}
-                      >
-                        <span className={cn("hidden text-[8px]", isActive ? "text-primary" : "text-muted/60", "xl:inline")}>
-                          {item.index}
-                        </span>
-                        <span>{item.label}</span>
-                      </a>
-                    </li>
-                  )
-                })}
-                <li>
-                  <a
-                    href="/blog"
-                    className="relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-muted transition-colors after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-transparent after:transition-colors hover:text-foreground hover:after:bg-border focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3 xl:after:left-3 xl:after:right-3"
-                  >
-                    <span className="hidden text-[8px] text-muted/60 xl:inline">06</span>
-                    <span>Field Notes</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/resources"
-                    className="relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-muted transition-colors after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-transparent after:transition-colors hover:text-foreground hover:after:bg-border focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3 xl:after:left-3 xl:after:right-3"
-                  >
-                    <span className="hidden text-[8px] text-muted/60 xl:inline">07</span>
-                    <span>Resources</span>
-                  </a>
-                </li>
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.label}>{renderEntry(item, "desktop")}</li>
+                ))}
               </ul>
             </nav>
 
-            <button
-              type="button"
-              onClick={openDesignPartner}
-              aria-haspopup="dialog"
+            <Link
+              href="/deal-desk"
               className="hidden min-w-fit border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
             >
-              Request Design Partner Access
-            </button>
+              Bring a live deal
+            </Link>
 
             <button
               ref={menuButtonRef}
@@ -388,66 +433,22 @@ export default function Navigation() {
 
             <nav aria-label="Mobile primary" className="px-5 py-5">
               <ul className="space-y-1">
-                {NAV_ITEMS.map((item) => {
-                  const isActive = active === item.id
-
-                  return (
-                    <li key={item.id}>
-                      <a
-                        href={isHome ? `#${item.id}` : `/#${item.id}`}
-                        aria-current={isActive ? "location" : undefined}
-                        onClick={(event) => handleSectionClick(event, item.id)}
-                        className={cn(
-                          "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                          isActive
-                            ? "border-l-primary bg-primary/10 text-primary"
-                            : "border-l-transparent text-muted hover:border-l-border hover:bg-card/60 hover:text-foreground",
-                        )}
-                      >
-                        <span className={cn("font-mono text-[10px] tracking-[0.2em]", isActive ? "text-primary" : "text-muted/60")}>
-                          {item.index}
-                        </span>
-                        <span className="font-serif text-lg tracking-tight">{item.label}</span>
-                      </a>
-                    </li>
-                  )
-                })}
-                <li>
-                  <a
-                    href="/blog"
-                    className="flex items-center gap-4 border-l-2 border-l-transparent px-4 py-3 text-muted transition-colors hover:border-l-border hover:bg-card/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-muted/60">
-                      06
-                    </span>
-                    <span className="font-serif text-lg tracking-tight">Field Notes</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/resources"
-                    className="flex items-center gap-4 border-l-2 border-l-transparent px-4 py-3 text-muted transition-colors hover:border-l-border hover:bg-card/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-muted/60">
-                      07
-                    </span>
-                    <span className="font-serif text-lg tracking-tight">Resources</span>
-                  </a>
-                </li>
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.label}>{renderEntry(item, "mobile")}</li>
+                ))}
               </ul>
             </nav>
 
             <div className="border-t border-border px-5 py-5">
-              <button
-                type="button"
-                onClick={openDesignPartner}
-                aria-haspopup="dialog"
-                className="w-full border border-primary/60 bg-primary px-4 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              <Link
+                href="/deal-desk"
+                onClick={() => setOpen(false)}
+                className="block w-full border border-primary/60 bg-primary px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Request Design Partner Access
-              </button>
+                Bring a live deal
+              </Link>
               <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
-                Early access is limited. Each request is reviewed personally.
+                Five buyers. One live deal each. Jeremy reviews every application personally.
               </p>
             </div>
           </div>

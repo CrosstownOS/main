@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import {
   Handshake,
@@ -16,7 +17,6 @@ import {
   TelemetryBox,
   TerminalLabel,
 } from "@/components/ui/primitives"
-import { OPEN_DESIGN_PARTNER_EVENT } from "@/components/ui/navigation"
 import { cn } from "@/lib/utils"
 
 export const OPEN_FOUNDING_CIRCLE_EVENT = "crosstown:open-founding-circle"
@@ -32,7 +32,7 @@ export const OPEN_COMPASS_EVENT = "crosstown:open-compass"
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-type PathAction = "design_partner" | "founding_circle" | "referral_network"
+type PathAction = "deal_desk" | "founding_circle" | "referral_network"
 
 type ConversionPath = {
   code: string
@@ -41,27 +41,29 @@ type ConversionPath = {
   description: string
   cta: string
   action: PathAction
+  href?: string
   icon: LucideIcon
 }
 
 const CONVERSION_PATHS: ConversionPath[] = [
   {
     code: "01",
-    name: "Design Partners",
-    question: "Actively acquiring RV parks or MHCs?",
+    name: "Founding Deal Desk",
+    question: "Actively acquiring an RV park or MHC?",
     description:
-      "For acquisition teams with a live or near-term opportunity who want to run real diligence through CrosstownOS // Acquire and help shape V1.",
-    cta: "Request Design Partner Access",
-    action: "design_partner",
+      "For buyers with a live or imminent deal and a decision deadline. Work the deal inside CrosstownOS with the founder, from intake to a documented decision posture.",
+    cta: "Bring a live deal",
+    action: "deal_desk",
+    href: "/deal-desk",
     icon: Target,
   },
   {
     code: "02",
-    name: "Field Network",
+    name: "Founding Network",
     question: "Want to follow the build from the inside?",
     description:
-      "For operators, owners, and industry people who want early updates, a voice in what gets built, and first word when the cohort opens this year.",
-    cta: "Request an Invitation",
+      "For operators, owners, and industry people who want early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
+    cta: "Join the Founding Network",
     action: "founding_circle",
     icon: Users,
   },
@@ -120,10 +122,8 @@ function dispatchFormEvent(eventName: string, source: string) {
 
 export default function PlatformLinks() {
   const handlePathAction = (path: ConversionPath) => {
-    if (path.action === "design_partner") {
-      dispatchFormEvent(OPEN_DESIGN_PARTNER_EVENT, "paths-design-partners")
-    } else if (path.action === "founding_circle") {
-      dispatchFormEvent(OPEN_FOUNDING_CIRCLE_EVENT, "paths-founding-circle")
+    if (path.action === "founding_circle") {
+      dispatchFormEvent(OPEN_FOUNDING_CIRCLE_EVENT, "paths-founding-network")
     } else if (path.action === "referral_network") {
       dispatchFormEvent(OPEN_REFERRAL_NETWORK_EVENT, "paths-referral-network")
     }
@@ -178,19 +178,23 @@ export default function PlatformLinks() {
                   {path.description}
                 </p>
 
-                <button
-                  type="button"
-                  onClick={() => handlePathAction(path)}
-                  aria-haspopup="dialog"
-                  className={cn(
-                    "mt-auto border px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                    path.action === "design_partner"
-                      ? "border-primary/60 bg-primary text-white hover:bg-primary/90"
-                      : "border-primary/60 text-primary hover:bg-primary/10",
-                  )}
-                >
-                  {path.cta}
-                </button>
+                {path.href ? (
+                  <Link
+                    href={path.href}
+                    className="mt-auto border border-primary/60 bg-primary px-4 py-3 text-center font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    {path.cta}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => handlePathAction(path)}
+                    aria-haspopup="dialog"
+                    className="mt-auto border border-primary/60 px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    {path.cta}
+                  </button>
+                )}
               </TelemetryBox>
             )
           })}

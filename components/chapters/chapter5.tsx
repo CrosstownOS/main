@@ -119,10 +119,10 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
   },
   founding_circle: {
     type: "founding_circle",
-    eyebrow: "Field Network",
+    eyebrow: "Founding Network",
     title: "Request an Invitation",
     intro:
-      "The Field Network is for operators, owners, and industry people who want to follow the build from the inside — early updates, a voice in what gets built, and first word when the cohort opens.",
+      "The Founding Network is for operators, owners, and industry people who want to follow the build from the inside: early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
     microcopy: [
       "Built in the open, with the people who know the assets.",
       "We review each request personally. No investor information is requested or required.",
@@ -167,7 +167,7 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
     eyebrow: "Referral Alliance",
     title: "Start a Partner Conversation",
     intro:
-      "The Referral Alliance is for brokers, lenders, operators, and advisers who know the assets and the people — and want a standing partner conversation with Crosstown.",
+      "The Referral Alliance is for brokers, lenders, operators, and advisers who know the assets and the people, and want a standing partner conversation with Crosstown.",
     microcopy: [
       "No compensation terms are published or implied. If a partnership makes sense, terms are discussed privately.",
       "Submitting this form does not create an agency, brokerage, or partnership relationship.",

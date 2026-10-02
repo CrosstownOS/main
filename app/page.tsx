@@ -2,7 +2,8 @@
 
 import Navigation from "@/components/ui/navigation"
 import Hero from "@/components/zone1/Hero"
-import WorkspaceCapabilities from "@/components/zone1/WorkspaceCapabilities"
+import ProductLoop from "@/components/zone1/ProductLoop"
+import ArizonaRule from "@/components/zone1/ArizonaRule"
 import EngagementPaths from "@/components/zone1/PlatformLinks"
 import Chapter5 from "@/components/chapters/chapter5"
 import Chapter7 from "@/components/chapters/chapter7"
@@ -10,7 +11,7 @@ import Thesis from "@/components/zone1/Thesis"
 import FieldReality from "@/components/zone1/FieldReality"
 import ParkProof from "@/components/zone1/ParkProof"
 import FieldNotes from "@/components/zone1/FieldNotes"
-import DesignPartner from "@/components/zone1/DesignPartner"
+import DealDeskPromo from "@/components/zone1/DealDeskPromo"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
 
 export default function Home() {
@@ -51,12 +52,20 @@ export default function Home() {
           <Hero />
           <Thesis />
           <FieldReality />
-          <WorkspaceCapabilities />
+          <ProductLoop />
+          <ArizonaRule />
           <ParkProof />
           <FieldNotes />
-          <DesignPartner />
+          {/* Legacy inbound links to /#design-partner land on the Deal Desk
+              promo, the successor to the retired design-partner section. */}
+          <span
+            id="design-partner"
+            aria-hidden="true"
+            className="block scroll-mt-28"
+          />
+          <DealDeskPromo />
 
-          {/* Accessible modal/drawer form layer for Design-Partner, Outpost, and Basecamp. */}
+          {/* Accessible modal/drawer form layer for Founding Network, Referral Alliance, and General. */}
           <Chapter5 />
 
           <EngagementPaths />

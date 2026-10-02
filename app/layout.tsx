@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import SiteFooter from '@/components/SiteFooter'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -23,17 +24,21 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const siteDescription =
-  'CrosstownOS helps RV park and manufactured-housing acquisition teams turn broker packages, diligence documents, operating data, and field evidence into one organized, evidence-backed workflow.'
+  'CrosstownOS is diligence software for RV park and manufactured housing buyers. One record carries your deal from the broker package, through the site walk, to the signed decision: verified facts, broker-reported claims, missing evidence, and stated assumptions, separated and visible.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.crosstownosrv.camp'),
-  title: 'CrosstownOS // Acquire | Know What Is True Before You Buy',
+  title: 'CrosstownOS | RV Park Due Diligence Software: Know What Is True Before You Buy',
   description: siteDescription,
   applicationName: 'CrosstownOS',
   authors: [{ name: 'Crosstown' }],
   creator: 'Crosstown',
   publisher: 'Crosstown',
   keywords: [
+    'RV park due diligence software',
+    'RV park due diligence',
+    'manufactured housing due diligence',
+    'MHC due diligence',
     'RV park acquisition intelligence',
     'manufactured housing community due diligence',
     'MHC acquisition workflow',
@@ -58,7 +63,7 @@ export const metadata: Metadata = {
         url: '/images/opengraph.jpg?v=2',
         width: 1024,
         height: 1024,
-        alt: 'CrosstownOS // Acquire — evidence-backed acquisition intelligence',
+        alt: 'CrosstownOS // Acquire: evidence-backed acquisition intelligence',
       },
     ],
   },
@@ -97,6 +102,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen selection:bg-primary/20 selection:text-foreground`}
       >
         {children}
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
         {/* NATIVE DOM EXECUTOR: Wipes out runtime attribution tags instantly */}
         <script

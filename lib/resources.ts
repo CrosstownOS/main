@@ -37,7 +37,7 @@ export const TOOLS: Tool[] = [
   { code: "AS-21", title: "Seller Motivation Map", file: `${R}/CrosstownOS-Seller-Motivation-Map.pdf`, part: "B", description: "What the seller fears and what they need. Structure follows motivation." },
   { code: "AS-27", title: "The Team Roster", file: `${R}/CrosstownOS-The-Team-Roster.pdf`, part: "B", description: "The right pro at the right time. Line up your team against the deal timeline." },
   // Part C
-  { code: "AS-05", title: "Broker-Package Intake Checklist", file: `${R}/CrosstownOS-Broker-Package-Intake-Checklist.pdf`, part: "C", description: "Log what you received, flag what is missing, label everything." },
+  { code: "AS-05", title: "Broker-Package Intake Sheet", file: `${R}/CrosstownOS-Broker-Package-Intake-Sheet.pdf`, part: "C", description: "Log what you received, flag what is missing, label everything." },
   { code: "AS-06", title: "Evidence-Request List", file: `${R}/CrosstownOS-Evidence-Request-List.pdf`, part: "C", description: "The complete ask list. What to request, from whom, and what stays missing until it arrives." },
   { code: "AS-28", title: "Insurance and Property-Tax Preflight", file: `${R}/CrosstownOS-Insurance-and-Property-Tax-Preflight.pdf`, part: "C", description: "The address and the assessor. Price the insurance and tax reality before it prices you." },
   // Part D
@@ -53,16 +53,16 @@ export const TOOLS: Tool[] = [
   { code: "AS-24", title: "RV Revenue Reality Check", file: `${R}/CrosstownOS-RV-Revenue-Reality-Check.pdf`, part: "D", description: "Find what the revenue stabilizes at once the verified months are in." },
   // Part E
   { code: "AS-11", title: "Lot-by-Lot Walkthrough", file: `${R}/CrosstownOS-Lot-by-Lot-Walkthrough.pdf`, part: "E", description: "Walk every pad, write down what you see." },
-  { code: "AS-13", title: "Utility and Wastewater Diligence Checklist", file: `${R}/CrosstownOS-Utility-and-Wastewater-Diligence-Checklist.pdf`, part: "E", description: "The system nobody underwrites. Water, sewer, and electric before they become your emergency." },
+  { code: "AS-13", title: "Utility and Wastewater Diligence Sheet", file: `${R}/CrosstownOS-Utility-and-Wastewater-Diligence-Sheet.pdf`, part: "E", description: "The system nobody underwrites. Water, sewer, and electric before they become your emergency." },
   // Part F
   { code: "AS-07", title: "The Offer Term-Sheet Builder", file: `${R}/CrosstownOS-Offer-Term-Sheet-Builder.pdf`, part: "F", description: "Build your terms before the broker builds them for you." },
   { code: "AS-14", title: "Red-Flag Triage Board", file: `${R}/CrosstownOS-Red-Flag-Triage-Board.pdf`, part: "F", description: "Sort every flag into watch, verify, or walk so nothing festers unlabeled." },
   { code: "AS-16", title: "Lender One-Pager", file: `${R}/CrosstownOS-Lender-One-Pager.pdf`, part: "F", description: "Your deal on one page, in the language a lender reads." },
   { code: "AS-17", title: "The EMD Countdown Tracker", file: `${R}/CrosstownOS-EMD-Countdown-Tracker.pdf`, part: "F", description: "Your earnest money has a clock on it. Track every date so none surprises you." },
-  { code: "AS-19", title: "The Decision File", file: `${R}/CrosstownOS-The-Decision-File.pdf`, part: "F", description: "Every tool's output becomes one call: advance, retrade, pause, or walk." },
+  { code: "AS-19", title: "The Decision File", file: `${R}/CrosstownOS-The-Decision-File.pdf`, part: "F", description: "Every tool feeds one record. Your call, on the record: advance, retrade, pause, or walk." },
   { code: "AS-22", title: "Seller Note Anatomy", file: `${R}/CrosstownOS-Seller-Note-Anatomy.pdf`, part: "F", description: "What the seller fears becomes the note structure. Terms they can say yes to." },
   // Part G
-  { code: "AS-18", title: "First-30-Days Takeover Checklist", file: `${R}/CrosstownOS-First-30-Days-Takeover-Checklist.pdf`, part: "G", description: "Day one is not the finish line. The first thirty days, sequenced." },
+  { code: "AS-18", title: "First-30-Days Takeover Sheet", file: `${R}/CrosstownOS-First-30-Days-Takeover-Sheet.pdf`, part: "G", description: "Day one is not the finish line. The first thirty days, sequenced." },
   { code: "AS-25", title: "Deals I Walked Ledger and Post-Mortem", file: `${R}/CrosstownOS-Deals-I-Walked-Ledger.pdf`, part: "G", description: "Every deal you pass on, logged. Your calibration compounds." },
   { code: "AS-26", title: "Tenant Communication and Rent Playbook", file: `${R}/CrosstownOS-Tenant-Communication-and-Rent-Playbook.pdf`, part: "G", description: "What changes, what does not, and who hears it first." },
   { code: "AS-30", title: "Day-90 / Day-365 Operating Review", file: `${R}/CrosstownOS-Day-90-Day-365-Operating-Review.pdf`, part: "G", description: "Review the operation against your day-one baseline. Twice." },

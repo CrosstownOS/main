@@ -288,6 +288,34 @@ export default async function ResourcesPage({
               Read Field Notes
             </a>
           </div>
+
+          <div className="mt-8 border border-primary/40 bg-primary/5 p-8">
+            <p className="mono-label mb-3">The next step</p>
+            <p className="serif-display text-2xl tracking-tight">
+              Running a live deal? Bring it to the Deal Desk.
+            </p>
+            <ul className="mt-5 space-y-3 text-left text-sm leading-relaxed text-muted">
+              <li>
+                Screened a deal worth pursuing? Bring it to the Deal Desk
+                before diligence scatters across inboxes.
+              </li>
+              <li>
+                Walking a park soon? Bring the deal and walk it inside the
+                Deal Desk, where every capture lands in the record instead of
+                a photo folder.
+              </li>
+              <li>
+                Building the record by hand? The Founding Deal Desk runs the
+                whole deal, register to decision file, with the founder.
+              </li>
+            </ul>
+            <a
+              href="/deal-desk"
+              className="mt-6 inline-block border border-primary/60 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            >
+              Bring a live deal
+            </a>
+          </div>
         </div>
       </main>
     </>

@@ -48,6 +48,7 @@ const EMAIL_COLORS_LIGHT: EmailPalette = {
 }
 
 type FormType =
+  | 'deal_desk'
   | 'design_partner'
   | 'founding_circle'
   | 'referral_network'
@@ -80,6 +81,47 @@ type FormConfig = {
 }
 
 const FORM_CONFIG: Record<FormType, FormConfig> = {
+  deal_desk: {
+    type: 'deal_desk',
+    routingTag: 'FOUNDING_DEAL_DESK',
+    title: 'New Founding Deal Desk Application',
+    badge: 'Founding Deal Desk',
+    sourceForm: 'Founding Deal Desk application form',
+    successMessage:
+      'Received. Jeremy reviews every application personally. Expect a reply within two business days.',
+    failureMessage:
+      'We could not submit your application. Please try again or contact Crosstown directly.',
+    confirmationSubject: 'We Received Your Founding Deal Desk Application: Crosstown',
+    confirmationTitle: 'Founding Deal Desk application received.',
+    fields: [
+      { key: 'name', label: 'Name', required: true, maxLength: 160 },
+      { key: 'email', label: 'Email', required: true, maxLength: 254 },
+      { key: 'phone', label: 'Phone', maxLength: 80 },
+      { key: 'company', label: 'Shop or company', maxLength: 180 },
+      { key: 'assetType', label: 'Asset type', required: true, maxLength: 80 },
+      { key: 'dealStage', label: 'Deal stage', required: true, maxLength: 120 },
+      { key: 'decisionDeadline', label: 'Decision deadline', required: true, maxLength: 80 },
+      { key: 'purchasePriceRange', label: 'Purchase price range', maxLength: 160 },
+      {
+        key: 'dealDescription',
+        label: 'Deal description',
+        required: true,
+        multiline: true,
+        maxLength: 2000,
+      },
+      {
+        key: 'keepsUpAtNight',
+        label: 'What keeps you up at night about this deal',
+        multiline: true,
+        maxLength: 2000,
+      },
+      { key: 'howDidYouHear', label: 'How did you hear about CrosstownOS', maxLength: 200 },
+    ],
+    subject: (data) =>
+      `New Founding Deal Desk Application: ${data.company || data.name}`,
+    subtitle: (data) =>
+      `${data.name} applied to the Founding Deal Desk for fit review.`,
+  },
   design_partner: {
     type: 'design_partner',
     routingTag: 'PARKPROOF_DESIGN_PARTNER',
@@ -90,7 +132,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'Thank you. Crosstown reviews each request personally. If there is a fit, we will follow up to discuss the opportunity, workflow, and secure document-sharing process.',
     failureMessage:
       'We could not submit your design-partner request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Design Partner Request — Crosstown',
+    confirmationSubject: 'We Received Your Design Partner Request: Crosstown',
     confirmationTitle: 'Design Partner request received.',
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
@@ -123,7 +165,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       },
     ],
     subject: (data) =>
-      `New ParkProof Design-Partner Request — ${data.company || data.name}`,
+      `New ParkProof Design-Partner Request: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.company || data.name} requested founder-supported design-partner access.`,
   },
@@ -137,7 +179,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'Thank you. Crosstown reviews each Founding Circle request personally. If there is a fit, we will follow up with an invitation and next steps.',
     failureMessage:
       'We could not submit your Founding Circle request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Founding Circle Request — Crosstown',
+    confirmationSubject: 'We Received Your Founding Circle Request: Crosstown',
     confirmationTitle: 'Founding Circle request received.',
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
@@ -160,7 +202,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       },
     ],
     subject: (data) =>
-      `New Founding Circle Request — ${data.company || data.name}`,
+      `New Founding Circle Request: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.name} requested a Founding Circle invitation.`,
   },
@@ -174,7 +216,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'Thank you. Crosstown reviews each partner request personally. If there is a fit, we will follow up to start the conversation. No compensation terms are published or implied; any partnership terms are discussed privately.',
     failureMessage:
       'We could not submit your partner conversation request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Referral Alliance Request — Crosstown',
+    confirmationSubject: 'We Received Your Referral Alliance Request: Crosstown',
     confirmationTitle: 'Partner conversation request received.',
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
@@ -193,7 +235,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       },
     ],
     subject: (data) =>
-      `New Referral Alliance Conversation Request — ${data.company || data.name}`,
+      `New Referral Alliance Conversation Request: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.name} requested a partner conversation.`,
   },
@@ -207,7 +249,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'Thank you. Your note has been received. Crosstown will route it to the right conversation and follow up if there is a fit.',
     failureMessage:
       'We could not submit your note. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Note — Crosstown',
+    confirmationSubject: 'We Received Your Note: Crosstown',
     confirmationTitle: 'Conversation request received.',
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
@@ -224,7 +266,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       },
     ],
     subject: (data) =>
-      `New General Conversation Request — ${data.company || data.name}`,
+      `New General Conversation Request: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.name} started a general conversation.`,
   },
@@ -243,7 +285,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'Thank you. Crosstown reviews opportunities confidentially. If the submission appears to be a fit, we will follow up regarding next steps and an appropriate secure process for sharing supporting materials.',
     failureMessage:
       'We could not submit your opportunity. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Outpost Opportunity — Crosstown',
+    confirmationSubject: 'We Received Your Outpost Opportunity: Crosstown',
     confirmationTitle: 'Opportunity received.',
     fields: [
       { key: 'relationshipToOpportunity', label: 'Relationship to opportunity', required: true, maxLength: 160 },
@@ -271,7 +313,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       { key: 'conversationSought', label: 'Conversation sought', required: true, maxLength: 160 },
     ],
     subject: (data) =>
-      `New Outpost Opportunity Submission — ${data.propertyName || data.cityState}`,
+      `New Outpost Opportunity Submission: ${data.propertyName || data.cityState}`,
     subtitle: (data) =>
       `${data.name} submitted an opportunity for confidential review.`,
   },
@@ -285,7 +327,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'Thank you. Crosstown will review your note and follow up if there is a relevant reason to connect.',
     failureMessage:
       'We could not submit your conversation request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Basecamp Conversation Request — Crosstown',
+    confirmationSubject: 'We Received Your Basecamp Conversation Request: Crosstown',
     confirmationTitle: 'Conversation request received.',
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
@@ -318,7 +360,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       },
     ],
     subject: (data) =>
-      `New Basecamp Strategic Conversation Request — ${data.company || data.name}`,
+      `New Basecamp Strategic Conversation Request: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.company || data.name} requested a strategic conversation.`,
   },
@@ -566,7 +608,8 @@ function hasConsent(value: unknown) {
 
 function getFormType(value: unknown): FormType | null {
   const formType = sanitizeText(value, 40)
-  return formType === 'design_partner' ||
+  return formType === 'deal_desk' ||
+    formType === 'design_partner' ||
     formType === 'founding_circle' ||
     formType === 'referral_network' ||
     formType === 'not_sure' ||

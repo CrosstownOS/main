@@ -179,17 +179,28 @@ export default async function BlogPost({ params }: PageProps) {
           </div>
 
           <div className="mt-16 border border-border bg-card p-6 sm:p-8">
-            <p className="mono-label mb-3">CrosstownOS // Acquire</p>
+            <p className="mono-label mb-3">Next step</p>
             <p className="text-sm leading-relaxed text-muted">
-              Acquisition intelligence for RV park and manufactured-housing
-              buyers. We turn diligence chaos into verified decisions before you
-              commit capital.
+              Start with the free Acquisition Signal resources: the working
+              papers behind the Field Notes, including the tool this note
+              points to.
             </p>
             <Link
-              href="/#design-partner"
+              href="/resources"
+              className="mt-5 inline-block border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+            >
+              Get the free resources
+            </Link>
+            <p className="mt-8 border-t border-border/60 pt-6 text-sm leading-relaxed text-muted">
+              Running a live deal? Bring it to the Deal Desk and work it inside
+              CrosstownOS with the founder, from intake to a documented
+              decision posture.
+            </p>
+            <Link
+              href="/deal-desk"
               className="mt-5 inline-block border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90"
             >
-              Join the Q4 Cohort
+              Bring a live deal
             </Link>
           </div>
 

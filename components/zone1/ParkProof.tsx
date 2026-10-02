@@ -118,7 +118,7 @@ export default function ParkProof() {
           </div>
           <div className="flex items-end">
             <p className="max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-              ParkProof is the source-backed, human-reviewed output of CrosstownOS // Acquire. It is designed to help a team see—not merely store—what is verified, broker-reported, missing, assumed, unresolved, or material to the decision.
+              ParkProof is the decision file produced inside a Founding Deal Desk engagement: a source-backed, human-reviewed record designed to help a team see, not merely store, what is verified, broker-reported, missing, assumed, unresolved, or material to the decision. CrosstownOS organizes the record. The buyer owns the decision.
             </p>
           </div>
         </div>
