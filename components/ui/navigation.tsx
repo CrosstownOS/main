@@ -448,7 +448,7 @@ export default function Navigation() {
                 Bring a live deal
               </Link>
               <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
-                Five buyers. One live deal each. Jeremy reviews every application personally.
+                Five buyers. One live deal each. Every application is reviewed personally.
               </p>
             </div>
           </div>

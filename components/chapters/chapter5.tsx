@@ -59,7 +59,7 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
     eyebrow: "Design Partners",
     title: "Request Design Partner Access",
     intro:
-      "CrosstownOS is preparing for a limited founder-supported design-partner program for active RV/MHC acquisition teams with a live or near-term opportunity.",
+      "CrosstownOS is preparing for a limited design-partner program for active RV/MHC acquisition teams with a live or near-term opportunity.",
     microcopy: [
       "Early access is limited. We review each request personally.",
       "Submitting this form does not create an advisory, agency, investment, financing, brokerage, or transaction relationship.",

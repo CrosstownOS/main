@@ -30,9 +30,9 @@ export default function DealDeskPromo() {
               The Founding Deal Desk. Five buyers. One live deal each.
             </Heading>
             <p className="mb-8 text-base leading-relaxed text-muted sm:text-lg">
-              Work your real acquisition inside CrosstownOS with the founder,
+              Work your real acquisition inside CrosstownOS,
               from intake to a documented decision posture. One active deal,
-              through your decision or 90 days. Founder onboarding, weekly Deal
+              through your decision or 90 days. Onboarding, weekly Deal
               Desk sessions, and a documented decision file built to the
               ParkProof standard.
             </p>

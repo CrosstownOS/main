@@ -308,7 +308,7 @@ export default async function ResourcesPage({
               </li>
               <li>
                 Building the record by hand? The Founding Deal Desk runs the
-                whole deal, register to decision file, with the founder.
+                whole deal, register to decision file.
               </li>
             </ul>
             <a

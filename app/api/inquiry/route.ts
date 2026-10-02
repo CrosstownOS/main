@@ -88,7 +88,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     badge: 'Founding Deal Desk',
     sourceForm: 'Founding Deal Desk application form',
     successMessage:
-      'Received. Jeremy reviews every application personally. Expect a reply within two business days.',
+      'Received. Every application is reviewed personally. Expect a reply within two business days.',
     failureMessage:
       'We could not submit your application. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Founding Deal Desk Application: Crosstown',
@@ -167,7 +167,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     subject: (data) =>
       `New ParkProof Design-Partner Request: ${data.company || data.name}`,
     subtitle: (data) =>
-      `${data.company || data.name} requested founder-supported design-partner access.`,
+      `${data.company || data.name} requested design-partner access.`,
   },
   founding_circle: {
     type: 'founding_circle',
@@ -374,9 +374,6 @@ function signatureBlock(colors: EmailPalette) {
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${colors.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
-  </p>
-  <p style="font-family:'Playfair Display', Georgia, serif; font-size:14px; color:${colors.foreground}; margin:0 0 4px 0; font-weight:700;">
-    Jeremy Cross
   </p>
   <p style="font-family:'JetBrains Mono', monospace; font-size:10px; color:${colors.muted}; margin:0 0 3px 0; text-transform:uppercase; letter-spacing:0.15em;">
     Phone: (972) 914-9046
@@ -866,7 +863,6 @@ function generatePlainText({
 
   lines.push(
     'Crosstown',
-    'Jeremy Cross',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
   )

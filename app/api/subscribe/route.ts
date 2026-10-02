@@ -29,9 +29,6 @@ const SIGNATURE_BLOCK = `
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${EMAIL_COLORS.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
   </p>
-  <p style="font-family:'Playfair Display', Georgia, serif; font-size:14px; color:${EMAIL_COLORS.foreground}; margin:0 0 4px 0; font-weight:700;">
-    Jeremy Cross
-  </p>
   <p style="font-family:'JetBrains Mono', monospace; font-size:10px; color:${EMAIL_COLORS.muted}; margin:0 0 3px 0; text-transform:uppercase; letter-spacing:0.15em;">
     Phone: (972) 914-9046
   </p>
@@ -373,7 +370,6 @@ function generatePlainText({
       'You will receive useful operator learning, build updates, diligence patterns, and the evolving Crosstown thesis.',
       '',
       'Crosstown',
-      'Jeremy Cross',
       'Phone: (972) 914-9046',
       'Email: jeremy@crosstownosrv.camp',
     ].join('\n')
@@ -389,7 +385,6 @@ function generatePlainText({
     `Privacy consent: ${consentState}`,
     '',
     'Crosstown',
-    'Jeremy Cross',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
   ].join('\n')

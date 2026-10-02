@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "RV Park Due Diligence Software: The Founding Deal Desk | CrosstownOS",
     description:
-      "Work your real RV park or manufactured housing acquisition inside CrosstownOS with the founder, from intake to a documented decision posture. Five buyers. One live deal each.",
+      "Work your real RV park or manufactured housing acquisition inside CrosstownOS, from intake to a documented decision posture. Five buyers. One live deal each.",
     type: "website",
     url: "/deal-desk",
     images: [
@@ -54,7 +54,7 @@ const SCOPE_ITEMS = [
   "Broker-package intake with provenance attached to every document.",
   "The diligence register with capacity-gate tracking across water, sewer, electrical, roads, and zoning, permits, and legal.",
   "Deterministic underwriting calculated from human-approved assumptions.",
-  "Weekly Deal Desk sessions with the founder, in a fixed format.",
+  "Weekly Deal Desk sessions in a fixed format.",
   "A documented decision file built to the ParkProof standard.",
 ] as const
 
@@ -109,8 +109,8 @@ const NOVEMBER_PRODUCT = [
 const INCLUDED = [
   "One active deal, worked through your documented decision posture or 90 days, whichever comes first.",
   "One primary owner and one viewer/collaborator on the deal workspace.",
-  "Founder onboarding and a shared channel with the founder for the life of the engagement.",
-  "Weekly Deal Desk sessions in a fixed format, with founder review of every output before you see it.",
+  "Onboarding and a shared channel for the life of the engagement.",
+  "Weekly Deal Desk sessions in a fixed format, with every output reviewed before you see it.",
   "The diligence register with capacity-gate tracking across water, sewer, electrical, roads, and zoning, permits, and legal.",
   "Deterministic underwriting calculated from human-approved assumptions.",
   "A documented decision file built to the ParkProof standard, organizing your documented posture: advance, retrade, pause, or walk.",
@@ -118,21 +118,21 @@ const INCLUDED = [
 
 const FOR_ITEMS = [
   "Active RV park or manufactured housing buyers with a live or imminent deal and a decision deadline in the next 60 to 90 days.",
-  "Independent sponsors, small acquisition shops, and owner-operators who will bring real materials and work the record. You build it; the founder guides you.",
+  "Independent sponsors, small acquisition shops, and owner-operators who will bring real materials and work the record. You build it; the workflow guides you.",
   "Buyers who want the decision file to show what is verified, what is claimed, what is missing, and what was assumed, so the posture they take is defensible.",
 ] as const
 
 const NOT_FOR_ITEMS = [
   "Brokers, sellers, and intermediaries. The Deal Desk serves the buyer's side of the table only.",
   "The curious with no live deal. The free resource library and the Founding Network are the right doors for now.",
-  "Buyers who want someone else to run diligence for them. The founder guides the workflow; the buyer builds the record.",
+  "Buyers who want someone else to run diligence for them. The workflow guides; the buyer builds the record.",
   "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
 ] as const
 
 const FAQ = [
   {
     q: "What does the $2,500 pay for?",
-    a: "One active deal worked inside CrosstownOS from intake to a documented decision posture, or 90 days, whichever comes first. That includes the diligence register, capacity-gate tracking, deterministic underwriting from your approved assumptions, weekly Deal Desk sessions with the founder, and a documented decision file built to the ParkProof standard. It is an engagement around your live acquisition, not a software license.",
+    a: "One active deal worked inside CrosstownOS from intake to a documented decision posture, or 90 days, whichever comes first. That includes the diligence register, capacity-gate tracking, deterministic underwriting from your approved assumptions, weekly Deal Desk sessions, and a documented decision file built to the ParkProof standard. It is an engagement around your live acquisition, not a software license.",
   },
   {
     q: "What is the refund policy?",
@@ -168,7 +168,7 @@ const FAQ = [
   },
   {
     q: "Why only five buyers?",
-    a: "Because the founder works every engagement personally, reviews every output before you see it, and runs the weekly sessions. Five is the number the calendar can hold without the quality dropping. When seats are full, the Founding Network is the waitlist for the next window.",
+    a: "Because every engagement is worked personally: every output is reviewed before you see it, and the weekly sessions run in a fixed format. Five is the number the calendar can hold without the quality dropping. When seats are full, the Founding Network is the waitlist for the next window.",
   },
 ] as const
 
@@ -185,7 +185,7 @@ export default function DealDeskPage() {
             The Founding Deal Desk. Five buyers. One live deal each.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Work your real acquisition inside CrosstownOS with the founder, from
+            Work your real acquisition inside CrosstownOS, from
             intake to a documented decision posture. One active deal, through
             your decision or 90 days.
           </p>

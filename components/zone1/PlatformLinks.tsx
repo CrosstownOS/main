@@ -51,7 +51,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
     name: "Founding Deal Desk",
     question: "Actively acquiring an RV park or MHC?",
     description:
-      "For buyers with a live or imminent deal and a decision deadline. Work the deal inside CrosstownOS with the founder, from intake to a documented decision posture.",
+      "For buyers with a live or imminent deal and a decision deadline. Work the deal inside CrosstownOS, from intake to a documented decision posture.",
     cta: "Bring a live deal",
     action: "deal_desk",
     href: "/deal-desk",

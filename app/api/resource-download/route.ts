@@ -59,8 +59,6 @@ function buildDownloadEmail({
     'One email unlocked the whole library. Browse all 38 tools any time:',
     `${SITE_URL}/resources`,
     '',
-    'Jeremy Cross',
-    'Founder',
     'CrosstownOS // Acquire',
     '',
     'Acquisition Intelligence | Diligence Software | ParkProof Reports',

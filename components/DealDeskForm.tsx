@@ -133,7 +133,7 @@ export default function DealDeskForm() {
         setStatus("success")
         setStatusMessage(
           body.message ||
-            "Received. Jeremy reviews every application personally. Expect a reply within two business days.",
+            "Received. Every application is reviewed personally. Expect a reply within two business days.",
         )
         form.reset()
       } else {
