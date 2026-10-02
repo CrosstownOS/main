@@ -406,19 +406,30 @@ export default function DealDeskPage() {
             <h2 id="deal-desk-faq" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Questions buyers ask.
             </h2>
-            <dl className="mt-6 space-y-4">
+            <div className="mt-6 space-y-4">
               {FAQ.map((item, index) => (
-                <div key={item.q} className="border border-border bg-card p-6">
-                  <dt className="font-sans text-base font-bold tracking-tight text-foreground">
+                <details
+                  key={item.q}
+                  className="group border border-border bg-card transition-colors hover:border-primary/40"
+                >
+                  <summary className="flex cursor-pointer list-none items-center p-6 font-sans text-base font-bold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-primary [&::-webkit-details-marker]:hidden">
                     <span className="mr-3 font-mono text-[10px] tracking-[0.2em] text-primary">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    {item.q}
-                  </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-muted">{item.a}</dd>
-                </div>
+                    <span className="flex-1">{item.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className="ml-4 font-mono text-lg leading-none text-primary transition-transform duration-200 group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="px-6 pb-6 text-sm leading-relaxed text-muted">
+                    {item.a}
+                  </p>
+                </details>
               ))}
-            </dl>
+            </div>
           </section>
 
           {/* Application */}
