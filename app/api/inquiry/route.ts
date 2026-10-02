@@ -982,12 +982,14 @@ export async function POST(request: NextRequest) {
 
     // Best-effort: land the contact in the matching Resend segment.
     // Never blocks the submission — the notification emails above are the
-    // critical path. Design Partner, Field Network (Founding Circle), and
-    // Referral Alliance share one segment (free-tier limit).
+    // critical path. Design Partner, Field Network (Founding Circle),
+    // Referral Alliance, and Founding Deal Desk share one segment
+    // (free-tier limit).
     const segmentForType: Record<string, SegmentKey | null> = {
       design_partner: 'partners',
       founding_circle: 'partners',
       referral_network: 'partners',
+      deal_desk: 'partners',
     }
     const segment = segmentForType[formType] ?? null
     if (segment && data.email) {
