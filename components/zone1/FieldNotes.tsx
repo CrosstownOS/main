@@ -42,8 +42,8 @@ export default function FieldNotes() {
             <Heading level={2}>Notes from the diligence desk.</Heading>
             <p className="mt-3 leading-relaxed text-muted">
               Field observations on RV park and manufactured-housing
-              acquisitions. What we are seeing, what it means, and what is
-              true before you buy.
+              acquisitions. For buyers who like their answers with evidence
+              attached.
             </p>
           </div>
           <Link
