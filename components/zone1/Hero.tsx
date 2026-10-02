@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useReducedMotion } from "framer-motion"
-import { Heading, TerminalLabel } from "@/components/ui/primitives"
+import { Heading } from "@/components/ui/primitives"
 
 export default function Hero() {
   const shouldReduceMotion = Boolean(useReducedMotion())
@@ -12,7 +12,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-headline"
-      className="relative flex min-h-[calc(100svh-6.125rem)] w-full items-center overflow-hidden bg-transparent px-6 py-20 text-center lg:py-24"
+      className="relative flex min-h-[calc(100svh-6.125rem)] w-full items-center overflow-hidden bg-transparent px-6 pb-20 pt-10 text-center lg:pb-24 lg:pt-12"
     >
       <motion.div
         initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
@@ -20,7 +20,7 @@ export default function Hero() {
         transition={{ duration: shouldReduceMotion ? 0 : 0.55, ease: "easeOut" }}
         className="relative z-20 mx-auto flex w-full max-w-5xl flex-col items-center"
       >
-        <div className="mb-8 overflow-hidden [clip-path:circle(50%)]">
+        <div className="mb-5 overflow-hidden [clip-path:circle(50%)]">
           <Image
             src="/logo.jpg"
             alt="Crosstown logo"
@@ -30,10 +30,6 @@ export default function Hero() {
             priority
           />
         </div>
-
-        <TerminalLabel className="mb-6 tracking-[0.34em]">
-          CrosstownOS // Acquire
-        </TerminalLabel>
 
         <Heading
           id="hero-headline"

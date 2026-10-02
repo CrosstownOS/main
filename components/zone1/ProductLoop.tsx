@@ -39,6 +39,8 @@ const EVIDENCE_STATES = [
   { label: "Broker-reported", className: "border-accent/60 text-accent" },
   { label: "Missing evidence", className: "border-critical/60 text-critical" },
   { label: "Underwriting assumption", className: "border-primary/60 text-primary" },
+  { label: "Calculated", className: "border-accent/60 text-accent" },
+  { label: "Unresolved", className: "border-critical/60 text-critical" },
 ] as const
 
 export default function ProductLoop() {
