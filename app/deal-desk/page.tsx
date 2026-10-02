@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import DealDeskHeader from "@/components/DealDeskHeader"
+import Navigation from "@/components/ui/navigation"
 import DealDeskForm from "@/components/DealDeskForm"
 import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
@@ -175,7 +175,7 @@ const FAQ = [
 export default function DealDeskPage() {
   return (
     <>
-      <DealDeskHeader />
+      <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
