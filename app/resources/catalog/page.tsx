@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
+import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { PARTS, TOOLS } from "@/lib/resources"
 
@@ -51,8 +52,9 @@ export default function CatalogPage() {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full bg-background text-foreground">
-        <div className="mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+        <PageBackdrop />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             All 35 tools, in journey order.

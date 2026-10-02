@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
+import PageBackdrop from "@/components/PageBackdrop"
 import { getAllPosts } from "@/lib/blog"
 
 export const metadata: Metadata = {
@@ -48,8 +49,9 @@ export default function BlogIndex() {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full bg-background text-foreground">
-        <div className="mx-auto w-full max-w-4xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+        <PageBackdrop />
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Know what is true before you buy.

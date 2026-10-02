@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import DealDeskHeader from "@/components/DealDeskHeader"
 import DealDeskForm from "@/components/DealDeskForm"
+import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
 
 export const metadata: Metadata = {
@@ -175,8 +176,9 @@ export default function DealDeskPage() {
   return (
     <>
       <DealDeskHeader />
-      <main className="relative min-h-screen w-full bg-background text-foreground">
-        <div className="mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+        <PageBackdrop />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
           <p className="mono-label mb-4">Founding offer, November 2026</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">

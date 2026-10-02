@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import Navigation from "@/components/ui/navigation"
+import PageBackdrop from "@/components/PageBackdrop"
 import { getAllSlugs, getPost, getRelatedPosts } from "@/lib/blog"
 
 interface PageProps {
@@ -92,8 +93,9 @@ export default async function BlogPost({ params }: PageProps) {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full bg-background text-foreground">
-        <article className="mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+        <PageBackdrop />
+        <article className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
