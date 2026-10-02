@@ -11,6 +11,7 @@ import FieldReality from "@/components/zone1/FieldReality"
 import ParkProof from "@/components/zone1/ParkProof"
 import FieldNotes from "@/components/zone1/FieldNotes"
 import DealDeskPromo from "@/components/zone1/DealDeskPromo"
+import LifecycleVision from "@/components/zone1/LifecycleVision"
 
 export default function Home() {
   return (
@@ -66,6 +67,8 @@ export default function Home() {
           <Chapter5 />
 
           <EngagementPaths />
+
+          <LifecycleVision />
 
           <div
             id="footer-curtain"
