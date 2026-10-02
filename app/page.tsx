@@ -3,7 +3,6 @@
 import Navigation from "@/components/ui/navigation"
 import Hero from "@/components/zone1/Hero"
 import ProductLoop from "@/components/zone1/ProductLoop"
-import ArizonaRule from "@/components/zone1/ArizonaRule"
 import EngagementPaths from "@/components/zone1/PlatformLinks"
 import Chapter5 from "@/components/chapters/chapter5"
 import Chapter7 from "@/components/chapters/chapter7"
@@ -12,7 +11,6 @@ import FieldReality from "@/components/zone1/FieldReality"
 import ParkProof from "@/components/zone1/ParkProof"
 import FieldNotes from "@/components/zone1/FieldNotes"
 import DealDeskPromo from "@/components/zone1/DealDeskPromo"
-import LifecycleVision from "@/components/zone1/LifecycleVision"
 
 export default function Home() {
   return (
@@ -53,7 +51,6 @@ export default function Home() {
           <Thesis />
           <FieldReality />
           <ProductLoop />
-          <ArizonaRule />
           <ParkProof />
           <FieldNotes />
           {/* Legacy inbound links to /#design-partner land on the Deal Desk
@@ -69,7 +66,6 @@ export default function Home() {
           <Chapter5 />
 
           <EngagementPaths />
-          <LifecycleVision />
 
           <div
             id="footer-curtain"

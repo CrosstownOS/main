@@ -72,7 +72,7 @@ const HOW_IT_WORKS = [
   },
   {
     title: "Review and resolve.",
-    body: "Capacity-gate risks across water, sewer, electrical, roads, and zoning, permits, and legal block the move toward offer until they are verified or an authorized person waives them with a documented reason. That is the Arizona Rule.",
+    body: "Capacity-gate risks across water, sewer, electrical, roads, and zoning, permits, and legal block the move toward offer until they are verified or an authorized person waives them with a documented reason.",
   },
   {
     title: "Underwrite from confirmed inputs.",
@@ -297,34 +297,6 @@ export default function DealDeskPage() {
                   <p className="mt-3 text-sm leading-relaxed text-foreground/80">{module.body}</p>
                 </div>
               ))}
-            </div>
-          </section>
-
-          {/* Arizona Rule */}
-          <section aria-labelledby="deal-desk-arizona" className="mt-20">
-            <h2 id="deal-desk-arizona" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Dates move. Gates don&apos;t.
-            </h2>
-            <div className="mt-5 space-y-4 text-base leading-relaxed text-foreground/85">
-              <p>
-                An Arizona park. Numbers working. Every document in the data room
-                checking out. A contractor walked the site and found a 1980s
-                wastewater plant, skimmed by hand daily, rated for 30 to 40
-                pads, running 60. The assignment was worth $500,000. The
-                contract was cancelled.
-              </p>
-              <p>
-                The seller&apos;s story was wrong, and the questions that would
-                have caught it were never asked inside a system that could hold
-                the answer.
-              </p>
-              <p>
-                The Arizona Rule is the doctrine inside CrosstownOS: a deal
-                cannot move toward offer while capacity-gate risks remain
-                unresolved, unless an authorized person explicitly waives them
-                with a documented reason. The system holds the line so a
-                deadline cannot quietly move it.
-              </p>
             </div>
           </section>
 

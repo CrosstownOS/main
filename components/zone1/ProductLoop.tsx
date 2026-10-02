@@ -51,7 +51,7 @@ export default function ProductLoop() {
       <Container>
         <div className="mb-12 max-w-3xl">
           <TerminalLabel className="mb-5 block">
-            The November Product: Source + Field + Acquire
+            Source + Field + Acquire
           </TerminalLabel>
           <Heading
             id="product-heading"
@@ -60,12 +60,6 @@ export default function ProductLoop() {
           >
             One asset record. Before you arrive, while you walk, and before you decide.
           </Heading>
-          <p className="text-base leading-relaxed text-muted sm:text-lg">
-            Know it. Take it. Hold it. CrosstownOS is built in three families.
-            KNOW: Source, Acquire, Intelligence. TAKE: Field, Close, Launch.
-            HOLD: Operate, Capital, Exit. Opens November 2026: Source + Field +
-            Acquire, the first connected loop across Know it and Take it.
-          </p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
@@ -118,13 +112,6 @@ export default function ProductLoop() {
               </li>
             ))}
           </ul>
-          <p className="mt-5 text-sm leading-relaxed text-muted">
-            Lifecycle extensions: Operate, Exit, and permissioned portfolio
-            Intelligence extend the same record past closing. They are the
-            direction of the system, not November deliverables. The record you
-            build to decide is the record you carry after you close. The deal
-            does not end at closing. The truth record should not either.
-          </p>
         </div>
       </Container>
     </Section>
