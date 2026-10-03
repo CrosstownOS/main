@@ -42,10 +42,7 @@ export default function Hero() {
         <p className="mb-10 max-w-3xl text-balance font-sans text-lg leading-relaxed text-muted sm:text-xl">
           CrosstownOS is diligence software for RV park and manufactured
           housing buyers. One record carries your deal from the broker package,
-          through the site walk, to the signed decision. Verified facts,
-          broker-reported claims, missing evidence, and stated assumptions stay
-          separated and visible, so the decision in front of you is built on
-          what you actually know.
+          through the site walk, to the signed decision.
         </p>
 
         <div className="flex w-full flex-col justify-center gap-4 sm:flex-row">
