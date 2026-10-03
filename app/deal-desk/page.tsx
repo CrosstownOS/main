@@ -310,13 +310,9 @@ export default function DealDeskPage() {
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/85">
               At the end of the engagement, the Desk produces a documented
               decision file built to the ParkProof standard: your documented
-              posture, advance, retrade, pause, or walk, built from reviewed
-              evidence, unresolved gates, and approved assumptions.
+              posture, built from reviewed evidence, unresolved gates, and
+              approved assumptions.
               CrosstownOS organizes the record. You own the decision.
-            </p>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
-              Advance, Retrade, Pause, and Walk are evidence-readiness
-              labels. They are not recommendations, approvals, or advice.
             </p>
           </section>
 
