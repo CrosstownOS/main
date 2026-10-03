@@ -12,17 +12,17 @@ import { cn } from "@/lib/utils"
 const TRUTH_STATES = [
   {
     title: "Verified",
-    body: "Supported by identified evidence and human review.",
+    body: "Backed by evidence you can point to, and reviewed by a person.",
     className: "border-success/60 text-success",
   },
   {
     title: "Broker-reported",
-    body: "Reported in an OM, call, model, or broker package; not yet independently verified.",
+    body: "Reported in an OM, call, model, or broker package; not independently checked yet.",
     className: "border-accent/60 text-accent",
   },
   {
     title: "Missing evidence",
-    body: "Material information has not been received, located, or made sufficient for review.",
+    body: "Material information has not been received or located yet.",
     className: "border-critical/60 text-critical",
   },
   {
@@ -32,57 +32,26 @@ const TRUTH_STATES = [
   },
 ] as const
 
-const REGISTER_COLUMNS = [
-  "Evidence state",
-  "Source reference",
-  "Risk / open item",
-  "Owner",
-  "Materiality",
-  "Disposition",
-  "Underwriting impact",
-  "Review status",
-] as const
-
-const REGISTER_ROWS = [
+const DECISION_ROWS = [
   {
+    claim: "Reported occupancy",
     state: "Broker-reported",
     source: "OM p. 12",
-    risk: "Reported occupancy support",
-    owner: "Diligence lead",
-    materiality: "High",
-    disposition: "Open",
-    impact: "Revenue sensitivity",
-    review: "Human review required",
   },
   {
+    claim: "Collections variance",
     state: "Verified",
-    source: "Rent roll extract",
-    risk: "Collections variance",
-    owner: "Underwriting lead",
-    materiality: "Medium",
-    disposition: "Documented",
-    impact: "NOI variance",
-    review: "Reviewed",
+    source: "Rent roll extract, reviewed",
   },
   {
+    claim: "Water and sewer capacity",
     state: "Missing evidence",
-    source: "Utility records",
-    risk: "Water/sewer capacity",
-    owner: "Infrastructure reviewer",
-    materiality: "High",
-    disposition: "Open",
-    impact: "Unknown",
-    review: "Evidence requested",
+    source: "Utility records, not yet received",
   },
   {
+    claim: "Stabilized expense input",
     state: "Underwriting assumption",
-    source: "Approved input",
-    risk: "Stabilized expense input",
-    owner: "Underwriting lead",
-    materiality: "Medium",
-    disposition: "Assumption documented",
-    impact: "NOI / DSCR sensitivity",
-    review: "Approved input",
+    source: "Approved input to the investment case",
   },
 ] as const
 
@@ -118,14 +87,14 @@ export default function ParkProof() {
           </div>
           <div className="flex items-end">
             <p className="max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-              ParkProof is the decision file produced inside a Founding Deal Desk engagement: a source-backed, human-reviewed record designed to help a team see, not merely store, what is verified, broker-reported, missing, assumed, unresolved, or material to the decision. CrosstownOS organizes the record. The buyer owns the decision.
+              Every material claim in the file carries where it came from and what state it is in: verified, broker-reported, missing, or assumed. The team sees the deal as it stands, not a pile of documents.
             </p>
           </div>
         </div>
 
-        {/* Row 2 — full-width conceptual decision file */}
+        {/* Row 2 — conceptual decision file, stacked rows */}
         <TelemetryBox glass="heavy" className="border-primary/40 p-5 sm:p-6">
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
             <TerminalLabel className="block">
               ParkProof / Decision File
             </TerminalLabel>
@@ -134,55 +103,39 @@ export default function ParkProof() {
             </span>
           </div>
 
-          <div
-            className="overflow-x-auto"
-            role="region"
-            aria-label="ParkProof decision file conceptual example"
-            tabIndex={0}
-          >
-            <table className="w-full min-w-[980px] border-collapse text-left">
-              <caption className="sr-only">
-                Conceptual ParkProof decision file with evidence state, source reference, risk, owner, materiality, disposition, underwriting impact, and review status.
-              </caption>
-              <thead>
-                <tr className="border-b border-border/60">
-                  {REGISTER_COLUMNS.map((column) => (
-                    <th
-                      key={column}
-                      scope="col"
-                      className="px-3 py-3 font-mono text-[8px] font-normal uppercase tracking-[0.16em] text-muted"
-                    >
-                      {column}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {REGISTER_ROWS.map((row) => (
-                  <tr key={`${row.state}-${row.risk}`} className="border-b border-border/40 transition-colors last:border-b-0 hover:bg-primary/5">
-                    <td className="px-3 py-4">
-                      <span
-                        className={cn(
-                          "inline-block border bg-background/40 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
-                          getStateClass(row.state),
-                        )}
-                      >
-                        {row.state}
-                      </span>
-                    </td>
-                    <td className="px-3 py-4 font-mono text-[10px] text-foreground">{row.source}</td>
-                    <td className="px-3 py-4 text-xs leading-relaxed text-foreground">{row.risk}</td>
-                    <td className="px-3 py-4 text-xs text-foreground/70">{row.owner}</td>
-                    <td className="px-3 py-4 text-xs text-foreground/70">{row.materiality}</td>
-                    <td className="px-3 py-4 text-xs text-foreground/70">{row.disposition}</td>
-                    <td className="px-3 py-4 text-xs text-foreground/70">{row.impact}</td>
-                    <td className="px-3 py-4 text-xs text-foreground/70">{row.review}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div role="region" aria-label="ParkProof decision file conceptual example">
+            <ul>
+              {DECISION_ROWS.map((row) => (
+                <li
+                  key={`${row.state}-${row.claim}`}
+                  className="flex items-start justify-between gap-3 border-b border-border/40 py-4 last:border-b-0"
+                >
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium leading-snug text-foreground">
+                      {row.claim}
+                    </p>
+                    <p className="mt-1 font-mono text-[10px] text-muted">
+                      {row.source}
+                    </p>
+                  </div>
+                  <span
+                    className={cn(
+                      "shrink-0 border bg-background/40 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
+                      getStateClass(row.state),
+                    )}
+                  >
+                    {row.state}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </TelemetryBox>
+
+        {/* Posture labels line */}
+        <p className="mt-5 text-sm leading-relaxed text-foreground/75">
+          Advance, Retrade, Pause, and Walk are evidence-readiness labels. They are not recommendations, approvals, or advice.
+        </p>
 
         {/* Row 3 — four truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -198,26 +151,10 @@ export default function ParkProof() {
           ))}
         </div>
 
-        {/* Row 4 — guardrails, side by side */}
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <TelemetryBox status="alert" glass="light" className="p-5">
-            <TerminalLabel variant="alert" className="mb-3 block">
-              Not Binary
-            </TerminalLabel>
-            <p className="text-sm leading-relaxed text-foreground/75">
-              An uploaded document or completed inspection is not automatically a resolved risk. The record should preserve evidence, scope, date, limitations, reviewer judgment, and any remaining disposition.
-            </p>
-          </TelemetryBox>
-
-          <TelemetryBox glass="heavy" className="border-primary/40 p-5">
-            <TerminalLabel className="mb-3 block">
-              Scope Boundary
-            </TerminalLabel>
-            <p className="text-sm leading-relaxed text-foreground/75">
-              ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
-            </p>
-          </TelemetryBox>
-        </div>
+        {/* Disclaimer */}
+        <p className="mt-8 text-sm leading-relaxed text-foreground/60">
+          ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
+        </p>
       </Container>
     </Section>
   )
