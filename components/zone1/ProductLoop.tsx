@@ -7,7 +7,6 @@ import {
   TelemetryBox,
   TerminalLabel,
 } from "@/components/ui/primitives"
-import { cn } from "@/lib/utils"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
 
 const MODULES = [
@@ -32,15 +31,6 @@ const MODULES = [
     tagline: "What either stream means before you commit capital.",
     body: "Acquire organizes what either stream means before you make the decision. The diligence register, evidence states, capacity gates, and deterministic underwriting feed the ParkProof decision file. CrosstownOS organizes the record. You own the decision.",
   },
-] as const
-
-const EVIDENCE_STATES = [
-  { label: "Verified", className: "border-success/60 text-success" },
-  { label: "Broker-reported", className: "border-accent/60 text-accent" },
-  { label: "Missing evidence", className: "border-critical/60 text-critical" },
-  { label: "Underwriting assumption", className: "border-primary/60 text-primary" },
-  { label: "Calculated", className: "border-accent/60 text-accent" },
-  { label: "Unresolved", className: "border-critical/60 text-critical" },
 ] as const
 
 export default function ProductLoop() {
@@ -95,25 +85,6 @@ export default function ProductLoop() {
               </p>
             </TelemetryBox>
           ))}
-        </div>
-
-        <div className="mt-10 border border-border/60 bg-card/40 p-6">
-          <TerminalLabel className="mb-4 block text-muted">
-            Evidence States
-          </TerminalLabel>
-          <ul className="flex flex-wrap gap-2" aria-label="Evidence state labels">
-            {EVIDENCE_STATES.map((state) => (
-              <li
-                key={state.label}
-                className={cn(
-                  "border bg-background/40 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.16em]",
-                  state.className,
-                )}
-              >
-                {state.label}
-              </li>
-            ))}
-          </ul>
         </div>
       </Container>
     </Section>
