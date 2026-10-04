@@ -68,7 +68,7 @@ export default function ParkProof() {
     <Section
       id="parkproof"
       aria-labelledby="parkproof-heading"
-      className="bg-background/80"
+      className="theme-cream"
     >
       <Container>
         {/* Row 1 — header: headline left, body right */}
@@ -93,7 +93,7 @@ export default function ParkProof() {
         </div>
 
         {/* Row 2 — conceptual decision file, stacked rows */}
-        <TelemetryBox glass="heavy" className="border-primary/40 p-5 sm:p-6">
+        <TelemetryBox glass="heavy" className="paper border-primary/40 p-5 sm:p-6">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
             <TerminalLabel className="block">
               ParkProof / Decision File

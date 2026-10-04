@@ -647,7 +647,7 @@ export default function Chapter5() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-            className="theme-snow flex max-h-[90vh] w-full max-w-2xl flex-col border border-border bg-background shadow-2xl"
+            className="theme-cream flex max-h-[90vh] w-full max-w-2xl flex-col border border-border bg-background shadow-2xl"
           >
             <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-6">
               <div>

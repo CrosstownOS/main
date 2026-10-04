@@ -54,7 +54,7 @@ export default function CatalogPage() {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             All 35 tools, in journey order.
@@ -65,8 +65,11 @@ export default function CatalogPage() {
             line tells you the next one. One email unlocks every download. Tap a
             download and take it to the truck.
           </p>
+        </div>
 
-          <div className="mt-14 space-y-14">
+        <div className="theme-cream relative z-10 mt-14 pb-24 pt-14">
+          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="space-y-14">
             {PARTS.map((part) => {
               const tools = TOOLS.filter((t) => t.part === part.id)
               return (
@@ -162,6 +165,7 @@ export default function CatalogPage() {
             >
               Bring a live deal
             </a>
+          </div>
           </div>
         </div>
       </main>

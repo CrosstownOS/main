@@ -34,7 +34,7 @@ export default function FieldNotes() {
   if (!posts || posts.length === 0) return null
 
   return (
-    <Section id="field-notes" className="bg-background/70">
+    <Section id="field-notes" className="theme-cream">
       <Container>
         <TerminalLabel>Field notes</TerminalLabel>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-6">

@@ -38,7 +38,7 @@ export default function ProductLoop() {
     <Section
       id="product"
       aria-labelledby="product-heading"
-      className="bg-background/75"
+      className="theme-cream"
     >
       <Container>
         <div className="mb-12 max-w-3xl">

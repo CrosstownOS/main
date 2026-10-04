@@ -178,7 +178,7 @@ export default function DealDeskPage() {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
           <p className="mono-label mb-4">Founding offer, November 2026</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
@@ -202,9 +202,12 @@ export default function DealDeskPage() {
               See how the Deal Desk works
             </a>
           </div>
+        </div>
 
+        <div className="theme-cream relative z-10 mt-16 pb-24">
+          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
           {/* The problem */}
-          <section aria-labelledby="deal-desk-problem" className="mt-20">
+          <section aria-labelledby="deal-desk-problem" className="pt-20">
             <h2 id="deal-desk-problem" className="serif-display text-2xl tracking-tight sm:text-3xl">
               The problem, briefly.
             </h2>
@@ -443,6 +446,7 @@ export default function DealDeskPage() {
               <DealDeskForm />
             </div>
           </section>
+          </div>
         </div>
       </main>
     </>

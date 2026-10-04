@@ -133,7 +133,7 @@ export default function PlatformLinks() {
     <Section
       id="paths"
       aria-labelledby="paths-heading"
-      className="bg-background/75"
+      className="theme-cream"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
@@ -304,7 +304,7 @@ export function CompassCriteriaDrawer() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="compass-drawer-title"
-        className="theme-snow fixed inset-y-0 right-0 z-[80] flex w-full max-w-3xl flex-col border-l border-border bg-background shadow-2xl"
+        className="theme-cream fixed inset-y-0 right-0 z-[80] flex w-full max-w-3xl flex-col border-l border-border bg-background shadow-2xl"
       >
         <div className="flex items-center justify-between border-b border-border px-5 py-4 sm:px-6">
           <div>

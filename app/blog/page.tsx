@@ -51,7 +51,7 @@ export default function BlogIndex() {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pt-32 sm:px-6 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Know what is true before you buy.
@@ -61,8 +61,11 @@ export default function BlogIndex() {
             Diligence notes, underwriting discipline, and field observations from
             the deals we study.
           </p>
+        </div>
 
-          <div className="mt-12 space-y-2">
+        <div className="theme-cream relative z-10 mt-14 pb-24 pt-12">
+          <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="space-y-2">
             {posts.length === 0 && (
               <p className="border border-border bg-card p-8 text-sm text-muted">
                 The first field note is on its way. Check back soon.
@@ -100,6 +103,7 @@ export default function BlogIndex() {
                 )}
               </Link>
             ))}
+          </div>
           </div>
         </div>
       </main>

@@ -17,7 +17,7 @@ export default function CalBooking({ url, title }: CalBookingProps) {
         Pick a time that works. You will get a calendar confirmation with the
         call details.
       </p>
-      <div className="mt-4 border border-border bg-background">
+      <div className="paper mt-4 border border-border">
         <iframe
           src={`${url}?embed=true`}
           title={title}

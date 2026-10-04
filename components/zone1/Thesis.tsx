@@ -30,7 +30,7 @@ export default function Thesis() {
     <Section
       id="thesis"
       aria-labelledby="thesis-heading"
-      className="relative overflow-hidden bg-background/70"
+      className="theme-cream relative overflow-hidden"
     >
       {/* Ambient primary glow — decorative only */}
       <div

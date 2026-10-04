@@ -194,7 +194,7 @@ export default async function ResourcesPage({
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Acquisition Signals</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             What is happening with your deal right now?
@@ -204,8 +204,11 @@ export default async function ResourcesPage({
             the three that come next, in order. No guessing, no wall of
             options.
           </p>
+        </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="theme-cream relative z-10 mt-14 pb-24 pt-12">
+          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {SITUATIONS.map((s, i) => {
               const isActive = active?.id === s.id
               return (
@@ -317,6 +320,7 @@ export default async function ResourcesPage({
             >
               Bring a live deal
             </a>
+          </div>
           </div>
         </div>
       </main>

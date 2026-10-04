@@ -95,11 +95,12 @@ export default async function BlogPost({ params }: PageProps) {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <article className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <article className="relative z-10 pt-32">
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
+          <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"
             className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary hover:underline"
@@ -128,8 +129,11 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             )}
           </div>
+          </div>
 
-          <div className="prose-blog mt-10">
+          <div className="theme-cream mt-14 pb-24 pt-12">
+            <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="prose-blog">
             <ReactMarkdown
               components={{
                 h2: ({ children }) => (
@@ -244,6 +248,8 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             </div>
           )}
+            </div>
+          </div>
         </article>
       </main>
     </>

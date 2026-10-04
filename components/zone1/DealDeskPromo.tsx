@@ -14,10 +14,10 @@ export default function DealDeskPromo() {
     <Section
       id="deal-desk"
       aria-labelledby="deal-desk-promo-heading"
-      className="bg-primary/5"
+      className="theme-cream"
     >
       <Container>
-        <TelemetryBox glass="heavy" className="border-primary/50 p-6 sm:p-8 lg:p-10">
+        <TelemetryBox glass="heavy" className="paper border-primary/50 p-6 text-foreground sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <TerminalLabel className="mb-5 block">
               Founding offer, November 2026
@@ -50,7 +50,7 @@ export default function DealDeskPromo() {
               </Link>
               <Link
                 href="/deal-desk#terms"
-                className="border border-border px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="border border-primary/50 px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/70 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the terms
               </Link>

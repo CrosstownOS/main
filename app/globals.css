@@ -8,6 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-cream: var(--cream);
   --color-border: var(--border);
   --color-primary: var(--primary);
   --color-muted: var(--muted);
@@ -27,6 +28,7 @@
   --background: oklch(0.06 0.005 80);
   --foreground: oklch(0.94 0.01 80);
   --card: oklch(0.11 0.01 80);
+  --cream: #f6f1e7;
 
   /* ── Primary: lit royal, sampled from the logo arcs (#3A86F2) ── */
   --primary: oklch(0.628 0.179 258);
@@ -145,6 +147,33 @@
   --border: oklch(0.87 0.008 85);
   /* Deep arc royal (#0B589B) — reads on white where the lit royal would wash out */
   --primary: oklch(0.456 0.128 252);
+}
+
+/* ── WARM CREAM: light token scope for working surfaces (sections, bands, modals) ── */
+.theme-cream {
+  --background: #f6f1e7;
+  --foreground: #292219;
+  --card: #fdfaf2;
+  --muted: #6a5f4e;
+  --border: #ddd1b9;
+  /* Deep arc royal — the lit royal washes out on cream */
+  --primary: oklch(0.456 0.128 252);
+  /* Copper / green / brick darkened a step so they read on cream */
+  --accent: oklch(0.5 0.13 55);
+  --accent-secondary: oklch(0.46 0.13 55);
+  --success: oklch(0.47 0.12 148);
+  --critical: oklch(0.5 0.16 25);
+  --status-live: oklch(0.456 0.128 252);
+  --status-alert: oklch(0.5 0.13 55);
+  --status-dormant: oklch(0.45 0.04 250);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* ── PAPER: the decision-file card on cream, reads like a printed sheet ── */
+.paper {
+  background-color: #fffdf8;
+  box-shadow: 0 18px 44px -26px rgb(41 34 25 / 0.4);
 }
 
 /* ── ROYAL GLOW SCROLLBAR ── */

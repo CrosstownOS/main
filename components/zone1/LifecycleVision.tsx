@@ -26,7 +26,7 @@ export default function LifecycleVision() {
     <Section
       id="lifecycle-vision"
       aria-labelledby="lifecycle-vision-heading"
-      className="bg-background/70"
+      className="theme-cream"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
@@ -66,20 +66,20 @@ export default function LifecycleVision() {
                     "flex h-full flex-col p-5",
                     isNovember
                       ? ""
-                      : "border-dashed border-border/60 bg-background/30 opacity-80",
+                      : "border-dashed border-border bg-card",
                   )}
                   style={
                     isNovember
                       ? {
-                          backgroundColor: `${module.color}1F`,
-                          borderColor: `${module.color}66`,
+                          backgroundColor: `${module.color}29`,
+                          borderColor: `${module.color}80`,
                           borderTop: `3px solid ${module.color}`,
                         }
                       : { borderTop: `2px solid ${module.color}` }
                   }
                 >
                   <div className="mb-6 flex items-center justify-between gap-3">
-                    <span className="font-mono text-[10px] tracking-[0.22em] text-muted/60">
+                    <span className="font-mono text-[10px] tracking-[0.22em] text-muted">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span
@@ -104,7 +104,7 @@ export default function LifecycleVision() {
                       level={3}
                       className={cn(
                         "text-xl leading-snug",
-                        isNovember ? "text-foreground" : "text-muted",
+                        isNovember ? "text-foreground" : "text-foreground/85",
                       )}
                     >
                       {module.name}
@@ -116,7 +116,7 @@ export default function LifecycleVision() {
                   <p
                     className={cn(
                       "mt-3 text-sm leading-relaxed",
-                      isNovember ? "text-foreground/85" : "text-foreground/70",
+                      isNovember ? "text-foreground/90" : "text-foreground/75",
                     )}
                   >
                     {module.blurb}
