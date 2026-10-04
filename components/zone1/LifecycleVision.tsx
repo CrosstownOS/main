@@ -65,10 +65,18 @@ export default function LifecycleVision() {
                   className={cn(
                     "flex h-full flex-col p-5",
                     isNovember
-                      ? "bg-primary/5"
+                      ? ""
                       : "border-dashed border-border/60 bg-background/30 opacity-80",
                   )}
-                  style={{ borderTop: `2px solid ${module.color}` }}
+                  style={
+                    isNovember
+                      ? {
+                          backgroundColor: `${module.color}1F`,
+                          borderColor: `${module.color}66`,
+                          borderTop: `3px solid ${module.color}`,
+                        }
+                      : { borderTop: `2px solid ${module.color}` }
+                  }
                 >
                   <div className="mb-6 flex items-center justify-between gap-3">
                     <span className="font-mono text-[10px] tracking-[0.22em] text-muted/60">
