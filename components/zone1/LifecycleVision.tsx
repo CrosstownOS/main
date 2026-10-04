@@ -21,6 +21,18 @@ const LIFECYCLE = [
   { name: "Exit", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#C9A227", blurb: "Hold, refinance, recapitalize, or sell with the full record intact." },
 ] as const
 
+/* Pick the readable text color (warm dark vs white) for a solid module-color
+   band by relative luminance, so light modules (Source, Field, Operate, Exit)
+   take dark text and the deep modules take white. */
+function bandTextColor(hex: string): string {
+  const c = hex.replace("#", "")
+  const [r, g, b] = [0, 2, 4]
+    .map((i) => parseInt(c.slice(i, i + 2), 16) / 255)
+    .map((v) => (v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)))
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+  return luminance > 0.22 ? "#292219" : "#ffffff"
+}
+
 export default function LifecycleVision() {
   return (
     <Section
@@ -56,68 +68,86 @@ export default function LifecycleVision() {
         >
           {LIFECYCLE.map((module, index) => {
             const isNovember = module.state === "november"
+            const bandText = bandTextColor(module.color)
 
             return (
               <li key={module.name}>
                 <TelemetryBox
                   glass={isNovember ? "light" : "none"}
                   className={cn(
-                    "theme-cream paper flex h-full flex-col p-5",
+                    "theme-cream paper relative flex h-full flex-col overflow-hidden",
                     isNovember ? "" : "border-dashed",
                   )}
-                  style={
-                    isNovember
-                      ? {
-                          backgroundColor: `color-mix(in srgb, ${module.color} 16%, #fbf4e2)`,
-                          borderColor: `${module.color}80`,
-                          borderTop: `3px solid ${module.color}`,
-                        }
-                      : { borderTop: `2px solid ${module.color}` }
-                  }
+                  style={{
+                    backgroundColor: `color-mix(in srgb, ${module.color} ${isNovember ? 30 : 18}%, #fbf4e2)`,
+                    borderColor: isNovember
+                      ? `${module.color}B3`
+                      : `${module.color}80`,
+                  }}
                 >
-                  <div className="mb-6 flex items-center justify-between gap-3">
-                    <span className="font-mono text-[10px] tracking-[0.22em] text-muted">
+                  {/* Color spine down the left edge */}
+                  <span
+                    className="absolute inset-y-0 left-0 w-[6px]"
+                    style={{ backgroundColor: module.color }}
+                    aria-hidden="true"
+                  />
+                  {/* Solid color header band: number + status chip */}
+                  <div
+                    className="flex items-center justify-between gap-3 px-5 py-2.5 pl-6"
+                    style={{ backgroundColor: module.color, color: bandText }}
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.22em]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className={cn(
-                        "border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.18em]",
+                      className="border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.18em]"
+                      style={
                         isNovember
-                          ? "border-primary/70 bg-primary/10 text-primary"
-                          : "border-border/60 text-muted",
-                      )}
+                          ? {
+                              backgroundColor: "#fbf4e2",
+                              borderColor: "#fbf4e2",
+                              color: "#292219",
+                            }
+                          : {
+                              backgroundColor: "transparent",
+                              borderColor: `${bandText}99`,
+                              color: bandText,
+                            }
+                      }
                     >
                       {module.stateLabel}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="h-2.5 w-2.5 flex-none"
-                      style={{ backgroundColor: module.color }}
-                      aria-hidden="true"
-                    />
-                    <Heading
-                      level={3}
+                  <div className="flex flex-1 flex-col p-5 pl-6">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="h-2.5 w-2.5 flex-none"
+                        style={{ backgroundColor: module.color }}
+                        aria-hidden="true"
+                      />
+                      <Heading
+                        level={3}
+                        className={cn(
+                          "text-xl leading-snug",
+                          isNovember ? "text-foreground" : "text-foreground/85",
+                        )}
+                      >
+                        {module.name}
+                      </Heading>
+                    </div>
+                    <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+                      {module.family}
+                    </p>
+                    <p
                       className={cn(
-                        "text-xl leading-snug",
-                        isNovember ? "text-foreground" : "text-foreground/85",
+                        "mt-3 text-sm leading-relaxed",
+                        isNovember ? "text-foreground/90" : "text-foreground/75",
                       )}
                     >
-                      {module.name}
-                    </Heading>
+                      {module.blurb}
+                    </p>
                   </div>
-                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                    {module.family}
-                  </p>
-                  <p
-                    className={cn(
-                      "mt-3 text-sm leading-relaxed",
-                      isNovember ? "text-foreground/90" : "text-foreground/75",
-                    )}
-                  >
-                    {module.blurb}
-                  </p>
                 </TelemetryBox>
               </li>
             )
