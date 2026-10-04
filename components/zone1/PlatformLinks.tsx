@@ -59,11 +59,11 @@ const CONVERSION_PATHS: ConversionPath[] = [
   },
   {
     code: "02",
-    name: "Founding Network",
+    name: "Field Network",
     question: "Want to follow the build from the inside?",
     description:
       "For operators, owners, and industry people who want early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
-    cta: "Join the Founding Network",
+    cta: "Join the Field Network",
     action: "founding_circle",
     icon: Users,
   },

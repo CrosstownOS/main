@@ -124,10 +124,10 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
   },
   founding_circle: {
     type: "founding_circle",
-    eyebrow: "Founding Network",
+    eyebrow: "Field Network",
     title: "Request an Invitation",
     intro:
-      "The Founding Network is for operators, owners, and industry people who want to follow the build from the inside: early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
+      "The Field Network is for operators, owners, and industry people who want to follow the build from the inside: early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
     microcopy: [
       "Built in the open, with the people who know the assets.",
       "We review each request personally. No investor information is requested or required.",

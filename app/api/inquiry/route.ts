@@ -172,15 +172,15 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
   founding_circle: {
     type: 'founding_circle',
     routingTag: 'FOUNDING_CIRCLE',
-    title: 'New Founding Circle Request',
-    badge: 'Founding Circle',
-    sourceForm: 'Founding Circle invitation form',
+    title: 'New Field Network Request',
+    badge: 'Field Network',
+    sourceForm: 'Field Network invitation form',
     successMessage:
-      'Thank you. Crosstown reviews each Founding Circle request personally. If there is a fit, we will follow up with an invitation and next steps.',
+      'Thank you. Crosstown reviews each Field Network request personally. If there is a fit, we will follow up with an invitation and next steps.',
     failureMessage:
-      'We could not submit your Founding Circle request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Founding Circle Request: Crosstown',
-    confirmationTitle: 'Founding Circle request received.',
+      'We could not submit your Field Network request. Please try again or contact Crosstown directly.',
+    confirmationSubject: 'We Received Your Field Network Request: Crosstown',
+    confirmationTitle: 'Field Network request received.',
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
@@ -202,9 +202,9 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       },
     ],
     subject: (data) =>
-      `New Founding Circle Request: ${data.company || data.name}`,
+      `New Field Network Request: ${data.company || data.name}`,
     subtitle: (data) =>
-      `${data.name} requested a Founding Circle invitation.`,
+      `${data.name} requested a Field Network invitation.`,
   },
   referral_network: {
     type: 'referral_network',
@@ -978,7 +978,7 @@ export async function POST(request: NextRequest) {
 
     // Best-effort: land the contact in the matching Resend segment.
     // Never blocks the submission — the notification emails above are the
-    // critical path. Design Partner, Field Network (Founding Circle),
+    // critical path. Design Partner, Field Network,
     // Referral Alliance, and Founding Deal Desk share one segment
     // (free-tier limit).
     const segmentForType: Record<string, SegmentKey | null> = {

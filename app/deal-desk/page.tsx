@@ -124,7 +124,7 @@ const FOR_ITEMS = [
 
 const NOT_FOR_ITEMS = [
   "Brokers, sellers, and intermediaries. The Deal Desk serves the buyer's side of the table only.",
-  "The curious with no live deal. The free resource library and the Founding Network are the right doors for now.",
+  "The curious with no live deal. The free resource library and the Field Network are the right doors for now.",
   "Buyers who want someone else to run diligence for them. The workflow guides; the buyer builds the record.",
   "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
 ] as const
@@ -168,7 +168,7 @@ const FAQ = [
   },
   {
     q: "Why only five buyers?",
-    a: "Because every engagement is worked personally: every output is reviewed before you see it, and the weekly sessions run in a fixed format. Five is the number the calendar can hold without the quality dropping. When seats are full, the Founding Network is the waitlist for the next window.",
+    a: "Because every engagement is worked personally: every output is reviewed before you see it, and the weekly sessions run in a fixed format. Five is the number the calendar can hold without the quality dropping. When seats are full, the Field Network is the waitlist for the next window.",
   },
 ] as const
 
@@ -388,7 +388,7 @@ export default function DealDeskPage() {
               <Link href="/resources" className="text-primary underline underline-offset-2 hover:no-underline">
                 Acquisition Signal library
               </Link>
-              , join the email list in the footer below, or join the Founding
+              , join the email list in the footer below, or join the Field
               Network for first word when the next seats open. Brokers, lenders,
               and advisers: see the{" "}
               <Link href="/#paths" className="text-primary underline underline-offset-2 hover:no-underline">

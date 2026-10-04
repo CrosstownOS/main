@@ -63,7 +63,7 @@ export default function Home() {
           />
           <DealDeskPromo />
 
-          {/* Accessible modal/drawer form layer for Founding Network, Referral Alliance, and General. */}
+          {/* Accessible modal/drawer form layer for Field Network, Referral Alliance, and General. */}
           <Chapter5 />
 
           <EngagementPaths />
