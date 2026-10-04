@@ -100,7 +100,7 @@ export default async function BlogPost({ params }: PageProps) {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
-          <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto min-h-[calc(32rem-8rem)] w-full max-w-3xl px-4 sm:min-h-[calc(36rem-8rem)] sm:px-6 lg:px-8">
           <Link
             href="/blog"
             className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary hover:underline"

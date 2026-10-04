@@ -194,7 +194,7 @@ export default async function ResourcesPage({
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto min-h-[32rem] w-full max-w-5xl px-4 pt-28 sm:min-h-[36rem] sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Acquisition Signals</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             What is happening with your deal right now?
