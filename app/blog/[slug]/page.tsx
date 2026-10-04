@@ -95,7 +95,8 @@ export default async function BlogPost({ params }: PageProps) {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <article className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+        <article className="relative z-10">
+          <div className="mx-auto w-full max-w-3xl px-4 pt-32 sm:px-6 lg:px-8">
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -128,7 +129,10 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             )}
           </div>
-          <div className="theme-cream paper mt-10 p-6 sm:p-8">
+          </div>
+          <div className="theme-cream mt-10 bg-background">
+            <div className="mx-auto w-full max-w-3xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
+          <div className="paper p-6 sm:p-8">
             <div className="prose-blog">
             <ReactMarkdown
               components={{
@@ -244,6 +248,8 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             </div>
           )}
+          </div>
+            </div>
           </div>
         </article>
       </main>
