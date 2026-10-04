@@ -186,8 +186,7 @@ export default function DealDeskPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Work your real acquisition inside CrosstownOS, from
-            intake to a documented decision posture. One active deal, through
-            your decision or 90 days.
+            intake to a documented decision posture.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
