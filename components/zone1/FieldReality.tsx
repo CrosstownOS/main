@@ -58,11 +58,8 @@ export default function FieldReality() {
               level={2}
               className="mb-6 max-w-2xl text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl"
             >
-              The broker package is not the decision.
+              The package is not the decision.
             </Heading>
-            <p className="max-w-3xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-              A broker package can be a useful beginning. It is not proof. Reported occupancy is not always paying occupancy, and T12 NOI is not automatically supported by collections, payroll, or utility reimbursements. A utility system that appears functional may still carry permit, maintenance, or deferred-capex exposure. The costliest surprises hide in the gap between what was reported and what can actually be verified.
-            </p>
           </div>
         </div>
 
