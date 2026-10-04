@@ -10,15 +10,15 @@ import {
 import { cn } from "@/lib/utils"
 
 const LIFECYCLE = [
-  { name: "Source", family: "Know it", state: "november", stateLabel: "Opens November 2026", color: "#4A90D9" },
-  { name: "Acquire", family: "Know it", state: "november", stateLabel: "Opens November 2026", color: "#00468B" },
-  { name: "Intelligence", family: "Know it", state: "direction", stateLabel: "Direction", color: "#1F2A5C" },
-  { name: "Field", family: "Take it", state: "november", stateLabel: "Opens November 2026", color: "#D97706" },
-  { name: "Close", family: "Take it", state: "direction", stateLabel: "Direction", color: "#C1272D" },
-  { name: "Launch", family: "Take it", state: "direction", stateLabel: "Direction", color: "#8A4B16" },
-  { name: "Operate", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#1FAA6B" },
-  { name: "Capital", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#045E41" },
-  { name: "Exit", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#C9A227" },
+  { name: "Source", family: "Know it", state: "november", stateLabel: "Opens November 2026", color: "#4A90D9", blurb: "Finds the park in public pages, listings, and records, and keeps where every fact came from." },
+  { name: "Acquire", family: "Know it", state: "november", stateLabel: "Opens November 2026", color: "#00468B", blurb: "The register, gates, and underwriting that show what is true before capital is committed." },
+  { name: "Intelligence", family: "Know it", state: "direction", stateLabel: "Direction", color: "#1F2A5C", blurb: "Patterns across your deals and outcomes, carried into the next acquisition decision." },
+  { name: "Field", family: "Take it", state: "november", stateLabel: "Opens November 2026", color: "#D97706", blurb: "Photos, notes, and observations from the site walk, tied to the deal they belong to." },
+  { name: "Close", family: "Take it", state: "direction", stateLabel: "Direction", color: "#C1272D", blurb: "Closing conditions, capital requirements, and accepted risks, documented and ready." },
+  { name: "Launch", family: "Take it", state: "direction", stateLabel: "Direction", color: "#8A4B16", blurb: "The first 100 days under new ownership, from closing to stabilization." },
+  { name: "Operate", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#1FAA6B", blurb: "Running the park day to day against the record and thesis you bought it on." },
+  { name: "Capital", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#045E41", blurb: "The money behind the asset, tracked against its obligations and return expectations." },
+  { name: "Exit", family: "Hold it", state: "direction", stateLabel: "Direction", color: "#C9A227", blurb: "Hold, refinance, recapitalize, or sell with the full record intact." },
 ] as const
 
 export default function LifecycleVision() {
@@ -112,6 +112,14 @@ export default function LifecycleVision() {
                   </div>
                   <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
                     {module.family}
+                  </p>
+                  <p
+                    className={cn(
+                      "mt-3 text-sm leading-relaxed",
+                      isNovember ? "text-foreground/75" : "text-muted",
+                    )}
+                  >
+                    {module.blurb}
                   </p>
                 </TelemetryBox>
               </li>
