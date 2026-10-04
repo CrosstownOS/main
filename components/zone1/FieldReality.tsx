@@ -60,6 +60,15 @@ export default function FieldReality() {
             >
               The package is not the decision.
             </Heading>
+            <p className="max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
+              A broker package can be a useful beginning. It is not proof.
+              Reported occupancy is not always paying occupancy, and T12 NOI is
+              not automatically supported by collections, payroll, or utility
+              reimbursements. A utility system that appears functional may
+              still carry permit, maintenance, capacity, or deferred-capital
+              exposure. The costliest surprises sit in the gap between what was
+              reported and what can actually be verified.
+            </p>
           </div>
         </div>
 
