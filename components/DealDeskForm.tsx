@@ -3,6 +3,7 @@
 import { useRef, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import CalBooking from "@/components/CalBooking"
 
 // OWNER SWITCH: set to true only when /privacy has approved attorney text
 // and is live. Until then the privacy consent line stays hidden.
@@ -165,6 +166,11 @@ export default function DealDeskForm() {
 
   return (
     <>
+      <CalBooking
+        url="https://cal.com/crosstownos/deal-desk-fit-call"
+        title="Book a Founding Deal Desk fit call"
+      />
+
       {status === "error" && statusMessage ? (
         <div
           ref={alertRef}

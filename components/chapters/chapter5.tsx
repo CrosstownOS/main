@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { X } from "lucide-react"
 import { TerminalLabel } from "@/components/ui/primitives"
+import CalBooking from "@/components/CalBooking"
 import { OPEN_DESIGN_PARTNER_EVENT } from "@/components/ui/navigation"
 import {
   OPEN_BASECAMP_EVENT,
@@ -42,6 +43,8 @@ type FormConfig = {
   microcopy: string[]
   submitLabel: string
   fields: FieldConfig[]
+  calUrl?: string
+  calTitle?: string
 }
 
 const FOCUSABLE_SELECTOR =
@@ -65,6 +68,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Submitting this form does not create an advisory, agency, investment, financing, brokerage, or transaction relationship.",
     ],
     submitLabel: "Request Access",
+    calUrl: "https://cal.com/crosstownos/design-partner-fit-review",
+    calTitle: "Book a Design Partner fit review",
     fields: [
       { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
       { key: "company", label: "Company", input: "text", required: true, autoComplete: "organization", half: true },
@@ -128,6 +133,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "We review each request personally. No investor information is requested or required.",
     ],
     submitLabel: "Request an Invitation",
+    calUrl: "https://cal.com/crosstownos/field-network-intro",
+    calTitle: "Book a Field Network intro call",
     fields: [
       { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
       { key: "email", label: "Email", input: "email", required: true, autoComplete: "email", half: true },
@@ -173,6 +180,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Submitting this form does not create an agency, brokerage, or partnership relationship.",
     ],
     submitLabel: "Start a Partner Conversation",
+    calUrl: "https://cal.com/crosstownos/referral-alliance-intro",
+    calTitle: "Book a Referral Alliance intro call",
     fields: [
       { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
       { key: "email", label: "Email", input: "email", required: true, autoComplete: "email", half: true },
@@ -218,6 +227,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Submitting this form does not create an advisory, agency, investment, financing, brokerage, or transaction relationship.",
     ],
     submitLabel: "Start the Conversation",
+    calUrl: "https://cal.com/crosstownos/conversation",
+    calTitle: "Book a conversation",
     fields: [
       { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
       { key: "email", label: "Email", input: "email", required: true, autoComplete: "email", half: true },
@@ -685,6 +696,10 @@ export default function Chapter5() {
                   <p className="mb-6 text-sm leading-relaxed text-muted sm:text-base">
                     {config.intro}
                   </p>
+
+                  {config.calUrl ? (
+                    <CalBooking url={config.calUrl} title={config.calTitle ?? "Book a call"} />
+                  ) : null}
 
                   {status === "error" && statusMessage ? (
                     <div
