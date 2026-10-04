@@ -178,7 +178,7 @@ export default function DealDeskPage() {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto min-h-[32rem] w-full max-w-5xl px-4 pt-28 sm:min-h-[36rem] sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
           <p className="mono-label mb-4">Founding offer, November 2026</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
@@ -202,18 +202,15 @@ export default function DealDeskPage() {
               See how the Deal Desk works
             </a>
           </div>
-        </div>
 
-        <div className="theme-cream relative z-10 mt-16 pb-24">
-          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
           {/* The problem */}
-          <section aria-labelledby="deal-desk-problem" className="pt-20">
+          <section aria-labelledby="deal-desk-problem" className="mt-20">
             <h2 id="deal-desk-problem" className="serif-display text-2xl tracking-tight sm:text-3xl">
               The problem, briefly.
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {PAINS.map((pain) => (
-                <div key={pain.title} className="border border-border bg-card p-6">
+                <div key={pain.title} className="theme-cream border border-border bg-card p-6">
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {pain.title}
                   </h3>
@@ -230,7 +227,7 @@ export default function DealDeskPage() {
             </h2>
             <ul className="mt-6 grid gap-4 sm:grid-cols-2">
               {SCOPE_ITEMS.map((item) => (
-                <li key={item} className="flex gap-3 border border-border bg-card p-5 text-sm leading-relaxed text-foreground/85">
+                <li key={item} className="theme-cream flex gap-3 border border-border bg-card p-5 text-sm leading-relaxed text-foreground/85">
                   <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
@@ -254,7 +251,7 @@ export default function DealDeskPage() {
             </h2>
             <ol className="mt-6 space-y-4">
               {HOW_IT_WORKS.map((step, index) => (
-                <li key={step.title} className="flex gap-4 border border-border bg-card p-5 sm:p-6">
+                <li key={step.title} className="theme-cream flex gap-4 border border-border bg-card p-5 sm:p-6">
                   <span className="serif-display flex-none text-2xl text-primary">
                     {index + 1}
                   </span>
@@ -282,7 +279,7 @@ export default function DealDeskPage() {
               {NOVEMBER_PRODUCT.map((module) => (
                 <div
                   key={module.name}
-                  className="border border-border bg-card p-6"
+                  className="theme-cream border border-border bg-card p-6"
                   style={{ borderTop: `2px solid ${module.color}` }}
                 >
                   <div className="flex items-center gap-2">
@@ -323,7 +320,7 @@ export default function DealDeskPage() {
             <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
               The terms, stated plainly.
             </h2>
-            <div className="mt-6 border border-primary/40 bg-card p-6 sm:p-8">
+            <div className="theme-cream mt-6 border border-primary/40 bg-card p-6 sm:p-8">
               <p className="serif-display text-3xl tracking-tight text-foreground">
                 $2,500, paid at acceptance.
               </p>
@@ -359,7 +356,7 @@ export default function DealDeskPage() {
           {/* Who it is for / not for */}
           <section aria-labelledby="deal-desk-who" className="mt-20">
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="border border-border bg-card p-6 sm:p-8">
+              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
                 <h2 id="deal-desk-who" className="serif-display text-2xl tracking-tight">
                   Who the Deal Desk is for.
                 </h2>
@@ -372,7 +369,7 @@ export default function DealDeskPage() {
                   ))}
                 </ul>
               </div>
-              <div className="border border-border bg-card p-6 sm:p-8">
+              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
                 <h2 className="serif-display text-2xl tracking-tight">
                   Who it is not for.
                 </h2>
@@ -410,7 +407,7 @@ export default function DealDeskPage() {
               {FAQ.map((item, index) => (
                 <details
                   key={item.q}
-                  className="group border border-border bg-card transition-colors hover:border-primary/40"
+                  className="theme-cream group border border-border bg-card transition-colors hover:border-primary/40"
                 >
                   <summary className="flex cursor-pointer list-none items-center p-6 font-sans text-base font-bold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-primary [&::-webkit-details-marker]:hidden">
                     <span className="mr-3 font-mono text-[10px] tracking-[0.2em] text-primary">
@@ -437,16 +434,15 @@ export default function DealDeskPage() {
             <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Bring a live deal.
             </h2>
-            <p className="mt-4 max-w-3xl border border-border/60 bg-card/50 p-4 text-sm leading-relaxed text-muted">
+            <p className="theme-cream paper mt-4 max-w-3xl border border-border/60 bg-card/50 p-4 text-sm leading-relaxed text-muted">
               Everything you share here is treated as confidential and is never
               used in content, examples, or conversation without your written
               permission.
             </p>
-            <div className="mt-6 border border-border bg-card p-6 sm:p-8">
+            <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
               <DealDeskForm />
             </div>
           </section>
-          </div>
         </div>
       </main>
     </>

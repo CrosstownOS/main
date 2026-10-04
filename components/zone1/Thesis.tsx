@@ -30,7 +30,7 @@ export default function Thesis() {
     <Section
       id="thesis"
       aria-labelledby="thesis-heading"
-      className="theme-cream relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Ambient primary glow — decorative only */}
       <div
@@ -58,7 +58,7 @@ export default function Thesis() {
               Operating businesses disguised as real estate often come with the evidence scattered across broker packages, spreadsheets, and memory. Crosstown makes the record disciplined before capital is committed, and for the life of the asset.
             </p>
 
-            <div className="mt-10 divide-y divide-border/60 border border-border/60 bg-card/40 shadow-[0_0_60px_-15px_oklch(0.50_0.08_250/0.25)]">
+            <div className="theme-cream paper mt-10 divide-y divide-border/60 border border-border/60 bg-card/40 shadow-[0_0_60px_-15px_oklch(0.50_0.08_250/0.25)]">
               {THESIS_SIGNALS.map((signal) => (
                 <div key={signal.index} className="flex gap-5 p-5">
                   <span className="mt-1 font-mono text-[10px] tracking-[0.22em] text-primary">

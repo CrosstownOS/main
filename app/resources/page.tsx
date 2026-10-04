@@ -43,7 +43,7 @@ function ToolCard({ code, note }: { code: string; note?: string }) {
   const tool = TOOL_BY_CODE[code]
   if (!tool) return null
   return (
-    <div className="border border-border bg-card p-6 sm:p-8">
+    <div className="theme-cream border border-border bg-card p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.code}
@@ -86,7 +86,7 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
           return (
             <li
               key={step.code}
-              className="flex gap-4 border border-border bg-card p-5 sm:p-6"
+              className="theme-cream flex gap-4 border border-border bg-card p-5 sm:p-6"
             >
               <span className="serif-display flex-none text-2xl text-primary">
                 {i + 1}
@@ -115,7 +115,7 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
 function SituationResult({ situation, branch }: { situation: Situation; branch?: string }) {
   if (situation.id === "b" && branch !== "mhc" && branch !== "rv") {
     return (
-      <div className="mt-10 border border-primary/40 bg-card p-6 sm:p-8">
+      <div className="theme-cream mt-10 border border-primary/40 bg-card p-6 sm:p-8">
         <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
           Which kind of park?
         </h2>
@@ -194,7 +194,7 @@ export default async function ResourcesPage({
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto min-h-[32rem] w-full max-w-5xl px-4 pt-28 sm:min-h-[36rem] sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Acquisition Signals</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             What is happening with your deal right now?
@@ -204,11 +204,7 @@ export default async function ResourcesPage({
             the three that come next, in order. No guessing, no wall of
             options.
           </p>
-        </div>
-
-        <div className="theme-cream relative z-10 mt-14 pb-24 pt-12">
-          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {SITUATIONS.map((s, i) => {
               const isActive = active?.id === s.id
               return (
@@ -218,8 +214,8 @@ export default async function ResourcesPage({
                   aria-current={isActive ? "true" : undefined}
                   className={
                     isActive
-                      ? "border-2 border-primary bg-primary/10 p-5"
-                      : "border border-border bg-card p-5 transition-colors hover:border-primary/60"
+                      ? "theme-cream paper border-2 border-primary bg-primary/10 p-5"
+                      : "theme-cream border border-border bg-card p-5 transition-colors hover:border-primary/60"
                   }
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
@@ -231,7 +227,7 @@ export default async function ResourcesPage({
             })}
             <a
               href="/resources/catalog"
-              className="border border-dashed border-border bg-transparent p-5 transition-colors hover:border-primary/60"
+              className="theme-cream paper border border-dashed border-border bg-transparent p-5 transition-colors hover:border-primary/60"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
                 Full catalog
@@ -261,7 +257,7 @@ export default async function ResourcesPage({
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {SPINES.map((sp) => (
-                <div key={sp.title} className="border border-border bg-card p-6">
+                <div key={sp.title} className="theme-cream border border-border bg-card p-6">
                   <h3 className="serif-display text-xl tracking-tight">
                     {sp.title}
                   </h3>
@@ -278,7 +274,7 @@ export default async function ResourcesPage({
             </div>
           </div>
 
-          <div className="mt-16 border border-border bg-card p-8 text-center">
+          <div className="theme-cream mt-16 border border-border bg-card p-8 text-center">
             <p className="serif-display text-2xl tracking-tight">
               Know what is true before you buy.
             </p>
@@ -294,7 +290,7 @@ export default async function ResourcesPage({
             </a>
           </div>
 
-          <div className="mt-8 border border-primary/40 bg-primary/5 p-8">
+          <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
             <p className="mono-label mb-3">The next step</p>
             <p className="serif-display text-2xl tracking-tight">
               Running a live deal? Bring it to the Deal Desk.
@@ -320,7 +316,6 @@ export default async function ResourcesPage({
             >
               Bring a live deal
             </a>
-          </div>
           </div>
         </div>
       </main>

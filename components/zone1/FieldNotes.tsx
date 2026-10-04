@@ -34,7 +34,7 @@ export default function FieldNotes() {
   if (!posts || posts.length === 0) return null
 
   return (
-    <Section id="field-notes" className="theme-cream">
+    <Section id="field-notes">
       <Container>
         <TerminalLabel>Field notes</TerminalLabel>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
@@ -64,7 +64,7 @@ export default function FieldNotes() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col border border-border bg-card p-6 transition-colors hover:border-primary/60"
+              className="group theme-cream paper flex flex-col border border-border bg-card p-6 transition-colors hover:border-primary/60"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                 {formatDate(post.date)}

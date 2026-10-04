@@ -133,7 +133,6 @@ export default function PlatformLinks() {
     <Section
       id="paths"
       aria-labelledby="paths-heading"
-      className="theme-cream"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
@@ -157,7 +156,7 @@ export default function PlatformLinks() {
               <TelemetryBox
                 key={path.name}
                 glass="light"
-                className="flex h-full w-full flex-col p-5 transition-colors hover:border-primary/50 hover:bg-primary/5 md:w-[calc(50%-0.5rem)]"
+                className="theme-cream paper flex h-full w-full flex-col p-5 transition-colors hover:border-primary/50 hover:bg-primary/5 md:w-[calc(50%-0.5rem)]"
               >
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <span className="font-mono text-[10px] tracking-[0.22em] text-muted/60">

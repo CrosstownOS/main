@@ -91,7 +91,7 @@ export function GatedDownloadButton({ file, label, className }: Props) {
           aria-label="Email required to download"
         >
           <div
-            className="w-full max-w-sm border border-border bg-card p-6"
+            className="theme-cream w-full max-w-sm border border-border bg-card p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">

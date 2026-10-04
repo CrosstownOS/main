@@ -14,10 +14,9 @@ export default function DealDeskPromo() {
     <Section
       id="deal-desk"
       aria-labelledby="deal-desk-promo-heading"
-      className="theme-cream"
     >
       <Container>
-        <TelemetryBox glass="heavy" className="paper border-primary/50 p-6 text-foreground sm:p-8 lg:p-10">
+        <TelemetryBox glass="heavy" className="theme-cream paper border-primary/50 p-6 text-foreground sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <TerminalLabel className="mb-5 block">
               Founding offer, November 2026

@@ -26,7 +26,6 @@ export default function LifecycleVision() {
     <Section
       id="lifecycle-vision"
       aria-labelledby="lifecycle-vision-heading"
-      className="theme-cream"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
@@ -63,15 +62,13 @@ export default function LifecycleVision() {
                 <TelemetryBox
                   glass={isNovember ? "light" : "none"}
                   className={cn(
-                    "flex h-full flex-col p-5",
-                    isNovember
-                      ? ""
-                      : "border-dashed border-border bg-card",
+                    "theme-cream paper flex h-full flex-col p-5",
+                    isNovember ? "" : "border-dashed",
                   )}
                   style={
                     isNovember
                       ? {
-                          backgroundColor: `${module.color}29`,
+                          backgroundColor: `color-mix(in srgb, ${module.color} 16%, #fbf4e2)`,
                           borderColor: `${module.color}80`,
                           borderTop: `3px solid ${module.color}`,
                         }
@@ -127,7 +124,7 @@ export default function LifecycleVision() {
           })}
         </ol>
 
-        <p className="mt-8 border border-border/60 bg-card/50 px-5 py-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
+        <p className="theme-cream paper mt-8 border border-border/60 bg-card/50 px-5 py-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
           Opens November 2026: Source + Field + Acquire.
         </p>
       </Container>

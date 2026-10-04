@@ -45,7 +45,6 @@ export default function FieldReality() {
     <Section
       id="field-reality"
       aria-labelledby="field-reality-heading"
-      className="theme-cream"
     >
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
@@ -81,7 +80,7 @@ export default function FieldReality() {
               key={layer.title}
               glass="light"
               className={cn(
-                "paper flex h-full flex-col p-5 text-foreground transition-all duration-300 hover:-translate-y-1",
+                "theme-cream paper flex h-full flex-col p-5 text-foreground transition-all duration-300 hover:-translate-y-1",
                 layer.emphasis
                   ? "border-accent/50 hover:border-accent/80 hover:shadow-[0_0_45px_-10px_oklch(0.58_0.12_55/0.45)]"
                   : "hover:border-primary/60 hover:shadow-[0_0_45px_-10px_oklch(0.50_0.08_250/0.45)]",

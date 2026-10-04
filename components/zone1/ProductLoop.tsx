@@ -38,7 +38,6 @@ export default function ProductLoop() {
     <Section
       id="product"
       aria-labelledby="product-heading"
-      className="theme-cream"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
@@ -59,7 +58,7 @@ export default function ProductLoop() {
             <TelemetryBox
               key={module.name}
               glass="light"
-              className="flex h-full flex-col p-6"
+              className="theme-cream paper flex h-full flex-col p-6"
               style={{ borderTop: `2px solid ${module.color}` }}
             >
               <div className="mb-5 flex items-center justify-between gap-3">

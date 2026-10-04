@@ -54,7 +54,7 @@ export default function CatalogPage() {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <div className="relative z-10 mx-auto min-h-[32rem] w-full max-w-5xl px-4 pt-28 sm:min-h-[36rem] sm:px-6 sm:pt-32 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             All 35 tools, in journey order.
@@ -65,11 +65,7 @@ export default function CatalogPage() {
             line tells you the next one. One email unlocks every download. Tap a
             download and take it to the truck.
           </p>
-        </div>
-
-        <div className="theme-cream relative z-10 mt-14 pb-24 pt-14">
-          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-14">
+          <div className="mt-14 space-y-14">
             {PARTS.map((part) => {
               const tools = TOOLS.filter((t) => t.part === part.id)
               return (
@@ -89,7 +85,7 @@ export default function CatalogPage() {
                     {tools.map((tool) => (
                       <div
                         key={tool.code}
-                        className="flex flex-col border border-border bg-card p-6"
+                        className="theme-cream flex flex-col border border-border bg-card p-6"
                       >
                         <div className="flex flex-wrap items-center gap-3">
                           <span className="bg-primary px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
@@ -118,12 +114,12 @@ export default function CatalogPage() {
             })}
           </div>
 
-          <p className="mt-6 border border-border/60 bg-card/40 p-4 text-sm leading-relaxed text-muted">
+          <p className="theme-cream paper mt-6 border border-border/60 bg-card/40 p-4 text-sm leading-relaxed text-muted">
             Advance, Retrade, Pause, and Walk are evidence-readiness labels.
             They are not recommendations, approvals, or advice.
           </p>
 
-          <div className="mt-20 border border-border bg-card p-8 text-center">
+          <div className="theme-cream mt-20 border border-border bg-card p-8 text-center">
             <p className="serif-display text-2xl tracking-tight">
               Know what is true before you buy.
             </p>
@@ -139,7 +135,7 @@ export default function CatalogPage() {
             </a>
           </div>
 
-          <div className="mt-8 border border-primary/40 bg-primary/5 p-8">
+          <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
             <p className="mono-label mb-3">The next step</p>
             <p className="serif-display text-2xl tracking-tight">
               Running a live deal? Bring it to the Deal Desk.
@@ -165,7 +161,6 @@ export default function CatalogPage() {
             >
               Bring a live deal
             </a>
-          </div>
           </div>
         </div>
       </main>

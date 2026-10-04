@@ -95,12 +95,11 @@ export default async function BlogPost({ params }: PageProps) {
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
-        <article className="relative z-10 pt-32">
+        <article className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
-          <div className="mx-auto min-h-[calc(32rem-8rem)] w-full max-w-3xl px-4 sm:min-h-[calc(36rem-8rem)] sm:px-6 lg:px-8">
           <Link
             href="/blog"
             className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary hover:underline"
@@ -129,11 +128,8 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             )}
           </div>
-          </div>
-
-          <div className="theme-cream mt-14 pb-24 pt-12">
-            <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="prose-blog">
+          <div className="theme-cream paper mt-10 p-6 sm:p-8">
+            <div className="prose-blog">
             <ReactMarkdown
               components={{
                 h2: ({ children }) => (
@@ -162,7 +158,7 @@ export default async function BlogPost({ params }: PageProps) {
                   </ol>
                 ),
                 blockquote: ({ children }) => (
-                  <blockquote className="mb-5 border-l-2 border-primary bg-card px-5 py-4 text-base italic leading-relaxed text-foreground/90">
+                  <blockquote className="theme-cream mb-5 border-l-2 border-primary bg-card px-5 py-4 text-base italic leading-relaxed text-foreground/90">
                     {children}
                   </blockquote>
                 ),
@@ -184,7 +180,7 @@ export default async function BlogPost({ params }: PageProps) {
             </ReactMarkdown>
           </div>
 
-          <div className="mt-16 border border-border bg-card p-6 sm:p-8">
+          <div className="theme-cream mt-16 border border-border bg-card p-6 sm:p-8">
             <p className="mono-label mb-3">Next step</p>
             <p className="text-sm leading-relaxed text-muted">
               Start with the free Acquisition Signal resources: the working
@@ -218,7 +214,7 @@ export default async function BlogPost({ params }: PageProps) {
                   <Link
                     key={rel.slug}
                     href={`/blog/${rel.slug}`}
-                    className="group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
+                    className="theme-cream group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
                   >
                     <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                       {formatDate(rel.date)}
@@ -248,7 +244,6 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             </div>
           )}
-            </div>
           </div>
         </article>
       </main>

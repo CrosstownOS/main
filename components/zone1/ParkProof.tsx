@@ -68,7 +68,6 @@ export default function ParkProof() {
     <Section
       id="parkproof"
       aria-labelledby="parkproof-heading"
-      className="theme-cream"
     >
       <Container>
         {/* Row 1 — header: headline left, body right */}
@@ -93,7 +92,7 @@ export default function ParkProof() {
         </div>
 
         {/* Row 2 — conceptual decision file, stacked rows */}
-        <TelemetryBox glass="heavy" className="paper border-primary/40 p-5 sm:p-6">
+        <TelemetryBox glass="heavy" className="theme-cream paper border-primary/40 p-5 sm:p-6">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
             <TerminalLabel className="block">
               ParkProof / Decision File
@@ -140,7 +139,7 @@ export default function ParkProof() {
         {/* Row 3 — four truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {TRUTH_STATES.map((state) => (
-            <TelemetryBox key={state.title} glass="light" className={cn("p-5", state.className)}>
+            <TelemetryBox key={state.title} glass="light" className={cn("theme-cream paper p-5", state.className)}>
               <TerminalLabel className="mb-3 block">
                 {state.title}
               </TerminalLabel>
