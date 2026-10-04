@@ -116,7 +116,7 @@ export default function LifecycleVision() {
                   <p
                     className={cn(
                       "mt-3 text-sm leading-relaxed",
-                      isNovember ? "text-foreground/75" : "text-muted",
+                      isNovember ? "text-foreground/85" : "text-foreground/70",
                     )}
                   >
                     {module.blurb}
@@ -128,8 +128,7 @@ export default function LifecycleVision() {
         </ol>
 
         <p className="mt-8 border border-border/60 bg-card/50 px-5 py-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
-          Opens November 2026: Source + Field + Acquire. Everything else is
-          direction, not a November deliverable.
+          Opens November 2026: Source + Field + Acquire.
         </p>
       </Container>
     </Section>
