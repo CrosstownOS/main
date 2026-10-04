@@ -344,7 +344,7 @@ export default function Navigation() {
           />
         </div>
 
-        <div className="flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 backdrop-blur">
+        <div className="theme-cream flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 backdrop-blur">
           <p className="flex items-center gap-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
             <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
             The Founding Deal Desk opens November 2026. Five buyers. One live deal each.
