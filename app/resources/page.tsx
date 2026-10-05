@@ -14,12 +14,12 @@ import {
 } from "@/lib/resources"
 
 export const metadata: Metadata = {
-  title: "Acquisition Signal Resources | CrosstownOS // Acquire",
+  title: "Acquisition Signal Resources | CrosstownOS",
   description:
     "Thirty-eight free diligence tools for RV park and manufactured-housing buyers, plus the three spine pages. Tell us where your deal stands and get the right tool first.",
   alternates: { canonical: "/resources" },
   openGraph: {
-    title: "Acquisition Signal Resources | CrosstownOS // Acquire",
+    title: "Acquisition Signal Resources | CrosstownOS",
     description:
       "Thirty-eight free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
     type: "website",
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "Acquisition Signal Resources | CrosstownOS // Acquire",
+        alt: "Acquisition Signal Resources | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Acquisition Signal Resources | CrosstownOS // Acquire",
+    title: "Acquisition Signal Resources | CrosstownOS",
     description:
       "Thirty-eight free diligence tools for RV park and manufactured-housing buyers.",
     images: ["/images/opengraph.jpg?v=2"],

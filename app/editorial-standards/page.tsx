@@ -43,11 +43,11 @@ const STATES = [
       "A claim attributed to broker or seller material that has not been independently verified.",
   },
   {
-    title: "Missing",
+    title: "Missing evidence",
     definition: "Required evidence is absent, unavailable, or still requested.",
   },
   {
-    title: "Assumed",
+    title: "Underwriting assumption",
     definition:
       "A buyer-selected planning input while the underlying fact remains unsettled.",
   },

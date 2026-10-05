@@ -4,6 +4,25 @@ import { RESOURCE_DETAILS } from "@/lib/resources"
 
 const BASE = "https://www.crosstownosrv.camp"
 
+type CoreRoute = {
+  path: string
+  changeFrequency: "weekly" | "monthly"
+  priority: number
+}
+
+const CORE_ROUTES: CoreRoute[] = [
+  { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/blog", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/parkproof-standard", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/parkproof-walkthrough", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/for-brokers-lenders", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/editorial-standards", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/deal-desk", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/trail-log", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/resources", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/resources/catalog", changeFrequency: "monthly", priority: 0.8 },
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
 
@@ -11,60 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     posts.length > 0 ? new Date(posts[0].date + "T12:00:00") : new Date()
 
   return [
-    {
-      url: `${BASE}/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${BASE}/blog`,
-      lastModified: latestPostDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE}/parkproof-standard`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE}/parkproof-walkthrough`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${BASE}/for-brokers-lenders`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE}/deal-desk`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${BASE}/trail-log`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE}/resources`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE}/resources/catalog`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    ...CORE_ROUTES.map((route, index) => ({
+      url: `${BASE}${route.path}`,
+      lastModified:
+        route.path === "/blog" ? latestPostDate : new Date(),
+      changeFrequency: route.changeFrequency as "weekly" | "monthly",
+      priority: route.priority,
+    })),
     ...RESOURCE_DETAILS.map((resource) => ({
       url: `${BASE}/resources/${resource.slug}`,
       lastModified: new Date(),

@@ -119,7 +119,7 @@ export default function SiteFooter() {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-lg tracking-tight text-foreground">
-                Crosstown™
+                CrosstownOS
               </span>
               <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-muted">
                 The Code is the System. The Dirt is the Prize.
@@ -147,7 +147,7 @@ export default function SiteFooter() {
               Confidentiality terms are signed at kickoff, before any deal materials are ingested.
             </p>
             <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted/70">
-              &copy; {new Date().getFullYear()} Crosstown
+              &copy; {new Date().getFullYear()} CrosstownOS
             </p>
           </div>
         </Container>

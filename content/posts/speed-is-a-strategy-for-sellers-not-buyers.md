@@ -37,6 +37,8 @@ This is not an argument against moving fast. The labels do not slow a deal down.
 
 Run the seller's clock through the four labels. The asking price and the pitch are broker-reported. The deposit records you actually receive are verified. The documents the seller has not produced are missing evidence, and they stay missing evidence no matter how loud the clock ticks. The revenue you modeled from the seller's story is an underwriting assumption. Label it before it enters the model, or the model will treat it as a fact.
 
+*Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
+
 A fast close built on labeled evidence is a strategy. A fast close built on unlabeled claims is a donation.
 
 A seller can genuinely believe the property produces more than the records show. Belief is not fraud. But belief does not underwrite. If a number cannot be reconciled to a reliable source, it cannot carry weight in the underwriting or the financing, no matter how sincere the person saying it.

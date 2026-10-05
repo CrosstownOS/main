@@ -65,7 +65,7 @@ const HOW_IT_WORKS = [
   },
   {
     title: "Build the register.",
-    body: "Every claim is extracted and given an evidence state: Verified, Broker-reported, Missing, Assumed, Calculated, or Unresolved. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+    body: "Every claim is extracted and given an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
   },
   {
     title: "Walk it with Field.",

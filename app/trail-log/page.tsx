@@ -5,12 +5,12 @@ import PageBackdrop from "@/components/PageBackdrop"
 import TrailLogForm from "./TrailLogForm"
 
 export const metadata: Metadata = {
-  title: "The Trail Log | CrosstownOS // Acquire",
+  title: "The Trail Log | CrosstownOS",
   description:
     "The Field Network build log: what has shipped, what is being built, and where members can weigh in.",
   alternates: { canonical: "/trail-log" },
   openGraph: {
-    title: "The Trail Log | CrosstownOS // Acquire",
+    title: "The Trail Log | CrosstownOS",
     description:
       "Follow the build from the inside. Shipped work, current build, and member input.",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "The Trail Log | CrosstownOS // Acquire",
+        alt: "The Trail Log | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Trail Log | CrosstownOS // Acquire",
+    title: "The Trail Log | CrosstownOS",
     description: "The Field Network build log for CrosstownOS.",
     images: ["/images/opengraph.jpg?v=2"],
   },

@@ -5,12 +5,12 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { getAllPosts } from "@/lib/blog"
 
 export const metadata: Metadata = {
-  title: "Field Notes | CrosstownOS // Acquire",
+  title: "Field Notes | CrosstownOS",
   description:
     "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Field Notes | CrosstownOS // Acquire",
+    title: "Field Notes | CrosstownOS",
     description:
       "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "Field Notes | CrosstownOS // Acquire",
+        alt: "Field Notes | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Field Notes | CrosstownOS // Acquire",
+    title: "Field Notes | CrosstownOS",
     description:
       "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
     images: ["/images/opengraph.jpg?v=2"],

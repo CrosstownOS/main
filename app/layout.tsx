@@ -44,14 +44,13 @@ export const metadata: Metadata = {
     'MHC acquisition workflow',
     'RV park underwriting',
     'diligence register',
-    'ParkProof Report',
     'acquisition decision record',
   ],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'CrosstownOS // Acquire',
+    title: 'CrosstownOS',
     description:
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
     type: 'website',
@@ -63,13 +62,13 @@ export const metadata: Metadata = {
         url: '/images/opengraph.jpg?v=2',
         width: 1024,
         height: 1024,
-        alt: 'CrosstownOS // Acquire: evidence-backed acquisition intelligence',
+        alt: 'CrosstownOS: evidence-backed acquisition intelligence',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CrosstownOS // Acquire',
+    title: 'CrosstownOS',
     description:
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
     images: ['/images/opengraph.jpg?v=2'],

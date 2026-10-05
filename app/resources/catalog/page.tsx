@@ -8,12 +8,12 @@ import { PARTS, TOOLS, resourceSlug } from "@/lib/resources"
 const BASE_URL = "https://www.crosstownosrv.camp"
 
 export const metadata: Metadata = {
-  title: "Resource Catalog | CrosstownOS // Acquire",
+  title: "Resource Catalog | CrosstownOS",
   description:
     "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
   alternates: { canonical: "/resources/catalog" },
   openGraph: {
-    title: "Resource Catalog | CrosstownOS // Acquire",
+    title: "Resource Catalog | CrosstownOS",
     description:
       "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order.",
     type: "website",
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "Resource Catalog | CrosstownOS // Acquire",
+        alt: "Resource Catalog | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resource Catalog | CrosstownOS // Acquire",
+    title: "Resource Catalog | CrosstownOS",
     description:
       "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey.",
     images: ["/images/opengraph.jpg?v=2"],

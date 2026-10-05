@@ -25,6 +25,8 @@ Serious buyers do something different. They verify the record.
 
 Every number in a deal is one of four things. Labeling them is the whole discipline.
 
+*Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
+
 **Verified.** The number is supported by identified evidence and has been through human review. A rent roll line tied to a lease, a bank deposit, or a signed estoppel is verified. The evidence is named, and someone looked at it.
 
 **Broker-reported.** The number appears in the offering memorandum, on a call, or somewhere in the package, and it has not been independently verified yet. Most of the package lives here on day one. That is fine. It is only a problem if it stays here unlabeled.

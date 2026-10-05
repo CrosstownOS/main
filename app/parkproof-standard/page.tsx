@@ -5,12 +5,12 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
-  title: "The ParkProof Standard | CrosstownOS // Acquire",
+  title: "The ParkProof Standard | CrosstownOS",
   description:
     "The public ParkProof standard: evidence states, gates, and evidence-readiness labels for a documented decision file.",
   alternates: { canonical: "/parkproof-standard" },
   openGraph: {
-    title: "The ParkProof Standard | CrosstownOS // Acquire",
+    title: "The ParkProof Standard | CrosstownOS",
     description:
       "Every material claim carries where it came from and what state it is in. The ParkProof standard, stated plainly.",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "The ParkProof Standard | CrosstownOS // Acquire",
+        alt: "The ParkProof Standard | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The ParkProof Standard | CrosstownOS // Acquire",
+    title: "The ParkProof Standard | CrosstownOS",
     description:
       "Evidence states, gates, and evidence-readiness labels for a documented decision file.",
     images: ["/images/opengraph.jpg?v=2"],

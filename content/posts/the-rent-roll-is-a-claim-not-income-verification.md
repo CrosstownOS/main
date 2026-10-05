@@ -47,6 +47,8 @@ The same rule applies to verbal agreements and side deals. If the paperwork, the
 
 This is where the four labels from the first field note do their work.
 
+*Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
+
 The rent roll total is broker-reported until it ties to deposits and collections. The verified income figure is the amount supported by records that agree with each other. Any unexplained difference is missing evidence. Any decision to price the deal as if the gap will close is an underwriting assumption, and it should be named as one.
 
 That labeling changes the conversation. The buyer is no longer arguing about whether the seller is trustworthy. The buyer is asking which dollars are verified, which dollars are reported, and which dollars are still only a story.

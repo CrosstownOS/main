@@ -63,9 +63,9 @@ function relatedPosts(resource: ResourceDetail): PostMeta[] {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const resource = getResource(slug)
-  if (!resource) return { title: "Not found | CrosstownOS // Acquire" }
+  if (!resource) return { title: "Not found | CrosstownOS" }
 
-  const title = `${displayName(resource)} | CrosstownOS // Acquire`
+  const title = `${displayName(resource)} | CrosstownOS`
   const canonical = `/resources/${slug}`
 
   return {

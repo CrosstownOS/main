@@ -5,12 +5,12 @@ import PageBackdrop from "@/components/PageBackdrop"
 import ReferralAllianceCta from "./ReferralAllianceCta"
 
 export const metadata: Metadata = {
-  title: "For Brokers and Lenders | CrosstownOS // Acquire",
+  title: "For Brokers and Lenders | CrosstownOS",
   description:
     "What a buyer brings when an RV park or manufactured-housing deal is worked in CrosstownOS: one record, cited claims, unresolved gates, and a documented decision file.",
   alternates: { canonical: "/for-brokers-lenders" },
   openGraph: {
-    title: "For Brokers and Lenders | CrosstownOS // Acquire",
+    title: "For Brokers and Lenders | CrosstownOS",
     description:
       "One record. Claims with sources and states. Unresolved gates listed instead of buried.",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "For Brokers and Lenders | CrosstownOS // Acquire",
+        alt: "For Brokers and Lenders | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "For Brokers and Lenders | CrosstownOS // Acquire",
+    title: "For Brokers and Lenders | CrosstownOS",
     description:
       "What a buyer brings when the deal was worked in CrosstownOS.",
     images: ["/images/opengraph.jpg?v=2"],

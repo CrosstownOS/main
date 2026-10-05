@@ -25,6 +25,8 @@ Verification starts at the end of the money trail and works backward. Bank depos
 
 Run the 120-site park through the four labels. The 94 percent occupancy is broker-reported: it appears in the memorandum and on the rent roll, and it has not been independently verified. The 84 percent paying occupancy is verified: it ties to deposits and collections that someone reviewed. The twelve-site gap is missing evidence until each site is explained, unit by unit. Any underwriting built on 94 percent is carrying an underwriting assumption, whether the model admits it or not.
 
+*Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
+
 This is the discipline from the first field note, applied to a single line item. Label every number. Verify what matters.
 
 ## What the gap costs

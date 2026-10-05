@@ -18,10 +18,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const post = getPost(slug)
-  if (!post) return { title: "Not found | CrosstownOS // Acquire" }
+  if (!post) return { title: "Not found | CrosstownOS" }
 
   return {
-    title: `${post.title} | CrosstownOS // Acquire`,
+    title: `${post.title} | CrosstownOS`,
     description: post.excerpt,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {

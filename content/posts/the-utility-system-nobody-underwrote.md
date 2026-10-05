@@ -31,6 +31,8 @@ Start with the bills. Twelve to twenty-four months of utility records, meter rea
 
 Run the claim through the four labels. "Public water and sewer" in the memorandum is broker-reported until the permit file says otherwise. The capacity letter, reviewed by a human, is verified. The missing inspection history is missing evidence, and it stays missing evidence until someone produces it. The assumption that the system can support the expansion plan is an underwriting assumption, and it should be labeled as one before it enters the model.
 
+*Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
+
 ## What it costs to skip
 
 Financial surprises negotiate. A rent roll gap becomes a retrade. Infrastructure surprises do not. A failed wastewater plant does not accept a lower offer; it sends a compliance order with a deadline. Deferred maintenance discovered after closing becomes emergency maintenance, performed at emergency prices, usually during peak season, usually with a full park watching.
