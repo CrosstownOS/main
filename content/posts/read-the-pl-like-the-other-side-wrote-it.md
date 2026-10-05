@@ -13,7 +13,7 @@ That is not an accusation. It is a reading instruction. The seller's financials 
 
 Ask operators where the seller's numbers diverge from reality and the stories come fast, from both sides of the ledger.
 
-One operator watched sellers shift labor, maintenance, and operating costs onto their other businesses. The park's P&L looked lean because the park was not carrying its own weight. The costs were real. They just lived on someone else's books.
+Sellers sometimes shift labor, maintenance, and operating costs onto their other businesses. The park's P&L looked lean because the park was not carrying its own weight. The costs were real. They just lived on someone else's books.
 
 The pattern also runs the other way. Owners who live on site run personal expenses through the business, and seller reps sometimes acknowledge that an expense line is personal. With live-on-site ownership, that is common. The reported expenses overstate what the operation actually costs.
 

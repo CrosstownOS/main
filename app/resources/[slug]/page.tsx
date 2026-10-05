@@ -384,6 +384,24 @@ export default async function ResourcePage({ params }: PageProps) {
             </section>
           )}
         </div>
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="border-t border-border pt-8">
+            <p className="max-w-3xl text-xs leading-relaxed text-muted">
+              Acquisition Signal Resources are educational tools, not
+              professional advice. They organize a disciplined diligence
+              workflow; they do not replace legal, tax, engineering, or
+              investment review. Illustrative examples are labeled as such.
+              Read{" "}
+              <Link
+                href="/editorial-standards"
+                className="font-semibold text-primary hover:underline"
+              >
+                our editorial standards
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
       </main>
     </>
   )

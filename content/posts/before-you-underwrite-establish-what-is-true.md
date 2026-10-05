@@ -5,11 +5,11 @@ excerpt: "Every deal arrives as a stack of claims dressed as facts. The buyer's 
 tags: ["diligence", "underwriting", "field notes"]
 ---
 
-A buyer is mid-diligence on a park with a second operating business on site. The income will not reconcile to anything on paper, and nobody in the room is surprised. The income from the restaurant will not reconcile with anything on paper. Nobody in the room is surprised.
+A buyer is mid-diligence on a park with a second operating business on site. The income will not reconcile to anything on paper, and nobody in the room is surprised.
 
 An experienced operator, asked where the chaos in a deal really comes from, does not point at the numbers. He points at the process. The same root cause shows up in deal after deal: no single verifiable source of truth. Everything downstream, the underwriting, the negotiation, the close, depends on that foundation. Most deals never build it.
 
-A longtime seller tells a buyer the financials understate the real revenue. They actually make more, he says. The cash collections and the separate ledgers behind that claim never quite materialize for review.
+Sellers sometimes say the financials understate the real revenue, that they actually make more. The cash collections and the separate ledgers behind that claim never quite materialize for review.
 
 These are not unusual stories. They are the normal texture of buying an RV park or a manufactured housing community. Every deal arrives as a stack of claims dressed as facts, and the buyer's real job, before any valuation math happens, is to sort them.
 
