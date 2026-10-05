@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   title: "ParkProof Walkthrough | CrosstownOS",
   description:
     "Walk a fictional RV park deal from broker package to documented posture as claims gain support, stay unresolved, or remain missing.",
-  alternates: { canonical: "/sample-decision-file" },
+  alternates: { canonical: "/parkproof-walkthrough" },
   openGraph: {
     title: "ParkProof Walkthrough | CrosstownOS",
     description:
       "The package is not the decision. Walk the record as evidence arrives, the site pushes back, and one gate stays open.",
     type: "website",
-    url: "/sample-decision-file",
+    url: "/parkproof-walkthrough",
     images: [
       {
         url: "/images/opengraph.jpg?v=2",

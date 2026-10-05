@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${BASE}/sample-decision-file`,
+      url: `${BASE}/parkproof-walkthrough`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.85,

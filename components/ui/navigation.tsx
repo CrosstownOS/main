@@ -19,7 +19,7 @@ type NavEntry = {
 const NAV_ITEMS: NavEntry[] = [
   { index: "01", label: "Product", anchorId: "product" },
   { index: "02", label: "Deal Desk", href: "/deal-desk" },
-  { index: "03", label: "ParkProof", href: "/sample-decision-file" },
+  { index: "03", label: "ParkProof", href: "/parkproof-walkthrough" },
   { index: "04", label: "Resources", href: "/resources" },
   { index: "05", label: "Field Notes", href: "/blog" },
   { index: "06", label: "Paths", anchorId: "paths" },
