@@ -9,6 +9,7 @@ const FOOTER_LINKS = [
   { href: "/#product", label: "Product" },
   { href: "/#parkproof", label: "ParkProof" },
   { href: "/parkproof-standard", label: "ParkProof Standard" },
+  { href: "/sample-decision-file", label: "Sample Decision File" },
   { href: "/deal-desk", label: "Deal Desk" },
   { href: "/for-brokers-lenders", label: "Brokers & Lenders" },
   { href: "/blog", label: "Field Notes" },
