@@ -19,9 +19,10 @@ type NavEntry = {
 const NAV_ITEMS: NavEntry[] = [
   { index: "01", label: "Product", anchorId: "product" },
   { index: "02", label: "Deal Desk", href: "/deal-desk" },
-  { index: "03", label: "Resources", href: "/resources" },
-  { index: "04", label: "Field Notes", href: "/blog" },
-  { index: "05", label: "Paths", anchorId: "paths" },
+  { index: "03", label: "Decision File", href: "/sample-decision-file" },
+  { index: "04", label: "Resources", href: "/resources" },
+  { index: "05", label: "Field Notes", href: "/blog" },
+  { index: "06", label: "Paths", anchorId: "paths" },
 ]
 
 const ANCHOR_IDS = NAV_ITEMS.map((item) => item.anchorId).filter(

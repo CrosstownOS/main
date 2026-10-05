@@ -42,6 +42,10 @@ type ConversionPath = {
   cta: string
   action: PathAction
   href?: string
+  secondaryLink?: {
+    label: string
+    href: string
+  }
   icon: LucideIcon
 }
 
@@ -65,6 +69,10 @@ const CONVERSION_PATHS: ConversionPath[] = [
       "For operators, owners, and industry people who want early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
     cta: "Join the Field Network",
     action: "founding_circle",
+    secondaryLink: {
+      label: "Read The Trail Log",
+      href: "/trail-log",
+    },
     icon: Users,
   },
   {
@@ -75,6 +83,10 @@ const CONVERSION_PATHS: ConversionPath[] = [
       "For brokers, lenders, operators, and advisers who want a standing partner conversation with Crosstown.",
     cta: "Start a Partner Conversation",
     action: "referral_network",
+    secondaryLink: {
+      label: "For brokers and lenders",
+      href: "/for-brokers-lenders",
+    },
     icon: Handshake,
   },
 ]
@@ -194,6 +206,15 @@ export default function PlatformLinks() {
                     {path.cta}
                   </button>
                 )}
+
+                {path.secondaryLink ? (
+                  <Link
+                    href={path.secondaryLink.href}
+                    className="mt-3 block text-center font-mono text-[9px] uppercase tracking-[0.18em] text-muted underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    {path.secondaryLink.label}
+                  </Link>
+                ) : null}
               </TelemetryBox>
             )
           })}

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import {
   Container,
   Heading,
@@ -154,6 +155,13 @@ export default function ParkProof() {
         <p className="mt-8 text-sm leading-relaxed text-foreground/60">
           ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
         </p>
+
+        <Link
+          href="/parkproof-standard"
+          className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          Read the ParkProof Standard
+        </Link>
       </Container>
     </Section>
   )

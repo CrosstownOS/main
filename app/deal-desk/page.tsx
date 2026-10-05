@@ -313,6 +313,12 @@ export default function DealDeskPage() {
               approved assumptions.
               CrosstownOS organizes the record. You own the decision.
             </p>
+            <Link
+              href="/parkproof-standard"
+              className="mt-4 inline-block text-sm text-primary underline underline-offset-2 transition-colors hover:text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Read the ParkProof Standard
+            </Link>
           </section>
 
           {/* Terms */}
