@@ -59,7 +59,7 @@ const BUILD_COLUMNS = [
 const SHIPPED = [
   {
     date: "October 4, 2026",
-    title: "A sample decision file joined the site",
+    title: "ParkProof Walkthrough joined the site",
     body: "The explorable walk-through follows one fictional park from broker package to documented posture, with every screen labeled illustrative and fictional.",
   },
   {
@@ -124,8 +124,8 @@ const SHIPPED = [
   },
   {
     date: "October 2, 2026",
-    title: "Field went live",
-    body: "Field was seen running for site-walk capture: photos, notes, and observations tied to the deal they belong to. Captured evidence stays unreviewed until a person reviews it.",
+    title: "Founder review confirmed the loop as Field went live",
+    body: "The founder review confirmed Source as the start of the record and Field as on-site capture. That night, Field was seen running for site-walk capture: photos, notes, and observations tied to the deal they belong to. Captured evidence stays unreviewed until a person reviews it.",
   },
   {
     date: "October 2, 2026",
@@ -141,6 +141,11 @@ const SHIPPED = [
     date: "October 1, 2026",
     title: "The November scope was set",
     body: "Source + Field + Acquire were set as the November build scope: one connected loop from public record, to site walk, to the record used before capital is committed.",
+  },
+  {
+    date: "September 30, 2026",
+    title: "The nine module colors were locked",
+    body: "The module palette was locked with Victor across the lifecycle: Know it. Take it. Hold it. The colors later carried onto the site tiles.",
   },
   {
     date: "September 30, 2026",
@@ -168,14 +173,24 @@ const SHIPPED = [
     body: "The fourth Field Note argued that the seller's clock is not the buyer's strategy, and that verification is how a buyer takes the clock back.",
   },
   {
+    date: "September 23, 2026",
+    title: "The evidence labels were locked",
+    body: "Founder review locked Verified, Broker-reported, Missing evidence, and Underwriting assumption as the top-level language on the deal record.",
+  },
+  {
+    date: "September 21, 2026",
+    title: "Evidence states became the center of the product",
+    body: "Founder review put evidence states at the center of the product: every material claim would carry where it came from and what state it was in.",
+  },
+  {
     date: "September 20, 2026",
     title: "Field Notes opened",
     body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The first notes took on reported occupancy, utility systems, and what must be established before underwriting.",
   },
   {
     date: "September 18, 2026",
-    title: "The partner doors took their public names",
-    body: "Design Partner, Field Network, and Referral Alliance became the three public partner doors, replacing provisional labels in the site package.",
+    title: "The partner doors took shape",
+    body: "Design Partner and Referral Alliance stood as public partner doors alongside the founding-circle door that became Field Network on October 4.",
   },
 ] as const
 

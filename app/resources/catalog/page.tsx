@@ -7,12 +7,12 @@ import { PARTS, TOOLS } from "@/lib/resources"
 export const metadata: Metadata = {
   title: "Resource Catalog | CrosstownOS // Acquire",
   description:
-    "All 35 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
+    "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
   alternates: { canonical: "/resources/catalog" },
   openGraph: {
     title: "Resource Catalog | CrosstownOS // Acquire",
     description:
-      "All 35 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order.",
+      "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order.",
     type: "website",
     url: "/resources/catalog",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Resource Catalog | CrosstownOS // Acquire",
     description:
-      "All 35 Acquisition Signal Resources, organized by the seven Parts of the deal journey.",
+      "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey.",
     images: ["/images/opengraph.jpg?v=2"],
   },
 }
@@ -38,8 +38,8 @@ const jsonLd = {
   "@type": "ItemList",
   name: "Acquisition Signal Resource Library",
   description:
-    "Thirty-five free diligence tools for RV park and manufactured-housing buyers from CrosstownOS // Acquire.",
-  numberOfItems: 35,
+    "Thirty-eight free diligence tools for RV park and manufactured-housing buyers from CrosstownOS // Acquire.",
+  numberOfItems: 38,
   itemListElement: TOOLS.map((t, i) => ({
     "@type": "ListItem",
     position: i + 1,
@@ -57,7 +57,7 @@ export default function CatalogPage() {
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            All 35 tools, in journey order.
+            All 38 tools, in journey order.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
             Seven Parts, one order. Each Part answers one question about your

@@ -19,7 +19,7 @@ type NavEntry = {
 const NAV_ITEMS: NavEntry[] = [
   { index: "01", label: "Product", anchorId: "product" },
   { index: "02", label: "Deal Desk", href: "/deal-desk" },
-  { index: "03", label: "Decision File", href: "/sample-decision-file" },
+  { index: "03", label: "ParkProof", href: "/sample-decision-file" },
   { index: "04", label: "Resources", href: "/resources" },
   { index: "05", label: "Field Notes", href: "/blog" },
   { index: "06", label: "Paths", anchorId: "paths" },
@@ -361,10 +361,7 @@ export default function Navigation() {
               aria-label="Return to the CrosstownOS homepage"
             >
               <span className="font-serif text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                Crosstown<span className="align-super text-[0.58em] text-primary">™</span>
-              </span>
-              <span className="hidden border-l border-border pl-3 font-mono text-[9px] uppercase tracking-[0.24em] text-muted sm:block">
-                CrosstownOS // Acquire
+                CrosstownOS
               </span>
             </button>
 

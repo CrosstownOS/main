@@ -5,12 +5,12 @@ import PageBackdrop from "@/components/PageBackdrop"
 import SampleDecisionFileExplorer from "./SampleDecisionFileExplorer"
 
 export const metadata: Metadata = {
-  title: "Sample Decision File | CrosstownOS // Acquire",
+  title: "ParkProof Walkthrough | CrosstownOS",
   description:
     "Walk a fictional RV park deal from broker package to documented posture as claims gain support, stay unresolved, or remain missing.",
   alternates: { canonical: "/sample-decision-file" },
   openGraph: {
-    title: "Sample Decision File | CrosstownOS // Acquire",
+    title: "ParkProof Walkthrough | CrosstownOS",
     description:
       "The package is not the decision. Walk the record as evidence arrives, the site pushes back, and one gate stays open.",
     type: "website",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "Sample Decision File | CrosstownOS // Acquire",
+        alt: "ParkProof Walkthrough | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sample Decision File | CrosstownOS // Acquire",
+    title: "ParkProof Walkthrough | CrosstownOS",
     description:
       "An illustrative walk through a documented decision file built to the ParkProof standard.",
     images: ["/images/opengraph.jpg?v=2"],
@@ -42,7 +42,7 @@ export default function SampleDecisionFilePage() {
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
-              <p className="mono-label">Sample Decision File / Inside the Record</p>
+              <p className="mono-label">ParkProof Walkthrough / Inside the Record</p>
               <p className="border border-cream/50 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-cream">
                 Illustrative example / fictional park
               </p>

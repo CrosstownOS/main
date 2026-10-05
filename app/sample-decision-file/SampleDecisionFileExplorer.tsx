@@ -20,8 +20,8 @@ const RECORD_STAGES = [
     note: "The asking story is on the table. Nothing has earned a stronger label yet.",
   },
   {
-    label: "Public trail opened",
-    note: "The record has receipts now. Receipts are not the same thing as operating truth.",
+    label: "Records opened",
+    note: "Public records and operating records are both on the table now. Each one gets read only for what it can actually prove.",
   },
   {
     label: "Walk reviewed",
@@ -35,7 +35,7 @@ const RECORD_STAGES = [
 
 type Claim = {
   name: string
-  detail: string
+  details: readonly string[]
   source: string
   states: readonly string[]
   notes: readonly string[]
@@ -44,7 +44,12 @@ type Claim = {
 const CLAIMS: Claim[] = [
   {
     name: "Paying occupancy",
-    detail: "63 sites claimed occupied. 57 supported as paying after review.",
+    details: [
+      "The package calls it 92 percent occupied: 63 of 68 sites claimed occupied.",
+      "63 of 68 sites claimed occupied. The paying count has not been reconciled yet.",
+      "63 of 68 sites claimed occupied. The walk can count rigs, not payments.",
+      "63 of 68 claimed occupied; 57 of 68 supported as paying after review.",
+    ],
     source: "OM p. 8; rent roll; leases; deposit records",
     states: ["Broker-reported", "Unresolved", "Unresolved", "Verified"],
     notes: [
@@ -56,7 +61,12 @@ const CLAIMS: Claim[] = [
   },
   {
     name: "Trailing twelve-month NOI",
-    detail: "Seller P&L in, reviewed calculation out. The labels do not trade places.",
+    details: [
+      "Seller P&L story, not yet tested against records.",
+      "Provided records do not reconcile every expense line yet.",
+      "Condition notes add context, not expense records.",
+      "Calculated from reviewed inputs and one labeled assumption. See the worked math in Acquire.",
+    ],
     source: "Seller P&L; utility bills; reviewed model inputs",
     states: ["Broker-reported", "Unresolved", "Unresolved", "Calculated"],
     notes: [
@@ -68,7 +78,12 @@ const CLAIMS: Claim[] = [
   },
   {
     name: "Water and sewer capacity",
-    detail: "Municipal service claimed for all 68 sites. The capacity record never arrived.",
+    details: [
+      "Municipal service claimed for all 68 sites. No capacity record attached.",
+      "Service district located. Capacity record still not received or located.",
+      "Lift station and meter bank observed. Rated capacity remains unproven.",
+      "Municipal service claimed for all 68 sites. The capacity record never arrived.",
+    ],
     source: "OM site summary; utility district page; field photos; records request",
     states: ["Broker-reported", "Missing evidence", "Missing evidence", "Missing evidence"],
     notes: [
@@ -80,7 +95,12 @@ const CLAIMS: Claim[] = [
   },
   {
     name: "Site count",
-    detail: "The package says 68. The meter bank count says 66. Both stay.",
+    details: [
+      "The package says 68 sites.",
+      "Public context supports the property inquiry, not the governing site count.",
+      "The package says 68. The meter bank count says 66. Both stay.",
+      "The package says 68. The meter bank count says 66. Both stay.",
+    ],
     source: "OM site summary; parcel record; meter bank photo",
     states: ["Broker-reported", "Unresolved", "Unresolved", "Unresolved"],
     notes: [
@@ -92,7 +112,12 @@ const CLAIMS: Claim[] = [
   },
   {
     name: "Room for 20 more sites",
-    detail: "Open ground is visible. Permission to build on it is not established.",
+    details: [
+      "Open acreage presented as room for 20 more sites.",
+      "No survey, zoning confirmation, or permit record located.",
+      "Open ground is visible. Permission to build on it is not established.",
+      "Expansion carried only as a labeled Underwriting assumption.",
+    ],
     source: "OM expansion note; permit portal search; field observation",
     states: ["Broker-reported", "Missing evidence", "Missing evidence", "Underwriting assumption"],
     notes: [
@@ -125,6 +150,27 @@ const CHANGE_LOG = [
     movement: "Broker-reported to Missing evidence",
     voice:
       "The file did not get worse. It got more honest. The capacity record was not there.",
+  },
+  {
+    stage: 1,
+    claim: "Trailing twelve-month NOI",
+    movement: "Broker-reported to Unresolved",
+    voice:
+      "The seller's clean expense story did not reconcile yet, so the output stayed short of a stronger label.",
+  },
+  {
+    stage: 1,
+    claim: "Room for 20 more sites",
+    movement: "Broker-reported to Missing evidence",
+    voice:
+      "Open ground was visible. A right to build on it had not entered the record.",
+  },
+  {
+    stage: 1,
+    claim: "Site count",
+    movement: "Broker-reported to Unresolved",
+    voice:
+      "The public trail did not settle whether 68 was the governing count.",
   },
   {
     stage: 2,
@@ -258,6 +304,7 @@ export default function SampleDecisionFileExplorer() {
     () =>
       CLAIMS.map((claim) => ({
         ...claim,
+        detail: claim.details[recordStage],
         state: claim.states[recordStage],
         note: claim.notes[recordStage],
       })),
@@ -290,7 +337,7 @@ export default function SampleDecisionFileExplorer() {
       <div className="flex flex-col gap-5 border-b border-border/60 pb-6 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
-            Sample decision file / Harbor Pines
+            ParkProof Walkthrough / Harbor Pines
           </p>
           <h2
             id="sample-explorer-heading"
@@ -308,7 +355,7 @@ export default function SampleDecisionFileExplorer() {
         </p>
       </div>
 
-      <nav aria-label="Sample decision file steps" className="mt-6">
+      <nav aria-label="ParkProof Walkthrough steps" className="mt-6">
         <ol className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           {STEPS.map((step, index) => (
             <li key={step}>
@@ -418,10 +465,11 @@ export default function SampleDecisionFileExplorer() {
                     title="The package is confident. That is its job."
                   >
                     <p>
-                      Sixty-eight sites. Ninety-two percent occupied. Municipal
-                      water and sewer. Room for twenty more out back. The pages
-                      are clean, the photos are bright, and the numbers line up
-                      because nobody has asked them to reconcile yet.
+                      Sixty-eight sites. The package calls it ninety-two
+                      percent occupied. Municipal water and sewer. Room for
+                      twenty more out back. The pages are clean, the photos
+                      are bright, and the numbers line up because nobody has
+                      asked them to reconcile yet.
                     </p>
                     <p>
                       Broker-reported is not an accusation. It means the claim
@@ -452,7 +500,7 @@ export default function SampleDecisionFileExplorer() {
                           <StateBadge state="Broker-reported" />
                         </div>
                         <p className="mt-3 text-sm font-semibold leading-relaxed text-foreground">
-                          {claim.detail}
+                          {claim.details[0]}
                         </p>
                         <p className="mt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-primary">
                           Source / {claim.source}
@@ -702,6 +750,98 @@ export default function SampleDecisionFileExplorer() {
                       It changes when evidence arrives and a person reviews it.
                     </p>
                   </blockquote>
+
+                  <article className="mt-6 border border-border bg-background/40 p-5">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                          Worked example / Harbor Pines
+                        </p>
+                        <h4 className="mt-2 font-sans text-lg font-bold text-foreground">
+                          NOI, with the math showing.
+                        </h4>
+                      </div>
+                      <StateBadge state="Calculated" />
+                    </div>
+
+                    <div className="mt-5 grid gap-6 md:grid-cols-2">
+                      <div>
+                        <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                          Income inputs
+                        </p>
+                        <dl className="mt-3 space-y-2 text-sm leading-relaxed">
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Collections supported by deposits</dt>
+                            <dd className="font-semibold text-foreground">$612,480</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Other income</dt>
+                            <dd className="font-semibold text-foreground">$18,240</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4 border-t border-border/60 pt-2">
+                            <dt className="text-foreground">Gross operating income</dt>
+                            <dd className="font-semibold text-foreground">$630,720</dd>
+                          </div>
+                        </dl>
+                        <p className="mt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.12em] text-muted">
+                          $612,480 + $18,240 = $630,720
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                          Expense inputs
+                        </p>
+                        <dl className="mt-3 space-y-2 text-sm leading-relaxed">
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Payroll</dt>
+                            <dd className="font-semibold text-foreground">$96,000</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Utilities</dt>
+                            <dd className="font-semibold text-foreground">$118,500</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Repairs and maintenance</dt>
+                            <dd className="font-semibold text-foreground">$42,300</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Insurance</dt>
+                            <dd className="font-semibold text-foreground">$36,800</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">Property taxes</dt>
+                            <dd className="font-semibold text-foreground">$51,200</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4">
+                            <dt className="text-muted">
+                              Management fee
+                              <span className="mt-1 block text-xs">
+                                Underwriting assumption: 5% of gross operating income
+                              </span>
+                            </dt>
+                            <dd className="font-semibold text-foreground">$31,536</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-4 border-t border-border/60 pt-2">
+                            <dt className="text-foreground">Total expenses</dt>
+                            <dd className="font-semibold text-foreground">$376,336</dd>
+                          </div>
+                        </dl>
+                        <p className="mt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.12em] text-muted">
+                          $96,000 + $118,500 + $42,300 + $36,800 + $51,200 + $31,536 = $376,336
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-primary/40 pt-4">
+                      <p className="text-sm font-semibold text-foreground">
+                        Calculated NOI: $630,720 - $376,336 = $254,384
+                      </p>
+                      <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted">
+                        Calculated, not Verified
+                      </p>
+                    </div>
+                  </article>
                   <ScreenFooter />
                 </div>
               )}
@@ -819,7 +959,7 @@ export default function SampleDecisionFileExplorer() {
                             The package said
                           </p>
                           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-                            <li>92 percent occupancy.</li>
+                            <li>The package calls it 92 percent occupancy.</li>
                             <li>Municipal capacity for every site.</li>
                             <li>68 sites, settled.</li>
                             <li>20 more sites out back.</li>

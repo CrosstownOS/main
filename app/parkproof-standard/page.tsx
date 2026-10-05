@@ -327,7 +327,7 @@ export default function ParkProofStandardPage() {
                   href="/sample-decision-file"
                   className="inline-block border border-primary/60 bg-primary px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90"
                 >
-                  Walk a sample decision file
+                  ParkProof Walkthrough
                 </Link>
                 <Link
                   href="/deal-desk"

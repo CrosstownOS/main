@@ -120,7 +120,7 @@ export default function ForBrokersLendersPage() {
           <section aria-labelledby="toc-heading" className="mt-20">
             <div className="theme-cream paper border border-primary/40 p-6 sm:p-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
-                Sample decision file / illustrative
+                ParkProof Walkthrough / illustrative
               </p>
               <h2 id="toc-heading" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
                 Inside a documented decision file.
@@ -145,7 +145,7 @@ export default function ForBrokersLendersPage() {
                   href="/sample-decision-file"
                   className="inline-block border border-primary/60 bg-primary px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90"
                 >
-                  Walk the sample file
+                  ParkProof Walkthrough
                 </Link>
                 <Link
                   href="/parkproof-standard"

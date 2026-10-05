@@ -7,9 +7,8 @@ import { Container, TerminalLabel } from "@/components/ui/primitives"
 const FOOTER_LINKS = [
   { href: "/#thesis", label: "Thesis" },
   { href: "/#product", label: "Product" },
-  { href: "/#parkproof", label: "ParkProof" },
   { href: "/parkproof-standard", label: "ParkProof Standard" },
-  { href: "/sample-decision-file", label: "Sample Decision File" },
+  { href: "/sample-decision-file", label: "ParkProof Walkthrough" },
   { href: "/deal-desk", label: "Deal Desk" },
   { href: "/for-brokers-lenders", label: "Brokers & Lenders" },
   { href: "/blog", label: "Field Notes" },
