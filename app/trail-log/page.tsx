@@ -194,15 +194,15 @@ const SHIPPED = [
     body: "Founder review put evidence states at the center of the product: every material claim would carry where it came from and what state it was in.",
   },
   {
-    date: "September 20, 2026",
-    title: "Field Notes opened",
-    href: "/blog",
-    body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The first notes took on reported occupancy, utility systems, and what must be established before underwriting.",
-  },
-  {
     date: "September 18, 2026",
     title: "The partner doors took shape",
     body: "Design Partner and Referral Alliance stood as public partner doors alongside the founding-circle door that became Field Network on October 4.",
+  },
+  {
+    date: "September 15, 2026",
+    title: "Field Notes opened",
+    href: "/blog",
+    body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The first notes took on reported occupancy, utility systems, and what must be established before underwriting.",
   },
 ] as const
 
