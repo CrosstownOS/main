@@ -24,6 +24,7 @@ const NAV_ITEMS: NavEntry[] = [
   { index: "04", label: "Resources", href: "/resources" },
   { index: "05", label: "Field Notes", href: "/blog" },
   { index: "06", label: "Paths", anchorId: "paths" },
+  { index: "07", label: "Standards", href: "/editorial-standards" },
 ]
 
 const ANCHOR_IDS = NAV_ITEMS.map((item) => item.anchorId).filter(

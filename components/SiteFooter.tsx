@@ -8,6 +8,7 @@ const FOOTER_LINKS = [
   { href: "/#thesis", label: "Thesis" },
   { href: "/#product", label: "Product" },
   { href: "/parkproof-standard", label: "ParkProof Standard" },
+  { href: "/editorial-standards", label: "Editorial Standards" },
   { href: "/parkproof-walkthrough", label: "ParkProof Walkthrough" },
   { href: "/deal-desk", label: "Deal Desk" },
   { href: "/for-brokers-lenders", label: "Brokers & Lenders" },
