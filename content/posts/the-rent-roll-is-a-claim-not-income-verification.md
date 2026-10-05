@@ -41,7 +41,7 @@ A seller may say the park really makes more than the financials show. Cash colle
 
 For underwriting, the distinction does not matter. Undocumented income is missing evidence. It cannot be priced as verified revenue just because the story is plausible.
 
-The same rule applies to verbal agreements and side deals. If the paperwork, the deposits, and the seller's story do not line up, the issue is bigger than one missing page. One operator put the walk-away trigger this way: it is not one tenant behind. It is the pattern of undocumented arrangements and numbers that refuse to reconcile. A buyer can underwrite weak collections. Weak evidence is a different problem.
+The same rule applies to verbal agreements and side deals. If the paperwork, the deposits, and the seller's story do not line up, the issue is bigger than one missing page. One late tenant is operations. A pattern of undocumented arrangements across the file is information about how the park was actually run. A buyer can underwrite weak collections. Weak evidence is a different problem.
 
 ## Label the gap before you price it
 
@@ -62,3 +62,5 @@ But a map is not the territory, and a claim is not proof.
 The verified number is rarely the cleanest number in the package. It is the one that survived contact with the bank.
 
 Next in Field Notes: A Completed Checklist Is Not Proof.
+
+*This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

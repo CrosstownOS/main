@@ -280,6 +280,19 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
             </div>
           )}
+
+          <p className="mt-12 border-t border-border/60 pt-6 text-xs leading-relaxed text-muted">
+            Field Notes teaches with synthetic scenarios, anonymized composites,
+            and general acquisition patterns. It does not disclose client,
+            community-member, or live-deal information.{" "}
+            <Link
+              href="/editorial-standards"
+              className="text-foreground underline underline-offset-2 hover:no-underline"
+            >
+              Our editorial standards
+            </Link>
+            .
+          </p>
           </div>
             </div>
           </div>

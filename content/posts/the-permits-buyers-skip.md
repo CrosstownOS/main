@@ -13,7 +13,7 @@ That is the permits gap, and it is one of the quietest ways a deal reprices itse
 
 ## The site count is a claim
 
-Ask experienced operators where a deal's story breaks and site counts come up fast. One put it plainly: the pieces tell different stories, and site counts can include spaces that are unusable, seasonal, or simply not legally permitted. The rent roll counts what the seller collects on. The county counts what the law allows. Those are different numbers, and the purchase price should know which one it is paying for.
+Ask experienced operators where a deal's story breaks and site counts come up fast. The pieces tell different stories, and site counts can include spaces that are unusable, seasonal, or simply not legally permitted. The rent roll counts what the seller collects on. The county counts what the law allows. Those are different numbers, and the purchase price should know which one it is paying for.
 
 This is the same discipline from the earlier field notes, applied to the legal picture. A broker-reported site count is not a verified fact until something issued by an authority says so. The question is not whether the seller is honest. The question is whether the paperwork agrees with the rent roll.
 
@@ -27,7 +27,7 @@ The related trap is replacement rights. A park permitted for its full site count
 
 ## The municipality call nobody makes
 
-One operator framed the diligence question bluntly: buyers spend their time on the numbers and skip the infrastructure inspection. Who calls the municipality and asks about water and stormwater, permits needed or expired, and whether any zoning changes are coming to the area?
+The diligence question buyers skip is the municipal one: water and stormwater capacity, permits needed or expired, and whether any zoning changes are coming to the area.
 
 That call is cheap and it answers expensive questions. Are there open or expired permits on file? Any code enforcement actions? Has the zoning around the park changed, or is a change under discussion? Was utility capacity for the site count ever documented, or only discussed? New ownership itself can draw fresh municipal attention to a property that operated quietly for years under the seller.
 
@@ -35,7 +35,7 @@ None of this requires an adversarial posture. It requires a phone call, before t
 
 ## The expansion trap
 
-Permits also govern what the buyer plans to do next. One buyer purchased a park intending to add sites, and the expansion triggered a state environmental approval for the water system: engineering, testing, treatment equipment, larger retention. The seller covered some engineering costs. Testing fees, a corrosivity system, and higher-capacity tanks fell on the buyer. The sites were buildable. They just were not free.
+Permits also govern what the buyer plans to do next. Consider an illustrative composite: a buyer plans to add sites, and the water system needs a state environmental approval: engineering, testing, treatment equipment, larger retention. The seller covers some engineering costs. Testing fees, a treatment system, and higher-capacity tanks fall on the buyer. The sites were buildable. They just were not free.
 
 Underwrite the expansion the way you underwrite the purchase: permitted, costed, and scheduled. A site that cannot be permitted is not inventory. It is a drawing.
 
@@ -48,3 +48,5 @@ Every item on that list is a document that either exists or does not. Where it d
 The paper asset and the physical asset must meet before someone wires money. Permits are where they meet.
 
 Next in Field Notes: the rent roll is a claim, not income verification.
+
+*This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

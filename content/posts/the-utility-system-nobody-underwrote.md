@@ -11,7 +11,7 @@ An inspector walks a 1970s park and finds the electrical pedestals are original 
 
 A seller tells a buyer the septic has never been a problem. The county has no record of the system at all. No permit, no inspection history, no file. It has never been a problem in the same way an uninspected bridge has never been a problem.
 
-These are not unusual stories. They are the standard fine print of buying an RV park or a manufactured housing community. Every dollar in the underwriting flows through pipes and wires, and the pipes and wires are the part of the file buyers verify least.
+These are not unusual stories. The scenarios below are illustrative composites; the pattern is the point. Ask around the industry and you will hear the same ones with different park names attached. Every dollar in the underwriting flows through pipes and wires, and the pipes and wires are the part of the file buyers verify least.
 
 ## Functional is not permitted, and permitted is not adequate
 

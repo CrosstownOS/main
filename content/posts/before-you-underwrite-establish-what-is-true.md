@@ -5,9 +5,9 @@ excerpt: "Every deal arrives as a stack of claims dressed as facts. The buyer's 
 tags: ["diligence", "underwriting", "field notes"]
 ---
 
-A buyer is mid-acquisition on a $1.3 million park with an operating restaurant attached. He looks at the room and says the numbers do not add up. The income from the restaurant will not reconcile with anything on paper. Nobody in the room is surprised.
+A buyer is mid-diligence on a park with a second operating business on site. The income will not reconcile to anything on paper, and nobody in the room is surprised. The income from the restaurant will not reconcile with anything on paper. Nobody in the room is surprised.
 
-An experienced operator, asked where the chaos in a deal really comes from, does not point at the numbers. He points at the process: the biggest source of unnecessary chaos is establishing one verifiable source of truth. Everything downstream, the underwriting, the negotiation, the close, depends on that foundation. Most deals never build it.
+An experienced operator, asked where the chaos in a deal really comes from, does not point at the numbers. He points at the process. The same root cause shows up in deal after deal: no single verifiable source of truth. Everything downstream, the underwriting, the negotiation, the close, depends on that foundation. Most deals never build it.
 
 A longtime seller tells a buyer the financials understate the real revenue. They actually make more, he says. The cash collections and the separate ledgers behind that claim never quite materialize for review.
 
@@ -33,7 +33,7 @@ Every number in a deal is one of four things. Labeling them is the whole discipl
 
 **Underwriting assumption.** The number is a stated input to the investment case, not a fact. A projected rent increase, an assumed expense ratio, a stabilized occupancy target: all legitimate, all assumptions. An assumption is fine to carry. It is only dangerous when it is unlabeled and priced as a fact.
 
-Run two numbers through the labels and the discipline becomes concrete. A rent roll shows $42,000 in monthly collections. The bank statements show $38,500 in deposits. The $42,000 is broker-reported. The $38,500 is verified. The $3,500 gap is missing evidence until someone explains it, and any underwriting that uses the $42,000 is carrying an assumption, whether the model admits it or not.
+Run two numbers through the labels and the discipline becomes concrete. Take an illustrative case: a rent roll shows $42,000 in monthly collections. The bank statements show $38,500 in deposits. The $42,000 is broker-reported. The $38,500 is verified. The $3,500 gap is missing evidence until someone explains it, and any underwriting that uses the $42,000 is carrying an assumption, whether the model admits it or not.
 
 An occupancy figure of 92 percent counts every occupied pad. But three of those pads are employee units, two are comps, and one has not paid in four months. The 92 percent is broker-reported. The paying occupancy, the number that actually matters to the investment case, is lower, and the difference is a set of facts waiting to be verified or assumptions waiting to be labeled.
 

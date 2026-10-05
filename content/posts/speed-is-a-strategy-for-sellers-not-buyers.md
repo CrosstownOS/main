@@ -19,7 +19,7 @@ When the seller sets the clock, the buyer inherits the seller's version of the n
 
 ## What speed does to a claim
 
-Talk to enough sellers and the claims start to rhyme. The financials don't show the real revenue. A meaningful share of it arrives in cash. The real numbers live in a separate ledger you will never see.
+Talk to enough sellers and the claims start to rhyme: the financials do not show the real revenue, a meaningful share of it arrives in cash, and the real numbers live in a separate ledger.
 
 Some of that is true. Some of it is memory. Some of it is salesmanship. All of it is broker-reported until a bank statement, a tax return, or a deposit record says otherwise.
 
@@ -29,7 +29,7 @@ Sellers control the clock in both directions. The same seller who needs an answe
 
 A compressed diligence window is the mechanism. It is what lets "trust me" survive until the wire transfer.
 
-There is a reason the language works. When money is cheap, owners sit on the good parks. The best ones never reach the market. So the parks that do come to market arrive with a story attached, and the story usually includes a reason to hurry. Manufactured urgency keeps the buyer from asking the one question that matters: why is this one for sale?
+There is a reason the language works. When money is cheap, owners sit on the good parks. The strongest ones rarely reach the open market. So the parks that do come to market arrive with a story attached, and the story usually includes a reason to hurry. Manufactured urgency keeps the buyer from asking the one question that matters: why is this one for sale?
 
 ## Labeled speed is safe speed
 

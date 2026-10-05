@@ -171,6 +171,18 @@ export default function CatalogPage() {
               Bring a live deal
             </a>
           </div>
+          <p className="mt-10 text-xs leading-relaxed text-muted">
+            Acquisition Signal Resources are educational tools built from
+            general diligence patterns. They do not contain client,
+            community-member, or live-deal information.{" "}
+            <a
+              href="/editorial-standards"
+              className="text-foreground underline underline-offset-2 hover:no-underline"
+            >
+              Our editorial standards
+            </a>
+            .
+          </p>
         </div>
       </main>
       <script

@@ -5,9 +5,9 @@ excerpt: "Occupancy is the most quoted number in every broker package and the le
 tags: ["diligence", "occupancy", "field notes"]
 ---
 
-A buyer is evaluating a 120-site park in the Southeast. The offering memorandum reports 94 percent occupancy, and the rent roll backs it up: 113 occupied sites. Ninety days into diligence, the buyer has rebuilt the number from bank deposits. Eight of those sites are employee units and comps. Six have not paid in over ninety days. Three are marked leased with no deposit on file. The paying occupancy, the number the revenue model actually depends on, is 84 percent. Nothing about the park changed. Only the label did.
+The scenario below is illustrative. A buyer is evaluating a 120-site park in the Southeast. The offering memorandum reports 94 percent occupancy, and the rent roll backs it up: 113 occupied sites. Ninety days into diligence, the buyer has rebuilt the number from bank deposits. Eight of those sites are employee units and comps. Six have not paid in over ninety days. Three are marked leased with no deposit on file. The paying occupancy, the number the revenue model actually depends on, is 84 percent. Nothing about the park changed. Only the label did.
 
-An operator who has bought parks for two decades says he ignores the occupancy line in every package he receives. He rebuilds it himself, from deposits, before he reads another page. He has learned that occupancy is the most quoted number in the file and the least verified.
+The working rule is simple: rebuild occupancy from deposits before the package's percentage carries any weight. Work backward from the money before reading another page.
 
 These are not unusual stories. Ask around the industry and you will hear the same ones with different park names attached. The rent roll is the document buyers trust most and verify least, and occupancy is where that misplaced trust costs the most.
 
