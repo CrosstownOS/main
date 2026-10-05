@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import {
   Container,
   Heading,
@@ -157,6 +158,13 @@ export default function LifecycleVision() {
         <p className="theme-cream paper mt-8 border border-border/60 bg-card/50 px-5 py-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
           Opens November 2026: Source + Field + Acquire.
         </p>
+
+        <Link
+          href="/trail-log"
+          className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          Follow the build in The Trail Log
+        </Link>
       </Container>
     </Section>
   )

@@ -112,6 +112,9 @@ export default async function ResourcePage({ params }: PageProps) {
   const next =
     partIndex >= 0 && partIndex < partTools.length - 1 ? partTools[partIndex + 1] : null
   const related = relatedPosts(resource)
+  const showParkProofLinks =
+    (resource.part ? ["D", "E", "F"].includes(resource.part) : false) ||
+    resource.slug === "the-evidence-status-standard"
   const pageUrl = `${BASE_URL}/resources/${slug}`
 
   const jsonLd = {
@@ -305,6 +308,51 @@ export default async function ResourcePage({ params }: PageProps) {
                 )}
               </div>
             </nav>
+          )}
+
+          {showParkProofLinks && (
+            <section aria-labelledby="resource-parkproof" className="mt-16">
+              <h2 id="resource-parkproof" className="serif-display text-2xl tracking-tight sm:text-3xl">
+                Where this evidence lands
+              </h2>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted">
+                The evidence states this work feeds are defined in the
+                ParkProof Standard. The ParkProof Walkthrough shows one
+                fictional deal file carried through those states to a
+                documented posture.
+              </p>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <Link
+                  href="/parkproof-standard"
+                  className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                >
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
+                    The Standard
+                  </p>
+                  <p className="serif-display mt-2 text-xl tracking-tight transition-colors group-hover:text-primary">
+                    Read the ParkProof Standard
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    Evidence states, gates, and posture labels, defined.
+                  </p>
+                </Link>
+                <Link
+                  href="/parkproof-walkthrough"
+                  className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                >
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
+                    The Walkthrough
+                  </p>
+                  <p className="serif-display mt-2 text-xl tracking-tight transition-colors group-hover:text-primary">
+                    Walk through the Harbor Pines decision file
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    One fictional file, from broker package to documented
+                    posture.
+                  </p>
+                </Link>
+              </div>
+            </section>
           )}
 
           {related.length > 0 && (

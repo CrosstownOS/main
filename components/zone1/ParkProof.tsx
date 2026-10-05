@@ -156,12 +156,20 @@ export default function ParkProof() {
           ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
         </p>
 
-        <Link
-          href="/parkproof-standard"
-          className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          Read the ParkProof Standard
-        </Link>
+        <div className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
+          <Link
+            href="/parkproof-standard"
+            className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            Read the ParkProof Standard
+          </Link>
+          <Link
+            href="/parkproof-walkthrough"
+            className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            See the ParkProof Walkthrough
+          </Link>
+        </div>
       </Container>
     </Section>
   )

@@ -60,21 +60,25 @@ const SHIPPED = [
   {
     date: "October 4, 2026",
     title: "ParkProof Walkthrough joined the site",
+    href: "/parkproof-walkthrough",
     body: "The explorable walk-through follows one fictional park from broker package to documented posture, with every screen labeled illustrative and fictional.",
   },
   {
     date: "October 4, 2026",
     title: "Anatomy of a Broker Package published",
+    href: "/blog/anatomy-of-a-broker-package",
     body: "The Field Notes installment reads a synthetic offering package claim by claim and lands each claim on an evidence state.",
   },
   {
     date: "October 4, 2026",
     title: "The Brokers and Lenders page went live",
+    href: "/for-brokers-lenders",
     body: "The page shows what a buyer brings when the deal was worked in CrosstownOS, what a sample decision file contains, and where the Referral Alliance door opens.",
   },
   {
     date: "October 4, 2026",
     title: "The ParkProof Standard was published",
+    href: "/parkproof-standard",
     body: "The standard states the evidence states, what counts as evidence, how gates work, and why Advance, Retrade, Pause, and Walk are evidence-readiness labels.",
   },
   {
@@ -115,6 +119,7 @@ const SHIPPED = [
   {
     date: "October 3, 2026",
     title: "Field Notes reached seven buyer-side notes",
+    href: "/blog/the-rent-roll-is-a-claim-not-income-verification",
     body: "The Rent Roll Is a Claim, Not Income Verification joined the catalog as the seventh published note.",
   },
   {
@@ -135,6 +140,7 @@ const SHIPPED = [
   {
     date: "October 2, 2026",
     title: "The Founding Deal Desk page and application flow went live",
+    href: "/deal-desk",
     body: "The public Deal Desk page, terms, FAQ, and application flow were aligned and verified live as one door for a live deal.",
   },
   {
@@ -150,26 +156,31 @@ const SHIPPED = [
   {
     date: "September 30, 2026",
     title: "The Permits Buyers Skip published",
+    href: "/blog/the-permits-buyers-skip",
     body: "The sixth Field Note took on zoning, permits, legal site count, and the difference between a package claim and the county record.",
   },
   {
     date: "September 28, 2026",
     title: "The Acquisition Signal library reached 38 resources",
+    href: "/resources/catalog",
     body: "The resource library grew to 38 PDFs organized across the seven Parts of the deal journey, with the catalog and router tying each tool to the next step.",
   },
   {
     date: "September 27, 2026",
     title: "The Acquisition Signal storefront opened",
+    href: "/resources",
     body: "The public resource storefront went live at /resources, with the first resource set organized on public shelves and PDF downloads from the site.",
   },
   {
     date: "September 27, 2026",
     title: "Read the P&L Like the Other Side Wrote It published",
+    href: "/blog/read-the-pl-like-the-other-side-wrote-it",
     body: "The fifth Field Note treated the seller P&L as a set of claims to normalize, not a neutral record.",
   },
   {
     date: "September 24, 2026",
     title: "Speed Is a Strategy for Sellers, Not Buyers published",
+    href: "/blog/speed-is-a-strategy-for-sellers-not-buyers",
     body: "The fourth Field Note argued that the seller's clock is not the buyer's strategy, and that verification is how a buyer takes the clock back.",
   },
   {
@@ -185,6 +196,7 @@ const SHIPPED = [
   {
     date: "September 20, 2026",
     title: "Field Notes opened",
+    href: "/blog",
     body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The first notes took on reported occupancy, utility systems, and what must be established before underwriting.",
   },
   {
@@ -251,7 +263,16 @@ export default function TrailLogPage() {
                     {entry.date}
                   </p>
                   <h3 className="mt-2 font-sans text-lg font-bold tracking-tight text-foreground">
-                    {entry.title}
+                    {"href" in entry ? (
+                      <Link
+                        href={entry.href}
+                        className="transition-colors hover:text-primary hover:underline hover:underline-offset-4"
+                      >
+                        {entry.title}
+                      </Link>
+                    ) : (
+                      entry.title
+                    )}
                   </h3>
                   <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
                     {entry.body}

@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { getAllSlugs, getPost, getRelatedPosts } from "@/lib/blog"
+import { RESOURCE_DETAIL_BY_SLUG } from "@/lib/resources"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -48,6 +49,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
+const POST_RESOURCE_SLUGS: Record<string, string> = {
+  "anatomy-of-a-broker-package": "broker-package-intake-sheet",
+  "before-you-underwrite-establish-what-is-true": "the-evidence-status-standard",
+  "read-the-pl-like-the-other-side-wrote-it": "mom-and-pop-expense-normalizer",
+  "reported-occupancy-is-not-paying-occupancy": "the-rent-roll-truth-check",
+  "speed-is-a-strategy-for-sellers-not-buyers": "the-walk-away-pact",
+  "the-permits-buyers-skip": "evidence-request-list",
+  "the-rent-roll-is-a-claim-not-income-verification": "the-rent-roll-truth-check",
+  "the-utility-system-nobody-underwrote": "utility-and-wastewater-diligence-sheet",
+}
+
 function formatDate(iso: string) {
   const d = new Date(iso + "T12:00:00")
   if (Number.isNaN(d.getTime())) return iso
@@ -64,6 +76,9 @@ export default async function BlogPost({ params }: PageProps) {
   if (!post) notFound()
 
   const related = getRelatedPosts(slug, 3)
+  const nextResource = POST_RESOURCE_SLUGS[slug]
+    ? RESOURCE_DETAIL_BY_SLUG[POST_RESOURCE_SLUGS[slug]]
+    : undefined
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -191,12 +206,29 @@ export default async function BlogPost({ params }: PageProps) {
               papers behind the Field Notes, including the tool this note
               points to.
             </p>
-            <Link
-              href="/resources"
-              className="mt-5 inline-block border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
-            >
-              Get the free resources
-            </Link>
+            {nextResource ? (
+              <>
+                <Link
+                  href={`/resources/${nextResource.slug}`}
+                  className="mt-5 inline-block border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                >
+                  Get {nextResource.code ? `${nextResource.code}: ` : ""}{nextResource.title}
+                </Link>
+                <Link
+                  href="/resources/catalog"
+                  className="mt-4 block text-sm font-semibold text-primary hover:underline"
+                >
+                  Browse the full catalog
+                </Link>
+              </>
+            ) : (
+              <Link
+                href="/resources"
+                className="mt-5 inline-block border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+              >
+                Get the free resources
+              </Link>
+            )}
             <p className="mt-8 border-t border-border/60 pt-6 text-sm leading-relaxed text-muted">
               Running a live deal? Bring it to the Deal Desk and work it inside
               CrosstownOS, from intake to a documented
