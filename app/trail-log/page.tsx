@@ -58,29 +58,124 @@ const BUILD_COLUMNS = [
 
 const SHIPPED = [
   {
-    date: "October 2026",
-    title: "Field is live",
-    body: "Field is up and running for site-walk capture: photos, notes, and observations tied to the deal they belong to. Captured evidence stays unreviewed until a person reviews it.",
+    date: "October 4, 2026",
+    title: "A sample decision file joined the site",
+    body: "The explorable walk-through follows one fictional park from broker package to documented posture, with every screen labeled illustrative and fictional.",
   },
   {
-    date: "October 2026",
-    title: "Booking became the front door",
-    body: "Cal.com booking is wired into the Deal Desk, Design Partner, Field Network, Referral Alliance, and general conversation doors. The write-first form remains below the booking option.",
+    date: "October 4, 2026",
+    title: "Anatomy of a Broker Package published",
+    body: "The Field Notes installment reads a synthetic offering package claim by claim and lands each claim on an evidence state.",
   },
   {
-    date: "October 2026",
-    title: "The public door has one name",
-    body: "The people door is now Field Network across the site. Field remains the site-walk module. The names no longer compete with each other.",
+    date: "October 4, 2026",
+    title: "The Brokers and Lenders page went live",
+    body: "The page shows what a buyer brings when the deal was worked in CrosstownOS, what a sample decision file contains, and where the Referral Alliance door opens.",
   },
   {
-    date: "October 2026",
-    title: "The November modules got their colors",
-    body: "Source, Acquire, and Field carry their module colors into the November opening set. The other modules stay visible as Direction, not as hidden roadmap.",
+    date: "October 4, 2026",
+    title: "The ParkProof Standard was published",
+    body: "The standard states the evidence states, what counts as evidence, how gates work, and why Advance, Retrade, Pause, and Walk are evidence-readiness labels.",
   },
   {
-    date: "October 2026",
-    title: "Cream moved onto the surfaces",
-    body: "The warm cream treatment now sits on cards and reading surfaces while the background video and charcoal haze stay untouched. The video carries the mood. The surfaces carry the work.",
+    date: "October 4, 2026",
+    title: "Module tiles carry their colors",
+    body: "Lifecycle tiles took on solid module-color bands, deeper November washes, and a color spine, while the November opening set stayed legible at a glance.",
+  },
+  {
+    date: "October 4, 2026",
+    title: "The announcement strip went cream",
+    body: "The thin Founding Deal Desk announcement now sits in warm cream so it reads as a headline above the dark site header.",
+  },
+  {
+    date: "October 4, 2026",
+    title: "Field Notes articles got a reading surface",
+    body: "Article pages keep the header video bleed, then move to cream below it for reading. The Field Notes index kept its card layout.",
+  },
+  {
+    date: "October 4, 2026",
+    title: "Cream surfaces learned to float",
+    body: "Cards and information surfaces moved to warm parchment cream while the background video and charcoal haze stayed untouched underneath.",
+  },
+  {
+    date: "October 4, 2026",
+    title: "Cal.com booking doors were wired in",
+    body: "Deal Desk, Design Partner, Field Network, Referral Alliance, and general conversation doors now offer a booking path alongside the write-first form.",
+  },
+  {
+    date: "October 4, 2026",
+    title: "Field Network became the public name",
+    body: "The older Founding Network and Founding Circle labels were retired across the public site. The people door and the Field module no longer compete for the same word.",
+  },
+  {
+    date: "October 4, 2026",
+    title: "Lifecycle module blurbs landed",
+    body: "Each module in the lifecycle grid received a short public description, with Source, Field, and Acquire illuminated as the November opening set.",
+  },
+  {
+    date: "October 3, 2026",
+    title: "Field Notes reached seven buyer-side notes",
+    body: "The Rent Roll Is a Claim, Not Income Verification joined the catalog as the seventh published note.",
+  },
+  {
+    date: "October 3, 2026",
+    title: "The ParkProof section was rebuilt around the decision file",
+    body: "The homepage section was rebuilt in plain language around one idea: ParkProof turns a deal file into a decision file.",
+  },
+  {
+    date: "October 2, 2026",
+    title: "Field went live",
+    body: "Field was seen running for site-walk capture: photos, notes, and observations tied to the deal they belong to. Captured evidence stays unreviewed until a person reviews it.",
+  },
+  {
+    date: "October 2, 2026",
+    title: "Calculated and Unresolved joined the public evidence language",
+    body: "The product loop added Calculated and Unresolved alongside Verified, Broker-reported, Missing evidence, and Underwriting assumption.",
+  },
+  {
+    date: "October 2, 2026",
+    title: "The Founding Deal Desk page and application flow went live",
+    body: "The public Deal Desk page, terms, FAQ, and application flow were aligned and verified live as one door for a live deal.",
+  },
+  {
+    date: "October 1, 2026",
+    title: "The November scope was set",
+    body: "Source + Field + Acquire were set as the November build scope: one connected loop from public record, to site walk, to the record used before capital is committed.",
+  },
+  {
+    date: "September 30, 2026",
+    title: "The Permits Buyers Skip published",
+    body: "The sixth Field Note took on zoning, permits, legal site count, and the difference between a package claim and the county record.",
+  },
+  {
+    date: "September 28, 2026",
+    title: "The Acquisition Signal library reached 38 resources",
+    body: "The resource library grew to 38 PDFs organized across the seven Parts of the deal journey, with the catalog and router tying each tool to the next step.",
+  },
+  {
+    date: "September 27, 2026",
+    title: "The Acquisition Signal storefront opened",
+    body: "The public resource storefront went live at /resources, with the first resource set organized on public shelves and PDF downloads from the site.",
+  },
+  {
+    date: "September 27, 2026",
+    title: "Read the P&L Like the Other Side Wrote It published",
+    body: "The fifth Field Note treated the seller P&L as a set of claims to normalize, not a neutral record.",
+  },
+  {
+    date: "September 24, 2026",
+    title: "Speed Is a Strategy for Sellers, Not Buyers published",
+    body: "The fourth Field Note argued that the seller's clock is not the buyer's strategy, and that verification is how a buyer takes the clock back.",
+  },
+  {
+    date: "September 20, 2026",
+    title: "Field Notes opened",
+    body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The first notes took on reported occupancy, utility systems, and what must be established before underwriting.",
+  },
+  {
+    date: "September 18, 2026",
+    title: "The partner doors took their public names",
+    body: "Design Partner, Field Network, and Referral Alliance became the three public partner doors, replacing provisional labels in the site package.",
   },
 ] as const
 
@@ -131,6 +226,9 @@ export default function TrailLogPage() {
             <h2 id="trail-shipped" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Shipped, on the record.
             </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+              Entries are dated by ship date, newest first. The trail runs back through the build, not just tonight.
+            </p>
             <div className="mt-6 space-y-4">
               {SHIPPED.map((entry) => (
                 <article key={entry.title} className="theme-cream border border-border bg-card p-6 sm:p-7">
