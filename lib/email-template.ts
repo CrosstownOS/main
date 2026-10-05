@@ -172,7 +172,7 @@ const EMAIL_STYLES = `
 const SIGNATURE_BLOCK = `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${EMAIL_COLORS.border}; border-radius:0;">
   <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${EMAIL_COLORS.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    Crosstown
+    CrosstownOS
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${EMAIL_COLORS.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
@@ -193,6 +193,113 @@ export function escapeHtml(value: string) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;')
+}
+
+export type EmailDestinationBlock = {
+  eyebrow: string
+  title: string
+  description: string
+  href: string
+  buttonLabel: string
+}
+
+export const STANDARD_EMAIL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'THE STANDARD',
+  title: 'Read the ParkProof Standard',
+  description: 'Evidence states, gates, and posture labels, defined.',
+  href: `${SITE_URL}/parkproof-standard`,
+  buttonLabel: 'Read the Standard',
+}
+
+export const WALKTHROUGH_EMAIL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'THE WALKTHROUGH',
+  title: 'Walk through the Harbor Pines decision file',
+  description: 'One fictional file, from broker package to documented posture.',
+  href: `${SITE_URL}/parkproof-walkthrough`,
+  buttonLabel: 'Open the Walkthrough',
+}
+
+export const TRAIL_LOG_EMAIL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'THE TRAIL LOG',
+  title: 'Read The Trail Log',
+  description:
+    'The public record of what shipped, what is being built, and where members can weigh in.',
+  href: `${SITE_URL}/trail-log`,
+  buttonLabel: 'Read the Trail Log',
+}
+
+type EmailBlockTheme = {
+  border: string
+  background: string
+  foreground: string
+  muted: string
+  primary: string
+  buttonForeground: string
+}
+
+const EMAIL_BLOCK_THEMES: Record<'dark' | 'light', EmailBlockTheme> = {
+  dark: {
+    border: EMAIL_COLORS.border,
+    background: EMAIL_COLORS.background,
+    foreground: EMAIL_COLORS.foreground,
+    muted: EMAIL_COLORS.muted,
+    primary: EMAIL_COLORS.primary,
+    buttonForeground: '#ffffff',
+  },
+  light: {
+    border: '#d7d4ce',
+    background: '#fbf4e2',
+    foreground: '#261d15',
+    muted: '#62594f',
+    primary: '#0b589b',
+    buttonForeground: '#ffffff',
+  },
+}
+
+export function renderEmailBlocksHtml(
+  blocks: EmailDestinationBlock[],
+  themeName: 'dark' | 'light' = 'dark',
+): string {
+  if (blocks.length === 0) return ''
+
+  const theme = EMAIL_BLOCK_THEMES[themeName]
+
+  return `
+    <div style="margin:26px 0 6px 0;">
+      ${blocks
+        .map(
+          (block) => `
+          <div style="border:1px solid ${theme.border}; background:${theme.background}; padding:20px; margin:0 0 12px 0;">
+            <div style="font-family:'JetBrains Mono', monospace; font-size:9px; text-transform:uppercase; letter-spacing:0.22em; color:${theme.primary}; margin:0 0 8px 0;">
+              ${escapeHtml(block.eyebrow)}
+            </div>
+            <a href="${escapeHtml(block.href)}" style="font-family:'Playfair Display', Georgia, serif; font-size:20px; line-height:1.25; color:${theme.foreground}; text-decoration:none; font-weight:700;">
+              ${escapeHtml(block.title)}
+            </a>
+            <p style="font-family:'Inter', sans-serif; font-size:13px; line-height:1.6; color:${theme.muted}; margin:8px 0 16px 0;">
+              ${escapeHtml(block.description)}
+            </p>
+            <a href="${escapeHtml(block.href)}" style="display:inline-block; background:${theme.primary}; color:${theme.buttonForeground}; font-family:'JetBrains Mono', monospace; font-size:9px; text-transform:uppercase; letter-spacing:0.18em; text-decoration:none; padding:10px 14px;">
+              ${escapeHtml(block.buttonLabel)}
+            </a>
+          </div>
+          `,
+        )
+        .join('')}
+    </div>
+  `
+}
+
+export function renderEmailBlocksText(blocks: EmailDestinationBlock[]): string[] {
+  if (blocks.length === 0) return []
+
+  return blocks.flatMap((block) => [
+    block.eyebrow,
+    block.title,
+    block.description,
+    block.href,
+    '',
+  ])
 }
 
 export function buildBrandedEmail({
@@ -233,8 +340,7 @@ export function buildBrandedEmail({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Crosstown</div>
-      <div class="footer-location">CrosstownOS // Acquire</div>
+      <div class="footer-brand">CrosstownOS</div>
     </div>
   </div>
 </body>

@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { addToSegment } from '@/lib/resend-segments'
+import {
+  TRAIL_LOG_EMAIL_BLOCK,
+  WALKTHROUGH_EMAIL_BLOCK,
+  renderEmailBlocksHtml,
+  renderEmailBlocksText,
+  type EmailDestinationBlock,
+} from '@/lib/email-template'
 
 export const runtime = 'nodejs'
 
@@ -21,10 +28,18 @@ const EMAIL_COLORS = {
   accent: '#a66a35',
 }
 
+const START_HERE_EMAIL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'START HERE',
+  title: 'Start Here',
+  description: 'How the 38 tools fit together. Read this before you print anything.',
+  href: 'https://www.crosstownosrv.camp/resources/start-here',
+  buttonLabel: 'Start Here',
+}
+
 const SIGNATURE_BLOCK = `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${EMAIL_COLORS.border}; border-radius:0;">
   <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${EMAIL_COLORS.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    Crosstown
+    CrosstownOS
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${EMAIL_COLORS.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
@@ -288,13 +303,17 @@ function generateSubscribeTemplate(email: string) {
         You will receive occasional build notes, diligence patterns, and acquisition-workflow updates. No noise.
       </p>
 
+      ${renderEmailBlocksHtml(
+        [WALKTHROUGH_EMAIL_BLOCK, START_HERE_EMAIL_BLOCK, TRAIL_LOG_EMAIL_BLOCK],
+        'dark',
+      )}
+
       <div class="divider"></div>
       ${SIGNATURE_BLOCK}
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Crosstown</div>
-      <div class="footer-location">CrosstownOS // Acquire</div>
+      <div class="footer-brand">CrosstownOS</div>
     </div>
   </div>
 </body>
@@ -338,8 +357,7 @@ function generateAdminNotificationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Crosstown</div>
-      <div class="footer-location">CrosstownOS // Acquire</div>
+      <div class="footer-brand">CrosstownOS</div>
     </div>
   </div>
 </body>
@@ -367,9 +385,15 @@ function generatePlainText({
       'You are now following Crosstown Updates.',
       `Subscribed email: ${email}`,
       '',
-      'You will receive useful operator learning, build updates, diligence patterns, and the evolving Crosstown thesis.',
+      'You will receive occasional build notes, diligence patterns, and acquisition-workflow updates. No noise.',
       '',
-      'Crosstown',
+      ...renderEmailBlocksText([
+        WALKTHROUGH_EMAIL_BLOCK,
+        START_HERE_EMAIL_BLOCK,
+        TRAIL_LOG_EMAIL_BLOCK,
+      ]),
+      'CrosstownOS',
+      'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
       'Phone: (972) 914-9046',
       'Email: jeremy@crosstownosrv.camp',
     ].join('\n')
@@ -384,7 +408,8 @@ function generatePlainText({
     `Source page: ${sourcePage || 'Crosstown single-page site'}`,
     `Privacy consent: ${consentState}`,
     '',
-    'Crosstown',
+    'CrosstownOS',
+    'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
   ].join('\n')

@@ -1,12 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { addToSegment, type SegmentKey } from '@/lib/resend-segments'
+import {
+  STANDARD_EMAIL_BLOCK,
+  TRAIL_LOG_EMAIL_BLOCK,
+  WALKTHROUGH_EMAIL_BLOCK,
+  renderEmailBlocksHtml,
+  renderEmailBlocksText,
+  type EmailDestinationBlock,
+} from '@/lib/email-template'
 
 export const runtime = 'nodejs'
 
 const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
 const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
 const LOGO_URL = 'https://www.crosstownosrv.camp/logo.jpg'
+const SITE_URL = 'https://www.crosstownosrv.camp'
 const MAX_BODY_SIZE = 25_000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const HONEYPOT_FIELDS = ['companyWebsite', 'website', 'url', 'faxNumber']
@@ -76,9 +85,73 @@ type FormConfig = {
   failureMessage: string
   confirmationSubject: string
   confirmationTitle: string
+  confirmationBlocks: EmailDestinationBlock[]
+  confirmationIntroLine?: string
   fields: FieldDefinition[]
   subject: (data: SubmissionData) => string
   subtitle: (data: SubmissionData) => string
+}
+
+const DEAL_DESK_FIT_CALL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'NEXT STEP',
+  title: 'Book a Founding Deal Desk fit call',
+  description: 'Put time on the deal instead of waiting for a reply to land.',
+  href: 'https://cal.com/crosstownos/deal-desk-fit-call',
+  buttonLabel: 'Book a fit call',
+}
+
+const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'NEXT STEP',
+  title: 'Book a Design Partner fit review',
+  description:
+    'Talk through fit, workflow, and the secure document-sharing process.',
+  href: 'https://cal.com/crosstownos/design-partner-fit-review',
+  buttonLabel: 'Book a fit review',
+}
+
+const LIVE_DEAL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'THE DEAL DESK',
+  title: 'Bring a live deal',
+  description:
+    'For buyers with a live or imminent deal and a decision deadline.',
+  href: `${SITE_URL}/deal-desk`,
+  buttonLabel: 'Bring a live deal',
+}
+
+const BROKERS_AND_LENDERS_REFERRAL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'FOR BROKERS AND LENDERS',
+  title: 'Know what your buyer is bringing to the table',
+  description:
+    'One record. Claims with sources and states. Unresolved gates listed instead of buried.',
+  href: `${SITE_URL}/for-brokers-lenders`,
+  buttonLabel: 'Open the page',
+}
+
+const REFERRAL_ALLIANCE_INTRO_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'NEXT STEP',
+  title: 'Book a Referral Alliance intro call',
+  description:
+    'Start the standing partner conversation with a time on the calendar.',
+  href: 'https://cal.com/crosstownos/referral-alliance-intro',
+  buttonLabel: 'Book an intro call',
+}
+
+const FIELD_NETWORK_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'FIELD NETWORK',
+  title: 'Join the Field Network',
+  description:
+    'Early updates, a voice in what gets built, and first word when the next Deal Desk window opens.',
+  href: `${SITE_URL}/#paths`,
+  buttonLabel: 'Join the Field Network',
+}
+
+const BROKERS_AND_LENDERS_CONVERSATION_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'FOR BROKERS AND LENDERS',
+  title: 'Start a partner conversation',
+  description:
+    'For brokers, lenders, operators, and advisers who know the assets and the people.',
+  href: `${SITE_URL}/for-brokers-lenders`,
+  buttonLabel: 'Start a conversation',
 }
 
 const FORM_CONFIG: Record<FormType, FormConfig> = {
@@ -94,6 +167,11 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your application. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Founding Deal Desk Application: Crosstown',
     confirmationTitle: 'Founding Deal Desk application received.',
+    confirmationBlocks: [
+      WALKTHROUGH_EMAIL_BLOCK,
+      STANDARD_EMAIL_BLOCK,
+      DEAL_DESK_FIT_CALL_BLOCK,
+    ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
@@ -135,6 +213,11 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your design-partner request. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Design Partner Request: Crosstown',
     confirmationTitle: 'Design Partner request received.',
+    confirmationBlocks: [
+      DESIGN_PARTNER_FIT_REVIEW_BLOCK,
+      WALKTHROUGH_EMAIL_BLOCK,
+      STANDARD_EMAIL_BLOCK,
+    ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'company', label: 'Company', required: true, maxLength: 180 },
@@ -182,6 +265,11 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your Field Network request. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Field Network Request: Crosstown',
     confirmationTitle: 'Field Network request received.',
+    confirmationBlocks: [
+      TRAIL_LOG_EMAIL_BLOCK,
+      WALKTHROUGH_EMAIL_BLOCK,
+      LIVE_DEAL_BLOCK,
+    ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
@@ -219,6 +307,11 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your partner conversation request. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Referral Alliance Request: Crosstown',
     confirmationTitle: 'Partner conversation request received.',
+    confirmationBlocks: [
+      BROKERS_AND_LENDERS_REFERRAL_BLOCK,
+      WALKTHROUGH_EMAIL_BLOCK,
+      REFERRAL_ALLIANCE_INTRO_BLOCK,
+    ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
@@ -252,6 +345,11 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your Trail Log vote. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Trail Log Vote: Crosstown',
     confirmationTitle: 'Trail Log vote received.',
+    confirmationBlocks: [
+      TRAIL_LOG_EMAIL_BLOCK,
+      FIELD_NETWORK_BLOCK,
+      WALKTHROUGH_EMAIL_BLOCK,
+    ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
@@ -286,6 +384,13 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your note. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Note: Crosstown',
     confirmationTitle: 'Conversation request received.',
+    confirmationIntroLine:
+      'Prefer a time? Book a conversation: https://cal.com/crosstownos/conversation',
+    confirmationBlocks: [
+      LIVE_DEAL_BLOCK,
+      FIELD_NETWORK_BLOCK,
+      BROKERS_AND_LENDERS_CONVERSATION_BLOCK,
+    ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
@@ -322,6 +427,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your opportunity. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Outpost Opportunity: Crosstown',
     confirmationTitle: 'Opportunity received.',
+    confirmationBlocks: [],
     fields: [
       { key: 'relationshipToOpportunity', label: 'Relationship to opportunity', required: true, maxLength: 160 },
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
@@ -364,6 +470,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       'We could not submit your conversation request. Please try again or contact Crosstown directly.',
     confirmationSubject: 'We Received Your Basecamp Conversation Request: Crosstown',
     confirmationTitle: 'Conversation request received.',
+    confirmationBlocks: [],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'company', label: 'Company/entity', required: true, maxLength: 180 },
@@ -405,7 +512,7 @@ function signatureBlock(colors: EmailPalette) {
   return `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${colors.border}; border-radius:0;">
   <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${colors.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    Crosstown
+    CrosstownOS
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${colors.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
@@ -790,8 +897,7 @@ function generateAdminTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Crosstown</div>
-      <div class="footer-location">CrosstownOS // Acquire</div>
+      <div class="footer-brand">CrosstownOS</div>
     </div>
   </div>
 </body>
@@ -807,6 +913,13 @@ function generateConfirmationTemplate({
   data: SubmissionData
 }) {
   const name = escapeHtml(data.name || 'there')
+  const confirmationIntro = config.confirmationIntroLine
+    ? `<p class="message">Prefer a time? Book a conversation: <a href="https://cal.com/crosstownos/conversation">https://cal.com/crosstownos/conversation</a></p>`
+    : ''
+  const confirmationBlocks = renderEmailBlocksHtml(
+    config.confirmationBlocks,
+    'light',
+  )
 
   return `
 <!DOCTYPE html>
@@ -829,6 +942,8 @@ function generateConfirmationTemplate({
       <div class="badge">${escapeHtml(config.badge)}</div>
       <p class="message">Hi ${name},</p>
       <p class="message">${escapeHtml(config.successMessage)}</p>
+      ${confirmationIntro}
+      ${confirmationBlocks}
       <p class="section-title">A copy of what you submitted</p>
       ${renderSubmittedFields(config, data)}
       <p class="note">
@@ -840,8 +955,7 @@ function generateConfirmationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Crosstown</div>
-      <div class="footer-location">CrosstownOS // Acquire</div>
+      <div class="footer-brand">CrosstownOS</div>
     </div>
   </div>
 </body>
@@ -865,18 +979,37 @@ function generatePlainText({
   const lines = [
     confirmation ? config.confirmationTitle : config.title,
     '',
-    confirmation ? config.successMessage : config.subtitle(data),
-    '',
   ]
 
   if (confirmation) {
+    lines.push(
+      `Hi ${data.name || 'there'},`,
+      '',
+      config.successMessage,
+      '',
+    )
+
+    if (config.confirmationIntroLine) {
+      lines.push(config.confirmationIntroLine, '')
+    }
+
+    lines.push(...renderEmailBlocksText(config.confirmationBlocks))
     lines.push('A copy of what you submitted:')
+  } else {
+    lines.push(config.subtitle(data), '')
   }
 
   config.fields.forEach((field) => {
     if (data[field.key]) lines.push(`${field.label}: ${data[field.key]}`)
   })
   lines.push('')
+
+  if (confirmation) {
+    lines.push(
+      'This confirmation records receipt only. It does not create an advisory, agency, investment, financing, brokerage, partnership, or transaction relationship.',
+      '',
+    )
+  }
 
   if (!confirmation) {
     lines.push(
@@ -898,7 +1031,8 @@ function generatePlainText({
   }
 
   lines.push(
-    'Crosstown',
+    'CrosstownOS',
+    'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
   )

@@ -5,9 +5,19 @@ import {
   FROM_ADDRESS,
   INTERNAL_RECIPIENT,
   SITE_URL,
+  STANDARD_EMAIL_BLOCK,
+  WALKTHROUGH_EMAIL_BLOCK,
   buildBrandedEmail,
   escapeHtml,
+  renderEmailBlocksHtml,
+  renderEmailBlocksText,
+  type EmailDestinationBlock,
 } from '@/lib/email-template'
+import {
+  RESOURCE_DETAILS,
+  type ResourceDetail,
+} from '@/lib/resources'
+import { getPost } from '@/lib/blog'
 
 export const runtime = 'nodejs'
 
@@ -19,18 +29,94 @@ function sanitizeText(value: unknown, max: number): string {
   return value.trim().slice(0, max)
 }
 
+const RELATED_FIELD_NOTE_BY_RESOURCE_SLUG: Record<string, string> = {
+  'broker-package-intake-sheet': 'anatomy-of-a-broker-package',
+  'mom-and-pop-expense-normalizer': 'read-the-pl-like-the-other-side-wrote-it',
+  'the-rv-expense-normalizer': 'read-the-pl-like-the-other-side-wrote-it',
+  'utility-and-wastewater-diligence-sheet': 'the-utility-system-nobody-underwrote',
+  'the-rent-roll-truth-check': 'the-rent-roll-is-a-claim-not-income-verification',
+  'rent-roll-truth-check-rv-edition':
+    'the-rent-roll-is-a-claim-not-income-verification',
+  'the-evidence-status-standard': 'before-you-underwrite-establish-what-is-true',
+}
+
+const CATALOG_EMAIL_BLOCK: EmailDestinationBlock = {
+  eyebrow: 'THE CATALOG',
+  title: 'Browse all 38 resources',
+  description:
+    'All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey.',
+  href: `${SITE_URL}/resources/catalog`,
+  buttonLabel: 'Browse the catalog',
+}
+
+function resourceDisplayName(resource: ResourceDetail): string {
+  return resource.code ? `${resource.code} ${resource.title}` : resource.title
+}
+
+function resourceEmailBlocks(
+  resource: ResourceDetail | null,
+): EmailDestinationBlock[] {
+  if (!resource) return [CATALOG_EMAIL_BLOCK]
+
+  const blocks: EmailDestinationBlock[] = [
+    {
+      eyebrow: resource.code
+        ? `${resource.code} / PART ${resource.part}`
+        : 'SPINE',
+      title: resource.title,
+      description: resource.description,
+      href: `${SITE_URL}/resources/${resource.slug}`,
+      buttonLabel: 'Open the resource page',
+    },
+  ]
+
+  const fieldNoteSlug = RELATED_FIELD_NOTE_BY_RESOURCE_SLUG[resource.slug]
+  const fieldNote = fieldNoteSlug ? getPost(fieldNoteSlug) : null
+  if (fieldNote) {
+    blocks.push({
+      eyebrow: 'FIELD NOTE',
+      title: fieldNote.title,
+      description: fieldNote.excerpt,
+      href: `${SITE_URL}/blog/${fieldNote.slug}`,
+      buttonLabel: 'Read the Field Note',
+    })
+  }
+
+  let parkProofBlock: EmailDestinationBlock | null = null
+  if (resource.slug === 'the-evidence-status-standard' || resource.part === 'F') {
+    parkProofBlock = STANDARD_EMAIL_BLOCK
+  } else if (resource.part === 'D' || resource.part === 'E') {
+    parkProofBlock = WALKTHROUGH_EMAIL_BLOCK
+  }
+
+  if (parkProofBlock) {
+    blocks.push(parkProofBlock)
+  } else if (!fieldNote) {
+    blocks.push(CATALOG_EMAIL_BLOCK)
+  }
+
+  return blocks.slice(0, 3)
+}
+
 function buildDownloadEmail({
   tool,
   fileUrl,
+  resource,
 }: {
   tool: string
   fileUrl: string | null
+  resource: ResourceDetail | null
 }): { html: string; text: string } {
-  const safeTool = escapeHtml(tool || 'your resource')
+  const blocks = resourceEmailBlocks(resource)
   const retryBlock = fileUrl
     ? `<p class="message">If the download didn&apos;t start, <a href="${fileUrl}">get it here</a>.</p>`
     : ''
-  const plainRetry = fileUrl ? `\n\nIf the download didn't start, get it here: ${fileUrl}` : ''
+  const unresolvedTool = resource
+    ? ''
+    : `<div class="field">
+        <span class="field-label">Your Tool</span>
+        <div class="field-value">${escapeHtml(tool || 'your resource')}</div>
+      </div>`
 
   const html = buildBrandedEmail({
     pageTitle: 'Your CrosstownOS download',
@@ -38,37 +124,34 @@ function buildDownloadEmail({
     headerSubtitle: 'Your PDF should be downloading now.',
     badge: 'Acquisition Signal Resource',
     bodyHtml: `
-      <div class="field">
-        <span class="field-label">Your Tool</span>
-        <div class="field-value">${safeTool}</div>
-      </div>
       ${retryBlock}
-      <p class="message">
-        One email unlocked the whole library. Browse all 38 tools any time:
-        <a href="${SITE_URL}/resources">${SITE_URL}/resources</a>
-      </p>
+      ${unresolvedTool}
+      ${renderEmailBlocksHtml(blocks, 'dark')}
     `,
   })
 
-  const text = [
+  const textLines = [
     'Your download is ready.',
     '',
-    `Your tool: ${tool || 'your resource'}`,
-    plainRetry,
-    '',
-    'One email unlocked the whole library. Browse all 38 tools any time:',
-    `${SITE_URL}/resources`,
-    '',
-    'CrosstownOS // Acquire',
-    '',
-    'Acquisition Intelligence | Diligence Software | ParkProof Reports',
-    '',
+  ]
+
+  if (fileUrl) {
+    textLines.push(`If the download didn't start, get it here: ${fileUrl}`, '')
+  }
+
+  if (!resource) {
+    textLines.push(`Your tool: ${tool || 'your resource'}`, '')
+  }
+
+  textLines.push(
+    ...renderEmailBlocksText(blocks),
+    'CrosstownOS',
+    'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
-    'Bring a live deal: https://www.crosstownosrv.camp/deal-desk',
-  ].join('\n')
+  )
 
-  return { html, text }
+  return { html, text: textLines.join('\n') }
 }
 
 export async function POST(request: NextRequest) {
@@ -106,6 +189,9 @@ export async function POST(request: NextRequest) {
 
     const tool = sanitizeText(body.tool, 80)
     const rawFile = sanitizeText(body.file, 300)
+    const resource =
+      RESOURCE_DETAILS.find((candidate) => candidate.file === rawFile) ?? null
+    const emailToolLabel = resource ? resourceDisplayName(resource) : tool
     const fileUrl =
       rawFile.startsWith('/resources/') && rawFile.endsWith('.pdf')
         ? `${SITE_URL}${rawFile}`
@@ -124,12 +210,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Welcome email to the downloader. Best-effort: never blocks the download.
-    const { html, text } = buildDownloadEmail({ tool, fileUrl })
+    const { html, text } = buildDownloadEmail({
+      tool: emailToolLabel,
+      fileUrl,
+      resource,
+    })
     const welcome = await resend.emails.send({
       from: FROM_ADDRESS,
       to: [email],
       replyTo: [INTERNAL_RECIPIENT],
-      subject: `Your CrosstownOS download${tool ? `: ${tool}` : ''}`,
+      subject: `Your CrosstownOS download${emailToolLabel ? `: ${emailToolLabel}` : ''}`,
       html,
       text,
     })
