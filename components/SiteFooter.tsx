@@ -12,6 +12,7 @@ const FOOTER_LINKS = [
   { href: "/deal-desk", label: "Deal Desk" },
   { href: "/for-brokers-lenders", label: "Brokers & Lenders" },
   { href: "/blog", label: "Field Notes" },
+  { href: "/trail-log", label: "The Trail Log" },
   { href: "/resources", label: "Resources" },
 ] as const
 

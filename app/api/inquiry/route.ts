@@ -52,6 +52,7 @@ type FormType =
   | 'design_partner'
   | 'founding_circle'
   | 'referral_network'
+  | 'trail_log'
   | 'not_sure'
   | 'outpost'
   | 'basecamp'
@@ -238,6 +239,40 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       `New Referral Alliance Conversation Request: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.name} requested a partner conversation.`,
+  },
+  trail_log: {
+    type: 'trail_log',
+    routingTag: 'TRAIL_LOG',
+    title: 'New Trail Log Weigh-In',
+    badge: 'The Trail Log',
+    sourceForm: 'The Trail Log weigh-in form',
+    successMessage:
+      'Received. Your vote is input for the build conversation. November scope stays the founder\'s call.',
+    failureMessage:
+      'We could not submit your Trail Log vote. Please try again or contact Crosstown directly.',
+    confirmationSubject: 'We Received Your Trail Log Vote: Crosstown',
+    confirmationTitle: 'Trail Log vote received.',
+    fields: [
+      { key: 'name', label: 'Name', required: true, maxLength: 160 },
+      { key: 'email', label: 'Email', required: true, maxLength: 254 },
+      { key: 'focus', label: 'Build area', required: true, maxLength: 120 },
+      {
+        key: 'vote',
+        label: 'What should get attention next',
+        required: true,
+        maxLength: 240,
+      },
+      {
+        key: 'note',
+        label: 'Your note',
+        multiline: true,
+        maxLength: 2000,
+      },
+    ],
+    subject: (data) =>
+      `New Trail Log Weigh-In: ${data.focus || data.name}`,
+    subtitle: (data) =>
+      `${data.name} weighed in on ${data.focus || 'the build'}.`,
   },
   not_sure: {
     type: 'not_sure',
@@ -609,6 +644,7 @@ function getFormType(value: unknown): FormType | null {
     formType === 'design_partner' ||
     formType === 'founding_circle' ||
     formType === 'referral_network' ||
+    formType === 'trail_log' ||
     formType === 'not_sure' ||
     formType === 'outpost' ||
     formType === 'basecamp'
