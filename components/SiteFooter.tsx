@@ -10,6 +10,7 @@ const FOOTER_LINKS = [
   { href: "/#parkproof", label: "ParkProof" },
   { href: "/parkproof-standard", label: "ParkProof Standard" },
   { href: "/deal-desk", label: "Deal Desk" },
+  { href: "/for-brokers-lenders", label: "Brokers & Lenders" },
   { href: "/blog", label: "Field Notes" },
   { href: "/resources", label: "Resources" },
 ] as const
