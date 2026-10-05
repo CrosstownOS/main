@@ -1,39 +1,41 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const STEPS = [
-  "Start",
-  "Broker package",
-  "Source findings",
-  "Field observations",
-  "Acquire review",
-  "Gates",
-  "Documented posture",
+  "In the inbox",
+  "The package",
+  "Source trail",
+  "The walk",
+  "Acquire",
+  "The gates",
+  "The decision file",
 ] as const
 
-const ARRIVAL_STAGES = [
+const RECORD_STAGES = [
   {
-    label: "Package received",
-    note: "The file begins with what the broker package claims.",
+    label: "Package only",
+    note: "The asking story is on the table. Nothing has earned a stronger label yet.",
   },
   {
-    label: "Records arrive",
-    note: "Seller records arrive. Some claims gain support. Some become open items.",
+    label: "Public trail opened",
+    note: "The record has receipts now. Receipts are not the same thing as operating truth.",
   },
   {
-    label: "Field walk reviewed",
-    note: "Site observations are reviewed against the paper record. Captured is not verified.",
+    label: "Walk reviewed",
+    note: "Boots were on the ground. What I saw gets filed beside the paper, not over it.",
   },
   {
     label: "Human review complete",
-    note: "A reviewer records what the evidence supports, what stays assumed, and what remains unresolved.",
+    note: "A person has reconciled what can be reconciled and named what is still open.",
   },
 ] as const
 
 type Claim = {
   name: string
+  detail: string
   source: string
   states: readonly string[]
   notes: readonly string[]
@@ -42,49 +44,149 @@ type Claim = {
 const CLAIMS: Claim[] = [
   {
     name: "Paying occupancy",
-    source: "OM p. 8; rent roll; deposit records",
+    detail: "63 sites claimed occupied. 57 supported as paying after review.",
+    source: "OM p. 8; rent roll; leases; deposit records",
     states: ["Broker-reported", "Unresolved", "Unresolved", "Verified"],
     notes: [
-      "The package reports 92 percent occupancy. The deposits have not been reviewed.",
-      "The rent roll counts more occupied sites than the deposits support. The difference stays open.",
-      "The field count supports physical occupancy, not paying occupancy. The conflict remains in the record.",
-      "A reviewer reconciles the ledger and deposits. The verified claim is narrower than the package headline.",
+      "The OM and rent roll say 63 of 68 sites are occupied. Nobody has tied that count to deposits yet.",
+      "Deposits support fewer paying sites than the rent roll carries. Both records stay on the page, and the gap gets a name.",
+      "The walk counts rigs, not payments. A full pad can still be a nonpaying pad.",
+      "A reviewer ties leases, collections, and deposits site by site. The verified claim is narrower than the headline: 57 of 68 paying.",
     ],
   },
   {
     name: "Trailing twelve-month NOI",
-    source: "Seller P&L; utility bills; approved model inputs",
+    detail: "Seller P&L in, reviewed calculation out. The labels do not trade places.",
+    source: "Seller P&L; utility bills; reviewed model inputs",
     states: ["Broker-reported", "Unresolved", "Unresolved", "Calculated"],
     notes: [
-      "The seller P&L states the number. Its expense lines have not been tested.",
-      "Two expense categories do not reconcile to the records provided. The output cannot be treated as verified.",
-      "The field walk adds condition notes, but condition is not an expense record. The claim stays unresolved.",
-      "The model calculates from reviewed inputs and one labeled assumption. The output is Calculated, not Verified.",
+      "The seller P&L tells a clean story. Its expense lines have not been tested against records yet.",
+      "Two expense categories do not reconcile to what was provided. The output cannot borrow credibility from numbers still in dispute.",
+      "The walk adds condition notes. Condition is not an expense record, and it does not close the gap.",
+      "The model calculates from reviewed inputs and one labeled assumption. Models may propose. Humans confirm. Code calculates.",
     ],
   },
   {
     name: "Water and sewer capacity",
-    source: "OM site summary; utility letter; field meter photo",
-    states: ["Broker-reported", "Missing evidence", "Unresolved", "Verified"],
+    detail: "Municipal service claimed for all 68 sites. The capacity record never arrived.",
+    source: "OM site summary; utility district page; field photos; records request",
+    states: ["Broker-reported", "Missing evidence", "Missing evidence", "Missing evidence"],
     notes: [
-      "The package states municipal service for every site. No capacity record is attached.",
-      "The utility letter and service records have not been received or located.",
-      "The package site count and the meter record do not match. Both sources stay in the file.",
-      "A reviewer reconciles the utility letter, the site count, and the field observation.",
+      "The package states municipal water and sewer for every site. No capacity letter or service record is attached.",
+      "Source locates the service district. No capacity letter or service record has been received or located.",
+      "The walk photographs the lift station and meter bank. Equipment is present. Rated capacity and permit standing are a different question.",
+      "The records request remains unanswered. The absence is a finding, and this gating field stays Missing evidence.",
+    ],
+  },
+  {
+    name: "Site count",
+    detail: "The package says 68. The meter bank count says 66. Both stay.",
+    source: "OM site summary; parcel record; meter bank photo",
+    states: ["Broker-reported", "Unresolved", "Unresolved", "Unresolved"],
+    notes: [
+      "The package carries 68 sites as the operating count.",
+      "The public parcel record supports the property inquiry. It does not settle the permitted site count.",
+      "The field count finds 66 pedestals at the meter bank. Nobody resolves the difference by averaging it away.",
+      "Survey and permit review have not settled which number governs. Both sources remain in the record.",
     ],
   },
   {
     name: "Room for 20 more sites",
-    source: "OM expansion note; survey; zoning record",
+    detail: "Open ground is visible. Permission to build on it is not established.",
+    source: "OM expansion note; permit portal search; field observation",
     states: ["Broker-reported", "Missing evidence", "Missing evidence", "Underwriting assumption"],
     notes: [
-      "The package presents expansion as room to grow. No survey or zoning letter is included.",
-      "Survey and zoning confirmation have not been received or located.",
-      "Open land is visible on the walk. Permission to build on it is a separate claim.",
-      "The buyer may model the expansion as a labeled assumption. It is not carried as a verified fact.",
+      "The package presents open acreage as room to grow. No survey or zoning letter is included.",
+      "No survey, zoning confirmation, or permit record has been received or located.",
+      "The open ground is real. The right to put 20 more sites on it is a separate claim.",
+      "The expansion may be carried only as a labeled Underwriting assumption. It does not enter the verified record.",
     ],
   },
 ]
+
+const CHANGE_LOG = [
+  {
+    stage: 0,
+    claim: "The file opens",
+    movement: "Claims loaded",
+    voice:
+      "I wrote the claims down before I let the headline settle. A claim with a source is a starting point. It is not a finding.",
+  },
+  {
+    stage: 1,
+    claim: "Paying occupancy",
+    movement: "Broker-reported to Unresolved",
+    voice:
+      "This is where the price started resting on a number nobody had checked.",
+  },
+  {
+    stage: 1,
+    claim: "Water and sewer capacity",
+    movement: "Broker-reported to Missing evidence",
+    voice:
+      "The file did not get worse. It got more honest. The capacity record was not there.",
+  },
+  {
+    stage: 2,
+    claim: "Site count",
+    movement: "Conflict located",
+    voice:
+      "Boots on gravel did not solve the paper. They gave the disagreement a place to stand.",
+  },
+  {
+    stage: 2,
+    claim: "Utility building",
+    movement: "Observation filed",
+    voice: "The door opened. The answer did not walk out.",
+  },
+  {
+    stage: 3,
+    claim: "Paying occupancy",
+    movement: "Unresolved to Verified",
+    voice:
+      "The narrower number is the useful one. I can point to where it came from.",
+  },
+  {
+    stage: 3,
+    claim: "Trailing twelve-month NOI",
+    movement: "Unresolved to Calculated",
+    voice:
+      "Calculated has its own label for a reason. It does not get to wear Verified.",
+  },
+  {
+    stage: 3,
+    claim: "Water and sewer capacity",
+    movement: "Still Missing evidence",
+    voice: "Dates moved. The gate did not.",
+  },
+] as const
+
+const EVIDENCE_PACKETS = [
+  {
+    title: "The broker package",
+    source: "Offering memorandum, rent roll, seller P&L",
+    gives: "The claims, the asking story, and where each number says it came from.",
+    cannot: "It cannot promote a claim past Broker-reported on its own.",
+  },
+  {
+    title: "The deposit trail",
+    source: "Bank deposits, collections report, rent roll extract",
+    gives: "A way to test whether occupied also means paying, site by site.",
+    cannot: "It cannot settle utility capacity, permits, or physical condition.",
+  },
+  {
+    title: "The field capture set",
+    source: "Dated photos, site notes, meter and pedestal counts",
+    gives: "What I saw, where I stood, and what the paper did not show.",
+    cannot: "Captured is not verified. A photo cannot prove payment or rated capacity.",
+  },
+  {
+    title: "The human review",
+    source: "Reviewer reconciliation, model lineage, open-item record",
+    gives: "Verified where evidence supports it, Calculated where the model runs, Missing where the record is still absent.",
+    cannot: "It cannot manufacture evidence that never arrived.",
+  },
+] as const
 
 function stateClass(state: string) {
   switch (state) {
@@ -106,7 +208,7 @@ function StateBadge({ state }: { state: string }) {
   return (
     <span
       className={cn(
-        "inline-flex w-fit border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
+        "inline-flex w-fit shrink-0 border bg-background/40 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
         stateClass(state),
       )}
     >
@@ -117,52 +219,96 @@ function StateBadge({ state }: { state: string }) {
 
 function ScreenFooter() {
   return (
-    <p className="mt-6 border-t border-border/50 pt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-muted">
-      Illustrative sample / fictional park / not a live deal
+    <p className="mt-7 border-t border-border/50 pt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-muted">
+      Illustrative example / fictional park / not a live deal
     </p>
+  )
+}
+
+function SceneHeading({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <div>
+      <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
+        {eyebrow}
+      </p>
+      <h3 className="serif-display mt-3 text-3xl leading-tight tracking-tight text-foreground">
+        {title}
+      </h3>
+      <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-muted sm:text-base">
+        {children}
+      </div>
+    </div>
   )
 }
 
 export default function SampleDecisionFileExplorer() {
   const [activeStep, setActiveStep] = useState(0)
-  const [arrivalIndex, setArrivalIndex] = useState(0)
+  const [recordStage, setRecordStage] = useState(0)
+  const shouldReduceMotion = useReducedMotion()
 
   const activeClaimRows = useMemo(
     () =>
       CLAIMS.map((claim) => ({
         ...claim,
-        state: claim.states[arrivalIndex],
-        note: claim.notes[arrivalIndex],
+        state: claim.states[recordStage],
+        note: claim.notes[recordStage],
       })),
-    [arrivalIndex],
+    [recordStage],
+  )
+
+  const visibleChanges = useMemo(
+    () => CHANGE_LOG.filter((entry) => entry.stage <= recordStage),
+    [recordStage],
   )
 
   const goToStep = (index: number) => {
-    setActiveStep(Math.min(Math.max(index, 0), STEPS.length - 1))
+    const next = Math.min(Math.max(index, 0), STEPS.length - 1)
+    setActiveStep(next)
+    if (next <= 1) setRecordStage(0)
+    if (next === 2) setRecordStage(1)
+    if (next === 3) setRecordStage(2)
+    if (next >= 5) setRecordStage(3)
+  }
+
+  const openEvidence = (index: number) => {
+    setRecordStage(index)
   }
 
   return (
-    <section aria-labelledby="sample-explorer-heading" className="theme-cream paper border border-primary/40 p-5 sm:p-7">
-      <div className="flex flex-col gap-4 border-b border-border/60 pb-5 lg:flex-row lg:items-start lg:justify-between">
+    <section
+      aria-labelledby="sample-explorer-heading"
+      className="theme-cream paper border border-primary/40 p-5 sm:p-7"
+    >
+      <div className="flex flex-col gap-5 border-b border-border/60 pb-6 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
-            Interactive walk-through / static sample
+            Sample decision file / Harbor Pines
           </p>
-          <h2 id="sample-explorer-heading" className="serif-display mt-2 text-2xl tracking-tight text-foreground sm:text-3xl">
-            Harbor Pines, a fictional park.
+          <h2
+            id="sample-explorer-heading"
+            className="serif-display mt-3 text-3xl tracking-tight text-foreground sm:text-4xl"
+          >
+            One deal, walked all the way down.
           </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Follow one broker package as it becomes a documented decision
-            file built to the ParkProof standard. Use the steps. Open the
-            review stage and watch the states change as evidence arrives.
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+            Harbor Pines is fictional. The habit is not. Follow the claims as
+            records open, the walk pushes back, and one gate refuses to close.
           </p>
         </div>
-        <p className="w-fit border border-critical/60 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-critical">
-          Illustrative / fictional
+        <p className="w-fit shrink-0 border border-critical/60 bg-critical/5 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-critical">
+          Illustrative example / fictional park
         </p>
       </div>
 
-      <nav aria-label="Sample decision file steps" className="mt-5">
+      <nav aria-label="Sample decision file steps" className="mt-6">
         <ol className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           {STEPS.map((step, index) => (
             <li key={step}>
@@ -171,273 +317,658 @@ export default function SampleDecisionFileExplorer() {
                 onClick={() => goToStep(index)}
                 aria-current={activeStep === index ? "step" : undefined}
                 className={cn(
-                  "w-full border px-3 py-3 text-left font-mono text-[9px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
+                  "h-full w-full border px-3 py-3 text-left font-mono text-[9px] uppercase tracking-[0.15em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
                   activeStep === index
-                    ? "border-primary bg-primary text-white"
+                    ? "border-primary bg-primary text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
                     : "border-border bg-card text-muted hover:border-primary/50 hover:text-foreground",
                 )}
               >
-                <span className="block text-[8px] opacity-80">Step {index + 1}</span>
+                <span className="block text-[8px] opacity-75">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <span className="mt-1 block leading-snug">{step}</span>
               </button>
             </li>
           ))}
         </ol>
+        <div className="mt-3 h-px bg-border/70" aria-hidden="true">
+          <div
+            className="h-full bg-primary transition-all duration-500"
+            style={{ width: `${((activeStep + 1) / STEPS.length) * 100}%` }}
+          />
+        </div>
       </nav>
 
-      <div className="mt-6 border border-border bg-card p-5 text-card-foreground sm:p-7">
-        {activeStep === 0 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              Start with a claim, not a conclusion.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              Harbor Pines is invented. The park, the seller, the broker,
-              the package, and every number in this walk-through are
-              synthetic. The point is the record: what was claimed, where it
-              came from, what state it is in, and what remains open.
-            </p>
-            <div className="mt-5 grid gap-3 md:grid-cols-3">
-              {[
-                "No live deal is shown.",
-                "No product screen is shown.",
-                "No deal is certified here.",
-              ].map((line) => (
-                <p key={line} className="border border-border bg-background/40 px-4 py-3 text-sm font-semibold text-foreground">
-                  {line}
-                </p>
-              ))}
-            </div>
-            <ScreenFooter />
-          </div>
-        )}
+      <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1fr)_25rem] xl:items-start">
+        <div className="relative min-w-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeStep}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
+              transition={{ duration: 0.38, ease: "easeOut" }}
+              className="border border-border bg-card p-5 text-card-foreground shadow-[0_22px_50px_-34px_rgba(41,34,25,0.55)] sm:p-7"
+            >
+              {activeStep === 0 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Day 1 / The inbox"
+                    title="It lands clean, confident, and easy to believe."
+                  >
+                    <p>
+                      The email arrives with a polished package, a confident
+                      cap rate, and photos taken on the kind of afternoon that
+                      makes every park look inevitable. I open it grateful for
+                      the starting point and unwilling to mistake it for proof.
+                    </p>
+                    <p>
+                      My first job is not to value the park. My first job is to
+                      separate what has been checked from what has merely been
+                      said well.
+                    </p>
+                  </SceneHeading>
 
-        {activeStep === 1 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              The broker package makes the first claims.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-              The package describes a 68-site RV park, 92 percent occupancy,
-              municipal water and sewer, and room for 20 more sites. Those
-              are claims with a source. They are not yet findings.
-            </p>
-            <div className="mt-5 grid gap-3 md:grid-cols-2">
-              {CLAIMS.map((claim) => (
-                <article key={claim.name} className="border border-border bg-background/30 p-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <h4 className="font-sans text-base font-bold text-foreground">{claim.name}</h4>
-                    <StateBadge state="Broker-reported" />
+                  <blockquote className="mt-7 border-l-2 border-primary bg-primary/5 px-5 py-5">
+                    <p className="serif-display text-3xl leading-tight text-foreground">
+                      The package is not the decision.
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      It is the first stack of claims. The decision file is
+                      what those claims become after the record has had its say.
+                    </p>
+                  </blockquote>
+
+                  <div className="mt-6 grid gap-3 md:grid-cols-3">
+                    {[
+                      [
+                        "Start with claims",
+                        "Every number gets a source before it gets my trust.",
+                      ],
+                      [
+                        "Let evidence move it",
+                        "An upload changes nothing. A reviewed record can.",
+                      ],
+                      [
+                        "Name what is missing",
+                        "A blank is not zero, and silence is not support.",
+                      ],
+                    ].map(([title, body]) => (
+                      <article
+                        key={title}
+                        className="border border-border bg-background/40 p-4"
+                      >
+                        <h4 className="font-sans text-base font-bold text-foreground">
+                          {title}
+                        </h4>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">
+                          {body}
+                        </p>
+                      </article>
+                    ))}
                   </div>
-                  <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-primary">
-                    Source / {claim.source}
+                  <ScreenFooter />
+                </div>
+              )}
+
+              {activeStep === 1 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Scene 1 / The broker package"
+                    title="The package is confident. That is its job."
+                  >
+                    <p>
+                      Sixty-eight sites. Ninety-two percent occupied. Municipal
+                      water and sewer. Room for twenty more out back. The pages
+                      are clean, the photos are bright, and the numbers line up
+                      because nobody has asked them to reconcile yet.
+                    </p>
+                    <p>
+                      Broker-reported is not an accusation. It means the claim
+                      is in the file, the source is named, and nobody has
+                      independently checked it yet.
+                    </p>
+                  </SceneHeading>
+
+                  <blockquote className="mt-7 border border-accent/50 bg-accent/5 px-5 py-5">
+                    <p className="serif-display text-2xl leading-tight text-foreground sm:text-3xl">
+                      Reported occupancy is not paying occupancy.
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      That is not suspicion. It is bookkeeping.
+                    </p>
+                  </blockquote>
+
+                  <div className="mt-6 grid gap-3 md:grid-cols-2">
+                    {CLAIMS.map((claim) => (
+                      <article
+                        key={claim.name}
+                        className="border border-border bg-background/30 p-4"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <h4 className="font-sans text-base font-bold text-foreground">
+                            {claim.name}
+                          </h4>
+                          <StateBadge state="Broker-reported" />
+                        </div>
+                        <p className="mt-3 text-sm font-semibold leading-relaxed text-foreground">
+                          {claim.detail}
+                        </p>
+                        <p className="mt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-primary">
+                          Source / {claim.source}
+                        </p>
+                        <p className="mt-3 text-sm leading-relaxed text-muted">
+                          {claim.notes[0]}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                  <ScreenFooter />
+                </div>
+              )}
+
+              {activeStep === 2 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Scene 2 / Source trail"
+                    title="Source finds the park. It does not bless the story."
+                  >
+                    <p>
+                      Before I drive out, I want the public trail: the listing,
+                      the parcel, the service district, the permit portal. I
+                      want to know where each fact came from and when it entered
+                      the file.
+                    </p>
+                    <p>
+                      A found record is a place to start asking. It is not the
+                      answer, and it is never a substitute for the seller
+                      producing the operating record.
+                    </p>
+                  </SceneHeading>
+
+                  <div className="mt-6 grid gap-3 md:grid-cols-2">
+                    {[
+                      [
+                        "Listing matched to the package",
+                        "The park, the asking presentation, and the package now point at the same deal record.",
+                        "Identity and presentation. It does not establish operating truth.",
+                      ],
+                      [
+                        "Parcel record located",
+                        "The address and acreage inquiry now have a public record behind them.",
+                        "Property context. It does not settle the permitted site count.",
+                      ],
+                      [
+                        "Utility district page found",
+                        "The service area is identified, and the district becomes a named source to pursue.",
+                        "A service area. It does not establish rated capacity for 68 sites.",
+                      ],
+                      [
+                        "Permit portal searched",
+                        "No expansion permit is located in the material provided. The absence is recorded, not smoothed over.",
+                        "An open item. Missing evidence is a finding, not a blank.",
+                      ],
+                    ].map(([title, gives, limit]) => (
+                      <article
+                        key={title}
+                        className="border border-border bg-background/30 p-4"
+                      >
+                        <h4 className="font-sans text-base font-bold text-foreground">
+                          {title}
+                        </h4>
+                        <p className="mt-3 text-sm leading-relaxed text-muted">
+                          <span className="font-semibold text-foreground">
+                            What it gives me:{" "}
+                          </span>
+                          {gives}
+                        </p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">
+                          <span className="font-semibold text-foreground">
+                            What it cannot give me:{" "}
+                          </span>
+                          {limit}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <p className="mt-6 border-l-2 border-primary bg-primary/5 px-5 py-4 text-sm font-semibold leading-relaxed text-foreground">
+                    Source keeps the receipts. Acquire still has to decide what
+                    the receipts prove.
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{claim.notes[0]}</p>
-                </article>
-              ))}
-            </div>
-            <ScreenFooter />
-          </div>
-        )}
+                  <ScreenFooter />
+                </div>
+              )}
 
-        {activeStep === 2 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              Source gathers the record and keeps the receipts.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-              Source finds the park from public pages, listings, and public
-              records. It keeps where each fact came from and hands the
-              record into underwriting and Acquire. A found record is a
-              lead for review, not a verification.
-            </p>
-            <ul className="mt-5 grid gap-3 md:grid-cols-2">
-              {[
-                ["Listing matched to the package", "The park identity and asking presentation are tied to the same deal record."],
-                ["Public record located", "A parcel record supports the address and acreage inquiry. It does not settle permitted site count."],
-                ["Utility district page found", "The service area is identified. Capacity remains a separate claim."],
-                ["Permit portal searched", "No expansion permit is located in the material provided. The absence is recorded as Missing evidence."],
-              ].map(([title, body]) => (
-                <li key={title} className="border border-border bg-background/30 p-4">
-                  <h4 className="font-sans text-base font-bold text-foreground">{title}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
-                </li>
-              ))}
-            </ul>
-            <ScreenFooter />
-          </div>
-        )}
+              {activeStep === 3 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Scene 3 / The walk"
+                    title="Then I go stand in it."
+                  >
+                    <p>
+                      The park is quieter than the photographs and older up
+                      close. Heat comes off the gravel. Paint peels where the
+                      brochure cropped it out. Rigs sit under awnings with hoses
+                      connected and chairs turned toward the shade.
+                    </p>
+                    <p>
+                      It looks occupied. Looking occupied and paying are two
+                      different claims, and only one of them can be seen from
+                      the road.
+                    </p>
+                  </SceneHeading>
 
-        {activeStep === 3 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              Field captures what the paper cannot show.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-              Field is the on-site part of the system. It captures photos,
-              notes, and observations on a deal that already exists. A photo
-              is evidence to review. It is not, by itself, a verified fact.
-            </p>
-            <div className="mt-5 grid gap-3 md:grid-cols-3">
-              {[
-                ["Meter bank photographed", "The count differs from the package site count. The conflict is recorded, not resolved."],
-                ["Lift station observed", "The surface condition is captured. Service records were not located in the package."],
-                ["Open ground walked", "Land is present. That observation does not establish zoning, setbacks, or capacity."],
-              ].map(([title, body]) => (
-                <article key={title} className="border border-border bg-background/30 p-4">
-                  <StateBadge state="Unresolved" />
-                  <h4 className="mt-3 font-sans text-base font-bold text-foreground">{title}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
-                </article>
-              ))}
-            </div>
-            <p className="mt-5 border border-primary/40 bg-primary/5 px-4 py-3 text-sm font-semibold text-foreground">
-              Captured is not verified.
-            </p>
-            <ScreenFooter />
-          </div>
-        )}
-
-        {activeStep === 4 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              Acquire holds the claims while evidence arrives.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-              Move through the record. The claim does not change because a
-              document was uploaded. It changes when evidence arrives and a
-              person reviews it.
-            </p>
-
-            <div className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-4" role="group" aria-label="Evidence arrival stage">
-              {ARRIVAL_STAGES.map((stage, index) => (
-                <button
-                  key={stage.label}
-                  type="button"
-                  onClick={() => setArrivalIndex(index)}
-                  aria-pressed={arrivalIndex === index}
-                  className={cn(
-                    "border px-3 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
-                    arrivalIndex === index
-                      ? "border-primary bg-primary text-white"
-                      : "border-border bg-background/40 text-muted hover:border-primary/50 hover:text-foreground",
-                  )}
-                >
-                  <span className="block font-mono text-[9px] uppercase tracking-[0.16em]">{stage.label}</span>
-                  <span className="mt-1 block text-xs leading-relaxed opacity-90">{stage.note}</span>
-                </button>
-              ))}
-            </div>
-
-            <div className="mt-5 overflow-hidden border border-border">
-              <div className="grid bg-background/50 px-4 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted md:grid-cols-[1.1fr_1fr_1.4fr_0.8fr]">
-                <span>Claim</span>
-                <span className="hidden md:block">Source</span>
-                <span className="hidden md:block">Record at this stage</span>
-                <span>State</span>
-              </div>
-              {activeClaimRows.map((claim) => (
-                <article key={claim.name} className="grid gap-3 border-t border-border/50 px-4 py-4 md:grid-cols-[1.1fr_1fr_1.4fr_0.8fr]">
-                  <h4 className="font-sans text-sm font-bold text-foreground">{claim.name}</h4>
-                  <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.13em] text-primary">{claim.source}</p>
-                  <p className="text-sm leading-relaxed text-muted">{claim.note}</p>
-                  <StateBadge state={claim.state} />
-                </article>
-              ))}
-            </div>
-            <ScreenFooter />
-          </div>
-        )}
-
-        {activeStep === 5 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              The gates stay visible until they close.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-              A gate is a material item that can stop the deal from moving
-              forward on the paper as presented. Open gates are listed, not
-              buried in an appendix.
-            </p>
-            <div className="mt-5 grid gap-3 md:grid-cols-2">
-              {[
-                ["Water and sewer capacity", "Verified", "The utility letter, site count, and field observation reconcile after review."],
-                ["Expansion entitlement", "Missing evidence", "Survey and zoning confirmation have not been received or located. This gate remains open."],
-                ["Lift station service record", "Unresolved", "The Field observation is captured. Service records and condition review remain open."],
-                ["NOI output", "Calculated", "The model output carries reviewed inputs and one labeled assumption. It is not displayed as a verified fact."],
-              ].map(([title, state, body]) => (
-                <article key={title} className="border border-border bg-background/30 p-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <h4 className="font-sans text-base font-bold text-foreground">{title}</h4>
-                    <StateBadge state={state} />
+                  <div className="mt-6 grid gap-3 md:grid-cols-3">
+                    {[
+                      [
+                        "09:18 / First row",
+                        "Pedestals and pads",
+                        "The pedestals are here, weathered and in service. The photo records what I saw at that hour. It does not tell me which sites produced income last month.",
+                      ],
+                      [
+                        "10:04 / Meter bank",
+                        "66 pedestals counted",
+                        "The package says 68 sites. I count 66 pedestals at the meter bank. The conflict goes in the file exactly as found.",
+                      ],
+                      [
+                        "10:31 / Back field",
+                        "Open ground, no answer",
+                        "Grass, tree line, room to imagine. I can see land. I cannot see zoning, setbacks, permits, or capacity.",
+                      ],
+                    ].map(([stamp, title, body]) => (
+                      <article
+                        key={stamp}
+                        className="border border-border bg-background/30 p-4"
+                      >
+                        <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                          {stamp}
+                        </p>
+                        <div className="mt-3">
+                          <StateBadge state="Unresolved" />
+                        </div>
+                        <h4 className="mt-3 font-sans text-base font-bold text-foreground">
+                          {title}
+                        </h4>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">
+                          {body}
+                        </p>
+                      </article>
+                    ))}
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{body}</p>
+
+                  <article className="mt-4 border border-primary/40 bg-primary/5 p-5">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                      10:47 / Utility building
+                    </p>
+                    <h4 className="mt-3 font-sans text-lg font-bold text-foreground">
+                      The door nobody wants to open.
+                    </h4>
+                    <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                      The latch sticks. Inside are the pump panel, stained
+                      concrete, and a service tag too faded to settle anything.
+                      The lift station is present and running. Presence is not
+                      capacity, condition is not a service history, and a photo
+                      is not a permit.
+                    </p>
+                    <p className="mt-4 text-sm font-semibold leading-relaxed text-foreground">
+                      Captured is not verified.
+                    </p>
+                  </article>
+                  <ScreenFooter />
+                </div>
+              )}
+
+              {activeStep === 4 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Scene 4 / Acquire"
+                    title="This is where I stop collecting paper and start naming truth."
+                  >
+                    <p>
+                      Acquire holds the claims still while the evidence either
+                      earns a stronger label or stays honestly short of one.
+                      Open each packet. The ledger follows what the record can
+                      support at that moment.
+                    </p>
+                  </SceneHeading>
+
+                  <div
+                    className="mt-6 grid gap-2 sm:grid-cols-2 xl:grid-cols-4"
+                    role="group"
+                    aria-label="Evidence packets"
+                  >
+                    {EVIDENCE_PACKETS.map((packet, index) => (
+                      <button
+                        key={packet.title}
+                        type="button"
+                        onClick={() => openEvidence(index)}
+                        aria-pressed={recordStage === index}
+                        className={cn(
+                          "border px-3 py-3 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
+                          recordStage === index
+                            ? "border-primary bg-primary text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
+                            : "border-border bg-background/40 text-muted hover:border-primary/50 hover:text-foreground",
+                        )}
+                      >
+                        <span className="block font-mono text-[8px] uppercase tracking-[0.16em] opacity-80">
+                          Packet {index + 1}
+                        </span>
+                        <span className="mt-1 block font-sans text-sm font-bold leading-snug">
+                          {packet.title}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+
+                  <AnimatePresence mode="wait">
+                    <motion.article
+                      key={recordStage}
+                      initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
+                      transition={{ duration: 0.28, ease: "easeOut" }}
+                      className="mt-4 border border-primary/40 bg-primary/5 p-5"
+                      aria-live="polite"
+                    >
+                      <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                        Opened / {EVIDENCE_PACKETS[recordStage].source}
+                      </p>
+                      <h4 className="mt-3 font-sans text-lg font-bold text-foreground">
+                        {EVIDENCE_PACKETS[recordStage].title}
+                      </h4>
+                      <div className="mt-3 grid gap-4 md:grid-cols-2">
+                        <p className="text-sm leading-relaxed text-muted">
+                          <span className="font-semibold text-foreground">
+                            What it can establish:{" "}
+                          </span>
+                          {EVIDENCE_PACKETS[recordStage].gives}
+                        </p>
+                        <p className="text-sm leading-relaxed text-muted">
+                          <span className="font-semibold text-foreground">
+                            What it cannot establish:{" "}
+                          </span>
+                          {EVIDENCE_PACKETS[recordStage].cannot}
+                        </p>
+                      </div>
+                    </motion.article>
+                  </AnimatePresence>
+
+                  <blockquote className="mt-6 border-l-2 border-primary px-5 py-1">
+                    <p className="serif-display text-2xl leading-tight text-foreground">
+                      A claim does not change because a document was uploaded.
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      It changes when evidence arrives and a person reviews it.
+                    </p>
+                  </blockquote>
+                  <ScreenFooter />
+                </div>
+              )}
+
+              {activeStep === 5 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Scene 5 / The gates"
+                    title="Dates move. Gates don't."
+                  >
+                    <p>
+                      The closing calendar can slide with a phone call. A
+                      missing capacity record does not fill itself in because
+                      everyone is tired of waiting on it.
+                    </p>
+                    <p>
+                      On day 19, the utility records request is still open. No
+                      accusation. No villain. Just a blank where a gating
+                      record ought to be.
+                    </p>
+                  </SceneHeading>
+
+                  <div className="mt-6 grid gap-3 md:grid-cols-2">
+                    {[
+                      [
+                        "Water and sewer capacity",
+                        "Missing evidence",
+                        "The capacity letter and service records still have not arrived. This is a gating field, so the record fails closed.",
+                      ],
+                      [
+                        "Site count",
+                        "Unresolved",
+                        "The package says 68 and the meter bank count says 66. Both sources stay in the record until new evidence settles the difference.",
+                      ],
+                      [
+                        "Paying occupancy",
+                        "Verified",
+                        "The supported paying count is tied to leases, collections, and deposits a person reviewed. This claim can carry weight.",
+                      ],
+                      [
+                        "Trailing twelve-month NOI",
+                        "Calculated",
+                        "The output carries its inputs and its one labeled assumption with it. It is usable only with that lineage showing.",
+                      ],
+                      [
+                        "Room for 20 more sites",
+                        "Underwriting assumption",
+                        "The expansion stays outside the verified record. It may be modeled, named, and priced as an assumption. It may not pose as entitlement.",
+                      ],
+                    ].map(([title, state, body]) => (
+                      <article
+                        key={title}
+                        className="border border-border bg-background/30 p-4"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <h4 className="font-sans text-base font-bold text-foreground">
+                            {title}
+                          </h4>
+                          <StateBadge state={state} />
+                        </div>
+                        <p className="mt-3 text-sm leading-relaxed text-muted">
+                          {body}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <p className="mt-6 border border-critical/50 bg-critical/5 px-5 py-4 text-sm font-semibold leading-relaxed text-foreground">
+                    An open gate is not buried in an appendix. It sits on the
+                    record where the buyer has to look at it.
+                  </p>
+                  <ScreenFooter />
+                </div>
+              )}
+
+              {activeStep === 6 && (
+                <div>
+                  <SceneHeading
+                    eyebrow="Scene 6 / The decision file"
+                    title="The file does not tell me what to do. It tells me where I stand."
+                  >
+                    <p>
+                      This is not a failed deal. It is an unfinished record.
+                      The label keeps me from pretending the choice in front of
+                      me is better informed than it actually is.
+                    </p>
+                  </SceneHeading>
+
+                  <div className="mt-7 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+                    <div className="border border-critical/60 bg-critical/5 p-6">
+                      <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-critical">
+                        Documented posture / evidence-readiness label
+                      </p>
+                      <p className="serif-display mt-4 text-6xl tracking-tight text-foreground">
+                        Pause
+                      </p>
+                      <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+                        A gating field, water and sewer capacity, sits in
+                        Missing evidence. Under the ParkProof Standard, the
+                        record holds at Pause.
+                      </p>
+                      <p className="mt-4 border-t border-critical/30 pt-4 text-sm font-semibold leading-relaxed text-foreground">
+                        Pause is not a recommendation, approval, or advice. The
+                        buyer owns the decision.
+                      </p>
+                    </div>
+
+                    <div className="border border-border bg-background/30 p-5">
+                      <h4 className="font-sans text-base font-bold text-foreground">
+                        The same park, stated honestly
+                      </h4>
+                      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                        <div>
+                          <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-accent">
+                            The package said
+                          </p>
+                          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
+                            <li>92 percent occupancy.</li>
+                            <li>Municipal capacity for every site.</li>
+                            <li>68 sites, settled.</li>
+                            <li>20 more sites out back.</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                            The record says
+                          </p>
+                          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
+                            <li>57 of 68 paying, Verified.</li>
+                            <li>Capacity, Missing evidence.</li>
+                            <li>Site count, Unresolved.</li>
+                            <li>Expansion, Underwriting assumption.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="mt-5 border-t border-border/50 pt-4 text-sm leading-relaxed text-muted">
+                        One claim earned Verified. One output is Calculated with
+                        its lineage showing. One conflict remains Unresolved.
+                        One gating absence remains Missing. Nothing was rounded
+                        into certainty to make the ending feel better.
+                      </p>
+                    </div>
+                  </div>
+                  <ScreenFooter />
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-5 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() => goToStep(activeStep - 1)}
+              disabled={activeStep === 0}
+              className="border border-border bg-card px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Previous
+            </button>
+            <p
+              className="text-center font-mono text-[9px] uppercase tracking-[0.18em] text-muted"
+              aria-live="polite"
+            >
+              Scene {activeStep + 1} of {STEPS.length} / illustrative
+            </p>
+            <button
+              type="button"
+              onClick={() => goToStep(activeStep + 1)}
+              disabled={activeStep === STEPS.length - 1}
+              className="border border-primary/60 bg-primary px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <aside
+          aria-labelledby="claim-ledger-heading"
+          className="border border-primary/50 bg-card shadow-[0_24px_60px_-34px_rgba(41,34,25,0.65)] xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto"
+        >
+          <div className="border-b border-border/60 p-5">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-primary">
+                  Harbor Pines / claim ledger
+                </p>
+                <h3
+                  id="claim-ledger-heading"
+                  className="serif-display mt-2 text-2xl tracking-tight text-foreground"
+                >
+                  The record, as it stands.
+                </h3>
+              </div>
+              <span className="border border-critical/60 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-critical">
+                Fictional
+              </span>
+            </div>
+            <div className="mt-4 border border-border bg-background/40 p-3" aria-live="polite">
+              <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary">
+                Record moment {recordStage + 1} of {RECORD_STAGES.length}
+              </p>
+              <p className="mt-1 font-sans text-sm font-bold text-foreground">
+                {RECORD_STAGES[recordStage].label}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-muted">
+                {RECORD_STAGES[recordStage].note}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            {activeClaimRows.map((claim) => (
+              <article
+                key={claim.name}
+                className="border-b border-border/50 p-5 last:border-b-0"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <h4 className="font-sans text-sm font-bold leading-snug text-foreground">
+                    {claim.name}
+                  </h4>
+                  <StateBadge state={claim.state} />
+                </div>
+                <p className="mt-3 text-sm font-semibold leading-relaxed text-foreground">
+                  {claim.detail}
+                </p>
+                <p className="mt-2 font-mono text-[8px] uppercase leading-relaxed tracking-[0.13em] text-primary">
+                  {claim.source}
+                </p>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`${claim.name}-${recordStage}`}
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={shouldReduceMotion ? undefined : { opacity: 0, y: -4 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="mt-3 text-sm leading-relaxed text-muted"
+                  >
+                    {claim.note}
+                  </motion.p>
+                </AnimatePresence>
+              </article>
+            ))}
+          </div>
+
+          <div className="border-t border-primary/40 bg-primary/5 p-5">
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-primary">
+              What changed
+            </p>
+            <div className="mt-4 space-y-4">
+              {visibleChanges.map((entry) => (
+                <article
+                  key={`${entry.stage}-${entry.claim}-${entry.movement}`}
+                  className="border-l border-primary/50 pl-4"
+                >
+                  <p className="font-mono text-[8px] uppercase leading-relaxed tracking-[0.14em] text-primary">
+                    {entry.claim} / {entry.movement}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/85">
+                    {entry.voice}
+                  </p>
                 </article>
               ))}
             </div>
-            <ScreenFooter />
-          </div>
-        )}
-
-        {activeStep === 6 && (
-          <div>
-            <h3 className="font-sans text-xl font-bold tracking-tight text-foreground">
-              The documented posture is Pause.
-            </h3>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              Paying occupancy and utility capacity are Verified. The NOI
-              output is Calculated from reviewed inputs and a labeled
-              assumption. Expansion entitlement is still Missing evidence.
-              Under the standard, a gating field in Missing evidence holds
-              the record at Pause.
+            <p className="mt-5 border-t border-border/50 pt-4 font-mono text-[8px] uppercase leading-relaxed tracking-[0.16em] text-muted">
+              Every state is named in words. Color never carries the meaning alone.
             </p>
-            <div className="mt-6 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="border border-critical/60 bg-critical/5 p-5">
-                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-critical">
-                  Evidence-readiness label
-                </p>
-                <p className="serif-display mt-3 text-4xl tracking-tight text-foreground">Pause</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Pause is an evidence-readiness label. It is not a
-                  recommendation, approval, or advice. The buyer owns the
-                  decision.
-                </p>
-              </div>
-              <div className="border border-border bg-background/30 p-5">
-                <h4 className="font-sans text-base font-bold text-foreground">What the file now shows</h4>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-                  <li>Two material claims point to reviewed evidence.</li>
-                  <li>One model output shows its inputs and calculation lineage.</li>
-                  <li>One expansion scenario is labeled as an assumption.</li>
-                  <li>One gating item remains Missing evidence and stays on the record.</li>
-                </ul>
-              </div>
-            </div>
-            <ScreenFooter />
           </div>
-        )}
-      </div>
-
-      <div className="mt-5 flex items-center justify-between gap-3">
-        <button
-          type="button"
-          onClick={() => goToStep(activeStep - 1)}
-          disabled={activeStep === 0}
-          className="border border-border px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Previous
-        </button>
-        <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted" aria-live="polite">
-          Screen {activeStep + 1} of {STEPS.length} / illustrative
-        </p>
-        <button
-          type="button"
-          onClick={() => goToStep(activeStep + 1)}
-          disabled={activeStep === STEPS.length - 1}
-          className="border border-primary/60 bg-primary px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Next
-        </button>
+        </aside>
       </div>
     </section>
   )

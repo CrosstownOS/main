@@ -7,12 +7,12 @@ import SampleDecisionFileExplorer from "./SampleDecisionFileExplorer"
 export const metadata: Metadata = {
   title: "Sample Decision File | CrosstownOS // Acquire",
   description:
-    "A self-guided fictional walk-through of a documented decision file built to the ParkProof standard.",
+    "Walk a fictional RV park deal from broker package to documented posture as claims gain support, stay unresolved, or remain missing.",
   alternates: { canonical: "/sample-decision-file" },
   openGraph: {
     title: "Sample Decision File | CrosstownOS // Acquire",
     description:
-      "From broker package to documented posture, with evidence states changing as evidence arrives.",
+      "The package is not the decision. Walk the record as evidence arrives, the site pushes back, and one gate stays open.",
     type: "website",
     url: "/sample-decision-file",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sample Decision File | CrosstownOS // Acquire",
     description:
-      "An illustrative walk-through of a documented decision file built to the ParkProof standard.",
+      "An illustrative walk through a documented decision file built to the ParkProof standard.",
     images: ["/images/opengraph.jpg?v=2"],
   },
 }
@@ -40,21 +40,56 @@ export default function SampleDecisionFilePage() {
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-          <p className="mono-label mb-4">Sample Decision File / Illustrative</p>
-          <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
-            Walk the file before you trust the headline.
-          </h1>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-            This is a static, fictional walk-through of a documented
-            decision file built to the ParkProof standard. It is not a live
-            deal, not a product demonstration, and not a certification.
-          </p>
+          <div className="max-w-4xl">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="mono-label">Sample Decision File / Inside the Record</p>
+              <p className="border border-cream/50 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-cream">
+                Illustrative example / fictional park
+              </p>
+            </div>
+            <h1 className="serif-display mt-6 max-w-4xl text-5xl leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
+              The package is not the decision.
+            </h1>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/85 sm:text-xl">
+              A broker package can be a useful beginning. It is not proof.
+              Walk one fictional deal the way it has to be walked: claim by
+              claim, source by source, until the record says what it can
+              support and names what it cannot.
+            </p>
+            <p className="mt-5 max-w-3xl border-l-2 border-primary pl-5 text-sm leading-relaxed text-muted sm:text-base">
+              I am not looking for a prettier story. I am looking for the point
+              where each claim either earns its place or gets named honestly.
+            </p>
 
-          <div className="mt-10">
+            <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
+              {[
+                ["One fictional park", "Harbor Pines, from inbox to decision file."],
+                ["Five claims followed", "Occupancy, NOI, capacity, site count, expansion."],
+                ["One gate still open", "No score. No shortcut around the record."],
+              ].map(([title, body]) => (
+                <div
+                  key={title}
+                  className="border border-foreground/15 bg-background/45 px-4 py-4 backdrop-blur-sm"
+                >
+                  <p className="font-sans text-sm font-bold text-foreground">
+                    {title}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">
+                    {body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12">
             <SampleDecisionFileExplorer />
           </div>
 
-          <section aria-labelledby="sample-boundary" className="mt-20 grid gap-4 md:grid-cols-3">
+          <section
+            aria-labelledby="sample-boundary"
+            className="mt-20 grid gap-4 md:grid-cols-3"
+          >
             <h2 id="sample-boundary" className="sr-only">
               Sample boundaries
             </h2>
@@ -69,11 +104,11 @@ export default function SampleDecisionFilePage() {
             </article>
             <article className="theme-cream border border-border bg-card p-6">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                What this does not show
+                What this does not do
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                A live product, a real property, a market opinion, or a
-                decision about any actual transaction.
+                It does not turn an upload into truth, certify a deal, or make
+                a decision about any actual transaction.
               </p>
             </article>
             <article className="theme-cream border border-border bg-card p-6">
@@ -89,13 +124,19 @@ export default function SampleDecisionFilePage() {
 
           <section aria-labelledby="sample-next" className="mt-20">
             <div className="theme-cream paper border border-border p-6 sm:p-8">
-              <h2 id="sample-next" className="serif-display text-2xl tracking-tight sm:text-3xl">
-                Read the standard, then bring the deal.
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+                From sample to live deal
+              </p>
+              <h2
+                id="sample-next"
+                className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl"
+              >
+                The sample is fictional. The deadline pressure is not.
               </h2>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-                The sample is fictional. The discipline is the point: every
-                material claim carries where it came from and what state it
-                is in.
+                Read the standard, then bring the deal that is already sitting
+                in the inbox. The work is the same: establish what is true
+                before capital is committed.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
