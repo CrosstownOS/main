@@ -22,7 +22,7 @@ export default function CalBooking({ url, title }: CalBookingProps) {
           src={`${url}?embed=true`}
           title={title}
           loading="lazy"
-          className="h-[640px] w-full"
+          className="h-[min(640px,62dvh)] w-full"
         />
       </div>
       <p className="mt-4 text-sm leading-relaxed text-muted">

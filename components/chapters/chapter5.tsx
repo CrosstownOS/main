@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, type FormEvent } from "react"
+import { createPortal } from "react-dom"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { X } from "lucide-react"
 import { TerminalLabel } from "@/components/ui/primitives"
@@ -416,6 +417,7 @@ const EVENT_TO_FORM: Record<string, FormType> = {
 type SubmissionStatus = "idle" | "submitting" | "success" | "error"
 
 export default function Chapter5() {
+  const [isMounted, setIsMounted] = useState(false)
   const [activeForm, setActiveForm] = useState<FormType | null>(null)
   const [sourcePath, setSourcePath] = useState("")
   const [status, setStatus] = useState<SubmissionStatus>("idle")
@@ -444,6 +446,10 @@ export default function Chapter5() {
     setStatus("idle")
     setStatusMessage("")
   }
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -623,7 +629,7 @@ export default function Chapter5() {
 
   const config = activeForm ? FORM_CONFIGS[activeForm] : null
 
-  return (
+  const modal = (
     <AnimatePresence>
       {config ? (
         <motion.div
@@ -632,7 +638,7 @@ export default function Chapter5() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-background/75 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain bg-background/75 p-3 backdrop-blur-sm sm:items-center sm:p-4"
           onClick={(event) => {
             if (event.target === event.currentTarget) closeForm()
           }}
@@ -647,9 +653,9 @@ export default function Chapter5() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-            className="theme-cream flex max-h-[90vh] w-full max-w-2xl flex-col border border-border bg-background shadow-2xl"
+            className="theme-cream flex max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl flex-col overflow-hidden border border-border bg-background shadow-2xl sm:max-h-[90dvh]"
           >
-            <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-6">
+            <div className="flex flex-none items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-6">
               <div>
                 <TerminalLabel className="mb-2 block">
                   {config.eyebrow}
@@ -671,7 +677,7 @@ export default function Chapter5() {
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-5 py-6 sm:px-6">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-6">
               {status === "success" ? (
                 <div
                   role="status"
@@ -843,4 +849,6 @@ export default function Chapter5() {
       ) : null}
     </AnimatePresence>
   )
+
+  return isMounted ? createPortal(modal, document.body) : null
 }
