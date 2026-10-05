@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { getAllPosts } from "@/lib/blog"
+import { RESOURCE_DETAILS } from "@/lib/resources"
 
 const BASE = "https://www.crosstownosrv.camp"
 
@@ -64,6 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    ...RESOURCE_DETAILS.map((resource) => ({
+      url: `${BASE}/resources/${resource.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
     ...posts.map((post) => ({
       url: `${BASE}/blog/${post.slug}`,
       lastModified: new Date(post.date + "T12:00:00"),

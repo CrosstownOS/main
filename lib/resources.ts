@@ -73,6 +73,25 @@ export const TOOL_BY_CODE: Record<string, Tool> = Object.fromEntries(
   TOOLS.map((t) => [t.code, t])
 )
 
+export function resourceTitleSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+}
+
+export function resourceSlug(tool: Tool): string {
+  return resourceTitleSlug(tool.title)
+}
+
+export const TOOL_BY_SLUG: Record<string, Tool> = Object.fromEntries(
+  TOOLS.map((tool) => [resourceSlug(tool), tool])
+)
+
+export const PART_BY_ID: Record<string, Part> = Object.fromEntries(
+  PARTS.map((part) => [part.id, part])
+)
+
 export type Spine = {
   title: string
   file: string
@@ -83,12 +102,12 @@ export const SPINES: Spine[] = [
   {
     title: "Start Here",
     file: `${R}/CrosstownOS-Start-Here.pdf`,
-    description: "How the 35 tools fit together. Read this before you print anything.",
+    description: "How the 38 tools fit together. Read this before you print anything.",
   },
   {
     title: "The Journey Map",
     file: `${R}/CrosstownOS-Journey-Map.pdf`,
-    description: "Thirty-five tools, one order. Find the Part that matches where you are.",
+    description: "Thirty-eight tools, one order. Find the Part that matches where you are.",
   },
   {
     title: "The Evidence Status Standard",
@@ -96,6 +115,35 @@ export const SPINES: Spine[] = [
     description: "Every claim carries one letter: V, B, M, A, C, U. The letter is the status, not the strength.",
   },
 ]
+
+export type ResourceDetail = {
+  slug: string
+  title: string
+  description: string
+  file: string
+  code?: string
+  part?: string
+}
+
+export const RESOURCE_DETAILS: ResourceDetail[] = [
+  ...TOOLS.map((tool) => ({
+    slug: resourceSlug(tool),
+    title: tool.title,
+    description: tool.description,
+    file: tool.file,
+    code: tool.code,
+    part: tool.part,
+  })),
+  ...SPINES.map((spine) => ({
+    slug: resourceTitleSlug(spine.title),
+    title: spine.title,
+    description: spine.description,
+    file: spine.file,
+  })),
+]
+
+export const RESOURCE_DETAIL_BY_SLUG: Record<string, ResourceDetail> =
+  Object.fromEntries(RESOURCE_DETAILS.map((resource) => [resource.slug, resource]))
 
 export type NextStep = { code: string; why: string }
 

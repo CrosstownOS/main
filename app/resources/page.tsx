@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
@@ -7,18 +8,20 @@ import {
   SITUATION_B_BRANCHES,
   SPINES,
   TOOL_BY_CODE,
+  resourceSlug,
+  resourceTitleSlug,
   type Situation,
 } from "@/lib/resources"
 
 export const metadata: Metadata = {
   title: "Acquisition Signal Resources | CrosstownOS // Acquire",
   description:
-    "Thirty-five free diligence tools for RV park and manufactured-housing buyers, plus the three spine pages. Tell us where your deal stands and get the right tool first.",
+    "Thirty-eight free diligence tools for RV park and manufactured-housing buyers, plus the three spine pages. Tell us where your deal stands and get the right tool first.",
   alternates: { canonical: "/resources" },
   openGraph: {
     title: "Acquisition Signal Resources | CrosstownOS // Acquire",
     description:
-      "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
+      "Thirty-eight free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
     type: "website",
     url: "/resources",
     images: [
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Acquisition Signal Resources | CrosstownOS // Acquire",
     description:
-      "Thirty-five free diligence tools for RV park and manufactured-housing buyers.",
+      "Thirty-eight free diligence tools for RV park and manufactured-housing buyers.",
     images: ["/images/opengraph.jpg?v=2"],
   },
 }
@@ -53,7 +56,12 @@ function ToolCard({ code, note }: { code: string; note?: string }) {
         </span>
       </div>
       <h3 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
-        {tool.title}
+        <Link
+          href={`/resources/${resourceSlug(tool)}`}
+          className="transition-colors hover:text-primary"
+        >
+          {tool.title}
+        </Link>
       </h3>
       {note && (
         <p className="mt-2 text-sm leading-relaxed text-muted">{note}</p>
@@ -93,7 +101,12 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
               </span>
               <div className="min-w-0">
                 <p className="font-semibold">
-                  {tool.code}: {tool.title}
+                  <Link
+                    href={`/resources/${resourceSlug(tool)}`}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {tool.code}: {tool.title}
+                  </Link>
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted">
                   {step.why}
@@ -233,7 +246,7 @@ export default async function ResourcesPage({
                 Full catalog
               </p>
               <p className="mt-2 font-semibold leading-snug">
-                Browse all 35 tools by Part
+                Browse all 38 tools by Part
               </p>
             </a>
           </div>
@@ -259,7 +272,12 @@ export default async function ResourcesPage({
               {SPINES.map((sp) => (
                 <div key={sp.title} className="theme-cream border border-border bg-card p-6">
                   <h3 className="serif-display text-xl tracking-tight">
-                    {sp.title}
+                    <Link
+                      href={`/resources/${resourceTitleSlug(sp.title)}`}
+                      className="transition-colors hover:text-primary"
+                    >
+                      {sp.title}
+                    </Link>
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {sp.description}

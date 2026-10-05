@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
-import { PARTS, TOOLS } from "@/lib/resources"
+import { PARTS, TOOLS, resourceSlug } from "@/lib/resources"
+
+const BASE_URL = "https://www.crosstownosrv.camp"
 
 export const metadata: Metadata = {
   title: "Resource Catalog | CrosstownOS // Acquire",
@@ -45,6 +48,7 @@ const jsonLd = {
     position: i + 1,
     name: `${t.code}: ${t.title}`,
     description: t.description,
+    url: `${BASE_URL}/resources/${resourceSlug(t)}`,
   })),
 }
 
@@ -96,7 +100,12 @@ export default function CatalogPage() {
                           </span>
                         </div>
                         <h3 className="serif-display mt-2 text-xl tracking-tight">
-                          {tool.title}
+                          <Link
+                            href={`/resources/${resourceSlug(tool)}`}
+                            className="transition-colors hover:text-primary"
+                          >
+                            {tool.title}
+                          </Link>
                         </h3>
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                           {tool.description}
