@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -360,6 +361,15 @@ export default function Navigation() {
               className="group flex min-w-fit items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="Return to the CrosstownOS homepage"
             >
+              <span className="relative h-10 w-10 flex-none overflow-hidden [clip-path:circle(50%)]">
+                <Image
+                  src="/logo.jpg"
+                  alt="CrosstownOS"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </span>
               <span className="font-serif text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
                 CrosstownOS
               </span>
