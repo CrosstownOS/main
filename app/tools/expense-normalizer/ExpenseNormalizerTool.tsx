@@ -255,7 +255,7 @@ export default function ExpenseNormalizerTool() {
         id: "noiVariance",
         label: "Seller NOI variance",
         value: variance,
-        display: variance == null ? "—" : `${fmtMoney(variance)} (${fmtPct(variancePct)})`,
+        display: variance == null ? "n/a" : `${fmtMoney(variance)} (${fmtPct(variancePct)})`,
         state: "calculated",
         lineage: `Seller-stated NOI minus normalized NOI, from a ${state.sellerNoiState} input`,
       },
@@ -333,7 +333,7 @@ export default function ExpenseNormalizerTool() {
             <li>Normalized NOI: {fmtMoney(noi)}</li>
             <li>
               Seller NOI variance:{" "}
-              {variance == null ? "—" : `${fmtMoney(variance)} (${fmtPct(variancePct)})`}
+              {variance == null ? "n/a" : `${fmtMoney(variance)} (${fmtPct(variancePct)})`}
             </li>
             <li>
               Add-backs excluded: {fmtNum(addBackRows.length)} line(s)
@@ -586,7 +586,7 @@ export default function ExpenseNormalizerTool() {
           />
           <OutputRow
             label="Seller NOI variance"
-            display={variance == null ? "—" : `${fmtMoney(variance)} (${fmtPct(variancePct)})`}
+            display={variance == null ? "n/a" : `${fmtMoney(variance)} (${fmtPct(variancePct)})`}
             lineage="Seller-stated NOI minus normalized NOI"
           />
           {categorySubtotals.map((s) => (

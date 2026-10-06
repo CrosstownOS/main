@@ -205,7 +205,7 @@ export default function RentRollTool() {
         id: "variance",
         label: "Reported vs derived variance",
         value: variancePoints,
-        display: variancePoints == null ? "—" : `${fmtNum(variancePoints, 1)} pts`,
+        display: variancePoints == null ? "n/a" : `${fmtNum(variancePoints, 1)} pts`,
         state: "calculated",
         lineage: `Reported occupancy minus deposit-derived occupancy, from a ${state.reportedOccupancyState} input`,
       },
@@ -304,7 +304,7 @@ export default function RentRollTool() {
             <li>Deposit-derived occupancy: {fmtPct(derived)} ({monthsUsed} months used)</li>
             <li>
               Reported vs derived variance:{" "}
-              {variancePoints == null ? "—" : `${fmtNum(variancePoints, 1)} pts`}
+              {variancePoints == null ? "n/a" : `${fmtNum(variancePoints, 1)} pts`}
             </li>
             <li>Units over 60 days overdue: {fmtNum(delinquentCount)}</li>
             <li>POH rent subtotal: {fmtMoney(pohRent)} / Lot rent subtotal: {fmtMoney(lotRent)}</li>
@@ -530,7 +530,7 @@ export default function RentRollTool() {
           />
           <OutputRow
             label="Reported vs derived variance"
-            display={variancePoints == null ? "—" : `${fmtNum(variancePoints, 1)} pts`}
+            display={variancePoints == null ? "n/a" : `${fmtNum(variancePoints, 1)} pts`}
             lineage="Reported occupancy minus deposit-derived occupancy"
           />
           <OutputRow

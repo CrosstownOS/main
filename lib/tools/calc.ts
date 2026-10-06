@@ -106,7 +106,7 @@ export function parseNum(raw: string): number | null {
 }
 
 export function fmtMoney(n: number | null, digits = 0): string {
-  if (n == null) return "—"
+  if (n == null) return "n/a"
   return n.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
@@ -116,11 +116,11 @@ export function fmtMoney(n: number | null, digits = 0): string {
 }
 
 export function fmtPct(n: number | null, digits = 1): string {
-  if (n == null) return "—"
+  if (n == null) return "n/a"
   return `${(n * 100).toFixed(digits)}%`
 }
 
 export function fmtNum(n: number | null, digits = 0): string {
-  if (n == null) return "—"
+  if (n == null) return "n/a"
   return n.toLocaleString("en-US", { maximumFractionDigits: digits, minimumFractionDigits: digits })
 }

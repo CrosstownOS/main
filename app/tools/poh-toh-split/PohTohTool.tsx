@@ -251,7 +251,7 @@ export default function PohTohTool() {
           <tr>
             <td style={{ padding: 4, fontWeight: "bold" }}>Retrade delta</td>
             <td style={{ padding: 4, textAlign: "right", fontWeight: "bold" }}>
-              {retradeDelta == null ? "—" : fmtMoney(retradeDelta)}
+              {retradeDelta == null ? "n/a" : fmtMoney(retradeDelta)}
             </td>
           </tr>
           <tr>
