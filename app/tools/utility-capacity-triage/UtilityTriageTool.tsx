@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import ToolShell from "@/components/tools/ToolShell"
+import { UTILITY_FAQS } from "@/lib/tools/faqs"
 import { EvidenceChip, Field, OutputRow } from "@/components/tools/EvidenceChip"
 import { useToolState } from "@/components/tools/useToolState"
 import { parseNum } from "@/lib/tools/calc"
@@ -375,6 +376,8 @@ export default function UtilityTriageTool() {
       ctaTitle="Capacity gates are where deals die quietly."
       ctaBody="The Desk tracks every gate to verification or a documented waiver. Walking the park? Every capture lands in the record."
       ctaButton="Stress-test my infrastructure in the fit call."
+      faqs={UTILITY_FAQS}
+
       pdfHref="/resources/utility-and-wastewater-diligence-sheet"
     >
       <section className="border border-border bg-card p-6">

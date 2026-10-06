@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import ToolShell from "@/components/tools/ToolShell"
+import { POH_TOH_FAQS } from "@/lib/tools/faqs"
 import { Field, OutputRow } from "@/components/tools/EvidenceChip"
 import { useToolState } from "@/components/tools/useToolState"
 import { parseNum, fmtMoney, fmtPct, splitValuation, grossPotentialAnnual, impliedCapRate } from "@/lib/tools/calc"
@@ -302,6 +303,8 @@ export default function PohTohTool() {
       ctaTitle="This is the number you take back to the seller."
       ctaBody="The Desk builds the full underwriting case behind it, deterministically, from your approved assumptions."
       ctaButton="Build my retrade case in the fit call."
+      faqs={POH_TOH_FAQS}
+
       pdfHref="/resources/poh-toh-split-valuation-worksheet"
     >
       <section className="border border-border bg-card p-6">

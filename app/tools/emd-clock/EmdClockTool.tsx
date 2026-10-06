@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import ToolShell from "@/components/tools/ToolShell"
+import { EMD_FAQS } from "@/lib/tools/faqs"
 import { EvidenceChip, Field } from "@/components/tools/EvidenceChip"
 import { useToolState } from "@/components/tools/useToolState"
 import { parseNum, fmtMoney, daysUntil } from "@/lib/tools/calc"
@@ -357,6 +358,8 @@ export default function EmdClockTool() {
       ctaTitle="In diligence with dates moving?"
       ctaBody="The Desk runs the register so no date surprises you."
       ctaButton="Talk through my timeline."
+      faqs={EMD_FAQS}
+
       pdfHref="/resources/the-emd-countdown-tracker"
     >
       <section className="border border-border bg-card p-6">

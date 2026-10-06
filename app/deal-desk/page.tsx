@@ -5,7 +5,8 @@ import DealDeskForm from "@/components/DealDeskForm"
 import ToolContextLine from "@/components/ToolContextLine"
 import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
-import { FAQ_JSON_LD } from "@/lib/tools/faqs"
+import { FAQ_JSON_LD, DEAL_DESK_FAQS } from "@/lib/tools/faqs"
+import FaqSection from "@/components/tools/FaqSection"
 
 export const metadata: Metadata = {
   title: "RV Park Due Diligence Software: The Founding Deal Desk | CrosstownOS",
@@ -451,6 +452,11 @@ export default function DealDeskPage() {
               ))}
             </div>
           </section>
+
+          {/* FAQ */}
+          <div className="mt-20">
+            <FaqSection faqs={DEAL_DESK_FAQS} />
+          </div>
 
           {/* Application */}
           <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">

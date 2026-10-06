@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import ToolShell from "@/components/tools/ToolShell"
+import { SCREENER_FAQS } from "@/lib/tools/faqs"
 import { EvidenceChip, Field, OutputRow } from "@/components/tools/EvidenceChip"
 import { useToolState } from "@/components/tools/useToolState"
 import {
@@ -227,6 +228,8 @@ export default function ScreenerTool() {
       ctaTitle="This survived sixty seconds."
       ctaBody="The Desk works it for real: intake to decision file on your live deal."
       ctaButton="Bring this deal to the fit call."
+      faqs={SCREENER_FAQS}
+
       pdfHref="/resources/60-second-deal-screener"
     >
       <section aria-label="The six numbers">

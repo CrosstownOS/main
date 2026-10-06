@@ -8,6 +8,8 @@ import { track } from "@vercel/analytics"
 import { EVIDENCE_STATES, POSTURE_FOOTER, READINESS_DISCLAIMER, READINESS_LABELS, type EvidenceState, type ReadinessLabel } from "@/lib/tools/evidence"
 import { downloadJson, type ToolExport } from "@/lib/tools/schema"
 import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/workingPaper"
+import type { Faq } from "@/lib/tools/faqs"
+import FaqSection from "./FaqSection"
 import { cn } from "@/lib/utils"
 
 const EMAIL_KEY = "crosstown_resource_email"
@@ -157,6 +159,7 @@ export type ToolShellProps = {
   ctaBody: string
   ctaButton: string
   pdfHref: string
+  faqs?: Faq[]
   children: ReactNode
 }
 
@@ -164,7 +167,7 @@ export default function ToolShell(props: ToolShellProps) {
   const {
     slug, sourceCode, title, description, timeEstimate, inputCount,
     dealName, onDealName, onReset, getExport, exportFileName, posture,
-    printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, children,
+    printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, faqs, children,
   } = props
   const [saveOpen, setSaveOpen] = useState(false)
   const [saveMode, setSaveMode] = useState<SaveMode>("save")
@@ -362,6 +365,8 @@ export default function ToolShell(props: ToolShellProps) {
               Your numbers stay in your browser until you choose to move them.
             </p>
           </div>
+
+          {faqs && faqs.length > 0 && <FaqSection faqs={faqs} />}
 
           <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
             <p className="mono-label mb-3">The next step</p>

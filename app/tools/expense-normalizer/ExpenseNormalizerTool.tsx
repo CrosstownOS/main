@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import ToolShell from "@/components/tools/ToolShell"
+import { EXPENSE_FAQS } from "@/lib/tools/faqs"
 import { EvidenceChip, Field, OutputRow } from "@/components/tools/EvidenceChip"
 import { useToolState } from "@/components/tools/useToolState"
 import {
@@ -342,6 +343,8 @@ export default function ExpenseNormalizerTool() {
       ctaTitle="Normalized NOI is where the retrade gets built."
       ctaBody="The Desk builds the whole register this way, line by line, with provenance."
       ctaButton="Work my P&L in the fit call."
+      faqs={EXPENSE_FAQS}
+
       pdfHref="/resources/mom-and-pop-expense-normalizer"
     >
       <section aria-label="Asset type and revenue">

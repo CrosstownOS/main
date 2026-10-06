@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import ToolShell from "@/components/tools/ToolShell"
+import { RENT_ROLL_FAQS } from "@/lib/tools/faqs"
 import { EvidenceChip, Field, OutputRow } from "@/components/tools/EvidenceChip"
 import { useToolState } from "@/components/tools/useToolState"
 import {
@@ -324,6 +325,8 @@ export default function RentRollTool() {
       ctaTitle="The deposits do not match the OM."
       ctaBody="That gap is a retrade or a walk. The Desk runs this reconciliation with provenance on every document."
       ctaButton="Bring my rent roll to the fit call."
+      faqs={RENT_ROLL_FAQS}
+
       pdfHref="/resources/the-rent-roll-truth-check"
     >
       <section aria-label="Rent roll rows">
