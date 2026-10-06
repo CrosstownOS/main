@@ -194,9 +194,97 @@ function WorkingPaperCard({ tool }: { tool: ToolCard }) {
   )
 }
 
+const toolsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Live Diligence Working Papers",
+  description:
+    "Six interactive diligence working papers for RV park and manufactured-housing buyers. Every number carries an evidence state.",
+  url: "https://www.crosstownosrv.camp/tools",
+  numberOfItems: 6,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "60-Second Deal Screener",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web",
+        url: "https://www.crosstownosrv.camp/tools/60-second-screener",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Rent-Roll Truth Check",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web",
+        url: "https://www.crosstownosrv.camp/tools/rent-roll-truth-check",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Expense Normalizer",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web",
+        url: "https://www.crosstownosrv.camp/tools/expense-normalizer",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "Utility Capacity Risk Triage",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web",
+        url: "https://www.crosstownosrv.camp/tools/utility-capacity-triage",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "POH/TOH Split Valuation",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web",
+        url: "https://www.crosstownosrv.camp/tools/poh-toh-split",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 6,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "EMD Clock and Gate Tracker",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web",
+        url: "https://www.crosstownosrv.camp/tools/emd-clock",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      },
+    },
+  ],
+}
+
 export default function ToolsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolsJsonLd) }}
+      />
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
