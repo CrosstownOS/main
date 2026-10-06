@@ -159,9 +159,9 @@ export default function ParkProofStandardPage() {
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
             Every material claim in the file carries where it came from and
-            what state it is in: verified, broker-reported, missing, or
-            assumed. The team sees the deal as it stands, not a pile of
-            documents.
+            what state it is in: verified, broker-reported, missing evidence,
+            underwriting assumption, calculated, or unresolved. The team sees
+            the deal as it stands, not a pile of documents.
           </p>
 
           <div className="theme-cream paper mt-10 border border-primary/40 p-6 sm:p-8">

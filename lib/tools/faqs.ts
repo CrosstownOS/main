@@ -167,7 +167,7 @@ export const TOOLS_INDEX_FAQS: Faq[] = [
   {
     question: "What are evidence states?",
     answer:
-      "Every number is labeled: Verified, Broker-reported, Missing, Assumed, Calculated, or Unresolved. Captured is not verified. Missing is named, never zeroed.",
+      "Every number is labeled: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Captured is not verified. Missing is named, never zeroed.",
   },
   {
     question: "Do the tools tell me whether to buy?",

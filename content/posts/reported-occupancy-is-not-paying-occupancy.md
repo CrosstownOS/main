@@ -1,15 +1,15 @@
 ---
 title: "Reported Occupancy Is Not Paying Occupancy"
 date: "2026-09-18"
-excerpt: "Occupancy is the most quoted number in every broker package. Reported occupancy can reach the model before its supporting evidence has been reconciled. Here is how to rebuild it from deposits, and why paying occupancy is the only number the investment case should trust."
+excerpt: "Occupancy is one of the most quoted numbers in a broker package. Reported occupancy can reach the model before its supporting evidence has been reconciled. Here is how to rebuild it from deposits, and why paying occupancy is the only number the investment case should trust."
 tags: ["diligence", "occupancy", "field notes"]
 ---
 
-The scenario below is illustrative. A buyer is evaluating a 120-site park in the Southeast. The offering memorandum reports 94 percent occupancy, and the rent roll backs it up: 113 occupied sites. Ninety days into diligence, the buyer has rebuilt the number from bank deposits. Eight of those sites are employee units and comps. Six have not paid in over ninety days. Three are marked leased with no deposit on file. The paying occupancy, the number the revenue model actually depends on, is 84 percent. Nothing about the park changed. Only the label did.
+The scenario below is illustrative. A buyer is evaluating a 120-site park in the Southeast. The offering memorandum reports 94 percent occupancy, and the rent roll backs it up: 113 occupied sites. Ninety days into diligence, the buyer has rebuilt the number from bank deposits. Eight of those sites are employee units and comps. Four have not paid in over ninety days. That leaves 101 of 120 sites paying: 84 percent. Three more are marked leased with no deposit on file. A missing deposit is not proof of nonpayment, so they stay in the paying count, flagged as missing evidence until the rent history confirms it. Nothing about the park changed. Only the label did.
 
 The working rule is simple: rebuild occupancy from deposits before the package's percentage carries any weight. Work backward from the money before reading another page.
 
-These are not unusual stories. Ask around the industry and you will hear the same ones with different park names attached. The rent roll is the document buyers trust most and verify least, and occupancy is where that misplaced trust costs the most.
+These are not unusual stories. Ask around the industry and you will hear the same ones with different park names attached. The rent roll is a document buyers tend to trust most and verify least, and occupancy is where that misplaced trust costs the most.
 
 ## Occupancy counts heads. Revenue counts dollars.
 

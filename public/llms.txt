@@ -28,8 +28,8 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 
 - Verified: pointed to the source document.
 - Broker-reported: user-entered claims, the default for all inputs.
-- Missing: named openly, never treated as zero.
-- Assumed: underwriting assumptions, stated not hidden.
+- Missing evidence: named openly, never treated as zero.
+- Underwriting assumption: underwriting assumptions, stated not hidden.
 - Calculated: computed outputs with visible formula lineage.
 - Unresolved: open questions with owners and due dates.
 

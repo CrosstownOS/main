@@ -33,12 +33,12 @@ const TRUTH_STATES = [
   },
   {
     title: "Calculated",
-    body: "An output calculated from stated inputs. Only as reliable as the inputs behind it.",
+    body: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
     className: "border-primary/60 text-primary",
   },
   {
     title: "Unresolved",
-    body: "A material claim remains open. Sources conflict, a review is incomplete, or the answer is not established.",
+    body: "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
     className: "border-border text-muted",
   },
 ] as const
@@ -97,7 +97,7 @@ export default function ParkProof() {
           </div>
           <div className="flex items-end">
             <p className="max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-              Every material claim in the file carries where it came from and what state it is in: verified, broker-reported, missing, or assumed. The team sees the deal as it stands, not a pile of documents.
+              Every material claim in the file carries where it came from and what state it is in: verified, broker-reported, missing evidence, underwriting assumption, calculated, or unresolved. The team sees the deal as it stands, not a pile of documents.
             </p>
           </div>
         </div>

@@ -7,13 +7,13 @@ tags: ["diligence", "negotiation", "field notes"]
 
 Every season the same pitch shows up. A good park at a good price, broker-reported numbers, and four words doing all the work: "priced to sell quickly."
 
-Any operator who has been at this a while has seen those four words a hundred times. They are never about your schedule.
+Any operator who has been at this a while has seen those four words a hundred times. They serve the seller's timeline, and a seller's timeline can be legitimate or manufactured. Either way, it is not yours.
 
 ## Whose strategy is it
 
 Speed is a strategy. The question is whose.
 
-A buyer wants speed for one reason: to stop paying diligence costs and start collecting revenue. A seller wants speed for a different reason. Every day you spend verifying is a day their version of the truth is under examination.
+A buyer wants speed for one reason: to stop paying diligence costs and start collecting revenue. A seller wants speed for a different reason. Every day you spend verifying is a day the reported numbers sit under examination.
 
 When the seller sets the clock, the buyer inherits the seller's version of the numbers. That is the whole game. "Tie it up and figure it out later" is not a strategy. It is an agreement to underwrite the seller's story.
 
@@ -25,11 +25,11 @@ Some of that is true. Some of it is memory. Some of it is salesmanship. All of i
 
 Here is what speed does to those claims: it turns them into underwriting inputs. A thirty-day close does not give you time to reconcile the cash story to anything. So the cash story goes into the model at face value, and you pay a verified price for an unverified number.
 
-Sellers control the clock in both directions. The same seller who needs an answer by Friday takes three weeks to produce the rent roll. The urgency is manufactured on the way in, and the evidence is rationed on the way out. Both moves serve the same purpose: the seller decides what gets verified and what does not.
+Sellers control the clock in both directions, and some deadlines are real: a loan maturity, a 1031 exchange, a partnership split. But when the seller who needs an answer by Friday takes three weeks to produce the rent roll, the urgency is manufactured on the way in and the evidence is rationed on the way out. Either way, a compressed window with slow evidence decides what gets verified before the wire, and it is not you deciding.
 
 A compressed diligence window is the mechanism. It is what lets "trust me" survive until the wire transfer.
 
-There is a reason the language works. When money is cheap, owners sit on the good parks. The strongest ones rarely reach the open market. So the parks that do come to market arrive with a story attached, and the story usually includes a reason to hurry. Manufactured urgency keeps the buyer from asking the one question that matters: why is this one for sale?
+There is a reason the language works. When money is cheap, owners tend to hold the good parks. The strongest ones rarely reach the open market. So the parks that do come to market arrive with a story attached, and the story usually includes a reason to hurry. Manufactured urgency keeps the buyer from asking the one question that matters: why is this one for sale?
 
 ## Labeled speed is safe speed
 
