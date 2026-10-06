@@ -17,6 +17,8 @@ const FOOTER_LINKS = [
   { href: "/trail-log", label: "The Trail Log" },
   { href: "/resources", label: "Resources" },
   { href: "/tools", label: "Working Papers" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
 ] as const
 
 const DISCLAIMER_PARAGRAPHS = [

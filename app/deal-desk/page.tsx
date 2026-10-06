@@ -111,7 +111,7 @@ const NOVEMBER_PRODUCT = [
 
 const INCLUDED = [
   "One active deal, worked through your documented decision posture or 90 days, whichever comes first.",
-  "One primary owner and one viewer/collaborator on the deal workspace.",
+  "One primary owner and one viewer/collaborator on the deal workspace for the life of the cohort engagement.",
   "Onboarding and a shared channel for the life of the engagement.",
   "Weekly Deal Desk sessions in a fixed format, with every output reviewed before you see it.",
   "The diligence register with capacity-gate tracking across water, sewer, electrical, roads, and zoning, permits, and legal.",

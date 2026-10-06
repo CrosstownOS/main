@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type ReactNode } from "react"
+import { useEffect, useRef, useState, type ReactNode } from "react"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
@@ -56,6 +56,44 @@ function EmailSaveModal({
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [busy, setBusy] = useState(false)
+  const dialogRef = useRef<HTMLDivElement>(null)
+
+  const FOCUSABLE =
+    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE)[0]?.focus()
+    })
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault()
+        onClose()
+        return
+      }
+      if (e.key !== "Tab" || !dialogRef.current) return
+      const items = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(FOCUSABLE),
+      ).filter((el) => !el.hasAttribute("disabled") && el.tabIndex !== -1)
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      const inside = active ? dialogRef.current.contains(active) : false
+      if (e.shiftKey && (!inside || active === first)) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && (!inside || active === last)) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener("keydown", onKey)
+    return () => {
+      cancelAnimationFrame(frame)
+      document.removeEventListener("keydown", onKey)
+    }
+  }, [onClose])
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -97,6 +135,7 @@ function EmailSaveModal({
       aria-label="Email required to save"
     >
       <div
+        ref={dialogRef}
         className="theme-cream w-full max-w-sm border border-border bg-card p-6"
         onClick={(e) => e.stopPropagation()}
       >

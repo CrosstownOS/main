@@ -37,8 +37,8 @@ export default function DealDeskPromo() {
             </p>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
               $2,500, paid at acceptance. The full amount credits toward the
-              Founding Acquisition Workspace if you convert within 30 days of
-              your decision.
+              Founding Acquisition Workspace ($3,000/year) if you convert within 30 days of
+              your documented decision posture.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link

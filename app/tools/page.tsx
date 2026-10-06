@@ -421,7 +421,7 @@ export default function ToolsPage() {
               session, not a cold conversation.
             </p>
             <Link
-              href="/deal-desk"
+              href="/deal-desk#apply"
               className="mt-6 inline-block border border-primary/60 bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               Book the fit call

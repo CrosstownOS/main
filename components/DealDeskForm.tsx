@@ -7,7 +7,7 @@ import CalBooking from "@/components/CalBooking"
 
 // OWNER SWITCH: set to true only when /privacy has approved attorney text
 // and is live. Until then the privacy consent line stays hidden.
-const SHOW_PRIVACY_POLICY_LINE = false
+const SHOW_PRIVACY_POLICY_LINE = true
 
 type FieldInput = "text" | "email" | "tel" | "date" | "select" | "textarea"
 

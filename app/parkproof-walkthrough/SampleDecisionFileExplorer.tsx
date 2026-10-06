@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -275,17 +275,23 @@ function SceneHeading({
   eyebrow,
   title,
   children,
+  headingRef,
 }: {
   eyebrow: string
   title: string
   children: React.ReactNode
+  headingRef?: React.Ref<HTMLHeadingElement>
 }) {
   return (
     <div>
       <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
         {eyebrow}
       </p>
-      <h3 className="serif-display mt-3 text-3xl leading-tight tracking-tight text-foreground">
+      <h3
+        ref={headingRef}
+        tabIndex={-1}
+        className="serif-display mt-3 text-3xl leading-tight tracking-tight text-foreground focus:outline-none"
+      >
         {title}
       </h3>
       <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-muted sm:text-base">
@@ -323,7 +329,12 @@ export default function SampleDecisionFileExplorer() {
     if (next === 2) setRecordStage(1)
     if (next === 3) setRecordStage(2)
     if (next >= 5) setRecordStage(3)
+    requestAnimationFrame(() => {
+      sceneHeadingRef.current?.focus()
+    })
   }
+
+  const sceneHeadingRef = useRef<HTMLHeadingElement>(null)
 
   const openEvidence = (index: number) => {
     setRecordStage(index)
@@ -400,6 +411,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 0 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Day 1 / The inbox"
                     title="It lands clean, confident, and easy to believe."
                   >
@@ -461,6 +473,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 1 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Scene 1 / The broker package"
                     title="The package is confident. That is its job."
                   >
@@ -518,6 +531,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 2 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Scene 2 / Source trail"
                     title="Source finds the park. It does not bless the story."
                   >
@@ -591,6 +605,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 3 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Scene 3 / The walk"
                     title="Then I go stand in it."
                   >
@@ -670,6 +685,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 4 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Scene 4 / Acquire"
                     title="This is where I stop collecting paper and start naming truth."
                   >
@@ -849,6 +865,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 5 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Scene 5 / The gates"
                     title="Dates move. Gates don't."
                   >
@@ -920,6 +937,7 @@ export default function SampleDecisionFileExplorer() {
               {activeStep === 6 && (
                 <div>
                   <SceneHeading
+                    headingRef={sceneHeadingRef}
                     eyebrow="Scene 6 / The decision file"
                     title="The file does not tell me what to do. It tells me where I stand."
                   >
@@ -1004,7 +1022,7 @@ export default function SampleDecisionFileExplorer() {
               className="text-center font-mono text-[9px] uppercase tracking-[0.18em] text-muted"
               aria-live="polite"
             >
-              Scene {activeStep + 1} of {STEPS.length} / illustrative
+              {activeStep === 0 ? "Day 1 / illustrative" : `Scene ${activeStep} of 6 / illustrative`}
             </p>
             <button
               type="button"

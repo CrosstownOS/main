@@ -22,7 +22,7 @@ const MODULES = [
     color: "#D97706",
     family: "Take it",
     tagline: "What the asset reveals when you are physically there.",
-    body: "Field captures what you see when you get there. Photos, notes, and observations from the site walk are tied to the deal and held as unreviewed evidence until a person reviews them. Captured is not verified.",
+    body: "Coming in November: Field captures what you see when you get there. Photos, notes, and observations from the site walk are tied to the deal and held as unreviewed evidence until a person reviews them. Captured is not verified.",
   },
   {
     name: "Acquire",

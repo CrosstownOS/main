@@ -37,7 +37,7 @@ Every number in a deal is one of four things. Labeling them is the whole discipl
 
 Run two numbers through the labels and the discipline becomes concrete. Take an illustrative case: a rent roll shows $42,000 in monthly collections. The bank statements show $38,500 in deposits. The $42,000 is broker-reported. The $38,500 is verified. The $3,500 gap is missing evidence until someone explains it, and any underwriting that uses the $42,000 is carrying an assumption, whether the model admits it or not.
 
-An occupancy figure of 92 percent counts every occupied pad. But three of those pads are employee units, two are comps, and one has not paid in four months. The 92 percent is broker-reported. The paying occupancy, the number that actually matters to the investment case, is lower, and the difference is a set of facts waiting to be verified or assumptions waiting to be labeled.
+An illustrative occupancy figure of 92 percent counts every occupied pad. But three of those pads are employee units, two are comps, and one has not paid in four months. The 92 percent is broker-reported. The paying occupancy, the number that actually matters to the investment case, is lower, and the difference is a set of facts waiting to be verified or assumptions waiting to be labeled.
 
 ## The discipline the labels enforce
 
