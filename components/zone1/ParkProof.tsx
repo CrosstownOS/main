@@ -147,7 +147,7 @@ export default function ParkProof() {
           Advance, Retrade, Pause, and Walk are evidence-readiness labels. They are not recommendations, approvals, or advice.
         </p>
 
-        {/* Row 3 — four truth states, full width */}
+        {/* Row 3 — six truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {TRUTH_STATES.map((state) => (
             <TelemetryBox key={state.title} glass="light" className={cn("theme-cream paper p-5", state.className)}>

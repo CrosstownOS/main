@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Container, TerminalLabel } from "@/components/ui/primitives"
 
 const FOOTER_LINKS = [
@@ -132,12 +133,12 @@ export default function SiteFooter() {
             <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
