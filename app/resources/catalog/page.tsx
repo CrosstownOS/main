@@ -10,12 +10,12 @@ const BASE_URL = "https://www.crosstownosrv.camp"
 export const metadata: Metadata = {
   title: "Resource Catalog | CrosstownOS",
   description:
-    "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
+    "All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
   alternates: { canonical: "/resources/catalog" },
   openGraph: {
     title: "Resource Catalog | CrosstownOS",
     description:
-      "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey, in order.",
+      "All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey, in order.",
     type: "website",
     url: "/resources/catalog",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Resource Catalog | CrosstownOS",
     description:
-      "All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey.",
+      "All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey.",
     images: ["/images/opengraph.jpg?v=2"],
   },
 }
@@ -41,8 +41,8 @@ const jsonLd = {
   "@type": "ItemList",
   name: "Acquisition Signal Resource Library",
   description:
-    "Thirty-eight free diligence tools for RV park and manufactured-housing buyers from CrosstownOS // Acquire.",
-  numberOfItems: 38,
+    "Thirty-five free diligence tools for RV park and manufactured-housing buyers from CrosstownOS // Acquire.",
+  numberOfItems: 35,
   itemListElement: TOOLS.map((t, i) => ({
     "@type": "ListItem",
     position: i + 1,
@@ -61,7 +61,7 @@ export default function CatalogPage() {
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            All 38 tools, in journey order.
+            All 35 tools, in journey order.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
             Seven Parts, one order. Each Part answers one question about your
@@ -69,6 +69,18 @@ export default function CatalogPage() {
             line tells you the next one. One email unlocks every download. Tap a
             download and take it to the truck.
           </p>
+          <div className="theme-cream mt-8 border border-primary/40 bg-primary/5 p-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+              Prefer to run the math?
+            </p>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+              Six of these tools now run live in your browser as{" "}
+              <Link href="/tools" className="font-semibold text-primary hover:underline">
+                Diligence Working Papers
+              </Link>
+              : same methodology, real inputs, evidence states on everything, JSON export.
+            </p>
+          </div>
           <div className="mt-14 space-y-14">
             {PARTS.map((part) => {
               const tools = TOOLS.filter((t) => t.part === part.id)

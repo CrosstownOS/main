@@ -42,9 +42,9 @@ const RELATED_FIELD_NOTE_BY_RESOURCE_SLUG: Record<string, string> = {
 
 const CATALOG_EMAIL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'THE CATALOG',
-  title: 'Browse all 38 resources',
+  title: 'Browse all 35 tools',
   description:
-    'All 38 Acquisition Signal Resources, organized by the seven Parts of the deal journey.',
+    'All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey.',
   href: `${SITE_URL}/resources/catalog`,
   buttonLabel: 'Browse the catalog',
 }

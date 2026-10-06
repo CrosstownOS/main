@@ -202,6 +202,16 @@ export default function DealDeskPage() {
               See how the Deal Desk works
             </a>
           </div>
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
+            Not ready for the Desk? Run the math first: the{" "}
+            <Link
+              href="/tools"
+              className="font-semibold text-primary hover:underline"
+            >
+              Diligence Working Papers
+            </Link>{" "}
+            run in your browser, free, no account. Bring the export to your fit call.
+          </p>
 
           {/* The problem */}
           <section aria-labelledby="deal-desk-problem" className="mt-20">

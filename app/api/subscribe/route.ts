@@ -31,7 +31,7 @@ const EMAIL_COLORS = {
 const START_HERE_EMAIL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'START HERE',
   title: 'Start Here',
-  description: 'How the 38 tools fit together. Read this before you print anything.',
+  description: 'How the 35 tools fit together. Read this before you print anything.',
   href: 'https://www.crosstownosrv.camp/resources/start-here',
   buttonLabel: 'Start Here',
 }

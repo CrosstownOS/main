@@ -21,6 +21,13 @@ const CORE_ROUTES: CoreRoute[] = [
   { path: "/trail-log", changeFrequency: "weekly", priority: 0.8 },
   { path: "/resources", changeFrequency: "monthly", priority: 0.9 },
   { path: "/resources/catalog", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/tools/60-second-screener", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools/rent-roll-truth-check", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools/expense-normalizer", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools/utility-capacity-triage", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools/poh-toh-split", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/tools/emd-clock", changeFrequency: "monthly", priority: 0.8 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

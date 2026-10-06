@@ -42,6 +42,18 @@ export function generateStaticParams() {
   return RESOURCE_DETAILS.map((resource) => ({ slug: resource.slug }))
 }
 
+/** Resources with a live working-paper version. Maps resource slug to tool slug + name. */
+const LIVE_TOOL_BY_SLUG: Record<string, { toolSlug: string; toolName: string }> = {
+  "60-second-deal-screener": { toolSlug: "60-second-screener", toolName: "60-Second Deal Screener" },
+  "the-rent-roll-truth-check": { toolSlug: "rent-roll-truth-check", toolName: "Rent-Roll Truth Check" },
+  "rent-roll-truth-check-rv-edition": { toolSlug: "rent-roll-truth-check", toolName: "Rent-Roll Truth Check" },
+  "mom-and-pop-expense-normalizer": { toolSlug: "expense-normalizer", toolName: "Expense Normalizer" },
+  "the-rv-expense-normalizer": { toolSlug: "expense-normalizer", toolName: "Expense Normalizer" },
+  "utility-and-wastewater-diligence-sheet": { toolSlug: "utility-capacity-triage", toolName: "Utility Capacity Risk Triage" },
+  "the-emd-countdown-tracker": { toolSlug: "emd-clock", toolName: "EMD Clock and Gate Tracker" },
+  "poh-toh-split-valuation-worksheet": { toolSlug: "poh-toh-split", toolName: "POH/TOH Split Valuation" },
+}
+
 function getResource(slug: string): ResourceDetail | null {
   return RESOURCE_DETAIL_BY_SLUG[slug] ?? null
 }
@@ -111,6 +123,7 @@ export default async function ResourcePage({ params }: PageProps) {
   const previous = partIndex > 0 ? partTools[partIndex - 1] : null
   const next =
     partIndex >= 0 && partIndex < partTools.length - 1 ? partTools[partIndex + 1] : null
+  const liveTool = LIVE_TOOL_BY_SLUG[resource.slug] ?? null
   const related = relatedPosts(resource)
   const showParkProofLinks =
     (resource.part ? ["D", "E", "F"].includes(resource.part) : false) ||
@@ -248,6 +261,31 @@ export default async function ResourcePage({ params }: PageProps) {
               </Link>
             </section>
           </div>
+
+          {liveTool && (
+            <section
+              aria-label="Run this tool live"
+              className="theme-cream mt-12 border border-primary/40 bg-primary/5 p-6 sm:p-8"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                Live Diligence Working Paper
+              </p>
+              <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+                Run the {liveTool.toolName} in your browser.
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+                The PDF is the paper version. The working paper runs the math live, labels
+                every number with its evidence state, and exports your work as JSON. Free
+                to use, no account.
+              </p>
+              <Link
+                href={`/tools/${liveTool.toolSlug}`}
+                className="mt-6 inline-block bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Open the live tool
+              </Link>
+            </section>
+          )}
 
           {part && (previous || next) && (
             <nav aria-label="More tools in this Part" className="mt-12">

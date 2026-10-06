@@ -102,12 +102,12 @@ export const SPINES: Spine[] = [
   {
     title: "Start Here",
     file: `${R}/CrosstownOS-Start-Here.pdf`,
-    description: "How the 38 tools fit together. Read this before you print anything.",
+    description: "How the 35 tools fit together. Read this before you print anything.",
   },
   {
     title: "The Journey Map",
     file: `${R}/CrosstownOS-Journey-Map.pdf`,
-    description: "Thirty-eight tools, one order. Find the Part that matches where you are.",
+    description: "Thirty-five tools, one order. Find the Part that matches where you are.",
   },
   {
     title: "The Evidence Status Standard",
