@@ -49,6 +49,18 @@ const CATALOG_EMAIL_BLOCK: EmailDestinationBlock = {
   buttonLabel: 'Browse the catalog',
 }
 
+/** Resources with a live working-paper version. Maps resource slug to tool slug + name. */
+const LIVE_TOOL_BY_RESOURCE_SLUG: Record<string, { toolSlug: string; toolName: string }> = {
+  '60-second-deal-screener': { toolSlug: '60-second-screener', toolName: '60-Second Deal Screener' },
+  'the-rent-roll-truth-check': { toolSlug: 'rent-roll-truth-check', toolName: 'Rent-Roll Truth Check' },
+  'rent-roll-truth-check-rv-edition': { toolSlug: 'rent-roll-truth-check', toolName: 'Rent-Roll Truth Check' },
+  'mom-and-pop-expense-normalizer': { toolSlug: 'expense-normalizer', toolName: 'Expense Normalizer' },
+  'the-rv-expense-normalizer': { toolSlug: 'expense-normalizer', toolName: 'Expense Normalizer' },
+  'utility-and-wastewater-diligence-sheet': { toolSlug: 'utility-capacity-triage', toolName: 'Utility Capacity Risk Triage' },
+  'the-emd-countdown-tracker': { toolSlug: 'emd-clock', toolName: 'EMD Clock and Gate Tracker' },
+  'poh-toh-split-valuation-worksheet': { toolSlug: 'poh-toh-split', toolName: 'POH/TOH Split Valuation' },
+}
+
 function resourceDisplayName(resource: ResourceDetail): string {
   return resource.code ? `${resource.code} ${resource.title}` : resource.title
 }
@@ -79,6 +91,18 @@ function resourceEmailBlocks(
       description: fieldNote.excerpt,
       href: `${SITE_URL}/blog/${fieldNote.slug}`,
       buttonLabel: 'Read the Field Note',
+    })
+  }
+
+  const liveTool = LIVE_TOOL_BY_RESOURCE_SLUG[resource.slug]
+  if (liveTool) {
+    blocks.push({
+      eyebrow: 'RUN IT LIVE',
+      title: `Run the ${liveTool.toolName} in your browser`,
+      description:
+        'The PDF is the paper version. The working paper runs the math live, labels every number with its evidence state, and exports your work. Free to use, no account.',
+      href: `${SITE_URL}/tools/${liveTool.toolSlug}`,
+      buttonLabel: 'Open the live tool',
     })
   }
 

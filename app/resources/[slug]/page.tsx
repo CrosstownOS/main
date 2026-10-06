@@ -275,8 +275,8 @@ export default async function ResourcePage({ params }: PageProps) {
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
                 The PDF is the paper version. The working paper runs the math live, labels
-                every number with its evidence state, and exports your work as JSON. Free
-                to use, no account.
+                every number with its evidence state, and exports a branded working paper
+                you can keep. Free to use, no account.
               </p>
               <Link
                 href={`/tools/${liveTool.toolSlug}`}

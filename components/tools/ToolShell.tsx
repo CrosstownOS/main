@@ -7,6 +7,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { track } from "@vercel/analytics"
 import { EVIDENCE_STATES, POSTURE_FOOTER, READINESS_DISCLAIMER, READINESS_LABELS, type EvidenceState, type ReadinessLabel } from "@/lib/tools/evidence"
 import { downloadJson, type ToolExport } from "@/lib/tools/schema"
+import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/workingPaper"
 import { cn } from "@/lib/utils"
 
 const EMAIL_KEY = "crosstown_resource_email"
@@ -37,12 +38,14 @@ function PostureBanner({ label, statement }: { label: ReadinessLabel; statement:
 
 function EmailSaveModal({
   toolLabel,
+  toolSlug,
   mode,
   getPayload,
   onClose,
   onSaved,
 }: {
   toolLabel: string
+  toolSlug: string
   mode: SaveMode
   getPayload: () => ToolExport
   onClose: () => void
@@ -64,6 +67,7 @@ function EmailSaveModal({
         body: JSON.stringify({
           email,
           tool: toolLabel,
+          toolSlug,
           website: formData.get("website"),
           payload: getPayload(),
         }),
@@ -99,7 +103,7 @@ function EmailSaveModal({
         </p>
         <h3 className="serif-display mt-2 text-xl tracking-tight">One email sends the paper to your inbox.</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          We will email you this working paper as JSON. Your numbers stay in your browser until you send them.
+          We will email you this working paper. Your numbers stay in your browser until you send them.
         </p>
         <form onSubmit={submit} className="mt-4">
           <label htmlFor="tool-save-email" className="sr-only">Email address</label>
@@ -164,6 +168,7 @@ export default function ToolShell(props: ToolShellProps) {
   } = props
   const [saveOpen, setSaveOpen] = useState(false)
   const [saveMode, setSaveMode] = useState<SaveMode>("save")
+  const [pendingDownload, setPendingDownload] = useState<"paper" | "json" | null>(null)
   const [savedEmail, setSavedEmail] = useState<string | null>(null)
 
   const rememberedEmail = (): string | null => {
@@ -174,7 +179,12 @@ export default function ToolShell(props: ToolShellProps) {
     }
   }
 
-  const doDownload = () => {
+  const doDownloadPaper = () => {
+    track("tool_export_paper", { tool: slug })
+    downloadWorkingPaperHtml(getExport(), workingPaperFilename(slug, dealName))
+  }
+
+  const doDownloadJson = () => {
     track("tool_export_json", { tool: slug })
     downloadJson(getExport(), exportFileName)
   }
@@ -199,9 +209,22 @@ export default function ToolShell(props: ToolShellProps) {
     const existing = rememberedEmail()
     if (existing) {
       setSavedEmail(existing)
-      doDownload()
+      doDownloadPaper()
       return
     }
+    setPendingDownload("paper")
+    setSaveMode("download")
+    setSaveOpen(true)
+  }
+
+  const handleDownloadJson = () => {
+    const existing = rememberedEmail()
+    if (existing) {
+      setSavedEmail(existing)
+      doDownloadJson()
+      return
+    }
+    setPendingDownload("json")
     setSaveMode("download")
     setSaveOpen(true)
   }
@@ -210,13 +233,28 @@ export default function ToolShell(props: ToolShellProps) {
     setSavedEmail(email)
     track("tool_save", { tool: slug, mode: saveMode })
     if (saveMode === "download") {
-      doDownload()
+      if (pendingDownload === "json") {
+        doDownloadJson()
+      } else {
+        doDownloadPaper()
+      }
+      setPendingDownload(null)
     }
   }
 
   return (
     <>
-      <style>{`@media print { body * { visibility: hidden; } [data-print-root], [data-print-root] * { visibility: visible; } [data-print-root] { position: absolute; inset: 0 auto auto 0; width: 100%; background: #fff; color: #000; padding: 24px; } }`}</style>
+      <style>{`@media print {
+        body * { visibility: hidden; }
+        [data-print-root], [data-print-root] * { visibility: visible; }
+        [data-print-root] { position: absolute; inset: 0 auto auto 0; width: 100%; background: #fff; color: #1a1a1a; padding: 24px; font-family: Inter, system-ui, sans-serif; }
+        [data-print-root] .print-brandbar { border-top: 4px solid #00468B; padding-top: 16px; margin-bottom: 16px; }
+        [data-print-root] .print-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: #00468B; margin: 0 0 4px 0; }
+        [data-print-root] h1 { font-family: Georgia, serif; font-size: 22px; margin: 0 0 4px 0; }
+        [data-print-root] .print-meta { font-size: 11px; color: #555; margin: 0 0 4px 0; }
+        [data-print-root] .print-posture { border: 1px solid #00468B; background: #f4f7fb; padding: 12px 16px; margin: 16px 0; }
+        [data-print-root] .print-posture strong { color: #00468B; }
+      }`}</style>
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
@@ -287,7 +325,7 @@ export default function ToolShell(props: ToolShellProps) {
                 onClick={handleDownload}
                 className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
-                Download JSON
+                Download working paper
               </button>
               <button
                 type="button"
@@ -312,6 +350,15 @@ export default function ToolShell(props: ToolShellProps) {
             </div>
             <p className="mt-3 text-xs leading-relaxed text-muted">
               The tool is free to use. Email is only asked when you save or export.
+              Take the working paper with you.{" "}
+              <button
+                type="button"
+                onClick={handleDownloadJson}
+                className="cursor-pointer underline hover:text-primary"
+              >
+                Raw data (JSON)
+              </button>{" "}
+              available for your records.
               Your numbers stay in your browser until you choose to move them.
             </p>
           </div>
@@ -357,22 +404,32 @@ export default function ToolShell(props: ToolShellProps) {
 
       {/* Print-only summary */}
       <div data-print-root className="hidden print:block">
-        <h1 style={{ fontSize: 22, marginBottom: 4 }}>{title} — {dealName || "Untitled deal"}</h1>
-        <p style={{ fontSize: 11, color: "#555", marginBottom: 16 }}>
-          CrosstownOS working paper &middot; {sourceCode} &middot; {new Date().toLocaleDateString("en-US")}
-        </p>
+        <div className="print-brandbar">
+          <img src="https://www.crosstownosrv.camp/logo.jpg" alt="CrosstownOS" width={40} height={40} style={{ borderRadius: "50%", marginBottom: 8 }} />
+          <p className="print-eyebrow">CrosstownOS &middot; Live Diligence Working Paper</p>
+          <h1>{title}</h1>
+          <p className="print-meta">
+            {dealName || "Untitled deal"} &middot; {sourceCode} &middot; {new Date().toLocaleDateString("en-US")}
+          </p>
+        </div>
         {printSummary}
         {posture && (
-          <p style={{ marginTop: 16, fontSize: 12 }}>
-            Posture: {posture.label.toUpperCase()} — {posture.statement}
-          </p>
+          <div className="print-posture">
+            <p style={{ margin: 0, fontSize: 12 }}>
+              <strong>Posture: {posture.label.toUpperCase()}</strong>: {posture.statement}
+            </p>
+          </div>
         )}
         <p style={{ marginTop: 12, fontSize: 10, color: "#555" }}>{READINESS_DISCLAIMER}</p>
+        <p style={{ marginTop: 8, fontSize: 10, color: "#555" }}>
+          Generated by CrosstownOS &middot; crosstownosrv.camp/tools/{slug} &middot; (972) 914-9046
+        </p>
       </div>
 
       {saveOpen && (
         <EmailSaveModal
           toolLabel={title}
+          toolSlug={slug}
           mode={saveMode}
           getPayload={getExport}
           onClose={() => setSaveOpen(false)}

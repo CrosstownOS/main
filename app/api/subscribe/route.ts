@@ -271,8 +271,64 @@ function renderMetadata({
   `
 }
 
-function generateSubscribeTemplate(email: string) {
+const TOOL_NAMES_BY_SLUG: Record<string, string> = {
+  '60-second-screener': '60-Second Deal Screener',
+  'rent-roll-truth-check': 'Rent-Roll Truth Check',
+  'expense-normalizer': 'Expense Normalizer',
+  'utility-capacity-triage': 'Utility Capacity Risk Triage',
+  'emd-clock': 'EMD Clock and Gate Tracker',
+  'poh-toh-split': 'POH/TOH Split Valuation',
+}
+
+/**
+ * Pick contextual destination blocks based on where the signup came from.
+ * A signup on a tool page leads with that tool; a resource page leads with
+ * the resource; everything else gets the default set.
+ */
+function subscribeBlocksFor(sourcePage: string): EmailDestinationBlock[] {
+  const page = (sourcePage || '').toLowerCase()
+
+  const toolMatch = page.match(/\/tools\/([a-z0-9-]+)/)
+  if (toolMatch) {
+    const slug = toolMatch[1]
+    const name = TOOL_NAMES_BY_SLUG[slug]
+    if (name) {
+      return [
+        {
+          eyebrow: 'CONTINUE WHERE YOU LEFT OFF',
+          title: `Back to the ${name}`,
+          description: 'Your numbers are still in your browser. Pick up right where you left off.',
+          href: `https://www.crosstownosrv.camp/tools/${slug}`,
+          buttonLabel: 'Open the live tool',
+        },
+        START_HERE_EMAIL_BLOCK,
+        TRAIL_LOG_EMAIL_BLOCK,
+      ]
+    }
+  }
+
+  const resourceMatch = page.match(/\/resources\/([a-z0-9-]+)/)
+  if (resourceMatch && !page.includes('/resources/catalog')) {
+    const slug = resourceMatch[1]
+    return [
+      {
+        eyebrow: 'CONTINUE WHERE YOU LEFT OFF',
+        title: 'Back to the resource library',
+        description: 'All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey.',
+        href: `https://www.crosstownosrv.camp/resources/${slug}`,
+        buttonLabel: 'Open the resource',
+      },
+      START_HERE_EMAIL_BLOCK,
+      TRAIL_LOG_EMAIL_BLOCK,
+    ]
+  }
+
+  return [WALKTHROUGH_EMAIL_BLOCK, START_HERE_EMAIL_BLOCK, TRAIL_LOG_EMAIL_BLOCK]
+}
+
+function generateSubscribeTemplate(email: string, sourcePage: string) {
   const safeEmail = escapeHtml(email)
+  const blocks = subscribeBlocksFor(sourcePage)
 
   return `
 <!DOCTYPE html>
@@ -303,10 +359,7 @@ function generateSubscribeTemplate(email: string) {
         You will receive occasional build notes, diligence patterns, and acquisition-workflow updates. No noise.
       </p>
 
-      ${renderEmailBlocksHtml(
-        [WALKTHROUGH_EMAIL_BLOCK, START_HERE_EMAIL_BLOCK, TRAIL_LOG_EMAIL_BLOCK],
-        'dark',
-      )}
+      ${renderEmailBlocksHtml(blocks, 'dark',)}
 
       <div class="divider"></div>
       ${SIGNATURE_BLOCK}
@@ -387,11 +440,7 @@ function generatePlainText({
       '',
       'You will receive occasional build notes, diligence patterns, and acquisition-workflow updates. No noise.',
       '',
-      ...renderEmailBlocksText([
-        WALKTHROUGH_EMAIL_BLOCK,
-        START_HERE_EMAIL_BLOCK,
-        TRAIL_LOG_EMAIL_BLOCK,
-      ]),
+      ...renderEmailBlocksText(subscribeBlocksFor(sourcePage)),
       'CrosstownOS',
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
       'Phone: (972) 914-9046',
@@ -495,7 +544,7 @@ export async function POST(request: NextRequest) {
       to: [email],
       replyTo: [INTERNAL_RECIPIENT],
       subject: 'Welcome to Crosstown Updates',
-      html: generateSubscribeTemplate(email),
+      html: generateSubscribeTemplate(email, sourcePage),
       text: generatePlainText({ email, sourcePage, timestamp, consentState }),
     })
 
@@ -525,7 +574,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Best-effort: land the contact in the Crosstown Updates segment.
-    // Never blocks the subscription — the emails above are the critical path.
+    // Never blocks the subscription: the emails above are the critical path.
     await addToSegment(resend, 'updates', email)
 
     return NextResponse.json({
