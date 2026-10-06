@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import EmdClockTool from "./EmdClockTool"
+import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "EMD Clock and Gate Tracker | CrosstownOS"
 const DESCRIPTION = "Your earnest money, on a clock. Dates move. Gates do not."
@@ -48,6 +49,10 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD[PATH]) }}
       />
       <EmdClockTool />
     </>

@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import SiteFooter from "@/components/SiteFooter"
 import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
+import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
@@ -284,6 +285,10 @@ export default function ToolsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/tools"]) }}
       />
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">

@@ -5,6 +5,7 @@ import DealDeskForm from "@/components/DealDeskForm"
 import ToolContextLine from "@/components/ToolContextLine"
 import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
+import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 export const metadata: Metadata = {
   title: "RV Park Due Diligence Software: The Founding Deal Desk | CrosstownOS",
@@ -176,6 +177,10 @@ const FAQ = [
 export default function DealDeskPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/deal-desk"]) }}
+      />
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

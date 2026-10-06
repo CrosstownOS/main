@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import PohTohTool from "./PohTohTool"
+import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "POH/TOH Split Valuation | CrosstownOS"
 const DESCRIPTION =
@@ -49,6 +50,10 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD[PATH]) }}
       />
       <PohTohTool />
     </>
