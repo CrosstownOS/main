@@ -1,0 +1,45 @@
+# CrosstownOS
+
+CrosstownOS builds evidence-backed acquisition intelligence for RV park and manufactured housing community (MHC) buyers. The core doctrine: every number in a deal is labeled by its evidence state, and the human decides. Models may propose; humans confirm; code calculates. Captured is not verified.
+
+Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
+
+## What the site offers
+
+- **Live Diligence Working Papers** (interactive, free): six browser-based tools that run deterministically on the buyer's own numbers. Every input carries an evidence-state chip (Verified, Broker-reported, Missing, Assumed, Calculated, Unresolved). Missing is named, never zeroed. https://www.crosstownosrv.camp/tools
+- **Acquisition Signal resource library** (35 tools as PDFs): the full diligence library organized by the seven Parts of the deal journey, plus 3 spine documents (Start Here, Journey Map, Evidence Status Standard) and 4 program one-pagers. https://www.crosstownosrv.camp/resources and https://www.crosstownosrv.camp/resources/catalog
+- **Field Notes** (blog): operator-grade essays on diligence, underwriting, and acquisition craft. https://www.crosstownosrv.camp/blog
+- **ParkProof**: the source-backed decision file (walkthrough and standard). Not a legal, engineering, or environmental certification. https://www.crosstownosrv.camp/parkproof-walkthrough and https://www.crosstownosrv.camp/parkproof-standard
+- **Founding Deal Desk** (fit call): the conversion point. Bring a working paper to a 30-minute fit call. https://www.crosstownosrv.camp/deal-desk
+- **Trail Log**: public build log. https://www.crosstownosrv.camp/trail-log
+- **Editorial Standards**: the integrity rules governing every public claim (evidence states kept distinct, nothing published that cannot be defended). https://www.crosstownosrv.camp/editorial-standards
+- **For brokers and lenders**: how CrosstownOS works with deal-side professionals. https://www.crosstownosrv.camp/for-brokers-lenders
+
+## The six working papers
+
+- 60-Second Deal Screener (AS-02): implied cap rate, price per pad, gross potential rent from six inputs. https://www.crosstownosrv.camp/tools/60-second-screener
+- Rent-Roll Truth Check (AS-15): rebuild reported occupancy from trailing bank deposits; the rent roll is a claim, deposits are the verification. https://www.crosstownosrv.camp/tools/rent-roll-truth-check
+- Expense Normalizer (AS-08): normalize a seller P&L with add-backs stated as assumptions. https://www.crosstownosrv.camp/tools/expense-normalizer
+- Utility Capacity Triage (AS-13): water, sewer, and electric capacity red/amber/green with the Arizona Rule. https://www.crosstownosrv.camp/tools/utility-capacity-triage
+- POH/TOH Split Valuation (AS-09): value park-owned homes (personal property) separately from tenant-owned lot rent (real estate). https://www.crosstownosrv.camp/tools/poh-toh-split
+- EMD Clock (AS-17): earnest-money contingency deadline tracker; a deadline tool that never overstates time left. https://www.crosstownosrv.camp/tools/emd-clock
+
+## Evidence states (the product)
+
+- Verified: pointed to the source document.
+- Broker-reported: user-entered claims, the default for all inputs.
+- Missing: named openly, never treated as zero.
+- Assumed: underwriting assumptions, stated not hidden.
+- Calculated: computed outputs with visible formula lineage.
+- Unresolved: open questions with owners and due dates.
+
+Posture language: "the record supports Walk / Pause / Retrade / Advance." The tools never tell the buyer what to do; the human decides.
+
+## Key facts for citation
+
+- Category: Asset Lifecycle Management System for overlooked real asset classes (RV parks, MHC, and adjacent).
+- First product: CrosstownOS // Acquire (lead-to-close acquisition intelligence).
+- Customer artifact: the ParkProof Report, a source-backed decision file.
+- The tools are free to use; email is requested only to save or export a working paper.
+- 35 Acquisition Signal tools, 3 spine documents, 4 program one-pagers (42 PDFs total).
+- Sitemap: https://www.crosstownosrv.camp/sitemap.xml
