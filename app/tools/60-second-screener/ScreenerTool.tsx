@@ -16,7 +16,6 @@ import {
 } from "@/lib/tools/calc"
 import {
   buildExport,
-  downloadJson,
   exportFilename,
   type ExportInput,
   type ExportOutput,
@@ -178,21 +177,6 @@ export default function ScreenerTool() {
     [missing, state.evidenceOwner, state.evidenceDueDate],
   )
 
-  const onDownloadJson = () =>
-    downloadJson(
-      buildExport({
-        tool: "60-second-screener",
-        toolName: "60-Second Deal Screener",
-        sourceCode: "AS-02",
-        dealName,
-        inputs,
-        outputs,
-        posture,
-        openItems,
-      }),
-      exportFilename("60-second-screener", dealName),
-    )
-
   const onReset = () => {
     reset()
     setDealName("")
@@ -205,11 +189,23 @@ export default function ScreenerTool() {
       title="60-Second Deal Screener"
       description="Six numbers, one posture. If a deal cannot survive this page, it does not deserve a phone call."
       timeEstimate="60 seconds"
-      inputCount="6"
+      inputCount="8 inputs"
       dealName={dealName}
       onDealName={setDealName}
       onReset={onReset}
-      onDownloadJson={onDownloadJson}
+      getExport={() =>
+        buildExport({
+          tool: "60-second-screener",
+          toolName: "60-Second Deal Screener",
+          sourceCode: "AS-02",
+          dealName,
+          inputs,
+          outputs,
+          posture,
+          openItems,
+        })
+      }
+      exportFileName={exportFilename("60-second-screener", dealName)}
       posture={posture}
       printSummary={
         <>

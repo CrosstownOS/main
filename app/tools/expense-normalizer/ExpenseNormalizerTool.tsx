@@ -14,7 +14,6 @@ import {
 } from "@/lib/tools/calc"
 import {
   buildExport,
-  downloadJson,
   exportFilename,
   type ExportInput,
   type ExportOutput,
@@ -170,11 +169,12 @@ export default function ExpenseNormalizerTool() {
         )}. That variance is the retrade.`,
       }
     }
-    if (revenue == null || state.rows.length === 0) {
+    const hasKeptExpense = keptRows.some((r) => parseNum(r.amount) != null)
+    if (revenue == null || !hasKeptExpense) {
       return {
         label: "pause",
         statement:
-          "The record supports Pause: revenue is Missing or the expense register is empty. There is no normalized NOI to read yet.",
+          "The record supports Pause: revenue is Missing or no kept expense line carries a value. There is no normalized NOI to read yet.",
       }
     }
     return {
@@ -182,7 +182,7 @@ export default function ExpenseNormalizerTool() {
       statement:
         "The record supports Advance: expenses are restated for the operation you will actually run. Advance means proceed to full diligence, never proceed to buy.",
     }
-  }, [sellerNoi, variance, revenue, state.rows.length])
+  }, [sellerNoi, variance, revenue, keptRows])
 
   const inputs: ExportInput[] = useMemo(() => {
     const list: ExportInput[] = [
@@ -282,30 +282,15 @@ export default function ExpenseNormalizerTool() {
         dueDate: state.evidenceDueDate || undefined,
       })
     }
-    if (state.rows.length === 0) {
+    if (!keptRows.some((r) => parseNum(r.amount) != null)) {
       items.push({
-        item: "Expense register (at least one expense line)",
+        item: "Expense register (at least one kept expense line with a value)",
         owner: state.evidenceOwner || undefined,
         dueDate: state.evidenceDueDate || undefined,
       })
     }
     return items
-  }, [revenue, state.rows.length, state.evidenceOwner, state.evidenceDueDate])
-
-  const onDownloadJson = () =>
-    downloadJson(
-      buildExport({
-        tool: "expense-normalizer",
-        toolName: "Expense Normalizer",
-        sourceCode: "AS-08",
-        dealName,
-        inputs,
-        outputs,
-        posture,
-        openItems,
-      }),
-      exportFilename("expense-normalizer", dealName),
-    )
+  }, [revenue, keptRows, state.evidenceOwner, state.evidenceDueDate])
 
   const onReset = () => {
     reset()
@@ -319,11 +304,23 @@ export default function ExpenseNormalizerTool() {
       title="Expense Normalizer"
       description="Restate the seller's expenses for the operation you will actually run. Mom-and-pop P&Ls are fiction until normalized."
       timeEstimate="15 minutes"
-      inputCount="variable"
+      inputCount="variable inputs"
       dealName={dealName}
       onDealName={setDealName}
       onReset={onReset}
-      onDownloadJson={onDownloadJson}
+      getExport={() =>
+        buildExport({
+          tool: "expense-normalizer",
+          toolName: "Expense Normalizer",
+          sourceCode: "AS-08",
+          dealName,
+          inputs,
+          outputs,
+          posture,
+          openItems,
+        })
+      }
+      exportFileName={exportFilename("expense-normalizer", dealName)}
       posture={posture}
       printSummary={
         <>
@@ -600,7 +597,7 @@ export default function ExpenseNormalizerTool() {
         </div>
       </section>
 
-      {(revenue == null || state.rows.length === 0) && (
+      {(revenue == null || !keptRows.some((r) => parseNum(r.amount) != null)) && (
         <section aria-label="Close the gaps" className="mt-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
             Close the gaps

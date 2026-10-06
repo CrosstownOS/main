@@ -7,7 +7,6 @@ import { useToolState } from "@/components/tools/useToolState"
 import { parseNum, fmtMoney, fmtPct, splitValuation, grossPotentialAnnual, impliedCapRate } from "@/lib/tools/calc"
 import {
   buildExport,
-  downloadJson,
   exportFilename,
   type ExportInput,
   type ExportOutput,
@@ -63,7 +62,7 @@ const INITIAL: State = {
   pohMultipleState: "assumption",
   pohMultipleNote: "",
   capRate: "",
-  capRateState: "broker-reported",
+  capRateState: "assumption",
   capRateNote: "",
 }
 
@@ -107,7 +106,7 @@ export default function PohTohTool() {
     [asking, splitValue],
   )
 
-  const blendedCap = useMemo(() => {
+  const blendedYield = useMemo(() => {
     const lotAnnual = grossPotentialAnnual(toh, lotRent)
     const pohAnnual = grossPotentialAnnual(poh, pohRent)
     const total = lotAnnual != null && pohAnnual != null ? lotAnnual + pohAnnual : null
@@ -156,14 +155,14 @@ export default function PohTohTool() {
     const inputs: ExportInput[] = FIELD_LABELS.map(({ field, label }) => ({
       id: field,
       label,
-      value: state[field] || null,
+      value: parseNum(state[field] as string),
       state: (state[field] ? state[`${field}State` as keyof State] : "missing") as EvidenceState,
       sourceNote: (state[`${field}Note` as keyof State] as string) || undefined,
     }))
     inputs.push({
       id: "pohMultiple",
       label: "POH valuation multiple (underwriting assumption)",
-      value: state.pohMultiple || null,
+      value: parseNum(state.pohMultiple),
       state: state.pohMultiple ? state.pohMultipleState : "missing",
       sourceNote: state.pohMultipleNote || undefined,
     })
@@ -203,8 +202,8 @@ export default function PohTohTool() {
         label: "Asking price",
         value: asking,
         display: fmtMoney(asking),
-        state: "calculated" as EvidenceState,
-        lineage: "The broker-reported asking price, carried through for comparison.",
+        state: (asking != null ? state.askingPriceState : "missing") as EvidenceState,
+        lineage: "The asking price input, carried through for comparison.",
       },
       {
         id: "retrade-delta",
@@ -216,16 +215,16 @@ export default function PohTohTool() {
           "Asking price minus split-implied value. Positive means the asking price exceeds the split; that delta is the retrade number.",
       },
       {
-        id: "blended-cap",
-        label: "Blended implied cap rate (context)",
-        value: blendedCap,
-        display: fmtPct(blendedCap),
+        id: "blended-yield",
+        label: "Blended gross rent yield (context)",
+        value: blendedYield,
+        display: fmtPct(blendedYield),
         state: "calculated" as EvidenceState,
         lineage:
-          "Total annual rent (TOH lot rent + POH rent) / asking price. Context only; the split is the underwriting.",
+          "Total annual gross rent (TOH lot rent + POH rent) / asking price. A gross rent yield, not a cap rate. Context only; the split is the underwriting.",
       },
     ],
-    [lotValue, pohValue, splitValue, asking, retradeDelta, blendedCap],
+    [lotValue, pohValue, splitValue, asking, retradeDelta, blendedYield],
   )
 
   const printSummary = (
@@ -255,8 +254,8 @@ export default function PohTohTool() {
             </td>
           </tr>
           <tr>
-            <td style={{ padding: 4 }}>Blended implied cap (context)</td>
-            <td style={{ padding: 4, textAlign: "right" }}>{fmtPct(blendedCap)}</td>
+            <td style={{ padding: 4 }}>Blended gross rent yield (context)</td>
+            <td style={{ padding: 4, textAlign: "right" }}>{fmtPct(blendedYield)}</td>
           </tr>
         </tbody>
       </table>
@@ -281,25 +280,23 @@ export default function PohTohTool() {
       title={TOOL_NAME}
       description="Park-owned and tenant-owned homes are two businesses wearing one price tag. Value them separately."
       timeEstimate="5 minutes"
-      inputCount="6 inputs"
+      inputCount="7 inputs"
       dealName={dealName}
       onDealName={setDealName}
       onReset={reset}
-      onDownloadJson={() =>
-        downloadJson(
-          buildExport({
-            tool: SLUG,
-            toolName: TOOL_NAME,
-            sourceCode: SOURCE_CODE,
-            dealName,
-            inputs: exportInputs,
-            outputs: exportOutputs,
-            posture,
-            openItems,
-          }),
-          exportFilename(SLUG, dealName),
-        )
+      getExport={() =>
+        buildExport({
+          tool: SLUG,
+          toolName: TOOL_NAME,
+          sourceCode: SOURCE_CODE,
+          dealName,
+          inputs: exportInputs,
+          outputs: exportOutputs,
+          posture,
+          openItems,
+        })
       }
+      exportFileName={exportFilename(SLUG, dealName)}
       posture={posture}
       printSummary={printSummary}
       ctaTitle="This is the number you take back to the seller."
@@ -469,9 +466,9 @@ export default function PohTohTool() {
             lineage="The broker-reported asking price, carried through for comparison."
           />
           <OutputRow
-            label="Blended implied cap rate (context)"
-            display={fmtPct(blendedCap)}
-            lineage="Total annual rent (TOH lot rent + POH rent) / asking price. Context only; the split is the underwriting."
+            label="Blended gross rent yield (context)"
+            display={fmtPct(blendedYield)}
+            lineage="Total annual gross rent (TOH lot rent + POH rent) / asking price. A gross rent yield, not a cap rate. Context only; the split is the underwriting."
           />
         </div>
         <p className="mt-3 text-xs leading-relaxed text-muted">

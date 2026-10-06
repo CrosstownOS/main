@@ -87,14 +87,16 @@ export function splitValuation(args: {
   return { lotValue, pohValue, splitValue }
 }
 
-/** Whole days from today until a date string (YYYY-MM-DD). Negative when past. */
+/** Whole calendar days from today until a date string (YYYY-MM-DD). 0 when the date is today. Negative when past. */
 export function daysUntil(dateStr: string | null): number | null {
   if (!dateStr) return null
   const target = new Date(dateStr + "T12:00:00")
   if (Number.isNaN(target.getTime())) return null
   const now = new Date()
-  const ms = target.getTime() - now.getTime()
-  return Math.ceil(ms / 86_400_000)
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const startOfTarget = new Date(target.getFullYear(), target.getMonth(), target.getDate())
+  const ms = startOfTarget.getTime() - startOfToday.getTime()
+  return Math.round(ms / 86_400_000)
 }
 
 /** Parse a user-typed number. Returns null for blank or unparseable. Never coerces blank to zero. */

@@ -7,7 +7,6 @@ import { useToolState } from "@/components/tools/useToolState"
 import { parseNum, fmtMoney, daysUntil } from "@/lib/tools/calc"
 import {
   buildExport,
-  downloadJson,
   exportFilename,
   type ExportInput,
   type ExportOutput,
@@ -119,6 +118,13 @@ function daysLabel(days: number | null): string {
   return `${Math.abs(days)} day${days === -1 ? "" : "s"} past`
 }
 
+function depositDateLabel(days: number | null): string {
+  if (days == null) return "Deposit date not set"
+  if (days > 0) return `Deposits in ${days} day${days === 1 ? "" : "s"}`
+  if (days === 0) return "Deposited today"
+  return `Deposited ${Math.abs(days)} day${days === -1 ? "" : "s"} ago`
+}
+
 const STATUS_CHIP: Record<ContingencyStatus, string> = {
   Open: "border-accent/60 text-accent",
   Satisfied: "border-success/60 text-success",
@@ -162,6 +168,14 @@ export default function EmdClockTool() {
   const closingDays = daysUntil(state.closingDate || null)
 
   const posture: { label: ReadinessLabel; statement: string } = useMemo(() => {
+    const hasRealGate = contingencies.some((c) => c.name.trim() && c.expiry)
+    if (!hasRealGate) {
+      return {
+        label: "pause",
+        statement:
+          "The record supports Pause: the contingency register has no gate with both a name and an expiry date. The clock means nothing until at least one real gate is on the record.",
+      }
+    }
     if (exposureRows.length > 0) {
       const lines = exposureRows.map((c) => {
         const name = c.name.trim() || "an unnamed gate"
@@ -187,7 +201,7 @@ export default function EmdClockTool() {
       statement:
         "The record supports Advance: all gates tracked, no date at risk.",
     }
-  }, [exposureRows, pastDue, emd])
+  }, [exposureRows, pastDue, emd, contingencies])
 
   const openItems: ExportOpenItem[] = useMemo(
     () =>
@@ -255,8 +269,8 @@ export default function EmdClockTool() {
       {
         id: "emd-exposure",
         label: "EMD exposure in the next 7 days",
-        value: exposureRows.length > 0 && emd != null ? emd : 0,
-        display: exposureRows.length > 0 ? fmtMoney(emd) : "$0",
+        value: exposureRows.length > 0 ? emd : null,
+        display: exposureRows.length > 0 ? fmtMoney(emd) : "n/a",
         state: "calculated" as EvidenceState,
         lineage:
           "The full EMD is at risk once any gate goes hard unresolved. One exposure row puts the entire amount on the line.",
@@ -280,7 +294,7 @@ export default function EmdClockTool() {
   const printSummary = (
     <div>
       <p style={{ fontSize: 12 }}>
-        EMD: {fmtMoney(emd)} &middot; Deposited: {daysLabel(depositDays)} &middot; Closing:{" "}
+        EMD: {fmtMoney(emd)} &middot; {depositDateLabel(depositDays)} &middot; Closing:{" "}
         {daysLabel(closingDays)}
       </p>
       <table style={{ fontSize: 12, borderCollapse: "collapse", width: "100%", marginTop: 8 }}>
@@ -321,25 +335,23 @@ export default function EmdClockTool() {
       title={TOOL_NAME}
       description="Your earnest money, on a clock. Dates move. Gates do not."
       timeEstimate="5 minutes to set up"
-      inputCount="3 inputs"
+      inputCount="3 inputs + gate register"
       dealName={dealName}
       onDealName={setDealName}
       onReset={reset}
-      onDownloadJson={() =>
-        downloadJson(
-          buildExport({
-            tool: SLUG,
-            toolName: TOOL_NAME,
-            sourceCode: SOURCE_CODE,
-            dealName,
-            inputs: exportInputs,
-            outputs: exportOutputs,
-            posture,
-            openItems,
-          }),
-          exportFilename(SLUG, dealName),
-        )
+      getExport={() =>
+        buildExport({
+          tool: SLUG,
+          toolName: TOOL_NAME,
+          sourceCode: SOURCE_CODE,
+          dealName,
+          inputs: exportInputs,
+          outputs: exportOutputs,
+          posture,
+          openItems,
+        })
       }
+      exportFileName={exportFilename(SLUG, dealName)}
       posture={posture}
       printSummary={printSummary}
       ctaTitle="In diligence with dates moving?"
@@ -386,7 +398,7 @@ export default function EmdClockTool() {
           />
         </div>
         <p className="mt-4 text-xs leading-relaxed text-muted">
-          Deposited {daysLabel(depositDays)} &middot; Closing {daysLabel(closingDays)}
+          {depositDateLabel(depositDays)} &middot; Closing {daysLabel(closingDays)}
         </p>
       </section>
 

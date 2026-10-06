@@ -14,7 +14,6 @@ import {
 } from "@/lib/tools/calc"
 import {
   buildExport,
-  downloadJson,
   exportFilename,
   type ExportInput,
   type ExportOutput,
@@ -118,6 +117,10 @@ export default function RentRollTool() {
     return d != null && d > 60
   })
   const delinquentCount = delinquentRows.length
+  const hasRentRows = state.rows.some(
+    (r) => r.unit.trim() || r.tenant.trim() || r.rent.trim() || r.balance.trim() || r.daysOverdue.trim(),
+  )
+  const delinquencyDisplay = hasRentRows ? fmtNum(delinquentCount) : "n/a"
 
   const parsedDeposits = useMemo(
     () => state.deposits.map((d) => parseNum(d)),
@@ -138,6 +141,13 @@ export default function RentRollTool() {
   const missingMonths = 12 - monthsUsed
 
   const posture = useMemo<{ label: ReadinessLabel; statement: string }>(() => {
+    if (reported == null) {
+      return {
+        label: "pause",
+        statement:
+          "The record supports Pause: reported occupancy is Missing evidence. The truth check needs the OM's number to measure the deposits against. Pull it from the broker package.",
+      }
+    }
     if (variancePoints != null && variancePoints > 5) {
       return {
         label: "pause",
@@ -158,7 +168,7 @@ export default function RentRollTool() {
       label: "advance",
       statement: `The record supports Advance: deposits back the reported occupancy within 5 points across ${monthsUsed} months. The rent roll is a claim. Deposits are the verification. Advance means proceed to full diligence, never proceed to buy.`,
     }
-  }, [variancePoints, monthsUsed])
+  }, [reported, variancePoints, monthsUsed])
 
   const inputs: ExportInput[] = useMemo(() => {
     const list: ExportInput[] = [
@@ -212,8 +222,8 @@ export default function RentRollTool() {
       {
         id: "delinquency",
         label: "Units over 60 days overdue",
-        value: delinquentCount,
-        display: fmtNum(delinquentCount),
+        value: hasRentRows ? delinquentCount : null,
+        display: delinquencyDisplay,
         state: "calculated",
         lineage: `Rent roll rows with days overdue above 60, from ${state.rowsState} inputs`,
       },
@@ -242,7 +252,7 @@ export default function RentRollTool() {
         lineage: `Sum of monthly rent across all rows, from ${state.rowsState} inputs`,
       },
     ],
-    [derived, monthsUsed, variancePoints, delinquentCount, pohRent, lotRent, totalRentMonthly, state],
+    [derived, monthsUsed, variancePoints, delinquentCount, delinquencyDisplay, hasRentRows, pohRent, lotRent, totalRentMonthly, state],
   )
 
   const openItems = useMemo(() => {
@@ -264,20 +274,17 @@ export default function RentRollTool() {
     return items
   }, [missingMonths, reported, state.evidenceOwner, state.evidenceDueDate])
 
-  const onDownloadJson = () =>
-    downloadJson(
-      buildExport({
-        tool: "rent-roll-truth-check",
-        toolName: "Rent-Roll Truth Check",
-        sourceCode: "AS-15",
-        dealName,
-        inputs,
-        outputs,
-        posture,
-        openItems,
-      }),
-      exportFilename("rent-roll-truth-check", dealName),
-    )
+  const getExport = () =>
+    buildExport({
+      tool: "rent-roll-truth-check",
+      toolName: "Rent-Roll Truth Check",
+      sourceCode: "AS-15",
+      dealName,
+      inputs,
+      outputs,
+      posture,
+      openItems,
+    })
 
   const onReset = () => {
     reset()
@@ -291,11 +298,12 @@ export default function RentRollTool() {
       title="Rent-Roll Truth Check"
       description="Rebuild reported occupancy from deposits. The rent roll is a claim. Deposits are the verification."
       timeEstimate="10 minutes"
-      inputCount="3"
+      inputCount="3 sections"
       dealName={dealName}
       onDealName={setDealName}
       onReset={onReset}
-      onDownloadJson={onDownloadJson}
+      getExport={getExport}
+      exportFileName={exportFilename("rent-roll-truth-check", dealName)}
       posture={posture}
       printSummary={
         <>
@@ -306,7 +314,7 @@ export default function RentRollTool() {
               Reported vs derived variance:{" "}
               {variancePoints == null ? "n/a" : `${fmtNum(variancePoints, 1)} pts`}
             </li>
-            <li>Units over 60 days overdue: {fmtNum(delinquentCount)}</li>
+            <li>Units over 60 days overdue: {delinquencyDisplay}</li>
             <li>POH rent subtotal: {fmtMoney(pohRent)} / Lot rent subtotal: {fmtMoney(lotRent)}</li>
             <li>Gross potential monthly rent: {fmtMoney(totalRentMonthly)}</li>
             {missingMonths > 0 && <li>Missing deposit months: {missingMonths}</li>}
@@ -535,7 +543,7 @@ export default function RentRollTool() {
           />
           <OutputRow
             label="Units over 60 days overdue"
-            display={fmtNum(delinquentCount)}
+            display={delinquencyDisplay}
             lineage="Rent roll rows with days overdue above 60"
           />
           <OutputRow

@@ -7,7 +7,6 @@ import { useToolState } from "@/components/tools/useToolState"
 import { parseNum } from "@/lib/tools/calc"
 import {
   buildExport,
-  downloadJson,
   exportFilename,
   type ExportInput,
   type ExportOutput,
@@ -281,13 +280,15 @@ export default function UtilityTriageTool() {
           value: s.age || null,
           state: s.age ? "broker-reported" : "missing",
         },
-        {
+      )
+      if (s.issues.trim()) {
+        inputs.push({
           id: `${s.key}-issues`,
           label: `${s.label} known issues`,
-          value: s.issues || null,
-          state: s.issues ? "broker-reported" : "unresolved",
-        },
-      )
+          value: s.issues.trim(),
+          state: "broker-reported",
+        })
+      }
     }
     return inputs
   }, [state, systems])
@@ -352,25 +353,23 @@ export default function UtilityTriageTool() {
       title={TOOL_NAME}
       description="Water, sewer, electric. The systems nobody underwrites until they become the emergency. The Arizona Rule, live."
       timeEstimate="10 minutes"
-      inputCount="5 inputs"
+      inputCount="13 inputs"
       dealName={dealName}
       onDealName={setDealName}
       onReset={reset}
-      onDownloadJson={() =>
-        downloadJson(
-          buildExport({
-            tool: SLUG,
-            toolName: TOOL_NAME,
-            sourceCode: SOURCE_CODE,
-            dealName,
-            inputs: exportInputs,
-            outputs: exportOutputs,
-            posture,
-            openItems,
-          }),
-          exportFilename(SLUG, dealName),
-        )
+      getExport={() =>
+        buildExport({
+          tool: SLUG,
+          toolName: TOOL_NAME,
+          sourceCode: SOURCE_CODE,
+          dealName,
+          inputs: exportInputs,
+          outputs: exportOutputs,
+          posture,
+          openItems,
+        })
       }
+      exportFileName={exportFilename(SLUG, dealName)}
       posture={posture}
       printSummary={printSummary}
       ctaTitle="Capacity gates are where deals die quietly."

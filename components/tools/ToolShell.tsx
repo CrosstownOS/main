@@ -6,9 +6,12 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { track } from "@vercel/analytics"
 import { EVIDENCE_STATES, POSTURE_FOOTER, READINESS_DISCLAIMER, READINESS_LABELS, type EvidenceState, type ReadinessLabel } from "@/lib/tools/evidence"
+import { downloadJson, type ToolExport } from "@/lib/tools/schema"
 import { cn } from "@/lib/utils"
 
 const EMAIL_KEY = "crosstown_resource_email"
+
+type SaveMode = "save" | "download"
 
 function PostureBanner({ label, statement }: { label: ReadinessLabel; statement: string }) {
   const info = READINESS_LABELS[label]
@@ -34,10 +37,14 @@ function PostureBanner({ label, statement }: { label: ReadinessLabel; statement:
 
 function EmailSaveModal({
   toolLabel,
+  mode,
+  getPayload,
   onClose,
   onSaved,
 }: {
   toolLabel: string
+  mode: SaveMode
+  getPayload: () => ToolExport
   onClose: () => void
   onSaved: (email: string) => void
 }) {
@@ -54,7 +61,12 @@ function EmailSaveModal({
       const res = await fetch("/api/tool-save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, tool: toolLabel, website: formData.get("website") }),
+        body: JSON.stringify({
+          email,
+          tool: toolLabel,
+          website: formData.get("website"),
+          payload: getPayload(),
+        }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error || "Something went wrong.")
@@ -83,11 +95,11 @@ function EmailSaveModal({
         onClick={(e) => e.stopPropagation()}
       >
         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-          Save your work
+          {mode === "download" ? "Export your work" : "Save your work"}
         </p>
-        <h3 className="serif-display mt-2 text-xl tracking-tight">One email, then it follows you.</h3>
+        <h3 className="serif-display mt-2 text-xl tracking-tight">One email sends the paper to your inbox.</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          The tool is free to use. An email lets you save this working paper and pick it up anywhere.
+          We will email you this working paper as JSON. Your numbers stay in your browser until you send them.
         </p>
         <form onSubmit={submit} className="mt-4">
           <label htmlFor="tool-save-email" className="sr-only">Email address</label>
@@ -108,7 +120,7 @@ function EmailSaveModal({
             disabled={busy}
             className="mt-3 w-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
           >
-            {busy ? "Saving..." : "Save my working paper"}
+            {busy ? "Sending..." : "Save via email"}
           </button>
         </form>
         <button
@@ -133,7 +145,8 @@ export type ToolShellProps = {
   dealName: string
   onDealName: (v: string) => void
   onReset: () => void
-  onDownloadJson: () => void
+  getExport: () => ToolExport
+  exportFileName: string
   posture: { label: ReadinessLabel; statement: string } | null
   printSummary: ReactNode
   ctaTitle: string
@@ -146,20 +159,34 @@ export type ToolShellProps = {
 export default function ToolShell(props: ToolShellProps) {
   const {
     slug, sourceCode, title, description, timeEstimate, inputCount,
-    dealName, onDealName, onReset, onDownloadJson, posture,
+    dealName, onDealName, onReset, getExport, exportFileName, posture,
     printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, children,
   } = props
   const [saveOpen, setSaveOpen] = useState(false)
+  const [saveMode, setSaveMode] = useState<SaveMode>("save")
   const [savedEmail, setSavedEmail] = useState<string | null>(null)
 
-  const handleSave = () => {
+  const rememberedEmail = (): string | null => {
     try {
-      if (window.localStorage.getItem(EMAIL_KEY)) {
-        setSavedEmail(window.localStorage.getItem(EMAIL_KEY))
-        track("tool_save", { tool: slug, mode: "remembered" })
-        return
-      }
-    } catch { /* fall through */ }
+      return window.localStorage.getItem(EMAIL_KEY)
+    } catch {
+      return null
+    }
+  }
+
+  const doDownload = () => {
+    track("tool_export_json", { tool: slug })
+    downloadJson(getExport(), exportFileName)
+  }
+
+  const handleSave = () => {
+    const existing = rememberedEmail()
+    if (existing) {
+      setSavedEmail(existing)
+      track("tool_save", { tool: slug, mode: "remembered" })
+      return
+    }
+    setSaveMode("save")
     setSaveOpen(true)
   }
 
@@ -169,8 +196,22 @@ export default function ToolShell(props: ToolShellProps) {
   }
 
   const handleDownload = () => {
-    track("tool_export_json", { tool: slug })
-    onDownloadJson()
+    const existing = rememberedEmail()
+    if (existing) {
+      setSavedEmail(existing)
+      doDownload()
+      return
+    }
+    setSaveMode("download")
+    setSaveOpen(true)
+  }
+
+  const handleModalSaved = (email: string) => {
+    setSavedEmail(email)
+    track("tool_save", { tool: slug, mode: saveMode })
+    if (saveMode === "download") {
+      doDownload()
+    }
   }
 
   return (
@@ -200,7 +241,7 @@ export default function ToolShell(props: ToolShellProps) {
             <h1 className="serif-display mt-5 text-4xl tracking-tight sm:text-5xl">{title}</h1>
             <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">{description}</p>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-              {inputCount} inputs &middot; about {timeEstimate} &middot; runs in your browser
+              {inputCount} &middot; about {timeEstimate} &middot; runs in your browser
             </p>
           </div>
 
@@ -260,7 +301,7 @@ export default function ToolShell(props: ToolShellProps) {
                 onClick={handleSave}
                 className="border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
               >
-                {savedEmail ? "Saved" : "Save via email"}
+                {savedEmail ? "Sent, check your inbox" : "Save via email"}
               </button>
               <Link
                 href={pdfHref}
@@ -332,8 +373,10 @@ export default function ToolShell(props: ToolShellProps) {
       {saveOpen && (
         <EmailSaveModal
           toolLabel={title}
+          mode={saveMode}
+          getPayload={getExport}
           onClose={() => setSaveOpen(false)}
-          onSaved={(email) => setSavedEmail(email)}
+          onSaved={handleModalSaved}
         />
       )}
     </>

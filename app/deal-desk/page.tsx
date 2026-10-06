@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import DealDeskForm from "@/components/DealDeskForm"
+import ToolContextLine from "@/components/ToolContextLine"
 import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
 
@@ -188,6 +189,7 @@ export default function DealDeskPage() {
             Work your real acquisition inside CrosstownOS, from
             intake to a documented decision posture.
           </p>
+          <ToolContextLine />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
               href="#apply"
