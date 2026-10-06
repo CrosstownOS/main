@@ -149,13 +149,13 @@ export default function RentRollTool() {
           "The record supports Pause: reported occupancy is Missing evidence. The truth check needs the OM's number to measure the deposits against. Pull it from the broker package.",
       }
     }
-    if (variancePoints != null && variancePoints > 5) {
+    if (variancePoints != null && Math.abs(variancePoints) > 5) {
       return {
         label: "pause",
-        statement: `The record supports Pause: deposits trail the OM by ${fmtNum(
-          variancePoints,
+        statement: `The record supports Pause: deposits and the OM are ${fmtNum(
+          Math.abs(variancePoints),
           1,
-        )} points. The rent roll is a claim. Deposits are the verification. That gap is either a retrade or a walk, and the record does not say which yet.`,
+        )} points apart. The rent roll is a claim. Deposits are the verification. That gap is either a retrade or a walk, and the record does not say which yet.`,
       }
     }
     if (monthsUsed < 3) {
