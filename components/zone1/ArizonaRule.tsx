@@ -41,6 +41,9 @@ export default function ArizonaRule() {
               have caught it were never asked inside a system that could hold
               the answer.
             </p>
+            <p className="text-sm text-muted">
+              This one is mine. I tell it because the pattern repeats.
+            </p>
           </div>
 
           <TelemetryBox status="alert" glass="light" className="mt-8 p-6">
