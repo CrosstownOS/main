@@ -31,6 +31,16 @@ const TRUTH_STATES = [
     body: "A stated input in the investment case; not a verified fact.",
     className: "border-primary/60 text-primary",
   },
+  {
+    title: "Calculated",
+    body: "An output calculated from stated inputs. Only as reliable as the inputs behind it.",
+    className: "border-primary/60 text-primary",
+  },
+  {
+    title: "Unresolved",
+    body: "A material claim remains open. Sources conflict, a review is incomplete, or the answer is not established.",
+    className: "border-border text-muted",
+  },
 ] as const
 
 const DECISION_ROWS = [

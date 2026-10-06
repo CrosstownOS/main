@@ -40,7 +40,7 @@ const ARRIVAL_ITEMS = [
   },
   {
     title: "Claims with sources and states",
-    body: "Every material claim carries where it came from and what state it is in: Verified, Broker-reported, Missing evidence, or Underwriting assumption.",
+    body: "Every material claim carries where it came from and what state it is in: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved.",
   },
   {
     title: "Unresolved gates, listed",
