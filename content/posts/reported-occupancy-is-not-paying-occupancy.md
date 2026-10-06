@@ -1,7 +1,7 @@
 ---
 title: "Reported Occupancy Is Not Paying Occupancy"
 date: "2026-09-18"
-excerpt: "Occupancy is the most quoted number in every broker package and the least verified. Here is how to rebuild it from deposits, and why paying occupancy is the only number the investment case should trust."
+excerpt: "Occupancy is the most quoted number in every broker package. Reported occupancy can reach the model before its supporting evidence has been reconciled. Here is how to rebuild it from deposits, and why paying occupancy is the only number the investment case should trust."
 tags: ["diligence", "occupancy", "field notes"]
 ---
 

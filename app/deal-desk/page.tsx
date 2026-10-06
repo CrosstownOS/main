@@ -43,8 +43,8 @@ const PAINS = [
     body: "The rent roll, the P&L, and the bank deposits tell three different stories, and nobody owns the reconciliation.",
   },
   {
-    title: "The package never mentions the infrastructure.",
-    body: "Water, sewer, electrical, and roads carry the real risk, and the broker package is silent on all of it.",
+    title: "The package does not establish infrastructure condition or capacity.",
+    body: "Water, sewer, electrical, and roads carry the real risk. A package may mention them without establishing permits, responsibility, or operating condition.",
   },
   {
     title: "There is no authoritative record.",
@@ -167,7 +167,7 @@ const FAQ = [
   },
   {
     q: "How does the conversion credit work?",
-    a: "Convert to the Founding Acquisition Workspace ($3,000/year) within 30 days of your documented decision posture and the full $2,500 applies to your first year. The credit is a prepayment toward the Workspace, not a discount and not a bonus. The 30-day window runs from the dated verdict, because the conversion decision should be made while the posture is fresh.",
+    a: "Convert to the Founding Acquisition Workspace ($3,000/year) within 30 days of your documented decision posture and the full $2,500 applies to your first year. The credit is a prepayment toward the Workspace, not a discount and not a bonus. The 30-day window runs from the dated, documented decision posture, because the conversion decision should be made while the posture is fresh.",
   },
   {
     q: "Why only five buyers?",
