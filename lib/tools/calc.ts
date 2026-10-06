@@ -80,9 +80,11 @@ export function splitValuation(args: {
       ? ((tenantOwnedCount * lotRent * 12) / capRate)
       : null
   const pohValue =
-    parkOwnedCount != null && pohRent != null && pohMultiple != null
-      ? parkOwnedCount * pohRent * 12 * pohMultiple
-      : null
+    parkOwnedCount === 0
+      ? 0
+      : parkOwnedCount != null && pohRent != null && pohMultiple != null && pohMultiple > 0
+        ? parkOwnedCount * pohRent * 12 * pohMultiple
+        : null
   const splitValue = lotValue != null && pohValue != null ? lotValue + pohValue : null
   return { lotValue, pohValue, splitValue }
 }
@@ -99,12 +101,22 @@ export function daysUntil(dateStr: string | null): number | null {
   return Math.round(ms / 86_400_000)
 }
 
-/** Parse a user-typed number. Returns null for blank or unparseable. Never coerces blank to zero. */
+/** True when the input is non-blank but not a valid non-negative number. */
+export function isInvalidNum(raw: string): boolean {
+  const cleaned = raw.replace(/[$,%\s]/g, "")
+  if (cleaned === "") return false
+  const n = Number(cleaned)
+  return !Number.isFinite(n) || n < 0
+}
+
+/** Parse a user-typed number. Returns null for blank, unparseable, or negative. Never coerces blank to zero. */
 export function parseNum(raw: string): number | null {
   const cleaned = raw.replace(/[$,%\s]/g, "")
   if (cleaned === "") return null
   const n = Number(cleaned)
-  return Number.isFinite(n) ? n : null
+  if (!Number.isFinite(n)) return null
+  if (n < 0) return null
+  return n
 }
 
 export function fmtMoney(n: number | null, digits = 0): string {

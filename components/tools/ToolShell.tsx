@@ -173,6 +173,31 @@ export default function ToolShell(props: ToolShellProps) {
   const [saveMode, setSaveMode] = useState<SaveMode>("save")
   const [pendingDownload, setPendingDownload] = useState<"paper" | "json" | null>(null)
   const [savedEmail, setSavedEmail] = useState<string | null>(null)
+  const [sending, setSending] = useState(false)
+
+  const sendPaper = async (toEmail: string) => {
+    setSending(true)
+    try {
+      const res = await fetch("/api/tool-save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: toEmail,
+          tool: title,
+          toolSlug: slug,
+          payload: getExport(),
+        }),
+      })
+      if (!res.ok) throw new Error("Send failed")
+      setSavedEmail(toEmail)
+      track("tool_save", { tool: slug, mode: "resend" })
+    } catch {
+      setSaveMode("save")
+      setSaveOpen(true)
+    } finally {
+      setSending(false)
+    }
+  }
 
   const rememberedEmail = (): string | null => {
     try {
@@ -195,8 +220,7 @@ export default function ToolShell(props: ToolShellProps) {
   const handleSave = () => {
     const existing = rememberedEmail()
     if (existing) {
-      setSavedEmail(existing)
-      track("tool_save", { tool: slug, mode: "remembered" })
+      sendPaper(existing)
       return
     }
     setSaveMode("save")
@@ -362,9 +386,10 @@ export default function ToolShell(props: ToolShellProps) {
               <button
                 type="button"
                 onClick={handleSave}
-                className="border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                disabled={sending}
+                className="border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
               >
-                {savedEmail ? "Sent, check your inbox" : "Save via email"}
+                {sending ? "Sending..." : savedEmail ? "Resend working paper" : "Save via email"}
               </button>
               <Link
                 href={pdfHref}

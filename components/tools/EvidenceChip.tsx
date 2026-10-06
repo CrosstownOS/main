@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { EVIDENCE_STATES, INPUT_STATES, type EvidenceState } from "@/lib/tools/evidence"
+import { isInvalidNum } from "@/lib/tools/calc"
 import { cn } from "@/lib/utils"
 
 /**
@@ -34,6 +35,8 @@ export function EvidenceChip({
     else setEditingNote(false)
   }
 
+  const verifiedWithoutNote = state === "verified" && !(sourceNote ?? "").trim()
+
   return (
     <span className={cn("inline-flex flex-col items-start gap-1", className)}>
       <button
@@ -51,17 +54,26 @@ export function EvidenceChip({
         <span aria-hidden="true">{info.code}</span>
         <span>{info.title}</span>
       </button>
-      {editingNote && onSourceNote && (
+      {(editingNote || verifiedWithoutNote) && onSourceNote && (
         <input
           type="text"
           value={sourceNote ?? ""}
           onChange={(e) => onSourceNote(e.target.value)}
-          placeholder="Source note: what did you check?"
-          aria-label="Source note for verified input"
-          className="w-56 border border-border bg-background px-2 py-1 text-xs text-foreground placeholder:text-muted"
+          placeholder="Source note required: what did you check?"
+          aria-label="Source note for verified input (required)"
+          aria-invalid={verifiedWithoutNote || undefined}
+          className={cn(
+            "w-56 border bg-background px-2 py-1 text-xs text-foreground placeholder:text-muted",
+            verifiedWithoutNote ? "border-critical" : "border-border",
+          )}
         />
       )}
-      {state === "verified" && !editingNote && sourceNote && onSourceNote && (
+      {verifiedWithoutNote && (
+        <p className="text-[11px] font-medium text-critical" role="alert">
+          Verified needs a source note.
+        </p>
+      )}
+      {state === "verified" && !editingNote && !verifiedWithoutNote && sourceNote && onSourceNote && (
         <button
           type="button"
           onClick={() => setEditingNote(true)}
@@ -103,6 +115,8 @@ export function Field({
   hint?: string
   inputMode?: "decimal" | "text" | "numeric"
 }) {
+  const numeric = inputMode === "decimal" || inputMode === "numeric"
+  const invalid = numeric && isInvalidNum(value)
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -123,8 +137,19 @@ export function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="mt-1.5 w-full border border-border bg-background px-4 py-2.5 text-base text-foreground placeholder:text-muted focus:border-primary focus:outline-none"
+        aria-invalid={invalid || undefined}
+        className={cn(
+          "mt-1.5 w-full border bg-background px-4 py-2.5 text-base text-foreground placeholder:text-muted focus:outline-none",
+          invalid
+            ? "border-critical focus:border-critical"
+            : "border-border focus:border-primary",
+        )}
       />
+      {invalid && (
+        <p className="mt-1 text-xs font-medium text-critical" role="alert">
+          Enter a number.
+        </p>
+      )}
       {hint && <p className="mt-1 text-xs leading-relaxed text-muted">{hint}</p>}
     </div>
   )

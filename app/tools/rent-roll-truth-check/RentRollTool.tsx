@@ -165,11 +165,18 @@ export default function RentRollTool() {
           "The record supports Pause: fewer than 3 deposit months are on the record. The rent roll is a claim. Deposits are the verification. Name who pulls the statements and when.",
       }
     }
+    if (derived == null) {
+      return {
+        label: "pause",
+        statement:
+          "The record supports Pause: no rent rows are on the record, so deposits cannot be measured against the rent roll's monthly total. Add the rows before the truth check can run.",
+      }
+    }
     return {
       label: "advance",
       statement: `The record supports Advance: deposits back the reported occupancy within 5 points across ${monthsUsed} months. The rent roll is a claim. Deposits are the verification. Advance means proceed to full diligence, never proceed to buy.`,
     }
-  }, [reported, variancePoints, monthsUsed])
+  }, [reported, variancePoints, monthsUsed, derived])
 
   const inputs: ExportInput[] = useMemo(() => {
     const list: ExportInput[] = [
@@ -177,7 +184,7 @@ export default function RentRollTool() {
         id: "reportedOccupancy",
         label: "Reported occupancy (%)",
         value: reported,
-        state: state.reportedOccupancyState,
+        state: reported == null ? "missing" : state.reportedOccupancyState,
         sourceNote: state.reportedOccupancyNote || undefined,
       },
     ]
@@ -186,16 +193,17 @@ export default function RentRollTool() {
         id: `depositMonth${i + 1}`,
         label: `Deposit month ${i + 1}`,
         value: parsedDeposits[i],
-        state: state.depositsState,
+        state: parsedDeposits[i] == null ? "missing" : state.depositsState,
         sourceNote: state.depositsNote || undefined,
       })
     })
     state.rows.forEach((r, i) => {
+      const rent = rowRent(r)
       list.push({
         id: `rentRow${i + 1}`,
         label: `Rent roll row ${i + 1}: ${r.unit || "unit"} / ${r.tenant || "tenant"}`,
-        value: rowRent(r),
-        state: state.rowsState,
+        value: rent,
+        state: rent == null ? "missing" : state.rowsState,
         sourceNote: state.rowsNote || undefined,
       })
     })

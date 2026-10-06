@@ -146,14 +146,14 @@ export default function ScreenerTool() {
 
   const inputs: ExportInput[] = useMemo(
     () => [
-      { id: "askingPrice", label: "Asking price", value: price, state: state.askingPriceState, sourceNote: state.askingPriceNote || undefined },
-      { id: "siteCount", label: "Site / pad count", value: sites, state: state.siteCountState, sourceNote: state.siteCountNote || undefined },
-      { id: "avgLotRent", label: "Average lot rent", value: avgRent, state: state.avgLotRentState, sourceNote: state.avgLotRentNote || undefined },
-      { id: "reportedOccupancy", label: "Reported occupancy (%)", value: occ, state: state.reportedOccupancyState, sourceNote: state.reportedOccupancyNote || undefined },
-      { id: "t12Noi", label: "Reported T12 NOI", value: noi, state: state.t12NoiState, sourceNote: state.t12NoiNote || undefined },
-      { id: "annualExpenses", label: "Annual expense total", value: expenses, state: state.annualExpensesState, sourceNote: state.annualExpensesNote || undefined },
+      { id: "askingPrice", label: "Asking price", value: price, state: price == null ? "missing" : state.askingPriceState, sourceNote: state.askingPriceNote || undefined },
+      { id: "siteCount", label: "Site / pad count", value: sites, state: sites == null ? "missing" : state.siteCountState, sourceNote: state.siteCountNote || undefined },
+      { id: "avgLotRent", label: "Average lot rent", value: avgRent, state: avgRent == null ? "missing" : state.avgLotRentState, sourceNote: state.avgLotRentNote || undefined },
+      { id: "reportedOccupancy", label: "Reported occupancy (%)", value: occ, state: occ == null ? "missing" : state.reportedOccupancyState, sourceNote: state.reportedOccupancyNote || undefined },
+      { id: "t12Noi", label: "Reported T12 NOI", value: noi, state: noi == null ? "missing" : state.t12NoiState, sourceNote: state.t12NoiNote || undefined },
+      { id: "annualExpenses", label: "Annual expense total", value: expenses, state: expenses == null ? "missing" : state.annualExpensesState, sourceNote: state.annualExpensesNote || undefined },
       { id: "assetType", label: "Asset type", value: state.assetType === "mhp" ? "MHP" : "RV park", state: "assumption" },
-      { id: "walkAwayFloor", label: "Walk-away cap floor (%)", value: floorPct, state: state.walkAwayFloorState, sourceNote: state.walkAwayFloorNote || undefined },
+      { id: "walkAwayFloor", label: "Walk-away cap floor (%)", value: floorPct, state: floorPct == null ? "missing" : state.walkAwayFloorState, sourceNote: state.walkAwayFloorNote || undefined },
     ],
     [price, sites, avgRent, occ, noi, expenses, floorPct, state],
   )

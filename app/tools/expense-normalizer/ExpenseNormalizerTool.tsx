@@ -197,7 +197,7 @@ export default function ExpenseNormalizerTool() {
         id: "revenue",
         label: "T12 revenue (effective gross income)",
         value: revenue,
-        state: state.revenueState,
+        state: revenue == null ? "missing" : state.revenueState,
         sourceNote: state.revenueNote || undefined,
       },
       {
@@ -216,18 +216,19 @@ export default function ExpenseNormalizerTool() {
         id: "sellerNoi",
         label: "Seller-stated NOI",
         value: sellerNoi,
-        state: state.sellerNoiState,
+        state: sellerNoi == null ? "missing" : state.sellerNoiState,
         sourceNote: state.sellerNoiNote || undefined,
       },
     ]
     state.rows.forEach((r, i) => {
+      const amt = parseNum(r.amount)
       list.push({
         id: `expenseRow${i + 1}`,
         label: `Expense ${i + 1}: ${r.label || "unlabeled"} (${r.category})${
           r.addBack ? ", add-back" : ""
         }`,
-        value: parseNum(r.amount),
-        state: state.rowsState,
+        value: amt,
+        state: amt == null ? "missing" : state.rowsState,
         sourceNote: state.rowsNote || undefined,
       })
     })
@@ -457,7 +458,7 @@ export default function ExpenseNormalizerTool() {
                   </div>
                   <div>
                     <label className={labelClass} htmlFor={`expamount-${row.id}`}>
-                      Amount
+                      Amount (annual)
                     </label>
                     <input
                       id={`expamount-${row.id}`}
