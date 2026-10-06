@@ -453,11 +453,6 @@ export default function DealDeskPage() {
             </div>
           </section>
 
-          {/* FAQ */}
-          <div className="mt-20">
-            <FaqSection faqs={DEAL_DESK_FAQS} />
-          </div>
-
           {/* Application */}
           <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
             <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
@@ -472,6 +467,11 @@ export default function DealDeskPage() {
               <DealDeskForm />
             </div>
           </section>
+
+          {/* FAQ: fit call questions, below the application */}
+          <div className="mt-20">
+            <FaqSection faqs={DEAL_DESK_FAQS} />
+          </div>
         </div>
       </main>
     </>
