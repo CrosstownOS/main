@@ -9,6 +9,7 @@ import {
   parseNum,
   depositDerivedOccupancy,
   occupancyVariance,
+  decideRentRollPosture,
   fmtMoney,
   fmtPct,
   fmtNum,
@@ -141,42 +142,10 @@ export default function RentRollTool() {
 
   const missingMonths = 12 - monthsUsed
 
-  const posture = useMemo<{ label: ReadinessLabel; statement: string }>(() => {
-    if (reported == null) {
-      return {
-        label: "pause",
-        statement:
-          "The record supports Pause: reported occupancy is Missing evidence. The truth check needs the OM's number to measure the deposits against. Pull it from the broker package.",
-      }
-    }
-    if (variancePoints != null && Math.abs(variancePoints) > 5) {
-      return {
-        label: "pause",
-        statement: `The record supports Pause: deposits and the OM are ${fmtNum(
-          Math.abs(variancePoints),
-          1,
-        )} points apart. The rent roll is a claim. Deposits are the verification. That gap is either a retrade or a walk, and the record does not say which yet.`,
-      }
-    }
-    if (monthsUsed < 3) {
-      return {
-        label: "pause",
-        statement:
-          "The record supports Pause: fewer than 3 deposit months are on the record. The rent roll is a claim. Deposits are the verification. Name who pulls the statements and when.",
-      }
-    }
-    if (derived == null) {
-      return {
-        label: "pause",
-        statement:
-          "The record supports Pause: no rent rows are on the record, so deposits cannot be measured against the rent roll's monthly total. Add the rows before the truth check can run.",
-      }
-    }
-    return {
-      label: "advance",
-      statement: `The record supports Advance: deposits back the reported occupancy within 5 points across ${monthsUsed} months. The rent roll is a claim. Deposits are the verification. Advance means proceed to full diligence, never proceed to buy.`,
-    }
-  }, [reported, variancePoints, monthsUsed, derived])
+  const posture = useMemo<{ label: ReadinessLabel; statement: string }>(
+    () => decideRentRollPosture({ reported, variancePoints, monthsUsed, derived }),
+    [reported, variancePoints, monthsUsed, derived],
+  )
 
   const inputs: ExportInput[] = useMemo(() => {
     const list: ExportInput[] = [

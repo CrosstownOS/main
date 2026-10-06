@@ -138,3 +138,55 @@ export function fmtNum(n: number | null, digits = 0): string {
   if (n == null) return "n/a"
   return n.toLocaleString("en-US", { maximumFractionDigits: digits, minimumFractionDigits: digits })
 }
+
+/**
+ * Rent-roll truth check posture decision. Pure function for testability.
+ * Variance tolerance is two-sided: |variance| > 5 points pauses in either direction.
+ */
+export type RentRollPostureInput = {
+  reported: number | null
+  variancePoints: number | null
+  monthsUsed: number
+  derived: number | null
+}
+
+export function decideRentRollPosture(input: RentRollPostureInput): {
+  label: "pause" | "advance"
+  statement: string
+} {
+  const { reported, variancePoints, monthsUsed, derived } = input
+  if (reported == null) {
+    return {
+      label: "pause",
+      statement:
+        "The record supports Pause: reported occupancy is Missing evidence. The truth check needs the OM's number to measure the deposits against. Pull it from the broker package.",
+    }
+  }
+  if (variancePoints != null && Math.abs(variancePoints) > 5) {
+    return {
+      label: "pause",
+      statement: `The record supports Pause: deposits and the OM are ${fmtNum(
+        Math.abs(variancePoints),
+        1,
+      )} points apart. The rent roll is a claim. Deposits are the verification. That gap is either a retrade or a walk, and the record does not say which yet.`,
+    }
+  }
+  if (monthsUsed < 3) {
+    return {
+      label: "pause",
+      statement:
+        "The record supports Pause: fewer than 3 deposit months are on the record. The rent roll is a claim. Deposits are the verification. Name who pulls the statements and when.",
+    }
+  }
+  if (derived == null) {
+    return {
+      label: "pause",
+      statement:
+        "The record supports Pause: no rent rows are on the record, so deposits cannot be measured against the rent roll's monthly total. Add the rows before the truth check can run.",
+    }
+  }
+  return {
+    label: "advance",
+    statement: `The record supports Advance: deposits back the reported occupancy within 5 points across ${monthsUsed} months. The rent roll is a claim. Deposits are the verification. Advance means proceed to full diligence, never proceed to buy.`,
+  }
+}
