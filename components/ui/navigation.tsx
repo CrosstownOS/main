@@ -389,7 +389,7 @@ export default function Navigation() {
               href="/deal-desk"
               className="hidden min-w-fit border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
             >
-              Bring a live deal
+              See the plans
             </Link>
 
             <button
@@ -455,7 +455,7 @@ export default function Navigation() {
                 onClick={() => setOpen(false)}
                 className="block w-full border border-primary/60 bg-primary px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Bring a live deal
+                See the plans
               </Link>
               <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
                 You operate the workspace. You own the decision.

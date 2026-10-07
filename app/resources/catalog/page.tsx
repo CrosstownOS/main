@@ -179,7 +179,7 @@ export default function CatalogPage() {
               href="/deal-desk"
               className="mt-6 inline-block border border-primary/60 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
-              Bring a live deal
+              See the plans
             </a>
           </div>
           <p className="mt-10 text-xs leading-relaxed text-muted">

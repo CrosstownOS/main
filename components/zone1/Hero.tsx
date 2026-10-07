@@ -50,7 +50,7 @@ export default function Hero() {
             href="/deal-desk"
             className="border border-primary/60 bg-primary px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            Bring a live deal
+            See the plans
           </Link>
           <Link
             href="/deal-desk#how-it-works"
@@ -60,6 +60,7 @@ export default function Hero() {
           </Link>
         </div>
       </motion.div>
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-20 border-b border-border" />
     </section>
   )
 }
