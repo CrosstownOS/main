@@ -17,7 +17,7 @@ const CORE_ROUTES: CoreRoute[] = [
   { path: "/parkproof-walkthrough", changeFrequency: "monthly", priority: 0.85 },
   { path: "/for-brokers-lenders", changeFrequency: "monthly", priority: 0.8 },
   { path: "/editorial-standards", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/deal-desk", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/workspace", changeFrequency: "weekly", priority: 0.95 },
   { path: "/trail-log", changeFrequency: "weekly", priority: 0.8 },
   { path: "/resources", changeFrequency: "monthly", priority: 0.9 },
   { path: "/resources/catalog", changeFrequency: "monthly", priority: 0.8 },

@@ -58,7 +58,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
       "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the CrosstownOS workspace, from evidence to a documented decision file. You operate it.",
     cta: "See the plans",
     action: "deal_desk",
-    href: "/deal-desk",
+    href: "/workspace",
     icon: Target,
   },
   {

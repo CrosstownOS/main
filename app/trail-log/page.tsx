@@ -60,7 +60,7 @@ const SHIPPED = [
   {
     date: "October 7, 2026",
     title: "The offer became the Acquisition Workspace",
-    href: "/deal-desk",
+    href: "/workspace",
     body: "The Founding Deal Desk engagement retired. The offer is now software: Single-Deal Workspace at $1,250 and Annual Workspace at $2,500. Every human-service promise removed across the site, email, and booking. The buyer operates the workspace.",
   },
   {
@@ -146,7 +146,7 @@ const SHIPPED = [
   {
     date: "October 2, 2026",
     title: "The Acquisition Workspace page and application flow went live",
-    href: "/deal-desk",
+    href: "/workspace",
     body: "The public workspace page, terms, FAQ, and application flow were aligned and verified live as one door for a live deal.",
   },
   {

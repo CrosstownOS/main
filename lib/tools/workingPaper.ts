@@ -200,7 +200,7 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
     <div class="footer-links">
       <a href="${toolUrl}">Continue in the live tool</a>
       <a href="${SITE_URL}/tools">All working papers</a>
-      <a href="${SITE_URL}/deal-desk?tool=${esc(exp.tool)}">Acquisition Workspace</a>
+      <a href="${SITE_URL}/workspace?tool=${esc(exp.tool)}">Acquisition Workspace</a>
     </div>
     <p class="sig-name">CrosstownOS</p>
     <p class="sig-tag">Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.</p>

@@ -19,6 +19,16 @@ const nextConfig = {
         destination: '/parkproof-walkthrough',
         permanent: true,
       },
+      {
+        source: '/deal-desk',
+        destination: '/workspace',
+        permanent: true,
+      },
+      {
+        source: '/deal-desk/:path*',
+        destination: '/workspace/:path*',
+        permanent: true,
+      },
     ]
   },
 }

@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   title: "CrosstownOS Acquisition Workspace: RV Park Due Diligence Software",
   description:
     "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
-  alternates: { canonical: "/deal-desk" },
+  alternates: { canonical: "/workspace" },
   openGraph: {
     title: "CrosstownOS Acquisition Workspace",
     description:
       "Your acquisition decision record: seller claims, source evidence, site observations, unresolved diligence, and underwriting connected in one workspace before you commit capital.",
     type: "website",
-    url: "/deal-desk",
+    url: "/workspace",
     images: [
       {
         url: "/images/opengraph.jpg?v=2",
@@ -193,7 +193,7 @@ export default function DealDeskPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/deal-desk"]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/workspace"]) }}
       />
       <Navigation />
       <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">

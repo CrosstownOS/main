@@ -176,7 +176,7 @@ export default function CatalogPage() {
               </li>
             </ul>
             <a
-              href="/deal-desk"
+              href="/workspace"
               className="mt-6 inline-block border border-primary/60 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               See the plans

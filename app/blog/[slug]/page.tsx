@@ -235,7 +235,7 @@ export default async function BlogPost({ params }: PageProps) {
               decision posture.
             </p>
             <Link
-              href="/deal-desk"
+              href="/workspace"
               className="mt-5 inline-block border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90"
             >
               See the plans

@@ -397,7 +397,7 @@ export default function ToolsPage() {
               in one deal record. Single-deal $1,250, annual $2,500.
             </p>
             <Link
-              href="/deal-desk#apply"
+              href="/workspace#apply"
               className="mt-6 inline-block border border-primary/60 bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               Book the fit call

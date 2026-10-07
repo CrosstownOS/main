@@ -19,7 +19,7 @@ type NavEntry = {
 
 const NAV_ITEMS: NavEntry[] = [
   { index: "01", label: "Product", anchorId: "product" },
-  { index: "02", label: "Workspace", href: "/deal-desk" },
+  { index: "02", label: "Workspace", href: "/workspace" },
   { index: "03", label: "ParkProof", href: "/parkproof-walkthrough" },
   { index: "04", label: "Resources", href: "/resources" },
   { index: "05", label: "Tools", href: "/tools" },
@@ -386,7 +386,7 @@ export default function Navigation() {
             </nav>
 
             <Link
-              href="/deal-desk"
+              href="/workspace"
               className="hidden min-w-fit border border-primary/60 bg-primary px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
             >
               See the plans
@@ -451,7 +451,7 @@ export default function Navigation() {
 
             <div className="border-t border-border px-5 py-5">
               <Link
-                href="/deal-desk"
+                href="/workspace"
                 onClick={() => setOpen(false)}
                 className="block w-full border border-primary/60 bg-primary px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >

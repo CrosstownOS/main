@@ -65,7 +65,7 @@ export default function Chapter7() {
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
-              href="/deal-desk"
+              href="/workspace"
               className="inline-flex items-center justify-center gap-2 border border-primary/60 bg-primary px-6 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               See the plans
