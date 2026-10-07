@@ -147,7 +147,7 @@ export default function SiteFooter() {
 
           <div className="flex flex-col items-center gap-2 text-center lg:items-end lg:text-right">
             <p className="max-w-xs text-[11px] leading-relaxed text-muted/80">
-              Confidentiality terms are signed at kickoff, before any deal materials are ingested.
+              Confidentiality and data-handling terms apply to use of the Acquisition Workspace. Review them before uploading deal materials.
             </p>
             <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted/70">
               &copy; {new Date().getFullYear()} CrosstownOS

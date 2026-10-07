@@ -78,9 +78,9 @@ const SECTIONS = [
   {
     heading: "How we use AI-assisted tools",
     body: [
-      "CrosstownOS uses technology, including AI-assisted research and drafting tools, to organize information and accelerate production. Every published resource, Field Note, product rule, website claim, and customer-facing statement is subject to human review and remains governed by CrosstownOS evidence standards.",
+      "CrosstownOS uses technology, including AI-assisted research and drafting tools, to organize information and accelerate production. Every published resource, Field Note, product rule, website claim, and customer-facing statement receives human review before publication or release.",
       "We do not place a loud AI-generated disclaimer on ordinary posts merely because AI assisted with drafting or research. Research-heavy Field Notes carry a brief note stating that AI-assisted research and drafting may have been used and that sources, claims, and final editorial judgment remain subject to human review.",
-      "Our credibility does not come from whether the founder physically typed every word. It comes from the doctrine he sets, the real source material behind the work, honest labeling of uncertainty, and human accountability for everything published.",
+      "AI output is not evidence. Accountability for source selection, claim accuracy, uncertainty labels, and the final publication remains with CrosstownOS.",
     ],
   },
   {
@@ -93,7 +93,7 @@ const SECTIONS = [
   {
     heading: "How we talk about the product",
     body: [
-      "Every public product claim is one of: live now, available in the Acquisition Workspace, pilot-only, internal testing, planned or system direction, or not available. We do not describe a prototype, roadmap item, or intention as a current capability.",
+      "We distinguish capabilities available to customers now from capabilities demonstrated internally, limited to a pilot, or planned. Where access has not opened, we state the intended availability date. A working internal capability is not represented as currently accessible to customers.",
     ],
   },
   {
@@ -124,11 +124,12 @@ export default function EditorialStandardsPage() {
 
           <section className="mt-12">
             <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
-              The states every claim carries
+              How we label claims
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
-              We teach the same discipline we practice. Every material claim
-              in our content carries one of these states:
+              We distinguish sourced facts, attributed statements, calculations,
+              assumptions, and unresolved questions. Where material to reader
+              understanding, we identify the basis and limitations of a claim.
             </p>
             <div className="mt-6 space-y-3">
               {STATES.map((s) => (
