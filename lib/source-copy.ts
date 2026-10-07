@@ -1,4 +1,4 @@
-// Source module copy, shared by the homepage ProductLoop and the Deal Desk
+// Source module copy, shared by the homepage ProductLoop and the Workspace page
 // November-product block so the claim can never drift between pages.
 //
 // SAFE: the section 8 product-status matrix phrasing. No enrichment,

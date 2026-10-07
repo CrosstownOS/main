@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 export const metadata: Metadata = {
   title: "Live Diligence Working Papers | CrosstownOS",
   description:
-    "The Acquisition Signal tools, rebuilt as instruments. Run the math on your live deal in your browser, keep the record, export the file.",
+    "Free diligence tools that run in your browser. Run the math on your live deal, keep the record, export the file.",
   alternates: { canonical: "/tools" },
   openGraph: {
     title: "Live Diligence Working Papers | CrosstownOS",

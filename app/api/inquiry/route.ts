@@ -111,11 +111,11 @@ const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
 
 const LIVE_DEAL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'THE WORKSPACE',
-  title: 'Bring a live deal',
+  title: 'See the plans',
   description:
     'For buyers with a live or imminent deal and a decision deadline.',
-  href: `${SITE_URL}/deal-desk`,
-  buttonLabel: 'Bring a live deal',
+  href: `${SITE_URL}/workspace`,
+  buttonLabel: 'See the plans',
 }
 
 const BROKERS_AND_LENDERS_REFERRAL_BLOCK: EmailDestinationBlock = {
@@ -140,7 +140,7 @@ const FIELD_NETWORK_BLOCK: EmailDestinationBlock = {
   eyebrow: 'FIELD NETWORK',
   title: 'Join the Field Network',
   description:
-    'Early updates, a voice in what gets built, and first word when the next Deal Desk window opens.',
+    'Early updates, a voice in what gets built, and first word when new workspaces open.',
   href: `${SITE_URL}/#paths`,
   buttonLabel: 'Join the Field Network',
 }
@@ -1149,7 +1149,7 @@ export async function POST(request: NextRequest) {
     // Best-effort: land the contact in the matching Resend segment.
     // Never blocks the submission — the notification emails above are the
     // critical path. Design Partner, Field Network,
-    // Referral Alliance, and Founding Deal Desk share one segment
+    // Referral Alliance and Acquisition Workspace share one segment
     // (free-tier limit).
     const segmentForType: Record<string, SegmentKey | null> = {
       design_partner: 'partners',

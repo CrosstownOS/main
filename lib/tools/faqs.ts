@@ -180,12 +180,12 @@ export const DEAL_DESK_FAQS: Faq[] = [
   {
     question: "What is the workspace fit call?",
     answer:
-      "A 15-minute conversation about whether the CrosstownOS Acquisition Workspace matches what you need for your deal. We do not sell on the call.",
+      "A 15-minute conversation about whether the CrosstownOS Acquisition Workspace matches what you need for your deal. The call is about fit, not a sales pitch.",
   },
   {
     question: "What should I bring to the fit call?",
     answer:
-      "Your working paper. Run one of the Live Diligence Working Papers on your deal and bring the exported record to the call.",
+      "Nothing required. If you have a broker package, your notes, or just the property address, bring that. We will talk about whether the workspace fits your deal.",
   },
   {
     question: "How long is the fit call?",
@@ -195,11 +195,6 @@ export const DEAL_DESK_FAQS: Faq[] = [
     question: "What does the Acquisition Workspace cost?",
     answer:
       "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months. You operate the workspace.",
-  },
-  {
-    question: "What does Verified mean in the evidence states?",
-    answer:
-      "You assign it. Verified means you confirmed the claim against a primary source document. CrosstownOS does not independently verify anything. The label records your judgment, not ours.",
   },
 ]
 

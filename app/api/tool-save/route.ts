@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
 
     const toolUrl = toolSlug ? `${SITE_URL}/tools/${toolSlug}` : `${SITE_URL}/tools`
     const resourceSlug = toolSlug ? RESOURCE_BY_TOOL_SLUG[toolSlug] : undefined
-    const dealDeskUrl = toolSlug ? `${SITE_URL}/deal-desk?tool=${toolSlug}` : `${SITE_URL}/deal-desk`
+    const workspaceUrl = toolSlug ? `${SITE_URL}/workspace?tool=${toolSlug}` : `${SITE_URL}/workspace`
 
     let attachment: { filename: string; content: Buffer } | null = null
     if (payload) {
@@ -131,11 +131,11 @@ export async function POST(req: NextRequest) {
           ]
         : []),
       {
-        eyebrow: "THE NEXT STEP",
-        title: "Bring this to the Acquisition Workspace",
+        eyebrow: "THE WORKSPACE",
+        title: "Running a live deal?",
         description:
-          "A working session that starts from your numbers, not a cold conversation.",
-        href: dealDeskUrl,
+          "The Acquisition Workspace keeps source evidence, field observations, and underwriting in one deal record. You operate it.",
+        href: workspaceUrl,
         buttonLabel: "Book the fit call",
       },
     ]
