@@ -167,7 +167,7 @@ export default function DealDeskForm() {
   return (
     <>
       <CalBooking
-        url="https://cal.com/crosstownos/deal-desk-fit-call"
+        url="https://cal.com/crosstownos/workspace-fit-call"
         title="Book a workspace fit call"
       />
 
