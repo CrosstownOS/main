@@ -374,7 +374,7 @@ export default function UtilityTriageTool() {
       posture={posture}
       printSummary={printSummary}
       ctaTitle="Capacity gates are where deals die quietly."
-      ctaBody="The Desk tracks every gate to verification or a documented waiver. Walking the park? Every capture lands in the record."
+      ctaBody="The Workspace tracks every gate to verification or a documented waiver. Walking the park? Every capture lands in the record."
       ctaButton="Stress-test my infrastructure in the fit call."
       faqs={UTILITY_FAQS}
 

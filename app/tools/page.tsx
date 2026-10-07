@@ -373,7 +373,7 @@ export default function ToolsPage() {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               Every tool exports to one ParkProof draft: your numbers, your evidence states,
               your open items, in one file. Bring the file to the fit call, or work the whole
-              deal in the Desk. Six feeds, one record.
+              deal in the Workspace. Six feeds, one record.
             </p>
           </section>
 

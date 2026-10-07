@@ -24,7 +24,7 @@ function ToolContextInner() {
         You came from the {name}
       </p>
       <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-        Bring your exported numbers to the fit call. The Desk starts from your
+        Bring your exported numbers to the fit call. The Workspace starts from your
         working paper, not a blank intake.{" "}
         <Link href={`/tools/${tool}`} className="text-primary hover:underline">
           Back to the paper

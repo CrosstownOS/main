@@ -356,7 +356,7 @@ export default function EmdClockTool() {
       posture={posture}
       printSummary={printSummary}
       ctaTitle="In diligence with dates moving?"
-      ctaBody="The Desk runs the register so no date surprises you."
+      ctaBody="The Workspace runs the register so no date surprises you."
       ctaButton="Talk through my timeline."
       faqs={EMD_FAQS}
 

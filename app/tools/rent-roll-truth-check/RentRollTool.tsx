@@ -300,7 +300,7 @@ export default function RentRollTool() {
         </>
       }
       ctaTitle="The deposits do not match the OM."
-      ctaBody="That gap is a retrade or a walk. The Desk runs this reconciliation with provenance on every document."
+      ctaBody="That gap is a retrade or a walk. The Workspace runs this reconciliation with provenance on every document."
       ctaButton="Bring my rent roll to the fit call."
       faqs={RENT_ROLL_FAQS}
 

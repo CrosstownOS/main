@@ -20,7 +20,7 @@ const FOOTER_LINKS = [
 ] as const
 
 const DISCLAIMER_PARAGRAPHS = [
-  "CrosstownOS provides diligence software and decision-support records for RV park and manufactured housing acquisitions. It does not provide legal, investment, tax, engineering, environmental, appraisal, title, lending, or insurance advice, and no advisory, agency, investment-advisory, or brokerage relationship is created by using the product, joining the Deal Desk, or reading this site.",
+  "CrosstownOS provides diligence software and decision-support records for RV park and manufactured housing acquisitions. It does not provide legal, investment, tax, engineering, environmental, appraisal, title, lending, or insurance advice, and no advisory, agency, investment-advisory, or brokerage relationship is created by using the product, purchasing the workspace, or reading this site.",
   "The buyer is solely responsible for all investment decisions and for engaging qualified professionals to review diligence outputs before committing capital. ParkProof organizes the buyer's documented posture from reviewed evidence, unresolved gates, and approved assumptions. It does not certify the deal, verify the property, or guarantee any investment outcome.",
 ] as const
 

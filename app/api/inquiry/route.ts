@@ -110,7 +110,7 @@ const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
 }
 
 const LIVE_DEAL_BLOCK: EmailDestinationBlock = {
-  eyebrow: 'THE DEAL DESK',
+  eyebrow: 'THE WORKSPACE',
   title: 'Bring a live deal',
   description:
     'For buyers with a live or imminent deal and a decision deadline.',

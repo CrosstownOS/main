@@ -311,16 +311,16 @@ export default async function ResourcesPage({
           <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
             <p className="mono-label mb-3">The next step</p>
             <p className="serif-display text-2xl tracking-tight">
-              Running a live deal? Bring it to the Deal Desk.
+              Running a live deal? Bring it to the Acquisition Workspace.
             </p>
             <ul className="mt-5 space-y-3 text-left text-sm leading-relaxed text-muted">
               <li>
-                Screened a deal worth pursuing? Bring it to the Deal Desk
+                Screened a deal worth pursuing? Bring it to the Acquisition Workspace
                 before diligence scatters across inboxes.
               </li>
               <li>
                 Walking a park soon? Bring the deal and walk it inside the
-                Deal Desk, where every capture lands in the record instead of
+                Workspace, where every capture lands in the record instead of
                 a photo folder.
               </li>
               <li>
