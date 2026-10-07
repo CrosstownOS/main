@@ -5,7 +5,7 @@ import DealDeskForm from "@/components/DealDeskForm"
 import ToolContextLine from "@/components/ToolContextLine"
 import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
-import { FAQ_JSON_LD, DEAL_DESK_FAQS } from "@/lib/tools/faqs"
+import { FAQ_JSON_LD, WORKSPACE_FAQS } from "@/lib/tools/faqs"
 import FaqSection from "@/components/tools/FaqSection"
 
 export const metadata: Metadata = {
@@ -542,7 +542,7 @@ export default function DealDeskPage() {
 
           {/* FAQ: fit call questions, below the application */}
           <div className="mt-20">
-            <FaqSection faqs={DEAL_DESK_FAQS} />
+            <FaqSection faqs={WORKSPACE_FAQS} />
           </div>
         </div>
       </main>

@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { X } from "lucide-react"
 import { TerminalLabel } from "@/components/ui/primitives"
 import CalBooking from "@/components/CalBooking"
-import { OPEN_DESIGN_PARTNER_EVENT } from "@/components/ui/navigation"
 import {
   OPEN_BASECAMP_EVENT,
   OPEN_FOUNDING_CIRCLE_EVENT,
@@ -17,7 +16,6 @@ import {
 import { cn } from "@/lib/utils"
 
 type FormType =
-  | "design_partner"
   | "founding_circle"
   | "referral_network"
   | "not_sure"
@@ -58,71 +56,6 @@ const BOUNDARY_NOTE =
   "Please do not submit confidential deal documents through this form. If a conversation is a fit, we will set up a secure way to share materials."
 
 const FORM_CONFIGS: Record<FormType, FormConfig> = {
-  design_partner: {
-    type: "design_partner",
-    eyebrow: "Design Partners",
-    title: "Request Design Partner Access",
-    intro:
-      "CrosstownOS is preparing for a limited design-partner program for active RV/MHC acquisition teams with a live or near-term opportunity.",
-    microcopy: [
-      "Early access is limited. We review each request personally.",
-      "Submitting this form does not create an advisory, agency, investment, financing, brokerage, or transaction relationship.",
-    ],
-    submitLabel: "Request Access",
-    calUrl: "https://cal.com/crosstownos/design-partner-fit-review",
-    calTitle: "Book a Design Partner fit review",
-    fields: [
-      { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
-      { key: "company", label: "Company", input: "text", required: true, autoComplete: "organization", half: true },
-      { key: "role", label: "Role", input: "text", required: true, autoComplete: "organization-title", half: true },
-      { key: "email", label: "Business email", input: "email", required: true, autoComplete: "email", half: true },
-      { key: "phone", label: "Phone (optional)", input: "tel", autoComplete: "tel", half: true },
-      { key: "linkedInUrl", label: "LinkedIn URL (optional)", input: "url", autoComplete: "url", half: true },
-      {
-        key: "primaryFocus",
-        label: "Primary focus",
-        input: "select",
-        required: true,
-        options: ["RV Park", "Manufactured-Housing Community", "Both"],
-        half: true,
-      },
-      {
-        key: "acquisitionsReviewedAnnually",
-        label: "Approximate acquisitions reviewed annually",
-        input: "text",
-        required: true,
-        half: true,
-      },
-      {
-        key: "liveDealWithin90Days",
-        label: "Live deal within 90 days?",
-        input: "select",
-        required: true,
-        options: ["Yes", "No", "Possibly"],
-        half: true,
-      },
-      {
-        key: "shareBrokerPackage",
-        label: "Open to sharing a broker package after fit review?",
-        input: "select",
-        required: true,
-        options: ["Yes", "No", "Maybe"],
-        half: true,
-      },
-      {
-        key: "howDidYouHear",
-        label: "How did you hear about us? (optional)",
-        input: "text",
-        half: true,
-      },
-      {
-        key: "diligencePain",
-        label: "Biggest diligence pain today",
-        input: "textarea",
-        required: true,
-      },
-    ],
-  },
   founding_circle: {
     type: "founding_circle",
     eyebrow: "Field Network",
@@ -405,7 +338,6 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
 }
 
 const EVENT_TO_FORM: Record<string, FormType> = {
-  [OPEN_DESIGN_PARTNER_EVENT]: "design_partner",
   [OPEN_FOUNDING_CIRCLE_EVENT]: "founding_circle",
   [OPEN_REFERRAL_NETWORK_EVENT]: "referral_network",
   [OPEN_GENERAL_EVENT]: "not_sure",

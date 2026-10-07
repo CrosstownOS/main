@@ -92,7 +92,7 @@ type FormConfig = {
   subtitle: (data: SubmissionData) => string
 }
 
-const DEAL_DESK_FIT_CALL_BLOCK: EmailDestinationBlock = {
+const WORKSPACE_FIT_CALL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'NEXT STEP',
   title: 'Book a workspace fit call',
   description: 'Put time on the deal instead of waiting for a reply to land.',
@@ -157,7 +157,7 @@ const BROKERS_AND_LENDERS_CONVERSATION_BLOCK: EmailDestinationBlock = {
 const FORM_CONFIG: Record<FormType, FormConfig> = {
   deal_desk: {
     type: 'deal_desk',
-    routingTag: 'FOUNDING_DEAL_DESK',
+    routingTag: 'ACQUISITION_WORKSPACE',
     title: 'New Acquisition Workspace Application',
     badge: 'Acquisition Workspace',
     sourceForm: 'Acquisition Workspace application form',
@@ -170,7 +170,7 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     confirmationBlocks: [
       WALKTHROUGH_EMAIL_BLOCK,
       STANDARD_EMAIL_BLOCK,
-      DEAL_DESK_FIT_CALL_BLOCK,
+      WORKSPACE_FIT_CALL_BLOCK,
     ],
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },

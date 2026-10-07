@@ -176,7 +176,7 @@ export const TOOLS_INDEX_FAQS: Faq[] = [
   },
 ]
 
-export const DEAL_DESK_FAQS: Faq[] = [
+export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What is the workspace fit call?",
     answer:
@@ -218,7 +218,7 @@ export const FAQ_JSON_LD: Record<string, ReturnType<typeof faqPage>> = {
   "/tools/poh-toh-split": faqPage(`${SITE}/tools/poh-toh-split`, POH_TOH_FAQS),
   "/tools/emd-clock": faqPage(`${SITE}/tools/emd-clock`, EMD_FAQS),
   "/tools": faqPage(`${SITE}/tools`, TOOLS_INDEX_FAQS),
-  "/workspace": faqPage(`${SITE}/workspace`, DEAL_DESK_FAQS),
+  "/workspace": faqPage(`${SITE}/workspace`, WORKSPACE_FAQS),
 }
 
 export const FAQ_LISTS: Record<string, Faq[]> = {
@@ -229,5 +229,5 @@ export const FAQ_LISTS: Record<string, Faq[]> = {
   "/tools/poh-toh-split": POH_TOH_FAQS,
   "/tools/emd-clock": EMD_FAQS,
   "/tools": TOOLS_INDEX_FAQS,
-  "/workspace": DEAL_DESK_FAQS,
+  "/workspace": WORKSPACE_FAQS,
 }
