@@ -119,11 +119,10 @@ const INCLUDED = [
 ] as const
 
 const NOT_INCLUDED = [
-  "We do not review your documents.",
-  "We do not interpret your numbers or your deal.",
-  "We do not confirm that your diligence or conclusions are correct.",
-  "No weekly sessions, ongoing advisory, or shared channel.",
-  "Additional purchases do not add live Q&A sessions.",
+  "Document review or interpretation of your numbers.",
+  "Confirmation of your diligence conclusions.",
+  "Weekly sessions, ongoing advisory, or a shared channel.",
+  "Additional live Q&A sessions with new purchases.",
 ] as const
 
 const FOR_ITEMS = [
@@ -142,7 +141,7 @@ const NOT_FOR_ITEMS = [
 const FAQ = [
   {
     q: "What does the Single-Deal Workspace include?",
-    a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response. You operate the workspace. We do not review your documents or your deal.",
+    a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response. You operate the workspace.",
   },
   {
     q: "What does the Annual Workspace include?",
@@ -150,7 +149,7 @@ const FAQ = [
   },
   {
     q: "What do you mean by software Q&A? What is it not?",
-    a: "We answer questions about navigation, inputs, documented calculations, and software behavior. We do not tell you what your documents mean, whether your assumptions are right, or what to do about a property. That line is the product.",
+    a: "We answer questions about navigation, inputs, documented calculations, and software behavior. What your documents mean and what to do about a property stays with you and your team.",
   },
   {
     q: "What does Verified mean in the evidence states?",

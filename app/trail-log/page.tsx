@@ -58,6 +58,12 @@ const BUILD_COLUMNS = [
 
 const SHIPPED = [
   {
+    date: "October 7, 2026",
+    title: "The offer became the Acquisition Workspace",
+    href: "/deal-desk",
+    body: "The Founding Deal Desk engagement retired. The offer is now software: Single-Deal Workspace at $1,250 and Annual Workspace at $2,500. Every human-service promise removed across the site, email, and booking. The buyer operates the workspace.",
+  },
+  {
     date: "October 4, 2026",
     title: "ParkProof Walkthrough joined the site",
     href: "/parkproof-walkthrough",
@@ -89,7 +95,7 @@ const SHIPPED = [
   {
     date: "October 4, 2026",
     title: "The announcement strip went cream",
-    body: "The thin Founding Deal Desk announcement now sits in warm cream so it reads as a headline above the dark site header.",
+    body: "The thin workspace announcement now sits in warm cream so it reads as a headline above the dark site header.",
   },
   {
     date: "October 4, 2026",
@@ -139,9 +145,9 @@ const SHIPPED = [
   },
   {
     date: "October 2, 2026",
-    title: "The Founding Deal Desk page and application flow went live",
+    title: "The Acquisition Workspace page and application flow went live",
     href: "/deal-desk",
-    body: "The public Deal Desk page, terms, FAQ, and application flow were aligned and verified live as one door for a live deal.",
+    body: "The public workspace page, terms, FAQ, and application flow were aligned and verified live as one door for a live deal.",
   },
   {
     date: "October 1, 2026",

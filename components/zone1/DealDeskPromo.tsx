@@ -35,7 +35,7 @@ export default function DealDeskPromo() {
             </p>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
               Single-deal $1,250. Annual $2,500. Recorded walkthrough plus one
-              live software Q&A. No consulting, no hand-holding.
+              live software Q&A.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link

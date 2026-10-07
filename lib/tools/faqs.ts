@@ -194,7 +194,7 @@ export const DEAL_DESK_FAQS: Faq[] = [
   {
     question: "What does the Acquisition Workspace cost?",
     answer:
-      "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months. You operate the workspace. We do not review your documents or your deal.",
+      "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months. You operate the workspace.",
   },
   {
     question: "What does Verified mean in the evidence states?",
