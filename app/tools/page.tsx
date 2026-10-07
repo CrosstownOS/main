@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
-import SiteFooter from "@/components/SiteFooter"
 import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 import { cn } from "@/lib/utils"
@@ -409,7 +408,6 @@ export default function ToolsPage() {
           </section>
         </div>
       </main>
-      <SiteFooter />
     </>
   )
 }
