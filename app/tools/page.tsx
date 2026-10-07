@@ -127,13 +127,6 @@ const GROUPS: ToolGroup[] = [
   },
 ]
 
-const SECOND_WAVE = [
-  "Walk-Away Pact",
-  "Red-Flag Triage Board",
-  "Lender One-Pager",
-  "Offer Term Sheet Builder",
-]
-
 const FAQS: { q: string; a: string }[] = [
   {
     q: "Is this investment advice?",
@@ -374,20 +367,6 @@ export default function ToolsPage() {
               Every tool exports to one ParkProof draft: your numbers, your evidence states,
               your open items, in one file. Bring the file to the fit call, or work the whole
               deal in the Workspace. Six feeds, one record.
-            </p>
-          </section>
-
-          {/* Second wave */}
-          <section className="mt-16" aria-label="Second wave">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-              In the shop
-            </p>
-            <h2 className="serif-display mt-2 text-2xl tracking-tight sm:text-3xl">
-              More working papers coming.
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-              Built in the order buyers ask for them:{" "}
-              {SECOND_WAVE.join(", ")}. The most-requested paper gets built next.
             </p>
           </section>
 
