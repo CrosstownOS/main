@@ -76,7 +76,7 @@ const HOW_IT_WORKS = [
   },
   {
     title: "Work the register.",
-    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing, Assumed, Calculated, or Unresolved. You decide what each label means for your deal. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. You decide what each label means for your deal. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
   },
   {
     title: "Underwrite from your inputs.",
@@ -144,7 +144,7 @@ const FAQ = [
   },
   {
     q: "What does the Annual Workspace include?",
-    a: "Everything in Single-Deal, for unlimited properties over 12 months from purchase. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual; we never auto-charge.",
+    a: "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual; we never auto-charge.",
   },
   {
     q: "What do you mean by software Q&A? What is it not?",
@@ -152,7 +152,7 @@ const FAQ = [
   },
   {
     q: "What does Verified mean in the evidence states?",
-    a: "You assign it. Verified means you confirmed the claim against a primary source document. CrosstownOS does not independently verify anything. The label records your judgment, not ours.",
+    a: "You assign it. Verified means you confirmed the claim against a cited source, with the page or record it came from, how it was obtained, and a named human review. CrosstownOS does not independently verify anything. The label records your judgment, not ours.",
   },
   {
     q: "What does CrosstownOS not do?",
@@ -172,7 +172,7 @@ const FAQ = [
   },
   {
     q: "What happens after 90 days, or if my deal ends early?",
-    a: "Single-Deal access ends 90 calendar days from purchase. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual purchase date. If you abandon a deal, single-deal access does not transfer to another property.",
+    a: "Single-Deal access ends 90 calendar days from activation. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
   },
   {
     q: "What is the refund policy?",

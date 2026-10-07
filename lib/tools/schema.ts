@@ -1,6 +1,6 @@
 /**
  * Shared JSON export schema for the CrosstownOS interactive tools.
- * Every tool exports this shape so all six feed one ParkProof draft assembler.
+ * Every tool exports this shape so all six feed one ParkProof decision file assembler.
  */
 import type { EvidenceState, ReadinessLabel } from "./evidence"
 

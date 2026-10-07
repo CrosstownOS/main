@@ -133,14 +133,14 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Do you keep my numbers?",
-    a: "No. Everything runs in your browser and saves to your browser's local storage. Nothing leaves your machine until you choose to download the JSON or save via email.",
+    a: "No. Everything runs in your browser and saves to your browser's local storage. Nothing leaves your machine until you choose to download the JSON.",
   },
   {
     q: "Do I need an account?",
-    a: "No. The tools are free to use with no account. An email is only asked when you want to save a working paper and pick it up anywhere.",
+    a: "No. The tools are free to use with no account.",
   },
   {
-    q: "What is a ParkProof draft?",
+    q: "What is a ParkProof decision file?",
     a: "The decision-file format: numbers, evidence states, open items, and assumptions in one record. Every tool exports JSON in one shared schema.",
   },
   {
