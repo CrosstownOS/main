@@ -356,7 +356,7 @@ export default function EmdClockTool() {
       posture={posture}
       printSummary={printSummary}
       ctaTitle="In diligence with dates moving?"
-      ctaBody="The Workspace runs the register so no date surprises you."
+      ctaBody="Running a live deal? The Acquisition Workspace keeps every date in one record."
       ctaButton="Talk through my timeline."
       faqs={EMD_FAQS}
 

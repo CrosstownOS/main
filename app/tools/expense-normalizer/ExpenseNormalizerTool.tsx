@@ -342,7 +342,7 @@ export default function ExpenseNormalizerTool() {
         </>
       }
       ctaTitle="Normalized NOI is where the retrade gets built."
-      ctaBody="The Workspace builds the whole register this way, line by line, with provenance."
+      ctaBody="Running a live deal? The Acquisition Workspace connects your evidence in one record."
       ctaButton="Work my P&L in the fit call."
       faqs={EXPENSE_FAQS}
 

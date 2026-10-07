@@ -301,7 +301,7 @@ export default function PohTohTool() {
       posture={posture}
       printSummary={printSummary}
       ctaTitle="This is the number you take back to the seller."
-      ctaBody="The Workspace builds the full underwriting case behind it, deterministically, from your approved assumptions."
+      ctaBody="Running a live deal? The Acquisition Workspace connects your underwriting in one record."
       ctaButton="Build my retrade case in the fit call."
       faqs={POH_TOH_FAQS}
 

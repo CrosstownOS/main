@@ -141,7 +141,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What is a ParkProof draft?",
-    a: "The decision-file format the Acquisition Workspace works in: numbers, evidence states, open items, and assumptions in one record. Every tool exports JSON in one shared schema, so your work becomes the head start on the file.",
+    a: "The decision-file format: numbers, evidence states, open items, and assumptions in one record. Every tool exports JSON in one shared schema.",
   },
   {
     q: "Why do my inputs say Broker-reported?",
@@ -295,7 +295,7 @@ export default function ToolsPage() {
               Live Diligence Working Papers.
             </h1>
             <p className="serif-display mt-4 text-xl tracking-tight text-foreground/90 sm:text-2xl">
-              The Acquisition Signal tools, rebuilt as instruments. Run the math on your live
+              Free tools that run in your browser. Run the math on your live
               deal, keep the record, export the file.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
@@ -363,9 +363,8 @@ export default function ToolsPage() {
               Run a tool. Keep the record.
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-              Every tool exports to one ParkProof draft: your numbers, your evidence states,
-              your open items, in one file. Bring the file to the fit call, or work the whole
-              deal in the Workspace. Six feeds, one record.
+              Every tool exports your numbers, your evidence states, and
+              your open items in one file. Free, no account, yours to keep.
             </p>
           </section>
 
@@ -393,11 +392,9 @@ export default function ToolsPage() {
               Work your real acquisition inside CrosstownOS.
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
-              The working papers are the instruments. The Acquisition Workspace
-              connects them: source evidence, field observations, and underwriting
-              in one deal record. Single-deal $1,250, annual $2,500. Bring your
-              exported numbers to the fit call and start with a working
-              session, not a cold conversation.
+              Running a live deal and want the full record? The Acquisition Workspace
+              connects source evidence, field observations, and underwriting
+              in one deal record. Single-deal $1,250, annual $2,500.
             </p>
             <Link
               href="/deal-desk#apply"

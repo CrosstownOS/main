@@ -226,7 +226,7 @@ export default function ScreenerTool() {
         </>
       }
       ctaTitle="This survived sixty seconds."
-      ctaBody="The Workspace works it for real: evidence to decision file on your live deal."
+      ctaBody="Running a live deal? The Acquisition Workspace keeps the full record in one place."
       ctaButton="Bring this deal to the fit call."
       faqs={SCREENER_FAQS}
 

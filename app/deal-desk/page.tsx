@@ -109,13 +109,12 @@ const NOVEMBER_PRODUCT = [
   },
 ] as const
 
-const INCLUDED = [
-  "Single-Deal Workspace ($1,250): one property, 90 calendar days of full workspace access from purchase.",
-  "Annual Workspace ($2,500): unlimited properties, 12 months of full workspace access from purchase.",
+const INCLUDED_SHARED = [
+  "Full workspace: Source, Field, and Acquire around one deal record.",
   "Recorded onboarding walkthrough.",
-  "One 30-minute live software Q&A session per customer account, booked within the first 30 days.",
-  "Email technical support for access, bugs, and software operation. Target initial response within two business days.",
-  "One named operator account per purchase. One property means one park or community acquisition, including associated parcels.",
+  "One 30-minute live software Q&A per account, booked within the first 30 days.",
+  "Email technical support. Target response within two business days.",
+  "One named operator account.",
 ] as const
 
 const NOT_INCLUDED = [
@@ -226,14 +225,14 @@ export default function DealDeskPage() {
             </a>
           </div>
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
-            Not ready for the Desk? Run the math first: the{" "}
+            Not ready for the workspace? The{" "}
             <Link
               href="/tools"
               className="font-semibold text-primary hover:underline"
             >
               Diligence Working Papers
             </Link>{" "}
-            run in your browser, free, no account. Bring the export to your fit call.
+            are free tools that run in your browser, no account needed.
           </p>
 
           {/* The problem */}
@@ -357,26 +356,62 @@ export default function DealDeskPage() {
           {/* Terms */}
           <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
             <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The plans, stated plainly.
+              Two ways in.
             </h2>
-            <div className="theme-cream mt-6 border border-primary/40 bg-card p-6 sm:p-8">
-              <p className="serif-display text-3xl tracking-tight text-foreground">
-                Single-Deal Workspace: $1,250.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                One property. 90 calendar days of full workspace access from purchase.
-              </p>
-              <p className="serif-display mt-8 text-3xl tracking-tight text-foreground">
-                Annual Workspace: $2,500.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                Unlimited properties. 12 months of full workspace access from purchase.
-              </p>
-              <h3 className="mt-8 font-sans text-base font-bold tracking-tight text-foreground">
-                What is included
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              Your specialists provide their findings. CrosstownOS is where you
+              organize the evidence and record what your acquisition decision rests on.
+            </p>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="theme-cream border border-primary/40 bg-card p-6 sm:p-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                  For the live deal
+                </p>
+                <p className="serif-display mt-3 text-4xl tracking-tight text-foreground">
+                  $1,250
+                </p>
+                <p className="mt-1 font-sans text-base font-bold text-foreground">
+                  Single-Deal Workspace
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  One property. 90 days. The full workspace, from your first
+                  document to your decision file.
+                </p>
+                <a
+                  href="#apply"
+                  className="mt-6 inline-block border border-primary/60 bg-primary px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90"
+                >
+                  Start with a fit call
+                </a>
+              </div>
+              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
+                  For the active buyer
+                </p>
+                <p className="serif-display mt-3 text-4xl tracking-tight text-foreground">
+                  $2,500
+                </p>
+                <p className="mt-1 font-sans text-base font-bold text-foreground">
+                  Annual Workspace
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Unlimited properties. 12 months. Stop rebuilding the record
+                  every time you look at a deal.
+                </p>
+                <a
+                  href="#apply"
+                  className="mt-6 inline-block border border-border px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                >
+                  Start with a fit call
+                </a>
+              </div>
+            </div>
+            <div className="theme-cream mt-4 border border-border/60 bg-card/50 p-6 sm:p-8">
+              <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+                Every plan includes
               </h3>
-              <ul className="mt-4 space-y-3">
-                {INCLUDED.map((item) => (
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {INCLUDED_SHARED.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
                     <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
                     <span>{item}</span>
@@ -384,9 +419,9 @@ export default function DealDeskPage() {
                 ))}
               </ul>
               <h3 className="mt-8 font-sans text-base font-bold tracking-tight text-foreground">
-                What is not included
+                The boundary
               </h3>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {NOT_INCLUDED.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
                     <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
@@ -405,11 +440,6 @@ export default function DealDeskPage() {
                 After expiration, editing ends. Export your records before then.
                 We retain your data for 30 days, then schedule deletion. Full
                 refund within seven calendar days of activation; refund ends access.
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-                Eligibility: a live or imminent RV park or manufactured housing
-                acquisition. This is buyer&apos;s-side software; brokers, sellers,
-                and intermediaries are not eligible.
               </p>
             </div>
           </section>
