@@ -304,8 +304,9 @@ export default function DealDeskPage() {
               The November product, in one view.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              Know it. Take it. Hold it. Opens November 2026: Source + Field +
-              Acquire, the first connected loop across Know it and Take it.
+              Know it. Take it. Hold it. The Acquisition Workspace opens November 2026:
+              Source + Field + Acquire, the first connected loop. The Transition Workspace
+              and Operations Workspace are the direction of the system.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {NOVEMBER_PRODUCT.map((module) => (

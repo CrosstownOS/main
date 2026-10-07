@@ -53,13 +53,15 @@ export default function LifecycleVision() {
             Know it. Take it. Hold it.
           </Heading>
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-            CrosstownOS is built in three families: KNOW (Source, Acquire,
-            Intelligence), TAKE (Field, Close, Launch), HOLD (Operate,
-            Capital, Exit). Opens November 2026: Source + Field + Acquire.
-            Lifecycle extensions are the direction of the system. The record
-            you build to decide is the record you carry after you close; the
-            deal does not end at closing, and the truth record should not
-            either.
+            CrosstownOS is three workspaces across the asset lifecycle. The{" "}
+            <strong className="font-semibold text-foreground">Acquisition Workspace</strong>{" "}
+            (Know it: Source, Field, Acquire) opens November 2026. The{" "}
+            <strong className="font-semibold text-foreground">Transition Workspace</strong>{" "}
+            (Take it: Field, Close, Launch) and the{" "}
+            <strong className="font-semibold text-foreground">Operations Workspace</strong>{" "}
+            (Hold it: Operate, Capital, Exit) are the direction of the system.
+            The record you build to decide is the record you carry after you close;
+            the deal does not end at closing, and the truth record should not either.
           </p>
         </div>
 
