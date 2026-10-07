@@ -14,9 +14,34 @@ import WorkingPapers from "@/components/zone1/WorkingPapers"
 import DealDeskPromo from "@/components/zone1/DealDeskPromo"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
 
+const HOME_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "CrosstownOS",
+  url: "https://www.crosstownosrv.camp",
+  description:
+    "Acquisition intelligence and diligence software for RV park and manufactured housing buyers. Know what is true before you buy.",
+  founder: { "@type": "Person", name: "Jeremy Cross" },
+}
+
+const WEBSITE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CrosstownOS",
+  url: "https://www.crosstownosrv.camp",
+}
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_JSON_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSON_LD) }}
+      />
       <main
         className="relative min-h-screen w-full bg-background text-foreground"
         style={{ overflowX: "clip" }}

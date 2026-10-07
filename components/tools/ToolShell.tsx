@@ -316,7 +316,7 @@ export default function ToolShell(props: ToolShellProps) {
         [data-print-root] { position: absolute; inset: 0 auto auto 0; width: 100%; background: #fff; color: #1a1a1a; padding: 24px; font-family: Inter, system-ui, sans-serif; }
         [data-print-root] .print-brandbar { border-top: 4px solid #00468B; padding-top: 16px; margin-bottom: 16px; }
         [data-print-root] .print-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: #00468B; margin: 0 0 4px 0; }
-        [data-print-root] h1 { font-family: Georgia, serif; font-size: 22px; margin: 0 0 4px 0; }
+        [data-print-root] .print-title { font-family: Georgia, serif; font-size: 22px; margin: 0 0 4px 0; }
         [data-print-root] .print-meta { font-size: 11px; color: #555; margin: 0 0 4px 0; }
         [data-print-root] .print-posture { border: 1px solid #00468B; background: #f4f7fb; padding: 12px 16px; margin: 16px 0; }
         [data-print-root] .print-posture strong { color: #00468B; }
@@ -474,7 +474,7 @@ export default function ToolShell(props: ToolShellProps) {
         <div className="print-brandbar">
           <img src="https://www.crosstownosrv.camp/logo.jpg" alt="CrosstownOS" width={40} height={40} style={{ borderRadius: "50%", marginBottom: 8 }} />
           <p className="print-eyebrow">CrosstownOS &middot; Live Diligence Working Paper</p>
-          <h1>{title}</h1>
+          <p className="print-title">{title}</p>
           <p className="print-meta">
             {dealName || "Untitled deal"} &middot; {sourceCode} &middot; {new Date().toLocaleDateString("en-US")}
           </p>
