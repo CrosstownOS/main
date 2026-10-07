@@ -96,7 +96,7 @@ const DEAL_DESK_FIT_CALL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'NEXT STEP',
   title: 'Book a workspace fit call',
   description: 'Put time on the deal instead of waiting for a reply to land.',
-  href: 'https://cal.com/crosstownos/deal-desk-fit-call',
+  href: 'https://cal.com/crosstownos/workspace-fit-call',
   buttonLabel: 'Book a fit call',
 }
 
