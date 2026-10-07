@@ -406,7 +406,7 @@ export default function DealDeskPage() {
                 </a>
               </div>
             </div>
-            <div className="theme-cream mt-4 border border-border/60 bg-card/50 p-6 sm:p-8">
+            <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                 Every plan includes
               </h3>
