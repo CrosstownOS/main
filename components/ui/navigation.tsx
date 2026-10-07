@@ -19,7 +19,7 @@ type NavEntry = {
 
 const NAV_ITEMS: NavEntry[] = [
   { index: "01", label: "Product", anchorId: "product" },
-  { index: "02", label: "Deal Desk", href: "/deal-desk" },
+  { index: "02", label: "Workspace", href: "/deal-desk" },
   { index: "03", label: "ParkProof", href: "/parkproof-walkthrough" },
   { index: "04", label: "Resources", href: "/resources" },
   { index: "05", label: "Tools", href: "/tools" },
@@ -351,7 +351,7 @@ export default function Navigation() {
         <div className="theme-cream flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 backdrop-blur">
           <p className="flex items-center gap-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
             <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
-            The Founding Deal Desk opens November 2026. Five buyers. One live deal each.
+            The Acquisition Workspace opens November 2026. Single-deal or annual.
           </p>
         </div>
 
@@ -458,7 +458,7 @@ export default function Navigation() {
                 Bring a live deal
               </Link>
               <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
-                Five buyers. One live deal each. Every application is reviewed personally.
+                You operate the workspace. You own the decision.
               </p>
             </div>
           </div>

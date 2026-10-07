@@ -230,7 +230,7 @@ export default async function BlogPost({ params }: PageProps) {
               </Link>
             )}
             <p className="mt-8 border-t border-border/60 pt-6 text-sm leading-relaxed text-muted">
-              Running a live deal? Bring it to the Deal Desk and work it inside
+              Running a live deal? Bring it to the Acquisition Workspace and work it inside
               CrosstownOS, from intake to a documented
               decision posture.
             </p>

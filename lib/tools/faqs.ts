@@ -178,9 +178,9 @@ export const TOOLS_INDEX_FAQS: Faq[] = [
 
 export const DEAL_DESK_FAQS: Faq[] = [
   {
-    question: "What is the Founding Deal Desk fit call?",
+    question: "What is the workspace fit call?",
     answer:
-      "A 30-minute fit call to determine whether your live deal belongs at the Founding Deal Desk, where five buyers work one live deal each inside CrosstownOS from intake to a documented decision posture.",
+      "A 15-minute conversation about whether the CrosstownOS Acquisition Workspace matches what you need for your deal. We do not sell on the call.",
   },
   {
     question: "What should I bring to the fit call?",
@@ -189,12 +189,17 @@ export const DEAL_DESK_FAQS: Faq[] = [
   },
   {
     question: "How long is the fit call?",
-    answer: "30 minutes.",
+    answer: "15 minutes.",
   },
   {
-    question: "What does the Deal Desk cost?",
+    question: "What does the Acquisition Workspace cost?",
     answer:
-      "2,500 dollars, paid at acceptance. Five buyers. One live deal each.",
+      "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months. You operate the workspace. We do not review your documents or your deal.",
+  },
+  {
+    question: "What does Verified mean in the evidence states?",
+    answer:
+      "You assign it. Verified means you confirmed the claim against a primary source document. CrosstownOS does not independently verify anything. The label records your judgment, not ours.",
   },
 ]
 

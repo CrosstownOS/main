@@ -56,7 +56,7 @@ export default function Hero() {
             href="/deal-desk#how-it-works"
             className="border border-border bg-background/60 px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-foreground backdrop-blur transition-colors hover:border-accent/70 hover:bg-accent/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            See how the Deal Desk works
+            See how the workspace works
           </Link>
         </div>
       </motion.div>

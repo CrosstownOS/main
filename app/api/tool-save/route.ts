@@ -132,7 +132,7 @@ export async function POST(req: NextRequest) {
         : []),
       {
         eyebrow: "THE NEXT STEP",
-        title: "Bring this to the Founding Deal Desk",
+        title: "Bring this to the Acquisition Workspace",
         description:
           "A working session that starts from your numbers, not a cold conversation.",
         href: dealDeskUrl,

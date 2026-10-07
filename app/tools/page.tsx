@@ -149,7 +149,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What is a ParkProof draft?",
-    a: "The decision-file format the Founding Deal Desk works in: numbers, evidence states, open items, and assumptions in one record. Every tool exports JSON in one shared schema, so your work becomes the head start on the file.",
+    a: "The decision-file format the Acquisition Workspace works in: numbers, evidence states, open items, and assumptions in one record. Every tool exports JSON in one shared schema, so your work becomes the head start on the file.",
   },
   {
     q: "Why do my inputs say Broker-reported?",
@@ -407,17 +407,18 @@ export default function ToolsPage() {
           </section>
 
           {/* 3.5 Conversion band */}
-          <section className="theme-cream mt-16 border border-border bg-card p-8 sm:p-10" aria-label="Work your deal in the Desk">
+          <section className="theme-cream mt-16 border border-border bg-card p-8 sm:p-10" aria-label="Work your deal in the workspace">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-              The Founding Deal Desk
+              The Acquisition Workspace
             </p>
             <h2 className="serif-display mt-3 max-w-2xl text-3xl tracking-tight">
               Work your real acquisition inside CrosstownOS.
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
-              The working papers are the instruments. The Desk is the engagement: intake to
-              decision file on your live deal, $2,500 per deal, five buyers in the November
-              cohort. Bring your exported numbers to the fit call and start with a working
+              The working papers are the instruments. The Acquisition Workspace
+              connects them: source evidence, field observations, and underwriting
+              in one deal record. Single-deal $1,250, annual $2,500. Bring your
+              exported numbers to the fit call and start with a working
               session, not a cold conversation.
             </p>
             <Link

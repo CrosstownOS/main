@@ -93,7 +93,7 @@ const SECTIONS = [
   {
     heading: "How we talk about the product",
     body: [
-      "Every public product claim is one of: live now, available in the Founding Deal Desk, pilot-only, internal testing, planned or system direction, or not available. We do not describe a prototype, roadmap item, or intention as a current capability.",
+      "Every public product claim is one of: live now, available in the Acquisition Workspace, pilot-only, internal testing, planned or system direction, or not available. We do not describe a prototype, roadmap item, or intention as a current capability.",
     ],
   },
   {

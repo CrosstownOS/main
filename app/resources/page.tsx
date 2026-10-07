@@ -324,8 +324,7 @@ export default async function ResourcesPage({
                 a photo folder.
               </li>
               <li>
-                Building the record by hand? The Founding Deal Desk runs the
-                whole deal, register to decision file.
+                Building the record by hand? The Acquisition Workspace connects it: source evidence, field observations, and underwriting in one deal record.
               </li>
             </ul>
             <a

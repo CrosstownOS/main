@@ -94,7 +94,7 @@ type FormConfig = {
 
 const DEAL_DESK_FIT_CALL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'NEXT STEP',
-  title: 'Book a Founding Deal Desk fit call',
+  title: 'Book a workspace fit call',
   description: 'Put time on the deal instead of waiting for a reply to land.',
   href: 'https://cal.com/crosstownos/deal-desk-fit-call',
   buttonLabel: 'Book a fit call',
@@ -158,15 +158,15 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
   deal_desk: {
     type: 'deal_desk',
     routingTag: 'FOUNDING_DEAL_DESK',
-    title: 'New Founding Deal Desk Application',
-    badge: 'Founding Deal Desk',
-    sourceForm: 'Founding Deal Desk application form',
+    title: 'New Acquisition Workspace Application',
+    badge: 'Acquisition Workspace',
+    sourceForm: 'Acquisition Workspace application form',
     successMessage:
-      'Received. Every application is reviewed personally. Expect a reply within two business days.',
+      'Received. Expect a reply within two business days.',
     failureMessage:
       'We could not submit your application. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Founding Deal Desk Application: Crosstown',
-    confirmationTitle: 'Founding Deal Desk application received.',
+    confirmationSubject: 'We Received Your Workspace Application: Crosstown',
+    confirmationTitle: 'Workspace application received.',
     confirmationBlocks: [
       WALKTHROUGH_EMAIL_BLOCK,
       STANDARD_EMAIL_BLOCK,
@@ -197,9 +197,9 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       { key: 'howDidYouHear', label: 'How did you hear about CrosstownOS', maxLength: 200 },
     ],
     subject: (data) =>
-      `New Founding Deal Desk Application: ${data.company || data.name}`,
+      `New Acquisition Workspace Application: ${data.company || data.name}`,
     subtitle: (data) =>
-      `${data.name} applied to the Founding Deal Desk for fit review.`,
+      `${data.name} applied for the Acquisition Workspace.`,
   },
   design_partner: {
     type: 'design_partner',

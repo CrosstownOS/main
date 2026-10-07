@@ -134,7 +134,7 @@ export default function DealDeskForm() {
         setStatus("success")
         setStatusMessage(
           body.message ||
-            "Received. Every application is reviewed personally. Expect a reply within two business days.",
+            "Received. Expect a reply within two business days.",
         )
         form.reset()
       } else {
@@ -168,7 +168,7 @@ export default function DealDeskForm() {
     <>
       <CalBooking
         url="https://cal.com/crosstownos/deal-desk-fit-call"
-        title="Book a Founding Deal Desk fit call"
+        title="Book a workspace fit call"
       />
 
       {status === "error" && statusMessage ? (

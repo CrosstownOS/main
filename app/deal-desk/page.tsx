@@ -9,14 +9,14 @@ import { FAQ_JSON_LD, DEAL_DESK_FAQS } from "@/lib/tools/faqs"
 import FaqSection from "@/components/tools/FaqSection"
 
 export const metadata: Metadata = {
-  title: "RV Park Due Diligence Software: The Founding Deal Desk | CrosstownOS",
+  title: "CrosstownOS Acquisition Workspace: RV Park Due Diligence Software",
   description:
-    "RV park due diligence for live deals. The Founding Deal Desk runs your acquisition inside CrosstownOS: diligence register, capacity gates, deterministic underwriting, and a documented decision file. $2,500 paid at acceptance.",
+    "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
   alternates: { canonical: "/deal-desk" },
   openGraph: {
-    title: "RV Park Due Diligence Software: The Founding Deal Desk | CrosstownOS",
+    title: "CrosstownOS Acquisition Workspace",
     description:
-      "Work your real RV park or manufactured housing acquisition inside CrosstownOS, from intake to a documented decision posture. Five buyers. One live deal each.",
+      "Your acquisition decision record: seller claims, source evidence, site observations, unresolved diligence, and underwriting connected in one workspace before you commit capital.",
     type: "website",
     url: "/deal-desk",
     images: [
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
         url: "/images/opengraph.jpg?v=2",
         width: 1024,
         height: 1024,
-        alt: "The Founding Deal Desk | CrosstownOS",
+        alt: "CrosstownOS Acquisition Workspace",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RV Park Due Diligence Software: The Founding Deal Desk | CrosstownOS",
+    title: "CrosstownOS Acquisition Workspace",
     description:
-      "Five buyers. One live deal each. $2,500 paid at acceptance, worked to a documented decision posture.",
+      "Single-deal or annual. You operate the workspace. You own the decision.",
     images: ["/images/opengraph.jpg?v=2"],
   },
 }
@@ -53,38 +53,38 @@ const PAINS = [
 ] as const
 
 const SCOPE_ITEMS = [
-  "One active deal, worked inside CrosstownOS from intake to decision.",
-  "Broker-package intake with provenance attached to every document.",
-  "The diligence register with capacity-gate tracking across water, sewer, electrical, roads, and zoning, permits, and legal.",
-  "Deterministic underwriting calculated from human-approved assumptions.",
-  "Weekly Deal Desk sessions in a fixed format.",
-  "A documented decision file built to the ParkProof standard.",
+  "The full Acquisition Workspace: Source, Field, and Acquire, connected around one deal record.",
+  "Source organizes your broker packages, public records, and seller statements with provenance on every document you attach.",
+  "Field captures your site-walk photos, notes, and observations against the deal record. Captured is not verified.",
+  "Acquire runs the diligence register: evidence states, capacity gates, and deterministic underwriting from assumptions you approve.",
+  "A ParkProof decision file you generate from your own reviewed evidence, unresolved gates, and approved assumptions.",
+  "Recorded onboarding walkthrough plus one live software Q&A session.",
 ] as const
 
 const HOW_IT_WORKS = [
   {
-    title: "Bring the deal.",
-    body: "You bring the broker package and everything you have. We build the intake record with provenance attached to every document, so every number can answer where it came from.",
+    title: "Set up your deal.",
+    body: "Create the workspace for your property. The recorded walkthrough shows you every step. One live Q&A session (30 minutes, booked within your first 30 days) covers what the recording does not.",
   },
   {
-    title: "Build the register.",
-    body: "Every claim is extracted and given an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+    title: "Organize your sources.",
+    body: "Attach the broker package, public records, and seller statements. Source tracks where every number came from, because you put it there.",
   },
   {
     title: "Walk it with Field.",
-    body: "On the site walk you capture what the paper cannot show: utilities, wastewater, metering, roads, site conditions. Every capture is unreviewed evidence until a person reviews it.",
+    body: "On the site walk you capture what the paper cannot show: utilities, wastewater, metering, roads, site conditions. Every capture is unreviewed evidence until you review it.",
   },
   {
-    title: "Review and resolve.",
-    body: "Capacity-gate risks across water, sewer, electrical, roads, and zoning, permits, and legal block the move toward offer until they are verified or an authorized person waives them with a documented reason.",
+    title: "Work the register.",
+    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing, Assumed, Calculated, or Unresolved. You decide what each label means for your deal. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
   },
   {
-    title: "Underwrite from confirmed inputs.",
-    body: "The engine calculates from human-approved assumptions only. Models may propose. People confirm. Code calculates.",
+    title: "Underwrite from your inputs.",
+    body: "The engine calculates only from assumptions you approve. Models may propose. You confirm. Code calculates.",
   },
   {
     title: "Decide on the record.",
-    body: "Your documented posture, advance, retrade, pause, or walk, is organized from reviewed evidence, unresolved gates, and approved assumptions: a dated decision file built to the ParkProof standard that you can take to partners, lenders, or your own investment committee.",
+    body: "Generate the ParkProof file from your reviewed evidence, unresolved gates, and approved assumptions. Take it to your partners, your lender, or your own investment committee. The posture is yours: advance, retrade, pause, or walk.",
   },
 ] as const
 
@@ -110,13 +110,20 @@ const NOVEMBER_PRODUCT = [
 ] as const
 
 const INCLUDED = [
-  "One active deal, worked through your documented decision posture or 90 days, whichever comes first.",
-  "One primary owner and one viewer/collaborator on the deal workspace for the life of the cohort engagement.",
-  "Onboarding and a shared channel for the life of the engagement.",
-  "Weekly Deal Desk sessions in a fixed format, with every output reviewed before you see it.",
-  "The diligence register with capacity-gate tracking across water, sewer, electrical, roads, and zoning, permits, and legal.",
-  "Deterministic underwriting calculated from human-approved assumptions.",
-  "A documented decision file built to the ParkProof standard, organizing your documented posture: advance, retrade, pause, or walk.",
+  "Single-Deal Workspace ($1,250): one property, 90 calendar days of full workspace access from purchase.",
+  "Annual Workspace ($2,500): unlimited properties, 12 months of full workspace access from purchase.",
+  "Recorded onboarding walkthrough.",
+  "One 30-minute live software Q&A session per customer account, booked within the first 30 days.",
+  "Email technical support for access, bugs, and software operation. Target initial response within two business days.",
+  "One named operator account per purchase. One property means one park or community acquisition, including associated parcels.",
+] as const
+
+const NOT_INCLUDED = [
+  "We do not review your documents.",
+  "We do not interpret your numbers or your deal.",
+  "We do not confirm that your diligence or conclusions are correct.",
+  "No weekly sessions, ongoing advisory, or shared channel.",
+  "Additional purchases do not add live Q&A sessions.",
 ] as const
 
 const FOR_ITEMS = [
@@ -126,24 +133,28 @@ const FOR_ITEMS = [
 ] as const
 
 const NOT_FOR_ITEMS = [
-  "Brokers, sellers, and intermediaries. The Deal Desk serves the buyer's side of the table only.",
-  "The curious with no live deal. The free resource library and the Field Network are the right doors for now.",
+  "Brokers, sellers, and intermediaries. The workspace serves the buyer's side of the table only.",
+  "The curious with no live deal. The free resource library is the right door for now.",
   "Buyers who want someone else to run diligence for them. The workflow guides; the buyer builds the record.",
   "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
 ] as const
 
 const FAQ = [
   {
-    q: "What does the $2,500 pay for?",
-    a: "One active deal worked inside CrosstownOS from intake to a documented decision posture, or 90 days, whichever comes first. That includes the diligence register, capacity-gate tracking, deterministic underwriting from your approved assumptions, weekly Deal Desk sessions, and a documented decision file built to the ParkProof standard. It is an engagement around your live acquisition, not a software license.",
+    q: "What does the Single-Deal Workspace include?",
+    a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response. You operate the workspace. We do not review your documents or your deal.",
   },
   {
-    q: "What is the refund policy?",
-    a: "Full refund any time before kickoff. After onboarding begins and your workspace is activated, the fee is non-refundable. The line is stated before you pay so there is no ambiguity later.",
+    q: "What does the Annual Workspace include?",
+    a: "Everything in Single-Deal, for unlimited properties over 12 months from purchase. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual; we never auto-charge.",
   },
   {
-    q: "What exactly happens during the engagement?",
-    a: "We intake your broker package and materials with provenance attached, build the diligence register with evidence states on every claim, configure Field for your site walk, run the register through weekly Deal Desk sessions, and close with a documented decision file built to the ParkProof standard, carrying your documented posture: advance, retrade, pause, or walk.",
+    q: "What do you mean by software Q&A? What is it not?",
+    a: "We answer questions about navigation, inputs, documented calculations, and software behavior. We do not tell you what your documents mean, whether your assumptions are right, or what to do about a property. That line is the product.",
+  },
+  {
+    q: "What does Verified mean in the evidence states?",
+    a: "You assign it. Verified means you confirmed the claim against a primary source document. CrosstownOS does not independently verify anything. The label records your judgment, not ours.",
   },
   {
     q: "What does CrosstownOS not do?",
@@ -159,19 +170,23 @@ const FAQ = [
   },
   {
     q: "How is my deal data handled?",
-    a: "Everything you share, in the application, the fit call, and the workspace, is treated as confidential. It is never used in content, examples, marketing, or conversation without your written permission. Confidentiality terms are signed at kickoff before any materials are ingested.",
+    a: "Everything you share, in the application, the fit call, and the workspace, is treated as confidential. It is never used in content, examples, marketing, or conversation without your written permission.",
   },
   {
     q: "What happens after 90 days, or if my deal ends early?",
-    a: "The engagement runs through your documented decision posture or 90 days, whichever comes first. If your deal reaches a posture early, the engagement completes early and the conversion review follows. If your deal is still live at day 90, the conversion review sets the next step.",
+    a: "Single-Deal access ends 90 calendar days from purchase. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual purchase date. If you abandon a deal, single-deal access does not transfer to another property.",
   },
   {
-    q: "How does the conversion credit work?",
-    a: "Convert to the Founding Acquisition Workspace ($3,000/year) within 30 days of your documented decision posture and the full $2,500 applies to your first year. The credit is a prepayment toward the Workspace, not a discount and not a bonus. The 30-day window runs from the dated, documented decision posture, because the conversion decision should be made while the posture is fresh.",
+    q: "What is the refund policy?",
+    a: "Full refund within seven calendar days of activation. Requesting a refund ends access immediately.",
   },
   {
-    q: "Why only five buyers?",
-    a: "Because every engagement is worked personally: every output is reviewed before you see it, and the weekly sessions run in a fixed format. Five is the number the calendar can hold without the quality dropping. When seats are full, the Field Network is the waitlist for the next window.",
+    q: "What counts as one property?",
+    a: "One park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
+  },
+  {
+    q: "Can I upgrade from Single-Deal to Annual?",
+    a: "Purchase Annual Workspace as a separate purchase at any time. There is no credit, prorating, or conversion discount.",
   },
 ] as const
 
@@ -187,27 +202,28 @@ export default function DealDeskPage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
-          <p className="mono-label mb-4">Founding offer, November 2026</p>
+          <p className="mono-label mb-4">Available November 2026</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            The Founding Deal Desk. Five buyers. One live deal each.
+            The Acquisition Workspace. Your deal, on the record.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Work your real acquisition inside CrosstownOS, from
-            intake to a documented decision posture.
+            Seller claims, source evidence, site observations, unresolved
+            diligence, and underwriting, connected in one workspace before you
+            commit capital. You operate it. You own the decision.
           </p>
           <ToolContextLine />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
-              href="#apply"
+              href="#plans"
               className="inline-block border border-primary/60 bg-primary px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Bring a live deal
+              See the plans
             </a>
             <a
               href="#how-it-works"
               className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              See how the Deal Desk works
+              See how the workspace works
             </a>
           </div>
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
@@ -265,7 +281,7 @@ export default function DealDeskPage() {
           {/* How it works */}
           <section id="how-it-works" aria-labelledby="deal-desk-how" className="mt-20 scroll-mt-24">
             <h2 id="deal-desk-how" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              How the Deal Desk works.
+              How the workspace works.
             </h2>
             <ol className="mt-6 space-y-4">
               {HOW_IT_WORKS.map((step, index) => (
@@ -325,10 +341,10 @@ export default function DealDeskPage() {
               The decision file.
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/85">
-              At the end of the engagement, the Desk produces a documented
-              decision file built to the ParkProof standard: your documented
-              posture, built from reviewed evidence, unresolved gates, and
-              approved assumptions.
+              When you are ready, you generate the ParkProof decision file
+              from inside the workspace: your documented posture, built from
+              your reviewed evidence, your unresolved gates, and your approved
+              assumptions.
               CrosstownOS organizes the record. You own the decision.
             </p>
             <Link
@@ -340,17 +356,22 @@ export default function DealDeskPage() {
           </section>
 
           {/* Terms */}
-          <section id="terms" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
+          <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
             <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The terms, stated plainly.
+              The plans, stated plainly.
             </h2>
             <div className="theme-cream mt-6 border border-primary/40 bg-card p-6 sm:p-8">
               <p className="serif-display text-3xl tracking-tight text-foreground">
-                $2,500, paid at acceptance.
+                Single-Deal Workspace: $1,250.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                Full refund any time before kickoff. Non-refundable after
-                onboarding and workspace activation.
+                One property. 90 calendar days of full workspace access from purchase.
+              </p>
+              <p className="serif-display mt-8 text-3xl tracking-tight text-foreground">
+                Annual Workspace: $2,500.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Unlimited properties. 12 months of full workspace access from purchase.
               </p>
               <h3 className="mt-8 font-sans text-base font-bold tracking-tight text-foreground">
                 What is included
@@ -363,16 +384,33 @@ export default function DealDeskPage() {
                   </li>
                 ))}
               </ul>
+              <h3 className="mt-8 font-sans text-base font-bold tracking-tight text-foreground">
+                What is not included
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {NOT_INCLUDED.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
               <p className="mt-8 text-sm leading-relaxed text-foreground/85">
-                Conversion credit: the full $2,500 applies to your first year
-                of the Founding Acquisition Workspace ($3,000/year) when you
-                convert within 30 days of your documented decision posture. The
-                Deal Desk fee is the first money toward the Workspace, not a
-                fee on top of it.
+                Access begins when your credentials and onboarding materials are
+                delivered. Renewal is manual; we never auto-charge. One property
+                means one park or community acquisition, including associated
+                parcels. If you abandon a deal, single-deal access does not
+                transfer.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-                Seats: five buyers. Eligibility: a live or imminent deal with a
-                decision deadline in the next 60 to 90 days.
+                After expiration, editing ends. Export your records before then.
+                We retain your data for 30 days, then schedule deletion. Full
+                refund within seven calendar days of activation; refund ends access.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/85">
+                Eligibility: a live or imminent RV park or manufactured housing
+                acquisition. This is buyer&apos;s-side software; brokers, sellers,
+                and intermediaries are not eligible.
               </p>
             </div>
           </section>
@@ -382,7 +420,7 @@ export default function DealDeskPage() {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="theme-cream border border-border bg-card p-6 sm:p-8">
                 <h2 id="deal-desk-who" className="serif-display text-2xl tracking-tight">
-                  Who the Deal Desk is for.
+                  Who the workspace is for.
                 </h2>
                 <ul className="mt-5 space-y-3">
                   {FOR_ITEMS.map((item) => (
@@ -412,8 +450,7 @@ export default function DealDeskPage() {
               <Link href="/resources" className="text-primary underline underline-offset-2 hover:no-underline">
                 Acquisition Signal library
               </Link>
-              , join the email list in the footer below, or join the Field
-              Network for first word when the next seats open. Brokers, lenders,
+              , or join the email list in the footer below. Brokers, lenders,
               and advisers: see the{" "}
               <Link href="/#paths" className="text-primary underline underline-offset-2 hover:no-underline">
                 Referral Alliance
@@ -456,8 +493,13 @@ export default function DealDeskPage() {
           {/* Application */}
           <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
             <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Bring a live deal.
+              Start with a fit call.
             </h2>
+            <p className="theme-cream paper mt-4 max-w-3xl border border-border/60 bg-card/50 p-4 text-sm leading-relaxed text-muted">
+              Tell us about your deal. If it is a fit, we will send the booking
+              link for a 15-minute conversation about whether the workspace
+              matches what you need. We do not sell on the call.
+            </p>
             <p className="theme-cream paper mt-4 max-w-3xl border border-border/60 bg-card/50 p-4 text-sm leading-relaxed text-muted">
               Everything you share here is treated as confidential and is never
               used in content, examples, or conversation without your written

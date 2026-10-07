@@ -52,11 +52,11 @@ type ConversionPath = {
 const CONVERSION_PATHS: ConversionPath[] = [
   {
     code: "01",
-    name: "Founding Deal Desk",
+    name: "Acquisition Workspace",
     question: "Actively acquiring an RV park or MHC?",
     description:
-      "For buyers with a live or imminent deal and a decision deadline. Work the deal inside CrosstownOS, from intake to a documented decision posture.",
-    cta: "Bring a live deal",
+      "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the CrosstownOS workspace, from evidence to a documented decision file. You operate it.",
+    cta: "See the plans",
     action: "deal_desk",
     href: "/deal-desk",
     icon: Target,
@@ -66,7 +66,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
     name: "Field Network",
     question: "Want to follow the build from the inside?",
     description:
-      "For operators, owners, and industry people who want early updates, a voice in what gets built, and first word when the next Deal Desk window opens.",
+      "For operators, owners, and industry people who want early updates, a voice in what gets built, and first word when the workspace opens.",
     cta: "Join the Field Network",
     action: "founding_circle",
     secondaryLink: {
