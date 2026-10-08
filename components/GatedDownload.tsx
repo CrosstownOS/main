@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { track } from '@vercel/analytics'
 
 const STORAGE_KEY = 'crosstown_resource_email'
 
@@ -69,7 +68,10 @@ export function GatedDownloadButton({ file, label, className }: Props) {
   }, [open])
 
   const startDownload = () => {
-    track('resource_download', { tool: label })
+    // Lazy-loaded to avoid a static module-graph edge (TDZ risk).
+    void import('@vercel/analytics').then(({ track }) =>
+      track('resource_download', { tool: label }),
+    )
     const a = document.createElement('a')
     a.href = file
     a.setAttribute('download', '')
