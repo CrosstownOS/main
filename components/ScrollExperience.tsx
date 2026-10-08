@@ -39,7 +39,8 @@ function prefersReducedMotion(): boolean {
 function targetScrollMarginTop(el: HTMLElement): number {
   const raw = window.getComputedStyle(el).scrollMarginTop
   const px = parseFloat(raw)
-  return Number.isFinite(px) ? px : 0
+  // Floor at the fixed header height (98px) so anchor targets never land underneath it.
+  return Number.isFinite(px) ? Math.max(px, 98) : 98
 }
 
 /** 800ms ease-in-out scroll. Cancellable by user input. Resolves when done. */
