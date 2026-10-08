@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import AnalyticsClient from '@/components/analytics/AnalyticsClient'
 import SiteFooter from '@/components/SiteFooter'
 import QuietCta from '@/components/QuietCta'
 import ScrollExperience from '@/components/ScrollExperience'
@@ -105,7 +105,7 @@ export default function RootLayout({
             outside app/template.tsx) so the .page-enter transform can't break
             its position: fixed. Mounted globally: appears on every page. ── */}
         <QuietCta />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <AnalyticsClient />
         <ScrollExperience />
         {/* NATIVE DOM EXECUTOR (dev only): Wipes out runtime attribution tags.
             Skipped in production, so no MutationObserver ever runs there. */}
