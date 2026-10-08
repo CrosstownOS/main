@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import Navigation from "@/components/ui/navigation"
 import Hero from "@/components/zone1/Hero"
 import ProductLoop from "@/components/zone1/ProductLoop"
@@ -32,6 +33,24 @@ const WEBSITE_JSON_LD = {
 }
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
+  // Pause the hero backdrop video while the tab is hidden; resume on return.
+  // Transform/opacity-free: no animation state lives in React.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        video.pause()
+      } else {
+        video.play().catch(() => {})
+      }
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange)
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange)
+  }, [])
+
   return (
     <>
       <script
@@ -52,17 +71,23 @@ export default function Home() {
           aria-hidden="true"
         >
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
-            className="h-full w-full object-cover opacity-[0.55]"
+            poster="/images/opengraph.jpg"
+            className="hidden h-full w-full object-cover opacity-[0.55] md:block"
           >
-            <source src="/bg.mp4" type="video/mp4" />
+            <source src="/bg.mp4" type="video/mp4" media="(min-width: 768px)" />
           </video>
+          <img
+            src="/images/opengraph.jpg"
+            alt=""
+            className="h-full w-full object-cover opacity-[0.55] md:hidden"
+          />
 
           <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/30 via-background/70 to-background/95" />
-          <div className="absolute inset-0 z-20 bg-accent/10 mix-blend-color" />
         </div>
 
         {/* ── ANNOUNCEMENT STRIP + STICKY TOP NAVIGATION ── */}

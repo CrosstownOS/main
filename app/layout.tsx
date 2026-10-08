@@ -103,22 +103,25 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        {/* NATIVE DOM EXECUTOR: Wipes out runtime attribution tags instantly */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                function purgeWatermarks() {
-                  const items = document.querySelectorAll('[class*="v0"], [id*="v0"], [data-v0-badge], a[href*="v0.dev"], a[href*="v0.app"]');
-                  items.forEach(el => el.remove());
-                }
-                purgeWatermarks();
-                const obs = new MutationObserver(purgeWatermarks);
-                obs.observe(document.body, { childList: true, subtree: true });
-              })();
-            `,
-          }}
-        />
+        {/* NATIVE DOM EXECUTOR (dev only): Wipes out runtime attribution tags.
+            Skipped in production, so no MutationObserver ever runs there. */}
+        {process.env.NODE_ENV !== 'production' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  function purgeWatermarks() {
+                    const items = document.querySelectorAll('[class*="v0"], [id*="v0"], [data-v0-badge], a[href*="v0.dev"], a[href*="v0.app"]');
+                    items.forEach(el => el.remove());
+                  }
+                  purgeWatermarks();
+                  const obs = new MutationObserver(purgeWatermarks);
+                  obs.observe(document.body, { childList: true, subtree: true });
+                })();
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   )

@@ -62,8 +62,8 @@ export const TelemetryBox = React.forwardRef<HTMLDivElement, TelemetryBoxProps>(
         ref={ref}
         className={cn(
           "text-foreground border border-border/60 transition-all duration-200",
-          glass === "heavy" && "bg-background/90 backdrop-blur",
-          glass === "light" && "bg-card/55 backdrop-blur-sm",
+          glass === "heavy" && "bg-background md:bg-background/90 md:backdrop-blur",
+          glass === "light" && "bg-card md:bg-card/55 md:backdrop-blur-sm",
           glass === "none" && "bg-card",
           interactive && "hover:border-primary/60 hover:bg-primary/10 cursor-pointer",
           scrollable && "overflow-auto custom-scrollbar",

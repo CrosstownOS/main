@@ -36,16 +36,70 @@ const HEADER_OFFSET = 104
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
+// ── SCROLL PROGRESS BAR ──
+// Self-contained: scroll updates mutate the bar's transform directly (GPU-cheap,
+// transform-only) instead of re-rendering Navigation on every scroll frame.
+// scrollHeight is measured on resize, never per scroll frame.
+function ProgressBar() {
+  const barRef = useRef<HTMLDivElement>(null)
+  const maxScrollRef = useRef(0)
+  const rafRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    const measure = () => {
+      maxScrollRef.current = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight,
+      )
+    }
+
+    const update = () => {
+      if (rafRef.current !== null) return
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null
+        const max = maxScrollRef.current
+        const ratio = max > 0 ? window.scrollY / max : 0
+        const clamped = Math.min(1, Math.max(0, ratio))
+        if (barRef.current) {
+          barRef.current.style.transform = `scaleX(${clamped})`
+        }
+      })
+    }
+
+    const onResize = () => {
+      measure()
+      update()
+    }
+
+    measure()
+    update()
+    window.addEventListener("scroll", update, { passive: true })
+    window.addEventListener("resize", onResize)
+    return () => {
+      window.removeEventListener("scroll", update)
+      window.removeEventListener("resize", onResize)
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
+
+  return (
+    <div className="h-0.5 bg-border" aria-hidden="true">
+      <div
+        ref={barRef}
+        className="h-full w-full origin-left scale-x-0 bg-primary shadow-[0_0_8px_rgba(58,134,242,0.95),0_0_18px_rgba(58,134,242,0.55)]"
+      />
+    </div>
+  )
+}
+
 export default function Navigation() {
   const [active, setActive] = useState<string>("")
   const [open, setOpen] = useState(false)
-  const [progress, setProgress] = useState(0)
 
   const pathname = usePathname()
   const router = useRouter()
   const isHome = pathname === "/"
 
-  const rafId = useRef<number | null>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const drawerRef = useRef<HTMLDivElement>(null)
   const wasOpenRef = useRef(false)
@@ -84,25 +138,8 @@ export default function Navigation() {
 
     sections.forEach((section) => observer.observe(section))
 
-    const updateProgress = () => {
-      if (rafId.current) return
-
-      rafId.current = requestAnimationFrame(() => {
-        const documentElement = document.documentElement
-        const scrollableHeight = documentElement.scrollHeight - window.innerHeight
-        const scrolled = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0
-        setProgress(Math.min(100, Math.max(0, scrolled * 100)))
-        rafId.current = null
-      })
-    }
-
-    updateProgress()
-    window.addEventListener("scroll", updateProgress, { passive: true })
-
     return () => {
       observer.disconnect()
-      window.removeEventListener("scroll", updateProgress)
-      if (rafId.current) cancelAnimationFrame(rafId.current)
     }
   }, [])
 
@@ -341,21 +378,16 @@ export default function Navigation() {
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-50">
-        <div className="h-0.5 bg-border" aria-hidden="true">
-          <div
-            className="h-full bg-primary shadow-[0_0_8px_rgba(58,134,242,0.95),0_0_18px_rgba(58,134,242,0.55)] transition-[width] duration-150"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        <ProgressBar />
 
-        <div className="theme-cream flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 backdrop-blur">
+        <div className="theme-cream flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4">
           <p className="flex items-center gap-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
             <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
             The Acquisition Workspace opens November 2026. Single-deal or annual.
           </p>
         </div>
 
-        <header className="border-b border-border bg-background/90 backdrop-blur">
+        <header className="border-b border-border bg-background/95">
           <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
             <button
               type="button"
