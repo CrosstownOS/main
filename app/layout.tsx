@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: '/',
+    types: {
+      'application/rss+xml': 'https://www.crosstownosrv.camp/blog/rss.xml',
+    },
   },
   openGraph: {
     title: 'CrosstownOS',
