@@ -76,7 +76,7 @@ export default function BlogIndex() {
                 key={post.slug}
                 href={`/blog/${post.slug}`}
                 data-reveal-item
-                className="theme-cream group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
+                className="theme-cream card-lift group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   {formatDate(post.date)}
