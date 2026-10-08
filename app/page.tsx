@@ -62,6 +62,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSON_LD) }}
       />
+      {/* ── FIXED NAVIGATION: outside <main> so overflow-x: clip doesn't break fixed positioning ── */}
+      <Navigation />
+
+      {/* ── QUIET CTA: slides up after the hero scrolls out of view ── */}
+      <QuietCta />
+
       <main id="main"
         className="relative min-h-screen w-full bg-background text-foreground"
         style={{ overflowX: "clip" }}
@@ -77,10 +83,10 @@ export default function Home() {
             loop
             muted
             playsInline
-            poster="/images/opengraph.jpg"
-            className="ken-burns hidden h-full w-full object-cover opacity-[0.55] md:block"
+            poster="/images/bg-poster.jpg"
+            className="ken-burns h-full w-full object-cover opacity-[0.55]"
           >
-            <source src="/bg.mp4" type="video/mp4" media="(min-width: 768px)" />
+            <source src="/bg.mp4" type="video/mp4" />
           </video>
           <img
             src="/images/opengraph.jpg"
@@ -91,11 +97,7 @@ export default function Home() {
           <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/30 via-background/70 to-background/95" />
         </div>
 
-        {/* ── ANNOUNCEMENT STRIP + STICKY TOP NAVIGATION ── */}
-        <Navigation />
 
-        {/* ── QUIET CTA: slides up after the hero scrolls out of view ── */}
-        <QuietCta />
 
         {/* ── SINGLE-PAGE CONTENT ── */}
         <div
