@@ -37,6 +37,19 @@ export default function Hero() {
           Know what is true before you buy.
         </h1>
 
+        <motion.span
+          aria-hidden="true"
+          initial={{ scaleX: shouldReduceMotion ? 1 : 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 0.4,
+            delay: shouldReduceMotion ? 0 : 0.7,
+            ease: "easeOut",
+          }}
+          style={{ transformOrigin: "left center" }}
+          className="mb-7 block h-0.5 w-12 bg-[#3a86f2]"
+        />
+
         <p className="mb-10 max-w-3xl text-balance font-sans text-lg leading-relaxed text-muted sm:text-xl">
           CrosstownOS is diligence software for RV park and manufactured
           housing buyers. One record carries your deal from the broker package,
