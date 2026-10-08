@@ -210,6 +210,30 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", closeOnDesktop)
   }, [])
 
+  // ── MOBILE DRAWER: close on in-page anchor clicks ──
+  // ScrollExperience intercepts in-page anchor clicks at document capture
+  // phase and calls stopPropagation(), so the drawer's React onClick
+  // handlers never fire. This native capture listener is registered on the
+  // same node (document), so it still runs, and closes the drawer.
+  // Body overflow is restored synchronously: ScrollExperience starts its
+  // programmatic smooth scroll in the same event dispatch, and it must not
+  // be blocked by the drawer's overflow:hidden lock.
+  useEffect(() => {
+    if (!open) return
+
+    const onDocumentClickCapture = (event: globalThis.MouseEvent) => {
+      const target = event.target as Element | null
+      const anchor = target?.closest?.("a[href]")
+      if (!anchor || !drawerRef.current?.contains(anchor)) return
+      setOpen(false)
+      document.body.style.overflow = ""
+    }
+
+    document.addEventListener("click", onDocumentClickCapture, true)
+    return () =>
+      document.removeEventListener("click", onDocumentClickCapture, true)
+  }, [open ])
+
   useEffect(() => {
     if (!open) {
       document.body.style.overflow = ""
