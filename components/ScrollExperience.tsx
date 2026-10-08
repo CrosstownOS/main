@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
+import { usePathname } from "next/navigation"
 
 /**
  * ScrollExperience — the anchor-CTA landing experience.
@@ -173,18 +174,32 @@ export default function ScrollExperience() {
     }
     window.addEventListener("hashchange", onHashChange)
 
-    // Direct load with a hash: let the browser land, then flash.
-    if (window.location.hash.length > 1) {
-      const id = decodeURIComponent(window.location.hash.slice(1))
-      const target = document.getElementById(id)
-      if (target) window.setTimeout(() => flashTarget(target), 350)
-    }
-
     return () => {
       document.removeEventListener("click", onClick, true)
       window.removeEventListener("hashchange", onHashChange)
     }
   }, [])
+
+  // Cross-page anchor navigation + direct loads with a hash.
+  // ScrollExperience mounts once in the root layout, so it survives
+  // client-side navigations; this effect re-runs on every route change.
+  // When the new URL carries a hash, take over the scroll: the browser's
+  // native hash jump ignores the fixed-header offset and lands short.
+  // We wait for hydration/layout to settle, then scroll exactly, with
+  // the royal flash moment.
+  const pathname = usePathname()
+  const prevPathnameRef = useRef<string | null>(null)
+  useEffect(() => {
+    const isFirstMount = prevPathnameRef.current === null
+    prevPathnameRef.current = pathname
+    if (window.location.hash.length <= 1) return
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    const delay = isFirstMount ? 400 : 150
+    const t = window.setTimeout(() => {
+      if (document.getElementById(id)) scrollToHashTarget(id)
+    }, delay)
+    return () => window.clearTimeout(t)
+  }, [pathname])
 
   return null
 }
