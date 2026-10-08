@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { checkRateLimit, getClientIp, FORM_RATE_LIMIT, DOWNLOAD_RATE_LIMIT } from "@/lib/rate-limit"
 import { Resend } from "resend"
 import { addToSegment } from "@/lib/resend-segments"
 import {
@@ -65,6 +66,20 @@ function htmlFilename(toolLabel: string): string {
  * address is captured in the acquisitionResources segment.
  */
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 saves per 10 minutes per IP
+  const clientIp = getClientIp(req)
+  const rateLimit = checkRateLimit(
+    `download:${clientIp}`,
+    DOWNLOAD_RATE_LIMIT.maxRequests,
+    DOWNLOAD_RATE_LIMIT.windowMs,
+  )
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rateLimit.resetIn / 1000)) } },
+    )
+  }
+
   try {
     const body = await req.json().catch(() => ({}))
     for (const field of HONEYPOT_FIELDS) {
