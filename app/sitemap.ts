@@ -11,7 +11,9 @@ type CoreRoute = {
 }
 
 const CORE_ROUTES: CoreRoute[] = [
-  { path: "/", changeFrequency: "weekly", priority: 1 },
+    { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/terms", changeFrequency: "monthly", priority: 0.5 },
+{ path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.9 },
   { path: "/parkproof-standard", changeFrequency: "monthly", priority: 0.85 },
   { path: "/parkproof-walkthrough", changeFrequency: "monthly", priority: 0.85 },
