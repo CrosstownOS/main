@@ -25,7 +25,7 @@ export default function CalBooking({ url, title }: CalBookingProps) {
           className="h-[min(640px,62dvh)] w-full"
         />
       </div>
-      <p className="mt-6 text-center font-sans text-lg font-bold tracking-tight text-foreground">
+      <p className="mt-6 text-center font-serif text-lg font-bold tracking-tight text-foreground">
         Prefer to write first? Use the form below.
       </p>
     </div>
