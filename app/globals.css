@@ -266,7 +266,10 @@ a[href*="v0.app"] {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    /* transform: none (not translateY(0)): any non-none transform persists via
+       fill-mode both and becomes a containing block for position:fixed
+       descendants, which broke the fixed header and QuietCta on every page. */
+    transform: none;
   }
 }
 

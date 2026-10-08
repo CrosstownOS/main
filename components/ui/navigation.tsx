@@ -208,29 +208,23 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", closeOnDesktop)
   }, [])
 
-// ── MOBILE DRAWER: close on in-page anchor clicks ──
-  // ScrollExperience intercepts in-page anchor clicks at document capture
-  // phase and calls stopPropagation(), so the drawer's React onClick
-  // handlers never fire. This native capture listener is registered on the
-  // same node (document), so it still runs, and closes the drawer.
-  // Body overflow is restored synchronously: ScrollExperience starts its
-  // programmatic smooth scroll in the same event dispatch, and it must not
-  // be blocked by the drawer's overflow:hidden lock.
+// ── MOBILE DRAWER: close on any link tap ──
+  // ScrollExperience intercepts in-page anchor clicks at document capture and
+  // calls stopPropagation, which prevents React's onClick from firing
+  // setOpen(false) — the drawer stayed open over a dark overlay ("black
+  // screen"). A native capture listener on the SAME node (document) still
+  // runs despite stopPropagation, so the drawer reliably closes on every tap.
   useEffect(() => {
     if (!open) return
-
-    const onDocumentClickCapture = (event: globalThis.MouseEvent) => {
-      const target = event.target as Element | null
-      const anchor = target?.closest?.("a[href]")
-      if (!anchor || !drawerRef.current?.contains(anchor)) return
-      setOpen(false)
-      document.body.style.overflow = ""
+    const closeOnDrawerTap = (event: globalThis.MouseEvent) => {
+      const target = event.target as HTMLElement | null
+      if (target?.closest?.("#mobile-navigation a[href]")) {
+        setOpen(false)
+      }
     }
-
-    document.addEventListener("click", onDocumentClickCapture, true)
-    return () =>
-      document.removeEventListener("click", onDocumentClickCapture, true)
-  }, [open])
+    document.addEventListener("click", closeOnDrawerTap, true)
+    return () => document.removeEventListener("click", closeOnDrawerTap, true)
+  }, [open ])
 
   useEffect(() => {
     if (!open) {
@@ -511,7 +505,7 @@ export default function Navigation() {
               aria-expanded={open}
               aria-controls="mobile-navigation"
               aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-              className="flex h-10 w-10 items-center justify-center border border-border text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
             >
               {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
             </button>
@@ -547,7 +541,7 @@ export default function Navigation() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close navigation menu"
-                className="flex h-9 w-9 items-center justify-center border border-border text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="flex h-11 w-11 items-center justify-center border border-border text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>

@@ -156,14 +156,14 @@ function EmailSaveModal({
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
             autoComplete="email"
-            className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted"
+            className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted"
           />
           <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
           {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
           <button
             type="submit"
             disabled={busy}
-            className="mt-3 w-full bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="mt-3 w-full bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {busy ? "Sending..." : "Save via email"}
           </button>
@@ -387,7 +387,7 @@ export default function ToolShell(props: ToolShellProps) {
               <button
                 type="button"
                 onClick={onReset}
-                className="border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors hover:border-primary hover:text-primary"
+                className="border border-border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors hover:border-primary hover:text-primary"
               >
                 Start over
               </button>
@@ -411,14 +411,14 @@ export default function ToolShell(props: ToolShellProps) {
               <button
                 type="button"
                 onClick={handleDownload}
-                className="bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
                 Download working paper
               </button>
               <button
                 type="button"
                 onClick={handlePrint}
-                className="border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 Print one-page summary
               </button>
@@ -426,13 +426,13 @@ export default function ToolShell(props: ToolShellProps) {
                 type="button"
                 onClick={handleSave}
                 disabled={sending}
-                className="border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
+                className="border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
               >
                 {sending ? "Sending..." : savedEmail ? "Resend working paper" : "Save via email"}
               </button>
               <Link
                 href={pdfHref}
-                className="inline-flex items-center border border-border px-5 py-2.5 text-sm font-semibold text-muted transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center border border-border px-5 py-3 text-sm font-semibold text-muted transition-colors hover:border-primary hover:text-primary"
               >
                 Get the PDF
               </Link>
@@ -460,7 +460,7 @@ export default function ToolShell(props: ToolShellProps) {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{ctaBody}</p>
             <Link
               href={`/workspace?tool=${slug}`}
-              className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               {ctaButton}
             </Link>
