@@ -241,7 +241,7 @@ export default function TrailLogPage() {
             </h2>
             <StaggerReveal className="grid gap-4 md:grid-cols-3">
               {BUILD_COLUMNS.map((column) => (
-                <article key={column.title} data-reveal-item className="theme-cream paper border border-border p-6">
+                <article key={column.title} data-reveal-item className="theme-cream paper card-lift border border-border p-6">
                   <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {column.title}
                   </h3>
@@ -267,7 +267,7 @@ export default function TrailLogPage() {
             </p>
             <StaggerReveal className="mt-6 space-y-4">
               {SHIPPED.map((entry) => (
-                <article key={entry.title} data-reveal-item className="theme-cream border border-border bg-card p-6 sm:p-7">
+                <article key={entry.title} data-reveal-item className="theme-cream card-lift border border-border bg-card p-6 sm:p-7">
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     {entry.date}
                   </p>
