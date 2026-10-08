@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CrosstownOS Acquisition Workspace",
     description:
-      "Single-deal or annual. You operate the workspace. You own the decision.",
+      "Single-deal or annual.",
     images: ["/og-image.jpg"],
   },
 }
@@ -112,7 +112,7 @@ const NOVEMBER_PRODUCT = [
     name: "Acquire",
     color: "#00468B",
     family: "Know it",
-    body: "Acquire organizes what either stream means. The diligence register, capacity gates, and deterministic underwriting feed the decision file. You own the decision.",
+    body: "Acquire organizes what either stream means. The diligence register, capacity gates, and deterministic underwriting feed the decision file.",
   },
 ] as const
 
@@ -163,7 +163,7 @@ const FAQ = [
   },
   {
     q: "What does CrosstownOS not do?",
-    a: "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record; you own the decision.",
+    a: "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record.",
   },
   {
     q: "Does CrosstownOS replace my professional team?",
@@ -255,7 +255,7 @@ export default function AcquisitionWorkspacePage() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Seller claims, source evidence, site observations, unresolved
             diligence, and underwriting, connected in one workspace before you
-            commit capital. You operate it. You own the decision.
+            commit capital.
           </p>
           <ToolContextLine />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -391,7 +391,7 @@ export default function AcquisitionWorkspacePage() {
               from inside the workspace: your documented posture, built from
               your reviewed evidence, your unresolved gates, and your approved
               assumptions.
-              CrosstownOS organizes the record. You own the decision.
+              CrosstownOS organizes the record.
             </p>
             <Link
               href="/parkproof-standard"
