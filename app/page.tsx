@@ -1,4 +1,8 @@
-"use client"
+/*
+ * Home — server component. Every section below is its own client island
+ * (each carries its own "use client"), so nothing on this page ships as one
+ * client bundle. The JSON-LD blocks render here with zero JS.
+ */
 
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"

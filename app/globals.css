@@ -447,6 +447,94 @@ span[data-signal-line].signal-line-armed.is-visible {
   }
 }
 
+/* ── Hero entrance (homepage): 550ms fade + 16px rise on load, then the
+   royal signal line draws via scaleX — 0.4s ease-out after a 0.7s delay,
+   from the left edge. Pure CSS (Hero is a server component, no JS needed);
+   one-shot. prefers-reduced-motion resolves both to their final state. */
+.hero-enter {
+  animation: hero-enter 550ms ease-out backwards;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    /* transform: none (not translateY(0)): a retained non-none transform
+       would make this wrapper a containing block for position:fixed
+       descendants. */
+    transform: none;
+  }
+}
+
+.hero-signal-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: hero-signal-line-draw 0.4s ease-out 0.7s forwards;
+}
+
+@keyframes hero-signal-line-draw {
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-signal-line {
+    animation: none;
+  }
+  .hero-signal-line {
+    transform: none;
+  }
+}
+
+/* ── Inquiry modal (components/chapters/chapter5): enter plays once via
+   keyframes on mount (200ms ease-out, matching the old framer-motion
+   timing); exit flips .is-closing (opacity/transform transition) and the
+   component unmounts after 200ms. Transform/opacity only; one-shot.
+   prefers-reduced-motion collapses via the global rule, and the component
+   skips the 200ms wait. */
+.inquiry-backdrop {
+  animation: inquiry-fade-in 200ms ease-out;
+  transition: opacity 200ms ease-out;
+}
+
+.inquiry-backdrop.is-closing {
+  opacity: 0;
+}
+
+.inquiry-panel {
+  animation: inquiry-panel-in 200ms ease-out;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+.inquiry-panel.is-closing {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+@keyframes inquiry-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes inquiry-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* -- Card hover lift: subtle physicality for cards (tools, blog, resources).
    Uses the standalone `translate` property rather than `transform`, so the
    lift composes with the scroll-reveal `.reveal` transforms instead of
