@@ -87,7 +87,7 @@ const SECTIONS = [
     heading: "Professional boundaries",
     body: [
       "CrosstownOS organizes the record. The buyer owns the decision.",
-      "Our resources and software organize information and support a disciplined workflow. They do not provide legal, engineering, environmental, tax, title, appraisal, lending, or insurance advice, inspection certification, regulatory determination, or investment advice. You remain responsible for your facts, assumptions, professional review, and investment decisions.",
+      "Our resources and software organize information and support a disciplined workflow. They do not provide legal, engineering, environmental, tax, title, appraisal, lending, or insurance advice, inspection certification, regulatory determination, or investment advice. The buyer is solely responsible for all investment decisions. CrosstownOS does not provide legal, financial, engineering, environmental, tax, title, appraisal, lending, or insurance advice, and nothing in the workspace constitutes a professional opinion, certification, or recommendation. The buyer is responsible for engaging qualified licensed professionals to review the legal, financial, physical, regulatory, and environmental dimensions of any acquisition before committing capital. Reliance on workspace outputs without appropriate professional review is at the buyer's sole risk.",
     ],
   },
   {
