@@ -5,6 +5,7 @@ import AnalyticsClient from '@/components/analytics/AnalyticsClient'
 import SiteFooter from '@/components/SiteFooter'
 import QuietCta from '@/components/QuietCta'
 import ScrollExperience from '@/components/ScrollExperience'
+import BrandLoader from '@/components/BrandLoader'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -107,6 +108,7 @@ export default function RootLayout({
         <QuietCta />
         <AnalyticsClient />
         <ScrollExperience />
+        <BrandLoader />
         {/* NATIVE DOM EXECUTOR (dev only): Wipes out runtime attribution tags.
             Skipped in production, so no MutationObserver ever runs there. */}
         {process.env.NODE_ENV !== 'production' && (

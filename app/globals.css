@@ -567,3 +567,27 @@ select:focus-visible {
     transform: none;
   }
 }
+
+/* ── Brand loader: royal signal line draws left to right on mount. ── */
+@keyframes brand-loader-line-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.brand-loader-line {
+  display: block;
+  height: 2px;
+  width: 3rem;
+  background-color: #3a86f2;
+  transform-origin: left center;
+  animation: brand-loader-line-draw 0.6s ease-out 0.3s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-loader-line {
+    animation: none;
+    transform: none;
+  }
+}
