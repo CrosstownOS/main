@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import SignalLine from "@/components/ui/SignalLine"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import Navigation from "@/components/ui/navigation"
@@ -6,7 +7,6 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { getAllPosts, type PostMeta } from "@/lib/blog"
 import {
-import SignalLine from "@/components/ui/SignalLine"
   PART_BY_ID,
   RESOURCE_DETAIL_BY_SLUG,
   RESOURCE_DETAILS,
