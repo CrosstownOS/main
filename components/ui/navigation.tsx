@@ -340,13 +340,24 @@ export default function Navigation() {
     (event: MouseEvent<HTMLAnchorElement>, id: string) => {
       if (isHome) {
         event.preventDefault()
-        jump(id)
+        // ScrollExperience (document capture listener) owns the animated
+        // anchor scroll. Calling jump() here starts a second, competing
+        // scroll to a slightly different offset — the two animations
+        // fight and the page lands short of the section. State only;
+        // ScrollExperience scrolls and updates history.
+        setOpen(false)
+        setActive(id)
+        clearScrollWatchers()
+        suppressScroll()
+        // Release the IntersectionObserver suppression after
+        // ScrollExperience's 800ms animation completes.
+        window.setTimeout(() => releaseScroll(), 900)
         return
       }
 
       setOpen(false)
     },
-    [isHome, jump],
+    [isHome, clearScrollWatchers],
   )
 
   const goHome = useCallback(() => {
