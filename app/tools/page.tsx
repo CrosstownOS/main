@@ -376,6 +376,9 @@ export default function ToolsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Questions
             </p>
+            <h2 className="serif-display mt-2 text-2xl tracking-tight sm:text-3xl">
+              Questions, answered.
+            </h2>
             <div className="mt-6 divide-y divide-border border-y border-border">
               {FAQS.map((faq) => (
                 <div key={faq.q} className="py-5">
