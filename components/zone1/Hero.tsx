@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="mb-5 overflow-hidden [clip-path:circle(50%)]">
           <Image
             src="/logo.jpg"
-            alt="Crosstown logo"
+            alt="CrosstownOS logo"
             width={112}
             height={112}
             className="h-24 w-24 object-cover sm:h-28 sm:w-28"

@@ -105,7 +105,7 @@ const NOVEMBER_PRODUCT = [
   {
     name: "Field",
     color: "#D97706",
-    family: "Take it",
+    family: "Know it · Take it",
     body: "Field captures what you see when you get there. Photos, notes, and observations stay unreviewed evidence until a person reviews them. Captured is not verified.",
   },
   {
