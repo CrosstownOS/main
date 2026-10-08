@@ -377,7 +377,7 @@ export default function SampleDecisionFileExplorer() {
                 className={cn(
                   "h-full w-full border px-3 py-3 text-left font-mono text-[9px] uppercase tracking-[0.15em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
                   activeStep === index
-                    ? "border-primary bg-primary text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
+                    ? "border-primary bg-primary-deep text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
                     : "border-border bg-card text-muted hover:border-primary/50 hover:text-foreground",
                 )}
               >
@@ -711,7 +711,7 @@ export default function SampleDecisionFileExplorer() {
                         className={cn(
                           "border px-3 py-3 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
                           recordStage === index
-                            ? "border-primary bg-primary text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
+                            ? "border-primary bg-primary-deep text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
                             : "border-border bg-background/40 text-muted hover:border-primary/50 hover:text-foreground",
                         )}
                       >
@@ -1028,7 +1028,7 @@ export default function SampleDecisionFileExplorer() {
               type="button"
               onClick={() => goToStep(activeStep + 1)}
               disabled={activeStep === STEPS.length - 1}
-              className="border border-primary/60 bg-primary px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
+              className="border border-primary/60 bg-primary-deep px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Next
             </button>

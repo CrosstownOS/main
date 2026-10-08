@@ -50,7 +50,7 @@
   --success: oklch(0.60 0.13 148);
 
   /* ── Critical: brick signal red — missing evidence, the state that demands action ── */
-  --critical: oklch(0.58 0.16 25);
+  --critical: oklch(0.62 0.16 25);
 
   /* ── Status ── */
   --status-live: oklch(0.628 0.179 258);

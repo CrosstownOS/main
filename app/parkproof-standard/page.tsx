@@ -327,7 +327,7 @@ export default function ParkProofStandardPage() {
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/parkproof-walkthrough"
-                  className="inline-block border border-primary/60 bg-primary px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary/90"
+                  className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
                 >
                   ParkProof Walkthrough
                 </Link>
