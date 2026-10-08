@@ -14,7 +14,6 @@ import FieldNotes from "@/components/zone1/FieldNotes"
 import WorkingPapers from "@/components/zone1/WorkingPapers"
 import DealDeskPromo from "@/components/zone1/DealDeskPromo"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
-import QuietCta from "@/components/QuietCta"
 
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
@@ -64,9 +63,6 @@ export default function Home() {
       />
       {/* ── FIXED NAVIGATION: outside <main> so overflow-x: clip doesn't break fixed positioning ── */}
       <Navigation />
-
-      {/* ── QUIET CTA: slides up after the hero scrolls out of view ── */}
-      <QuietCta />
 
       <main id="main"
         className="relative min-h-screen w-full bg-background text-foreground"

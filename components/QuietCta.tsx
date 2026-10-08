@@ -9,10 +9,13 @@ const STORAGE_KEY = "crosstown:quiet-cta-dismissed"
 
 /**
  * QuietCta — slim acquisition-workspace bar that slides up after the visitor
- * scrolls past the hero. Mobile: full-width bottom bar. Desktop: bottom-right
- * chip. Dismissible; stays gone for the session via sessionStorage. Never
- * renders on load, only after the hero has scrolled out of view.
- * Transform-only motion; prefers-reduced-motion collapses the slide.
+ * scrolls past half a viewport. Mobile: full-width bottom bar. Desktop:
+ * bottom-right chip. Dismissible; stays gone for the session via sessionStorage
+ * (set only on explicit dismiss, so it never hides for users who never
+ * dismissed it). Mounted in app/layout.tsx as a direct child of <body>,
+ * OUTSIDE app/template.tsx: the .page-enter transform would otherwise break
+ * its position: fixed. Transform-only motion; prefers-reduced-motion collapses
+ * the slide.
  */
 export default function QuietCta() {
   const [pastHero, setPastHero] = useState(false)
@@ -37,8 +40,12 @@ export default function QuietCta() {
 
     check()
     window.addEventListener("scroll", check, { passive: true })
+    // Re-evaluate on resize: innerHeight can change (mobile chrome show/hide,
+    // orientation change), which moves the half-viewport trigger point.
+    window.addEventListener("resize", check)
     return () => {
       window.removeEventListener("scroll", check)
+      window.removeEventListener("resize", check)
       if (raf) cancelAnimationFrame(raf)
     }
   }, [])
