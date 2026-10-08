@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
-import SiteFooter from "@/components/SiteFooter"
 
 export default function NotFound() {
   return (
@@ -32,7 +31,6 @@ export default function NotFound() {
           </Link>
         </div>
       </main>
-      <SiteFooter />
     </>
   )
 }
