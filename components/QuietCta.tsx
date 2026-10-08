@@ -29,9 +29,8 @@ export default function QuietCta() {
       if (raf) return
       raf = window.requestAnimationFrame(() => {
         raf = 0
-        const hero = document.getElementById("hero")
-        // No hero on this page: stay hidden.
-        if (!hero) return
+        // Pure scroll-position trigger: show after scrolling past half a viewport.
+        // No hero dependency — works on every page.
         setPastHero(window.scrollY > window.innerHeight * 0.5)
       })
     }
