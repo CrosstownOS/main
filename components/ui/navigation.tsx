@@ -381,10 +381,10 @@ export default function Navigation() {
             aria-current={isCurrent ? "page" : undefined}
             className={cn(
               "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
-              "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
+              "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out xl:after:left-3 xl:after:right-3",
               isCurrent
-                ? "text-primary after:bg-primary"
-                : "text-muted after:bg-transparent hover:text-foreground hover:after:bg-border",
+                ? "text-primary after:scale-x-100"
+                : "text-muted after:scale-x-0 hover:text-foreground hover:after:scale-x-100",
             )}
           >
             <span className={cn("hidden text-[8px]", isCurrent ? "text-primary" : "text-muted/60", "xl:inline")}>
@@ -426,10 +426,10 @@ export default function Navigation() {
           onClick={(event) => handleAnchorClick(event, id)}
           className={cn(
             "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
-            "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:transition-colors xl:after:left-3 xl:after:right-3",
+            "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out xl:after:left-3 xl:after:right-3",
             isActive
-              ? "text-primary after:bg-primary"
-              : "text-muted after:bg-transparent hover:text-foreground hover:after:bg-border",
+              ? "text-primary after:scale-x-100"
+              : "text-muted after:scale-x-0 hover:text-foreground hover:after:scale-x-100",
           )}
         >
           <span className={cn("hidden text-[8px]", isActive ? "text-primary" : "text-muted/60", "xl:inline")}>
