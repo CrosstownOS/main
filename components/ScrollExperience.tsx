@@ -1,6 +1,10 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useLayoutEffect, useRef } from "react"
+
+/** useLayoutEffect warns on the server; fall back to useEffect there. */
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect
 import { usePathname } from "next/navigation"
 
 /**
@@ -179,6 +183,36 @@ export default function ScrollExperience() {
       window.removeEventListener("hashchange", onHashChange)
     }
   }, [])
+
+  // Forward route changes (Link clicks) to non-hash routes: land at the top
+  // instantly, before paint. The site's `scroll-behavior: smooth` baseline
+  // turns Next's default scroll-to-top into a visible animated scroll from
+  // the old position ("anchors on the old card, then scrolls to the top").
+  // This kills that flash. Back/forward navigations are left alone so the
+  // router can restore the saved scroll position; the first mount is left
+  // alone so reloads keep their native behavior.
+  const firstRouteRef = useRef(true)
+  const popRef = useRef(false)
+  useEffect(() => {
+    const onPopState = () => {
+      popRef.current = true
+    }
+    window.addEventListener("popstate", onPopState)
+    return () => window.removeEventListener("popstate", onPopState)
+  }, [])
+  useIsomorphicLayoutEffect(() => {
+    if (firstRouteRef.current) {
+      firstRouteRef.current = false
+      return
+    }
+    // Hash routes are owned by the cross-page hash effect below.
+    if (window.location.hash.length > 1) return
+    if (popRef.current) {
+      popRef.current = false
+      return
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+  }, [pathname])
 
   // Cross-page anchor navigation + direct loads with a hash.
   // ScrollExperience mounts once in the root layout, so it survives
