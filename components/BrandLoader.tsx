@@ -8,14 +8,14 @@ import Image from "next/image"
  *
  * Full-screen brand moment on first visit per session: logo, wordmark
  * (Playfair), signal-line draw, launch teaser (sans), launch date (mono),
- * and a cohort CTA. Fades out after 1.5s or on click. Skipped entirely
+ * and a cohort CTA. Fades out after 3s or on click. Skipped entirely
  * for prefers-reduced-motion.
  *
  * SSR-safe: renders null until a client-side effect opts in, so the
  * server render and first client render always match (no TDZ risk).
  */
 const SESSION_KEY = "brand-loader-seen"
-const DISPLAY_MS = 1500
+const DISPLAY_MS = 3000
 const FADE_MS = 350
 
 export default function BrandLoader() {
