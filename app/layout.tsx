@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import SiteFooter from '@/components/SiteFooter'
+import ScrollExperience from '@/components/ScrollExperience'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -109,6 +110,7 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ScrollExperience />
         {/* NATIVE DOM EXECUTOR (dev only): Wipes out runtime attribution tags.
             Skipped in production, so no MutationObserver ever runs there. */}
         {process.env.NODE_ENV !== 'production' && (
