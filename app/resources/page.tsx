@@ -230,7 +230,7 @@ export default async function ResourcesPage({
                   className={
                     isActive
                       ? "theme-cream paper border-2 border-primary bg-primary/10 p-5"
-                      : "theme-cream border border-border bg-card p-5 transition-colors hover:border-primary/60"
+                      : "theme-cream card-lift border border-border bg-card p-5 transition-colors hover:border-primary/60"
                   }
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
