@@ -472,7 +472,7 @@ export default function ToolShell(props: ToolShellProps) {
       {/* Print-only summary */}
       <div data-print-root className="hidden print:block">
         <div className="print-brandbar">
-          <img src="https://www.crosstownosrv.camp/logo.jpg" alt="CrosstownOS" width={40} height={40} style={{ borderRadius: "50%", marginBottom: 8 }} />
+          <img src="/logo.jpg" alt="CrosstownOS" width={40} height={40} loading="lazy" decoding="async" style={{ borderRadius: "50%", marginBottom: 8 }} />
           <p className="print-eyebrow">CrosstownOS &middot; Live Diligence Working Paper</p>
           <p className="print-title">{title}</p>
           <p className="print-meta">
