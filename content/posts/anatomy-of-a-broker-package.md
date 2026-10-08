@@ -3,6 +3,7 @@ title: "Anatomy of a Broker Package"
 date: "2026-10-04"
 excerpt: "A synthetic offering package, read claim by claim. The point is not to distrust every number. The point is to know what state every number is in before it carries a price."
 tags: ["diligence", "broker package", "field notes"]
+seoDescription: "A synthetic offering package, read claim by claim. Know what state every number is in, verified or not, before it carries a price."
 ---
 
 The package below is synthetic. The park, the seller, the broker, and every number are invented for this exercise. The pattern is the lesson.

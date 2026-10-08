@@ -3,6 +3,7 @@ title: "The Rent Roll Is a Claim, Not Income Verification"
 date: "2026-10-03"
 excerpt: "The rent roll shows what should have been collected. Deposits show what arrived. Income verification starts at the bank, not at the spreadsheet."
 tags: ["diligence", "verification", "field notes"]
+seoTitle: "The Rent Roll Is a Claim, Not Proof | CrosstownOS"
 ---
 
 Every buyer asks for the rent roll first. It looks like the cleanest document in the package: names, sites, rates, balances, lease dates. It has the confidence of a ledger.

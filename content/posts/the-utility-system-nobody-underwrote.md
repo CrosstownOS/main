@@ -3,6 +3,7 @@ title: "The Utility System Nobody Underwrote"
 date: "2026-09-21"
 excerpt: "Every dollar in the model flows through pipes and wires. Utility capacity, permits, and deferred infrastructure are the least glamorous part of diligence and one of the most expensive surprises after closing."
 tags: ["diligence", "infrastructure", "field notes"]
+seoDescription: "Utility capacity, permits, and deferred infrastructure are the least glamorous part of diligence, and one of the most expensive surprises after closing."
 ---
 
 A buyer closes on a park marketed with public water and sewer. Six months later, the county informs him the wastewater plant is private, its permit lapsed two owners ago, and compliance will cost more than the down payment. The offering memorandum was not lying about the pipes. It was just wrong about what they were.

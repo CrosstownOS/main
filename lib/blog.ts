@@ -8,6 +8,8 @@ export interface PostMeta {
   date: string
   excerpt: string
   tags: string[]
+  seoDescription?: string
+  seoTitle?: string
 }
 
 export interface Post extends PostMeta {
@@ -37,6 +39,10 @@ export function getAllPosts(): PostMeta[] {
       date: String(data.date ?? ""),
       excerpt: String(data.excerpt ?? ""),
       tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+      ...(data.seoDescription
+        ? { seoDescription: String(data.seoDescription) }
+        : {}),
+      ...(data.seoTitle ? { seoTitle: String(data.seoTitle) } : {}),
     } satisfies PostMeta
   })
 
@@ -57,8 +63,28 @@ export function getPost(slug: string): Post | null {
     date: String(data.date ?? ""),
     excerpt: String(data.excerpt ?? ""),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+    ...(data.seoDescription
+      ? { seoDescription: String(data.seoDescription) }
+      : {}),
+    ...(data.seoTitle ? { seoTitle: String(data.seoTitle) } : {}),
     content,
   }
+}
+
+export const SEO_DESCRIPTION_MAX_LENGTH = 155
+
+function truncateText(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text
+  return text.slice(0, maxLength - 1).trimEnd() + "…"
+}
+
+export function getSeoDescription(post: PostMeta): string {
+  if (post.seoDescription) return post.seoDescription
+  return truncateText(post.excerpt, SEO_DESCRIPTION_MAX_LENGTH)
+}
+
+export function getSeoTitle(post: PostMeta): string {
+  return post.seoTitle ?? `${post.title} | CrosstownOS`
 }
 
 export function getAllSlugs(): string[] {

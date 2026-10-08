@@ -3,6 +3,7 @@ title: "The Permits Buyers Skip"
 date: "2026-09-30"
 excerpt: "The broker package lists the site count. The county may list a different one. Zoning, permits, and grandfathering are diligence questions, not closing paperwork."
 tags: ["diligence", "zoning", "permits", "field notes"]
+seoDescription: "The broker package lists the site count; the county may list a different one. Check zoning, permits, and grandfathering before the offer, not at closing."
 ---
 
 Every buyer checks the numbers. Fewer check whether the park is legally allowed to be a park.

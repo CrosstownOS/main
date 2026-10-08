@@ -3,6 +3,7 @@ title: "Reported Occupancy Is Not Paying Occupancy"
 date: "2026-09-18"
 excerpt: "Occupancy is one of the most quoted numbers in a broker package. Reported occupancy can reach the model before its supporting evidence has been reconciled. Here is how to rebuild it from deposits, and why paying occupancy is the only number the investment case should trust."
 tags: ["diligence", "occupancy", "field notes"]
+seoDescription: "Reported occupancy can hit the model before its evidence is reconciled. Rebuild it from deposits: paying occupancy is the only number to trust."
 ---
 
 The scenario below is illustrative. A buyer is evaluating a 120-site park in the Southeast. The offering memorandum reports 94 percent occupancy, and the rent roll backs it up: 113 occupied sites. Ninety days into diligence, the buyer has rebuilt the number from bank deposits. Eight of those sites are employee units and comps. Four have not paid in over ninety days. That leaves 101 of 120 sites paying: 84 percent. Three more are marked leased with no deposit on file. A missing deposit is not proof of nonpayment, so they stay in the paying count, flagged as missing evidence until the rent history confirms it. Nothing about the park changed. Only the label did.
