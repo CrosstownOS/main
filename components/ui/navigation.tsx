@@ -210,6 +210,31 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", closeOnDesktop)
   }, [])
 
+  // ── MOBILE DRAWER: close on any drawer link click ──
+  // ScrollExperience intercepts in-page anchor clicks at document capture
+  // phase with stopPropagation, which blocks React's onClick from firing.
+  // This document-level capture listener lives on the same node, so it
+  // fires regardless, closing the drawer and restoring body scroll
+  // synchronously before ScrollExperience's rAF scroll begins.
+  useEffect(() => {
+    if (!open) return
+
+    const closeOnDrawerLink = (event: globalThis.MouseEvent) => {
+      const target = event.target as HTMLElement | null
+      const drawer = drawerRef.current
+      if (!drawer || !target) return
+      const anchor = target.closest?.("a[href]") as HTMLAnchorElement | null
+      if (!anchor || !drawer.contains(anchor)) return
+      setOpen(false)
+      // Synchronous: ScrollExperience defers its scroll to requestAnimationFrame,
+      // so body overflow must be clear before the next frame paints.
+      document.body.style.overflow = ""
+    }
+
+    document.addEventListener("click", closeOnDrawerLink, true)
+    return () => document.removeEventListener("click", closeOnDrawerLink, true)
+  }, [open ])
+
   useEffect(() => {
     if (!open) {
       document.body.style.overflow = ""
