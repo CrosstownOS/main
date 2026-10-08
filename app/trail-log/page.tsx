@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import TrailLogForm from "./TrailLogForm"
 import SignalLine from "@/components/ui/SignalLine"
+import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
   title: "The Trail Log | CrosstownOS",
@@ -238,9 +239,9 @@ export default function TrailLogPage() {
             <h2 id="trail-columns" className="sr-only">
               Current build board
             </h2>
-            <div className="grid gap-4 md:grid-cols-3">
+            <StaggerReveal className="grid gap-4 md:grid-cols-3">
               {BUILD_COLUMNS.map((column) => (
-                <article key={column.title} className="theme-cream paper border border-border p-6">
+                <article key={column.title} data-reveal-item className="theme-cream paper border border-border p-6">
                   <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {column.title}
                   </h3>
@@ -254,7 +255,7 @@ export default function TrailLogPage() {
                   </ul>
                 </article>
               ))}
-            </div>
+            </StaggerReveal>
           </section>
 
           <section aria-labelledby="trail-shipped" className="mt-20">
@@ -264,9 +265,9 @@ export default function TrailLogPage() {
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
               Entries are dated by ship date, newest first. The trail runs back through the build, not just tonight.
             </p>
-            <div className="mt-6 space-y-4">
+            <StaggerReveal className="mt-6 space-y-4">
               {SHIPPED.map((entry) => (
-                <article key={entry.title} className="theme-cream border border-border bg-card p-6 sm:p-7">
+                <article key={entry.title} data-reveal-item className="theme-cream border border-border bg-card p-6 sm:p-7">
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     {entry.date}
                   </p>
@@ -287,7 +288,7 @@ export default function TrailLogPage() {
                   </p>
                 </article>
               ))}
-            </div>
+            </StaggerReveal>
           </section>
 
           <section aria-labelledby="trail-vote" className="mt-20">

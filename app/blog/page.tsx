@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { getAllPosts } from "@/lib/blog"
 import SignalLine from "@/components/ui/SignalLine"
+import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
   title: "Field Notes | CrosstownOS",
@@ -63,7 +64,7 @@ export default function BlogIndex() {
             Diligence notes, underwriting discipline, and field observations from
             the deals we study.
           </p>
-          <div className="mt-12 space-y-2">
+          <StaggerReveal className="mt-12 space-y-2">
             {posts.length === 0 && (
               <p className="theme-cream border border-border bg-card p-8 text-sm text-muted">
                 The first field note is on its way. Check back soon.
@@ -74,6 +75,7 @@ export default function BlogIndex() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
+                data-reveal-item
                 className="theme-cream group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
@@ -101,7 +103,7 @@ export default function BlogIndex() {
                 )}
               </Link>
             ))}
-          </div>
+          </StaggerReveal>
         </div>
       </main>
     </>
