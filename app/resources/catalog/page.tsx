@@ -5,6 +5,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { PARTS, TOOLS, resourceSlug } from "@/lib/resources"
 import SignalLine from "@/components/ui/SignalLine"
+import StaggerReveal from "@/components/ui/StaggerReveal"
 
 const BASE_URL = "https://www.crosstownosrv.camp"
 
@@ -99,10 +100,11 @@ export default function CatalogPage() {
                       {part.question}
                     </p>
                   </div>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <StaggerReveal className="mt-6 grid gap-4 sm:grid-cols-2">
                     {tools.map((tool) => (
                       <div
                         key={tool.code}
+                        data-reveal-item
                         className="theme-cream flex flex-col border border-border bg-card p-6"
                       >
                         <div className="flex flex-wrap items-center gap-3">
@@ -131,7 +133,7 @@ export default function CatalogPage() {
                         />
                       </div>
                     ))}
-                  </div>
+                  </StaggerReveal>
                 </section>
               )
             })}
