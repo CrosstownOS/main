@@ -110,7 +110,7 @@ const SHIPPED = [
   {
     date: "October 4, 2026",
     title: "Cal.com booking doors were wired in",
-    body: "Deal Desk, Design Partner, Field Network, Referral Alliance, and general conversation doors now offer a booking path alongside the write-first form.",
+    body: "Deal Desk, Field Network, Referral Alliance, and general conversation doors now offer a booking path alongside the write-first form.",
   },
   {
     date: "October 4, 2026",
