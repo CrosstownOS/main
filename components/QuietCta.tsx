@@ -79,7 +79,7 @@ export default function QuietCta() {
           tabIndex={pastHero ? 0 : -1}
           className="btn-signal inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <span className="font-serif text-xs text-[#4A90D9]">Acquisition Workspace</span>, <span className="font-mono">see the plans</span>
+          <span className="font-serif text-xs text-[#4A90D9]">Acquisition Workspace</span> <span className="font-mono">see the plans</span>
           <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
         </Link>
         <button
