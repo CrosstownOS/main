@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 
+export const metadata = { robots: { index: false } }
+
 export default function NotFound() {
   return (
     <>

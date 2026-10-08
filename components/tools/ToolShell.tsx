@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { track } from "@vercel/analytics"
@@ -475,7 +476,7 @@ export default function ToolShell(props: ToolShellProps) {
       {/* Print-only summary */}
       <div data-print-root className="hidden print:block">
         <div className="print-brandbar">
-          <img src="/logo.jpg" alt="CrosstownOS" width={40} height={40} loading="lazy" decoding="async" style={{ borderRadius: "50%", marginBottom: 8 }} />
+          <Image src="/logo.jpg" alt="CrosstownOS" width={40} height={40} loading="eager" decoding="async" style={{ borderRadius: "50%", marginBottom: 8 }} />
           <p className="print-eyebrow">CrosstownOS &middot; Live Diligence Working Paper</p>
           <p className="print-title">{title}</p>
           <p className="print-meta">
