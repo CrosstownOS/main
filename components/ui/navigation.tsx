@@ -8,8 +8,6 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { getIsScrolling, releaseScroll, suppressScroll } from "@/lib/scroll-suppress"
 
-export const OPEN_DESIGN_PARTNER_EVENT = "crosstown:open-design-partner"
-
 type NavEntry = {
   index: string
   label: string

@@ -8,7 +8,7 @@ import { Resend } from 'resend'
 export const SEGMENT_IDS = {
   /** Gated PDF downloads on /resources and /resources/catalog */
   acquisitionResources: '338f52bd-ea52-4425-b554-380d7023860c',
-  /** Design Partner + Field Network + Referral Alliance forms */
+  /** Field Network + Referral Alliance forms */
   partners: '6722aef0-b6f4-4c43-a8bc-0fa48394b1bc',
   /** Footer "Crosstown Updates" signup */
   updates: 'e4b9c6b1-3131-4a54-b42f-fa9d0db7c23c',
