@@ -251,7 +251,12 @@ a[href*="v0.app"] {
 /* Page transition: keyed on pathname in app/template.tsx.
    220ms fade in + 12px rise on route change. */
 .page-enter {
-  animation: page-enter 220ms ease-out both;
+  /* Fill must NOT be `both`/`forwards`: a retained `transform: translateY(0)`
+     makes this wrapper a containing block for position:fixed descendants,
+     breaking the fixed header, mobile drawer, Quiet CTA, and fixed video
+     backdrop (they scroll away / render off-viewport). `backwards` replays
+     the enter animation identically with no persistent transform. */
+  animation: page-enter 220ms ease-out backwards;
 }
 
 @keyframes page-enter {

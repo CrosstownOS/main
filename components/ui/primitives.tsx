@@ -36,7 +36,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
       <section
         ref={ref}
         className={cn(
-          "relative w-full py-16 lg:py-24 overflow-hidden",
+          "relative w-full scroll-mt-[104px] py-16 lg:py-24 overflow-hidden",
           withBorder && "border-b border-border",
           className
         )}

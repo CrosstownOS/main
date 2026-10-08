@@ -208,30 +208,29 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", closeOnDesktop)
   }, [])
 
-  // ── MOBILE DRAWER: close on any drawer link click ──
+// ── MOBILE DRAWER: close on in-page anchor clicks ──
   // ScrollExperience intercepts in-page anchor clicks at document capture
-  // phase with stopPropagation, which blocks React's onClick from firing.
-  // This document-level capture listener lives on the same node, so it
-  // fires regardless, closing the drawer and restoring body scroll
-  // synchronously before ScrollExperience's rAF scroll begins.
+  // phase and calls stopPropagation(), so the drawer's React onClick
+  // handlers never fire. This native capture listener is registered on the
+  // same node (document), so it still runs, and closes the drawer.
+  // Body overflow is restored synchronously: ScrollExperience starts its
+  // programmatic smooth scroll in the same event dispatch, and it must not
+  // be blocked by the drawer's overflow:hidden lock.
   useEffect(() => {
     if (!open) return
 
-    const closeOnDrawerLink = (event: globalThis.MouseEvent) => {
-      const target = event.target as HTMLElement | null
-      const drawer = drawerRef.current
-      if (!drawer || !target) return
-      const anchor = target.closest?.("a[href]") as HTMLAnchorElement | null
-      if (!anchor || !drawer.contains(anchor)) return
+    const onDocumentClickCapture = (event: globalThis.MouseEvent) => {
+      const target = event.target as Element | null
+      const anchor = target?.closest?.("a[href]")
+      if (!anchor || !drawerRef.current?.contains(anchor)) return
       setOpen(false)
-      // Synchronous: ScrollExperience defers its scroll to requestAnimationFrame,
-      // so body overflow must be clear before the next frame paints.
       document.body.style.overflow = ""
     }
 
-    document.addEventListener("click", closeOnDrawerLink, true)
-    return () => document.removeEventListener("click", closeOnDrawerLink, true)
-  }, [open ])
+    document.addEventListener("click", onDocumentClickCapture, true)
+    return () =>
+      document.removeEventListener("click", onDocumentClickCapture, true)
+  }, [open])
 
   useEffect(() => {
     if (!open) {
