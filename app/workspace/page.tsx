@@ -147,7 +147,7 @@ const NOT_FOR_ITEMS = [
 const FAQ = [
   {
     q: "What does the Single-Deal Workspace include?",
-    a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response. You operate the workspace.",
+    a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
   },
   {
     q: "What does the Annual Workspace include?",
