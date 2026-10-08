@@ -9,6 +9,7 @@ import {
   renderEmailBlocksText,
   type EmailDestinationBlock,
 } from '@/lib/email-template'
+import { checkRateLimit, getClientIp, FORM_RATE_LIMIT, DOWNLOAD_RATE_LIMIT } from '@/lib/rate-limit'
 
 export const runtime = 'nodejs'
 
@@ -1041,6 +1042,20 @@ function generatePlainText({
 }
 
 export async function POST(request: NextRequest) {
+  // Rate limit: 5 submissions per 10 minutes per IP
+  const clientIp = getClientIp(request)
+  const rateLimit = checkRateLimit(
+    `form:${clientIp}`,
+    FORM_RATE_LIMIT.maxRequests,
+    FORM_RATE_LIMIT.windowMs,
+  )
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rateLimit.resetIn / 1000)) } },
+    )
+  }
+
   try {
     if (!process.env.RESEND_API_KEY) {
       console.error('Resend API key is not configured')
