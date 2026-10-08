@@ -232,7 +232,7 @@ export default function Navigation() {
     document.addEventListener("click", onDocumentClickCapture, true)
     return () =>
       document.removeEventListener("click", onDocumentClickCapture, true)
-  }, [open ])
+  }, [open])
 
   useEffect(() => {
     if (!open) {
