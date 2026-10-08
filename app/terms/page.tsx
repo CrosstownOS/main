@@ -5,7 +5,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 export const metadata: Metadata = {
   title: "Terms of Use | CrosstownOS",
   description:
-    "Terms of use for the CrosstownOS website.",
+    "Terms of use for the CrosstownOS website, including purchase terms for the Acquisition Workspace.",
   alternates: { canonical: "/terms" },
 }
 
@@ -63,6 +63,38 @@ const SECTIONS = [
     heading: "Contact",
     body: [
       "Questions about these terms: jeremy@crosstownosrv.camp",
+    ],
+  },
+  {
+    heading: "Acquisition Workspace: what you are buying",
+    body: [
+      "The Acquisition Workspace is not available for purchase yet. When purchase opens, this section and the sections below apply to your purchase, in addition to the website terms above.",
+      "Single-Deal Workspace, $1,250: one property and 90 calendar days of full access to Source, Field, and Acquire from activation. Includes a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
+      "Annual Workspace, $2,500: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one live Q&A per account. Additional properties do not add sessions.",
+      "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
+      "This is software you operate. It does not include document review or interpretation of your numbers, confirmation of your diligence conclusions, or ongoing advisory. You build the record, the workflow guides you, and the decision stays yours.",
+    ],
+  },
+  {
+    heading: "Payment",
+    body: [
+      "Payment is due in full when you purchase, charged through the checkout on this site. Access begins when your credentials and onboarding materials are delivered. That delivery date is your activation date.",
+      "Renewal is manual. We never auto-charge.",
+    ],
+  },
+  {
+    heading: "Refunds",
+    body: [
+      "Full refund within seven calendar days of activation. To request one, email jeremy@crosstownosrv.camp. Requesting a refund ends your access immediately.",
+    ],
+  },
+  {
+    heading: "Expiration, cancellation, and termination",
+    body: [
+      "Single-Deal access ends 90 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration, so export your records before then. We keep your data for 30 days after expiration, then schedule deletion.",
+      "If you abandon a deal, Single-Deal access does not transfer to another property. Moving from Single-Deal to Annual is a separate purchase at any time. There is no credit, prorating, or conversion discount.",
+      "You can cancel by not renewing, or by telling us you are done. Refunds are only available within the seven-day window above.",
+      "We may suspend or terminate access for misuse of the workspace or violation of these terms. Termination does not extend the refund window.",
     ],
   },
   {
