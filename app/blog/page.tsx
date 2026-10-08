@@ -49,7 +49,7 @@ export default function BlogIndex() {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
