@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -19,14 +20,23 @@ const PAPERS = [
 ]
 
 export default function WorkingPapers() {
+  const revealRef = useReveal<HTMLElement>()
+
   return (
-    <Section aria-labelledby="working-papers-heading">
+    <Section
+      id="working-papers"
+      ref={revealRef}
+      aria-labelledby="working-papers-heading"
+    >
       <Container>
         <TelemetryBox glass="heavy" className="theme-cream paper border-primary/50 p-6 text-foreground sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
-            <TerminalLabel className="mb-5 block">
-              Live Diligence Working Papers
-            </TerminalLabel>
+            <div className="mb-5">
+              <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
+              <TerminalLabel data-reveal-stamp className="block">
+                Live Diligence Working Papers
+              </TerminalLabel>
+            </div>
             <Heading
               id="working-papers-heading"
               level={2}
@@ -44,6 +54,7 @@ export default function WorkingPapers() {
               {PAPERS.map((paper) => (
                 <Link
                   key={paper.slug}
+                  data-reveal-item
                   href={`/tools/${paper.slug}`}
                   className="group flex items-center gap-3 border border-border bg-background/60 px-4 py-3 transition-colors hover:border-primary/60"
                 >

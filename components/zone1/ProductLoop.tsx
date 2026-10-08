@@ -1,5 +1,6 @@
 "use client"
 
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -34,16 +35,22 @@ const MODULES = [
 ] as const
 
 export default function ProductLoop() {
+  const revealRef = useReveal<HTMLElement>()
+
   return (
     <Section
       id="product"
+      ref={revealRef}
       aria-labelledby="product-heading"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
-          <TerminalLabel className="mb-5 block">
-            Source + Field + Acquire
-          </TerminalLabel>
+          <div className="mb-5">
+            <span aria-hidden="true" data-reveal-line className="mb-3" />
+            <TerminalLabel data-reveal-stamp className="block">
+              Source + Field + Acquire
+            </TerminalLabel>
+          </div>
           <Heading
             id="product-heading"
             level={2}
@@ -57,6 +64,7 @@ export default function ProductLoop() {
           {MODULES.map((module) => (
             <TelemetryBox
               key={module.name}
+              data-reveal-item
               glass="light"
               className="theme-cream paper flex h-full flex-col p-6"
               style={{ borderTop: `2px solid ${module.color}` }}

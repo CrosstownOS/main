@@ -14,6 +14,7 @@ import FieldNotes from "@/components/zone1/FieldNotes"
 import WorkingPapers from "@/components/zone1/WorkingPapers"
 import DealDeskPromo from "@/components/zone1/DealDeskPromo"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
+import QuietCta from "@/components/QuietCta"
 
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
@@ -77,7 +78,7 @@ export default function Home() {
             muted
             playsInline
             poster="/images/opengraph.jpg"
-            className="hidden h-full w-full object-cover opacity-[0.55] md:block"
+            className="ken-burns hidden h-full w-full object-cover opacity-[0.55] md:block"
           >
             <source src="/bg.mp4" type="video/mp4" media="(min-width: 768px)" />
           </video>
@@ -92,6 +93,9 @@ export default function Home() {
 
         {/* ── ANNOUNCEMENT STRIP + STICKY TOP NAVIGATION ── */}
         <Navigation />
+
+        {/* ── QUIET CTA: slides up after the hero scrolls out of view ── */}
+        <QuietCta />
 
         {/* ── SINGLE-PAGE CONTENT ── */}
         <div

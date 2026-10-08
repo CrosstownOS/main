@@ -1,5 +1,6 @@
 "use client"
 
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -41,17 +42,23 @@ const TRUTH_LAYERS: TruthLayer[] = [
 ]
 
 export default function FieldReality() {
+  const revealRef = useReveal<HTMLElement>()
+
   return (
     <Section
       id="field-reality"
+      ref={revealRef}
       aria-labelledby="field-reality-heading"
     >
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
-            <TerminalLabel className="mb-5 block">
-              Field Reality / The Problem
-            </TerminalLabel>
+            <div className="mb-5">
+              <span aria-hidden="true" data-reveal-line className="mb-3" />
+              <TerminalLabel data-reveal-stamp className="block">
+                Field Reality / The Problem
+              </TerminalLabel>
+            </div>
             <Heading
               id="field-reality-heading"
               level={2}
@@ -78,6 +85,7 @@ export default function FieldReality() {
           {TRUTH_LAYERS.map((layer) => (
             <TelemetryBox
               key={layer.title}
+              data-reveal-item
               glass="light"
               className={cn(
                 "theme-cream paper flex h-full flex-col p-5 text-foreground transition-all duration-300 hover:-translate-y-1",
@@ -106,4 +114,4 @@ export default function FieldReality() {
       </Container>
     </Section>
   )
-}
+}

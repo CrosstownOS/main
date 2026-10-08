@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -75,18 +76,24 @@ function getStateClass(state: string) {
 }
 
 export default function ParkProof() {
+  const revealRef = useReveal<HTMLElement>()
+
   return (
     <Section
       id="parkproof"
+      ref={revealRef}
       aria-labelledby="parkproof-heading"
     >
       <Container>
         {/* Row 1 — header: headline left, body right */}
         <div className="mb-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
-            <TerminalLabel className="mb-5 block">
-              The Initial Decision Artifact
-            </TerminalLabel>
+            <div className="mb-5">
+              <span aria-hidden="true" data-reveal-line className="mb-3" />
+              <TerminalLabel data-reveal-stamp className="block">
+                The Initial Decision Artifact
+              </TerminalLabel>
+            </div>
             <Heading
               id="parkproof-heading"
               level={2}
@@ -150,7 +157,7 @@ export default function ParkProof() {
         {/* Row 3 — six truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {TRUTH_STATES.map((state) => (
-            <TelemetryBox key={state.title} glass="light" className={cn("theme-cream paper p-5", state.className)}>
+            <TelemetryBox key={state.title} data-reveal-item glass="light" className={cn("theme-cream paper p-5", state.className)}>
               <TerminalLabel className="mb-3 block">
                 {state.title}
               </TerminalLabel>

@@ -1,5 +1,6 @@
 "use client"
 
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -26,9 +27,12 @@ const THESIS_SIGNALS = [
 ] as const
 
 export default function Thesis() {
+  const revealRef = useReveal<HTMLElement>()
+
   return (
     <Section
       id="thesis"
+      ref={revealRef}
       aria-labelledby="thesis-heading"
       className="relative overflow-hidden"
     >
@@ -41,9 +45,12 @@ export default function Thesis() {
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
-            <TerminalLabel className="mb-5 block text-primary">
-              Thesis / Why Now
-            </TerminalLabel>
+            <div className="mb-5">
+              <span aria-hidden="true" data-reveal-line className="mb-3" />
+              <TerminalLabel data-reveal-stamp className="block text-primary">
+                Thesis / Why Now
+              </TerminalLabel>
+            </div>
             <Heading
               id="thesis-heading"
               level={2}
@@ -60,7 +67,7 @@ export default function Thesis() {
 
             <div className="theme-cream paper mt-10 divide-y divide-border/60 border border-border/60 bg-card/40 shadow-[0_0_60px_-15px_oklch(0.50_0.08_250/0.25)]">
               {THESIS_SIGNALS.map((signal) => (
-                <div key={signal.index} className="flex gap-5 p-5">
+                <div key={signal.index} data-reveal-item className="flex gap-5 p-5">
                   <span className="mt-1 font-mono text-[10px] tracking-[0.22em] text-primary">
                     {signal.index}
                   </span>
@@ -80,4 +87,4 @@ export default function Thesis() {
       </Container>
     </Section>
   )
-}
+}

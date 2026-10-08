@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -35,16 +36,22 @@ function bandTextColor(hex: string): string {
 }
 
 export default function LifecycleVision() {
+  const revealRef = useReveal<HTMLElement>()
+
   return (
     <Section
       id="lifecycle-vision"
+      ref={revealRef}
       aria-labelledby="lifecycle-vision-heading"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
-          <TerminalLabel className="mb-5 block">
-            Long-Term System Vision
-          </TerminalLabel>
+          <div className="mb-5">
+            <span aria-hidden="true" data-reveal-line className="mb-3" />
+            <TerminalLabel data-reveal-stamp className="block">
+              Long-Term System Vision
+            </TerminalLabel>
+          </div>
           <Heading
             id="lifecycle-vision-heading"
             level={2}
@@ -74,7 +81,7 @@ export default function LifecycleVision() {
             const bandText = bandTextColor(module.color)
 
             return (
-              <li key={module.name}>
+              <li key={module.name} data-reveal-item>
                 <TelemetryBox
                   glass={isNovember ? "light" : "none"}
                   className={cn(

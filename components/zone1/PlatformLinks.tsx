@@ -17,6 +17,7 @@ import {
   TelemetryBox,
   TerminalLabel,
 } from "@/components/ui/primitives"
+import { useReveal } from "@/hooks/useReveal"
 import { cn } from "@/lib/utils"
 
 export const OPEN_FOUNDING_CIRCLE_EVENT = "crosstown:open-founding-circle"
@@ -133,6 +134,8 @@ function dispatchFormEvent(eventName: string, source: string) {
 }
 
 export default function PlatformLinks() {
+  const revealRef = useReveal<HTMLElement>()
+
   const handlePathAction = (path: ConversionPath) => {
     if (path.action === "founding_circle") {
       dispatchFormEvent(OPEN_FOUNDING_CIRCLE_EVENT, "paths-founding-network")
@@ -144,13 +147,17 @@ export default function PlatformLinks() {
   return (
     <Section
       id="paths"
+      ref={revealRef}
       aria-labelledby="paths-heading"
     >
       <Container>
         <div className="mb-12 max-w-3xl">
-          <TerminalLabel className="mb-5 block">
-            Paths Into Crosstown
-          </TerminalLabel>
+          <div className="mb-5">
+            <span aria-hidden="true" data-reveal-line className="mb-3" />
+            <TerminalLabel data-reveal-stamp className="block">
+              Paths Into Crosstown
+            </TerminalLabel>
+          </div>
           <Heading
             id="paths-heading"
             level={2}
@@ -167,6 +174,7 @@ export default function PlatformLinks() {
             return (
               <TelemetryBox
                 key={path.name}
+                data-reveal-item
                 glass="light"
                 className="theme-cream paper flex h-full w-full flex-col p-5 transition-colors hover:border-primary/50 hover:bg-primary/5 md:w-[calc(50%-0.5rem)]"
               >

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -23,6 +24,7 @@ function formatDate(iso: string) {
 
 export default function FieldNotes() {
   const [posts, setPosts] = useState<PostMeta[] | null>(null)
+  const revealRef = useReveal<HTMLElement>()
 
   useEffect(() => {
     fetch("/api/posts")
@@ -34,9 +36,12 @@ export default function FieldNotes() {
   if (!posts || posts.length === 0) return null
 
   return (
-    <Section id="field-notes">
+    <Section id="field-notes" ref={revealRef}>
       <Container>
-        <TerminalLabel>Field notes</TerminalLabel>
+        <span aria-hidden="true" data-reveal-line className="mb-3" />
+        <TerminalLabel data-reveal-stamp className="mb-4 block">
+          Field notes
+        </TerminalLabel>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <Heading level={2}>Notes from the diligence desk.</Heading>
@@ -63,6 +68,7 @@ export default function FieldNotes() {
           {posts.map((post) => (
             <Link
               key={post.slug}
+              data-reveal-item
               href={`/blog/${post.slug}`}
               className="group theme-cream paper flex flex-col border border-border bg-card p-6 transition-colors hover:border-primary/60"
             >

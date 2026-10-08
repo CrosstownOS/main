@@ -238,3 +238,119 @@ a[href*="v0.app"] {
   position: absolute !important;
   left: -9999px !important;
 }
+/* ── Motion design: page transitions, scroll reveals, signal lines, Ken Burns ──
+   Every animation below is transform/opacity only. prefers-reduced-motion is
+   handled by the global rule above (durations collapse to ~0). */
+
+/* Page transition: keyed on pathname in app/template.tsx.
+   220ms fade in + 12px rise on route change. */
+.page-enter {
+  animation: page-enter 220ms ease-out both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll reveal: 400ms ease-out, 16px rise, one-shot.
+   .reveal is added by the useReveal hook, so no-JS still shows content. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal [data-reveal-item] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out,
+    border-color 300ms ease-out,
+    background-color 300ms ease-out,
+    box-shadow 300ms ease-out;
+}
+
+.reveal [data-reveal-item].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The stamp: eyebrow labels stamp in, 120ms with a 2px settle. */
+.reveal [data-reveal-stamp] {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.reveal.is-visible [data-reveal-stamp] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 120ms ease-out, transform 120ms ease-out;
+}
+
+/* The signal line: royal rules draw via scaleX on reveal. */
+.reveal [data-reveal-line] {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background-color: #3a86f2;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.reveal.is-visible [data-reveal-line] {
+  transform: scaleX(1);
+  transition: transform 400ms ease-out;
+}
+
+/* Button hover signal line: 2px royal underline wipes in from the left. */
+.btn-signal {
+  position: relative;
+}
+
+.btn-signal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background-color: #3a86f2;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 150ms ease-out;
+  pointer-events: none;
+}
+
+.btn-signal:hover::after,
+.btn-signal:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Hero: 8s Ken Burns drift on the desktop backdrop video only. */
+@media (min-width: 768px) {
+  .ken-burns {
+    animation: ken-burns 8s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
