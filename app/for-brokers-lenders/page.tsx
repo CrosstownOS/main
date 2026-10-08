@@ -204,8 +204,7 @@ export default function ForBrokersLendersPage() {
                 Start the partner conversation.
               </h2>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-                Book a Referral Alliance intro call, or write first in the
-                form that opens with it. Crosstown reviews each partner
+                Book a Referral Alliance intro call, or start with the form below. Crosstown reviews each partner
                 request personally.
               </p>
               <div className="mt-6">
