@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { track } from '@vercel/analytics'
 
 const STORAGE_KEY = 'crosstown_resource_email'
@@ -21,6 +21,52 @@ export function GatedDownloadButton({ file, label, className }: Props) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+
+  const FOCUSABLE =
+    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+  const close = () => {
+    setOpen(false)
+    // Return focus to the trigger button
+    requestAnimationFrame(() => triggerRef.current?.focus())
+  }
+
+  useEffect(() => {
+    if (!open) return
+    const frame = requestAnimationFrame(() => {
+      dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE)[0]?.focus()
+    })
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        close()
+        return
+      }
+      if (e.key !== 'Tab' || !dialogRef.current) return
+      const items = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(FOCUSABLE),
+      ).filter((el) => !el.hasAttribute('disabled') && el.tabIndex !== -1)
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      const inside = active ? dialogRef.current.contains(active) : false
+      if (e.shiftKey && (!inside || active === first)) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && (!inside || active === last)) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => {
+      cancelAnimationFrame(frame)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
 
   const startDownload = () => {
     track('resource_download', { tool: label })
@@ -68,7 +114,7 @@ export function GatedDownloadButton({ file, label, className }: Props) {
       } catch {
         /* storage unavailable — download still proceeds */
       }
-      setOpen(false)
+      close()
       startDownload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.')
@@ -79,13 +125,14 @@ export function GatedDownloadButton({ file, label, className }: Props) {
 
   return (
     <>
-      <button type="button" onClick={handleClick} className={className}>
+      <button type="button" ref={triggerRef} onClick={handleClick} className={className}>
         Download PDF
       </button>
       {open && (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-          onClick={() => setOpen(false)}
+          onClick={close}
           role="dialog"
           aria-modal="true"
           aria-label="Email required to download"
@@ -138,7 +185,7 @@ export function GatedDownloadButton({ file, label, className }: Props) {
             </form>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={close}
               className="mt-3 w-full cursor-pointer text-center text-xs text-muted hover:underline"
             >
               Cancel
