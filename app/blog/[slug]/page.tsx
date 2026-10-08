@@ -108,7 +108,7 @@ export default async function BlogPost({ params }: PageProps) {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <article className="relative z-10">
           <div className="mx-auto w-full max-w-3xl px-4 pt-32 sm:px-6 lg:px-8">
