@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react"
 import { createPortal } from "react-dom"
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { X } from "lucide-react"
 import { TerminalLabel } from "@/components/ui/primitives"
 import CalBooking from "@/components/CalBooking"
@@ -48,6 +47,11 @@ type FormConfig = {
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+// Exit fade length for the inquiry modal, matching the old 200ms
+// framer-motion exit. The CSS classes live in app/globals.css
+// (.inquiry-backdrop / .inquiry-panel + .is-closing).
+const MODAL_EXIT_MS = 200
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -351,20 +355,27 @@ type SubmissionStatus = "idle" | "submitting" | "success" | "error"
 export default function Chapter5() {
   const [isMounted, setIsMounted] = useState(false)
   const [activeForm, setActiveForm] = useState<FormType | null>(null)
+  const [isClosing, setIsClosing] = useState(false)
   const [sourcePath, setSourcePath] = useState("")
   const [status, setStatus] = useState<SubmissionStatus>("idle")
   const [statusMessage, setStatusMessage] = useState("")
   const dialogRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLElement | null>(null)
   const alertRef = useRef<HTMLDivElement>(null)
+  const closeTimer = useRef<number | null>(null)
   const utmRef = useRef<{
     utmSource?: string
     utmMedium?: string
     utmCampaign?: string
   }>({})
-  const shouldReduceMotion = useReducedMotion()
 
   const openForm = (formType: FormType, source = "") => {
+    // A form opened mid-exit cancels the pending unmount.
+    if (closeTimer.current !== null) {
+      window.clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+    setIsClosing(false)
     triggerRef.current = document.activeElement as HTMLElement | null
     setActiveForm(formType)
     setSourcePath(source)
@@ -373,14 +384,33 @@ export default function Chapter5() {
   }
 
   const closeForm = () => {
-    setActiveForm(null)
-    setSourcePath("")
-    setStatus("idle")
-    setStatusMessage("")
+    if (isClosing) return
+    // Flip .is-closing for the CSS exit fade, then unmount after the
+    // transition. Reduced-motion users get the instant path.
+    setIsClosing(true)
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches
+    closeTimer.current = window.setTimeout(
+      () => {
+        closeTimer.current = null
+        setActiveForm(null)
+        setSourcePath("")
+        setStatus("idle")
+        setStatusMessage("")
+        setIsClosing(false)
+      },
+      reduced ? 0 : MODAL_EXIT_MS,
+    )
   }
 
   useEffect(() => {
     setIsMounted(true)
+    return () => {
+      if (closeTimer.current !== null) {
+        window.clearTimeout(closeTimer.current)
+      }
+    }
   }, [])
 
   useEffect(() => {
@@ -561,32 +591,29 @@ export default function Chapter5() {
 
   const config = activeForm ? FORM_CONFIGS[activeForm] : null
 
-  const modal = (
-    <AnimatePresence>
-      {config ? (
-        <motion.div
-          key="inquiry-modal-backdrop"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain bg-background/75 p-3 backdrop-blur-sm sm:items-center sm:p-4"
-          onClick={(event) => {
-            if (event.target === event.currentTarget) closeForm()
-          }}
-        >
-          <motion.div
-            key="inquiry-modal-panel"
-            ref={dialogRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="inquiry-modal-title"
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-            className="theme-cream flex max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl flex-col overflow-hidden border border-border bg-background shadow-2xl sm:max-h-[90dvh]"
-          >
+  // Enter animation plays once via CSS keyframes on mount
+  // (.inquiry-backdrop / .inquiry-panel in app/globals.css); exit flips
+  // .is-closing and the component unmounts after MODAL_EXIT_MS in closeForm.
+  const modal = config ? (
+    <div
+      className={cn(
+        "inquiry-backdrop fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain bg-background/75 p-3 backdrop-blur-sm sm:items-center sm:p-4",
+        isClosing && "is-closing",
+      )}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) closeForm()
+      }}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="inquiry-modal-title"
+        className={cn(
+          "inquiry-panel theme-cream flex max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl flex-col overflow-hidden border border-border bg-background shadow-2xl sm:max-h-[90dvh]",
+          isClosing && "is-closing",
+        )}
+      >
             <div className="flex flex-none items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-6">
               <div>
                 <TerminalLabel className="mb-2 block">
@@ -776,11 +803,9 @@ export default function Chapter5() {
                 </>
               )}
             </div>
-          </motion.div>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
-  )
+      </div>
+    </div>
+  ) : null
 
   return isMounted ? createPortal(modal, document.body) : null
 }
