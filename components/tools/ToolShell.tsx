@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
-import { track } from "@vercel/analytics"
 import { EVIDENCE_STATES, POSTURE_FOOTER, READINESS_DISCLAIMER, READINESS_LABELS, type EvidenceState, type ReadinessLabel } from "@/lib/tools/evidence"
 import { downloadJson, type ToolExport } from "@/lib/tools/schema"
 import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/workingPaper"
@@ -231,7 +230,7 @@ export default function ToolShell(props: ToolShellProps) {
       })
       if (!res.ok) throw new Error("Send failed")
       setSavedEmail(toEmail)
-      track("tool_save", { tool: slug, mode: "resend" })
+      import("@vercel/analytics").then(({ track }) => track("tool_save", { tool: slug, mode: "resend" }))
     } catch {
       setSaveMode("save")
       setSaveOpen(true)
@@ -249,12 +248,12 @@ export default function ToolShell(props: ToolShellProps) {
   }
 
   const doDownloadPaper = () => {
-    track("tool_export_paper", { tool: slug })
+    import("@vercel/analytics").then(({ track }) => track("tool_export_paper", { tool: slug }))
     downloadWorkingPaperHtml(getExport(), workingPaperFilename(slug, dealName))
   }
 
   const doDownloadJson = () => {
-    track("tool_export_json", { tool: slug })
+    import("@vercel/analytics").then(({ track }) => track("tool_export_json", { tool: slug }))
     downloadJson(getExport(), exportFileName)
   }
 
@@ -269,7 +268,7 @@ export default function ToolShell(props: ToolShellProps) {
   }
 
   const handlePrint = () => {
-    track("tool_print", { tool: slug })
+    import("@vercel/analytics").then(({ track }) => track("tool_print", { tool: slug }))
     window.print()
   }
 
@@ -299,7 +298,7 @@ export default function ToolShell(props: ToolShellProps) {
 
   const handleModalSaved = (email: string) => {
     setSavedEmail(email)
-    track("tool_save", { tool: slug, mode: saveMode })
+    import("@vercel/analytics").then(({ track }) => track("tool_save", { tool: slug, mode: saveMode }))
     if (saveMode === "download") {
       if (pendingDownload === "json") {
         doDownloadJson()
