@@ -370,59 +370,24 @@ a[href*="v0.app"] {
   }
 }
 
-/* ── Scroll experience: anchor CTA landing ──
-   Driven by components/ScrollExperience.tsx. When a CTA scrolls to a
-   section, the section gets a royal glow pulse and its heading gets the
-   signal-line draw. Transform/opacity/box-shadow only; one-shot 1.5s. */
-@keyframes scroll-flash {
-  0% {
-    box-shadow: 0 0 0 2px rgba(58, 134, 242, 0.9), 0 0 36px 6px rgba(58, 134, 242, 0.35);
-  }
-  100% {
-    box-shadow: 0 0 0 2px rgba(58, 134, 242, 0), 0 0 36px 6px rgba(58, 134, 242, 0);
-  }
-}
-
-.scroll-flash {
-  animation: scroll-flash 1.5s ease-out both;
-}
-
-.scroll-flash-heading {
-  position: relative;
-}
-
-.scroll-flash-heading::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 3rem;
-  height: 2px;
-  background-color: #3a86f2;
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: scroll-flash-line 1.5s ease-out both;
-  pointer-events: none;
-}
-
-@keyframes scroll-flash-line {
-  0% {
-    transform: scaleX(0);
-    opacity: 1;
-  }
-  55% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleX(1);
+/* ── Page fade: soft fade-in on load and route changes ──
+   Driven by components/ScrollExperience.tsx. No-JS safe: without the
+   JS-added class, content renders normally. Reduced-motion disables it. */
+@keyframes page-fade-in {
+  from {
     opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
+
+html.page-fade-in body {
+  animation: page-fade-in 300ms ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-flash,
-  .scroll-flash-heading::after {
+  html.page-fade-in body {
     animation: none;
   }
 }
