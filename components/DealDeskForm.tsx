@@ -3,7 +3,6 @@
 import { useRef, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { track } from "@vercel/analytics"
 import CalBooking from "@/components/CalBooking"
 
 // OWNER SWITCH: set to true only when /privacy has approved attorney text
@@ -105,7 +104,7 @@ export default function DealDeskForm() {
 
     setStatus("submitting")
     setStatusMessage("")
-    track("deal_desk_submit")
+    import("@vercel/analytics").then(({ track }) => track("deal_desk_submit"))
 
     const payload: Record<string, unknown> = {
       formType: "deal_desk",
@@ -133,7 +132,7 @@ export default function DealDeskForm() {
         | null
 
       if (response.ok && body?.success) {
-        track("deal_desk_success")
+        import("@vercel/analytics").then(({ track }) => track("deal_desk_success"))
         setStatus("success")
         setStatusMessage(
           body.message ||

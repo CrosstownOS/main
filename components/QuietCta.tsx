@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ArrowRight, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { track } from "@vercel/analytics"
 
 const STORAGE_KEY = "crosstown:quiet-cta-dismissed"
 
@@ -77,7 +76,7 @@ export default function QuietCta() {
       <div className="flex items-center justify-between gap-4 border border-border bg-background/95 px-4 py-3 backdrop-blur">
         <Link
           href="/workspace"
-          onClick={() => track("quiet_cta_click")}
+          onClick={() => import("@vercel/analytics").then(({ track }) => track("quiet_cta_click"))}
           tabIndex={pastHero ? 0 : -1}
           className="btn-signal inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >

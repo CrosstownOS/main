@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Container, TerminalLabel } from "@/components/ui/primitives"
-import { track } from "@vercel/analytics"
 
 const FOOTER_LINKS = [
   { href: "/#thesis", label: "Thesis" },
@@ -43,7 +42,7 @@ export default function SiteFooter() {
       })
 
       if (res.ok) {
-        track("footer_subscribe")
+        import("@vercel/analytics").then(({ track }) => track("footer_subscribe"))
         setFooterStatus("success")
         setFooterEmail("")
       } else {
