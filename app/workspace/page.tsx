@@ -16,9 +16,9 @@ import {
 } from "@/components/analytics/Trackers"
 
 export const metadata: Metadata = {
-  title: "CrosstownOS Acquisition Workspace: RV Park Due Diligence Software",
+  title: "RV Park Due Diligence Workspace | CrosstownOS",
   description:
-    "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
+    "Run your RV park acquisition in one workspace. Your evidence becomes a ParkProof decision file. $1,250 single-deal or $2,500 annual. Ships November 2026.",
   alternates: { canonical: "/workspace" },
   openGraph: {
     title: "CrosstownOS Acquisition Workspace",

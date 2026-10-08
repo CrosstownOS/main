@@ -8,7 +8,7 @@ import SignalLine from "@/components/ui/SignalLine"
 export const metadata: Metadata = {
   title: "For Brokers and Lenders | CrosstownOS",
   description:
-    "What a buyer brings when an RV park or manufactured-housing deal is worked in CrosstownOS: one record, cited claims, unresolved gates, and a documented decision file.",
+    "An RV park or manufactured-housing deal worked in CrosstownOS gives the buyer one record: cited claims, unresolved gates, and a documented decision file.",
   alternates: { canonical: "/for-brokers-lenders" },
   openGraph: {
     title: "For Brokers and Lenders | CrosstownOS",
