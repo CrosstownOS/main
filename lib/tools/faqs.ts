@@ -194,7 +194,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What does the Acquisition Workspace cost?",
     answer:
-      "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months. You operate the workspace.",
+      "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months.",
   },
 ]
 
