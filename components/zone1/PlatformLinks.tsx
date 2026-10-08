@@ -4,19 +4,16 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import {
   Handshake,
-  Inbox,
   Target,
   Users,
   X,
-  type LucideIcon,
-} from "lucide-react"
+  type LucideIcon } from "lucide-react"
 import {
   Container,
   Heading,
   Section,
   TelemetryBox,
-  TerminalLabel,
-} from "@/components/ui/primitives"
+  TerminalLabel } from "@/components/ui/primitives"
 import { useReveal } from "@/hooks/useReveal"
 import { cn } from "@/lib/utils"
 
@@ -60,8 +57,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
     cta: "See the plans",
     action: "deal_desk",
     href: "/workspace",
-    icon: Target,
-  },
+    icon: Target },
   {
     code: "02",
     name: "Field Network",
@@ -72,10 +68,8 @@ const CONVERSION_PATHS: ConversionPath[] = [
     action: "founding_circle",
     secondaryLink: {
       label: "Read The Trail Log",
-      href: "/trail-log",
-    },
-    icon: Users,
-  },
+      href: "/trail-log" },
+    icon: Users },
   {
     code: "03",
     name: "Referral Alliance",
@@ -86,10 +80,8 @@ const CONVERSION_PATHS: ConversionPath[] = [
     action: "referral_network",
     secondaryLink: {
       label: "For brokers and lenders",
-      href: "/for-brokers-lenders",
-    },
-    icon: Handshake,
-  },
+      href: "/for-brokers-lenders" },
+    icon: Handshake },
 ]
 
 // ---------------------------------------------------------------------------
@@ -103,30 +95,25 @@ export const COMPASS_CRITERIA = [
     title: "Asset types",
     items: [
       "RV parks, manufactured-housing communities, and select mixed RV/MHC assets.",
-    ],
-  },
+    ] },
   {
     title: "Deal situations",
     items: [
       "Direct owner sales, succession or retirement transitions, recapitalizations, brokered opportunities, operating transitions, and appropriate referral situations.",
-    ],
-  },
+    ] },
   {
     title: "Geography",
-    items: ["Evaluated case by case."],
-  },
+    items: ["Evaluated case by case."] },
   {
     title: "Infrastructure",
     items: [
       "City, well, septic, lagoon, and related utility systems are evaluated case by case. Infrastructure diligence matters.",
-    ],
-  },
+    ] },
   {
     title: "What helps an initial review",
     items: [
       "Property location, approximate site count, occupancy, utility configuration, asking expectation, ownership or transition context, rent roll or T12 if available, and existing permits or reports if available.",
-    ],
-  },
+    ] },
 ] as const
 
 function dispatchFormEvent(eventName: string, source: string) {
