@@ -63,6 +63,12 @@ export default function BlogIndex() {
             Diligence notes, underwriting discipline, and field observations from
             the deals we study.
           </p>
+          <a
+            href="/blog/rss.xml"
+            className="mono-label mt-6 inline-block text-primary hover:underline"
+          >
+            Subscribe via RSS
+          </a>
           <div className="mt-12 space-y-2">
             {posts.length === 0 && (
               <p className="theme-cream border border-border bg-card p-8 text-sm text-muted">
