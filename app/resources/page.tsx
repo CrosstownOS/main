@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "Acquisition Signal Resources | CrosstownOS",
   description:
-    "Thirty-five free diligence tools for RV park and manufactured-housing buyers, plus the three spine pages. Tell us where your deal stands and get the right tool first.",
+    "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
   alternates: { canonical: "/resources" },
   openGraph: {
     title: "Acquisition Signal Resources | CrosstownOS",
