@@ -110,7 +110,8 @@ export default function SampleDecisionFilePage() {
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 It does not turn an upload into truth, certify a deal, or make
-                a decision about any actual transaction.
+                a decision about any actual transaction. The ParkProof decision
+                file is not a legal/engineering/environmental certification.
               </p>
             </article>
             <article className="theme-cream border border-border bg-card p-6">
