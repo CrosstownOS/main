@@ -399,6 +399,8 @@ export default function Chapter5() {
         setStatus("idle")
         setStatusMessage("")
         setIsClosing(false)
+        // Return focus to the trigger that opened the dialog
+        requestAnimationFrame(() => triggerRef.current?.focus())
       },
       reduced ? 0 : MODAL_EXIT_MS,
     )

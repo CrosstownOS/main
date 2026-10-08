@@ -239,7 +239,18 @@ export function CompassCriteriaDrawer() {
   const wasOpenRef = useRef(false)
 
   useEffect(() => {
-    const openDrawer = () => setCompassOpen(true)
+    const triggerRef = useRef<HTMLElement | null>(null)
+
+    const closeCompass = () => {
+      setCompassOpen(false)
+      // Return focus to the trigger that opened the drawer
+      requestAnimationFrame(() => triggerRef.current?.focus())
+    }
+
+    const openDrawer = () => {
+      triggerRef.current = document.activeElement as HTMLElement | null
+      setCompassOpen(true)
+    }
     window.addEventListener(OPEN_COMPASS_EVENT, openDrawer)
     return () => window.removeEventListener(OPEN_COMPASS_EVENT, openDrawer)
   }, [])
@@ -262,7 +273,7 @@ export function CompassCriteriaDrawer() {
     const trapFocus = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault()
-        setCompassOpen(false)
+        closeCompass()
         return
       }
 
@@ -298,7 +309,7 @@ export function CompassCriteriaDrawer() {
   }, [compassOpen])
 
   const submitOpportunityFromCompass = () => {
-    setCompassOpen(false)
+    closeCompass()
     dispatchFormEvent(OPEN_OUTPOST_EVENT, "compass-criteria-drawer")
   }
 
@@ -309,7 +320,7 @@ export function CompassCriteriaDrawer() {
       <button
         type="button"
         aria-label="Close Compass criteria"
-        onClick={() => setCompassOpen(false)}
+        onClick={closeCompass}
         className="fixed inset-0 z-[70] cursor-default bg-background/75 backdrop-blur-sm"
       />
 
@@ -332,7 +343,7 @@ export function CompassCriteriaDrawer() {
           </div>
           <button
             type="button"
-            onClick={() => setCompassOpen(false)}
+            onClick={closeCompass}
             aria-label="Close Compass criteria"
             className="flex h-10 w-10 flex-none items-center justify-center border border-border text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >

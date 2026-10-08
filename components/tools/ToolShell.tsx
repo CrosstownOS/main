@@ -263,6 +263,7 @@ export default function ToolShell(props: ToolShellProps) {
       sendPaper(existing)
       return
     }
+    triggerRef.current = document.activeElement as HTMLElement | null
     setSaveMode("save")
     setSaveOpen(true)
   }
@@ -279,6 +280,7 @@ export default function ToolShell(props: ToolShellProps) {
       doDownloadPaper()
       return
     }
+    triggerRef.current = document.activeElement as HTMLElement | null
     setPendingDownload("paper")
     setSaveMode("download")
     setSaveOpen(true)
@@ -291,6 +293,7 @@ export default function ToolShell(props: ToolShellProps) {
       doDownloadJson()
       return
     }
+    triggerRef.current = document.activeElement as HTMLElement | null
     setPendingDownload("json")
     setSaveMode("download")
     setSaveOpen(true)
