@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import SiteFooter from '@/components/SiteFooter'
+import QuietCta from '@/components/QuietCta'
 import ScrollExperience from '@/components/ScrollExperience'
 import './globals.css'
 
@@ -109,6 +110,10 @@ export default function RootLayout({
         </a>
         {children}
         <SiteFooter />
+        {/* ── QUIET CTA: fixed bottom bar. Lives here (direct child of <body>,
+            outside app/template.tsx) so the .page-enter transform can't break
+            its position: fixed. Mounted globally: appears on every page. ── */}
+        <QuietCta />
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <ScrollExperience />
         {/* NATIVE DOM EXECUTOR (dev only): Wipes out runtime attribution tags.
