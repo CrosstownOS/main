@@ -61,7 +61,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSON_LD) }}
       />
-      <main
+      <main id="main"
         className="relative min-h-screen w-full bg-background text-foreground"
         style={{ overflowX: "clip" }}
       >
