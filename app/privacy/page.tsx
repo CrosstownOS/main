@@ -1,71 +1,104 @@
 import type { Metadata } from "next"
-
-// SKELETON ONLY. Every section below is an [ATTORNEY TEXT] slot. Do not link
-// this page from the footer, the forms, or the sitemap, and do not remove the
-// noindex metadata, until an attorney has written and approved the text and
-// Jeremy signs off on going live.
+import Navigation from "@/components/ui/navigation"
+import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | CrosstownOS",
-  robots: { index: false, follow: false },
+  description:
+    "How CrosstownOS handles information you share with us.",
   alternates: { canonical: "/privacy" },
 }
 
-const SLOTS = [
+const SECTIONS = [
   {
-    heading: "Data we collect",
-    slot: "[ATTORNEY TEXT: name, email, phone, company, and deal details submitted through site forms]",
+    heading: "What we collect",
+    body: [
+      "When you use our application form, we collect the information you provide: name, email, phone, company, website, asset type, deal stage, deadline, price range, deal description, and referral source.",
+      "When you subscribe to Crosstown Updates, we collect your email address.",
+      "When you book a fit call, our scheduling provider (Cal.com) collects the information you enter to arrange the meeting.",
+    ],
   },
   {
-    heading: "How we use it",
-    slot: "[ATTORNEY TEXT: purposes for collecting and using submitted information]",
+    heading: "What we do not collect",
+    body: [
+      "The free working papers at crosstownosrv.camp/tools run entirely in your browser. Your inputs are stored in your browser's local storage on your own device. We do not receive, store, or have access to your working paper inputs.",
+      "We do not use analytics, advertising pixels, or cross-site tracking on this site.",
+    ],
   },
   {
-    heading: "Service providers",
-    slot: "[ATTORNEY TEXT: processor disclosure, including the email delivery provider]",
+    heading: "How we use what you share",
+    body: [
+      "Application form submissions: to review your fit for the Acquisition Workspace and to contact you about it.",
+      "Newsletter subscriptions: to send you Crosstown Updates. Every email includes an unsubscribe link.",
+      "Scheduling information: to arrange and conduct your fit call.",
+      "We do not sell your information. We do not share it with third parties except the service providers needed to operate these functions (email delivery, scheduling), who are bound to use it only for that purpose.",
+    ],
   },
   {
     heading: "How long we keep it",
-    slot: "[ATTORNEY TEXT: retention periods for submissions and correspondence]",
+    body: [
+      "We keep application and correspondence records for as long as needed to serve you and meet legal obligations. Newsletter subscriptions are kept until you unsubscribe.",
+    ],
   },
   {
     heading: "Your requests",
-    slot: "[ATTORNEY TEXT: how to request access to, correction of, or deletion of your information]",
+    body: [
+      "To access, correct, or delete the personal information we hold about you, or to unsubscribe from emails, contact jeremy@crosstownosrv.camp. We will verify your identity before fulfilling requests.",
+    ],
+  },
+  {
+    heading: "Security",
+    body: [
+      "We take reasonable steps to protect your information. No method of electronic transmission or storage is completely secure.",
+    ],
+  },
+  {
+    heading: "Changes",
+    body: [
+      "We may update this policy. Material changes will be noted by updating the effective date below.",
+    ],
   },
   {
     heading: "Contact",
-    slot: "[ATTORNEY TEXT: contact method for privacy questions]",
-  },
-  {
-    heading: "Governing law",
-    slot: "[ATTORNEY TEXT: governing law for this policy]",
+    body: [
+      "Privacy questions: jeremy@crosstownosrv.camp",
+    ],
   },
   {
     heading: "Effective date",
-    slot: "[ATTORNEY TEXT: effective date of this policy]",
+    body: ["October 7, 2026."],
   },
-] as const
+]
 
 export default function PrivacyPage() {
   return (
-    <main className="relative min-h-screen w-full bg-background text-foreground">
-      <div className="mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-        <p className="mono-label mb-4">Draft. Awaiting attorney text.</p>
-        <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-          Privacy Policy
-        </h1>
+    <>
+      <Navigation />
+      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+        <PageBackdrop />
+        <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <p className="mono-label mb-4">CrosstownOS / Privacy policy</p>
+          <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
+            Privacy Policy
+          </h1>
 
-        {SLOTS.map((section) => (
-          <section key={section.heading} className="mt-12">
-            <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
-              {section.heading}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              {section.slot}
-            </p>
-          </section>
-        ))}
-      </div>
-    </main>
+          {SECTIONS.map((section) => (
+            <section key={section.heading} className="mt-12">
+              <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
+                {section.heading}
+              </h2>
+              {section.body.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="mt-3 text-sm leading-relaxed text-muted"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </section>
+          ))}
+        </div>
+      </main>
+    </>
   )
 }
