@@ -5,6 +5,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 import { cn } from "@/lib/utils"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "Live Diligence Working Papers | CrosstownOS",
@@ -291,6 +292,7 @@ export default function ToolsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               The interactive suite
             </p>
+            <SignalLine />
             <h1 className="serif-display mt-4 text-4xl tracking-tight sm:text-6xl">
               Live Diligence Working Papers.
             </h1>

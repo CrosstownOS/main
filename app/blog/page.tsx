@@ -3,6 +3,7 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { getAllPosts } from "@/lib/blog"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "Field Notes | CrosstownOS",
@@ -53,6 +54,7 @@ export default function BlogIndex() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
+          <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Know what is true before you buy.
           </h1>

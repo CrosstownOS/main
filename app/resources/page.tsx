@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import {
+import SignalLine from "@/components/ui/SignalLine"
   SITUATIONS,
   SITUATION_B_BRANCHES,
   SPINES,
@@ -209,6 +210,7 @@ export default async function ResourcesPage({
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS // Acquisition Signals</p>
+          <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             What is happening with your deal right now?
           </h1>

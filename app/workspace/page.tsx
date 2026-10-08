@@ -7,6 +7,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
 import { FAQ_JSON_LD, WORKSPACE_FAQS } from "@/lib/tools/faqs"
 import FaqSection from "@/components/tools/FaqSection"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "CrosstownOS Acquisition Workspace: RV Park Due Diligence Software",
@@ -201,6 +202,7 @@ export default function AcquisitionWorkspacePage() {
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
           <p className="mono-label mb-4">Available November 2026</p>
+          <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             The Acquisition Workspace. Your deal, on the record.
           </h1>
@@ -356,6 +358,7 @@ export default function AcquisitionWorkspacePage() {
 
           {/* Terms */}
           <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
+          <SignalLine />
             <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Two ways in.
             </h2>
@@ -522,6 +525,7 @@ export default function AcquisitionWorkspacePage() {
 
           {/* Application */}
           <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
+          <SignalLine />
             <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Start with a fit call.
             </h2>

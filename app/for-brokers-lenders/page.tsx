@@ -3,6 +3,7 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import ReferralAllianceCta from "./ReferralAllianceCta"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "For Brokers and Lenders | CrosstownOS",
@@ -82,6 +83,7 @@ export default function ForBrokersLendersPage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">For Brokers + Lenders</p>
+          <SignalLine />
           <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
             Know what your buyer is bringing to the table.
           </h1>

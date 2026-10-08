@@ -3,6 +3,7 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import SampleDecisionFileExplorer from "./SampleDecisionFileExplorer"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "ParkProof Walkthrough | CrosstownOS",
@@ -47,6 +48,7 @@ export default function SampleDecisionFilePage() {
                 Illustrative example / fictional park
               </p>
             </div>
+            <SignalLine />
             <h1 className="serif-display mt-6 max-w-4xl text-5xl leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
               The package is not the decision.
             </h1>

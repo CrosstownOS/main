@@ -3,6 +3,7 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { cn } from "@/lib/utils"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "The ParkProof Standard | CrosstownOS",
@@ -154,6 +155,7 @@ export default function ParkProofStandardPage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">ParkProof / The Standard</p>
+          <SignalLine />
           <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
             ParkProof turns a deal file into a decision file.
           </h1>

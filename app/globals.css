@@ -425,3 +425,24 @@ a[href*="v0.app"] {
     animation: none;
   }
 }
+
+/* ── Standalone signal line: royal rule draw for pages without the useReveal wrapper.
+   Driven by components/ui/SignalLine.tsx. .signal-line-armed is added on mount
+   (JS-gated) so no-JS never hides the line. One-shot 400ms ease-out draw. */
+span[data-signal-line].signal-line-armed {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background-color: #3a86f2;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+span[data-signal-line].signal-line-armed.is-visible {
+  transform: scaleX(1);
+  transition: transform 400ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  span[data-signal-line].signal-line-armed {
+    transform: none;
+  }
+}

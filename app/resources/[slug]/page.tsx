@@ -6,6 +6,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { getAllPosts, type PostMeta } from "@/lib/blog"
 import {
+import SignalLine from "@/components/ui/SignalLine"
   PART_BY_ID,
   RESOURCE_DETAIL_BY_SLUG,
   RESOURCE_DETAILS,
@@ -195,6 +196,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 Acquisition Signal Resource
               </span>
             </div>
+            <SignalLine />
             <h1 className="serif-display mt-5 text-4xl tracking-tight sm:text-5xl">
               {resource.title}
             </h1>

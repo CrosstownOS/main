@@ -6,6 +6,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { getAllSlugs, getPost, getRelatedPosts } from "@/lib/blog"
 import { RESOURCE_DETAIL_BY_SLUG } from "@/lib/resources"
+import SignalLine from "@/components/ui/SignalLine"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -124,6 +125,7 @@ export default async function BlogPost({ params }: PageProps) {
           </Link>
 
           <p className="mono-label mb-4 mt-8">Field Note</p>
+          <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             {post.title}
           </h1>

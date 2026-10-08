@@ -3,6 +3,7 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import TrailLogForm from "./TrailLogForm"
+import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "The Trail Log | CrosstownOS",
@@ -220,6 +221,7 @@ export default function TrailLogPage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Field Network / Build Log</p>
+          <SignalLine />
           <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
             The Trail Log.
           </h1>

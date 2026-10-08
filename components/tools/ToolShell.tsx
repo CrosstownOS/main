@@ -11,6 +11,7 @@ import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/work
 import type { Faq } from "@/lib/tools/faqs"
 import FaqSection from "./FaqSection"
 import { cn } from "@/lib/utils"
+import SignalLine from "@/components/ui/SignalLine"
 
 const EMAIL_KEY = "crosstown_resource_email"
 
@@ -343,6 +344,7 @@ export default function ToolShell(props: ToolShellProps) {
                 Live Diligence Working Paper
               </span>
             </div>
+            <SignalLine />
             <h1 className="serif-display mt-5 text-4xl tracking-tight sm:text-5xl">{title}</h1>
             <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">{description}</p>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">

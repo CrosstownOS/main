@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { PARTS, TOOLS, resourceSlug } from "@/lib/resources"
+import SignalLine from "@/components/ui/SignalLine"
 
 const BASE_URL = "https://www.crosstownosrv.camp"
 
@@ -60,6 +61,7 @@ export default function CatalogPage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
+          <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             All 35 tools, in journey order.
           </h1>
