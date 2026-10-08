@@ -574,9 +574,6 @@ export default function Navigation() {
               >
                 See the plans
               </Link>
-              <p className="mt-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
-                You operate the workspace. You own the decision.
-              </p>
             </div>
           </div>
         </>
