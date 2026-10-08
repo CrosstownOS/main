@@ -189,12 +189,51 @@ const FAQ = [
   },
 ] as const
 
+const WORKSPACE_PRODUCT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "CrosstownOS Acquisition Workspace",
+  description:
+    "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
+  url: "https://www.crosstownosrv.camp/workspace",
+  brand: {
+    "@type": "Brand",
+    name: "CrosstownOS",
+  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Single-Deal Workspace",
+      description:
+        "One property. 90 days. The full workspace, from your first document to your decision file.",
+      url: "https://www.crosstownosrv.camp/workspace#plans",
+      price: "1250",
+      priceCurrency: "USD",
+      availability: "https://schema.org/PreOrder",
+    },
+    {
+      "@type": "Offer",
+      name: "Annual Workspace",
+      description:
+        "Unlimited properties. 12 months. Stop rebuilding the record every time you look at a deal.",
+      url: "https://www.crosstownosrv.camp/workspace#plans",
+      price: "2500",
+      priceCurrency: "USD",
+      availability: "https://schema.org/PreOrder",
+    },
+  ],
+} as const
+
 export default function AcquisitionWorkspacePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/workspace"]) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(WORKSPACE_PRODUCT_JSON_LD) }}
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
