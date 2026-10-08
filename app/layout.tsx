@@ -33,21 +33,9 @@ export const metadata: Metadata = {
   title: 'CrosstownOS | RV Park Due Diligence Software',
   description: siteDescription,
   applicationName: 'CrosstownOS',
-  authors: [{ name: 'Crosstown' }],
-  creator: 'Crosstown',
-  publisher: 'Crosstown',
-  keywords: [
-    'RV park due diligence software',
-    'RV park due diligence',
-    'manufactured housing due diligence',
-    'MHC due diligence',
-    'RV park acquisition intelligence',
-    'manufactured housing community due diligence',
-    'MHC acquisition workflow',
-    'RV park underwriting',
-    'diligence register',
-    'acquisition decision record',
-  ],
+  authors: [{ name: 'CrosstownOS' }],
+  creator: 'CrosstownOS',
+  publisher: 'CrosstownOS',
   alternates: {
     canonical: '/',
     types: {
@@ -60,7 +48,7 @@ export const metadata: Metadata = {
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
     type: 'website',
     url: '/',
-    siteName: 'Crosstown',
+    siteName: 'CrosstownOS',
     locale: 'en_US',
     images: [
       {
