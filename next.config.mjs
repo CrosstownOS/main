@@ -1,16 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
+    // NOTE: ignoreBuildErrors is true because the v0 scaffold shipped with
+    // type errors. Do not add new type errors. Long-term: fix existing errors
+    // and set this to false. See marketing-site-elevation.md P3.
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'i.postimg.cc',
-      },
-    ],
+    // Image optimization re-enabled 2026-10-08 (logo resized 966KB -> 32KB).
+    // Remote patterns pruned: i.postimg.cc had zero usages.
   },
   async redirects() {
     return [
