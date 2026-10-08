@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { checkRateLimit, getClientIp, FORM_RATE_LIMIT, DOWNLOAD_RATE_LIMIT } from "@/lib/rate-limit"
 import { Resend } from "resend"
 import { addToSegment } from "@/lib/resend-segments"
 import {
