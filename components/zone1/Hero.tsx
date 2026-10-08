@@ -3,7 +3,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useReducedMotion } from "framer-motion"
-import { Heading } from "@/components/ui/primitives"
 
 export default function Hero() {
   const shouldReduceMotion = Boolean(useReducedMotion())
@@ -31,13 +30,12 @@ export default function Hero() {
           />
         </div>
 
-        <Heading
+        <h1
           id="hero-headline"
-          level={1}
-          className="mb-7 max-w-4xl text-balance text-5xl leading-[1.02] text-foreground sm:text-6xl lg:text-7xl"
+          className="mb-7 max-w-4xl text-balance font-serif text-5xl font-black leading-[1.02] text-foreground sm:text-6xl lg:text-7xl"
         >
           Know what is true before you buy.
-        </Heading>
+        </h1>
 
         <p className="mb-10 max-w-3xl text-balance font-sans text-lg leading-relaxed text-muted sm:text-xl">
           CrosstownOS is diligence software for RV park and manufactured
@@ -48,7 +46,7 @@ export default function Hero() {
         <div className="flex w-full flex-col justify-center gap-4 sm:flex-row">
           <Link
             href="/workspace"
-            className="border border-primary/60 bg-primary px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             See the plans
           </Link>

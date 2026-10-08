@@ -11,6 +11,7 @@
   --color-cream: var(--cream);
   --color-border: var(--border);
   --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent-secondary);
@@ -32,6 +33,10 @@
 
   /* ── Primary: lit royal, sampled from the logo arcs (#3A86F2) ── */
   --primary: oklch(0.628 0.179 258);
+
+  /* ── Primary deep: solid button backgrounds behind white text.
+     The lit royal is ~3.6:1 with white (fails 4.5:1); #0B589B is 7.3:1. ── */
+  --primary-deep: #0b589b;
 
   /* ── Neutrals: weathered sand, clay, warm ivory ── */
   --border: oklch(0.20 0.02 80);
@@ -86,6 +91,18 @@
     font-family: var(--font-sans);
     font-weight: 700;
     letter-spacing: -0.02em;
+  }
+
+  /* ── Global pressed states: every button and link gives tactile feedback ── */
+  button:active,
+  a:active {
+    filter: brightness(0.9);
+  }
+
+  /* ── Global keyboard focus ring (utilities like focus-visible:outline-none override) ── */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 }
 
@@ -147,6 +164,7 @@
   --border: oklch(0.87 0.008 85);
   /* Deep arc royal (#0B589B) — reads on white where the lit royal would wash out */
   --primary: oklch(0.456 0.128 252);
+  --primary-deep: oklch(0.456 0.128 252);
 }
 
 /* ── WARM CREAM: light token scope for working surfaces (sections, bands, modals) ── */
@@ -158,6 +176,7 @@
   --border: #d8c5a0;
   /* Deep arc royal — the lit royal washes out on cream */
   --primary: oklch(0.456 0.128 252);
+  --primary-deep: oklch(0.456 0.128 252);
   /* Copper / green / brick darkened a step so they read on cream */
   --accent: oklch(0.5 0.13 55);
   --accent-secondary: oklch(0.46 0.13 55);

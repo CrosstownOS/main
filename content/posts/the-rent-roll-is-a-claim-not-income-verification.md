@@ -63,6 +63,6 @@ But a map is not the territory, and a claim is not proof.
 
 The verified number is rarely the cleanest number in the package. It is the one that survived contact with the bank.
 
-Next in Field Notes: A Completed Checklist Is Not Proof.
+Next in Field Notes: A Filled-Out Form Is Not Proof.
 
 *This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

@@ -163,7 +163,7 @@ function EmailSaveModal({
           <button
             type="submit"
             disabled={busy}
-            className="mt-3 w-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="mt-3 w-full bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {busy ? "Sending..." : "Save via email"}
           </button>
@@ -322,7 +322,7 @@ export default function ToolShell(props: ToolShellProps) {
         [data-print-root] .print-posture strong { color: #00468B; }
       }`}</style>
       <Navigation />
-      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <nav aria-label="Breadcrumb">
@@ -335,7 +335,7 @@ export default function ToolShell(props: ToolShellProps) {
 
           <div className="mt-10 max-w-3xl">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+              <span className="bg-primary-deep px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
                 {sourceCode}
               </span>
               <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary">
@@ -411,7 +411,7 @@ export default function ToolShell(props: ToolShellProps) {
               <button
                 type="button"
                 onClick={handleDownload}
-                className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
                 Download working paper
               </button>
@@ -459,8 +459,8 @@ export default function ToolShell(props: ToolShellProps) {
             <p className="serif-display text-2xl tracking-tight">{ctaTitle}</p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{ctaBody}</p>
             <Link
-              href={`/deal-desk?tool=${slug}`}
-              className="mt-6 inline-block border border-primary/60 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              href={`/workspace?tool=${slug}`}
+              className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               {ctaButton}
             </Link>

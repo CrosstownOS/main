@@ -216,7 +216,7 @@ export default function TrailLogPage() {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">Field Network / Build Log</p>
@@ -312,7 +312,7 @@ export default function TrailLogPage() {
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
                 Field Network is for operators, owners, and industry people
                 who want early updates, a voice in what gets built, and first
-                word when the next Deal Desk window opens.
+                word when the Acquisition Workspace opens.
               </p>
               <Link
                 href="/#paths"

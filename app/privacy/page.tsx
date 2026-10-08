@@ -15,14 +15,14 @@ const SECTIONS = [
     body: [
       "When you use our application form, we collect the information you provide: name, email, phone, company, website, asset type, deal stage, deadline, price range, deal description, and referral source.",
       "When you subscribe to Crosstown Updates, we collect your email address.",
-      "When you book a fit call, our scheduling provider (Cal.com) collects the information you enter to arrange the meeting.",
+      "When you book a fit call, our scheduling provider (Cal.com) collects the information you enter to arrange the meeting. Cal.com loads inside our site to run the booking flow and may set its own cookies. Those cookies are governed by Cal.com's privacy policy, not this one.",
     ],
   },
   {
     heading: "What we do not collect",
     body: [
       "The free working papers at crosstownosrv.camp/tools run entirely in your browser. Your inputs are stored in your browser's local storage on your own device. We do not receive, store, or have access to your working paper inputs.",
-      "We do not use analytics, advertising pixels, or cross-site tracking on this site.",
+      "We use privacy-friendly, cookieless analytics from Vercel that does not track you across sites. We do not use advertising pixels or cross-site tracking.",
     ],
   },
   {
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS / Privacy policy</p>

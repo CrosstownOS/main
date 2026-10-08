@@ -24,11 +24,11 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const siteDescription =
-  'CrosstownOS is diligence software for RV park and manufactured housing buyers. One record carries your deal from the broker package, through the site walk, to the signed decision: verified facts, broker-reported claims, missing evidence, and stated assumptions, separated and visible.'
+  'Diligence software for RV park and manufactured housing buyers. Verified facts, broker claims, and missing evidence, separated before you buy.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.crosstownosrv.camp'),
-  title: 'CrosstownOS | RV Park Due Diligence Software: Know What Is True Before You Buy',
+  title: 'CrosstownOS | RV Park Due Diligence Software',
   description: siteDescription,
   applicationName: 'CrosstownOS',
   authors: [{ name: 'Crosstown' }],
@@ -100,6 +100,12 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen selection:bg-primary/20 selection:text-foreground`}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-border focus:bg-background focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-foreground"
+        >
+          Skip to content
+        </a>
         {children}
         <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
