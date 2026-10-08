@@ -89,7 +89,7 @@ export default function Home() {
             <source src="/bg.mp4" type="video/mp4" />
           </video>
           <img
-            src="/images/opengraph.jpg"
+            src="/images/bg-poster.jpg"
             alt=""
             className="h-full w-full object-cover opacity-[0.55] md:hidden"
           />
