@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: "/parkproof-walkthrough",
     images: [
       {
-        url: "/images/opengraph.jpg?v=2",
-        width: 1024,
-        height: 1024,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "ParkProof Walkthrough | CrosstownOS",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "ParkProof Walkthrough | CrosstownOS",
     description:
       "An illustrative walk through a documented decision file built to the ParkProof standard.",
-    images: ["/images/opengraph.jpg?v=2"],
+    images: ["/og-image.jpg"],
   },
 }
 

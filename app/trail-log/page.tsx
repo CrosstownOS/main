@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     url: "/trail-log",
     images: [
       {
-        url: "/images/opengraph.jpg?v=2",
-        width: 1024,
-        height: 1024,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "The Trail Log | CrosstownOS",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Trail Log | CrosstownOS",
     description: "The Field Network build log for CrosstownOS.",
-    images: ["/images/opengraph.jpg?v=2"],
+    images: ["/og-image.jpg"],
   },
 }
 
