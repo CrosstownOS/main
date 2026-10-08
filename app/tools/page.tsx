@@ -153,7 +153,7 @@ const FAQS: { q: string; a: string }[] = [
 
 function WorkingPaperCard({ tool }: { tool: ToolCard }) {
   return (
-    <div data-reveal-item className="theme-cream flex flex-col border border-border bg-card p-6 sm:p-8">
+    <div data-reveal-item className="theme-cream card-lift flex flex-col border border-border bg-card p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.sourceCode}
