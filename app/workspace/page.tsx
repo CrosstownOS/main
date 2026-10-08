@@ -8,6 +8,12 @@ import { SOURCE_SENTENCE } from "@/lib/source-copy"
 import { FAQ_JSON_LD, WORKSPACE_FAQS } from "@/lib/tools/faqs"
 import FaqSection from "@/components/tools/FaqSection"
 import SignalLine from "@/components/ui/SignalLine"
+import {
+  PageViewTracker,
+  SectionViewTracker,
+  TrackedApplyLink,
+  TrackedPlansLink,
+} from "@/components/analytics/Trackers"
 
 export const metadata: Metadata = {
   title: "CrosstownOS Acquisition Workspace: RV Park Due Diligence Software",
@@ -197,6 +203,7 @@ export default function AcquisitionWorkspacePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/workspace"]) }}
       />
       <Navigation />
+      <PageViewTracker event="workspace_view" />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
@@ -213,12 +220,11 @@ export default function AcquisitionWorkspacePage() {
           </p>
           <ToolContextLine />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#plans"
+            <TrackedPlansLink
               className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               See the plans
-            </a>
+            </TrackedPlansLink>
             <a
               href="#how-it-works"
               className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -359,6 +365,7 @@ export default function AcquisitionWorkspacePage() {
           {/* Terms */}
           <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
           <SignalLine />
+          <SectionViewTracker event="pricing_view" />
             <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Two ways in.
             </h2>
@@ -381,12 +388,12 @@ export default function AcquisitionWorkspacePage() {
                   One property. 90 days. The full workspace, from your first
                   document to your decision file.
                 </p>
-                <a
-                  href="#apply"
+                <TrackedApplyLink
+                  plan="single-deal"
                   className="mt-6 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
                 >
                   Start with a fit call
-                </a>
+                </TrackedApplyLink>
               </div>
               <div className="theme-cream border border-border bg-card p-6 sm:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
@@ -402,12 +409,12 @@ export default function AcquisitionWorkspacePage() {
                   Unlimited properties. 12 months. Stop rebuilding the record
                   every time you look at a deal.
                 </p>
-                <a
-                  href="#apply"
+                <TrackedApplyLink
+                  plan="annual"
                   className="mt-6 inline-block border border-border px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
                   Start with a fit call
-                </a>
+                </TrackedApplyLink>
               </div>
             </div>
             <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
