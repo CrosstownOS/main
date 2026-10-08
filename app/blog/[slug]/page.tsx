@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
-import { getAllSlugs, getPost, getRelatedPosts } from "@/lib/blog"
+import { getAllSlugs, getPost, getRelatedPosts, getSeoDescription, getSeoTitle } from "@/lib/blog"
 import { RESOURCE_DETAIL_BY_SLUG } from "@/lib/resources"
 import SignalLine from "@/components/ui/SignalLine"
 
@@ -21,13 +21,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPost(slug)
   if (!post) return { title: "Not found | CrosstownOS" }
 
+  const seoTitle = getSeoTitle(post)
+  const seoDescription = getSeoDescription(post)
+
   return {
-    title: `${post.title} | CrosstownOS`,
-    description: post.excerpt,
+    title: seoTitle,
+    description: seoDescription,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: seoTitle,
+      description: seoDescription,
       type: "article",
       url: `/blog/${slug}`,
       publishedTime: post.date,
@@ -43,8 +46,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title: seoTitle,
+      description: seoDescription,
       images: ["/og-image.jpg"],
     },
   }
