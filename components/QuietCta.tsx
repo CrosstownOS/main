@@ -61,7 +61,7 @@ export default function QuietCta() {
     <div
       aria-hidden={!pastHero}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 transition-transform duration-200 ease-out",
+        "fixed inset-x-0 bottom-0 z-30 transition-transform duration-200 ease-out",
         "md:inset-x-auto md:bottom-6 md:right-6",
         pastHero ? "translate-y-0" : "translate-y-[130%]",
       )}
