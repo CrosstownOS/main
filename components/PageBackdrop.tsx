@@ -31,16 +31,11 @@ export default function PageBackdrop() {
         loop
         muted
         playsInline
-        poster="/images/opengraph.jpg"
-        className="hidden h-full w-full object-cover opacity-[0.55] md:block"
+        poster="/images/bg-poster.jpg"
+        className="h-full w-full object-cover opacity-[0.55]"
       >
-        <source src="/bg.mp4" type="video/mp4" media="(min-width: 768px)" />
+        <source src="/bg.mp4" type="video/mp4" />
       </video>
-      <img
-        src="/images/opengraph.jpg"
-        alt=""
-        className="h-full w-full object-cover opacity-[0.55] md:hidden"
-      />
 
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/30 via-background/70 to-background" />
     </div>

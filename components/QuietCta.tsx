@@ -32,7 +32,7 @@ export default function QuietCta() {
         const hero = document.getElementById("hero")
         // No hero on this page: stay hidden.
         if (!hero) return
-        setPastHero(hero.getBoundingClientRect().bottom <= 0)
+        setPastHero(window.scrollY > window.innerHeight * 0.5)
       })
     }
 
