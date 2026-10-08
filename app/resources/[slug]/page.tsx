@@ -21,7 +21,7 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
-export const dynamicParams = false
+export const dynamic = 'force-dynamic'
 
 const RELATED_POST_SLUGS: Record<string, string[]> = {
   "broker-package-intake-sheet": ["anatomy-of-a-broker-package"],
@@ -39,9 +39,6 @@ const RELATED_POST_SLUGS: Record<string, string[]> = {
   "the-evidence-status-standard": ["before-you-underwrite-establish-what-is-true"],
 }
 
-export function generateStaticParams() {
-  return RESOURCE_DETAILS.map((resource) => ({ slug: resource.slug }))
-}
 
 /** Resources with a live working-paper version. Maps resource slug to tool slug + name. */
 const LIVE_TOOL_BY_SLUG: Record<string, { toolSlug: string; toolName: string }> = {

@@ -14,6 +14,8 @@ import {
   type Situation,
 } from "@/lib/resources"
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: "Acquisition Signal Resources | CrosstownOS",
   description:
