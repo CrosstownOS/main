@@ -6,6 +6,7 @@ import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 import { cn } from "@/lib/utils"
 import SignalLine from "@/components/ui/SignalLine"
+import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
   title: "Live Diligence Working Papers | CrosstownOS",
@@ -152,7 +153,7 @@ const FAQS: { q: string; a: string }[] = [
 
 function WorkingPaperCard({ tool }: { tool: ToolCard }) {
   return (
-    <div className="theme-cream flex flex-col border border-border bg-card p-6 sm:p-8">
+    <div data-reveal-item className="theme-cream flex flex-col border border-border bg-card p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.sourceCode}
@@ -348,11 +349,11 @@ export default function ToolsPage() {
               <h2 className="serif-display mt-2 text-2xl tracking-tight sm:text-3xl">
                 {group.question}
               </h2>
-              <div className="mt-6 grid gap-6 md:grid-cols-2">
+              <StaggerReveal className="mt-6 grid gap-6 md:grid-cols-2">
                 {group.tools.map((tool) => (
                   <WorkingPaperCard key={tool.slug} tool={tool} />
                 ))}
-              </div>
+              </StaggerReveal>
             </section>
           ))}
 
