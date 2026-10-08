@@ -134,8 +134,9 @@ function scrollToHashTarget(id: string): boolean {
 export default function ScrollExperience() {
   useEffect(() => {
     // Clicks on in-page anchors. Capture phase so we run before Next.js
-    // Link handlers; stopPropagation keeps router hash-scrolls from
-    // double-scrolling against our animation.
+    // Link handlers. preventDefault() stops the router from double-scrolling;
+    // we deliberately do NOT stopPropagation so anchor onClick handlers
+    // (e.g. mobile menu close) still fire.
     const onClick = (e: MouseEvent) => {
       const anchor = (e.target as HTMLElement).closest?.(
         'a[href^="#"]',
@@ -153,7 +154,10 @@ export default function ScrollExperience() {
       const id = decodeURIComponent(rawHref.slice(1))
       if (!document.getElementById(id)) return
       e.preventDefault()
-      e.stopPropagation()
+      // NOTE: do NOT stopPropagation here. The anchor's own onClick handlers
+      // (e.g. mobile menu close) must still fire. preventDefault() alone is
+      // sufficient to stop Next.js router interference (Link checks
+      // e.defaultPrevented before navigating).
       window.history.replaceState(null, "", rawHref)
       scrollToHashTarget(id)
     }
