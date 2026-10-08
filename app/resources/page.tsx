@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
+import SignalLine from "@/components/ui/SignalLine"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import {
-import SignalLine from "@/components/ui/SignalLine"
   SITUATIONS,
   SITUATION_B_BRANCHES,
   SPINES,
