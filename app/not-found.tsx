@@ -19,7 +19,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/"
-            className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
             Back to the homepage
           </Link>

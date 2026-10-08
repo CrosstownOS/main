@@ -186,7 +186,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
           <div className="mt-10 max-w-3xl">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+              <span className="bg-primary-deep px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
                 {resource.code ?? "Spine"}
               </span>
               <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary">
@@ -255,7 +255,7 @@ export default async function ResourcePage({ params }: PageProps) {
               <GatedDownloadButton
                 file={resource.file}
                 label={resource.code ?? resource.title}
-                className="mt-6 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="mt-6 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               />
               <Link
                 href="/resources/catalog"
@@ -284,7 +284,7 @@ export default async function ResourcePage({ params }: PageProps) {
               </p>
               <Link
                 href={`/tools/${liveTool.toolSlug}`}
-                className="mt-6 inline-block bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="mt-6 inline-block bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
                 Open the live tool
               </Link>

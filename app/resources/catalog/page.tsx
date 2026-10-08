@@ -108,7 +108,7 @@ export default function CatalogPage() {
                         className="theme-cream card-lift flex flex-col border border-border bg-card p-6"
                       >
                         <div className="flex flex-wrap items-center gap-3">
-                          <span className="bg-primary px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                          <span className="bg-primary-deep px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
                             {tool.code}
                           </span>
                           <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary">
@@ -129,7 +129,7 @@ export default function CatalogPage() {
                         <GatedDownloadButton
                           file={tool.file}
                           label={tool.code}
-                          className="mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                          className="mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                         />
                       </div>
                     ))}
@@ -154,7 +154,7 @@ export default function CatalogPage() {
             </p>
             <a
               href="/blog"
-              className="mt-5 inline-block border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+              className="mt-5 inline-block border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary-deep hover:text-white"
             >
               Read Field Notes
             </a>
@@ -181,7 +181,7 @@ export default function CatalogPage() {
             </ul>
             <a
               href="/workspace"
-              className="mt-6 inline-block border border-primary/60 bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               See the plans
             </a>
