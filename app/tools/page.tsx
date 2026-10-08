@@ -310,7 +310,7 @@ export default function ToolsPage() {
           {/* Trust strip */}
           <div className="mt-10 border border-border bg-card/60 p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
-              The standard, in six chips
+              The standard, in ten chips
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {(Object.keys(EVIDENCE_STATES) as EvidenceState[]).map((s) => (
