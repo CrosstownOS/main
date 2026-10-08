@@ -11,38 +11,44 @@ type CoreRoute = {
 }
 
 const CORE_ROUTES: CoreRoute[] = [
-    { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
-  { path: "/terms", changeFrequency: "monthly", priority: 0.5 },
-{ path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/workspace", changeFrequency: "weekly", priority: 0.95 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/tools", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/resources", changeFrequency: "monthly", priority: 0.9 },
   { path: "/parkproof-standard", changeFrequency: "monthly", priority: 0.85 },
   { path: "/parkproof-walkthrough", changeFrequency: "monthly", priority: 0.85 },
   { path: "/for-brokers-lenders", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/editorial-standards", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/workspace", changeFrequency: "weekly", priority: 0.95 },
   { path: "/trail-log", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/resources", changeFrequency: "monthly", priority: 0.9 },
   { path: "/resources/catalog", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/tools", changeFrequency: "weekly", priority: 0.9 },
   { path: "/tools/60-second-screener", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/rent-roll-truth-check", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/expense-normalizer", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/utility-capacity-triage", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/poh-toh-split", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/emd-clock", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/editorial-standards", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/terms", changeFrequency: "monthly", priority: 0.5 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
 
+  // Sort by date descending explicitly to find the latest post.
+  // Do not rely on getAllPosts() internal ordering.
+  const sortedByDate = [...posts].sort((a, b) =>
+    a.date < b.date ? 1 : a.date > b.date ? -1 : 0
+  )
   const latestPostDate =
-    posts.length > 0 ? new Date(posts[0].date + "T12:00:00") : new Date()
+    sortedByDate.length > 0
+      ? new Date(sortedByDate[0].date + "T12:00:00")
+      : new Date()
 
   return [
-    ...CORE_ROUTES.map((route, index) => ({
+    ...CORE_ROUTES.map((route) => ({
       url: `${BASE}${route.path}`,
-      lastModified:
-        route.path === "/blog" ? latestPostDate : new Date(),
+      lastModified: route.path === "/blog" ? latestPostDate : new Date(),
       changeFrequency: route.changeFrequency as "weekly" | "monthly",
       priority: route.priority,
     })),
