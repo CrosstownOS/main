@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     url: "/resources",
     images: [
       {
-        url: "/images/opengraph.jpg?v=2",
-        width: 1024,
-        height: 1024,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "Acquisition Signal Resources | CrosstownOS",
       },
     ],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Acquisition Signal Resources | CrosstownOS",
     description:
       "Thirty-five free diligence tools for RV park and manufactured-housing buyers.",
-    images: ["/images/opengraph.jpg?v=2"],
+    images: ["/og-image.jpg"],
   },
 }
 

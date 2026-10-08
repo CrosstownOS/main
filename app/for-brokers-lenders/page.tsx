@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: "/for-brokers-lenders",
     images: [
       {
-        url: "/images/opengraph.jpg?v=2",
-        width: 1024,
-        height: 1024,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "For Brokers and Lenders | CrosstownOS",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "For Brokers and Lenders | CrosstownOS",
     description:
       "What a buyer brings when the deal was worked in CrosstownOS.",
-    images: ["/images/opengraph.jpg?v=2"],
+    images: ["/og-image.jpg"],
   },
 }
 

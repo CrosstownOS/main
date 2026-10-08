@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     url: "/workspace",
     images: [
       {
-        url: "/images/opengraph.jpg?v=2",
-        width: 1024,
-        height: 1024,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "CrosstownOS Acquisition Workspace",
       },
     ],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "CrosstownOS Acquisition Workspace",
     description:
       "Single-deal or annual. You operate the workspace. You own the decision.",
-    images: ["/images/opengraph.jpg?v=2"],
+    images: ["/og-image.jpg"],
   },
 }
 
