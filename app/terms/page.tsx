@@ -85,7 +85,7 @@ export default function TermsPage() {
 
           {SECTIONS.map((section) => (
             <section key={section.heading} className="mt-12">
-              <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
+              <h2 className="font-serif text-lg font-bold tracking-tight text-foreground">
                 {section.heading}
               </h2>
               {section.body.map((paragraph, i) => (

@@ -82,6 +82,9 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json().catch(() => ({}))
+    if (JSON.stringify(body).length > 25_000) {
+      return NextResponse.json({ error: 'Payload too large.' }, { status: 413 })
+    }
     for (const field of HONEYPOT_FIELDS) {
       if (sanitizeText(body[field], 200)) {
         return NextResponse.json({ ok: true })

@@ -215,7 +215,12 @@ export default async function ResourcePage({ params }: PageProps) {
                 {resource.description}
               </p>
 
-              <h2 className="serif-display mt-10 text-2xl tracking-tight sm:text-3xl">
+            </section>
+            <section
+              aria-labelledby="resource-fit"
+              className="theme-cream paper border border-border p-6 sm:p-8"
+            >
+              <h2 id="resource-fit" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Where it fits
               </h2>
               {part ? (

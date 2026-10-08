@@ -188,7 +188,7 @@ const FAQ = [
   },
 ] as const
 
-export default function DealDeskPage() {
+export default function AcquisitionWorkspacePage() {
   return (
     <>
       <script

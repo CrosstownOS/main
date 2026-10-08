@@ -18,6 +18,7 @@ const FOOTER_LINKS = [
   { href: "/resources", label: "Resources" },
   { href: "/tools", label: "Working Papers" },
   { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy" },
 ] as const
 
 const DISCLAIMER_PARAGRAPHS = [

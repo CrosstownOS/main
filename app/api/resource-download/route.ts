@@ -209,6 +209,9 @@ export async function POST(request: NextRequest) {
     } catch {
       return NextResponse.json({ error: 'Invalid JSON request body.' }, { status: 400 })
     }
+    if (JSON.stringify(body).length > 25_000) {
+      return NextResponse.json({ error: 'Payload too large.' }, { status: 413 })
+    }
 
     if (!body || typeof body !== 'object' || Array.isArray(body)) {
       return NextResponse.json({ error: 'Invalid request payload.' }, { status: 400 })

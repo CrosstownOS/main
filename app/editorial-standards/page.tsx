@@ -123,7 +123,7 @@ export default function EditorialStandardsPage() {
           </p>
 
           <section className="mt-12">
-            <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
+            <h2 className="font-serif text-lg font-bold tracking-tight text-foreground">
               How we label claims
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -150,7 +150,7 @@ export default function EditorialStandardsPage() {
 
           {SECTIONS.map((section) => (
             <section key={section.heading} className="mt-12">
-              <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
+              <h2 className="font-serif text-lg font-bold tracking-tight text-foreground">
                 {section.heading}
               </h2>
               {section.body.map((paragraph, i) => (
@@ -165,7 +165,7 @@ export default function EditorialStandardsPage() {
           ))}
 
           <section className="mt-12">
-            <h2 className="font-sans text-lg font-bold tracking-tight text-foreground">
+            <h2 className="font-serif text-lg font-bold tracking-tight text-foreground">
               The publishing gate
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">

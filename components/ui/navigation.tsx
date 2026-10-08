@@ -469,7 +469,7 @@ export default function Navigation() {
               className="group flex min-w-fit items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="Return to the CrosstownOS homepage"
             >
-              <span className="relative h-10 w-10 flex-none overflow-hidden [clip-path:circle(50%)]">
+              <span className="relative h-11 w-11 flex-none overflow-hidden [clip-path:circle(50%)]">
                 <Image
                   src="/logo.jpg"
                   alt="CrosstownOS"

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, type ReactNode } from "react"
+import { useEffect, useRef, useState, type ReactNode } 
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
@@ -209,6 +209,7 @@ export default function ToolShell(props: ToolShellProps) {
     printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, faqs, children,
   } = props
   const [saveOpen, setSaveOpen] = useState(false)
+  const handleSaveClose = useCallback(() => setSaveOpen(false), [])
   const [saveMode, setSaveMode] = useState<SaveMode>("save")
   const [pendingDownload, setPendingDownload] = useState<"paper" | "json" | null>(null)
   const [savedEmail, setSavedEmail] = useState<string | null>(null)
@@ -499,7 +500,7 @@ export default function ToolShell(props: ToolShellProps) {
           toolSlug={slug}
           mode={saveMode}
           getPayload={getExport}
-          onClose={() => setSaveOpen(false)}
+          onClose={handleSaveClose}
           onSaved={handleModalSaved}
         />
       )}
