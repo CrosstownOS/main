@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { ArrowRight, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -12,12 +13,14 @@ const STORAGE_KEY = "crosstown:quiet-cta-dismissed"
  * scrolls past half a viewport. Mobile: full-width bottom bar. Desktop:
  * bottom-right chip. Dismissible; stays gone for the session via sessionStorage
  * (set only on explicit dismiss, so it never hides for users who never
- * dismissed it). Mounted in app/layout.tsx as a direct child of <body>,
- * OUTSIDE app/template.tsx: the .page-enter transform would otherwise break
- * its position: fixed. Transform-only motion; prefers-reduced-motion collapses
- * the slide.
+ * dismissed it). Never renders on /workspace itself: the CTA links there, so
+ * showing it on that page would be redundant. Mounted in app/layout.tsx as a
+ * direct child of <body>, OUTSIDE app/template.tsx: the .page-enter transform
+ * would otherwise break its position: fixed. Transform-only motion;
+ * prefers-reduced-motion collapses the slide.
  */
 export default function QuietCta() {
+  const pathname = usePathname()
   const [pastHero, setPastHero] = useState(false)
   const [dismissed, setDismissed] = useState(false)
 
@@ -50,6 +53,10 @@ export default function QuietCta() {
     }
   }, [])
 
+  // Never render on the workspace page: the CTA links to /workspace, so it
+  // would be redundant there.
+  if (pathname === "/workspace" || pathname === "/workspace/") return null
+
   if (dismissed) return null
 
   const dismiss = () => {
@@ -72,7 +79,7 @@ export default function QuietCta() {
           tabIndex={pastHero ? 0 : -1}
           className="btn-signal inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          Acquisition Workspace, see the plans
+          <span className="font-serif text-xs text-[#4A90D9]">Acquisition Workspace</span>, <span className="font-mono">see the plans</span>
           <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
         </Link>
         <button
