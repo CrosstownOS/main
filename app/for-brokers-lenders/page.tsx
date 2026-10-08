@@ -78,7 +78,7 @@ export default function ForBrokersLendersPage() {
   return (
     <>
       <Navigation />
-      <main className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">For Brokers + Lenders</p>
