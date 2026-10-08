@@ -43,7 +43,8 @@
   --muted: oklch(0.72 0.02 80);
 
   /* ── Secondary: copper / amber field-ops accent ── */
-  --accent: oklch(0.58 0.12 55);
+  /* L 0.65: small text (e.g. 9-10px mono labels) holds ≥4.5:1 on dark bg/card */
+  --accent: oklch(0.65 0.12 55);
   --accent-secondary: oklch(0.52 0.14 55);
 
   /* ── Tertiary: signal green — verified evidence ── */
