@@ -38,24 +38,10 @@ const FOCUSABLE_SELECTOR =
 // Self-contained: scroll updates mutate the bar's transform directly (GPU-cheap,
 // transform-only) instead of re-rendering Navigation on every scroll frame.
 // scrollHeight is measured on resize, never per scroll frame.
-// Section labels (THESIS / FIELD / PROOF / PAPERS) ride under the line on
-// desktop: upcoming dim, current full, passed faded. Opacity-only updates.
-const SECTION_LABELS = [
-  { label: "THESIS", id: "thesis" },
-  { label: "FIELD", id: "field-reality" },
-  { label: "PROOF", id: "parkproof" },
-  { label: "PAPERS", id: "working-papers" },
-] as const
-
 function ProgressBar() {
   const barRef = useRef<HTMLDivElement>(null)
   const maxScrollRef = useRef(0)
   const rafRef = useRef<number | null>(null)
-  const labelRefs = useRef<Array<HTMLSpanElement | null>>([])
-  const sectionsRef = useRef<Array<{ top: number; bottom: number } | null>>([])
-  const [labelPcts, setLabelPcts] = useState<number[]>([])
-  const pathname = usePathname()
-  const isHome = pathname === "/"
 
   useEffect(() => {
     const measure = () => {
@@ -64,21 +50,6 @@ function ProgressBar() {
         document.documentElement.scrollHeight - window.innerHeight,
       )
       maxScrollRef.current = max
-
-      if (isHome) {
-        const sections = SECTION_LABELS.map(({ id }) => {
-          const el = document.getElementById(id)
-          if (!el) return null
-          const top = el.getBoundingClientRect().top + window.scrollY
-          return { top, bottom: top + el.offsetHeight }
-        })
-        sectionsRef.current = sections
-        setLabelPcts(
-          sections.map((s) =>
-            s && max > 0 ? Math.min(0.96, Math.max(0.04, s.top / max)) : 0,
-          ),
-        )
-      }
     }
 
     const update = () => {
@@ -90,18 +61,6 @@ function ProgressBar() {
         const clamped = Math.min(1, Math.max(0, ratio))
         if (barRef.current) {
           barRef.current.style.transform = `scaleX(${clamped})`
-        }
-        if (isHome) {
-          const mid = window.scrollY + window.innerHeight * 0.35
-          sectionsRef.current.forEach((section, i) => {
-            const span = labelRefs.current[i]
-            if (!span) return
-            let opacity = 0
-            if (section) {
-              opacity = mid < section.top ? 0.35 : mid > section.bottom ? 0 : 1
-            }
-            span.style.opacity = String(opacity)
-          })
         }
       })
     }
@@ -120,7 +79,7 @@ function ProgressBar() {
       window.removeEventListener("resize", onResize)
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
     }
-  }, [isHome])
+  }, [])
 
   return (
     <div className="relative h-0.5 bg-border" aria-hidden="true">
@@ -128,22 +87,6 @@ function ProgressBar() {
         ref={barRef}
         className="h-full w-full origin-left scale-x-0 bg-primary shadow-[0_0_8px_rgba(58,134,242,0.95),0_0_18px_rgba(58,134,242,0.55)]"
       />
-      {isHome ? (
-        <div className="theme-cream pointer-events-none absolute inset-x-0 top-full hidden md:block">
-          {SECTION_LABELS.map(({ label }, i) => (
-            <span
-              key={label}
-              ref={(el) => {
-                labelRefs.current[i] = el
-              }}
-              className="absolute -translate-x-1/2 bg-background px-1 pt-[2px] font-mono text-[8px] uppercase leading-none tracking-[0.22em] text-muted opacity-0 transition-opacity duration-200"
-              style={{ left: `${(labelPcts[i] ?? 0) * 100}%` }}
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-      ) : null}
     </div>
   )
 }
@@ -455,7 +398,7 @@ export default function Navigation() {
         <ProgressBar />
 
         <div className="theme-cream flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4">
-          <p className="flex items-center gap-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
+          <p className="flex items-center gap-2 text-center font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
             <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
             The Acquisition Workspace opens November 2026. Single-deal or annual.
           </p>
