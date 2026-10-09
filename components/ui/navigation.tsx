@@ -397,12 +397,15 @@ export default function Navigation() {
       <div className="fixed inset-x-0 top-0 z-50">
         <ProgressBar />
 
-        <div className="theme-cream flex h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4">
-          <p className="flex items-center gap-2 text-center font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
-            <span className="h-1.5 w-1.5 bg-primary" aria-hidden="true" />
+        <Link
+          href="/workspace"
+          className="theme-cream flex min-h-8 items-center justify-center border-b border-border/70 bg-background/95 px-4 py-1.5"
+        >
+          <p className="flex items-center gap-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground sm:text-[11px] sm:tracking-[0.22em]">
+            <span className="h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
             The Acquisition Workspace opens November 2026. Single-deal or annual.
           </p>
-        </div>
+        </Link>
 
         <header className="border-b border-border bg-background/95">
           <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
