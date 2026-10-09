@@ -124,13 +124,6 @@ const INCLUDED_SHARED = [
   "One named operator account.",
 ] as const
 
-const NOT_INCLUDED = [
-  "Document review or interpretation of your numbers.",
-  "Confirmation of your diligence conclusions.",
-  "Weekly sessions, ongoing advisory, or a shared channel.",
-  "Additional live Q&A sessions with new purchases.",
-] as const
-
 const FOR_ITEMS = [
   "Active RV park or manufactured housing buyers with a live or imminent deal and a decision deadline in the next 60 to 90 days.",
   "Independent sponsors, small acquisition shops, and owner-operators who will bring real materials and work the record. You build it; the workflow guides you.",
@@ -458,17 +451,6 @@ export default function AcquisitionWorkspacePage() {
                 {INCLUDED_SHARED.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
                     <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <h3 className="mt-8 font-sans text-base font-bold tracking-tight text-foreground">
-                The boundary
-              </h3>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                {NOT_INCLUDED.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
