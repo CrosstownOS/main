@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 /**
  * BrandLoader — branded loading screen for CrosstownOS.
  *
  * Full-screen brand moment on first visit per session: logo, wordmark
  * (Playfair), signal-line draw, launch teaser (sans), launch date (mono),
- * and a cohort CTA. Fades out after 3s or on click. Skipped entirely
- * for prefers-reduced-motion.
+ * and a cohort CTA. Fades out after 2s; tapping anywhere routes to
+ * /workspace. Skipped entirely for prefers-reduced-motion.
  *
  * Zero-delay first paint: the loader markup is server-rendered, so it ships
  * in the initial HTML and is visible on the very first paint — it never pops
@@ -25,12 +26,13 @@ import Image from "next/image"
  * the effect. No module-level window ternaries — no TDZ risk.
  */
 const SESSION_KEY = "brand-loader-seen"
-const DISPLAY_MS = 3000
+const DISPLAY_MS = 2000
 const FADE_MS = 350
 
 export default function BrandLoader() {
   const [show, setShow] = useState(true)
   const [leaving, setLeaving] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     // Mirror the synchronous pre-paint script in layout.tsx: when this
@@ -73,12 +75,17 @@ export default function BrandLoader() {
 
   const dismiss = () => setLeaving(true)
 
+  const goToWorkspace = () => {
+    dismiss()
+    router.push("/workspace")
+  }
+
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-label="Welcome to CrosstownOS"
-      onClick={dismiss}
+      onClick={goToWorkspace}
       className={`brand-loader-root fixed inset-0 z-[200] flex cursor-pointer items-center justify-center bg-[#0c0b09] transition-opacity duration-300 ${
         leaving ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
