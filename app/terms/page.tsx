@@ -20,7 +20,7 @@ const SECTIONS = [
   {
     heading: "What this site is",
     body: [
-      "CrosstownOS operates this website to share information about diligence software for RV park and manufactured housing community buyers. The site includes articles, free browser-based working papers, a resource library, and purchase pages for the Acquisition Workspace, which is available now.",
+      "CrosstownOS operates this website to share information about diligence software for RV park and manufactured housing community buyers. The site includes articles, free browser-based working papers, a resource library, and purchase pages for the Acquisition Workspace, which opens November 2026.",
     ],
   },
   {
