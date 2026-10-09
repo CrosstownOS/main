@@ -41,3 +41,5 @@ Financial surprises negotiate. A rent roll gap becomes a retrade. Infrastructure
 This is also where the record outlives the deal. The utility file a buyer builds during diligence, permits, capacity, condition, maintenance history, becomes the operating baseline on day one of ownership. The truth established before the purchase is the same truth the manager needs after it. Build the record once, and it serves the whole life of the asset.
 
 Next in Field Notes: the rest of the file, one verification at a time.
+
+*Put it to work: run the [Utility Capacity Risk Triage](/tools/utility-capacity-triage) on your park's systems, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

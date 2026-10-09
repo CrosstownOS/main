@@ -371,6 +371,7 @@ export default function EmdClockTool() {
       faqs={EMD_FAQS}
 
       pdfHref="/resources/the-emd-countdown-tracker"
+      relatedNote={{ href: "/blog/speed-is-a-strategy-for-sellers-not-buyers", label: "Speed Is a Strategy for Sellers, Not Buyers" }}
     >
       <section className="border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">

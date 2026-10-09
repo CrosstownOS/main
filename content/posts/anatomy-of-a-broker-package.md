@@ -82,3 +82,5 @@ Nothing about the synthetic park has been decided by these labels. The labels do
 That is the discipline in the [ParkProof Standard](/parkproof-standard): every material claim carries where it came from and what state it is in. The deal does not become true because the package is polished. It becomes legible because the record separates what is verified, what was reported, what is missing, and what the buyer has chosen to assume.
 
 Next question for any package: if the headline number disappeared, what evidence would be left?
+
+*Put it to work: run the [60-Second Deal Screener](/tools/60-second-screener) on your live package, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

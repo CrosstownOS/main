@@ -58,3 +58,5 @@ This is the first field note, and it is the foundation for everything after it. 
 Next, we start with the rent roll: a document buyers tend to trust most and verify least. After that, occupancy, utilities, infrastructure, and the rest of the file, each one worked through the same four labels.
 
 Before you underwrite the deal, establish what is true. Everything else follows from that.
+
+*Put it to work: start with the [free RV park due diligence checklist](/checklist) for the fifteen items in order. When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record, every claim with its evidence state.*

@@ -50,6 +50,16 @@ export default function WorkingPapers() {
               shows its lineage. Free to use, no account. Export the file and
               bring it to the fit call.
             </p>
+            <p className="mb-8 text-sm leading-relaxed text-muted">
+              New to diligence? Start with the{" "}
+              <Link
+                href="/checklist"
+                className="font-semibold text-primary hover:underline"
+              >
+                free RV park due diligence checklist
+              </Link>
+              , then run the numbers here.
+            </p>
             <div className="mb-10 grid gap-3 text-left sm:grid-cols-2">
               {PAPERS.map((paper) => (
                 <Link

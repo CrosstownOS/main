@@ -368,6 +368,15 @@ export default function ToolsPage() {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               Every tool exports your numbers, your evidence states, and
               your open items in one file. Free, no account, yours to keep.
+              New to the discipline? Start with the{" "}
+              <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                free diligence checklist
+              </Link>{" "}
+              or{" "}
+              <Link href="/blog" className="font-semibold text-primary hover:underline">
+                read the Field Notes
+              </Link>{" "}
+              behind each verification.
             </p>
           </section>
 

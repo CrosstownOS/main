@@ -315,7 +315,20 @@ export default function TrailLogPage() {
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
                 Field Network is for operators, owners, and industry people
                 who want early updates, a voice in what gets built, and first
-                word when the Acquisition Workspace opens.
+                word when the Acquisition Workspace opens. While you wait,
+                the{" "}
+                <Link href="/tools" className="font-semibold text-primary hover:underline">
+                  working papers
+                </Link>
+                , the{" "}
+                <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                  diligence checklist
+                </Link>
+                , and the{" "}
+                <Link href="/blog" className="font-semibold text-primary hover:underline">
+                  Field Notes
+                </Link>{" "}
+                are all live now.
               </p>
               <Link
                 href="/#paths"

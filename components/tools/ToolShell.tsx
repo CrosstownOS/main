@@ -200,6 +200,7 @@ export type ToolShellProps = {
   ctaButton: string
   pdfHref: string
   faqs?: Faq[]
+  relatedNote?: { href: string; label: string }
   children: ReactNode
 }
 
@@ -207,7 +208,7 @@ export default function ToolShell(props: ToolShellProps) {
   const {
     slug, sourceCode, title, description, timeEstimate, inputCount,
     dealName, onDealName, onReset, getExport, exportFileName, posture,
-    printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, faqs, children,
+    printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, faqs, relatedNote, children,
   } = props
   const [saveOpen, setSaveOpen] = useState(false)
   const handleSaveClose = useCallback(() => setSaveOpen(false), [])
@@ -471,6 +472,37 @@ export default function ToolShell(props: ToolShellProps) {
             >
               {ctaButton}
             </Link>
+          </div>
+
+          <div className="mt-8 border-t border-border pt-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
+              Go deeper
+            </p>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+              Working the full file? Run the{" "}
+              <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                free RV park due diligence checklist
+              </Link>{" "}
+              for all fifteen items in order
+              {relatedNote ? (
+                <>
+                  , or read{" "}
+                  <Link href={relatedNote.href} className="font-semibold text-primary hover:underline">
+                    {relatedNote.label}
+                  </Link>{" "}
+                  for the thinking behind this verification
+                </>
+              ) : (
+                <>
+                  , or{" "}
+                  <Link href="/blog" className="font-semibold text-primary hover:underline">
+                    read the Field Notes
+                  </Link>{" "}
+                  for the thinking behind each verification
+                </>
+              )}
+              .
+            </p>
           </div>
 
         </div>

@@ -69,6 +69,21 @@ export default function BlogIndex() {
           >
             Subscribe via RSS
           </a>
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
+            Reading is the start.{" "}
+            <Link href="/tools" className="font-semibold text-primary hover:underline">
+              Run the working papers
+            </Link>{" "}
+            on your live deal, work the{" "}
+            <Link href="/checklist" className="font-semibold text-primary hover:underline">
+              free diligence checklist
+            </Link>
+            , or bring it all to the{" "}
+            <Link href="/workspace" className="font-semibold text-primary hover:underline">
+              Acquisition Workspace
+            </Link>
+            .
+          </p>
           <div className="mt-12 space-y-2">
             {posts.length === 0 && (
               <p className="theme-cream border border-border bg-card p-8 text-sm text-muted">

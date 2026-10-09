@@ -50,4 +50,6 @@ The paper asset and the physical asset must meet before someone wires money. Per
 
 Next in Field Notes: the rent roll is a claim, not income verification.
 
+*Put it to work: start with the [free RV park due diligence checklist](/checklist) for the fifteen items in order, including permits and zoning. When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
+
 *This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

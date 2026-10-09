@@ -43,3 +43,5 @@ The rent roll earned its reputation. It looks authoritative: rows, columns, tena
 Start with deposits. End with the truth. Everything in between is just labeling.
 
 Next in Field Notes: the utility system. Water, sewer, electrical, and the capacity questions nobody underwrote.
+
+*Put it to work: run the [Rent-Roll Truth Check](/tools/rent-roll-truth-check) to rebuild occupancy from deposits, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

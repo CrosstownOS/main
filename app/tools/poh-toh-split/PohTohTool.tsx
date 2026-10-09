@@ -317,6 +317,7 @@ export default function PohTohTool() {
       faqs={POH_TOH_FAQS}
 
       pdfHref="/resources/poh-toh-split-valuation-worksheet"
+      relatedNote={{ href: "/blog/read-the-pl-like-the-other-side-wrote-it", label: "Read the P&L Like the Other Side Wrote It" }}
     >
       <section className="border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">

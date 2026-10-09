@@ -32,26 +32,37 @@ export const metadata: Metadata = {
   },
 }
 
-const ITEMS = [
+type ChecklistItem = {
+  title: string
+  body: string
+  tool?: { href: string; label: string }
+}
+
+const ITEMS: ChecklistItem[] = [
   {
     title: "Rent roll truth check",
     body: "Compare every rent roll line against trailing 12-month bank deposits. The rent roll shows what should have been collected. Deposits show what arrived. Income verification starts at the bank, not the spreadsheet.",
+    tool: { href: "/tools/rent-roll-truth-check", label: "Run the Rent-Roll Truth Check" },
   },
   {
     title: "Paying occupancy, not reported occupancy",
     body: "Reported occupancy counts heads. Paying occupancy counts money. Pull the delinquency report, age the receivables, and find out how many of those occupied sites are actually current.",
+    tool: { href: "/tools/rent-roll-truth-check", label: "Run the Rent-Roll Truth Check" },
   },
   {
     title: "P&L normalization",
     body: "Read the seller's P&L like the other side wrote it. Normalize owner add-backs, one-time items, and below-market expenses (especially management fees the seller never paid themselves). Underwrite the real run rate.",
+    tool: { href: "/tools/expense-normalizer", label: "Run the Expense Normalizer" },
   },
   {
     title: "Utility systems: who pays and what they cost",
     body: "Confirm who pays for water, sewer, electric, gas, and trash on every site type. Get 12 months of utility bills. A utility bill nobody underwrote is the fastest way to blow up a pro forma.",
+    tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
   },
   {
     title: "Utility capacity",
     body: "For parks on well, septic, or lagoon: confirm permitted capacity against current and planned site counts. Capacity you assume but cannot prove is missing evidence, not a footnote.",
+    tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
   },
   {
     title: "Permits and zoning",
@@ -128,6 +139,16 @@ export default function ChecklistPage() {
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                     {item.body}
                   </p>
+                  {item.tool && (
+                    <p className="mt-3 text-sm">
+                      <Link
+                        href={item.tool.href}
+                        className="font-semibold text-primary hover:underline"
+                      >
+                        {item.tool.label} &rarr;
+                      </Link>
+                    </p>
+                  )}
                 </li>
               ))}
             </ol>
