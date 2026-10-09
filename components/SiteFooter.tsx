@@ -152,7 +152,7 @@ export default function SiteFooter() {
               Confidentiality and data-handling terms will apply to use of the Acquisition Workspace when it opens.
             </p>
             <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted/70">
-              &copy; {new Date().getFullYear()} CrosstownOS
+              &copy;{' '}{new Date().getFullYear()}{' '}CrosstownOS
             </p>
           </div>
         </Container>
