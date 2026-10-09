@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation"
  * BrandLoader — branded loading screen for CrosstownOS.
  *
  * Full-screen brand moment on first visit per session: logo, wordmark
- * (Playfair), signal-line draw, launch teaser (sans), launch date (mono),
- * and a cohort CTA. Fades out after 2s; tapping anywhere routes to
- * /workspace. Skipped entirely for prefers-reduced-motion.
+ * (Playfair), signal-line draw, launch teaser (sans), and launch date
+ * (mono). Fades out after 2s; tapping anywhere routes to /workspace.
+ * Skipped entirely for prefers-reduced-motion.
  *
  * Zero-delay first paint: the loader markup is server-rendered, so it ships
  * in the initial HTML and is visible on the very first paint — it never pops
@@ -109,16 +109,6 @@ export default function BrandLoader() {
         <p className="mt-3 font-mono text-xs uppercase tracking-[0.3em] text-[#3a86f2]">
           Launching November 2026
         </p>
-        <a
-          href="/#design-partner"
-          onClick={(e) => {
-            e.stopPropagation()
-            dismiss()
-          }}
-          className="mt-8 inline-flex items-center rounded-full bg-primary-deep px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary"
-        >
-          Join the Q4 Cohort
-        </a>
       </div>
     </div>
   )
