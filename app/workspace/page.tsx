@@ -437,7 +437,7 @@ export default function AcquisitionWorkspacePage() {
                 </p>
                 <TrackedApplyLink
                   plan="annual"
-                  className="mt-6 inline-block border border-border px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="mt-6 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
                 >
                   Start with a fit call
                 </TrackedApplyLink>
