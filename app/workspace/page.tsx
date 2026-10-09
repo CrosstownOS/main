@@ -144,7 +144,7 @@ const FAQ = [
   },
   {
     q: "What does the Annual Workspace include?",
-    a: "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual; we never auto-charge.",
+    a: "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
   },
   {
     q: "What do you mean by software Q&A? What is it not?",
