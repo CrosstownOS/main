@@ -364,26 +364,6 @@ export default function AcquisitionWorkspacePage() {
             </div>
           </section>
 
-          {/* ParkProof */}
-          <section aria-labelledby="deal-desk-parkproof" className="mt-20">
-            <h2 id="deal-desk-parkproof" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The decision file.
-            </h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/85">
-              When you are ready, you generate the ParkProof decision file
-              from inside the workspace: your documented posture, built from
-              your reviewed evidence, your unresolved gates, and your approved
-              assumptions.
-              CrosstownOS organizes the record.
-            </p>
-            <Link
-              href="/parkproof-standard"
-              className="mt-4 inline-block text-sm text-primary underline underline-offset-2 transition-colors hover:text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Read the ParkProof Standard
-            </Link>
-          </section>
-
           {/* Terms */}
           <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
           <SignalLine />
