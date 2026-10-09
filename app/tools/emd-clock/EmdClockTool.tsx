@@ -334,7 +334,17 @@ export default function EmdClockTool() {
       slug={SLUG}
       sourceCode={SOURCE_CODE}
       title={TOOL_NAME}
-      description="Your earnest money, on a clock. Dates move. Gates do not."
+      description={
+        <>
+          Your earnest money, on a clock. Dates move. Gates do not.{" "}
+          <a
+            href="/blog/speed-is-a-strategy-for-sellers-not-buyers"
+            className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+            Speed is a strategy for sellers, not buyers.
+          </a>
+        </>
+      }
       timeEstimate="5 minutes to set up"
       inputCount="3 inputs + gate register"
       dealName={dealName}
@@ -549,3 +559,4 @@ export default function EmdClockTool() {
     </ToolShell>
   )
 }
+

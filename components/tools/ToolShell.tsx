@@ -185,7 +185,7 @@ export type ToolShellProps = {
   slug: string
   sourceCode: string
   title: string
-  description: string
+  description: ReactNode
   timeEstimate: string
   inputCount: string
   dealName: string
@@ -513,3 +513,4 @@ export default function ToolShell(props: ToolShellProps) {
     </>
   )
 }
+

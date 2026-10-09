@@ -279,7 +279,18 @@ export default function PohTohTool() {
       slug={SLUG}
       sourceCode={SOURCE_CODE}
       title={TOOL_NAME}
-      description="Park-owned and tenant-owned homes are two businesses wearing one price tag. Value them separately."
+      description={
+        <>
+          Park-owned and tenant-owned homes are two businesses wearing one price tag. Value
+          them separately.{" "}
+          <a
+            href="/blog/reported-occupancy-is-not-paying-occupancy"
+            className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+            Reported occupancy is not paying occupancy.
+          </a>
+        </>
+      }
       timeEstimate="5 minutes"
       inputCount="7 inputs"
       dealName={dealName}
@@ -499,3 +510,4 @@ export default function PohTohTool() {
     </ToolShell>
   )
 }
+
