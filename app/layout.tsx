@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const siteDescription =
-  'Diligence software for RV park and manufactured housing buyers. Verified facts, broker claims, and missing evidence, separated before you buy.'
+  'Diligence software for RV park and manufactured housing (MHP) buyers. Verified facts, broker claims, and missing evidence, separated before you buy.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.crosstownosrv.camp'),
