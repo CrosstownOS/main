@@ -335,10 +335,10 @@ export default function AcquisitionWorkspacePage() {
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
               <strong className="font-semibold text-foreground">Know it. Take it. Hold it.</strong>{' '}
-              <strong className="font-semibold text-foreground">The Acquisition Workspace</strong>{' '}
-              <strong className="font-semibold text-foreground">opens November 2026</strong>:{' '}
+              The{' '}<strong className="font-semibold text-foreground">Acquisition Workspace</strong>{' '}
+              opens{' '}<strong className="font-semibold text-foreground">November 2026</strong>:{' '}
               <strong className="font-semibold text-foreground">Source</strong> + <strong className="font-semibold text-foreground">Field</strong> + <strong className="font-semibold text-foreground">Acquire</strong>, the first connected loop.{' '}
-              <strong className="font-semibold text-foreground">The Transition Workspace</strong> and{' '}
+              The{' '}<strong className="font-semibold text-foreground">Transition Workspace</strong> and{' '}
               <strong className="font-semibold text-foreground">Operations Workspace</strong> are the direction of the system.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
