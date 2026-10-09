@@ -21,6 +21,7 @@ const CORE_ROUTES: CoreRoute[] = [
   { path: "/for-brokers-lenders", changeFrequency: "monthly", priority: 0.8 },
   { path: "/trail-log", changeFrequency: "weekly", priority: 0.8 },
   { path: "/resources/catalog", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/checklist", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/60-second-screener", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/rent-roll-truth-check", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/expense-normalizer", changeFrequency: "monthly", priority: 0.8 },
