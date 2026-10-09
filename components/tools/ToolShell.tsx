@@ -325,6 +325,7 @@ export default function ToolShell(props: ToolShellProps) {
         [data-print-root] .print-meta { font-size: 11px; color: #555; margin: 0 0 4px 0; }
         [data-print-root] .print-posture { border: 1px solid #00468B; background: #f4f7fb; padding: 12px 16px; margin: 16px 0; }
         [data-print-root] .print-posture strong { color: #00468B; }
+        [data-print-root] * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
       }`}</style>
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">

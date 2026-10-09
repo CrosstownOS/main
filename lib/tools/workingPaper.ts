@@ -30,6 +30,17 @@ const POSTURE_TITLES: Record<string, string> = {
   advance: "Advance",
 }
 
+/** Per-state chip colors (hex, print-safe). Mirrors the EVIDENCE_STATES chip
+ *  hues from lib/tools/evidence.ts so the working paper matches the live tool. */
+const STATE_COLORS: Record<string, string> = {
+  verified: "#1c6c31",
+  "broker-reported": "#994a00",
+  missing: "#ac3031",
+  assumption: "#00468B",
+  calculated: "#00468B",
+  unresolved: "#6a5f4e",
+}
+
 function esc(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -41,6 +52,10 @@ function esc(value: string): string {
 
 function stateLabel(state: string): string {
   return STATE_LABELS[state] ?? state
+}
+
+function stateColor(state: string): string {
+  return STATE_COLORS[state] ?? "#6a5f4e"
 }
 
 function humanValue(value: string | number | null, display?: string): string {
@@ -72,7 +87,7 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
         </div>
         <div class="row-side">
           <div class="row-value">${esc(humanValue(input.value))}</div>
-          <div class="state-tag">${esc(stateLabel(input.state))}</div>
+          <div class="state-tag" style="color: ${stateColor(input.state)}; border-color: ${stateColor(input.state)};">${esc(stateLabel(input.state))}</div>
         </div>
       </div>`,
     )
@@ -88,7 +103,7 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
         </div>
         <div class="row-side">
           <div class="row-value">${esc(humanValue(output.value, output.display))}</div>
-          <div class="state-tag">${esc(stateLabel(output.state))}</div>
+          <div class="state-tag" style="color: ${stateColor(output.state)}; border-color: ${stateColor(output.state)};">${esc(stateLabel(output.state))}</div>
         </div>
       </div>`,
     )
@@ -151,6 +166,7 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
   .sig-line { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #a29b8e; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 3px 0; }
   .brandline { text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; margin-top: 28px; color: #a29b8e; }
   @media print {
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     body { background: #fff; color: #1a1a1a; }
     .page { max-width: 100%; padding: 0; }
     .brandbar { border-top-color: ${ACQUIRE_BLUE}; }
@@ -160,7 +176,7 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
     .posture .fine { color: #555; }
     .row { border-bottom-color: #ddd; }
     .row-note, .meta { color: #555; }
-    .state-tag { color: ${ACQUIRE_BLUE}; border-color: ${ACQUIRE_BLUE}; }
+    .state-tag { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     .footer-links a { color: ${ACQUIRE_BLUE}; }
     .sig-tag, .sig-line, .empty, .brandline { color: #555; }
   }
