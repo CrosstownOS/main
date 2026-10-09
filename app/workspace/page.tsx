@@ -518,7 +518,6 @@ export default function AcquisitionWorkspacePage() {
                 </ul>
               </div>
             </div>
-            </p>
           </section>
 
           {/* FAQ */}
