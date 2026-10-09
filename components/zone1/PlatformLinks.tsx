@@ -53,7 +53,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
     name: "Acquisition Workspace",
     question: "Actively acquiring an RV park or MHC?",
     description:
-      "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the CrosstownOS workspace, from evidence to a documented decision file. You operate it.",
+      "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the CrosstownOS workspace, from evidence to a documented decision file.",
     cta: "See the plans",
     action: "deal_desk",
     href: "/workspace",
