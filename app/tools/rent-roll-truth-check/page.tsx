@@ -6,7 +6,7 @@ const TITLE = "Rent-Roll Truth Check | CrosstownOS"
 const DESCRIPTION =
   "Rebuild reported occupancy from deposits. The rent roll is a claim. Deposits are the verification."
 const PATH = "/tools/rent-roll-truth-check"
-const OG_IMAGE = "/images/opengraph.jpg?v=2"
+const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
   title: TITLE,

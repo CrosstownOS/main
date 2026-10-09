@@ -6,7 +6,7 @@ const TITLE = "Utility Capacity Risk Triage | CrosstownOS"
 const DESCRIPTION =
   "Water, sewer, electric. The systems nobody underwrites until they become the emergency. The Arizona Rule, live."
 const PATH = "/tools/utility-capacity-triage"
-const OG_IMAGE = "/images/opengraph.jpg?v=2"
+const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
   title: TITLE,

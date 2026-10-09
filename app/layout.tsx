@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: '/og-logo.png',
+        width: 1024,
+        height: 1024,
         alt: 'CrosstownOS: evidence-backed acquisition intelligence',
       },
     ],
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: 'CrosstownOS',
     description:
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
-    images: ['/og-image.jpg'],
+    images: ['/og-logo.png'],
   },
   robots: {
     index: true,

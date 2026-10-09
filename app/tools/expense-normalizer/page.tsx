@@ -6,7 +6,7 @@ const TITLE = "Expense Normalizer | CrosstownOS"
 const DESCRIPTION =
   "Restate the seller's expenses for the operation you will actually run. Mom-and-pop P&Ls are fiction until normalized."
 const PATH = "/tools/expense-normalizer"
-const OG_IMAGE = "/images/opengraph.jpg?v=2"
+const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
   title: TITLE,

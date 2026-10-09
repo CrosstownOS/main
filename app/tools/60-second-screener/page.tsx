@@ -6,7 +6,7 @@ const TITLE = "60-Second Deal Screener | CrosstownOS"
 const DESCRIPTION =
   "Six numbers, one posture. If a deal cannot survive this page, it does not deserve a phone call."
 const PATH = "/tools/60-second-screener"
-const OG_IMAGE = "/images/opengraph.jpg?v=2"
+const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
   title: TITLE,

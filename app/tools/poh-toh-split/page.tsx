@@ -6,7 +6,7 @@ const TITLE = "POH/TOH Split Valuation | CrosstownOS"
 const DESCRIPTION =
   "Park-owned and tenant-owned homes are two businesses wearing one price tag. Value them separately."
 const PATH = "/tools/poh-toh-split"
-const OG_IMAGE = "/images/opengraph.jpg?v=2"
+const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
   title: TITLE,

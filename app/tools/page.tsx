@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     url: "/tools",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/og-logo.png",
+        width: 1024,
+        height: 1024,
         alt: "Live Diligence Working Papers | CrosstownOS",
       },
     ],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Live Diligence Working Papers | CrosstownOS",
     description:
       "Six working papers that run in your browser. Every number carries an evidence state.",
-    images: ["/og-image.jpg"],
+    images: ["/og-logo.png"],
   },
 }
 

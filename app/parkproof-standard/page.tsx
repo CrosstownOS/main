@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: "/parkproof-standard",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/og-logo.png",
+        width: 1024,
+        height: 1024,
         alt: "The ParkProof Standard | CrosstownOS",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "The ParkProof Standard | CrosstownOS",
     description:
       "Evidence states, gates, and evidence-readiness labels for a documented decision file.",
-    images: ["/og-image.jpg"],
+    images: ["/og-logo.png"],
   },
 }
 
