@@ -10,8 +10,7 @@ import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
   title: "Live Diligence Working Papers | CrosstownOS",
-  description:
-    "Free diligence tools that run in your browser. Run the math on your live deal, keep the record, export the file.",
+  description: "Six free RV park diligence tools that run in your browser. Screen deals, verify rent rolls, normalize P&Ls, and triage utility risk. No account is needed.",
   alternates: { canonical: "/tools" },
   openGraph: {
     title: "Live Diligence Working Papers | CrosstownOS",

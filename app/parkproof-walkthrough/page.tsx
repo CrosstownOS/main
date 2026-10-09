@@ -7,8 +7,7 @@ import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "ParkProof Walkthrough | CrosstownOS",
-  description:
-    "Walk a fictional RV park deal from broker package to documented posture as claims gain support, stay unresolved, or remain missing.",
+  description: "Walk a fictional RV park deal from broker package to documented decision. Watch claims gain support or stay unresolved inside the full ParkProof record.",
   alternates: { canonical: "/parkproof-walkthrough" },
   openGraph: {
     title: "ParkProof Walkthrough | CrosstownOS",

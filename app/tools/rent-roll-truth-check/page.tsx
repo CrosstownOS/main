@@ -3,8 +3,7 @@ import RentRollTool from "./RentRollTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "Rent-Roll Truth Check | CrosstownOS"
-const DESCRIPTION =
-  "Rebuild reported occupancy from deposits. The rent roll is a claim. Deposits are the verification."
+const DESCRIPTION = "Rebuild RV park occupancy from bank deposits, not the rent roll. Expose phantom revenue, comped units, and carried delinquency. Free working paper included."
 const PATH = "/tools/rent-roll-truth-check"
 const OG_IMAGE = "/og-logo.png"
 

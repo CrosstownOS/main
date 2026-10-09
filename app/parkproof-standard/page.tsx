@@ -7,8 +7,7 @@ import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   title: "The ParkProof Standard | CrosstownOS",
-  description:
-    "The public ParkProof standard: evidence states, gates, and evidence-readiness labels for a documented decision file.",
+  description: "The ParkProof standard: how RV park buyers label evidence, clear diligence gates, and document the posture behind every single acquisition decision they make.",
   alternates: { canonical: "/parkproof-standard" },
   openGraph: {
     title: "The ParkProof Standard | CrosstownOS",

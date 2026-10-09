@@ -3,7 +3,7 @@ import EmdClockTool from "./EmdClockTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "EMD Clock and Gate Tracker | CrosstownOS"
-const DESCRIPTION = "Your earnest money, on a clock. Dates move. Gates do not."
+const DESCRIPTION = "Track your RV park earnest money deposit against diligence gates and contingency deadlines. Know exactly when your money goes hard on the deal. Free tool."
 const PATH = "/tools/emd-clock"
 const OG_IMAGE = "/og-logo.png"
 

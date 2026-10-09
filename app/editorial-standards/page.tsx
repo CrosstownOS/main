@@ -5,8 +5,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   title: "Editorial Standards | CrosstownOS",
-  description:
-    "How CrosstownOS handles evidence, community learning, and AI-assisted work: what we verify, what we label, and what we never publish.",
+  description: "How CrosstownOS handles evidence, community learning, and AI-assisted work. What we verify, what we label, and what we never publish. Read the full rules.",
   alternates: { canonical: "/editorial-standards" },
   openGraph: {
     title: "Editorial Standards | CrosstownOS",

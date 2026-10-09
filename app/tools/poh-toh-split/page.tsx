@@ -3,8 +3,7 @@ import PohTohTool from "./PohTohTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "POH/TOH Split Valuation | CrosstownOS"
-const DESCRIPTION =
-  "Park-owned and tenant-owned homes are two businesses wearing one price tag. Value them separately."
+const DESCRIPTION = "Split park-owned and tenant-owned home values in any manufactured housing deal. Two businesses wearing one price tag. Value them separately with this tool."
 const PATH = "/tools/poh-toh-split"
 const OG_IMAGE = "/og-logo.png"
 
