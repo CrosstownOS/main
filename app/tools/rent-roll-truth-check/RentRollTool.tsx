@@ -274,7 +274,18 @@ export default function RentRollTool() {
       slug="rent-roll-truth-check"
       sourceCode="AS-15"
       title="Rent-Roll Truth Check"
-      description="Rebuild reported occupancy from deposits. The rent roll is a claim. Deposits are the verification."
+      description={
+        <>
+          Rebuild reported occupancy from deposits.{" "}
+          <a
+            href="/blog/the-rent-roll-is-a-claim-not-income-verification"
+            className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+            The rent roll is a claim, not income verification.
+          </a>{" "}
+          Deposits are the verification.
+        </>
+      }
       timeEstimate="10 minutes"
       inputCount="3 sections"
       dealName={dealName}
@@ -593,3 +604,4 @@ export default function RentRollTool() {
     </ToolShell>
   )
 }
+

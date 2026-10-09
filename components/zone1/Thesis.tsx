@@ -62,7 +62,14 @@ export default function Thesis() {
 
           <div>
             <p className="max-w-3xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-              Operating businesses disguised as real estate often come with the evidence scattered across broker packages, spreadsheets, and memory. Crosstown makes the record disciplined before capital is committed, and for the life of the asset.
+              Operating businesses disguised as real estate often come with the evidence scattered across{" "}
+              <a
+                href="/blog/anatomy-of-a-broker-package"
+                className="text-primary underline underline-offset-2 hover:no-underline"
+              >
+                broker packages
+              </a>
+              , spreadsheets, and memory. Crosstown makes the record disciplined before capital is committed, and for the life of the asset.
             </p>
 
             <div className="theme-cream paper mt-10 divide-y divide-border/60 border border-border/60 bg-card/40 shadow-[0_0_60px_-15px_oklch(0.50_0.08_250/0.25)]">
@@ -87,4 +94,4 @@ export default function Thesis() {
       </Container>
     </Section>
   )
-}
+}

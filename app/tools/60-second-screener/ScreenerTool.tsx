@@ -188,7 +188,18 @@ export default function ScreenerTool() {
       slug="60-second-screener"
       sourceCode="AS-02"
       title="60-Second Deal Screener"
-      description="Six numbers, one posture. If a deal cannot survive this page, it does not deserve a phone call."
+      description={
+        <>
+          Six numbers, one posture. If a deal cannot survive this page, it does not deserve
+          a phone call.{" "}
+          <a
+            href="/blog/before-you-underwrite-establish-what-is-true"
+            className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+            Establish what is true before you underwrite the deal.
+          </a>
+        </>
+      }
       timeEstimate="60 seconds"
       inputCount="8 inputs"
       dealName={dealName}
@@ -448,3 +459,4 @@ export default function ScreenerTool() {
     </ToolShell>
   )
 }
+

@@ -304,7 +304,18 @@ export default function ExpenseNormalizerTool() {
       slug="expense-normalizer"
       sourceCode="AS-08"
       title="Expense Normalizer"
-      description="Restate the seller's expenses for the operation you will actually run. Mom-and-pop P&Ls are fiction until normalized."
+      description={
+        <>
+          Restate the seller&apos;s expenses for the operation you will actually run.{" "}
+          <a
+            href="/blog/read-the-pl-like-the-other-side-wrote-it"
+            className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+            Read the P&amp;L like the other side wrote it
+          </a>
+          , because mom-and-pop P&amp;Ls are fiction until normalized.
+        </>
+      }
       timeEstimate="15 minutes"
       inputCount="variable inputs"
       dealName={dealName}
@@ -649,3 +660,4 @@ export default function ExpenseNormalizerTool() {
     </ToolShell>
   )
 }
+

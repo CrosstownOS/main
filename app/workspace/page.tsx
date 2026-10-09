@@ -61,14 +61,20 @@ const PAINS = [
   {
     title: "The numbers do not tie.",
     body: "The rent roll, the P&L, and the bank deposits tell three different stories, and nobody owns the reconciliation.",
+    linkText: "The rent roll is a claim, not income verification",
+    linkHref: "/blog/the-rent-roll-is-a-claim-not-income-verification",
   },
   {
     title: "The package does not establish infrastructure condition or capacity.",
     body: "Water, sewer, electrical, and roads carry the real risk. A package may mention them without establishing permits, responsibility, or operating condition.",
+    linkText: "The permits buyers skip",
+    linkHref: "/blog/the-permits-buyers-skip",
   },
   {
     title: "There is no authoritative record.",
     body: "Diligence lives in inboxes, photo folders, and memory. When the deadline moves, the truth moves with it.",
+    linkText: "Before you underwrite the deal, establish what is true",
+    linkHref: "/blog/before-you-underwrite-establish-what-is-true",
   },
 ] as const
 
@@ -289,7 +295,16 @@ export default function AcquisitionWorkspacePage() {
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {pain.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{pain.body}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {pain.body}{" "}
+                    <a
+                      href={pain.linkHref}
+                      className="text-primary underline underline-offset-2 hover:no-underline"
+                    >
+                      {pain.linkText}
+                    </a>
+                    .
+                  </p>
                 </div>
               ))}
             </div>
@@ -599,3 +614,4 @@ export default function AcquisitionWorkspacePage() {
     </>
   )
 }
+

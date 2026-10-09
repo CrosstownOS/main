@@ -352,7 +352,18 @@ export default function UtilityTriageTool() {
       slug={SLUG}
       sourceCode={SOURCE_CODE}
       title={TOOL_NAME}
-      description="Water, sewer, electric. The systems nobody underwrites until they become the emergency. The Arizona Rule, live."
+      description={
+        <>
+          Water, sewer, electric.{" "}
+          <a
+            href="/blog/the-utility-system-nobody-underwrote"
+            className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+            The systems nobody underwrites
+          </a>{" "}
+          until they become the emergency. The Arizona Rule, live.
+        </>
+      }
       timeEstimate="10 minutes"
       inputCount="13 inputs"
       dealName={dealName}
@@ -554,3 +565,4 @@ export default function UtilityTriageTool() {
     </ToolShell>
   )
 }
+
