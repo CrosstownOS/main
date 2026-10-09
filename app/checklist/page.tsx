@@ -6,7 +6,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 export const metadata: Metadata = {
   title: "RV Park Due Diligence Checklist | CrosstownOS",
   description:
-    "A free RV park due diligence checklist for buyers: rent roll verification, P&L normalization, occupancy, utilities, permits, zoning, and the other items that decide whether the deal is real.",
+    "Free RV park due diligence checklist: 15 items covering rent roll verification, P&L normalization, utilities, permits, zoning, and the final decision file.",
   alternates: { canonical: "/checklist" },
   openGraph: {
     title: "RV Park Due Diligence Checklist | CrosstownOS",
@@ -106,10 +106,29 @@ const ITEMS: ChecklistItem[] = [
   },
 ]
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "RV Park Due Diligence Checklist",
+  description:
+    "Fifteen items to verify before you commit capital on an RV park or manufactured housing deal.",
+  step: ITEMS.map((item, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: item.title,
+    text: item.body,
+  })),
+  totalTime: "P1D",
+};
+
 export default function ChecklistPage() {
   return (
     <>
       <Navigation />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">

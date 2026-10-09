@@ -8,8 +8,7 @@ import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
   title: "The Trail Log | CrosstownOS",
-  description:
-    "The Field Network build log: what has shipped, what is being built, and where members can weigh in.",
+  description: "Follow the CrosstownOS build in the Trail Log. What has shipped, what is being built, and where the Field Network community weighs in on what is next.",
   alternates: { canonical: "/trail-log" },
   openGraph: {
     title: "The Trail Log | CrosstownOS",

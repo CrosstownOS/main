@@ -3,8 +3,7 @@ import UtilityTriageTool from "./UtilityTriageTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "Utility Capacity Risk Triage | CrosstownOS"
-const DESCRIPTION =
-  "Water, sewer, electric. The systems nobody underwrites until they become the emergency. The Arizona Rule, live."
+const DESCRIPTION = "Triage water, sewer, and electric capacity risk on any RV park deal before it becomes the emergency. The Arizona Rule, live in your browser right now."
 const PATH = "/tools/utility-capacity-triage"
 const OG_IMAGE = "/og-logo.png"
 

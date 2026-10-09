@@ -18,8 +18,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: "Acquisition Signal Resources | CrosstownOS",
-  description:
-    "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
+  description: "35 free RV park diligence tools: checklists, scripts, and working papers for every stage of the acquisition journey. Download them or run them in your browser.",
   alternates: { canonical: "/resources" },
   openGraph: {
     title: "Acquisition Signal Resources | CrosstownOS",

@@ -3,8 +3,7 @@ import ExpenseNormalizerTool from "./ExpenseNormalizerTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "Expense Normalizer | CrosstownOS"
-const DESCRIPTION =
-  "Restate the seller's expenses for the operation you will actually run. Mom-and-pop P&Ls are fiction until normalized."
+const DESCRIPTION = "Normalize any RV park seller's P&L for the operation you will actually run. Restate expenses, expose phantom profit, and underwrite the true deal numbers."
 const PATH = "/tools/expense-normalizer"
 const OG_IMAGE = "/og-logo.png"
 
