@@ -40,7 +40,7 @@ export default function DealDeskPromo() {
             <p className="mb-8 text-base leading-relaxed text-muted sm:text-lg">
               Seller claims, source evidence, site observations, unresolved
               diligence, and underwriting, connected in one workspace before
-              you commit capital. You operate it. You own the decision.
+              you commit capital.
             </p>
             <div className="mb-6 md:flex md:items-stretch md:justify-center">
               <div className="flex-1 px-4 text-center">
