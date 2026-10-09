@@ -455,18 +455,58 @@ export default function AcquisitionWorkspacePage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-8 text-sm leading-relaxed text-foreground/85">
-                Access begins when your credentials and onboarding materials are
-                delivered. Renewal is manual; we never auto-charge. One property
-                means one park or community acquisition, including associated
-                parcels. If you abandon a deal, single-deal access does not
-                transfer.
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-                After expiration, editing ends. Export your records before then.
-                We retain your data for 30 days, then schedule deletion. Full
-                refund within seven calendar days of activation; refund ends access.
-              </p>
+              <div className="mt-8">
+                <h4 className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+                  Terms of access
+                </h4>
+                <ol className="mt-4 space-y-3 text-sm leading-relaxed text-foreground/85">
+                  <li>
+                    <span className="font-bold text-foreground">Activation.</span>{" "}
+                    Access commences upon delivery of your account credentials
+                    and onboarding materials. The date of delivery is your
+                    activation date.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground">Renewal.</span>{" "}
+                    Renewal is manual. CrosstownOS does not enroll accounts in
+                    automatic renewal and does not charge cards on file without
+                    a new, explicit purchase.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground">License scope.</span>{" "}
+                    A Single-Deal Workspace license covers one property: one
+                    park or community acquisition, including associated parcels
+                    transacted under a single purchase agreement. The license is
+                    non-transferable. If the transaction is abandoned or does
+                    not close, it does not transfer to another property.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground">Expiration.</span>{" "}
+                    Single-Deal access ends 90 calendar days from activation.
+                    Annual access ends 12 months from activation. Editing
+                    privileges end at expiration, so export your records before
+                    then.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground">Data retention.</span>{" "}
+                    Account data is retained for thirty (30) calendar days
+                    following expiration, after which deletion is scheduled and
+                    carried out.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground">Refunds.</span>{" "}
+                    A full refund is available within seven (7) calendar days of
+                    activation. Requesting a refund terminates access
+                    immediately.
+                  </li>
+                </ol>
+                <Link
+                  href="/terms"
+                  className="mt-4 inline-block text-sm text-primary underline underline-offset-2 transition-colors hover:text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Read the full Terms of Use
+                </Link>
+              </div>
             </div>
           </section>
 
