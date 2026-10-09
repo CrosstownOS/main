@@ -5,7 +5,7 @@ import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 const TITLE = "EMD Clock and Gate Tracker | CrosstownOS"
 const DESCRIPTION = "Your earnest money, on a clock. Dates move. Gates do not."
 const PATH = "/tools/emd-clock"
-const OG_IMAGE = "/images/opengraph.jpg?v=2"
+const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
   title: TITLE,

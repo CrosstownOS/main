@@ -89,9 +89,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: canonical,
       images: [
         {
-          url: "/og-image.jpg",
-          width: 1200,
-          height: 630,
+          url: "/og-logo.png",
+          width: 1024,
+          height: 1024,
           alt: displayName(resource),
         },
       ],
@@ -100,7 +100,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description: resource.description,
-      images: ["/og-image.jpg"],
+      images: ["/og-logo.png"],
     },
   }
 }

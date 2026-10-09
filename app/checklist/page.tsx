@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     url: "/checklist",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/og-logo.png",
+        width: 1024,
+        height: 1024,
         alt: "RV Park Due Diligence Checklist | CrosstownOS",
       },
     ],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "RV Park Due Diligence Checklist | CrosstownOS",
     description:
       "The 15 items to verify before you commit capital on an RV park or manufactured housing deal.",
-    images: ["/og-image.jpg"],
+    images: ["/og-logo.png"],
   },
 }
 
