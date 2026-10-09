@@ -62,7 +62,7 @@ export default function LifecycleVision() {
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
             CrosstownOS is three workspaces across the asset lifecycle. The{" "}
             <strong className="font-semibold text-foreground">Acquisition Workspace</strong>{" "}
-            (<strong className="font-semibold text-foreground">Know it</strong>: <strong className="font-semibold text-foreground">Source</strong>, <strong className="font-semibold text-foreground">Field</strong>, <strong className="font-semibold text-foreground">Acquire</strong>) opens November 2026. The{" "}
+            (<strong className="font-semibold text-foreground">Know it</strong>: <strong className="font-semibold text-foreground">Source</strong>, <strong className="font-semibold text-foreground">Field</strong>, <strong className="font-semibold text-foreground">Acquire</strong>) <strong className="font-semibold text-foreground">opens November 2026</strong>. The{" "}
             <strong className="font-semibold text-foreground">Transition Workspace</strong>{" "}
             (<strong className="font-semibold text-foreground">Take it</strong>: <strong className="font-semibold text-foreground">Field</strong>, <strong className="font-semibold text-foreground">Close</strong>, <strong className="font-semibold text-foreground">Launch</strong>) and the{" "}
             <strong className="font-semibold text-foreground">Operations Workspace</strong>{" "}
