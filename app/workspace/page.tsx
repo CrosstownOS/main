@@ -341,7 +341,7 @@ export default function AcquisitionWorkspacePage() {
               The November product, in one view.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              Know it. Take it. Hold it. The Acquisition Workspace opens November 2026:
+              <span className="font-bold">Know it. Take it. Hold it.</span> The Acquisition Workspace opens November 2026:
               Source + Field + Acquire, the first connected loop. The Transition Workspace
               and Operations Workspace are the direction of the system.
             </p>
