@@ -42,10 +42,30 @@ export default function DealDeskPromo() {
               diligence, and underwriting, connected in one workspace before
               you commit capital. You operate it. You own the decision.
             </p>
+            <div className="mb-6 md:flex md:items-stretch md:justify-center">
+              <div className="flex-1 px-4 text-center">
+                <p className="serif-display text-6xl tracking-tight text-foreground sm:text-7xl">
+                  $<span ref={singleDeal}>1,250</span>
+                </p>
+                <p className="mt-2 font-sans text-xl font-bold text-foreground">
+                  Single-Deal
+                </p>
+              </div>
+              <div
+                className="mx-auto my-6 h-px w-24 shrink-0 bg-primary/40 md:my-0 md:h-auto md:w-px"
+                aria-hidden="true"
+              />
+              <div className="flex-1 px-4 text-center">
+                <p className="serif-display text-6xl tracking-tight text-foreground sm:text-7xl">
+                  $<span ref={annual}>2,500</span>
+                </p>
+                <p className="mt-2 font-sans text-xl font-bold text-foreground">
+                  Annual
+                </p>
+              </div>
+            </div>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
-              Single-deal $<span ref={singleDeal}>1,250</span>. Annual $
-              <span ref={annual}>2,500</span>. Recorded walkthrough plus one
-              live software Q&A.
+              Recorded walkthrough plus one live software Q&A.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
