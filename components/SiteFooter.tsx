@@ -6,7 +6,6 @@ import Link from "next/link"
 import { Container, TerminalLabel } from "@/components/ui/primitives"
 
 const FOOTER_LINKS = [
-  { href: "/#thesis", label: "Thesis" },
   { href: "/parkproof-standard", label: "ParkProof Standard" },
   { href: "/editorial-standards", label: "Editorial Standards" },
   { href: "/parkproof-walkthrough", label: "ParkProof Walkthrough" },
