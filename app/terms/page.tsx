@@ -11,10 +11,22 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   {
+    heading: "Agreement",
+    body: [
+      "By accessing crosstownosrv.camp, using the free working papers, or purchasing the Acquisition Workspace, you agree to these Terms of Use. If you do not agree, do not use the site or the workspace.",
+      "CrosstownOS is operated by Jeremy Cross, based in Kaufman, Texas. References to CrosstownOS, we, or us mean the operator of this site and the Acquisition Workspace.",
+    ],
+  },
+  {
     heading: "What this site is",
     body: [
-      "CrosstownOS operates this website to share information about diligence software for RV park and manufactured housing community buyers. The site includes articles, free browser-based working papers, and an application form for the forthcoming Acquisition Workspace.",
-      "No product is currently available for purchase through this site. No accounts are created through this site.",
+      "CrosstownOS operates this website to share information about diligence software for RV park and manufactured housing community buyers. The site includes articles, free browser-based working papers, a resource library, and purchase pages for the Acquisition Workspace, which is available now.",
+    ],
+  },
+  {
+    heading: "Definitions",
+    body: [
+      "Site means crosstownosrv.camp and its pages, tools, and content. Workspace means the Acquisition Workspace software, including its Source, Field, and Acquire modules. Operator means the named person on a workspace account. Activation means the date we deliver your account credentials and onboarding materials.",
     ],
   },
   {
@@ -36,39 +48,44 @@ const SECTIONS = [
     ],
   },
   {
+    heading: "Accounts and credentials",
+    body: [
+      "Each workspace purchase includes one named operator account. You are responsible for keeping your credentials confidential and for all activity under your account. We are not responsible for activity resulting from credentials you shared or failed to protect. Tell us promptly if you suspect unauthorized use.",
+    ],
+  },
+  {
+    heading: "License and permitted use",
+    body: [
+      "Your purchase gives you a limited, non-exclusive, non-transferable license to use the workspace for the licensed property and term, for your own acquisition diligence. You may not resell, sublicense, rent, or share your account. You may not copy, modify, reverse engineer, or extract the software, its models, or its underlying code.",
+    ],
+  },
+  {
+    heading: "Your deal data",
+    body: [
+      "Everything you enter into the workspace remains yours: your documents, numbers, notes, and records. We do not sell it, do not use it in content or examples, and do not disclose it without your written permission except as required by law. We store it only to operate the workspace, and we delete it under the retention terms below.",
+    ],
+  },
+  {
     heading: "Acceptable use",
     body: [
-      "Do not misuse this site. Do not attempt to disrupt its operation, scrape it aggressively, or submit false information through our forms.",
+      "Do not misuse the site or the workspace. That includes attempting to disrupt operation, scraping aggressively, submitting false information through our forms, uploading unlawful content, or using the workspace for any purpose other than your own acquisition diligence.",
     ],
   },
   {
     heading: "Intellectual property",
     body: [
-      "Site content, including articles, working papers, and the ParkProof Standard, is owned by CrosstownOS. You may share links and quote brief excerpts with attribution. You may not republish substantial portions without permission.",
+      "The site, the workspace, and their content, including articles, working papers, the ParkProof Standard, and the software itself, are owned by CrosstownOS and protected by intellectual property law. You may share links and quote brief excerpts with attribution. You may not republish substantial portions without permission.",
     ],
   },
   {
-    heading: "Limitation of liability",
+    heading: "Support",
     body: [
-      "To the fullest extent permitted by law, CrosstownOS is not liable for any damages arising from your use of this site.",
-    ],
-  },
-  {
-    heading: "Changes",
-    body: [
-      "We may update these terms. Material changes will be noted by updating the effective date below. Continued use of the site after changes constitutes acceptance.",
-    ],
-  },
-  {
-    heading: "Contact",
-    body: [
-      "Questions about these terms: jeremy@crosstownosrv.camp",
+      "Every plan includes a recorded onboarding walkthrough, one 30-minute live software Q&A per account booked within the first 30 days, and email technical support with a two-business-day target response. Support covers software operation: navigation, inputs, documented calculations, and software behavior. It does not cover interpretation of your documents or numbers, your diligence conclusions, or what to do about a property.",
     ],
   },
   {
     heading: "Acquisition Workspace: what you are buying",
     body: [
-      "The Acquisition Workspace is not available for purchase yet. When purchase opens, this section and the sections below apply to your purchase, in addition to the website terms above.",
       "Single-Deal Workspace, $1,250: one property and 90 calendar days of full access to Source, Field, and Acquire from activation. Includes a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
       "Annual Workspace, $2,500: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one live Q&A per account. Additional properties do not add sessions.",
       "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
@@ -79,7 +96,7 @@ const SECTIONS = [
     heading: "Payment",
     body: [
       "Payment is due in full when you purchase, charged through the checkout on this site. Access begins when your credentials and onboarding materials are delivered. That delivery date is your activation date.",
-      "Renewal is manual. We never auto-charge.",
+      "Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
     ],
   },
   {
@@ -98,8 +115,45 @@ const SECTIONS = [
     ],
   },
   {
+    heading: "Warranty disclaimer",
+    body: [
+      "The site and the workspace are provided as is and as available, without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the service will be uninterrupted or error-free.",
+    ],
+  },
+  {
+    heading: "Limitation of liability",
+    body: [
+      "To the fullest extent permitted by law, CrosstownOS will not be liable for indirect, incidental, special, consequential, or punitive damages, including lost profits, lost data, or lost opportunities, even if advised of the possibility.",
+      "Total liability for any claim arising from the site or the workspace is limited to the amount you paid for the workspace in the twelve months before the claim.",
+    ],
+  },
+  {
+    heading: "Indemnification",
+    body: [
+      "You agree to indemnify and hold harmless CrosstownOS against claims, damages, and expenses, including reasonable legal fees, arising from your use of the site or workspace, your deal data, or your violation of these terms.",
+    ],
+  },
+  {
+    heading: "Governing law and disputes",
+    body: [
+      "These terms are governed by the laws of the State of Texas. Disputes will be resolved in courts of competent jurisdiction in Texas. If any provision is found unenforceable, the remaining provisions continue in effect.",
+    ],
+  },
+  {
+    heading: "Changes",
+    body: [
+      "We may update these terms. Material changes will be noted by updating the effective date below. Continued use of the site after changes constitutes acceptance.",
+    ],
+  },
+  {
+    heading: "Contact",
+    body: [
+      "Questions about these terms: jeremy@crosstownosrv.camp",
+    ],
+  },
+  {
     heading: "Effective date",
-    body: ["October 7, 2026."],
+    body: ["October 8, 2026."],
   },
 ]
 
