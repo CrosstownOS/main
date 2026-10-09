@@ -11,18 +11,32 @@ export const metadata: Metadata = {
 
 const SECTIONS = [
   {
+    heading: "Who we are",
+    body: [
+      "CrosstownOS is operated by Jeremy Cross, based in Kaufman, Texas. This policy covers crosstownosrv.camp and the Acquisition Workspace. Contact for privacy questions: jeremy@crosstownosrv.camp.",
+    ],
+  },
+  {
     heading: "What we collect",
     body: [
-      "When you use our application form, we collect the information you provide: name, email, phone, company, website, asset type, deal stage, deadline, price range, deal description, and referral source.",
-      "When you subscribe to Crosstown Updates, we collect your email address.",
-      "When you book a fit call, our scheduling provider (Cal.com) collects the information you enter to arrange the meeting. Cal.com loads inside our site to run the booking flow and may set its own cookies. Those cookies are governed by Cal.com's privacy policy, not this one.",
+      "Identity and contact information: when you use our application form, book a fit call, or buy the workspace, we collect the information you provide, such as name, email, phone, company, and website.",
+      "Deal context: asset type, deal stage, deadline, price range, deal description, and referral source, so we can assess fit and serve you.",
+      "Newsletter subscriptions: when you subscribe to Crosstown Updates, we collect your email address.",
+      "Workspace data: your account information, credentials activity, and everything you enter into the workspace, including documents, numbers, notes, and records. Your deal data remains yours at all times.",
+      "Payment information: payments are processed by our checkout provider. We do not store your full card number.",
+      "Technical data: browser type, pages visited, and approximate region, collected through privacy-friendly analytics to understand site usage. We do not use advertising pixels or cross-site tracking.",
     ],
   },
   {
     heading: "What we do not collect",
     body: [
       "The free working papers at crosstownosrv.camp/tools run entirely in your browser. Your inputs are stored in your browser's local storage on your own device. We do not receive, store, or have access to your working paper inputs.",
-      "We use privacy-friendly, cookieless analytics from Vercel that does not track you across sites. We do not use advertising pixels or cross-site tracking.",
+    ],
+  },
+  {
+    heading: "Cookies and similar technologies",
+    body: [
+      "We use a minimal set. Session storage powers the site's loading-screen preference. Embedded scheduling (Cal.com) may set its own cookies to run the booking flow, governed by Cal.com's privacy policy, not this one. Our analytics are cookieless and do not track you across sites. We use no advertising cookies.",
     ],
   },
   {
@@ -31,25 +45,52 @@ const SECTIONS = [
       "Application form submissions: to review your fit for the Acquisition Workspace and to contact you about it.",
       "Newsletter subscriptions: to send you Crosstown Updates. Every email includes an unsubscribe link.",
       "Scheduling information: to arrange and conduct your fit call.",
-      "We do not sell your information. We do not share it with third parties except the service providers needed to operate these functions (email delivery, scheduling), who are bound to use it only for that purpose.",
+      "Workspace data: solely to operate the workspace for you. Your deal data is never used in content, examples, or marketing, and never disclosed, without your written permission.",
+      "We do not sell your information. We do not share it with third parties except the service providers needed to operate these functions, who are bound to use it only for that purpose.",
+    ],
+  },
+  {
+    heading: "Deal data confidentiality",
+    body: [
+      "Your deal documents, numbers, notes, and records are treated as confidential. Access is limited to what is necessary to operate the workspace, and anyone with access is bound to keep it confidential. We will not disclose your deal data without your written permission except as required by law, in which case we will notify you if the law permits.",
+    ],
+  },
+  {
+    heading: "Third-party providers",
+    body: [
+      "We rely on a small set of providers to operate the site and workspace: Vercel (hosting and analytics), Cal.com (scheduling), our email delivery provider (newsletters and workspace communications), and our checkout provider (payments). Each provider processes only the information needed for its function and is bound to use it only for that purpose.",
     ],
   },
   {
     heading: "How long we keep it",
     body: [
-      "We keep application and correspondence records for as long as needed to serve you and meet legal obligations. Newsletter subscriptions are kept until you unsubscribe.",
+      "Workspace account data is kept for the life of your subscription. After expiration, we retain it for 30 days so you can export your records, then schedule deletion.",
+      "Newsletter subscriptions are kept until you unsubscribe. Application and correspondence records are kept as long as needed to serve you and meet legal obligations.",
     ],
   },
   {
-    heading: "Your requests",
+    heading: "Your rights",
     body: [
-      "To access, correct, or delete the personal information we hold about you, or to unsubscribe from emails, contact jeremy@crosstownosrv.camp. We will verify your identity before fulfilling requests.",
+      "You may ask to access, correct, export, or delete the personal information we hold about you. Residents of the EU and UK have the rights granted by the GDPR, including erasure, portability, restriction, and objection. California residents have the rights granted by the CCPA, including the right to know what we collect and the right to deletion. We do not sell personal information.",
+      "To exercise any of these rights, contact jeremy@crosstownosrv.camp. We will verify your identity before fulfilling requests.",
+    ],
+  },
+  {
+    heading: "Children",
+    body: [
+      "This site is not directed to children under 16, and we do not knowingly collect their information. If you believe a child has provided information, contact us and we will delete it.",
     ],
   },
   {
     heading: "Security",
     body: [
-      "We take reasonable steps to protect your information. No method of electronic transmission or storage is completely secure.",
+      "We take reasonable technical and organizational steps to protect your information, including limiting access and using established infrastructure providers. No method of electronic transmission or storage is completely secure.",
+    ],
+  },
+  {
+    heading: "International transfers",
+    body: [
+      "Your information is processed in the United States. Our providers may process data in other locations under contractual safeguards. By using the site, you consent to that transfer.",
     ],
   },
   {
@@ -66,7 +107,7 @@ const SECTIONS = [
   },
   {
     heading: "Effective date",
-    body: ["October 7, 2026."],
+    body: ["October 8, 2026."],
   },
 ]
 
