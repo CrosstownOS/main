@@ -44,6 +44,19 @@ export const metadata: Metadata = {
   },
 }
 
+function boldBrand(text: string) {
+  return text.split("CrosstownOS").flatMap((part, i) =>
+    i === 0
+      ? [part]
+      : [
+          <strong key={`b${i}`} className="font-semibold text-foreground">
+            CrosstownOS
+          </strong>,
+          part,
+        ],
+  )
+}
+
 const PAINS = [
   {
     title: "The numbers do not tie.",
@@ -296,7 +309,7 @@ export default function AcquisitionWorkspacePage() {
               ))}
             </ul>
             <p className="mt-5 text-sm leading-relaxed text-muted">
-              Exclusions: CrosstownOS does not replace your attorney, engineer,
+              Exclusions: <strong className="font-semibold text-foreground">CrosstownOS</strong> does not replace your attorney, engineer,
               inspector, environmental consultant, title company, appraiser,
               lender, or other qualified professionals. See the{" "}
               <a href="#faq" className="text-primary underline underline-offset-2 hover:no-underline">
@@ -375,7 +388,7 @@ export default function AcquisitionWorkspacePage() {
               Two ways in.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              Your specialists provide their findings. CrosstownOS is where you
+              Your specialists provide their findings. <strong className="font-semibold text-foreground">CrosstownOS</strong> is where you
               organize the evidence and record what your acquisition decision rests on.
             </p>
             <div className="theme-cream mt-8 border border-primary/40 bg-card md:flex md:items-stretch">
@@ -451,7 +464,7 @@ export default function AcquisitionWorkspacePage() {
                   </li>
                   <li>
                     <span className="font-bold text-foreground">Renewal.</span>{" "}
-                    Renewal is manual. CrosstownOS does not enroll accounts in
+                    Renewal is manual. <strong className="font-semibold text-foreground">CrosstownOS</strong> does not enroll accounts in
                     automatic renewal and does not charge cards on file without
                     a new, explicit purchase.
                   </li>
@@ -517,7 +530,7 @@ export default function AcquisitionWorkspacePage() {
                   {NOT_FOR_ITEMS.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
                       <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
-                      <span>{item}</span>
+                      <span>{boldBrand(item)}</span>
                     </li>
                   ))}
                 </ul>
@@ -549,7 +562,7 @@ export default function AcquisitionWorkspacePage() {
                     </span>
                   </summary>
                   <p className="px-6 pb-6 text-sm leading-relaxed text-muted">
-                    {item.a}
+                    {boldBrand(item.a)}
                   </p>
                 </details>
               ))}
