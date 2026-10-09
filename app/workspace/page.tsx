@@ -106,13 +106,13 @@ const NOVEMBER_PRODUCT = [
     name: "Field",
     color: "#D97706",
     family: "Know it · Take it",
-    body: "Field captures what you see when you get there. Photos, notes, and observations stay unreviewed evidence until a person reviews them. Captured is not verified.",
+    body: "Field captures what you see when you get there. Photos, notes, and observations enter the record as unreviewed evidence until a person reviews them. On the site walk you record what the paper cannot show: utilities, wastewater, metering, roads, and site conditions. Captured is not verified.",
   },
   {
     name: "Acquire",
     color: "#00468B",
     family: "Know it",
-    body: "Acquire organizes what either stream means. The diligence register, capacity gates, and deterministic underwriting feed the decision file.",
+    body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state you assign: Verified, Broker-reported, Missing, Assumption, Calculated, or Unresolved. Capacity gates hold the deal until utilities, wastewater, and access check out. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
   },
 ] as const
 
