@@ -274,7 +274,7 @@ export default function AcquisitionWorkspacePage() {
               href="#how-it-works"
               className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              See how the workspace works
+              See how it works
             </a>
           </div>
 
