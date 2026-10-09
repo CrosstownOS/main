@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "RV Park Due Diligence Workspace | CrosstownOS",
   description:
-    "Run your RV park or manufactured housing acquisition in one workspace. Your evidence becomes a ParkProof decision file. $1,250 single-deal or $2,500 annual. Ships November 2026.",
+    "Run your RV park or manufactured housing acquisition in one workspace. Seller claims, evidence, and underwriting connected before you commit capital.",
   alternates: { canonical: "/workspace" },
   openGraph: {
     title: "CrosstownOS Acquisition Workspace",
