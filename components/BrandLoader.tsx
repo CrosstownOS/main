@@ -109,6 +109,16 @@ export default function BrandLoader() {
         <p className="mt-3 font-mono text-xs uppercase tracking-[0.3em] text-[#3a86f2]">
           Launching November 2026
         </p>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            goToWorkspace()
+          }}
+          className="mt-8 border border-[#3a86f2] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-[#3a86f2]"
+        >
+          See the Workspace
+        </button>
       </div>
     </div>
   )
