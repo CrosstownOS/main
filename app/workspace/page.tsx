@@ -271,16 +271,6 @@ export default function AcquisitionWorkspacePage() {
               See how the workspace works
             </a>
           </div>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
-            Not ready for the workspace? The{" "}
-            <Link
-              href="/tools"
-              className="font-semibold text-primary hover:underline"
-            >
-              Diligence Working Papers
-            </Link>{" "}
-            are free tools that run in your browser, no account needed.
-          </p>
 
           {/* The problem */}
           <section aria-labelledby="deal-desk-problem" className="mt-20">
@@ -528,17 +518,6 @@ export default function AcquisitionWorkspacePage() {
                 </ul>
               </div>
             </div>
-            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted">
-              No live deal yet? Start with the free{" "}
-              <Link href="/resources" className="text-primary underline underline-offset-2 hover:no-underline">
-                Acquisition Signal library
-              </Link>
-              , or join the email list in the footer below. Brokers, lenders,
-              and advisers: see the{" "}
-              <Link href="/#paths" className="text-primary underline underline-offset-2 hover:no-underline">
-                Referral Alliance
-              </Link>
-              .
             </p>
           </section>
 
