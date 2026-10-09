@@ -412,18 +412,18 @@ export default function AcquisitionWorkspacePage() {
               Your specialists provide their findings. CrosstownOS is where you
               organize the evidence and record what your acquisition decision rests on.
             </p>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <div className="theme-cream border border-primary/40 bg-card p-6 sm:p-8">
+            <div className="theme-cream mt-8 border border-primary/40 bg-card md:flex md:items-stretch">
+              <div className="flex-1 p-6 sm:p-10">
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   For the live deal
                 </p>
-                <p className="serif-display mt-3 text-4xl tracking-tight text-foreground">
+                <p className="serif-display mt-4 text-6xl tracking-tight text-foreground sm:text-7xl">
                   $1,250
                 </p>
-                <p className="mt-1 font-sans text-base font-bold text-foreground">
+                <p className="mt-2 font-sans text-xl font-bold text-foreground">
                   Single-Deal Workspace
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-4 text-sm leading-relaxed text-muted">
                   One property. 90 days. The full workspace, from your first
                   document to your decision file.
                 </p>
@@ -434,17 +434,21 @@ export default function AcquisitionWorkspacePage() {
                   Start with a fit call
                 </TrackedApplyLink>
               </div>
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
+              <div
+                className="hidden w-px shrink-0 bg-primary/40 md:block"
+                aria-hidden="true"
+              />
+              <div className="flex-1 border-t border-primary/25 p-6 sm:p-10 md:border-t-0">
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
                   For the active buyer
                 </p>
-                <p className="serif-display mt-3 text-4xl tracking-tight text-foreground">
+                <p className="serif-display mt-4 text-6xl tracking-tight text-foreground sm:text-7xl">
                   $2,500
                 </p>
-                <p className="mt-1 font-sans text-base font-bold text-foreground">
+                <p className="mt-2 font-sans text-xl font-bold text-foreground">
                   Annual Workspace
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-4 text-sm leading-relaxed text-muted">
                   Unlimited properties. 12 months. Stop rebuilding the record
                   every time you look at a deal.
                 </p>
