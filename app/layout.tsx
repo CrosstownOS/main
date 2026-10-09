@@ -89,11 +89,25 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen selection:bg-primary/20 selection:text-foreground`}
       >
+        {/* ── BRAND LOADER ANTI-FLASH: runs synchronously before first paint.
+            Adds brand-loader-seen to <html> when this session already saw the
+            loader or reduced motion is preferred, so the server-rendered
+            loader hides instantly — no flash on repeat visits. The
+            suppressHydrationWarning on <html> keeps this intentional class
+            difference from tripping hydration. ── */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=false;try{s=!!window.sessionStorage.getItem("brand-loader-seen")}catch(e){}var r=false;try{r=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)}catch(e){}if(s||r){document.documentElement.classList.add("brand-loader-seen")}}catch(e){}})();`,
+          }}
+        />
+        <noscript>
+          <style>{`.brand-loader-root{display:none!important}`}</style>
+        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border focus:border-border focus:bg-background focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-foreground"

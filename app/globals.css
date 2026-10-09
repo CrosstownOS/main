@@ -591,3 +591,13 @@ select:focus-visible {
     transform: none;
   }
 }
+
+/* ── Brand loader anti-flash: the synchronous script at the top of <body>
+      adds .brand-loader-seen to <html> before first paint when this session
+      already saw the loader or reduced motion is preferred. Hides the
+      server-rendered loader instantly — no flash on repeat visits, and no
+      hydration mismatch (<html> carries suppressHydrationWarning for this
+      intentional class difference). ── */
+.brand-loader-seen .brand-loader-root {
+  display: none !important;
+}

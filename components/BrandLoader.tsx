@@ -11,32 +11,54 @@ import Image from "next/image"
  * and a cohort CTA. Fades out after 3s or on click. Skipped entirely
  * for prefers-reduced-motion.
  *
- * SSR-safe: renders null until a client-side effect opts in, so the
- * server render and first client render always match (no TDZ risk).
+ * Zero-delay first paint: the loader markup is server-rendered, so it ships
+ * in the initial HTML and is visible on the very first paint — it never pops
+ * in late after hydration. A tiny synchronous script at the top of <body>
+ * (see app/layout.tsx) adds `brand-loader-seen` to <html> before first paint
+ * when this session already saw the loader or reduced motion is preferred,
+ * and CSS hides the loader in that case — no flash on repeat visits. The
+ * effect below mirrors that check so React removes the node with no visual
+ * change. No-JS users never see it (noscript style in <body>).
+ *
+ * SSR-safe: server and first client render both output the loader (show
+ * starts true), so hydration always matches. All browser APIs live inside
+ * the effect. No module-level window ternaries — no TDZ risk.
  */
 const SESSION_KEY = "brand-loader-seen"
 const DISPLAY_MS = 3000
 const FADE_MS = 350
 
 export default function BrandLoader() {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(true)
   const [leaving, setLeaving] = useState(false)
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    // Mirror the synchronous pre-paint script in layout.tsx: when this
+    // session already saw the loader, or reduced motion is preferred, the
+    // loader is already hidden by CSS — drop the node with no visual change.
+    let reduced = false
+    try {
+      reduced =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    } catch {
+      reduced = false
+    }
     let seen: string | null = null
     try {
       seen = window.sessionStorage.getItem(SESSION_KEY)
     } catch {
       seen = null
     }
-    if (seen) return
+    if (reduced || seen) {
+      setShow(false)
+      return
+    }
     try {
       window.sessionStorage.setItem(SESSION_KEY, "1")
     } catch {
       /* storage unavailable (private mode) — still show once */
     }
-    setShow(true)
     const t = window.setTimeout(() => setLeaving(true), DISPLAY_MS)
     return () => window.clearTimeout(t)
   }, [])
@@ -57,7 +79,7 @@ export default function BrandLoader() {
       aria-modal="true"
       aria-label="Welcome to CrosstownOS"
       onClick={dismiss}
-      className={`fixed inset-0 z-[200] flex cursor-pointer items-center justify-center bg-[#0c0b09] transition-opacity duration-300 ${
+      className={`brand-loader-root fixed inset-0 z-[200] flex cursor-pointer items-center justify-center bg-[#0c0b09] transition-opacity duration-300 ${
         leaving ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
