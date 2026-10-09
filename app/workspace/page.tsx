@@ -422,7 +422,7 @@ export default function AcquisitionWorkspacePage() {
                 aria-hidden="true"
               />
               <div className="flex-1 border-t border-primary/25 p-6 sm:p-10 md:border-t-0">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   For the active buyer
                 </p>
                 <p className="serif-display mt-4 text-6xl tracking-tight text-foreground sm:text-7xl">
