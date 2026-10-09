@@ -209,11 +209,9 @@ export default function Navigation() {
   }, [])
 
 // ── MOBILE DRAWER: close on any link tap ──
-  // ScrollExperience intercepts in-page anchor clicks at document capture and
-  // calls stopPropagation, which prevents React's onClick from firing
-  // setOpen(false) — the drawer stayed open over a dark overlay ("black
-  // screen"). A native capture listener on the SAME node (document) still
-  // runs despite stopPropagation, so the drawer reliably closes on every tap.
+  // Belt-and-suspenders: React's onClick already calls setOpen(false), but
+  // this native capture listener on document guarantees the drawer closes
+  // on every tap even if a synthetic event is ever stopped upstream.
   useEffect(() => {
     if (!open) return
     const closeOnDrawerTap = (event: globalThis.MouseEvent) => {
@@ -340,24 +338,15 @@ export default function Navigation() {
     (event: MouseEvent<HTMLAnchorElement>, id: string) => {
       if (isHome) {
         event.preventDefault()
-        // ScrollExperience (document capture listener) owns the animated
-        // anchor scroll. Calling jump() here starts a second, competing
-        // scroll to a slightly different offset — the two animations
-        // fight and the page lands short of the section. State only;
-        // ScrollExperience scrolls and updates history.
-        setOpen(false)
-        setActive(id)
-        clearScrollWatchers()
-        suppressScroll()
-        // Release the IntersectionObserver suppression after
-        // ScrollExperience's 800ms animation completes.
-        window.setTimeout(() => releaseScroll(), 900)
+        // ScrollExperience is fade-only now; this component owns the
+        // animated anchor scroll via jump().
+        jump(id)
         return
       }
 
       setOpen(false)
     },
-    [isHome, clearScrollWatchers],
+    [isHome, jump],
   )
 
   const goHome = useCallback(() => {
