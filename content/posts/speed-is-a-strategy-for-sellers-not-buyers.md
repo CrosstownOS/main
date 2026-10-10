@@ -35,7 +35,7 @@ There is a reason the language works. When money is cheap, owners tend to hold t
 
 This is not an argument against moving fast. The labels do not slow a deal down. They speed up the right parts of it.
 
-Run the seller's clock through the four labels. The asking price and the pitch are broker-reported. The deposit records you actually receive are verified. The documents the seller has not produced are missing evidence, and they stay missing evidence no matter how loud the clock ticks. The revenue you modeled from the seller's story is an underwriting assumption. Label it before it enters the model, or the model will treat it as a fact.
+Run the seller's clock through the six labels. The asking price and the pitch are broker-reported. The deposit records you actually receive are verified. The documents the seller has not produced are missing evidence, and they stay missing evidence no matter how loud the clock ticks. The revenue you modeled from the seller's story is an underwriting assumption. Label it before it enters the model, or the model will treat it as a fact.
 
 *Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
 
