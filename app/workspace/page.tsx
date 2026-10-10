@@ -90,7 +90,7 @@ const SCOPE_ITEMS = [
 const HOW_IT_WORKS = [
   {
     title: "Set up your deal.",
-    body: "Create the workspace for your property. The recorded walkthrough shows you every step. One live Q&A session (30 minutes, booked within your first 30 days) covers what the recording does not.",
+    body: "Create the workspace for your property. The recorded walkthrough explains the core workflow. One live Q&A session (30 minutes, booked within your first 30 days) covers navigation, inputs, documented calculations, and software behavior.",
   },
   {
     title: "Organize your sources.",
@@ -131,7 +131,7 @@ const NOVEMBER_PRODUCT = [
     name: "Acquire",
     color: "#00468B",
     family: "Know it",
-    body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. An approved assumption can satisfy a gate conditionally, with the assumption documented and approved. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
+    body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
   },
 ] as const
 
@@ -296,7 +296,7 @@ export default function AcquisitionWorkspacePage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
-          <p className="mono-label mb-4">Five free pilot places. Access opens November 2026.</p>
+          <p className="mono-label mb-4">Applications are open for five free pilot places. November 2026 is the target opening; access dates will be confirmed before activation.</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             The Acquisition Workspace. Your deal, on the record.
@@ -413,10 +413,10 @@ export default function AcquisitionWorkspacePage() {
           <section aria-labelledby="deal-desk-pilot" className="mt-20">
             <SignalLine />
             <h2 id="deal-desk-pilot" className="serif-display text-3xl tracking-tight sm:text-4xl">
-              Five free pilot places. Access opens November 2026.
+              Applications are open for five free pilot places. November 2026 is the target opening; access dates will be confirmed before activation.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails. This is the full product, not a limited demo.
+              I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails.
             </p>
             <div className="theme-cream mt-8 border border-primary/40 bg-card p-6 sm:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
