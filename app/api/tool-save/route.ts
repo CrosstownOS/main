@@ -152,9 +152,9 @@ export async function POST(req: NextRequest) {
         eyebrow: "THE WORKSPACE",
         title: "Running a live deal?",
         description:
-          "The Acquisition Workspace keeps source evidence, field observations, and underwriting in one deal record. You operate it.",
+          "The Acquisition Workspace keeps source evidence, field observations, and underwriting in one deal record. You operate it. The first five buyers get it free for 90 days.",
         href: workspaceUrl,
-        buttonLabel: "Book the fit call",
+        buttonLabel: "Claim a free trial spot",
       },
     ]
 
