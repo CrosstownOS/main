@@ -46,7 +46,7 @@ The same rule applies to verbal agreements and side deals. If the paperwork, the
 
 ## Label the gap before you price it
 
-This is where the four labels from the first field note do their work.
+This is where the six labels from the first field note do their work.
 
 *Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
 
