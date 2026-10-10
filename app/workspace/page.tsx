@@ -423,7 +423,11 @@ export default function AcquisitionWorkspacePage() {
                 The trade
               </p>
               <p className="mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
-                Run one live acquisition through the full workspace for 90 days from activation. No payment required. No automatic conversion to a paid plan. In exchange, you use it on a real acquisition and give candid feedback about what works, what breaks, and what is confusing. A testimonial is optional. We will request separate written permission before publishing any quote or result. You report confusing steps and technical problems. I troubleshoot software behavior, not your deal.
+                Run one live acquisition through Source, Field, and Acquire for 90 days from activation. No payment required and no automatic conversion.
+
+In exchange, use the workspace and give candid feedback about what works, what breaks, and what is confusing. I troubleshoot software behavior, not your deal. Testimonials are optional and require separate written permission.
+
+Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
               </p>
               <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
                 <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
