@@ -54,7 +54,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
     question: "Actively acquiring an RV park or MHC?",
     description:
       "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the CrosstownOS workspace, from evidence to a documented decision file.",
-    cta: "See the plans",
+    cta: "Get the free trial",
     action: "deal_desk",
     href: "/workspace",
     icon: Target },
