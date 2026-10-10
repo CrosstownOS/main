@@ -214,6 +214,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
   description:
     "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
   url: "https://www.crosstownosrv.camp/workspace",
+  image: "https://www.crosstownosrv.camp/og-logo.png",
   brand: {
     "@type": "Brand",
     name: "CrosstownOS",
@@ -228,6 +229,24 @@ const WORKSPACE_PRODUCT_JSON_LD = {
       price: "1250",
       priceCurrency: "USD",
       availability: "https://schema.org/PreOrder",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "USD",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "US",
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        returnPolicyCategory:
+          "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 7,
+      },
     },
     {
       "@type": "Offer",
@@ -238,6 +257,24 @@ const WORKSPACE_PRODUCT_JSON_LD = {
       price: "2500",
       priceCurrency: "USD",
       availability: "https://schema.org/PreOrder",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "USD",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "US",
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        returnPolicyCategory:
+          "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 7,
+      },
     },
   ],
 } as const
