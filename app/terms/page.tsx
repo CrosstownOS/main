@@ -108,7 +108,7 @@ const SECTIONS = [
   {
     heading: "Expiration, cancellation, and termination",
     body: [
-      "Single-Deal access ends 90 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration, so export your records before then. We keep your data for 30 days after expiration, then schedule deletion.",
+      "Single-Deal access ends 90 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration. You may export your records during the 30-day retention period after expiration. then. We keep your data for 30 days after expiration, then schedule deletion.",
       "If you abandon a deal, Single-Deal access does not transfer to another property. Moving from Single-Deal to Annual is a separate purchase at any time. There is no credit, prorating, or conversion discount.",
       "You can cancel by not renewing, or by telling us you are done. Refunds are only available within the seven-day window above.",
       "We may suspend or terminate access for misuse of the workspace or violation of these terms. Termination does not extend the refund window.",
