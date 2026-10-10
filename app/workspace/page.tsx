@@ -426,7 +426,7 @@ export default function AcquisitionWorkspacePage() {
                 You run a live deal through the full workspace for 90 days. Not a demo. Source, Field, Acquire, the whole thing. I watch what breaks. You tell me what&apos;s confusing. If it catches something you&apos;d have missed, let me quote you on that. If it doesn&apos;t help, I need to hear that too.
               </p>
               <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
-                <strong className="font-semibold text-foreground">5 spots.</strong> When they&apos;re gone, the price is $1,250.
+                <strong className="font-semibold text-foreground">5 spots.</strong> When they&apos;re gone, the price is <strong className="font-semibold text-foreground">$1,250</strong>.
               </p>
               <TrackedApplyLink
                 plan="trial"
