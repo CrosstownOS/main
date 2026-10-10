@@ -136,7 +136,7 @@ const NOVEMBER_PRODUCT = [
 ] as const
 
 const INCLUDED_SHARED = [
-  "Full workspace: Source, Field, and Acquire around one deal record.",
+  "Full access to Source, Field, and Acquire. Single-deal access covers one property; annual access covers unlimited properties during the term.",
   "Recorded onboarding walkthrough.",
   "One 30-minute live software Q&A per account, booked within the first 30 days.",
   "Email technical support. Target response within two business days.",
