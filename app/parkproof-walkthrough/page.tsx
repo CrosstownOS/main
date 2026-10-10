@@ -148,7 +148,7 @@ export default function SampleDecisionFilePage() {
                   href="/workspace"
                   className="inline-block border border-border px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
-                  See the plans
+                  Get the free trial
                 </Link>
               </div>
               <p className="mt-5 text-sm leading-relaxed text-muted">
