@@ -1,4 +1,3 @@
-{/* Deploy trigger 1791670896 */}
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
