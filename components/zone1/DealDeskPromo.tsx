@@ -25,7 +25,7 @@ export default function DealDeskPromo() {
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
               <TerminalLabel data-reveal-stamp className="block">
-                Free trial, first five buyers
+                Free pilot, five places
               </TerminalLabel>
             </div>
             <Heading
@@ -33,12 +33,12 @@ export default function DealDeskPromo() {
               level={2}
               className="mb-6 text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl"
             >
-              The Acquisition Workspace. Free for the first five.
+              The Acquisition Workspace. Five free pilot places.
             </Heading>
             <p className="mb-8 text-base leading-relaxed text-muted sm:text-lg">
               Seller claims, source evidence, site observations, unresolved
               diligence, and underwriting, connected in one workspace before
-              you commit capital. I am giving the first five seats away because
+              you commit capital. I am opening five free pilot places because
               I need proof it works on real deals.
             </p>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
@@ -51,7 +51,7 @@ export default function DealDeskPromo() {
                 href="/workspace"
                 className="border border-primary/60 bg-primary px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Claim a free trial spot
+                Apply for a pilot place
               </Link>
               <Link
                 data-reveal-item
