@@ -11,7 +11,7 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 - **Field Notes** (blog): operator-grade essays on diligence, underwriting, and acquisition craft. https://www.crosstownosrv.camp/blog
 - **Free RV park due diligence checklist**: 15 diligence items drawn from the CrosstownOS framework, with links to the working papers. The checklist is the starting point; the Acquisition Workspace is what happens when the deal gets real. https://www.crosstownosrv.camp/checklist
 - **ParkProof**: the source-backed decision file (walkthrough and standard). Not a legal, engineering, or environmental certification. https://www.crosstownosrv.camp/parkproof-walkthrough and https://www.crosstownosrv.camp/parkproof-standard
-- **Acquisition Workspace**: the conversion point. Bring a working paper to a 30-minute fit call. https://www.crosstownosrv.camp/workspace
+- **Acquisition Workspace**: the conversion point. Bring a working paper to a 30-minute fit call. First five buyers get the full workspace free for 90 days. https://www.crosstownosrv.camp/workspace
 - **Trail Log**: public build log. https://www.crosstownosrv.camp/trail-log
 - **Editorial Standards**: the integrity rules governing every public claim (evidence states kept distinct, nothing published that cannot be defended). https://www.crosstownosrv.camp/editorial-standards
 - **For brokers and lenders**: how CrosstownOS works with deal-side professionals. https://www.crosstownosrv.camp/for-brokers-lenders
