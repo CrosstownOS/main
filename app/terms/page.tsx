@@ -91,7 +91,7 @@ const SECTIONS = [
       "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
       "This is software you operate. It does not include document review or interpretation of your numbers, confirmation of your diligence conclusions, or ongoing advisory. You build the record, the workflow guides you, and the decision stays yours.",
     ],
-  },,
+  },
   {
     heading: "Free Pilot Program",
     body: [
