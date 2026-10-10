@@ -401,7 +401,7 @@ export default function Navigation() {
         >
           <p className="flex items-center gap-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground sm:text-[11px] sm:tracking-[0.22em]">
             <span className="h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-            Five free pilot places. Access opens November 2026.
+            Five free pilot places. Target opening: November 2026.
           </p>
         </Link>
 
