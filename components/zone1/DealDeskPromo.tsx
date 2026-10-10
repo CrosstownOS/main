@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useCountUp, useReveal } from "@/hooks/useReveal"
+import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
@@ -12,8 +12,6 @@ import {
 
 export default function DealDeskPromo() {
   const revealRef = useReveal<HTMLElement>()
-  const singleDeal = useCountUp(1250)
-  const annual = useCountUp(2500)
 
   return (
     <Section
@@ -27,7 +25,7 @@ export default function DealDeskPromo() {
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
               <TerminalLabel data-reveal-stamp className="block">
-                Available November 2026
+                Free trial, first five buyers
               </TerminalLabel>
             </div>
             <Heading
@@ -35,37 +33,17 @@ export default function DealDeskPromo() {
               level={2}
               className="mb-6 text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl"
             >
-              The Acquisition Workspace. Your deal, on the record.
+              The Acquisition Workspace. Free for the first five.
             </Heading>
             <p className="mb-8 text-base leading-relaxed text-muted sm:text-lg">
               Seller claims, source evidence, site observations, unresolved
               diligence, and underwriting, connected in one workspace before
-              you commit capital.
+              you commit capital. I am giving the first five seats away because
+              I need proof it works on real deals.
             </p>
-            <div className="mb-6 md:flex md:items-stretch md:justify-center">
-              <div className="flex-1 px-4 text-center">
-                <p className="serif-display text-6xl tracking-tight text-foreground sm:text-7xl">
-                  $<span ref={singleDeal}>1,250</span>
-                </p>
-                <p className="mt-2 font-sans text-xl font-bold text-foreground">
-                  Single-Deal
-                </p>
-              </div>
-              <div
-                className="mx-auto my-6 h-px w-24 shrink-0 bg-primary/40 md:my-0 md:h-auto md:w-px"
-                aria-hidden="true"
-              />
-              <div className="flex-1 px-4 text-center">
-                <p className="serif-display text-6xl tracking-tight text-foreground sm:text-7xl">
-                  $<span ref={annual}>2,500</span>
-                </p>
-                <p className="mt-2 font-sans text-xl font-bold text-foreground">
-                  Annual
-                </p>
-              </div>
-            </div>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
-              Recorded walkthrough plus one live software Q&A.
+              One live deal. 90 days. The full workspace. After the five, it is
+              $1,250 single-deal, $2,500 annual.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
@@ -73,7 +51,7 @@ export default function DealDeskPromo() {
                 href="/workspace"
                 className="border border-primary/60 bg-primary px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                See the plans
+                Claim a free trial spot
               </Link>
               <Link
                 data-reveal-item
