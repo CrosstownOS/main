@@ -432,105 +432,16 @@ export default function AcquisitionWorkspacePage() {
             </div>
           </section>
 
-          {/* Proof of mechanism */}
-          <section aria-labelledby="deal-desk-proof" className="mt-20">
-            <h2 id="deal-desk-proof" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Here is what it catches that nothing else does.
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              A $1.4M park in East Texas. 87 pads. Seller says 92% occupied, $38 lot rent, city water and sewer. Here is what the workspace finds that a spreadsheet misses.
-            </p>
-
-            <div className="mt-6 space-y-6">
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  The Diligence Register does not let unknowns hide.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  You create the deal in Acquire. The register opens with five categories: sewer and wastewater first, then water, electrical, roads, zoning and permits. Each item gets an evidence state. Six of them:
-                </p>
-                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-foreground/85">
-                  <li><strong className="font-semibold text-foreground">Verified.</strong> You have the source document.</li>
-                  <li><strong className="font-semibold text-foreground">Broker-reported.</strong> The seller said it. Nobody confirmed it.</li>
-                  <li><strong className="font-semibold text-foreground">Missing.</strong> You asked. Nobody answered. The clock is running.</li>
-                  <li><strong className="font-semibold text-foreground">Unknown.</strong> Nobody even asked yet.</li>
-                  <li><strong className="font-semibold text-foreground">Calculated.</strong> The system computed it from verified inputs.</li>
-                  <li><strong className="font-semibold text-foreground">Unresolved.</strong> It has been looked at, but the evidence cannot be determined yet.</li>
-                </ul>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-                  Most diligence tools show you what is done. This shows you what is missing. Absence is the finding. Nine days of a broker not sending the wastewater permit looks exactly like nine days of nobody caring, unless the system puts a clock on it and marks it Missing instead of letting it sit as Unknown.
-                </p>
-              </div>
-
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  Screen: the county record vs. the seller&apos;s claim.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  You pull the listing. The workspace surfaces the county permit data next to the seller&apos;s 87-pad claim. The county shows 74 permitted pads. Thirteen pads are unpermitted additions. Two records sitting side by side, disagreeing with each other, in a system that will not let you ignore the gap. Those 13 pads are not probably fine. They are Unknown, and Unknown is not zero.
-                </p>
-              </div>
-
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  Extract: the rent roll tells a different story than the offering memo.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  You upload the rent roll. The system extracts every tenant, every rate, every start date, with source-page provenance. Every number answers where did this come from. Eleven tenants are paying $28, not $38. Grandfathered rates the seller&apos;s average quietly absorbs. Effective rent: $34.60. Phantom revenue: $42,000 a year. The register shows you the number that is real.
-                </p>
-              </div>
-
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  Diligence: Field captures what the desk cannot.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  You walk the park with Field. Photos, GPS-tagged, tied to the deal. You photograph the electrical pedestals. Twenty-two are 30-amp on pads marketed as 50-amp big-rig sites. This becomes a diligence item in the register. Category: electrical. Flagged as a capacity gate candidate.
-                </p>
-              </div>
-
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  The Arizona Rule: the gate does not move.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  That electrical finding is a capacity gate. The system will not let this deal advance toward offer while it sits unresolved. The deal cannot move until someone either resolves it or waives it, and a waiver requires a named person and a written reason. Dates move. Gates do not.
-                </p>
-              </div>
-
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  Underwrite: deterministic math on verified inputs.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  The workspace calculates NOI, cap rate, DSCR from the verified data. Not from AI projections. From the 74 permitted pads, the $34.60 effective rent, the $60K electrical capex. Code calculates. People confirm. Real cap rate: 7.1%. Listed cap rate: 9.4%. Same park. One set of numbers is true.
-                </p>
-              </div>
-
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  Attest: the ParkProof file.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  You generate the decision file. Every Verified fact with its source. Every Broker-reported claim marked as broker-reported. Every Missing item listed as missing, not buried. Every waiver named. You send this to your lender. Or your partner. Or you walk away. Either way, you decide with the full picture.
-                </p>
-              </div>
-            </div>
-
-            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              Three findings. Over $100,000 in mispriced risk. Caught by a system that refuses to let unknowns pretend to be zeros.
-            </p>
-          </section>
-
           {/* Terms */}
           <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
           <SignalLine />
           <SectionViewTracker event="pricing_view" />
             <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The November Cohort: Founding 10.
+              Two ways in.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              The Acquisition Workspace opens <strong className="font-semibold text-foreground">November 2026</strong>. The first 10 buyers get the workspace plus everything below. When the 10 spots fill, the bonuses go away.
+              Your specialists provide their findings. <strong className="font-semibold text-foreground">CrosstownOS</strong> is where you
+              organize the evidence and record what your acquisition decision rests on.
             </p>
             <div className="theme-cream mt-8 border border-primary/40 bg-card md:flex md:items-stretch">
               <div className="flex-1 p-6 sm:p-10">
@@ -547,17 +458,6 @@ export default function AcquisitionWorkspacePage() {
                   One property. 90 days. The full workspace, from your first
                   document to your decision file.
                 </p>
-                <div className="mt-6 border-t border-primary/25 pt-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                    Founding 10 bonuses
-                  </p>
-                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground/85">
-                    <li><strong className="font-semibold text-foreground">My cell number.</strong> Text me when you are stuck on a deal.</li>
-                    <li><strong className="font-semibold text-foreground">Your first ParkProof, reviewed by me.</strong> After 30 days, I go through your evidence states and tell you what I would flag.</li>
-                    <li><strong className="font-semibold text-foreground">The Founding 10 group.</strong> Private channel with the other 9 buyers.</li>
-                    <li><strong className="font-semibold text-foreground">Lifetime price lock.</strong> When the price goes up, yours does not.</li>
-                  </ul>
-                </div>
                 <TrackedApplyLink
                   plan="single-deal"
                   className="mt-6 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
@@ -583,16 +483,6 @@ export default function AcquisitionWorkspacePage() {
                   Unlimited properties. 12 months. Stop rebuilding the record
                   every time you look at a deal.
                 </p>
-                <div className="mt-6 border-t border-primary/25 pt-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                    Founding 10 bonuses
-                  </p>
-                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-foreground/85">
-                    <li><strong className="font-semibold text-foreground">Everything in Single-Deal, plus:</strong></li>
-                    <li><strong className="font-semibold text-foreground">Quarterly deal reviews.</strong> Four times a year, I review your active deal file.</li>
-                    <li><strong className="font-semibold text-foreground">First access to the Transition Workspace beta.</strong> When Take It ships, you are in first.</li>
-                  </ul>
-                </div>
                 <TrackedApplyLink
                   plan="annual"
                   className="mt-6 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
@@ -601,16 +491,6 @@ export default function AcquisitionWorkspacePage() {
                 </TrackedApplyLink>
               </div>
             </div>
-
-            <div className="theme-cream mt-4 border border-primary/40 bg-card p-6 sm:p-8">
-              <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                The One Risk Guarantee
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                Run your live deal through the workspace for 30 days. Build the record, work the gates, generate your ParkProof file. If you cannot point to at least one material risk you would have missed without it, I will refund every dollar. You keep the decision file.
-              </p>
-            </div>
-
             <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                 Every plan includes
