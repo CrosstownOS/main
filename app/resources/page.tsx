@@ -314,6 +314,80 @@ export default async function ResourcesPage({
             </div>
           </div>
 
+          <div className="mt-20">
+            <div className="border-l-2 border-primary pl-4">
+              <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+                Buying guides
+              </h2>
+              <p className="mt-1 text-sm leading-relaxed text-muted">
+                Four guides for buyers: what to verify, in what order, before
+                the price becomes final.
+              </p>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <Link
+                href="/buying-an-rv-park"
+                className="theme-cream card-lift border border-border bg-card p-6 transition-colors hover:border-primary/60"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                  Buyer&apos;s guide
+                </p>
+                <p className="mt-2 font-semibold leading-snug">
+                  How to Buy an RV Park
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  Price-per-pad benchmarks, the five verification gates, and
+                  the red flags that kill deals.
+                </p>
+              </Link>
+              <Link
+                href="/buying-a-campground"
+                className="theme-cream card-lift border border-border bg-card p-6 transition-colors hover:border-primary/60"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                  Buyer&apos;s guide
+                </p>
+                <p className="mt-2 font-semibold leading-snug">
+                  How to Buy a Campground
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  Seasonal revenue traps, amenity capex, and water, sewer,
+                  and permit verification.
+                </p>
+              </Link>
+              <Link
+                href="/mobile-home-park-investing"
+                className="theme-cream card-lift border border-border bg-card p-6 transition-colors hover:border-primary/60"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                  Investor&apos;s guide
+                </p>
+                <p className="mt-2 font-semibold leading-snug">
+                  Mobile Home Park Investing
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  Tenant-owned vs. park-owned, lot rent verification, and the
+                  hidden infrastructure capex.
+                </p>
+              </Link>
+              <Link
+                href="/rv-park-investing"
+                className="theme-cream card-lift border border-border bg-card p-6 transition-colors hover:border-primary/60"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                  Investor&apos;s guide
+                </p>
+                <p className="mt-2 font-semibold leading-snug">
+                  RV Park Investing in 2026
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  Where returns come from, where they leak, and the
+                  verification framework.
+                </p>
+              </Link>
+            </div>
+          </div>
+
           <div className="theme-cream mt-16 border border-border bg-card p-8 text-center">
             <p className="serif-display text-2xl tracking-tight">
               Know what is true before you buy.
@@ -373,3 +447,4 @@ export default async function ResourcesPage({
     </>
   )
 }
+

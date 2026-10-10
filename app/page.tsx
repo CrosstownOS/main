@@ -16,6 +16,7 @@ import FieldReality from "@/components/zone1/FieldReality"
 import ParkProof from "@/components/zone1/ParkProof"
 import FieldNotes from "@/components/zone1/FieldNotes"
 import WorkingPapers from "@/components/zone1/WorkingPapers"
+import BuyingGuides from "@/components/zone1/BuyingGuides"
 import DealDeskPromo from "@/components/zone1/DealDeskPromo"
 import LifecycleVision from "@/components/zone1/LifecycleVision"
 
@@ -70,6 +71,7 @@ export default function Home() {
           <ParkProof />
           <FieldNotes />
           <WorkingPapers />
+          <BuyingGuides />
           {/* Legacy inbound links to /#design-partner land on the Deal Desk
               promo, the successor to the retired design-partner section. */}
           <span
@@ -97,3 +99,4 @@ export default function Home() {
     </>
   )
 }
+

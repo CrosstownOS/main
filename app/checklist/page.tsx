@@ -141,6 +141,23 @@ export default function ChecklistPage() {
             manufactured housing deal. Work them in order. Every item you skip
             is a question you will answer with your own money later.
           </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            Buying an RV park? Start with the full{" "}
+            <Link
+              href="/buying-an-rv-park"
+              className="font-semibold text-primary hover:underline"
+            >
+              buyer&apos;s verification guide
+            </Link>
+            . Looking at a campground instead? Read{" "}
+            <Link
+              href="/buying-a-campground"
+              className="font-semibold text-primary hover:underline"
+            >
+              how to buy a campground
+            </Link>
+            .
+          </p>
 
           <section className="mt-12" aria-label="Diligence checklist">
             <ol className="space-y-3">
@@ -208,3 +225,4 @@ export default function ChecklistPage() {
     </>
   )
 }
+
