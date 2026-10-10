@@ -435,7 +435,7 @@ export default function AcquisitionWorkspacePage() {
                 Apply for a pilot place
               </TrackedApplyLink>
               <p className="mt-4 text-xs leading-relaxed text-muted">
-                Acceptance reserves a place. Activation begins the 90-day term when access and onboarding materials are delivered.
+                Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
               </p>
             </div>
           </section>
