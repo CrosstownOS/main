@@ -9,590 +9,588 @@ import { FAQ_JSON_LD, WORKSPACE_FAQS } from "@/lib/tools/faqs"
 import FaqSection from "@/components/tools/FaqSection"
 import SignalLine from "@/components/ui/SignalLine"
 import {
-  PageViewTracker,
-  SectionViewTracker,
-  TrackedApplyLink,
-  TrackedPlansLink,
+ PageViewTracker,
+ SectionViewTracker,
+ TrackedApplyLink,
+ TrackedPlansLink,
 } from "@/components/analytics/Trackers"
 
 export const metadata: Metadata = {
-  title: "RV Park Due Diligence Workspace | CrosstownOS",
+ title: "RV Park Due Diligence Workspace | CrosstownOS",
+ description:
+  "Run your RV park or manufactured housing acquisition in one workspace. Seller claims, evidence, and underwriting connected before you commit capital.",
+ alternates: { canonical: "/workspace" },
+ openGraph: {
+  title: "CrosstownOS Acquisition Workspace",
   description:
-    "Run your RV park or manufactured housing acquisition in one workspace. Seller claims, evidence, and underwriting connected before you commit capital.",
-  alternates: { canonical: "/workspace" },
-  openGraph: {
-    title: "CrosstownOS Acquisition Workspace",
-    description:
-      "Your acquisition decision record: seller claims, source evidence, site observations, unresolved diligence, and underwriting connected in one workspace before you commit capital.",
-    type: "website",
-    url: "/workspace",
-    images: [
-      {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "CrosstownOS Acquisition Workspace",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "CrosstownOS Acquisition Workspace",
-    description:
-      "Single-deal or annual.",
-    images: ["/og-logo.png"],
-  },
+   "Your acquisition decision record: seller claims, source evidence, site observations, unresolved diligence, and underwriting connected in one workspace before you commit capital.",
+  type: "website",
+  url: "/workspace",
+  images: [
+   {
+    url: "/og-logo.png",
+    width: 1024,
+    height: 1024,
+    alt: "CrosstownOS Acquisition Workspace",
+   },
+  ],
+ },
+ twitter: {
+  card: "summary_large_image",
+  title: "CrosstownOS Acquisition Workspace",
+  description:
+   "Single-deal or annual.",
+  images: ["/og-logo.png"],
+ },
 }
 
 function boldBrand(text: string) {
-  return text.split("CrosstownOS").flatMap((part, i) =>
-    i === 0
-      ? [part]
-      : [
-          <strong key={`b${i}`} className="font-semibold text-foreground">
-            CrosstownOS
-          </strong>,
-          part,
-        ],
-  )
+ return text.split("CrosstownOS").flatMap((part, i) =>
+  i === 0
+   ? [part]
+   : [
+     <strong key={`b${i}`} className="font-semibold text-foreground">
+      CrosstownOS
+     </strong>,
+     part,
+    ],
+ )
 }
 
 const PAINS = [
-  {
-    title: "The numbers do not tie.",
-    body: "The rent roll, the P&L, and the bank deposits tell three different stories, and nobody owns the reconciliation.",
-    linkText: "The rent roll is a claim, not income verification",
-    linkHref: "/blog/the-rent-roll-is-a-claim-not-income-verification",
-  },
-  {
-    title: "The package does not establish infrastructure condition or capacity.",
-    body: "Water, sewer, electrical, and roads carry the real risk. A package may mention them without establishing permits, responsibility, or operating condition.",
-    linkText: "The permits buyers skip",
-    linkHref: "/blog/the-permits-buyers-skip",
-  },
-  {
-    title: "There is no authoritative record.",
-    body: "Diligence lives in inboxes, photo folders, and memory. When the deadline moves, the truth moves with it.",
-    linkText: "Before you underwrite the deal, establish what is true",
-    linkHref: "/blog/before-you-underwrite-establish-what-is-true",
-  },
+ {
+  title: "The numbers do not tie.",
+  body: "The rent roll, the P&L, and the bank deposits tell three different stories, and nobody owns the reconciliation.",
+  linkText: "The rent roll is a claim, not income verification",
+  linkHref: "/blog/the-rent-roll-is-a-claim-not-income-verification",
+ },
+ {
+  title: "The package does not establish infrastructure condition or capacity.",
+  body: "Water, sewer, electrical, and roads carry the real risk. A package may mention them without establishing permits, responsibility, or operating condition.",
+  linkText: "The permits buyers skip",
+  linkHref: "/blog/the-permits-buyers-skip",
+ },
+ {
+  title: "There is no authoritative record.",
+  body: "Diligence lives in inboxes, photo folders, and memory. When the deadline moves, the truth moves with it.",
+  linkText: "Before you underwrite the deal, establish what is true",
+  linkHref: "/blog/before-you-underwrite-establish-what-is-true",
+ },
 ] as const
 
 const SCOPE_ITEMS = [
-  "The full Acquisition Workspace: Source, Field, and Acquire, connected around one deal record.",
-  "Source organizes your broker packages, public records, and seller statements with provenance on every document you attach.",
-  "Field captures your site-walk photos, notes, and observations against the deal record. Captured is not verified.",
-  "Acquire runs the diligence register: evidence states, capacity gates, and deterministic underwriting from assumptions you approve.",
-  "A ParkProof decision file you generate from your own reviewed evidence, unresolved gates, and approved assumptions.",
-  "Recorded onboarding walkthrough plus one live software Q&A session.",
+ "The full Acquisition Workspace: Source, Field, and Acquire, connected around one deal record.",
+ "Source organizes your broker packages, public records, and seller statements with provenance on every document you attach.",
+ "Field captures your site-walk photos, notes, and observations against the deal record. Captured is not verified.",
+ "Acquire runs the diligence register: evidence states, capacity gates, and deterministic underwriting from assumptions you approve.",
+ "A ParkProof decision file you generate from your own reviewed evidence, unresolved gates, and approved assumptions.",
+ "Recorded onboarding walkthrough plus one live software Q&A session.",
 ] as const
 
 const HOW_IT_WORKS = [
-  {
-    title: "Set up your deal.",
-    body: "Create the workspace for your property. The recorded walkthrough explains the core workflow. One live Q&A session (30 minutes, booked within your first 30 days) covers navigation, inputs, documented calculations, and software behavior.",
-  },
-  {
-    title: "Organize your sources.",
-    body: "Attach the broker package, public records, and seller statements. Source tracks where every number came from, because you put it there.",
-  },
-  {
-    title: "Walk it with Field.",
-    body: "On the site walk you capture what the paper cannot show: utilities, wastewater, metering, roads, site conditions. Every capture is unreviewed evidence until you review it.",
-  },
-  {
-    title: "Work the register.",
-    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Assign each claim an evidence state using the ParkProof definitions. You supply the supporting evidence and document your review; CrosstownOS does not independently verify the claim. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
-  },
-  {
-    title: "Underwrite from your inputs.",
-    body: "The engine calculates only from assumptions you approve. Models may propose. You confirm. Code calculates.",
-  },
-  {
-    title: "Decide on the record.",
-    body: "Generate the ParkProof file from your reviewed evidence, unresolved gates, and approved assumptions. Take it to your partners, your lender, or your own investment committee. The posture is yours: advance, retrade, pause, or walk.",
-  },
+ {
+  title: "Set up your deal.",
+  body: "Create the workspace for your property. The recorded walkthrough explains the core workflow. One live Q&A session (30 minutes, booked within your first 30 days) covers navigation, inputs, documented calculations, and software behavior.",
+ },
+ {
+  title: "Organize your sources.",
+  body: "Attach the broker package, public records, and seller statements. Source tracks where every number came from, because you put it there.",
+ },
+ {
+  title: "Walk it with Field.",
+  body: "On the site walk you capture what the paper cannot show: utilities, wastewater, metering, roads, site conditions. Every capture is unreviewed evidence until you review it.",
+ },
+ {
+  title: "Work the register.",
+  body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Assign each claim an evidence state using the ParkProof definitions. You supply the supporting evidence and document your review; CrosstownOS does not independently verify the claim. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+ },
+ {
+  title: "Underwrite from your inputs.",
+  body: "The engine calculates only from assumptions you approve. Models may propose. You confirm. Code calculates.",
+ },
+ {
+  title: "Decide on the record.",
+  body: "Generate the ParkProof file from your reviewed evidence, unresolved gates, and approved assumptions. Take it to your partners, your lender, or your own investment committee. The posture is yours: advance, retrade, pause, or walk.",
+ },
 ] as const
 
 const NOVEMBER_PRODUCT = [
-  {
-    name: "Source",
-    color: "#4A90D9",
-    family: "Know it",
-    body: SOURCE_SENTENCE,
-  },
-  {
-    name: "Field",
-    color: "#D97706",
-    family: "Know it · Take it",
-    body: "Field captures what you see when you get there. Photos, notes, and observations enter the record as unreviewed evidence until a person reviews them. On the site walk you record what the paper cannot show: utilities, wastewater, metering, roads, and site conditions. Captured is not verified.",
-  },
-  {
-    name: "Acquire",
-    color: "#00468B",
-    family: "Know it",
-    body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
-  },
+ {
+  name: "Source",
+  color: "#4A90D9",
+  family: "Know it",
+  body: SOURCE_SENTENCE,
+ },
+ {
+  name: "Field",
+  color: "#D97706",
+  family: "Know it · Take it",
+  body: "Field captures what you see when you get there. Photos, notes, and observations enter the record as unreviewed evidence until a person reviews them. On the site walk you record what the paper cannot show: utilities, wastewater, metering, roads, and site conditions. Captured is not verified.",
+ },
+ {
+  name: "Acquire",
+  color: "#00468B",
+  family: "Know it",
+  body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
+ },
 ] as const
 
 const INCLUDED_SHARED = [
-  "Full access to Source, Field, and Acquire. Single-deal access covers one property; annual access covers unlimited properties during the term.",
-  "Recorded onboarding walkthrough.",
-  "One 30-minute live software Q&A per account, booked within the first 30 days.",
-  "Email technical support. Target response within two business days.",
-  "One named operator account.",
+ "Full access to Source, Field, and Acquire. Single-deal access covers one property; annual access covers unlimited properties during the term.",
+ "Recorded onboarding walkthrough.",
+ "One 30-minute live software Q&A per account, booked within the first 30 days.",
+ "Email technical support. Target response within two business days.",
+ "One named operator account.",
 ] as const
 
 const FOR_ITEMS = [
-  "Active RV park, MHP, or manufactured housing buyers with a live or imminent deal and a decision deadline in the next 60 to 90 days.",
-  "Independent sponsors, small acquisition shops, and owner-operators who will bring real materials and work the record. You build it; the workflow guides you.",
-  "Buyers who want the decision file to show what is verified, what is claimed, what is missing, and what was assumed, so the posture they take is defensible.",
+ "Active RV park, MHP, or manufactured housing buyers with a live or imminent deal and a decision deadline in the next 60 to 90 days.",
+ "Independent sponsors, small acquisition shops, and owner-operators who will bring real materials and work the record. You build it; the workflow guides you.",
+ "Buyers who want the decision file to show what is verified, what is claimed, what is missing, and what was assumed, so the posture they take is defensible.",
 ] as const
 
 const NOT_FOR_ITEMS = [
-  "Brokers, sellers, and intermediaries. The workspace serves the buyer's side of the table only.",
-  "The curious with no live deal. The free resource library is the right door for now.",
-  "Buyers who want someone else to run diligence for them. The workflow guides; the buyer builds the record.",
-  "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
+ "Brokers, sellers, and intermediaries. The workspace serves the buyer's side of the table only.",
+ "The curious with no live deal. The free resource library is the right door for now.",
+ "Buyers who want someone else to run diligence for them. The workflow guides; the buyer builds the record.",
+ "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
 ] as const
 
 const FAQ = [
-  {
-    q: "What does the Single-Deal Workspace include?",
-    a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
-  },
-  {
-    q: "What does the Annual Workspace include?",
-    a: "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
-  },
-  {
-    q: "What do you mean by software Q&A? What is it not?",
-    a: "We answer questions about navigation, inputs, documented calculations, and software behavior. What your documents mean and what to do about a property stays with you and your team.",
-  },
-  {
-    q: "What does Verified mean in the evidence states?",
-    a: "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named human reviewer. CrosstownOS does not independently verify your deal claims. The label records your documented review, not certification by CrosstownOS.",
-  },
-  {
-    q: "What does CrosstownOS not do?",
-    a: "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record.",
-  },
-  {
-    q: "Does CrosstownOS replace my professional team?",
-    a: "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",,
-  },
-  {
-    q: "Who makes the final call on my deal?",
-    a: "You do. The decision file organizes your documented posture from reviewed evidence, unresolved gates, and approved assumptions. It is decision support, not a verdict from software.",
-  },
-  {
-    q: "How is my deal data handled?",
-    a: "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",,
-  },
-  {
-    q: "What happens after 90 days, or if my deal ends early?",
-    a: "Single-Deal access ends 90 calendar days from activation. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
-  },
-  {
-    q: "What is the refund policy?",
-    a: "Full refund within seven calendar days of activation. Requesting a refund ends access immediately.",
-  },
-  {
-    q: "What counts as one property?",
-    a: "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",,
-  },
-  {
-    q: "Can I purchase Annual after Single-Deal?",
-    a: "Purchase Annual Workspace as a separate purchase at any time. There is no credit, prorating, or conversion discount.",
-  },
+ {
+  q: "What does the Single-Deal Workspace include?",
+  a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
+ },
+ {
+  q: "What does the Annual Workspace include?",
+  a: "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
+ },
+ {
+  q: "What do you mean by software Q&A? What is it not?",
+  a: "We answer questions about navigation, inputs, documented calculations, and software behavior. What your documents mean and what to do about a property stays with you and your team.",
+ },
+ {
+  q: "What does Verified mean in the evidence states?",
+  a: "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named human reviewer. CrosstownOS does not independently verify your deal claims. The label records your documented review, not certification by CrosstownOS.",
+ },
+ {
+  q: "What does CrosstownOS not do?",
+  a: "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record.",
+ },
+ {
+  q: "Does CrosstownOS replace my professional team?",
+  a: "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",,
+ },
+ {
+  q: "Who makes the final call on my deal?",
+  a: "You do. The decision file organizes your documented posture from reviewed evidence, unresolved gates, and approved assumptions. It is decision support, not a verdict from software.",
+ },
+ {
+  q: "How is my deal data handled?",
+  a: "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",,
+ },
+ {
+  q: "What happens after 90 days, or if my deal ends early?",
+  a: "Single-Deal access ends 90 calendar days from activation. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
+ },
+ {
+  q: "What is the refund policy?",
+  a: "Full refund within seven calendar days of activation. Requesting a refund ends access immediately.",
+ },
+ {
+  q: "What counts as one property?",
+  a: "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",,
+ },
+ {
+  q: "Can I purchase Annual after Single-Deal?",
+  a: "Purchase Annual Workspace as a separate purchase at any time. There is no credit, prorating, or conversion discount.",
+ },
 ] as const
 
 const WORKSPACE_PRODUCT_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "CrosstownOS Acquisition Workspace",
-  description:
-    "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
-  url: "https://www.crosstownosrv.camp/workspace",
-  image: "https://www.crosstownosrv.camp/og-logo.png",
-  brand: {
-    "@type": "Brand",
-    name: "CrosstownOS",
+ "@context": "https://schema.org",
+ "@type": "Product",
+ name: "CrosstownOS Acquisition Workspace",
+ description:
+  "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
+ url: "https://www.crosstownosrv.camp/workspace",
+ image: "https://www.crosstownosrv.camp/og-logo.png",
+ brand: {
+  "@type": "Brand",
+  name: "CrosstownOS",
+ },
+ offers: [
+  {
+   "@type": "Offer",
+   name: "Single-Deal Workspace",
+   description:
+    "One property. 90 days. The full workspace, from your first document to your decision file.",
+   url: "https://www.crosstownosrv.camp/workspace#plans",
+   price: "1250",
+   priceCurrency: "USD",
+   availability: "https://schema.org/PreOrder",
+   shippingDetails: {
+    "@type": "OfferShippingDetails",
+    shippingRate: {
+     "@type": "MonetaryAmount",
+     value: "0",
+     currency: "USD",
+    },
+    shippingDestination: {
+     "@type": "DefinedRegion",
+     addressCountry: "US",
+    },
+   },
+   hasMerchantReturnPolicy: {
+    "@type": "MerchantReturnPolicy",
+    returnPolicyCategory:
+     "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: 7,
+   },
   },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Single-Deal Workspace",
-      description:
-        "One property. 90 days. The full workspace, from your first document to your decision file.",
-      url: "https://www.crosstownosrv.camp/workspace#plans",
-      price: "1250",
-      priceCurrency: "USD",
-      availability: "https://schema.org/PreOrder",
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
-        },
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: "US",
-        },
-      },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        returnPolicyCategory:
-          "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 7,
-      },
+  {
+   "@type": "Offer",
+   name: "Annual Workspace",
+   description:
+    "Unlimited properties. 12 months. Stop rebuilding the record every time you look at a deal.",
+   url: "https://www.crosstownosrv.camp/workspace#plans",
+   price: "2500",
+   priceCurrency: "USD",
+   availability: "https://schema.org/PreOrder",
+   shippingDetails: {
+    "@type": "OfferShippingDetails",
+    shippingRate: {
+     "@type": "MonetaryAmount",
+     value: "0",
+     currency: "USD",
     },
-    {
-      "@type": "Offer",
-      name: "Annual Workspace",
-      description:
-        "Unlimited properties. 12 months. Stop rebuilding the record every time you look at a deal.",
-      url: "https://www.crosstownosrv.camp/workspace#plans",
-      price: "2500",
-      priceCurrency: "USD",
-      availability: "https://schema.org/PreOrder",
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
-        },
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: "US",
-        },
-      },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        returnPolicyCategory:
-          "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 7,
-      },
+    shippingDestination: {
+     "@type": "DefinedRegion",
+     addressCountry: "US",
     },
-  ],
+   },
+   hasMerchantReturnPolicy: {
+    "@type": "MerchantReturnPolicy",
+    returnPolicyCategory:
+     "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: 7,
+   },
+  },
+ ],
 } as const
 
 export default function AcquisitionWorkspacePage() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/workspace"]) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(WORKSPACE_PRODUCT_JSON_LD) }}
-      />
-      <Navigation />
-      <PageViewTracker event="workspace_view" />
-      <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-          {/* Hero */}
-          <p className="mono-label mb-4">Five free pilot places. Target opening: November 2026.</p>
-          <SignalLine />
-          <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            The Acquisition Workspace. Your deal, on the record.
-          </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Seller claims, source evidence, site observations, unresolved
-            diligence, and underwriting, connected in one workspace before you
-            commit capital.
-          </p>
-          <ToolContextLine />
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <TrackedPlansLink
-              className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Apply for a pilot place
-            </TrackedPlansLink>
-            <a
-              href="#how-it-works"
-              className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              See how it works
-            </a>
-          </div>
+ return (
+  <>
+   <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/workspace"]) }}
+   />
+   <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(WORKSPACE_PRODUCT_JSON_LD) }}
+   />
+   <Navigation />
+   <PageViewTracker event="workspace_view" />
+   <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
+    <PageBackdrop />
+    <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+     {/* Hero */}
+     <p className="mono-label mb-4">Five free pilot places. Target opening: November 2026.</p>
+     <SignalLine />
+     <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
+      The Acquisition Workspace. Your deal, on the record.
+     </h1>
+     <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      Seller claims, source evidence, site observations, unresolved
+      diligence, and underwriting, connected in one workspace before you
+      commit capital.
+     </p>
+     <ToolContextLine />
+     <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+      <TrackedPlansLink
+       className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+       Apply for a pilot place
+      </TrackedPlansLink>
+      <a
+       href="#how-it-works"
+       className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+       See how it works
+      </a>
+     </div>
 
-          {/* The problem */}
-          <section aria-labelledby="deal-desk-problem" className="mt-20">
-            <h2 id="deal-desk-problem" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The problem, briefly.
-            </h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {PAINS.map((pain) => (
-                <div key={pain.title} className="theme-cream border border-border bg-card p-6">
-                  <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                    {pain.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {pain.body}{" "}
-                    <a
-                      href={pain.linkHref}
-                      className="text-primary underline underline-offset-2 hover:no-underline"
-                    >
-                      {pain.linkText}
-                    </a>
-                    .
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+     {/* The problem */}
+     <section aria-labelledby="deal-desk-problem" className="mt-20">
+      <h2 id="deal-desk-problem" className="serif-display text-2xl tracking-tight sm:text-3xl">
+       The problem, briefly.
+      </h2>
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+       {PAINS.map((pain) => (
+        <div key={pain.title} className="theme-cream border border-border bg-card p-6">
+         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+          {pain.title}
+         </h3>
+         <p className="mt-2 text-sm leading-relaxed text-muted">
+          {pain.body}{" "}
+          <a
+           href={pain.linkHref}
+           className="text-primary underline underline-offset-2 hover:no-underline"
+          >
+           {pain.linkText}
+          </a>
+          .
+         </p>
+        </div>
+       ))}
+      </div>
+     </section>
 
-          {/* How it works */}
-          <section id="how-it-works" aria-labelledby="deal-desk-how" className="mt-20 scroll-mt-24">
-            <h2 id="deal-desk-how" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              How the workspace works.
-            </h2>
-            <ol className="mt-6 space-y-4">
-              {HOW_IT_WORKS.map((step, index) => (
-                <li key={step.title} className="theme-cream flex gap-4 border border-border bg-card p-5 sm:p-6">
-                  <span className="serif-display flex-none text-2xl text-primary">
-                    {index + 1}
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                      {step.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{step.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
+     {/* How it works */}
+     <section id="how-it-works" aria-labelledby="deal-desk-how" className="mt-20 scroll-mt-24">
+      <h2 id="deal-desk-how" className="serif-display text-2xl tracking-tight sm:text-3xl">
+       How the workspace works.
+      </h2>
+      <ol className="mt-6 space-y-4">
+       {HOW_IT_WORKS.map((step, index) => (
+        <li key={step.title} className="theme-cream flex gap-4 border border-border bg-card p-5 sm:p-6">
+         <span className="serif-display flex-none text-2xl text-primary">
+          {index + 1}
+         </span>
+         <div className="min-w-0">
+          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+           {step.title}
+          </h3>
+          <p className="mt-1 text-sm leading-relaxed text-muted">{step.body}</p>
+         </div>
+        </li>
+       ))}
+      </ol>
+     </section>
 
-          {/* The November product, compact */}
-          <section aria-labelledby="deal-desk-product" className="mt-20">
-            <h2 id="deal-desk-product" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The November product, in one view.
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              <strong className="font-semibold text-foreground">Source</strong> + <strong className="font-semibold text-foreground">Field</strong> + <strong className="font-semibold text-foreground">Acquire</strong> is the <strong className="font-semibold text-foreground">Acquisition Workspace</strong>&apos;s first connected loop, targeting <strong className="font-semibold text-foreground">November 2026</strong> access. The <strong className="font-semibold text-foreground">Transition Workspace</strong> and <strong className="font-semibold text-foreground">Operations Workspace</strong> are planned system direction.
-            </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {NOVEMBER_PRODUCT.map((module) => (
-                <div
-                  key={module.name}
-                  className="theme-cream border border-border bg-card p-6"
-                  style={{ borderTop: `2px solid ${module.color}` }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="h-2.5 w-2.5 flex-none"
-                      style={{ backgroundColor: module.color }}
-                      aria-hidden="true"
-                    />
-                    <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
-                      {module.name}
-                    </h3>
-                  </div>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                    {module.family}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground/80">{module.body}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+     {/* The November product, compact */}
+     <section aria-labelledby="deal-desk-product" className="mt-20">
+      <h2 id="deal-desk-product" className="serif-display text-2xl tracking-tight sm:text-3xl">
+       The November product, in one view.
+      </h2>
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+       <strong className="font-semibold text-foreground">Source</strong> + <strong className="font-semibold text-foreground">Field</strong> + <strong className="font-semibold text-foreground">Acquire</strong> is the <strong className="font-semibold text-foreground">Acquisition Workspace</strong>&apos;s first connected loop, targeting <strong className="font-semibold text-foreground">November 2026</strong> access. The <strong className="font-semibold text-foreground">Transition Workspace</strong> and <strong className="font-semibold text-foreground">Operations Workspace</strong> are planned system direction.
+      </p>
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+       {NOVEMBER_PRODUCT.map((module) => (
+        <div
+         key={module.name}
+         className="theme-cream border border-border bg-card p-6"
+         style={{ borderTop: `2px solid ${module.color}` }}
+        >
+         <div className="flex items-center gap-2">
+          <span
+           className="h-2.5 w-2.5 flex-none"
+           style={{ backgroundColor: module.color }}
+           aria-hidden="true"
+          />
+          <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
+           {module.name}
+          </h3>
+         </div>
+         <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+          {module.family}
+         </p>
+         <p className="mt-3 text-sm leading-relaxed text-foreground/80">{module.body}</p>
+        </div>
+       ))}
+      </div>
+     </section>
 
-          {/* Free pilot */}
-          {/* Pilot: the offer */}
-          <section aria-labelledby="deal-desk-pilot" className="mt-20">
-            <SignalLine />
-            <h2 id="deal-desk-pilot" className="serif-display text-3xl tracking-tight sm:text-4xl">
-              Five free pilot places. Target opening: November 2026.
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails.
-            </p>
-            <div className="theme-cream mt-8 border border-primary/40 bg-card p-6 sm:p-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                The trade
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
-                Run one live acquisition through Source, Field, and Acquire for 90 days from activation. No payment required and no automatic conversion.
+     {/* Free pilot */}
+     {/* Pilot: the offer */}
+     <section aria-labelledby="deal-desk-pilot" className="mt-20">
+      <SignalLine />
+      <h2 id="deal-desk-pilot" className="serif-display text-3xl tracking-tight sm:text-4xl">
+       Five free pilot places. Target opening: November 2026.
+      </h2>
+      <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+       I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails.
+      </p>
+      <div className="theme-cream mt-8 border border-primary/40 bg-card p-6 sm:p-10">
+       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+        The trade
+       </p>
+       <p className="mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
+        Run one live acquisition through Source, Field, and Acquire for 90 days from activation. No payment required and no automatic conversion.
 
 In exchange, use the workspace and give candid feedback about what works, what breaks, and what is confusing. I troubleshoot software behavior, not your deal. Testimonials are optional and require separate written permission.
 
 Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
-              </p>
-              <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
-                <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
-              </p>
-              <TrackedApplyLink
-                plan="pilot"
-                className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
-              >
-                Apply for a pilot place
-              </TrackedApplyLink>
-              <p className="mt-4 text-xs leading-relaxed text-muted">
-                Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
-              </p>
-            </div>
-          </section>
+       </p>
+       <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
+        <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
+       </p>
+       <TrackedApplyLink
+        plan="pilot"
+        className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
+       >
+        Apply for a pilot place
+       </TrackedApplyLink>
+       <p className="mt-4 text-xs leading-relaxed text-muted">
+        Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
+       </p>
+      </div>
+     </section>
 
-          {/* After the pilot */}
-          <section id="plans" className="mt-20 scroll-mt-24">
-          <SectionViewTracker event="pricing_view" />
-            <p className="max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              After the five spots fill: <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual.
-            </p>
-            <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
-              <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                Every plan includes
-              </h3>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                {INCLUDED_SHARED.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <h4 className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-foreground">
-                  Terms of access
-                </h4>
-                <ol className="mt-4 space-y-3 text-sm leading-relaxed text-foreground/85">
-                  <li>
-                    <span className="font-bold text-foreground">Activation.</span>{" "}
-                    Access commences upon delivery of your account credentials
-                    and onboarding materials. The date of delivery is your
-                    activation date.
-                  </li>
-                  <li>
-                    <span className="font-bold text-foreground">Renewal.</span>{" "}
-                    Renewal is manual. <strong className="font-semibold text-foreground">CrosstownOS</strong> does not enroll accounts in
-                    automatic renewal and does not charge cards on file without
-                    a new, explicit purchase.
-                  </li>
-                  <li>
-                    <span className="font-bold text-foreground">License scope.</span>{" "}
-                    A Single-Deal Workspace license covers one property: one
-                    park or community acquisition, including associated parcels
-                    transacted under a single purchase agreement. The license is
-                    non-transferable. If the transaction is abandoned or does
-                    not close, it does not transfer to another property.
-                  </li>
-                  <li>
-                    <span className="font-bold text-foreground">Expiration.</span>{" "}
-                    Single-Deal access ends 90 calendar days from activation.
-                    Annual access ends 12 months from activation. Editing
-                    privileges end at expiration, so export your records before
-                    then.
-                  </li>
-                  <li>
-                    <span className="font-bold text-foreground">Data retention.</span>{" "}
-                    Account data is retained for thirty (30) calendar days
-                    following expiration, after which deletion is scheduled and
-                    carried out.
-                  </li>
-                  <li>
-                    <span className="font-bold text-foreground">Refunds.</span>{" "}
-                    A full refund is available within seven (7) calendar days of
-                    activation. Requesting a refund terminates access
-                    immediately.
-                  </li>
-                </ol>
-                <Link
-                  href="/terms"
-                  className="mt-4 inline-block text-sm text-primary underline underline-offset-2 transition-colors hover:text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  Read the full Terms of Use
-                </Link>
-              </div>
-            </div>
-          </section>
+     {/* After the pilot */}
+     <section id="plans" className="mt-20 scroll-mt-24">
+     <SectionViewTracker event="pricing_view" />
+      
+      <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
+       <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+        Every plan includes
+       </h3>
+       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        {INCLUDED_SHARED.map((item) => (
+         <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
+          <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
+          <span>{item}</span>
+         </li>
+        ))}
+       </ul>
+       <div className="mt-8">
+        <h4 className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+         Terms of access
+        </h4>
+        <ol className="mt-4 space-y-3 text-sm leading-relaxed text-foreground/85">
+         <li>
+          <span className="font-bold text-foreground">Activation.</span>{" "}
+          Access commences upon delivery of your account credentials
+          and onboarding materials. The date of delivery is your
+          activation date.
+         </li>
+         <li>
+          <span className="font-bold text-foreground">Renewal.</span>{" "}
+          Renewal is manual. <strong className="font-semibold text-foreground">CrosstownOS</strong> does not enroll accounts in
+          automatic renewal and does not charge cards on file without
+          a new, explicit purchase.
+         </li>
+         <li>
+          <span className="font-bold text-foreground">License scope.</span>{" "}
+          A Single-Deal Workspace license covers one property: one
+          park or community acquisition, including associated parcels
+          transacted under a single purchase agreement. The license is
+          non-transferable. If the transaction is abandoned or does
+          not close, it does not transfer to another property.
+         </li>
+         <li>
+          <span className="font-bold text-foreground">Expiration.</span>{" "}
+          Single-Deal access ends 90 calendar days from activation.
+          Annual access ends 12 months from activation. Editing
+          privileges end at expiration, so export your records before
+          then.
+         </li>
+         <li>
+          <span className="font-bold text-foreground">Data retention.</span>{" "}
+          Account data is retained for thirty (30) calendar days
+          following expiration, after which deletion is scheduled and
+          carried out.
+         </li>
+         <li>
+          <span className="font-bold text-foreground">Refunds.</span>{" "}
+          A full refund is available within seven (7) calendar days of
+          activation. Requesting a refund terminates access
+          immediately.
+         </li>
+        </ol>
+        <Link
+         href="/terms"
+         className="mt-4 inline-block text-sm text-primary underline underline-offset-2 transition-colors hover:text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+         Read the full Terms of Use
+        </Link>
+       </div>
+      </div>
+     </section>
 
-          {/* Who it is for / not for */}
-          <section aria-labelledby="deal-desk-who" className="mt-20">
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h2 id="deal-desk-who" className="serif-display text-2xl tracking-tight">
-                  Who the workspace is for.
-                </h2>
-                <ul className="mt-5 space-y-3">
-                  {FOR_ITEMS.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                      <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h2 className="serif-display text-2xl tracking-tight">
-                  Who it is not for.
-                </h2>
-                <ul className="mt-5 space-y-3">
-                  {NOT_FOR_ITEMS.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                      <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
-                      <span>{boldBrand(item)}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
+     {/* Who it is for / not for */}
+     <section aria-labelledby="deal-desk-who" className="mt-20">
+      <div className="grid gap-4 md:grid-cols-2">
+       <div className="theme-cream border border-border bg-card p-6 sm:p-8">
+        <h2 id="deal-desk-who" className="serif-display text-2xl tracking-tight">
+         Who the workspace is for.
+        </h2>
+        <ul className="mt-5 space-y-3">
+         {FOR_ITEMS.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
+           <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
+           <span>{item}</span>
+          </li>
+         ))}
+        </ul>
+       </div>
+       <div className="theme-cream border border-border bg-card p-6 sm:p-8">
+        <h2 className="serif-display text-2xl tracking-tight">
+         Who it is not for.
+        </h2>
+        <ul className="mt-5 space-y-3">
+         {NOT_FOR_ITEMS.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
+           <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
+           <span>{boldBrand(item)}</span>
+          </li>
+         ))}
+        </ul>
+       </div>
+      </div>
+     </section>
 
-          {/* FAQ */}
-          <section id="faq" aria-labelledby="deal-desk-faq" className="mt-20 scroll-mt-24">
-            <h2 id="deal-desk-faq" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Questions buyers ask.
-            </h2>
-            <div className="mt-6 space-y-4">
-              {FAQ.map((item, index) => (
-                <details
-                  key={item.q}
-                  className="theme-cream group border border-border bg-card transition-colors hover:border-primary/40"
-                >
-                  <summary className="flex cursor-pointer list-none items-center p-6 font-sans text-base font-bold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-primary [&::-webkit-details-marker]:hidden">
-                    <span className="mr-3 font-mono text-[10px] tracking-[0.2em] text-primary">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="flex-1">{item.q}</span>
-                    <span
-                      aria-hidden="true"
-                      className="ml-4 font-mono text-lg leading-none text-primary transition-transform duration-200 group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="px-6 pb-6 text-sm leading-relaxed text-muted">
-                    {boldBrand(item.a)}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </section>
+     {/* FAQ */}
+     <section id="faq" aria-labelledby="deal-desk-faq" className="mt-20 scroll-mt-24">
+      <h2 id="deal-desk-faq" className="serif-display text-2xl tracking-tight sm:text-3xl">
+       Questions buyers ask.
+      </h2>
+      <div className="mt-6 space-y-4">
+       {FAQ.map((item, index) => (
+        <details
+         key={item.q}
+         className="theme-cream group border border-border bg-card transition-colors hover:border-primary/40"
+        >
+         <summary className="flex cursor-pointer list-none items-center p-6 font-sans text-base font-bold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-primary [&::-webkit-details-marker]:hidden">
+          <span className="mr-3 font-mono text-[10px] tracking-[0.2em] text-primary">
+           {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="flex-1">{item.q}</span>
+          <span
+           aria-hidden="true"
+           className="ml-4 font-mono text-lg leading-none text-primary transition-transform duration-200 group-open:rotate-45"
+          >
+           +
+          </span>
+         </summary>
+         <p className="px-6 pb-6 text-sm leading-relaxed text-muted">
+          {boldBrand(item.a)}
+         </p>
+        </details>
+       ))}
+      </div>
+     </section>
 
-          {/* Application */}
-          <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
-          <SignalLine />
-            <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Start with a fit call.
-            </h2>
+     {/* Application */}
+     <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
+     <SignalLine />
+      <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
+       Start with a fit call.
+      </h2>
 
-            <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
-              <DealDeskForm />
-            </div>
-          </section>
+      <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
+       <DealDeskForm />
+      </div>
+     </section>
 
-          {/* FAQ: fit call questions, below the application */}
-          <div className="mt-20">
-            <FaqSection faqs={WORKSPACE_FAQS} />
-          </div>
-        </div>
-      </main>
-    </>
-  )
+     {/* FAQ: fit call questions, below the application */}
+     <div className="mt-20">
+      <FaqSection faqs={WORKSPACE_FAQS} />
+     </div>
+    </div>
+   </main>
+  </>
+ )
 }
