@@ -243,7 +243,7 @@ export default async function BlogPost({ params }: PageProps) {
               href="/workspace"
               className="mt-5 inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
             >
-              See the plans
+              Get the free trial
             </Link>
           </div>
 
