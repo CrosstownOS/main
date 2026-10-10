@@ -4,7 +4,7 @@ date: "2026-09-15"
 excerpt: "Every deal arrives as a stack of claims dressed as facts. The buyer's real job, before any valuation math, is to label every material number. Here is the six-label system for doing it."
 tags: ["diligence", "underwriting", "field notes"]
 seoTitle: "Know What Is True Before You Underwrite | CrosstownOS"
-seoDescription: "Every deal arrives as claims dressed as facts. Label every material number before the valuation math, with a four-label system for doing it."
+seoDescription: "Every deal arrives as claims dressed as facts. Label every material number before the valuation math, with a six-label system for doing it."
 ---
 
 A buyer is mid-diligence on a park with a second operating business on site. The income will not reconcile to anything on paper, and nobody in the room is surprised.
