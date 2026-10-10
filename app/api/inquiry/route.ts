@@ -112,11 +112,11 @@ const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
 
 const LIVE_DEAL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'THE WORKSPACE',
-  title: 'See the plans',
+  title: 'Get the free trial',
   description:
     'For buyers with a live or imminent deal and a decision deadline.',
   href: `${SITE_URL}/workspace`,
-  buttonLabel: 'See the plans',
+  buttonLabel: 'Get the free trial',
 }
 
 const BROKERS_AND_LENDERS_REFERRAL_BLOCK: EmailDestinationBlock = {
