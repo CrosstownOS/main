@@ -401,7 +401,7 @@ export default function Navigation() {
         >
           <p className="flex items-center gap-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground sm:text-[11px] sm:tracking-[0.22em]">
             <span className="h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-            The Acquisition Workspace opens November 2026. Single-deal or annual.
+            The Acquisition Workspace: first 5 buyers get it free.
           </p>
         </Link>
 
@@ -436,10 +436,10 @@ export default function Navigation() {
             </nav>
 
             <Link
-              href="/workspace#plans"
+              href="/workspace"
               className="hidden min-w-fit border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
             >
-              See the plans
+              Get the free trial
             </Link>
 
             <button
@@ -501,11 +501,11 @@ export default function Navigation() {
 
             <div className="border-t border-border px-5 py-5">
               <Link
-                href="/workspace#plans"
+                href="/workspace"
                 onClick={() => setOpen(false)}
                 className="block w-full border border-primary/60 bg-primary-deep px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                See the plans
+                Get the free trial
               </Link>
             </div>
           </div>
