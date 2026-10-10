@@ -15,7 +15,7 @@ Everything downstream follows from the answer. The income you are buying. The ex
 
 First, what does not change. The evidence discipline is the same.
 
-The rent roll is still a claim, not income verification. Occupancy still needs rebuilding from deposits, because reported occupancy counts heads and paying occupancy counts dollars. The utility system still needs its three questions: condition, capacity, compliance. Every material number still gets one of four labels: verified, broker-reported, missing evidence, or underwriting assumption.
+The rent roll is still a claim, not income verification. Occupancy still needs rebuilding from deposits, because reported occupancy counts heads and paying occupancy counts dollars. The utility system still needs its three questions: condition, capacity, compliance. Every material number still gets one of six labels: verified, broker-reported, missing evidence, underwriting assumption, calculated, or unresolved.
 
 A buyer who runs that discipline on RV parks does not need a new discipline for manufactured housing. They need the same discipline pointed at a different asset. The standard does not move. The questions do.
 
