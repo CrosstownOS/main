@@ -627,16 +627,7 @@ export default function AcquisitionWorkspacePage() {
             <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
               Start with a fit call.
             </h2>
-            <p className="theme-cream paper mt-4 max-w-3xl border border-border/60 bg-card/50 p-4 text-sm leading-relaxed text-muted">
-              Tell us about your deal. If it is a fit, we will send the booking
-              link for a 15-minute conversation about whether the workspace
-              matches what you need.
-            </p>
-            <p className="theme-cream paper mt-4 max-w-3xl border border-border/60 bg-card/50 p-4 text-sm leading-relaxed text-muted">
-              Everything you share here is treated as confidential and is never
-              used in content, examples, or conversation without your written
-              permission.
-            </p>
+
             <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
               <DealDeskForm />
             </div>
