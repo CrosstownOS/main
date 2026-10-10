@@ -78,6 +78,15 @@ const PAINS = [
   },
 ] as const
 
+const SCOPE_ITEMS = [
+  "The full Acquisition Workspace: Source, Field, and Acquire, connected around one deal record.",
+  "Source organizes your broker packages, public records, and seller statements with provenance on every document you attach.",
+  "Field captures your site-walk photos, notes, and observations against the deal record. Captured is not verified.",
+  "Acquire runs the diligence register: evidence states, capacity gates, and deterministic underwriting from assumptions you approve.",
+  "A ParkProof decision file you generate from your own reviewed evidence, unresolved gates, and approved assumptions.",
+  "Recorded onboarding walkthrough plus one live software Q&A session.",
+] as const
+
 const HOW_IT_WORKS = [
   {
     title: "Set up your deal.",
@@ -287,7 +296,7 @@ export default function AcquisitionWorkspacePage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
-          <p className="mono-label mb-4">Available November 2026</p>
+          <p className="mono-label mb-4">Free trial: first five buyers</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             The Acquisition Workspace. Your deal, on the record.
@@ -336,6 +345,30 @@ export default function AcquisitionWorkspacePage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* What you get */}
+          <section aria-labelledby="deal-desk-scope" className="mt-20">
+            <h2 id="deal-desk-scope" className="serif-display text-2xl tracking-tight sm:text-3xl">
+              What you get.
+            </h2>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              {SCOPE_ITEMS.map((item) => (
+                <li key={item} className="theme-cream flex gap-3 border border-border bg-card p-5 text-sm leading-relaxed text-foreground/85">
+                  <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm leading-relaxed text-muted">
+              Exclusions: <strong className="font-semibold text-foreground">CrosstownOS</strong> does not replace your attorney, engineer,
+              inspector, environmental consultant, title company, appraiser,
+              lender, or other qualified professionals. See the{" "}
+              <a href="#faq" className="text-primary underline underline-offset-2 hover:no-underline">
+                FAQ
+              </a>
+              .
+            </p>
           </section>
 
           {/* How it works */}
