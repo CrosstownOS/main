@@ -1,3 +1,4 @@
+// Build trigger
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
