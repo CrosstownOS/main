@@ -247,3 +247,5 @@ export const FAQ_LISTS: Record<string, Faq[]> = {
   "/tools": TOOLS_INDEX_FAQS,
   "/workspace": WORKSPACE_FAQS,
 }
+
+// Deploy trigger 1791675106
