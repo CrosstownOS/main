@@ -205,7 +205,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What should I bring to the fit call?",
     answer:
-      "Nothing required. If you have a broker package, your notes, or just the property address, bring that. For the trial, it helps if you have a live deal you are actively evaluating.",
+      "Nothing required. If you have a broker package, your notes, or just the property address, bring that. For the pilot, it helps if you have a live deal you are actively evaluating.",
   },
   {
     question: "Is there a refund on the free pilot?",
