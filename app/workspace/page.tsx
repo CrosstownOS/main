@@ -102,7 +102,7 @@ const HOW_IT_WORKS = [
   },
   {
     title: "Work the register.",
-    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. You decide what each label means for your deal. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Assign each claim an evidence state using the ParkProof definitions. You supply the supporting evidence and document your review; CrosstownOS does not independently verify the claim. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
   },
   {
     title: "Underwrite from your inputs.",
@@ -131,7 +131,7 @@ const NOVEMBER_PRODUCT = [
     name: "Acquire",
     color: "#00468B",
     family: "Know it",
-    body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state you assign: Verified, Broker-reported, Missing, Assumption, Calculated, or Unresolved. Capacity gates hold the deal until utilities, wastewater, and access check out. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
+    body: "Acquire organizes what either stream means. The diligence register turns every claim into an evidence state: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Capacity gates flag unresolved utility, wastewater, and access requirements before you record your decision. An approved assumption can satisfy a gate conditionally, with the assumption documented and approved. Deterministic underwriting calculates only from your approved assumptions and feeds the decision file.",
   },
 ] as const
 
@@ -296,7 +296,7 @@ export default function AcquisitionWorkspacePage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
-          <p className="mono-label mb-4">Free trial: first five buyers</p>
+          <p className="mono-label mb-4">Five free pilot places. Access opens November 2026.</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             The Acquisition Workspace. Your deal, on the record.
@@ -413,29 +413,29 @@ export default function AcquisitionWorkspacePage() {
           <section aria-labelledby="deal-desk-trial" className="mt-20">
             <SignalLine />
             <h2 id="deal-desk-trial" className="serif-display text-3xl tracking-tight sm:text-4xl">
-              I&apos;m giving away the first five.
+              Five free pilot places. Access opens November 2026.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              I&apos;m Jeremy. I build diligence software for RV park buyers. I&apos;ve never sold a single seat. Zero customers. That&apos;s exactly why the first five are free.
+              I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails. This is the full product, not a limited demo.
             </p>
             <div className="theme-cream mt-8 border border-primary/40 bg-card p-6 sm:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                 The trade
               </p>
               <p className="mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
-                You run a live deal through the full workspace for 90 days. Not a demo. Source, Field, Acquire, the whole thing. I watch what breaks. You tell me what&apos;s confusing. If it catches something you&apos;d have missed, let me quote you on that. If it doesn&apos;t help, I need to hear that too.
+                Run one live acquisition through the full workspace for 90 days from activation. No payment required. No automatic conversion to a paid plan. In exchange, you use it on a real acquisition and give candid feedback about what works, what breaks, and what is confusing. A testimonial is optional. We will request separate written permission before publishing any quote or result. You report confusing steps and technical problems. I troubleshoot software behavior, not your deal.
               </p>
               <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
-                <strong className="font-semibold text-foreground">5 spots.</strong> When they&apos;re gone, the price is <strong className="font-semibold text-foreground">$1,250</strong>.
+                <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
               </p>
               <TrackedApplyLink
                 plan="trial"
                 className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
               >
-                Claim a trial spot
+                Apply for a pilot place
               </TrackedApplyLink>
               <p className="mt-4 text-xs leading-relaxed text-muted">
-                A short fit call to make sure your deal qualifies. If it&apos;s a fit, you&apos;re in.
+                Acceptance reserves a place. Activation begins the 90-day term when access and onboarding materials are delivered.
               </p>
             </div>
           </section>
