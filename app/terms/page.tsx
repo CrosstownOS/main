@@ -105,7 +105,7 @@ const SECTIONS = [
       "Any testimonial is optional. We will request your separate written permission before publishing any quote, result, or identifying information. If you received free pilot access, we will disclose that in any published testimonial.",
       "All other provisions of these Terms apply to pilot participants, including license scope, acceptable use, confidentiality, account security, and termination provisions.",
     ],
-  }
+  },
   {
     heading: "Payment",
     body: [
