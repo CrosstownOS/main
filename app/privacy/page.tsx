@@ -24,7 +24,7 @@ const SECTIONS = [
       "Newsletter subscriptions: when you subscribe to Crosstown Updates, we collect your email address.",
       "Workspace data: your account information, credentials activity, and everything you enter into the workspace, including documents, numbers, notes, and records. Your deal data remains yours at all times.",
       "Payment information: payments are processed by our checkout provider. We do not store your full card number.",
-      "Technical data: browser type, pages visited, and approximate region, collected through privacy-friendly analytics to understand site usage. We do not use advertising pixels or cross-site tracking.",
+      "Technical data: browser type, pages visited, and approximate region, collected through privacy-friendly analytics to understand site usage. We use the Meta Pixel for website visitor tracking related to our advertising campaigns.",
     ],
   },
   {
