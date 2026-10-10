@@ -19,7 +19,7 @@ const SECTIONS = [
   {
     heading: "What we collect",
     body: [
-      "Identity and contact information: when you use our application form, book a fit call, join the free trial, or buy the workspace, we collect the information you provide, such as name, email, phone, company, and website.",
+      "Identity and contact information: when you use our application form, book a fit call, join the free pilot, or buy the workspace, we collect the information you provide, such as name, email, phone, company, and website.",
       "Deal context: asset type, deal stage, deadline, price range, deal description, and referral source, so we can assess fit and serve you.",
       "Newsletter subscriptions: when you subscribe to Crosstown Updates, we collect your email address.",
       "Workspace data: your account information, credentials activity, and everything you enter into the workspace, including documents, numbers, notes, and records. Your deal data remains yours at all times.",
