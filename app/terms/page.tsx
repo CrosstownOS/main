@@ -91,7 +91,21 @@ const SECTIONS = [
       "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
       "This is software you operate. It does not include document review or interpretation of your numbers, confirmation of your diligence conclusions, or ongoing advisory. You build the record, the workflow guides you, and the decision stays yours.",
     ],
-  },
+  },,
+  {
+    heading: "Free Pilot Program",
+    body: [
+      "CrosstownOS offers a limited free pilot program for the Acquisition Workspace. Participation requires approval through our application process, including a fit call to confirm your acquisition qualifies. Approval reserves a place; it does not guarantee immediate access.",
+      "If approved, your 90-day pilot term begins when we deliver access credentials and onboarding materials. The term runs for 90 consecutive calendar days.",
+      "The pilot includes full access to Source, Field, and Acquire for one property acquisition. It includes a recorded onboarding walkthrough and one 30-minute software Q&A session per account.",
+      "The pilot is free. No payment is required. No payment method is collected.",
+      "Your pilot access ends automatically at the end of the 90-day term. Nothing is charged. Continued access requires a separate purchase at the then-current price. Pilot participation does not provide a credit toward paid access.",
+      "You operate the software yourself. You supply all evidence, document your review, and make your own acquisition decisions. CrosstownOS provides software support, not deal analysis, document review, or investment advice.",
+      "In exchange for free access, you agree to provide candid feedback about usability, errors, and confusing workflows. You are not required to provide a testimonial or favorable review.",
+      "Any testimonial is optional. We will request your separate written permission before publishing any quote, result, or identifying information. If you received free pilot access, we will disclose that in any published testimonial.",
+      "All other provisions of these Terms apply to pilot participants, including license scope, acceptable use, confidentiality, account security, and termination provisions.",
+    ],
+  }
   {
     heading: "Payment",
     body: [
