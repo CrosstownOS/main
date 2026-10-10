@@ -6,7 +6,7 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 
 ## What the site offers
 
-- **Live Diligence Working Papers** (interactive, free): six browser-based tools that run deterministically on the buyer's own numbers. Every input carries an evidence-state chip (Verified, Broker-reported, Missing, Assumed, Calculated, Unresolved). Missing is named, never zeroed. https://www.crosstownosrv.camp/tools
+- **Live Diligence Working Papers** (interactive, free): six browser-based tools that run deterministically on the buyer's own numbers. Every input carries an evidence-state chip (Verified, Broker-reported, Missing, Unknown, Calculated, Unresolved). Missing is named, never zeroed. https://www.crosstownosrv.camp/tools
 - **Acquisition Signal resource library** (35 tools as PDFs): the full diligence library organized by the seven Parts of the deal journey, plus 3 spine documents (Start Here, Journey Map, Evidence Status Standard) and 4 program one-pagers. https://www.crosstownosrv.camp/resources and https://www.crosstownosrv.camp/resources/catalog
 - **Field Notes** (blog): operator-grade essays on diligence, underwriting, and acquisition craft. https://www.crosstownosrv.camp/blog
 - **Free RV park due diligence checklist**: 15 diligence items drawn from the CrosstownOS framework, with links to the working papers. The checklist is the starting point; the Acquisition Workspace is what happens when the deal gets real. https://www.crosstownosrv.camp/checklist
@@ -32,12 +32,12 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 
 ## Evidence states (the product)
 
-- Verified: pointed to the source document.
-- Broker-reported: user-entered claims, the default for all inputs.
-- Missing evidence: named openly, never treated as zero.
-- Underwriting assumption: underwriting assumptions, stated not hidden.
-- Calculated: computed outputs with visible formula lineage.
-- Unresolved: open questions with owners and due dates.
+- Verified. You have the source document.
+- Broker-reported. The seller said it. Nobody confirmed it.
+- Missing. You asked. Nobody answered. The clock is running.
+- Unknown. Nobody even asked yet.
+- Calculated. The system computed it from verified inputs.
+- Unresolved. It's been looked at, but the evidence can't be determined yet.
 
 Posture language: "the record supports Walk / Pause / Retrade / Advance." The tools never tell the buyer what to do; the human decides.
 
