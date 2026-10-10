@@ -210,7 +210,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "Is there a refund on the free pilot?",
     answer:
-      "There is nothing to refund. The trial is free. The paid workspaces carry a 7-day money-back guarantee from activation.",
+      "There is nothing to refund. The pilot is free. The paid workspaces carry a 7-day money-back guarantee from activation.",
   },
 ]
 
