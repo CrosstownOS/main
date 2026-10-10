@@ -408,7 +408,7 @@ export default function ToolsPage() {
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
               Running a live deal and want the full record? The Acquisition Workspace
               connects source evidence, field observations, and underwriting
-              in one deal record. Single-deal $1,250, annual $2,500.
+              in one deal record. First five buyers get it free. After that: single-deal $1,250, annual $2,500.
             </p>
             <Link
               href="/workspace#apply"
