@@ -180,37 +180,37 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What is the free pilot?",
     answer:
-      "The first five buyers get the full Acquisition Workspace free. You run one live deal through it for 90 days. In exchange, you use it on a real deal, give feedback as you go, and if it works, let us quote you on the result.",
+      "Five qualified participants receive Acquisition Workspace access without charge for one live acquisition. In exchange, you use the software and give candid feedback about what works, what breaks, and what is confusing. Testimonials are optional and require separate written permission. Applications are open; November 2026 is the target opening, and access dates will be confirmed before activation.",
   },
   {
     question: "How long is the free pilot?",
     answer:
-      "90 days. One live deal, from your first document to your decision file. Same length as the paid Single-Deal Workspace.",
+      "90 calendar days from activation. Activation begins when your account access and onboarding materials are delivered, not when you apply, are accepted, or upload your first document. Acceptance reserves a place.",
   },
   {
     question: "What is included in the free pilot?",
     answer:
-      "The full workspace: Source, Field, and Acquire. Not a demo or a limited version. You get the same product a paying buyer gets.",
+      "The planned pilot includes Source, Field, and Acquire for one property, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support targeting an initial response within two business days. You operate the workspace. Document review, financial interpretation, and diligence services are not included.",
   },
   {
     question: "What happens after the free pilot?",
     answer:
-      "After the five pilot places fill, the price is 1,250 dollars for a Single-Deal Workspace (one property, 90 days) or 2,500 dollars for an Annual Workspace (unlimited properties, 12 months).",
+      "Your free access ends 90 calendar days after activation. Editing ends at expiration, so export your records beforehand. Data is retained for 30 days after expiration, then scheduled for deletion under the published retention policy. Nothing is charged automatically. Further access requires a separate purchase: currently $1,250 for Single-Deal Workspace or $2,500 for Annual Workspace. Pilot participation provides no credit or conversion discount.",
   },
   {
     question: "What is the workspace fit call?",
     answer:
-      "A 30-minute conversation about whether the CrosstownOS Acquisition Workspace matches what you need for your deal. For the free pilot, the fit call is how you qualify for one of the five spots. The call is about fit, not a sales pitch.",
+      "A 30-minute conversation to determine whether your acquisition, timeline, and intended use fit the pilot. We discuss software fit and participation requirements, not your financial conclusions or whether you should buy the property. Acceptance reserves a place; it does not begin access.",
   },
   {
     question: "What should I bring to the fit call?",
     answer:
-      "Nothing required. If you have a broker package, your notes, or just the property address, bring that. For the pilot, it helps if you have a live deal you are actively evaluating.",
+      "Be ready to describe the asset type, acquisition stage, decision deadline, and how you currently organize diligence. No documents are required. Do not submit or share confidential deal documents for the fit call. Your timeline must allow you to begin using the workspace after your confirmed activation date.",
   },
   {
     question: "Is there a refund on the free pilot?",
     answer:
-      "There is nothing to refund. The pilot is free. The paid workspaces carry a 7-day money-back guarantee from activation.",
+      "No payment is required, so there is nothing to refund. Pilot access does not automatically become a paid subscription. Separate paid purchases have a seven-calendar-day refund window from activation; requesting a refund ends paid access immediately.",
   },
 ]
 
