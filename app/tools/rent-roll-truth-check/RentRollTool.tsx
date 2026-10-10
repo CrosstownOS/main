@@ -316,6 +316,7 @@ export default function RentRollTool() {
       faqs={RENT_ROLL_FAQS}
 
       pdfHref="/resources/the-rent-roll-truth-check"
+      relatedNote={{ href: "/blog/the-rent-roll-is-a-claim-not-income-verification", label: "The Rent Roll Is a Claim, Not Income Verification" }}
     >
       <section aria-label="Rent roll rows">
         <div className="flex flex-wrap items-center justify-between gap-3">

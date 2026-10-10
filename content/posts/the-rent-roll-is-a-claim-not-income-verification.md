@@ -66,4 +66,6 @@ The verified number is rarely the cleanest number in the package. It is the one 
 
 Next in Field Notes: A Filled-Out Form Is Not Proof.
 
+*Put it to work: run the [Rent-Roll Truth Check](/tools/rent-roll-truth-check) on your deal, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
+
 *This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

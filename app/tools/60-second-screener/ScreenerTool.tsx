@@ -242,6 +242,7 @@ export default function ScreenerTool() {
       faqs={SCREENER_FAQS}
 
       pdfHref="/resources/60-second-deal-screener"
+      relatedNote={{ href: "/blog/anatomy-of-a-broker-package", label: "Anatomy of a Broker Package" }}
     >
       <section aria-label="The six numbers">
         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">

@@ -338,6 +338,21 @@ export default function ParkProofStandardPage() {
                   See the plans
                 </Link>
               </div>
+              <p className="mt-5 text-sm leading-relaxed text-muted">
+                See the standard applied: the{" "}
+                <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                  diligence checklist
+                </Link>
+                , the{" "}
+                <Link href="/tools" className="font-semibold text-primary hover:underline">
+                  working papers
+                </Link>
+                , and the{" "}
+                <Link href="/blog" className="font-semibold text-primary hover:underline">
+                  Field Notes
+                </Link>{" "}
+                that teach the discipline.
+              </p>
             </div>
           </section>
         </div>

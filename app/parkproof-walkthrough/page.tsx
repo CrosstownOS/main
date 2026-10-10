@@ -155,6 +155,17 @@ export default function SampleDecisionFilePage() {
                   See the plans
                 </Link>
               </div>
+              <p className="mt-5 text-sm leading-relaxed text-muted">
+                Start smaller: the{" "}
+                <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                  free diligence checklist
+                </Link>{" "}
+                covers the fifteen items in order, and the{" "}
+                <Link href="/tools" className="font-semibold text-primary hover:underline">
+                  working papers
+                </Link>{" "}
+                run the math in your browser.
+              </p>
             </div>
           </section>
         </div>

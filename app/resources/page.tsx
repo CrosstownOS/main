@@ -262,6 +262,25 @@ export default async function ResourcesPage({
             />
           )}
 
+          {!active && (
+            <div className="theme-cream mt-10 border border-border bg-card p-6 sm:p-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                Prefer the full list
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                Not sure which situation fits? Work the{" "}
+                <Link
+                  href="/checklist"
+                  className="font-semibold text-primary hover:underline"
+                >
+                  free RV park due diligence checklist
+                </Link>{" "}
+                first. Fifteen items in order, then come back and pick the
+                tool for the gap that matters most.
+              </p>
+            </div>
+          )}
+
           <div className="mt-20">
             <div className="border-l-2 border-primary pl-4">
               <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">

@@ -82,6 +82,11 @@ export default function CatalogPage() {
                 Diligence Working Papers
               </Link>
               : same methodology, real inputs, evidence states on everything, JSON export.
+              Or start from zero with the{" "}
+              <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                free RV park due diligence checklist
+              </Link>
+              .
             </p>
           </div>
           <div className="mt-14 space-y-14">

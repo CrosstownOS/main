@@ -17,6 +17,7 @@ const FOOTER_LINKS = [
   { href: "/trail-log", label: "The Trail Log" },
   { href: "/resources", label: "Resources" },
   { href: "/tools", label: "Working Papers" },
+  { href: "/checklist", label: "Diligence Checklist" },
   { href: "/terms", label: "Terms" },
   { href: "/privacy", label: "Privacy" },
 ] as const

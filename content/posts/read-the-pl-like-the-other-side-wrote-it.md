@@ -47,4 +47,6 @@ Run the discipline from the earlier field notes through the P&L and the diligenc
 
 Next in Field Notes: the permits buyers skip.
 
+*Put it to work: run the [Expense Normalizer](/tools/expense-normalizer) on the seller's P&L, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
+
 *This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

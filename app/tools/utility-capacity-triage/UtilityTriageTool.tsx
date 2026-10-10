@@ -390,6 +390,7 @@ export default function UtilityTriageTool() {
       faqs={UTILITY_FAQS}
 
       pdfHref="/resources/utility-and-wastewater-diligence-sheet"
+      relatedNote={{ href: "/blog/the-utility-system-nobody-underwrote", label: "The Utility System Nobody Underwrote" }}
     >
       <section className="border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">

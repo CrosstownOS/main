@@ -156,6 +156,17 @@ export default function ForBrokersLendersPage() {
                   Read the standard
                 </Link>
               </div>
+              <p className="mt-5 text-sm leading-relaxed text-muted">
+                Point your buyers at the{" "}
+                <Link href="/checklist" className="font-semibold text-primary hover:underline">
+                  free diligence checklist
+                </Link>{" "}
+                and the{" "}
+                <Link href="/tools" className="font-semibold text-primary hover:underline">
+                  working papers
+                </Link>
+                . They will arrive with better questions.
+              </p>
             </div>
           </section>
 

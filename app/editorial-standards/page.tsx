@@ -181,6 +181,20 @@ export default function EditorialStandardsPage() {
               >
                 Read the Field Notes
               </Link>
+              {" "}&middot;{" "}
+              <Link
+                href="/checklist"
+                className="font-semibold text-primary hover:underline"
+              >
+                The diligence checklist
+              </Link>
+              {" "}&middot;{" "}
+              <Link
+                href="/tools"
+                className="font-semibold text-primary hover:underline"
+              >
+                The working papers
+              </Link>
             </p>
           </section>
         </div>
