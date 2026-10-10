@@ -95,10 +95,10 @@ type FormConfig = {
 
 const WORKSPACE_FIT_CALL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'NEXT STEP',
-  title: 'Claim a free trial spot',
+  title: 'Apply for a pilot place',
   description: 'The first five buyers get the full workspace free for 90 days. Put time on the deal instead of waiting for a reply to land.',
   href: 'https://cal.com/crosstownos/workspace-fit-call',
-  buttonLabel: 'Claim a free trial spot',
+  buttonLabel: 'Apply for a pilot place',
 }
 
 const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
@@ -112,11 +112,11 @@ const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
 
 const LIVE_DEAL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'THE WORKSPACE',
-  title: 'Get the free trial',
+  title: 'Get the free pilot',
   description:
     'For buyers with a live or imminent deal and a decision deadline.',
   href: `${SITE_URL}/workspace`,
-  buttonLabel: 'Get the free trial',
+  buttonLabel: 'Get the free pilot',
 }
 
 const BROKERS_AND_LENDERS_REFERRAL_BLOCK: EmailDestinationBlock = {
