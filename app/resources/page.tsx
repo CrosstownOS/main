@@ -427,7 +427,7 @@ export default async function ResourcesPage({
               href="/workspace"
               className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
-              Get the free trial
+              Apply for a pilot place
             </a>
           </div>
           <p className="mt-10 text-xs leading-relaxed text-muted">
