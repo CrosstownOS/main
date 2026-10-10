@@ -296,7 +296,7 @@ export default function AcquisitionWorkspacePage() {
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           {/* Hero */}
-          <p className="mono-label mb-4">Applications are open for five free pilot places. November 2026 is the target opening; access dates will be confirmed before activation.</p>
+          <p className="mono-label mb-4">Five free pilot places. Target opening: November 2026.</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             The Acquisition Workspace. Your deal, on the record.
@@ -413,7 +413,7 @@ export default function AcquisitionWorkspacePage() {
           <section aria-labelledby="deal-desk-pilot" className="mt-20">
             <SignalLine />
             <h2 id="deal-desk-pilot" className="serif-display text-3xl tracking-tight sm:text-4xl">
-              Applications are open for five free pilot places. November 2026 is the target opening; access dates will be confirmed before activation.
+              Five free pilot places. Target opening: November 2026.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
               I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails.
