@@ -178,23 +178,39 @@ export const TOOLS_INDEX_FAQS: Faq[] = [
 
 export const WORKSPACE_FAQS: Faq[] = [
   {
+    question: "What is the free trial?",
+    answer:
+      "The first five buyers get the full Acquisition Workspace free. You run one live deal through it for 90 days. In exchange, you use it on a real deal, give feedback as you go, and if it works, let us quote you on the result.",
+  },
+  {
+    question: "How long is the free trial?",
+    answer:
+      "90 days. One live deal, from your first document to your decision file. Same length as the paid Single-Deal Workspace.",
+  },
+  {
+    question: "What is included in the free trial?",
+    answer:
+      "The full workspace: Source, Field, and Acquire. Not a demo or a limited version. You get the same product a paying buyer gets.",
+  },
+  {
+    question: "What happens after the free trial?",
+    answer:
+      "After the five trial spots fill, the price is 1,250 dollars for a Single-Deal Workspace (one property, 90 days) or 2,500 dollars for an Annual Workspace (unlimited properties, 12 months).",
+  },
+  {
     question: "What is the workspace fit call?",
     answer:
-      "A 15-minute conversation about whether the CrosstownOS Acquisition Workspace matches what you need for your deal. The call is about fit, not a sales pitch.",
+      "A 30-minute conversation about whether the CrosstownOS Acquisition Workspace matches what you need for your deal. For the free trial, the fit call is how you qualify for one of the five spots. The call is about fit, not a sales pitch.",
   },
   {
     question: "What should I bring to the fit call?",
     answer:
-      "Nothing required. If you have a broker package, your notes, or just the property address, bring that. We will talk about whether the workspace fits your deal.",
+      "Nothing required. If you have a broker package, your notes, or just the property address, bring that. For the trial, it helps if you have a live deal you are actively evaluating.",
   },
   {
-    question: "How long is the fit call?",
-    answer: "15 minutes.",
-  },
-  {
-    question: "What does the Acquisition Workspace cost?",
+    question: "Is there a refund on the free trial?",
     answer:
-      "Single-Deal Workspace is 1,250 dollars: one property, 90 calendar days. Annual Workspace is 2,500 dollars: unlimited properties, 12 months.",
+      "There is nothing to refund. The trial is free. The paid workspaces carry a 7-day money-back guarantee from activation.",
   },
 ]
 
