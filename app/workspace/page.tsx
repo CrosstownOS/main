@@ -408,11 +408,11 @@ export default function AcquisitionWorkspacePage() {
             </div>
           </section>
 
-          {/* Free trial */}
-          {/* Trial: the offer */}
-          <section aria-labelledby="deal-desk-trial" className="mt-20">
+          {/* Free pilot */}
+          {/* Pilot: the offer */}
+          <section aria-labelledby="deal-desk-pilot" className="mt-20">
             <SignalLine />
-            <h2 id="deal-desk-trial" className="serif-display text-3xl tracking-tight sm:text-4xl">
+            <h2 id="deal-desk-pilot" className="serif-display text-3xl tracking-tight sm:text-4xl">
               Five free pilot places. Access opens November 2026.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
@@ -429,7 +429,7 @@ export default function AcquisitionWorkspacePage() {
                 <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
               </p>
               <TrackedApplyLink
-                plan="trial"
+                plan="pilot"
                 className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
               >
                 Apply for a pilot place
@@ -440,7 +440,7 @@ export default function AcquisitionWorkspacePage() {
             </div>
           </section>
 
-          {/* After the trial */}
+          {/* After the pilot */}
           <section id="plans" className="mt-20 scroll-mt-24">
           <SectionViewTracker event="pricing_view" />
             <p className="max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
