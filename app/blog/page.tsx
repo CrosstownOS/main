@@ -56,7 +56,7 @@ export default function BlogIndex() {
           <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            Know what is true before you buy.
+            Field Notes: what operators learn before they buy.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
             Acquisition intelligence for RV park and manufactured-housing buyers.
