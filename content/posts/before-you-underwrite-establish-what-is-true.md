@@ -1,7 +1,7 @@
 ---
 title: "Before You Underwrite the Deal, Establish What Is True"
 date: "2026-09-15"
-excerpt: "Every deal arrives as a stack of claims dressed as facts. The buyer's real job, before any valuation math, is to label every material number. Here is the four-label system for doing it."
+excerpt: "Every deal arrives as a stack of claims dressed as facts. The buyer's real job, before any valuation math, is to label every material number. Here is the six-label system for doing it."
 tags: ["diligence", "underwriting", "field notes"]
 seoTitle: "Know What Is True Before You Underwrite | CrosstownOS"
 seoDescription: "Every deal arrives as claims dressed as facts. Label every material number before the valuation math, with a four-label system for doing it."
@@ -23,9 +23,9 @@ Most buyers skip this step. They underwrite the story. They take the package at 
 
 Serious buyers do something different. They verify the record.
 
-## The four labels
+## The six labels
 
-Every number in a deal is one of four things. Labeling them is the whole discipline.
+Every number in a deal is one of six things. Labeling them is the whole discipline.
 
 *Editor's note (2026-10-05): this note was written when the public language used four evidence states. The [ParkProof Standard](/parkproof-standard) now uses six: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, and Unresolved.*
 
@@ -36,6 +36,10 @@ Every number in a deal is one of four things. Labeling them is the whole discipl
 **Missing evidence.** The information is material, and it has not been received, not been located, or is not sufficient for review. The seller who says the real revenue is higher but cannot produce the ledgers: that revenue is missing evidence. Name the gap instead of pricing around it.
 
 **Underwriting assumption.** The number is a stated input to the investment case, not a fact. A projected rent increase, an assumed expense ratio, a stabilized occupancy target: all legitimate, all assumptions. An assumption is fine to carry. It is only dangerous when it is unlabeled and priced as a fact.
+
+**Calculated.** The system computed it from verified inputs. A cap rate derived from verified NOI and verified purchase price is calculated, not assumed. The math is deterministic. The inputs are what matter.
+
+**Unresolved.** It has been looked at, but the evidence cannot be determined yet. Not missing, not unknown, just stuck. Name it as unresolved so it does not get priced as a fact or buried as an unknown.
 
 Run two numbers through the labels and the discipline becomes concrete. Take an illustrative case: a rent roll shows $42,000 in monthly collections. The bank statements show $38,500 in deposits. The $42,000 is broker-reported. The $38,500 is verified. The $3,500 gap is missing evidence until someone explains it, and any underwriting that uses the $42,000 is carrying an assumption, whether the model admits it or not.
 
@@ -55,7 +59,7 @@ Third, the walk-away decision gets clean. The signal to walk is rarely one tenan
 
 This is the first field note, and it is the foundation for everything after it. The method above, label every number, verify what matters, is the lens this blog will apply to each layer of a deal, one verification at a time.
 
-Next, we start with the rent roll: a document buyers tend to trust most and verify least. After that, occupancy, utilities, infrastructure, and the rest of the file, each one worked through the same four labels.
+Next, we start with the rent roll: a document buyers tend to trust most and verify least. After that, occupancy, utilities, infrastructure, and the rest of the file, each one worked through the same six labels.
 
 Before you underwrite the deal, establish what is true. Everything else follows from that.
 
