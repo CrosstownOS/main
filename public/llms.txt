@@ -15,6 +15,11 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 - **Trail Log**: public build log. https://www.crosstownosrv.camp/trail-log
 - **Editorial Standards**: the integrity rules governing every public claim (evidence states kept distinct, nothing published that cannot be defended). https://www.crosstownosrv.camp/editorial-standards
 - **For brokers and lenders**: how CrosstownOS works with deal-side professionals. https://www.crosstownosrv.camp/for-brokers-lenders
+- **Buying guides** (buyer-side verification guides):
+  - How to Buy an RV Park: the buyer's verification guide (price-per-pad benchmarks, five verification gates, red flags). https://www.crosstownosrv.camp/buying-an-rv-park
+  - How to Buy a Campground: seasonal revenue traps, amenity capex, water/sewer/permit verification. https://www.crosstownosrv.camp/buying-a-campground
+  - Mobile Home Park Investing: tenant-owned vs park-owned mix, lot rent verification, infrastructure capex. https://www.crosstownosrv.camp/mobile-home-park-investing
+  - RV Park Investing in 2026: where returns come from, where they leak, the verification framework. https://www.crosstownosrv.camp/rv-park-investing
 
 ## The six working papers
 
@@ -44,3 +49,4 @@ Posture language: "the record supports Walk / Pause / Retrade / Advance." The to
 - The tools are free to use; email is requested only to save or export a working paper.
 - 35 Acquisition Signal tools, 3 spine documents, 4 program one-pagers (42 PDFs total).
 - Sitemap: https://www.crosstownosrv.camp/sitemap.xml
+

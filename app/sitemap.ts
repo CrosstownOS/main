@@ -22,6 +22,10 @@ const CORE_ROUTES: CoreRoute[] = [
   { path: "/trail-log", changeFrequency: "weekly", priority: 0.8 },
   { path: "/resources/catalog", changeFrequency: "monthly", priority: 0.8 },
   { path: "/checklist", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/buying-an-rv-park", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/buying-a-campground", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/mobile-home-park-investing", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/rv-park-investing", changeFrequency: "monthly", priority: 0.85 },
   { path: "/tools/60-second-screener", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/rent-roll-truth-check", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tools/expense-normalizer", changeFrequency: "monthly", priority: 0.8 },
@@ -67,3 +71,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ]
 }
+
