@@ -401,7 +401,7 @@ export default function Navigation() {
         >
           <p className="flex items-center gap-2 text-center font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground sm:text-[11px] sm:tracking-[0.22em]">
             <span className="h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-            The Acquisition Workspace: first 5 buyers get it free.
+            Five free pilot places. Access opens November 2026.
           </p>
         </Link>
 
@@ -439,7 +439,7 @@ export default function Navigation() {
               href="/workspace"
               className="hidden min-w-fit border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
             >
-              Get the free trial
+              Apply for a pilot place
             </Link>
 
             <button
@@ -505,7 +505,7 @@ export default function Navigation() {
                 onClick={() => setOpen(false)}
                 className="block w-full border border-primary/60 bg-primary-deep px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Get the free trial
+                Apply for a pilot place
               </Link>
             </div>
           </div>
