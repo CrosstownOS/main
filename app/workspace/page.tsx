@@ -375,12 +375,7 @@ export default function AcquisitionWorkspacePage() {
               The November product, in one view.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              <strong className="font-semibold text-foreground">Know it. Take it. Hold it.</strong>{' '}
-              The{' '}<strong className="font-semibold text-foreground">Acquisition Workspace</strong>{' '}
-              opens{' '}<strong className="font-semibold text-foreground">November 2026</strong>:{' '}
-              <strong className="font-semibold text-foreground">Source</strong> + <strong className="font-semibold text-foreground">Field</strong> + <strong className="font-semibold text-foreground">Acquire</strong>, the first connected loop.{' '}
-              The{' '}<strong className="font-semibold text-foreground">Transition Workspace</strong> and{' '}
-              <strong className="font-semibold text-foreground">Operations Workspace</strong> are the direction of the system.
+              <strong className="font-semibold text-foreground">Source</strong> + <strong className="font-semibold text-foreground">Field</strong> + <strong className="font-semibold text-foreground">Acquire</strong> is the <strong className="font-semibold text-foreground">Acquisition Workspace</strong>&apos;s first connected loop, targeting <strong className="font-semibold text-foreground">November 2026</strong> access. The <strong className="font-semibold text-foreground">Transition Workspace</strong> and <strong className="font-semibold text-foreground">Operations Workspace</strong> are planned system direction.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {NOVEMBER_PRODUCT.map((module) => (
