@@ -199,7 +199,7 @@ const FAQ = [
   },
   {
     q: "What counts as one property?",
-    a: "One park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
+    a: "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",,
   },
   {
     q: "Can I purchase Annual after Single-Deal?",
