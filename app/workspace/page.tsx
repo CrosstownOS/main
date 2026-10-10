@@ -171,7 +171,7 @@ const FAQ = [
   },
   {
     q: "What does Verified mean in the evidence states?",
-    a: "You assign it. Verified means you confirmed the claim against a cited source, with the page or record it came from, how it was obtained, and a named human review. CrosstownOS does not independently verify anything. The label records your judgment, not ours.",
+    a: "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named human reviewer. CrosstownOS does not independently verify your deal claims. The label records your documented review, not certification by CrosstownOS.",
   },
   {
     q: "What does CrosstownOS not do?",
@@ -179,7 +179,7 @@ const FAQ = [
   },
   {
     q: "Does CrosstownOS replace my professional team?",
-    a: "No. Every output should be reviewed by your own qualified professionals before you commit capital. The system is built to make their review sharper, by showing exactly what is verified, what is broker-reported, what is missing, and what was assumed.",
+    a: "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",,
   },
   {
     q: "Who makes the final call on my deal?",
@@ -187,7 +187,7 @@ const FAQ = [
   },
   {
     q: "How is my deal data handled?",
-    a: "Everything you share, in the application, the fit call, and the workspace, is treated as confidential. It is never used in content, examples, marketing, or conversation without your written permission.",
+    a: "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",,
   },
   {
     q: "What happens after 90 days, or if my deal ends early?",
@@ -202,7 +202,7 @@ const FAQ = [
     a: "One park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
   },
   {
-    q: "Can I upgrade from Single-Deal to Annual?",
+    q: "Can I purchase Annual after Single-Deal?",
     a: "Purchase Annual Workspace as a separate purchase at any time. There is no credit, prorating, or conversion discount.",
   },
 ] as const
