@@ -433,98 +433,43 @@ export default function AcquisitionWorkspacePage() {
           </section>
 
           {/* Free trial */}
+          {/* Trial: the offer */}
           <section aria-labelledby="deal-desk-trial" className="mt-20">
-            <h2 id="deal-desk-trial" className="serif-display text-2xl tracking-tight sm:text-3xl">
+            <SignalLine />
+            <h2 id="deal-desk-trial" className="serif-display text-3xl tracking-tight sm:text-4xl">
               I&apos;m giving away the first five.
             </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              I&apos;m Jeremy. I build diligence software for RV park buyers. I&apos;ve never sold a single seat. Zero customers. That&apos;s exactly why the first five are free. I need to know this works on real deals. You need to see if it&apos;s worth paying for. So here&apos;s the trade: you run a live deal through it, I watch what breaks, and we both get an answer.
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              I&apos;m Jeremy. I build diligence software for RV park buyers. I&apos;ve never sold a single seat. Zero customers. That&apos;s exactly why the first five are free.
             </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  What you get
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  The full workspace. Not a demo. Source, Field, Acquire. One live deal, 90 days, run like you&apos;d run it if you paid.
-                </p>
-              </div>
-              <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-                <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-                  What I ask
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/85">
-                  Use it on a real deal. Tell me what&apos;s confusing, what&apos;s broken, what&apos;s missing. If it helps you catch something you would have missed, let me quote you on that. If it doesn&apos;t help, I need to hear that too.
-                </p>
-              </div>
+            <div className="theme-cream mt-8 border border-primary/40 bg-card p-6 sm:p-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+                The trade
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
+                You run a live deal through the full workspace for 90 days. Not a demo. Source, Field, Acquire, the whole thing. I watch what breaks. You tell me what&apos;s confusing. If it catches something you&apos;d have missed, let me quote you on that. If it doesn&apos;t help, I need to hear that too.
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
+                <strong className="font-semibold text-foreground">5 spots.</strong> When they&apos;re gone, the price is $1,250.
+              </p>
+              <TrackedApplyLink
+                plan="trial"
+                className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
+              >
+                Claim a trial spot
+              </TrackedApplyLink>
+              <p className="mt-4 text-xs leading-relaxed text-muted">
+                A short fit call to make sure your deal qualifies. If it&apos;s a fit, you&apos;re in.
+              </p>
             </div>
-            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              After the five: the price is $1,250 for a single deal, $2,500 for the year. The free trial goes away.
-            </p>
           </section>
 
-          {/* Terms */}
-          <section id="plans" aria-labelledby="deal-desk-terms" className="mt-20 scroll-mt-24">
-          <SignalLine />
+          {/* After the trial */}
+          <section id="plans" className="mt-20 scroll-mt-24">
           <SectionViewTracker event="pricing_view" />
-            <h2 id="deal-desk-terms" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Two ways in.
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              The free trial above is for the first five buyers. After that, the Acquisition Workspace opens <strong className="font-semibold text-foreground">November 2026</strong> at the prices below.
+            <p className="max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              After the five spots fill: <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual.
             </p>
-            <div className="theme-cream mt-8 border border-primary/40 bg-card md:flex md:items-stretch">
-              <div className="flex-1 p-6 sm:p-10">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                  For the live deal
-                </p>
-                <p className="serif-display mt-4 text-6xl tracking-tight text-foreground sm:text-7xl">
-                  $1,250
-                </p>
-                <p className="mt-2 font-sans text-xl font-bold text-foreground">
-                  Single-Deal Workspace
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-muted">
-                  One property. 90 days. The full workspace, from your first
-                  document to your decision file.
-                </p>
-
-                <TrackedApplyLink
-                  plan="single-deal"
-                  className="mt-6 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
-                >
-                  Start with a fit call
-                </TrackedApplyLink>
-              </div>
-              <div
-                className="hidden w-px shrink-0 bg-primary/40 md:block"
-                aria-hidden="true"
-              />
-              <div className="flex-1 border-t border-primary/25 p-6 sm:p-10 md:border-t-0">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                  For the active buyer
-                </p>
-                <p className="serif-display mt-4 text-6xl tracking-tight text-foreground sm:text-7xl">
-                  $2,500
-                </p>
-                <p className="mt-2 font-sans text-xl font-bold text-foreground">
-                  Annual Workspace
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-muted">
-                  Unlimited properties. 12 months. Stop rebuilding the record
-                  every time you look at a deal.
-                </p>
-
-                <TrackedApplyLink
-                  plan="annual"
-                  className="mt-6 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
-                >
-                  Start with a fit call
-                </TrackedApplyLink>
-              </div>
-            </div>
-
-
             <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                 Every plan includes
