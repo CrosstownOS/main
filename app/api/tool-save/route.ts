@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
         description:
           "The Acquisition Workspace keeps source evidence, field observations, and underwriting in one deal record. You operate it. The first five buyers get it free for 90 days.",
         href: workspaceUrl,
-        buttonLabel: "Claim a free trial spot",
+        buttonLabel: "Apply for a pilot place",
       },
     ]
 
