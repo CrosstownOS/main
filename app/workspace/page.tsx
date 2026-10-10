@@ -102,7 +102,7 @@ const HOW_IT_WORKS = [
   },
   {
     title: "Work the register.",
-    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. You decide what each label means for your deal. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+    body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Unknown, Calculated, or Unresolved. You decide what each label means for your deal. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
   },
   {
     title: "Underwrite from your inputs.",
