@@ -50,7 +50,7 @@ export default function Hero() {
             href="/workspace"
             className="border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            See the plans
+            Get the free trial
           </Link>
           <Link
             href="/workspace#how-it-works"
