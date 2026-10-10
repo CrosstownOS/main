@@ -347,30 +347,6 @@ export default function AcquisitionWorkspacePage() {
             </div>
           </section>
 
-          {/* What you get */}
-          <section aria-labelledby="deal-desk-scope" className="mt-20">
-            <h2 id="deal-desk-scope" className="serif-display text-2xl tracking-tight sm:text-3xl">
-              What you get.
-            </h2>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-              {SCOPE_ITEMS.map((item) => (
-                <li key={item} className="theme-cream flex gap-3 border border-border bg-card p-5 text-sm leading-relaxed text-foreground/85">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm leading-relaxed text-muted">
-              Exclusions: <strong className="font-semibold text-foreground">CrosstownOS</strong> does not replace your attorney, engineer,
-              inspector, environmental consultant, title company, appraiser,
-              lender, or other qualified professionals. See the{" "}
-              <a href="#faq" className="text-primary underline underline-offset-2 hover:no-underline">
-                FAQ
-              </a>
-              .
-            </p>
-          </section>
-
           {/* How it works */}
           <section id="how-it-works" aria-labelledby="deal-desk-how" className="mt-20 scroll-mt-24">
             <h2 id="deal-desk-how" className="serif-display text-2xl tracking-tight sm:text-3xl">
