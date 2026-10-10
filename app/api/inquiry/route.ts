@@ -95,10 +95,10 @@ type FormConfig = {
 
 const WORKSPACE_FIT_CALL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'NEXT STEP',
-  title: 'Book a workspace fit call',
-  description: 'Put time on the deal instead of waiting for a reply to land.',
+  title: 'Claim a free trial spot',
+  description: 'The first five buyers get the full workspace free for 90 days. Put time on the deal instead of waiting for a reply to land.',
   href: 'https://cal.com/crosstownos/workspace-fit-call',
-  buttonLabel: 'Book a fit call',
+  buttonLabel: 'Claim a free trial spot',
 }
 
 const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
