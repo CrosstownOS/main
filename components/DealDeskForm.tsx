@@ -290,7 +290,7 @@ export default function DealDeskForm() {
       <CalBooking
         url="https://cal.com/crosstownos/workspace-fit-call"
         title="Book a workspace fit call"
-        footerText="Prefer to talk first? Book a time above."
+        footerText="Prefer to talk first? Book an optional fit call."
       />
     </>
   )
