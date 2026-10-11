@@ -212,6 +212,66 @@ export const WORKSPACE_FAQS: Faq[] = [
     answer:
       "No payment is required, so there is nothing to refund. Pilot access does not automatically become a paid subscription. Separate paid purchases have a seven-calendar-day refund window from activation; requesting a refund ends paid access immediately.",
   },
+  {
+    question: "What does the Single-Deal Workspace include?",
+    answer:
+      "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
+  },
+  {
+    question: "What does the Annual Workspace include?",
+    answer:
+      "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
+  },
+  {
+    question: "What do you mean by software Q&A? What is it not?",
+    answer:
+      "We answer questions about navigation, inputs, documented calculations, and software behavior. What your documents mean and what to do about a property stays with you and your team.",
+  },
+  {
+    question: "What does Verified mean in the evidence states?",
+    answer:
+      "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named human reviewer. CrosstownOS does not independently verify your deal claims. The label records your documented review, not certification by CrosstownOS.",
+  },
+  {
+    question: "What does CrosstownOS not do?",
+    answer:
+      "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record.",
+  },
+  {
+    question: "Does CrosstownOS replace my professional team?",
+    answer:
+      "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",
+  },
+  {
+    question: "Who makes the final call on my deal?",
+    answer:
+      "You do. The decision file organizes your documented posture from reviewed evidence, unresolved gates, and approved assumptions. It is decision support, not a verdict from software.",
+  },
+  {
+    question: "How is my deal data handled?",
+    answer:
+      "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",
+  },
+  {
+    question: "What happens after 90 days, or if my deal ends early?",
+    answer:
+      "Single-Deal access ends 90 calendar days from activation. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
+  },
+  {
+    question: "What is the refund policy?",
+    answer:
+      "Full refund within seven calendar days of activation. Requesting a refund ends access immediately.",
+  },
+  {
+    question: "What counts as one property?",
+    answer:
+      "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",
+  },
+  {
+    question: "Can I purchase Annual after Single-Deal?",
+    answer:
+      "Purchase Annual Workspace as a separate purchase at any time. There is no credit, prorating, or conversion discount.",
+  },
 ]
 
 export const FAQ_JSON_LD: Record<string, ReturnType<typeof faqPage>> = {
