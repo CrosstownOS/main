@@ -309,7 +309,7 @@ export default function AcquisitionWorkspacePage() {
      </p>
      <ToolContextLine />
      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-      <TrackedPlansLink
+      <TrackedApplyLink plan="pilot"
        className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
        Apply for a free pilot place
@@ -425,9 +425,7 @@ In exchange, use the workspace and give candid feedback about what works, what b
 
 Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
        </p>
-       <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
-        <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
-       </p>
+       
        <TrackedApplyLink
         plan="pilot"
         className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
