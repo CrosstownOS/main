@@ -180,7 +180,7 @@ const FAQ = [
  },
  {
   q: "Does CrosstownOS replace my professional team?",
-  a: "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",,
+  a: "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",
  },
  {
   q: "Who makes the final call on my deal?",
@@ -188,7 +188,7 @@ const FAQ = [
  },
  {
   q: "How is my deal data handled?",
-  a: "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",,
+  a: "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",
  },
  {
   q: "What happens after 90 days, or if my deal ends early?",
@@ -200,7 +200,7 @@ const FAQ = [
  },
  {
   q: "What counts as one property?",
-  a: "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",,
+  a: "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",
  },
  {
   q: "Can I purchase Annual after Single-Deal?",
