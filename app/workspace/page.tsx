@@ -157,56 +157,7 @@ const NOT_FOR_ITEMS = [
  "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
 ] as const
 
-const FAQ = [
- {
-  q: "What does the Single-Deal Workspace include?",
-  a: "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
- },
- {
-  q: "What does the Annual Workspace include?",
-  a: "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
- },
- {
-  q: "What do you mean by software Q&A? What is it not?",
-  a: "We answer questions about navigation, inputs, documented calculations, and software behavior. What your documents mean and what to do about a property stays with you and your team.",
- },
- {
-  q: "What does Verified mean in the evidence states?",
-  a: "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named human reviewer. CrosstownOS does not independently verify your deal claims. The label records your documented review, not certification by CrosstownOS.",
- },
- {
-  q: "What does CrosstownOS not do?",
-  a: "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record.",
- },
- {
-  q: "Does CrosstownOS replace my professional team?",
-  a: "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",
- },
- {
-  q: "Who makes the final call on my deal?",
-  a: "You do. The decision file organizes your documented posture from reviewed evidence, unresolved gates, and approved assumptions. It is decision support, not a verdict from software.",
- },
- {
-  q: "How is my deal data handled?",
-  a: "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",
- },
- {
-  q: "What happens after 90 days, or if my deal ends early?",
-  a: "Single-Deal access ends 90 calendar days from activation. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
- },
- {
-  q: "What is the refund policy?",
-  a: "Full refund within seven calendar days of activation. Requesting a refund ends access immediately.",
- },
- {
-  q: "What counts as one property?",
-  a: "One property means one distinct real estate asset covered by the same transaction. If you are acquiring multiple properties in separate transactions, each requires separate Single-Deal access or Annual access.",
- },
- {
-  q: "Can I purchase Annual after Single-Deal?",
-  a: "Purchase Annual Workspace as a separate purchase at any time. There is no credit, prorating, or conversion discount.",
- },
-] as const
+ as const
 
 const WORKSPACE_PRODUCT_JSON_LD = {
  "@context": "https://schema.org",
@@ -539,37 +490,6 @@ Five qualified participants will receive free access. Paid access is available s
          ))}
         </ul>
        </div>
-      </div>
-     </section>
-
-     {/* FAQ */}
-     <section id="faq" aria-labelledby="deal-desk-faq" className="mt-20 scroll-mt-24">
-      <h2 id="deal-desk-faq" className="serif-display text-2xl tracking-tight sm:text-3xl">
-       Questions buyers ask.
-      </h2>
-      <div className="mt-6 space-y-4">
-       {FAQ.map((item, index) => (
-        <details
-         key={item.q}
-         className="theme-cream group border border-border bg-card transition-colors hover:border-primary/40"
-        >
-         <summary className="flex cursor-pointer list-none items-center p-6 font-sans text-base font-bold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-primary [&::-webkit-details-marker]:hidden">
-          <span className="mr-3 font-mono text-[10px] tracking-[0.2em] text-primary">
-           {String(index + 1).padStart(2, "0")}
-          </span>
-          <span className="flex-1">{item.q}</span>
-          <span
-           aria-hidden="true"
-           className="ml-4 font-mono text-lg leading-none text-primary transition-transform duration-200 group-open:rotate-45"
-          >
-           +
-          </span>
-         </summary>
-         <p className="px-6 pb-6 text-sm leading-relaxed text-muted">
-          {boldBrand(item.a)}
-         </p>
-        </details>
-       ))}
       </div>
      </section>
 
