@@ -103,7 +103,7 @@ const HOW_IT_WORKS = [
  },
  {
   title: "Work the register.",
-  body: "Assign an evidence state to every claim: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. Assign each claim an evidence state using the ParkProof definitions. You supply the supporting evidence and document your review; CrosstownOS does not independently verify the claim. Missing evidence becomes a named request with an owner and a due date. Nothing silently disappears.",
+  body: "Assign each claim an evidence state using the ParkProof definitions: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, or Unresolved. You supply the supporting evidence and document your review; CrosstownOS does not independently verify the claim.",
  },
  {
   title: "Underwrite from your inputs.",
