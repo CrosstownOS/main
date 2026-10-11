@@ -25,7 +25,6 @@ type FieldConfig = {
 const FIELDS: FieldConfig[] = [
   { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
   { key: "email", label: "Email", input: "email", required: true, autoComplete: "email", half: true },
-  { key: "phone", label: "Phone", input: "tel", autoComplete: "tel", half: true },
   { key: "company", label: "Shop or company", input: "text", autoComplete: "organization", half: true },
   {
     key: "assetType",
@@ -44,19 +43,6 @@ const FIELDS: FieldConfig[] = [
     half: true,
   },
   { key: "decisionDeadline", label: "Decision deadline", input: "date", required: true, half: true },
-  { key: "purchasePriceRange", label: "Purchase price range", input: "text", placeholder: "Example: $1M to $2.5M", half: true },
-  {
-    key: "dealDescription",
-    label: "Deal description (park name, or under NDA)",
-    input: "textarea",
-    required: true,
-  },
-  {
-    key: "keepsUpAtNight",
-    label: "What keeps you up at night about this deal?",
-    input: "textarea",
-  },
-  { key: "howDidYouHear", label: "How did you hear about CrosstownOS?", input: "text", half: true },
 ]
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
