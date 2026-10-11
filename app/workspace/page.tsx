@@ -312,7 +312,7 @@ export default function AcquisitionWorkspacePage() {
       <TrackedPlansLink
        className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
-       Apply for a pilot place
+       Apply for a free pilot place
       </TrackedPlansLink>
       <a
        href="#how-it-works"
@@ -432,7 +432,7 @@ Five qualified participants will receive free access. Paid access is available s
         plan="pilot"
         className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
        >
-        Apply for a pilot place
+        Apply for a free pilot place
        </TrackedApplyLink>
        <p className="mt-4 text-xs leading-relaxed text-muted">
         Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
@@ -578,7 +578,7 @@ Five qualified participants will receive free access. Paid access is available s
      <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
      <SignalLine />
       <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
-       Start with a fit call.
+       Apply for a free pilot place.
       </h2>
 
       <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
