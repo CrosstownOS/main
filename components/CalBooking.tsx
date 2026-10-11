@@ -5,11 +5,12 @@
 type CalBookingProps = {
   url: string
   title: string
+  footerText?: string
 }
 
-export default function CalBooking({ url, title }: CalBookingProps) {
+export default function CalBooking({ url, title, footerText }: CalBookingProps) {
   return (
-    <div className="mb-8">
+    <div className="mt-8">
       <h3 className="font-serif text-xl tracking-tight text-foreground sm:text-2xl">
         Book a call
       </h3>
@@ -25,9 +26,15 @@ export default function CalBooking({ url, title }: CalBookingProps) {
           className="h-[min(640px,62dvh)] w-full"
         />
       </div>
-      <p className="mt-6 text-center font-serif text-lg font-bold tracking-tight text-foreground">
-        Prefer to write first? Use the form below.
-      </p>
+      {footerText ? (
+        <p className="mt-6 text-center font-serif text-lg font-bold tracking-tight text-foreground">
+          {footerText}
+        </p>
+      ) : (
+        <p className="mt-6 text-center font-serif text-lg font-bold tracking-tight text-foreground">
+          Prefer to write first? Use the form below.
+        </p>
+      )}
     </div>
   )
 }
