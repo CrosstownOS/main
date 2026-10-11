@@ -119,6 +119,9 @@ export default function DealDeskForm() {
 
       if (response.ok && body?.success) {
         import("@vercel/analytics").then(({ track }) => track("deal_desk_success"))
+        if (typeof window !== "undefined" && (window as any).fbq) {
+          (window as any).fbq("track", "Lead");
+        }
         setStatus("success")
         setStatusMessage(
           body.message ||
