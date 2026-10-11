@@ -154,11 +154,6 @@ export default function DealDeskForm() {
 
   return (
     <>
-      <CalBooking
-        url="https://cal.com/crosstownos/workspace-fit-call"
-        title="Book a workspace fit call"
-      />
-
       {status === "error" && statusMessage ? (
         <div
           ref={alertRef}
@@ -291,6 +286,12 @@ export default function DealDeskForm() {
           {status === "submitting" ? "Submitting…" : "Submit for review"}
         </button>
       </form>
+
+      <CalBooking
+        url="https://cal.com/crosstownos/workspace-fit-call"
+        title="Book a workspace fit call"
+        footerText="Prefer to talk first? Book a time above."
+      />
     </>
   )
 }
