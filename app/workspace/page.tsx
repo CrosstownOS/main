@@ -580,10 +580,19 @@ Five qualified participants will receive free access. Paid access is available s
       <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
        Apply for a free pilot place.
       </h2>
-
+      <p className="mt-4 text-sm leading-relaxed text-muted">
+        Tell me your asset type, deal stage, and decision deadline. No documents or call required to submit. If the fit looks right, we&apos;ll arrange the next step.
+      </p>
       <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
        <DealDeskForm />
       </div>
+      <p className="mt-4 text-xs leading-relaxed text-muted">
+        Submitting an application does not reserve a place or begin access. We&apos;ll confirm acceptance and your activation date separately.
+      </p>
+      <p className="mt-2 text-xs leading-relaxed text-muted">
+        <a href="/parkproof-walkthrough" className="underline underline-offset-2 hover:text-foreground">See an illustrative ParkProof decision record.</a>
+        {" "}Prefer to talk first? <a href="https://cal.com/crosstownos/workspace-fit-call" className="underline underline-offset-2 hover:text-foreground">Book a fit call</a>.
+      </p>
      </section>
 
      {/* FAQ: fit call questions, below the application */}
