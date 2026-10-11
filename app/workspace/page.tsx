@@ -157,7 +157,6 @@ const NOT_FOR_ITEMS = [
  "Anyone looking for software that issues the verdict. CrosstownOS organizes the record. The buyer owns the decision.",
 ] as const
 
- as const
 
 const WORKSPACE_PRODUCT_JSON_LD = {
  "@context": "https://schema.org",
