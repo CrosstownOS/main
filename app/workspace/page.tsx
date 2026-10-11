@@ -94,8 +94,8 @@ const HOW_IT_WORKS = [
   body: "Create the workspace for your property. The recorded walkthrough explains the core workflow. One live Q&A session (30 minutes, booked within your first 30 days) covers navigation, inputs, documented calculations, and software behavior.",
  },
  {
-  title: "Organize your sources.",
-  body: "Attach the broker package, public records, and seller statements. Source tracks where every number came from, because you put it there.",
+  title: "Know what the paper says before you arrive.",
+  body: "Source organizes every claim with its origin attached. Public records, broker packages, seller statements. One connected record.",
  },
  {
   title: "Walk it with Field.",
