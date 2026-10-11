@@ -507,9 +507,11 @@ Five qualified participants will receive free access. Paid access is available s
       <p className="mt-4 text-xs leading-relaxed text-muted">
         Submitting an application does not reserve a place or begin access. We&apos;ll confirm acceptance and your activation date separately.
       </p>
+      <div className="mt-4 border border-border bg-card p-4 sm:p-5">
+        <a href="/parkproof-walkthrough" className="font-semibold text-[#00468B] hover:underline">See an illustrative ParkProof decision record.</a>
+      </div>
       <p className="mt-2 text-xs leading-relaxed text-muted">
-        <a href="/parkproof-walkthrough" className="underline underline-offset-2 hover:text-foreground">See an illustrative ParkProof decision record.</a>
-        {" "}Prefer to talk first? <a href="https://cal.com/crosstownos/workspace-fit-call" className="underline underline-offset-2 hover:text-foreground">Book a fit call</a>.
+        Prefer to talk first? <a href="https://cal.com/crosstownos/workspace-fit-call" className="underline underline-offset-2 hover:text-foreground">Book a fit call</a>.
       </p>
      </section>
 
