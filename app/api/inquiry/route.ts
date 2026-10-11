@@ -176,26 +176,10 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     fields: [
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
-      { key: 'phone', label: 'Phone', maxLength: 80 },
       { key: 'company', label: 'Shop or company', maxLength: 180 },
       { key: 'assetType', label: 'Asset type', required: true, maxLength: 80 },
       { key: 'dealStage', label: 'Deal stage', required: true, maxLength: 120 },
       { key: 'decisionDeadline', label: 'Decision deadline', required: true, maxLength: 80 },
-      { key: 'purchasePriceRange', label: 'Purchase price range', maxLength: 160 },
-      {
-        key: 'dealDescription',
-        label: 'Deal description',
-        required: true,
-        multiline: true,
-        maxLength: 2000,
-      },
-      {
-        key: 'keepsUpAtNight',
-        label: 'What keeps you up at night about this deal',
-        multiline: true,
-        maxLength: 2000,
-      },
-      { key: 'howDidYouHear', label: 'How did you hear about CrosstownOS', maxLength: 200 },
     ],
     subject: (data) =>
       `New Acquisition Workspace Application: ${data.company || data.name}`,
@@ -224,7 +208,6 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       { key: 'company', label: 'Company', required: true, maxLength: 180 },
       { key: 'role', label: 'Role', required: true, maxLength: 160 },
       { key: 'email', label: 'Business email', required: true, maxLength: 254 },
-      { key: 'phone', label: 'Phone', maxLength: 80 },
       { key: 'linkedInUrl', label: 'LinkedIn URL', maxLength: 500 },
       { key: 'primaryFocus', label: 'Primary focus', required: true, maxLength: 120 },
       {
@@ -434,7 +417,6 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       { key: 'name', label: 'Name', required: true, maxLength: 160 },
       { key: 'company', label: 'Company', required: true, maxLength: 180 },
       { key: 'email', label: 'Email', required: true, maxLength: 254 },
-      { key: 'phone', label: 'Phone', maxLength: 80 },
       { key: 'assetClass', label: 'Asset class', required: true, maxLength: 120 },
       { key: 'propertyName', label: 'Property name', maxLength: 180 },
       { key: 'cityState', label: 'City and state', required: true, maxLength: 180 },
@@ -477,7 +459,6 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       { key: 'company', label: 'Company/entity', required: true, maxLength: 180 },
       { key: 'role', label: 'Role', required: true, maxLength: 160 },
       { key: 'email', label: 'Business email', required: true, maxLength: 254 },
-      { key: 'phone', label: 'Phone', maxLength: 80 },
       { key: 'linkedInUrl', label: 'LinkedIn URL', maxLength: 500 },
       { key: 'relationshipType', label: 'Relationship type', required: true, maxLength: 160 },
       {
