@@ -95,7 +95,7 @@ const HOW_IT_WORKS = [
  },
  {
   title: "Source the lead.",
-  body: "Source sees what the outside world says before you arrive. Public listings, public records, broker packages, and seller statements enter the record with their origins attached. Organized, never automatically trusted.",
+  body: "Source sees what the outside world says before you arrive. Public records, broker packages, and seller statements enter the record with their origins attached. Organized, never automatically trusted.",
  },
  {
   title: "Walk it with Field.",
