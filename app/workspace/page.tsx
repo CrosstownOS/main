@@ -425,6 +425,9 @@ In exchange, use the workspace and give candid feedback about what works, what b
 
 Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
        </p>
+      <p className="mt-6 text-base leading-relaxed text-foreground/90 sm:text-lg">
+        <strong className="font-semibold text-foreground">Five places.</strong> When they&apos;re allocated, the price is <strong className="font-semibold text-foreground">$1,250</strong> single-deal, <strong className="font-semibold text-foreground">$2,500</strong> annual. Five qualified buyers can participate in the free 90-day pilot. Paid access is available separately.
+       </p>
        
        <TrackedApplyLink
         plan="pilot"
