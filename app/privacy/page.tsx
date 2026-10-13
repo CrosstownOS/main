@@ -57,7 +57,7 @@ const SECTIONS = [
   {
     heading: "Cookies and similar technologies",
     body: [
-      "We use a minimal set. Session storage powers the site's loading-screen preference. Embedded scheduling (Cal.com) may set its own cookies to run the booking flow, governed by Cal.com's privacy policy, not this one. Our analytics are cookieless and do not track you across sites. We use no advertising cookies.",
+      "We use a minimal set. Session storage powers the site's loading-screen preference. Embedded scheduling (Cal.com) may set its own cookies to run the booking flow, governed by Cal.com's privacy policy, not this one. Our analytics are cookieless and do not track you across sites. The Meta Pixel may set advertising cookies in your browser to measure campaign performance.",
     ],
   },
   {
