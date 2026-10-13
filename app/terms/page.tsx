@@ -10,6 +10,27 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Terms of Use",
+  description: "Terms of use for the CrosstownOS website.",
+  url: "https://www.crosstownosrv.camp/terms",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "CrosstownOS",
+    url: "https://www.crosstownosrv.camp",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.crosstownosrv.camp/logo.jpg",
+    },
+  },
+}
+
 const SECTIONS = [
   {
     heading: "Agreement",
@@ -175,6 +196,10 @@ const SECTIONS = [
 export default function TermsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

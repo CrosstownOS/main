@@ -9,6 +9,27 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Privacy Policy",
+  description: "How CrosstownOS handles information you share with us.",
+  url: "https://www.crosstownosrv.camp/privacy",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "CrosstownOS",
+    url: "https://www.crosstownosrv.camp",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.crosstownosrv.camp/logo.jpg",
+    },
+  },
+}
+
 const SECTIONS = [
   {
     heading: "Who we are",
@@ -114,6 +135,10 @@ const SECTIONS = [
 export default function PrivacyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

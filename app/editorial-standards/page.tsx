@@ -31,6 +31,28 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Editorial Standards",
+  description:
+    "How CrosstownOS handles evidence, community learning, and AI-assisted work: what we verify, what we label, and what we never publish.",
+  url: "https://www.crosstownosrv.camp/editorial-standards",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "CrosstownOS",
+    url: "https://www.crosstownosrv.camp",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.crosstownosrv.camp/logo.jpg",
+    },
+  },
+}
+
 const STATES = [
   {
     title: "Verified",
@@ -106,6 +128,10 @@ const SECTIONS = [
 export default function EditorialStandardsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

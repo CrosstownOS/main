@@ -47,8 +47,40 @@ function formatDate(iso: string) {
 export default function BlogIndex() {
   const posts = getAllPosts()
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Field Notes",
+    description:
+      "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
+    url: "https://www.crosstownosrv.camp/blog",
+    publisher: {
+      "@type": "Organization",
+      name: "CrosstownOS",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.crosstownosrv.camp/logo.jpg",
+      },
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: posts.length,
+      itemListElement: posts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: post.title,
+        description: post.excerpt,
+        url: `https://www.crosstownosrv.camp/blog/${post.slug}`,
+      })),
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

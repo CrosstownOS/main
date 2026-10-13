@@ -34,6 +34,28 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "For Brokers and Lenders",
+  description:
+    "What a buyer brings when an RV park or manufactured-housing deal is worked in CrosstownOS: one record, cited claims, unresolved gates, and a documented decision file.",
+  url: "https://www.crosstownosrv.camp/for-brokers-lenders",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "CrosstownOS",
+    url: "https://www.crosstownosrv.camp",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.crosstownosrv.camp/logo.jpg",
+    },
+  },
+}
+
 const ARRIVAL_ITEMS = [
   {
     title: "One record, not a pile of documents",
@@ -78,6 +100,10 @@ const DECISION_FILE_TOC = [
 export default function ForBrokersLendersPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

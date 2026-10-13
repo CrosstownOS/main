@@ -153,6 +153,27 @@ export default async function ResourcePage({ params }: PageProps) {
     ],
   }
 
+  const creativeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: displayName(resource),
+    description: resource.description,
+    url: pageUrl,
+    author: {
+      "@type": "Organization",
+      name: "CrosstownOS",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "CrosstownOS",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.crosstownosrv.camp/logo.jpg",
+      },
+    },
+    isAccessibleForFree: true,
+  }
+
   return (
     <>
       <Navigation />
@@ -162,6 +183,10 @@ export default async function ResourcePage({ params }: PageProps) {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeJsonLd) }}
           />
 
           <nav aria-label="Breadcrumb">

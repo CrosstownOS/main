@@ -146,9 +146,63 @@ function stateClass(state: string) {
   return "border-border text-muted"
 }
 
+const BASE_URL = "https://www.crosstownosrv.camp"
+const PATH = "/parkproof-standard"
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "The ParkProof Standard",
+  description:
+    "The public ParkProof standard: evidence states, gates, and evidence-readiness labels for a documented decision file.",
+  author: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.crosstownosrv.camp/logo.jpg",
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${BASE_URL}${PATH}`,
+  },
+}
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: BASE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "The ParkProof Standard",
+      item: `${BASE_URL}${PATH}`,
+    },
+  ],
+}
+
 export default function ParkProofStandardPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

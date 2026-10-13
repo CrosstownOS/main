@@ -8,6 +8,7 @@ import {
   SITUATIONS,
   SITUATION_B_BRANCHES,
   SPINES,
+  TOOLS,
   TOOL_BY_CODE,
   resourceSlug,
   resourceTitleSlug,
@@ -41,6 +42,29 @@ export const metadata: Metadata = {
     description:
       "Thirty-five free diligence tools for RV park and manufactured-housing buyers.",
     images: ["/og-logo.png"],
+  },
+}
+
+const BASE_URL = "https://www.crosstownosrv.camp"
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Acquisition Signal Resources",
+  description:
+    "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
+  url: `${BASE_URL}/resources`,
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Acquisition Signal Resource Library",
+    numberOfItems: TOOLS.length,
+    itemListElement: TOOLS.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${t.code}: ${t.title}`,
+      description: t.description,
+      url: `${BASE_URL}/resources/${resourceSlug(t)}`,
+    })),
   },
 }
 
@@ -206,6 +230,10 @@ export default async function ResourcesPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />

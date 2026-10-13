@@ -33,6 +33,28 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "The Trail Log",
+  description:
+    "The Field Network build log: what has shipped, what is being built, and where members can weigh in.",
+  url: "https://www.crosstownosrv.camp/trail-log",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "CrosstownOS",
+    url: "https://www.crosstownosrv.camp",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CrosstownOS",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.crosstownosrv.camp/logo.jpg",
+    },
+  },
+}
+
 const BUILD_COLUMNS = [
   {
     title: "Now building",
@@ -216,6 +238,10 @@ const SHIPPED = [
 export default function TrailLogPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
