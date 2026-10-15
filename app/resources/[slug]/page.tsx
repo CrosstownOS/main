@@ -14,6 +14,21 @@ import {
   resourceSlug,
   type ResourceDetail,
 } from "@/lib/resources"
+import { RESOURCE_INSIDE } from "@/lib/resource-inside"
+
+const EVIDENCE_LETTERS = [
+  { letter: "V", name: "Verified", meaning: "You hold the document or saw it yourself." },
+  { letter: "B", name: "Broker-reported", meaning: "Claimed by the seller or broker. Not verified yet." },
+  { letter: "M", name: "Missing", meaning: "Requested or not yet requested. Not yet received." },
+  { letter: "A", name: "Assumed", meaning: "An underwriting assumption, stated openly." },
+  { letter: "C", name: "Calculated", meaning: "Your math from verified inputs." },
+  {
+    letter: "U",
+    name: "Unresolved",
+    meaning:
+      "Conflicting, unclear, or refused. Anything not produced by the deadline becomes U, and the silence is data.",
+  },
+] as const
 
 const BASE_URL = "https://www.crosstownosrv.camp"
 
@@ -143,6 +158,8 @@ export default async function ResourcePage({ params }: PageProps) {
   const next =
     partIndex >= 0 && partIndex < partTools.length - 1 ? partTools[partIndex + 1] : null
   const liveTool = LIVE_TOOL_BY_SLUG[resource.slug] ?? null
+  const inside = RESOURCE_INSIDE[resource.slug] ?? null
+  const showEvidenceLetters = resource.slug === "the-evidence-status-standard"
   const related = relatedPosts(resource)
   const relatedResources = (RELATED_RESOURCE_SLUGS[resource.slug] ?? [])
     .map((item) => {
@@ -254,6 +271,97 @@ export default async function ResourcePage({ params }: PageProps) {
               {resource.description}
             </p>
           </div>
+
+          {showEvidenceLetters && (
+            <section
+              aria-labelledby="resource-evidence-letters"
+              className="theme-cream mt-12 border border-border bg-card p-6 sm:p-8"
+            >
+              <h2 id="resource-evidence-letters" className="sr-only">
+                The evidence status letters
+              </h2>
+              <p className="text-base font-bold leading-relaxed text-foreground">
+                Every claim in this library carries one letter. The letter is
+                the claim&apos;s status, not its strength. A letter changes
+                only when the evidence changes.
+              </p>
+              <div className="mt-5 overflow-x-auto">
+                <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+                  <thead>
+                    <tr className="border-b-2 border-border">
+                      <th className="px-3 py-2 font-bold text-foreground">Letter</th>
+                      <th className="px-3 py-2 font-bold text-foreground">Name</th>
+                      <th className="px-3 py-2 font-bold text-foreground">Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {EVIDENCE_LETTERS.map((row) => (
+                      <tr key={row.letter} className="border-b border-border/60">
+                        <td className="px-3 py-2 align-top font-bold text-foreground">
+                          {row.letter}
+                        </td>
+                        <td className="px-3 py-2 align-top">{row.name}</td>
+                        <td className="px-3 py-2 align-top">{row.meaning}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-5 text-base font-bold leading-relaxed text-foreground">
+                The three rules:
+              </p>
+              <ol className="mt-3 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted">
+                <li>
+                  Unverified is worth $0. A B claim pays for nothing until it
+                  becomes a V.
+                </li>
+                <li>
+                  Every claim carries a source and a date. A claim with no
+                  date is a rumor, even with the right letter.
+                </li>
+                <li>
+                  The letter changes when the evidence changes. Crossing out
+                  a B and writing V without the document is fiction.
+                </li>
+              </ol>
+            </section>
+          )}
+
+          {inside && (
+            <section
+              aria-labelledby="resource-inside"
+              className="theme-cream mt-12 border border-border bg-card p-6 sm:p-8"
+            >
+              <h2 id="resource-inside" className="serif-display text-2xl tracking-tight sm:text-3xl">
+                Inside this tool
+                {resource.code && part
+                  ? ` (${resource.code}, Part ${part.id}: ${part.name})`
+                  : ""}
+              </h2>
+              <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted">
+                <li>
+                  <strong className="font-bold text-foreground">Takes in:</strong>{" "}
+                  {inside.takesIn}.
+                </li>
+                <li>
+                  <strong className="font-bold text-foreground">Hands to:</strong>{" "}
+                  {inside.handsTo}.
+                </li>
+                <li>
+                  <strong className="font-bold text-foreground">What it holds:</strong>{" "}
+                  {inside.holds}.
+                </li>
+                {inside.standard && (
+                  <li>
+                    <strong className="font-bold text-foreground">
+                      The standard it runs on:
+                    </strong>{" "}
+                    {inside.standard}.
+                  </li>
+                )}
+              </ul>
+            </section>
+          )}
 
           <div className="mt-12 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
             <section
