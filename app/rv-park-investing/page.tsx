@@ -200,6 +200,10 @@ export default function RvParkInvestingPage() {
               cap rates to compensate for the work required. These are broad
               market ranges, not appraisals: confirm against closed comps in
               your target market before anchoring any underwriting.
+              Resort is a marketing word, not a separate asset class: a
+              high-amenity RV park underwrites on the same income, the
+              same occupancy questions, and the same utility exposure as
+              any other park, with a larger amenity payroll riding on top.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Financing remains the gatekeeper. Agency and bank debt for RV
