@@ -21,11 +21,15 @@ When the seller sets the clock, the buyer inherits the seller's version of the n
 
 Talk to enough sellers and the claims start to rhyme: the financials do not show the real revenue, a meaningful share of it arrives in cash, and the real numbers live in a separate ledger.
 
+Claims made on a call are easier to test when the questions were set before the call started, and the [27-Question Seller Call Script](/resources/27-question-seller-call-script) is that set, in order, while the clock is still the buyer's to use.
+
 Some of that is true. Some of it is memory. Some of it is salesmanship. All of it is broker-reported until a bank statement, a tax return, or a deposit record says otherwise.
 
 Here is what speed does to those claims: it turns them into underwriting inputs. A thirty-day close does not give you time to reconcile the cash story to anything. So the cash story goes into the model at face value, and you pay a verified price for an unverified number.
 
 Sellers control the clock in both directions, and some deadlines are real: a loan maturity, a 1031 exchange, a partnership split. But when the seller who needs an answer by Friday takes three weeks to produce the rent roll, the urgency is manufactured on the way in and the evidence is rationed on the way out. Either way, a compressed window with slow evidence decides what gets verified before the wire, and it is not you deciding.
+
+When the deadline is real, structure can sometimes do the work speed was supposed to do, and [Seller Note Anatomy](/resources/seller-note-anatomy) shows how what the seller fears becomes note terms they can say yes to.
 
 A compressed diligence window is the mechanism. It is what lets "trust me" survive until the wire transfer.
 

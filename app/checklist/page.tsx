@@ -213,11 +213,28 @@ export default function ChecklistPage() {
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               A checklist tells you what to verify. It does not hold the
               evidence, track what is missing, or connect the rent roll to the
-              bank deposits to the site walk. What it leaves you with is the
+              bank deposits to the site walk. The states behind that work are
+              defined in{" "}
+              <Link
+                href="/resources/the-evidence-status-standard"
+                className="font-semibold text-primary hover:underline"
+              >
+                The Evidence Status Standard
+              </Link>
+              : every claim carries one letter, and the letter is the status,
+              not the strength. What it leaves you with is the
               honest list: what you proved, what you could not, and what the
               gap is worth. Work the fifteen in order, and what is still
               unresolved at the end is not a footnote. It is the finding, and
-              it goes on the record before your money goes hard.
+              it goes on the record before your money goes hard. If you want
+              the whole library in order,{" "}
+              <Link
+                href="/resources/start-here"
+                className="font-semibold text-primary hover:underline"
+              >
+                Start Here
+              </Link>{" "}
+              shows how the 35 tools fit together before you print anything.
             </p>
             <div className="mt-6">
               <Link

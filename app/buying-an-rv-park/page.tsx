@@ -134,8 +134,17 @@ export default function BuyingAnRvParkPage() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Buying an RV park means buying a story about income. Your job is
             to check the story against the evidence before the price becomes
-            final. This guide covers what to verify, in what order, and the
-            red flags that should stop a deal cold.
+            final. That work starts one step earlier when the park never
+            listed. The{" "}
+            <Link
+              href="/resources/off-market-sourcing-system"
+              className="font-semibold text-primary hover:underline"
+            >
+              Off-Market Sourcing System
+            </Link>{" "}
+            works county records and license lists to find the sellers who
+            never listed. This guide covers what to verify, in what order,
+            and the red flags that should stop a deal cold.
           </p>
 
           <section className="mt-12" aria-label="Why buyers overpay">

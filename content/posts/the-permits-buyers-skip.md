@@ -44,6 +44,8 @@ Underwrite the expansion the way you underwrite the purchase: permitted, costed,
 
 The permits discipline is short. Confirm the zoning designation and that park use is allowed there. Confirm the permitted site count against the rent roll's site count. Pull permit history and code enforcement records. Ask about upcoming zoning or utility changes. Where the use is nonconforming, get the determination and its conditions in writing. Confirm anything material with appropriate legal and regulatory professionals. This is diligence, not legal advice.
 
+The permitted count is still a paper count until someone walks the ground, and the [Lot-by-Lot Walkthrough](/resources/lot-by-lot-walkthrough) is the on-site worksheet for that walk: every pad, what is on it, and where it does not match the package.
+
 Every item on that list is a document that either exists or does not. Where it does not exist, that is missing evidence, not a minor gap. Absence is the finding. And where the record contradicts the package, the price should move before closing. After closing, the county does not negotiate either.
 
 The paper asset and the physical asset must meet before someone wires money. Permits are where they meet.

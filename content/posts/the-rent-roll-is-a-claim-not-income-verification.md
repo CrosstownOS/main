@@ -42,7 +42,7 @@ A seller may say the park really makes more than the financials show. Cash colle
 
 For underwriting, the distinction does not matter. Undocumented income is missing evidence. It cannot be priced as verified revenue just because the story is plausible.
 
-The same rule applies to verbal agreements and side deals. If the paperwork, the deposits, and the seller's story do not line up, the issue is bigger than one missing page. One late tenant is operations. A pattern of undocumented arrangements across the file is information about how the park was actually run. A buyer can underwrite weak collections. Weak evidence is a different problem.
+The same rule applies to verbal agreements and side deals. If the paperwork, the deposits, and the seller's story do not line up, the issue is bigger than one missing page. The person who usually knows which of those arrangements are real is the manager on site, and the [Manager Tell-All Interview](/resources/manager-tell-all-interview) is the set of questions built for that conversation. One late tenant is operations. A pattern of undocumented arrangements across the file is information about how the park was actually run. A buyer can underwrite weak collections. Weak evidence is a different problem.
 
 ## Label the gap before you price it
 

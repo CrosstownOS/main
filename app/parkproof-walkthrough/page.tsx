@@ -214,7 +214,13 @@ export default function SampleDecisionFilePage() {
                 <Link href="/tools" className="font-semibold text-primary hover:underline">
                   working papers
                 </Link>{" "}
-                run the math in your browser.
+                run the math in your browser. When a file like this one has
+                to go to a lender, the{" "}
+                <Link href="/resources/lender-one-pager" className="font-semibold text-primary hover:underline">
+                  Lender One-Pager
+                </Link>{" "}
+                puts the same deal on one page, in the language a lender
+                reads.
               </p>
             </div>
           </section>

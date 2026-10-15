@@ -72,6 +72,50 @@ export default function CatalogPage() {
             line tells you the next one. One email unlocks every download. Tap a
             download and take it to the truck.
           </p>
+          <section
+            aria-label="Start with the spine"
+            className="theme-cream mt-8 border border-border bg-card p-6"
+          >
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              Start with the spine.
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+              Three resources hold the library together. Read them first, then
+              run the Parts in order.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted">
+              <li>
+                <Link
+                  href="/resources/start-here"
+                  className="font-semibold text-primary hover:underline"
+                >
+                  Start Here
+                </Link>{" "}
+                shows how the 35 tools fit together. Read this before you
+                print anything.
+              </li>
+              <li>
+                <Link
+                  href="/resources/the-journey-map"
+                  className="font-semibold text-primary hover:underline"
+                >
+                  The Journey Map
+                </Link>{" "}
+                puts thirty-five tools in one order. Find the Part that
+                matches where you are.
+              </li>
+              <li>
+                <Link
+                  href="/resources/the-evidence-status-standard"
+                  className="font-semibold text-primary hover:underline"
+                >
+                  The Evidence Status Standard
+                </Link>{" "}
+                gives every claim one letter: V, B, M, A, C, U. The letter is
+                the status, not the strength.
+              </li>
+            </ul>
+          </section>
           <div className="theme-cream mt-8 border border-primary/40 bg-primary/5 p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Prefer to run the math?

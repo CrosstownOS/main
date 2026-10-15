@@ -56,6 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 const POST_RESOURCE_SLUGS: Record<string, string> = {
   "anatomy-of-a-broker-package": "broker-package-intake-sheet",
   "before-you-underwrite-establish-what-is-true": "the-evidence-status-standard",
+  "manufactured-housing-diligence-starts-with-who-owns-the-homes": "poh-toh-split-valuation-worksheet",
   "read-the-pl-like-the-other-side-wrote-it": "mom-and-pop-expense-normalizer",
   "reported-occupancy-is-not-paying-occupancy": "the-rent-roll-truth-check",
   "speed-is-a-strategy-for-sellers-not-buyers": "the-walk-away-pact",

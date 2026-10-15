@@ -29,7 +29,7 @@ Most communities sit somewhere between the two. Some homes owned by residents, s
 
 ## POH changes the P&L
 
-This is where RV-trained buyers misread the file. In a tenant-owned community, the income is lot rent, clean and simple. In a park-owned community, the income is lot rent plus home rent, and the expenses carry lines an RV buyer has never underwritten.
+This is where RV-trained buyers misread the file. In a tenant-owned community, the income is lot rent, clean and simple. In a park-owned community, the income is lot rent plus home rent, and the expenses carry lines an RV buyer has never underwritten. Value those park-owned homes as rentals, not as lot rent. [The Park-Owned Rental Valuation](/resources/the-park-owned-rental-valuation) works through that part of the split.
 
 Home maintenance and turnover: between residents, a park-owned home often needs flooring, paint, appliances, and repairs that can run into the thousands per turn. A P&L that shows low turnover cost on a park-owned portfolio deserves the same treatment as any claim. Verify it, or label it honestly.
 

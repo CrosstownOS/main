@@ -358,6 +358,7 @@ export default function ExpenseNormalizerTool() {
       faqs={EXPENSE_FAQS}
 
       pdfHref="/resources/mom-and-pop-expense-normalizer"
+      pdfHrefAlt={{ href: "/resources/the-rv-expense-normalizer", label: "Get the PDF: RV edition" }}
       relatedNote={{ href: "/blog/read-the-pl-like-the-other-side-wrote-it", label: "Read the P&L Like the Other Side Wrote It" }}
     >
       <section aria-label="Asset type and revenue">

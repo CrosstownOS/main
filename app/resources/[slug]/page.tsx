@@ -39,6 +39,27 @@ const RELATED_POST_SLUGS: Record<string, string[]> = {
   "the-evidence-status-standard": ["before-you-underwrite-establish-what-is-true"],
 }
 
+const RELATED_RESOURCE_SLUGS: Record<string, { slug: string; note: string }[]> = {
+  "the-offer-term-sheet-builder": [
+    {
+      slug: "seller-note-anatomy",
+      note: "When a seller note is part of the offer, the note is part of the structure, not a detail for later. This page starts with what the seller fears and turns it into terms they can say yes to.",
+    },
+  ],
+  "capital-plan-sources-and-uses": [
+    {
+      slug: "lender-one-pager",
+      note: "A lender package cannot be built without sources and uses. This plan sets the price, the capex, and the reserve target first. The one-pager then carries those numbers onto one page, in the language a lender reads.",
+    },
+  ],
+  "first-30-days-takeover-sheet": [
+    {
+      slug: "tenant-communication-and-rent-playbook",
+      note: "When the first thirty days are underway, hand the takeover to this playbook: tell tenants what is changing before rumors do.",
+    },
+  ],
+}
+
 
 /** Resources with a live working-paper version. Maps resource slug to tool slug + name. */
 const LIVE_TOOL_BY_SLUG: Record<string, { toolSlug: string; toolName: string }> = {
@@ -123,6 +144,13 @@ export default async function ResourcePage({ params }: PageProps) {
     partIndex >= 0 && partIndex < partTools.length - 1 ? partTools[partIndex + 1] : null
   const liveTool = LIVE_TOOL_BY_SLUG[resource.slug] ?? null
   const related = relatedPosts(resource)
+  const relatedResources = (RELATED_RESOURCE_SLUGS[resource.slug] ?? [])
+    .map((item) => {
+      const target = RESOURCE_DETAIL_BY_SLUG[item.slug]
+      if (!target) return null
+      return { slug: item.slug, note: item.note, code: target.code, title: target.title }
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
   const showParkProofLinks =
     (resource.part ? ["D", "E", "F"].includes(resource.part) : false) ||
     resource.slug === "the-evidence-status-standard"
@@ -375,6 +403,33 @@ export default async function ResourcePage({ params }: PageProps) {
                 )}
               </div>
             </nav>
+          )}
+
+          {relatedResources.length > 0 && (
+            <section aria-labelledby="resource-related-resources" className="mt-16">
+              <h2 id="resource-related-resources" className="serif-display text-2xl tracking-tight sm:text-3xl">
+                Related resource
+              </h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {relatedResources.map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={`/resources/${item.slug}`}
+                    className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                  >
+                    <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
+                      Resource
+                    </p>
+                    <p className="serif-display mt-2 text-xl tracking-tight transition-colors group-hover:text-primary">
+                      {item.code}: {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {item.note}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </section>
           )}
 
           {showParkProofLinks && (

@@ -236,6 +236,23 @@ export default function MobileHomeParkInvestingPage() {
               price the deal on what you proved, not what you were told.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Two free resources work this section. The{" "}
+              <Link
+                href="/resources/poh-toh-split-valuation-worksheet"
+                className="font-semibold text-primary hover:underline"
+              >
+                POH/TOH Split-Valuation Worksheet
+              </Link>{" "}
+              values park-owned and tenant-owned homes separately.{" "}
+              <Link
+                href="/resources/the-park-owned-rental-valuation"
+                className="font-semibold text-primary hover:underline"
+              >
+                The Park-Owned Rental Valuation
+              </Link>{" "}
+              values the park-owned homes as rentals, not as lot rent.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Two businesses, two prices, one decision. Pay for the land on
               its verified lot rent, pay for the homes on their rental
               record, and never let a single price tag blur the two together

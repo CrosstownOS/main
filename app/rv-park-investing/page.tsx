@@ -70,7 +70,23 @@ const RETURN_DRIVERS: { title: string; body: ReactNode }[] = [
   },
   {
     title: "Occupancy lift on undermanaged parks",
-    body: "Mom-and-pop parks with no marketing, no online booking, and no revenue management leave occupancy on the table. The lift is real but it is operational work, not a spreadsheet adjustment. Underwrite the lift on your plan, not the seller's potential.",
+    body: (
+      <>
+        Mom-and-pop parks with no marketing, no online booking, and no revenue
+        management leave occupancy on the table. The lift is real but it is
+        operational work, not a spreadsheet adjustment. For transient sites,
+        run that fill math by season:{" "}
+        <Link
+          href="/resources/the-transient-site-fill-calculator"
+          className="font-semibold text-primary hover:underline"
+        >
+          The Transient-Site Fill Calculator
+        </Link>{" "}
+        shows what a filled transient site actually earns once seasonality is
+        counted. Underwrite the lift on your plan, not the seller&apos;s
+        potential.
+      </>
+    ),
   },
   {
     title: "Expense recapture",

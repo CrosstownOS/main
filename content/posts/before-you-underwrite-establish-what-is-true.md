@@ -51,7 +51,7 @@ The labels do not slow a deal down. They speed up the right parts of it. Once ev
 
 First, the diligence list writes itself. Everything broker-reported needs a verification path. Everything missing evidence needs a request. The labels turn a vague feeling of unease into a specific list of items with owners and deadlines.
 
-Second, the negotiation gets honest. A retrade is not an adversarial move when it follows from labeled evidence. It is the natural consequence of the record. Sellers respect buyers who can point at the gap between the claim and the evidence. They have no defense against it.
+Second, the negotiation gets honest. A retrade is not an adversarial move when it follows from labeled evidence. It is the natural consequence of the record. Terms follow the same rule: [The Offer Term-Sheet Builder](/resources/the-offer-term-sheet-builder) builds your terms from the labeled record, before the broker builds them for you. Sellers respect buyers who can point at the gap between the claim and the evidence. They have no defense against it.
 
 Third, the walk-away decision gets clean. The signal to walk is rarely one tenant behind on rent. It is a pattern: verbal agreements and side deals where the seller's story and the paperwork diverge, repeatedly, across the file. Labeled evidence makes the pattern visible early, before the earnest money is at risk.
 

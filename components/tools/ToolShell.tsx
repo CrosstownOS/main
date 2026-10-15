@@ -199,6 +199,7 @@ export type ToolShellProps = {
   ctaBody: string
   ctaButton: string
   pdfHref: string
+  pdfHrefAlt?: { href: string; label: string }
   faqs?: Faq[]
   relatedNote?: { href: string; label: string }
   children: ReactNode
@@ -208,7 +209,7 @@ export default function ToolShell(props: ToolShellProps) {
   const {
     slug, sourceCode, title, description, timeEstimate, inputCount,
     dealName, onDealName, onReset, getExport, exportFileName, posture,
-    printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, faqs, relatedNote, children,
+    printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, pdfHrefAlt, faqs, relatedNote, children,
   } = props
   const [saveOpen, setSaveOpen] = useState(false)
   const handleSaveClose = useCallback(() => setSaveOpen(false), [])
@@ -444,6 +445,14 @@ export default function ToolShell(props: ToolShellProps) {
               >
                 Get the PDF
               </Link>
+              {pdfHrefAlt ? (
+                <Link
+                  href={pdfHrefAlt.href}
+                  className="inline-flex items-center border border-border px-5 py-3 text-sm font-semibold text-muted transition-colors hover:border-primary hover:text-primary"
+                >
+                  {pdfHrefAlt.label}
+                </Link>
+              ) : null}
             </div>
             <p className="mt-3 text-xs leading-relaxed text-muted">
               The tool is free to use. Email is only asked when you save or export.

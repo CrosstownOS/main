@@ -54,7 +54,7 @@ This is where packages often turn a physical observation into an investment conc
 
 ## Claim 5: expenses run at 40 percent
 
-The seller's expense ratio is presented as a strength. The package includes a summary P&L, but property taxes are listed at the prior owner's amount, insurance is represented by a broker estimate, and utility reimbursements are netted without a supporting schedule.
+The seller's expense ratio is presented as a strength. The package includes a summary P&L, but property taxes are listed at the prior owner's amount, insurance is represented by a broker estimate, and utility reimbursements are netted without a supporting schedule. Those two lines have their own first pass: the [Insurance and Property-Tax Preflight](/resources/insurance-and-property-tax-preflight) prices the insurance at this address and the taxes at the assessor's number, before either one enters a model at the seller's figure.
 
 **State: Underwriting assumption** when the buyer's model uses the 40 percent ratio to project forward.
 

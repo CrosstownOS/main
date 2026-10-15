@@ -342,7 +342,15 @@ export default function ParkProofStandardPage() {
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
               Advance, Retrade, Pause, and Walk are evidence-readiness labels.
-              They are not recommendations, approvals, or advice. When more
+              That call belongs in one record:{" "}
+              <Link
+                href="/resources/the-decision-file"
+                className="font-semibold text-primary hover:underline"
+              >
+                The Decision File
+              </Link>
+              , where every tool feeds the same file. They are not
+              recommendations, approvals, or advice. When more
               than one label is triggered, the precedence is Walk, then Pause,
               then Retrade, then Advance.
             </p>

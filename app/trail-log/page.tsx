@@ -288,7 +288,17 @@ export default function TrailLogPage() {
               Shipped, on the record.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              Entries are dated by ship date, newest first. The trail runs back through the build, not just tonight.
+              Entries are dated by ship date, newest first. The same habit
+              applies on the deal side. Every deal you pass on gets logged
+              and reviewed in the{" "}
+              <Link
+                href="/resources/deals-i-walked-ledger-and-post-mortem"
+                className="font-semibold text-primary hover:underline"
+              >
+                Deals I Walked Ledger and Post-Mortem
+              </Link>
+              , so the reasons stay on the record. The trail runs back
+              through the build, not just tonight.
             </p>
             <StaggerReveal className="mt-6 space-y-4">
               {SHIPPED.map((entry) => (
