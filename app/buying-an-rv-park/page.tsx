@@ -183,9 +183,9 @@ export default function BuyingAnRvParkPage() {
               roughly in the $40,000 to $80,000 per pad range, while
               value-add and rural parks have traded lower, often $20,000 to
               $45,000 per pad. Destination and high-amenity parks can clear
-              $100,000 per pad. These are broad ranges, not quotes: verify
-              against closed comps in your market before you anchor on any
-              number.
+              $100,000 per pad. These are broad market ranges, not
+              appraisals: confirm against closed comps in your target
+              market before anchoring any underwriting.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Cap rates tell the other half. Stabilized parks in strong
@@ -194,6 +194,38 @@ export default function BuyingAnRvParkPage() {
               cap rate looks a point better than the market, the income or
               the expenses are usually doing something creative. Normalize
               first, then compare.
+            </p>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th className="px-3 py-2 font-bold text-foreground">Park type</th>
+                    <th className="px-3 py-2 font-bold text-foreground">Price per pad</th>
+                    <th className="px-3 py-2 font-bold text-foreground">Cap rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top">Stabilized</td>
+                    <td className="px-3 py-2 align-top">$40,000 to $80,000</td>
+                    <td className="px-3 py-2 align-top">7% to 8.5%</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top">Value-add and rural</td>
+                    <td className="px-3 py-2 align-top">$20,000 to $45,000</td>
+                    <td className="px-3 py-2 align-top">Higher, priced for the work required</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 align-top">Destination</td>
+                    <td className="px-3 py-2 align-top">Can clear $100,000</td>
+                    <td className="px-3 py-2 align-top">Varies with the amenity base</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Broad ranges, not appraisals: confirm against closed comps in
+              your target market before anchoring any underwriting.
             </p>
             <div className="theme-cream mt-6 border border-border bg-card p-5">
               <p className="text-sm leading-relaxed text-foreground/85">
