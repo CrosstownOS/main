@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { getAllSlugs, getPost, getRelatedPosts, getSeoDescription, getSeoTitle } from "@/lib/blog"
@@ -156,7 +157,28 @@ export default async function BlogPost({ params }: PageProps) {
           <div className="paper p-6 sm:p-8">
             <div className="prose-blog">
             <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
               components={{
+                table: ({ children }) => (
+                  <div className="mb-5 overflow-x-auto">
+                    <table className="w-full border-collapse text-left text-base leading-relaxed text-foreground/90">
+                      {children}
+                    </table>
+                  </div>
+                ),
+                thead: ({ children }) => (
+                  <thead className="border-b-2 border-border">{children}</thead>
+                ),
+                th: ({ children }) => (
+                  <th className="px-3 py-2 font-bold text-foreground">
+                    {children}
+                  </th>
+                ),
+                td: ({ children }) => (
+                  <td className="border-b border-border/60 px-3 py-2 align-top">
+                    {children}
+                  </td>
+                ),
                 h2: ({ children }) => (
                   <h2 className="serif-display mb-4 mt-10 text-2xl tracking-tight sm:text-3xl">
                     {children}
