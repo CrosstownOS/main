@@ -4,9 +4,9 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
-  title: "RV Park Due Diligence Checklist | CrosstownOS",
+  title: "Mobile Home Park and RV Park Due Diligence Checklist | CrosstownOS",
   description:
-    "Free RV park due diligence checklist: 15 items covering rent roll verification, P&L normalization, utilities, permits, zoning, and the final decision file.",
+    "Free due diligence checklist for mobile home park and RV park buyers: 15 items covering rent roll verification, P&L normalization, utilities, permits, zoning, and the final decision file.",
   alternates: { canonical: "/checklist" },
   openGraph: {
     title: "RV Park Due Diligence Checklist | CrosstownOS",
