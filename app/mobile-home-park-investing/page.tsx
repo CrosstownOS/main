@@ -6,7 +6,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 export const metadata: Metadata = {
   title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
   description:
-    "Investing in mobile home parks? Verify lot rents, tenant-owned vs park-owned mix, utilities, and infrastructure before you buy. Guide from CrosstownOS.",
+    "Buying a manufactured housing community or mobile home park? Verify the home mix from titles, prove the lot rent against deposits, and price the utility systems before the park becomes yours.",
   alternates: { canonical: "/mobile-home-park-investing" },
   openGraph: {
     title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
@@ -188,6 +188,33 @@ export default function MobileHomeParkInvestingPage() {
                 free due diligence checklist
               </Link>
               .
+            </p>
+          </section>
+
+          <section className="mt-12" aria-label="Manufactured housing due diligence">
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              What due diligence looks like on a manufactured housing community (MHC)
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Due diligence on a manufactured housing community starts with
+              paperwork other parks do not have. Every home carries a
+              title, and who holds that title decides what you are actually
+              buying. Count the homes from the titles, not from the
+              broker&apos;s summary. Note which homes the park owns
+              outright, which carry liens, and which belong to residents who
+              could, at real cost, take theirs somewhere else. A
+              resident-owned home is stability you can underwrite. A
+              park-owned home is a rental unit you will maintain, insure,
+              and one day replace. The land under all of it gets verified
+              the way any park does: the permitted site count, the utility
+              capacity, the real age of the lines. Work the order on the{" "}
+              <Link
+                href="/checklist"
+                className="font-semibold text-primary hover:underline"
+              >
+                due diligence checklist
+              </Link>
+              , then price each side of the split on evidence of its own.
             </p>
           </section>
 
