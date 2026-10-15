@@ -4,12 +4,12 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
-  title: "Mobile Home Park Investing Guide | CrosstownOS",
+  title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
   description:
     "Investing in mobile home parks? Verify lot rents, tenant-owned vs park-owned mix, utilities, and infrastructure before you buy. Guide from CrosstownOS.",
   alternates: { canonical: "/mobile-home-park-investing" },
   openGraph: {
-    title: "Mobile Home Park Investing Guide | CrosstownOS",
+    title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
     description:
       "The mix determines everything: tenant-owned vs park-owned, lot rent verification, and the hidden infrastructure capex.",
     type: "website",
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
         url: "/og-logo.png",
         width: 1024,
         height: 1024,
-        alt: "Mobile Home Park Investing Guide | CrosstownOS",
+        alt: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile Home Park Investing Guide | CrosstownOS",
+    title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
     description:
       "The mix determines everything: tenant-owned vs park-owned, lot rent verification, and the hidden infrastructure capex.",
     images: ["/og-logo.png"],
@@ -79,13 +79,33 @@ export default function MobileHomeParkInvestingPage() {
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS / Investor&apos;s guide</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            Mobile home park investing starts with knowing what you own.
+            A mobile home park is two businesses. Price them like it.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            A mobile home park is two businesses in one legal entity: lot rent
-            on the land, and whatever the park owns on top of it. Most
-            underwriting mistakes in this asset class come from valuing the
-            wrong business, or valuing both as one. This guide separates them.
+            Most mobile home park listings quote one price for what is
+            actually two businesses. The first business is the land: lots,
+            roads, utility lines, and the rent charged for a place to set a
+            home. The second business is whatever homes the park itself owns
+            and rents out on top of that land. They earn differently, they
+            cost differently, and they fail differently.
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            Tenant-owned homes are the clean business. The resident owns the
+            home, pays lot rent, and the park maintains the ground and the
+            systems under it. Park-owned homes are a landlord business
+            wearing a park&apos;s clothes: higher income per site, and the
+            park carries the roof, the furnace, the turnover, and the slow
+            wear of housing stock that gets older every year.
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            So the first question on any manufactured housing deal is not the
+            cap rate. It is the mix, counted home by home from titles, not
+            taken from the broker&apos;s summary. A park that is mostly
+            tenant-owned is a land business with steady rent. A park that is
+            mostly park-owned is a rental housing operation, and it deserves
+            a landlord&apos;s underwriting and a landlord&apos;s price. This
+            guide shows how to separate the two, verify the lot rent, and
+            value each side on its own evidence.
           </p>
 
           <section className="mt-12" aria-label="Tenant owned versus park owned">
@@ -93,20 +113,15 @@ export default function MobileHomeParkInvestingPage() {
               TOH vs. POH: why the mix determines everything
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Tenant-owned homes (TOH) mean the resident owns the home and
-              rents the lot. The park collects lot rent, maintains the land
-              and infrastructure, and carries almost no home-level capex.
-              This is the business most investors think they are buying, and
-              it is the cleanest income in the asset class.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Park-owned homes (POH) mean the park owns the home and rents the
-              whole package. The income is higher per site, but so is
-              everything else: maintenance, turnover cost, insurance, and the
-              slow depreciation of an aging housing stock the park is now
-              responsible for. A park that is 80 percent POH is closer to a
-              scattered-site landlord business than to a land-lease business,
-              and it should be underwritten like one.
+              Tenant-owned homes (TOH) are the land business: the resident
+              owns the home, rents the lot, and the park collects lot rent
+              and maintains the ground and infrastructure, with almost no
+              home-level capex. Park-owned homes (POH) are the landlord
+              business: higher income per site, and the park carries
+              maintenance, turnover cost, insurance, and the slow
+              depreciation of an aging housing stock. The mix decides which
+              business you are really buying, and each side gets priced the
+              way it behaves.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               The first diligence question on any mobile home park is the
@@ -142,12 +157,19 @@ export default function MobileHomeParkInvestingPage() {
               Lot rent verification: not just the rent roll
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              The rent roll says what lot rent should be. Bank deposits say
-              what arrived. Reconcile the two for 12 to 24 months, and age
-              every delinquency. In tenant-owned parks, delinquency is stickier
-              than in apartments: evicting a homeowner who owns the structure
-              is slower, costlier, and politically harder than turning an
-              apartment.
+              The rent roll says what lot rent should be. In tenant-owned
+              parks, delinquency is stickier than in apartments: evicting a
+              homeowner who owns the structure is slower, costlier, and
+              politically harder than turning an apartment. The method for
+              proving the income, bank deposits against the rent roll over
+              12 to 24 months, lives in{" "}
+              <Link
+                href="/resources/the-rent-roll-truth-check"
+                className="font-semibold text-primary hover:underline"
+              >
+                The Rent-Roll Truth Check
+              </Link>
+              .
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Then check the rents against the market. Pull lot rents from
@@ -157,7 +179,15 @@ export default function MobileHomeParkInvestingPage() {
               the question is never whether rents can go up. It is whether
               the current residents, in these homes, in this market, can
               absorb the increase without the occupancy you underwrote
-              walking out the gate.
+              walking out the gate. The full sequence, all fifteen
+              verifications in order, is laid out in the{" "}
+              <Link
+                href="/checklist"
+                className="font-semibold text-primary hover:underline"
+              >
+                free due diligence checklist
+              </Link>
+              .
             </p>
           </section>
 
@@ -174,14 +204,23 @@ export default function MobileHomeParkInvestingPage() {
               figures when it fails.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Verify three things. First, who pays for each utility and
-              whether the park is master-metered or sub-metered; master-metered
-              parks where the owner eats the bill need immediate sub-metering
-              capex in your underwriting. Second, the condition and material
-              of water and sewer lines, from inspection reports or a scoped
-              sample, not from the seller&apos;s memory. Third, permitted
-              capacity on well, septic, or lagoon systems against current and
-              planned home counts, confirmed with the county.
+              Two things are specific to parks of this era. First, the
+              metering: master-metered parks where the owner eats the utility
+              bill need immediate sub-metering capex in your underwriting.
+              Second, the pipe: water and sewer lines from the 1960s to
+              1980s build era are often original material, and their
+              condition, from inspection reports or a scoped sample, not
+              from the seller&apos;s memory, sets the capital plan. The
+              general utility verification, who pays for each system, what
+              it costs, and what capacity is permitted, is worked step by
+              step on the{" "}
+              <Link
+                href="/checklist"
+                className="font-semibold text-primary hover:underline"
+              >
+                due diligence checklist
+              </Link>
+              .
             </p>
           </section>
 
@@ -197,16 +236,10 @@ export default function MobileHomeParkInvestingPage() {
               price the deal on what you proved, not what you were told.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              When the deal gets real, the{" "}
-              <Link
-                href="/workspace"
-                className="font-semibold text-primary hover:underline"
-              >
-                Acquisition Workspace
-              </Link>{" "}
-              holds the full record: seller claims, source evidence, site
-              observations, unresolved diligence, and underwriting connected
-              before you commit capital.
+              Two businesses, two prices, one decision. Pay for the land on
+              its verified lot rent, pay for the homes on their rental
+              record, and never let a single price tag blur the two together
+              again.
             </p>
             <div className="mt-6">
               <Link
@@ -218,14 +251,6 @@ export default function MobileHomeParkInvestingPage() {
             </div>
           </section>
 
-          <p className="mt-10 text-sm">
-            <Link
-              href="/checklist"
-              className="font-semibold text-primary hover:underline"
-            >
-              Get the free due diligence checklist
-            </Link>
-          </p>
         </div>
       </main>
     </>

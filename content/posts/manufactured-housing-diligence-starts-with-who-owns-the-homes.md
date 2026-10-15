@@ -25,7 +25,7 @@ In a tenant-owned community, the residents own their homes. The buyer is purchas
 
 In a park-owned community, the buyer is purchasing all of that plus a fleet of houses. The homes belong to the park. They are typically titled as personal property, not deeded as real estate, which means title work, not just a deed transfer. Every roof, furnace, water heater, and set of floors in those homes is now the buyer's maintenance exposure. Turnover does not mean a home moves out. It means a renovation.
 
-Most communities sit somewhere between the two. Some homes owned by residents, some by the park, and the mix itself is a diligence item. A package that reports one occupancy number across a mixed community is blending two different businesses into one percentage. The buyer has to split them before the number means anything.
+Most communities sit somewhere between the two. Some homes owned by residents, some by the park, and the mix itself is a diligence item. A package that reports one occupancy number across a mixed community is blending two different businesses into one percentage. The buyer has to split them before the number means anything. How to work that split on a live deal is laid out in the [mobile home park investing guide](/mobile-home-park-investing).
 
 ## POH changes the P&L
 

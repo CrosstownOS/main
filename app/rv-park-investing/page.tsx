@@ -1,15 +1,16 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
-  title: "RV Park Investing 2026: Numbers and Risks | CrosstownOS",
+  title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
   description:
     "RV park investing guide for 2026: cap rates, price-per-pad, occupancy verification, and the diligence framework that protects your capital. From CrosstownOS.",
   alternates: { canonical: "/rv-park-investing" },
   openGraph: {
-    title: "RV Park Investing 2026: Numbers and Risks | CrosstownOS",
+    title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
     description:
       "Where RV park returns come from, where they leak, and the verification framework that protects your capital.",
     type: "website",
@@ -19,13 +20,13 @@ export const metadata: Metadata = {
         url: "/og-logo.png",
         width: 1024,
         height: 1024,
-        alt: "RV Park Investing 2026: Numbers and Risks | CrosstownOS",
+        alt: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RV Park Investing 2026: Numbers and Risks | CrosstownOS",
+    title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
     description:
       "Where RV park returns come from, where they leak, and the verification framework that protects your capital.",
     images: ["/og-logo.png"],
@@ -62,10 +63,10 @@ const breadcrumbJsonLd = {
   ],
 }
 
-const RETURN_DRIVERS = [
+const RETURN_DRIVERS: { title: string; body: ReactNode }[] = [
   {
-    title: "Lot rent growth on owned land",
-    body: "The core engine. Parks bought below market rent with a credible path to market are the classic value-add: the land is fixed, the rent compounds. Verify current rents against comps before you underwrite a dollar of growth.",
+    title: "Site rent growth on owned land",
+    body: "The core engine. Parks bought below market rent on long-term and seasonal sites, with a credible path to market, are the classic value-add: the land is fixed, the rent compounds. Transient rates can move faster, but they reset with the season. Verify current rents against comps before you underwrite a dollar of growth.",
   },
   {
     title: "Occupancy lift on undermanaged parks",
@@ -81,18 +82,43 @@ const RETURN_DRIVERS = [
   },
 ]
 
-const LEAKS = [
+const LEAKS: { title: string; body: ReactNode }[] = [
   {
     title: "Deferred infrastructure",
     body: "Water, sewer, roads, pedestals. The capex the seller deferred becomes your capital plan the day after close. Older parks need a real inspection, not a walkaround.",
   },
   {
     title: "Utility exposure",
-    body: "Master-metered parks where the owner pays utilities are one rate increase away from a broken pro forma. Know who pays, what it costs, and what sub-metering will cost to fix.",
+    body: (
+      <>
+        Master-metered parks where the owner pays utilities are one rate
+        increase away from a broken pro forma. Know who pays, what it costs,
+        and what sub-metering will cost to fix. The utility verification, in
+        order, sits on the{" "}
+        <Link href="/checklist" className="font-semibold text-primary hover:underline">
+          due diligence checklist
+        </Link>
+        .
+      </>
+    ),
   },
   {
     title: "Phantom occupancy",
-    body: "Reported occupancy that includes non-paying tenants overstates income and understates turnover cost. Underwrite paying occupancy or underwrite a collection business.",
+    body: (
+      <>
+        Reported occupancy that includes non-paying tenants overstates income
+        and understates turnover cost. Underwrite paying occupancy or
+        underwrite a collection business. Prove the count with the{" "}
+        <Link
+          href="/resources/rent-roll-truth-check-rv-edition"
+          className="font-semibold text-primary hover:underline"
+        >
+          Rent-Roll Truth Check: RV Edition
+        </Link>
+        , which rebuilds occupancy from reservation exports, deposits, and tax
+        filings.
+      </>
+    ),
   },
   {
     title: "Management drag",
@@ -117,14 +143,33 @@ export default function RvParkInvestingPage() {
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <p className="mono-label mb-4">CrosstownOS / Investor&apos;s guide</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            RV park investing rewards the buyer who verifies.
+            The returns are real. So are the leaks.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            RV parks can be exceptional investments and exceptional traps,
-            sometimes in the same deal. The difference is rarely the market.
-            It is what the buyer verified before the price became final. This
-            guide covers the 2026 numbers, where returns come from, where
-            they leak, and the framework that keeps you on the right side.
+            People buy RV parks for the income, and the income is real. A
+            well-run park on good land throws off cash in a way few small
+            real estate assets can match: site rent that renews monthly,
+            guests who come back every season, and expenses a careful
+            operator can actually control.
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            People lose money on RV parks for quieter reasons. The occupancy
+            in the package counted guests who were not paying. The utility
+            lines were older than the park&apos;s marketing photos. The
+            seller&apos;s profit and loss left out the manager the park
+            plainly needs, because the seller was the manager and never paid
+            himself. None of that shows up in a cap rate. All of it shows up
+            in your first year of ownership.
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            This page is about the economics, in plain order. What the
+            market is paying in 2026, in broad ranges you still have to
+            confirm against closed sales near your park. The four places
+            returns actually come from. The four leaks that take them back.
+            And the one habit that separates buyers who keep the returns
+            from buyers who donate them: verify the income from records you
+            can touch before you fall for the story the numbers were
+            arranged to tell.
           </p>
 
           <section className="mt-12" aria-label="2026 market snapshot">
@@ -218,12 +263,9 @@ export default function RvParkInvestingPage() {
               The verification framework
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Returns are underwritten. Risk is verified. Before you commit
-              capital, work the five verification gates in order: rebuild
-              income from deposits, confirm paying occupancy, verify
-              utilities and capacity with the jurisdiction, confirm zoning
-              and permitted site count, and underwrite the tenant mix you are
-              actually buying. The full framework lives in the{" "}
+              Returns are underwritten. Risk is verified. The full process
+              for verifying a real deal, gate by gate and in order, lives in
+              the{" "}
               <Link
                 href="/buying-an-rv-park"
                 className="font-semibold text-primary hover:underline"
@@ -233,16 +275,15 @@ export default function RvParkInvestingPage() {
               .
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              When the deal gets real, the{" "}
+              When a real deal is in front of you, start small: run the{" "}
               <Link
-                href="/workspace"
+                href="/tools/60-second-screener"
                 className="font-semibold text-primary hover:underline"
               >
-                Acquisition Workspace
+                60-Second Deal Screener
               </Link>{" "}
-              holds the full record: seller claims, source evidence, site
-              observations, unresolved diligence, and underwriting connected
-              before you commit capital.
+              before the story gets expensive, then work the buyer&apos;s
+              guide in order.
             </p>
             <div className="mt-6">
               <Link
