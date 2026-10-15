@@ -8,6 +8,24 @@ seoDescription: "Reported occupancy can hit the model before its evidence is rec
 
 The scenario below is illustrative. A buyer is evaluating a 120-site park in the Southeast. The offering memorandum reports 94 percent occupancy, and the rent roll backs it up: 113 occupied sites. Ninety days into diligence, the buyer has rebuilt the number from bank deposits. Eight of those sites are employee units and comps. Four have not paid in over ninety days. That leaves 101 of 120 sites paying: 84 percent. Three more are marked leased with no deposit on file. A missing deposit is not proof of nonpayment, so they stay in the paying count, flagged as missing evidence until the rent history confirms it. Nothing about the park changed. Only the label did.
 
+**The worked example, in a 120-site park:**
+
+| Line | Sites |
+|---|---|
+| Reported occupied (94% reported) | 113 |
+| Less: employee units and comps | −8 |
+| Less: occupied, not paid in 90+ days | −4 |
+| Paying occupancy | 101 (84%) |
+
+One further line in the post's example, sites leased with no deposit behind them, stays flagged as missing evidence rather than counted either way.
+
+**The four ways reported occupancy and paying occupancy diverge:**
+
+- Employee units: occupied, and nobody pays.
+- Comps: occupied by arrangement, not by rent.
+- Carried nonpayers: occupied, rent stopped, tenancy did not.
+- Leased with no deposit: paper says occupied, the bank has never seen the money.
+
 The working rule is simple: rebuild occupancy from deposits before the package's percentage carries any weight. Work backward from the money before reading another page.
 
 These are not unusual stories. Ask around the industry and you will hear the same ones with different park names attached. The rent roll is a document buyers tend to trust most and verify least, and occupancy is where that misplaced trust costs the most.

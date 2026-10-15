@@ -24,11 +24,19 @@ Capacity: whether the system can serve the park as operated and as planned. A wa
 
 Compliance: whether the system is permitted, inspected, and in good standing with every authority that governs it. A functioning system without a permit is a liability wearing a disguise.
 
+**Every utility system gets three questions:**
+
+- **Condition:** what state is the system actually in, not what the package says about it.
+- **Capacity:** does the permitted capacity cover the sites the park runs today and the sites the price assumes tomorrow.
+- **Compliance:** is the system inside its permits and its rules, with the paper to prove it.
+
 A utility can pass any two of these and fail the third catastrophically. The park with new pipes and no permit. The permitted plant at 98 percent capacity. The adequate, compliant system with forty years of deferred maintenance inside the walls. The broker package says "city water and sewer" and moves on. The buyer cannot.
 
 ## The verification path
 
 Start with the bills. Twelve to twenty-four months of utility records, meter readings, and reimbursement histories show what the system actually moved and what it actually cost. Then the permits: the files with the city, the county, and the state that say the system exists legally and is in good standing. Then capacity: the letter or the engineering basis that says the system can carry the park, not just today but at the occupancy the model assumes.
+
+**The verification path:** twelve to twenty-four months of utility bills first, then the permits behind them, then a capacity letter from the authority or the engineer. Bills show behavior, permits show permission, and the letter is where the two have to agree.
 
 Run the claim through the six labels. "Public water and sewer" in the memorandum is broker-reported until the permit file says otherwise. The capacity letter, reviewed by a human, is verified. The missing inspection history is missing evidence, and it stays missing evidence until someone produces it. The assumption that the system can support the expansion plan is an underwriting assumption, and it should be labeled as one before it enters the model.
 

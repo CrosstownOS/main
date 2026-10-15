@@ -18,6 +18,16 @@ Operators who have done this for a while tend to separate three numbers that bro
 
 The first is scheduled rent: the amount the rent roll says tenants owe. The second is collected rent: the amount the collections report says came in. The third is deposited income: the amount that reached the bank and cleared.
 
+**Three numbers that get called the same thing:**
+
+- **Scheduled rent:** what the rent roll says should have been collected.
+- **Collected rent:** what tenants actually paid.
+- **Deposited income:** what reached the bank.
+
+Only the third one is behavior. The first is a claim, the second is a report, and the work is reconciling the three until the gaps have names.
+
+**Verify in this order:** bank deposits first, then collections, then the rent roll, then the leases. Start with the record the seller cannot edit and work toward the one he wrote.
+
 Those numbers should be close. When they are not, the gap is the diligence.
 
 A rent roll can show a tenant current while the deposit record shows partial payments. It can carry a rate the tenant never agreed to in writing. It can include concessions, side arrangements, employee arrangements, or balances that have been aging quietly while the summary still calls the site occupied. None of that requires bad intent. It only requires trusting the wrong document.

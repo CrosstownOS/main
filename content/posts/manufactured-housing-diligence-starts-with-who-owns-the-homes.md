@@ -25,6 +25,14 @@ In a tenant-owned community, the residents own their homes. The buyer is purchas
 
 In a park-owned community, the buyer is purchasing all of that plus a fleet of houses. The homes belong to the park. They are typically titled as personal property, not deeded as real estate, which means title work, not just a deed transfer. Every roof, furnace, water heater, and set of floors in those homes is now the buyer's maintenance exposure. Turnover does not mean a home moves out. It means a renovation.
 
+| | Tenant-owned homes (TOH) | Park-owned homes (POH) |
+|---|---|---|
+| What you are buying | The land business: lots, roads, utility lines, and lot rent | A landlord business on top of the land: the homes and the rent they carry |
+| The home itself | The resident's property, titled as personal property in the resident's name | The park's property; the park holds title and the wear |
+| Income | Lot rent only, steady | Lot rent plus home rent, higher per site |
+| Maintenance exposure | Ground and systems under it; almost no home-level capex | Roof, furnace, turnover, and the slow depreciation of aging housing stock |
+| Turnover means | A lot to re-rent | A home to repair, re-price, and re-rent; costs can run into the thousands per turn |
+
 Most communities sit somewhere between the two. Some homes owned by residents, some by the park, and the mix itself is a diligence item. A package that reports one occupancy number across a mixed community is blending two different businesses into one percentage. The buyer has to split them before the number means anything. How to work that split on a live deal is laid out in the [mobile home park investing guide](/mobile-home-park-investing).
 
 ## POH changes the P&L
