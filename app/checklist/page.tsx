@@ -36,33 +36,39 @@ type ChecklistItem = {
   title: string
   body: string
   tool?: { href: string; label: string }
+  resource?: { href: string; label: string }
 }
 
 const ITEMS: ChecklistItem[] = [
   {
     title: "Rent roll truth check",
-    body: "Compare every rent roll line against trailing 12-month bank deposits. The rent roll shows what should have been collected. Deposits show what arrived. Income verification starts at the bank, not the spreadsheet.",
+    body: "Prove the income at the bank, not the spreadsheet. The rent roll shows what should have been collected; deposits show what arrived. Any line that does not reconcile is a claim, not income.",
     tool: { href: "/tools/rent-roll-truth-check", label: "Run the Rent-Roll Truth Check" },
+    resource: { href: "/resources/the-rent-roll-truth-check", label: "Work it in The Rent-Roll Truth Check" },
   },
   {
     title: "Paying occupancy, not reported occupancy",
     body: "Reported occupancy counts heads. Paying occupancy counts money. Pull the delinquency report, age the receivables, and find out how many of those occupied sites are actually current.",
     tool: { href: "/tools/rent-roll-truth-check", label: "Run the Rent-Roll Truth Check" },
+    resource: { href: "/resources/the-rent-roll-truth-check", label: "Work it in The Rent-Roll Truth Check" },
   },
   {
     title: "P&L normalization",
-    body: "Read the seller's P&L like the other side wrote it. Normalize owner add-backs, one-time items, and below-market expenses (especially management fees the seller never paid themselves). Underwrite the real run rate.",
+    body: "Prove the run rate, not the story. Restate the seller's P&L without owner add-backs, one-time items, and below-market expenses, especially management fees the seller never paid themselves. The normalizers own the method.",
     tool: { href: "/tools/expense-normalizer", label: "Run the Expense Normalizer" },
+    resource: { href: "/resources/mom-and-pop-expense-normalizer", label: "Work it in the Mom-and-Pop Expense Normalizer" },
   },
   {
     title: "Utility systems: who pays and what they cost",
     body: "Confirm who pays for water, sewer, electric, gas, and trash on every site type. Get 12 months of utility bills. A utility bill nobody underwrote is the fastest way to blow up a pro forma.",
     tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
+    resource: { href: "/resources/utility-and-wastewater-diligence-sheet", label: "Work it in the Utility and Wastewater Diligence Sheet" },
   },
   {
     title: "Utility capacity",
     body: "For parks on well, septic, or lagoon: confirm permitted capacity against current and planned site counts. Capacity you assume but cannot prove is missing evidence, not a footnote.",
     tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
+    resource: { href: "/resources/utility-and-wastewater-diligence-sheet", label: "Work it in the Utility and Wastewater Diligence Sheet" },
   },
   {
     title: "Permits and zoning",
@@ -185,6 +191,16 @@ export default function ChecklistPage() {
                       </Link>
                     </p>
                   )}
+                  {item.resource && (
+                    <p className="mt-2 text-sm">
+                      <Link
+                        href={item.resource.href}
+                        className="font-semibold text-primary hover:underline"
+                      >
+                        {item.resource.label} &rarr;
+                      </Link>
+                    </p>
+                  )}
                 </li>
               ))}
             </ol>
@@ -197,10 +213,11 @@ export default function ChecklistPage() {
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               A checklist tells you what to verify. It does not hold the
               evidence, track what is missing, or connect the rent roll to the
-              bank deposits to the site walk. When the deal gets real, the
-              Acquisition Workspace carries the full record: seller claims,
-              source evidence, site observations, unresolved diligence, and
-              underwriting, connected before you commit capital.
+              bank deposits to the site walk. What it leaves you with is the
+              honest list: what you proved, what you could not, and what the
+              gap is worth. Work the fifteen in order, and what is still
+              unresolved at the end is not a footnote. It is the finding, and
+              it goes on the record before your money goes hard.
             </p>
             <div className="mt-6">
               <Link
