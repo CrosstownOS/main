@@ -123,6 +123,44 @@ export default function MobileHomeParkInvestingPage() {
               business you are really buying, and each side gets priced the
               way it behaves.
             </p>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th className="px-3 py-2" aria-label="Comparison point"></th>
+                    <th className="px-3 py-2 font-bold text-foreground">Tenant-owned homes (TOH)</th>
+                    <th className="px-3 py-2 font-bold text-foreground">Park-owned homes (POH)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/60">
+                    <th className="px-3 py-2 font-bold text-foreground">What you are buying</th>
+                    <td className="px-3 py-2 align-top">The land business: lots, roads, utility lines, and lot rent</td>
+                    <td className="px-3 py-2 align-top">A landlord business on top of the land: the homes and the rent they carry</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <th className="px-3 py-2 font-bold text-foreground">The home itself</th>
+                    <td className="px-3 py-2 align-top">The resident&apos;s property, titled as personal property in the resident&apos;s name</td>
+                    <td className="px-3 py-2 align-top">The park&apos;s property; the park holds title and the wear</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <th className="px-3 py-2 font-bold text-foreground">Income</th>
+                    <td className="px-3 py-2 align-top">Lot rent only, steady</td>
+                    <td className="px-3 py-2 align-top">Lot rent plus home rent, higher per site</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <th className="px-3 py-2 font-bold text-foreground">Maintenance exposure</th>
+                    <td className="px-3 py-2 align-top">Ground and systems under it; almost no home-level capex</td>
+                    <td className="px-3 py-2 align-top">Roof, furnace, turnover, and the slow depreciation of aging housing stock</td>
+                  </tr>
+                  <tr>
+                    <th className="px-3 py-2 font-bold text-foreground">Turnover means</th>
+                    <td className="px-3 py-2 align-top">A lot to re-rent</td>
+                    <td className="px-3 py-2 align-top">A home to repair, re-price, and re-rent; costs can run into the thousands per turn</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               The first diligence question on any mobile home park is the
               mix, verified home by home, not taken from the broker&apos;s
