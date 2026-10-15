@@ -17,9 +17,9 @@ import {
 } from "@/components/analytics/Trackers"
 
 export const metadata: Metadata = {
- title: "RV Park Due Diligence Workspace | CrosstownOS",
+ title: "Due Diligence Software for RV Park and Mobile Home Park Acquisitions | CrosstownOS",
  description:
-  "Run your RV park or manufactured housing acquisition in one workspace. Seller claims, evidence, and underwriting connected before you commit capital.",
+  "Run your RV park, campground, or manufactured housing acquisition in one workspace. Seller claims, source evidence, site observations, and unresolved diligence stay connected in a single record before you commit capital.",
  alternates: { canonical: "/workspace" },
  openGraph: {
   title: "CrosstownOS Acquisition Workspace",
@@ -475,6 +475,17 @@ Five qualified participants will receive free access. Paid access is available s
           </li>
          ))}
         </ul>
+        <p className="mt-5 text-sm leading-relaxed text-foreground/85">
+         Buying a mobile home park? The record works the same way. The
+         homes get counted the way a manufactured housing deal demands:
+         home by home, tenant-owned and park-owned separated, lot rent
+         verified against deposits, utility systems priced before they
+         become your emergency. Whether the sign out front says RV park,
+         campground, or manufactured housing community (MHP), the
+         standard does not change: claims are labeled, evidence is
+         attached, and nothing counts as proven until the record proves
+         it.
+        </p>
        </div>
        <div className="theme-cream border border-border bg-card p-6 sm:p-8">
         <h2 className="serif-display text-2xl tracking-tight">
