@@ -6,7 +6,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 export const metadata: Metadata = {
   title: "Terms of Use | CrosstownOS",
   description:
-    "Terms of use for the CrosstownOS website, including purchase terms for the Acquisition Workspace.",
+    "The terms for using crosstownosrv.camp and the free working papers, plus what you are buying with the Acquisition Workspace: payment, refunds, and pilot terms.",
   alternates: { canonical: "/terms" },
 }
 
