@@ -318,6 +318,47 @@ export default function AcquisitionWorkspacePage() {
         </li>
        ))}
       </ol>
+      <div className="theme-cream mt-6 border border-border bg-card p-5 sm:p-6">
+       <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+         <thead>
+          <tr className="border-b-2 border-border">
+           <th className="px-3 py-2 font-bold text-foreground">Evidence state</th>
+           <th className="px-3 py-2 font-bold text-foreground">On this page, it means</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Verified</td>
+           <td className="px-3 py-2 align-top">Evidence you can point to, reviewed by a person.</td>
+          </tr>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Broker-reported</td>
+           <td className="px-3 py-2 align-top">Claimed in the package or on a call; not checked yet.</td>
+          </tr>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Missing evidence</td>
+           <td className="px-3 py-2 align-top">Material information not received or located yet.</td>
+          </tr>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Underwriting assumption</td>
+           <td className="px-3 py-2 align-top">A stated input in your case; not a verified fact.</td>
+          </tr>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Calculated</td>
+           <td className="px-3 py-2 align-top">Output from stated inputs; only as reliable as they are.</td>
+          </tr>
+          <tr>
+           <td className="px-3 py-2 align-top">Unresolved</td>
+           <td className="px-3 py-2 align-top">Sources conflict, or the answer is not established yet.</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p className="mt-4 text-sm leading-relaxed text-muted">
+        CrosstownOS does not assign these for you and does not independently verify a claim. You supply the evidence, you document the review, the record keeps both.
+       </p>
+      </div>
      </section>
 
      {/* The November product, compact */}
