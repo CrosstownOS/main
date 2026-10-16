@@ -207,6 +207,19 @@ export default function ChecklistPage() {
                 </li>
               ))}
             </ol>
+            <p className="mt-6 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Working a manufactured housing deal? Items nine and thirteen
+              carry extra weight there, because the homes themselves are
+              part of the purchase.{" "}
+              <Link
+                href="/mobile-home-park-investing#diligence-record"
+                className="font-semibold text-primary hover:underline"
+              >
+                The diligence record for a manufactured housing community
+              </Link>{" "}
+              lays out what has to be proven on the homes side before
+              capital commits.
+            </p>
           </section>
 
           <section className="mt-12 border border-primary/40 bg-primary/5 p-6 sm:p-8">

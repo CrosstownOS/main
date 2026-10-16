@@ -362,6 +362,48 @@ export default function AcquisitionWorkspacePage() {
         CrosstownOS does not assign these for you and does not independently verify a claim. You supply the evidence, you document the review, the record keeps both.
        </p>
       </div>
+      <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+       A manufactured housing acquisition runs two records at once. The
+       first record is the land: permitted sites, utility capacity, the
+       age of the lines. The second record is the homes: who holds each
+       title, which homes are tenant-owned and which are park-owned, and
+       what the lot rent actually deposits. CrosstownOS keeps both
+       records in the one workspace, so seller claims, source evidence,
+       site observations, and unresolved diligence stay connected across
+       the land and the homes before capital commits.
+      </p>
+      <div className="theme-cream mt-6 border border-border bg-card p-5 sm:p-6">
+       <p className="mb-4 text-sm font-bold text-foreground">
+        Manufactured housing: the claims that carry an evidence state (CrosstownOS Acquisition Workspace):
+       </p>
+       <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+         <thead>
+          <tr className="border-b-2 border-border">
+           <th className="px-3 py-2 font-bold text-foreground">The claim</th>
+           <th className="px-3 py-2 font-bold text-foreground">What the record holds</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Home title status</td>
+           <td className="px-3 py-2 align-top">Every home counted from its title: park-owned outright, park-owned with a lien, or resident-owned. A home whose title cannot be located is missing evidence, not a rounding error.</td>
+          </tr>
+          <tr className="border-b border-border/60">
+           <td className="px-3 py-2 align-top">Tenant-owned vs park-owned split</td>
+           <td className="px-3 py-2 align-top">The mix stated home by home, each side priced on its own evidence. Until the titles are counted, the split is broker-reported.</td>
+          </tr>
+          <tr>
+           <td className="px-3 py-2 align-top">Utility ownership and metering</td>
+           <td className="px-3 py-2 align-top">Who owns each system, who pays for it, and how it is metered: master meter, sub-meter, or resident account. Capacity claims stay unresolved until permits or bills establish them.</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p className="mt-4 text-sm leading-relaxed text-muted">
+        The states are the same six. What changes in manufactured housing is which claims carry the deal.
+       </p>
+      </div>
       <p className="mt-6 text-sm leading-relaxed text-muted sm:text-base">
        A spreadsheet holds the numbers typed into it; the CrosstownOS
        Acquisition Workspace holds each claim next to its evidence state

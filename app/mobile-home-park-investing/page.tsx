@@ -292,6 +292,65 @@ export default function MobileHomeParkInvestingPage() {
             </p>
           </section>
 
+          <section className="mt-12" aria-label="The diligence record" id="diligence-record">
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              The diligence record for a manufactured housing community
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Everything above reduces to a record: the set of items that
+              must be proven, from a source, before capital commits on a
+              manufactured housing community. Not presented by the seller.
+              Proven by the buyer, and written down with the state of the
+              evidence beside it.
+            </p>
+            <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
+              What must be proven before capital commits (the CrosstownOS diligence record):
+            </p>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th className="px-3 py-2 font-bold text-foreground">Item</th>
+                    <th className="px-3 py-2 font-bold text-foreground">What proves it</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top">The home mix</td>
+                    <td className="px-3 py-2 align-top">Titles, counted home by home: park-owned outright, park-owned with liens, resident-owned</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top">The lot rent</td>
+                    <td className="px-3 py-2 align-top">Bank deposits against the rent roll over 12 to 24 months, with delinquency aged, not averaged away</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top">The utility systems</td>
+                    <td className="px-3 py-2 align-top">Bills, meter records, and permits: who owns each system, who pays for it, and what capacity is permitted</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 align-top">The permitted site count</td>
+                    <td className="px-3 py-2 align-top">The county&apos;s count reconciled against the broker&apos;s, before any price per pad is quoted</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              An item with no proof behind it is not a detail to settle
+              later. It is an open claim, and it stays open in the record
+              until the evidence arrives or the price moves. The record
+              this guide describes is the one kept in{" "}
+              <Link
+                href="/workspace"
+                className="font-semibold text-primary hover:underline"
+              >
+                the manufactured housing acquisition workspace
+              </Link>
+              : seller claims, source evidence, site observations, and
+              unresolved diligence connected in one place, priced only
+              when proven.
+            </p>
+          </section>
+
           <section className="mt-12" aria-label="Finish with the record">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               Underwrite the park that exists
