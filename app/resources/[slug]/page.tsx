@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import SignalLine from "@/components/ui/SignalLine"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -54,6 +55,11 @@ const RELATED_POST_SLUGS: Record<string, string[]> = {
     "reported-occupancy-is-not-paying-occupancy",
   ],
   "the-evidence-status-standard": ["before-you-underwrite-establish-what-is-true"],
+  "poh-toh-split-valuation-worksheet": [
+    "manufactured-housing-diligence-starts-with-who-owns-the-homes",
+  ],
+  "the-walk-away-pact": ["speed-is-a-strategy-for-sellers-not-buyers"],
+  "evidence-request-list": ["the-permits-buyers-skip"],
 }
 
 const RELATED_RESOURCE_SLUGS: Record<string, { slug: string; note: string }[]> = {
@@ -77,6 +83,73 @@ const RELATED_RESOURCE_SLUGS: Record<string, { slug: string; note: string }[]> =
   ],
 }
 
+
+/**
+ * Render an Inside block chain line ("Takes in" / "Hands to") with the
+ * resources it names turned into links. The PDF text names counterparts as
+ * "Title (AS-xx)"; each such reference links to that resource's page. Text
+ * that names no coded resource ("your attorney", "the eventual sale") is
+ * left as plain text.
+ */
+function linkChainText(text: string): ReactNode {
+  const codePattern = /\((AS-\d+R?)\)/g
+  const nodes: ReactNode[] = []
+  let lastIndex = 0
+  let key = 0
+  let match: RegExpExecArray | null
+  while ((match = codePattern.exec(text)) !== null) {
+    const target = TOOL_BY_CODE[match[1]]
+    if (!target) continue
+    const parenStart = match.index
+    let nameStart = parenStart
+    while (
+      nameStart > lastIndex &&
+      /[A-Za-z0-9 :/\-.'’]/.test(text[nameStart - 1])
+    ) {
+      nameStart--
+    }
+    let linkStart = nameStart
+    const rawName = text.slice(nameStart, parenStart)
+    const fromSplit = rawName.lastIndexOf(" from the ")
+    if (fromSplit >= 0) {
+      linkStart = nameStart + fromSplit + " from the ".length
+    } else {
+      const fillers = ["then ", "or ", "a passing ", "a ", "ten ", "your "]
+      let rest = rawName.replace(/^\s+/, "")
+      let offset = rawName.length - rest.length
+      let stripped = true
+      while (stripped) {
+        stripped = false
+        for (const filler of fillers) {
+          if (rest.startsWith(filler)) {
+            rest = rest.slice(filler.length)
+            offset += filler.length
+            stripped = true
+          }
+        }
+      }
+      linkStart = nameStart + offset
+    }
+    if (linkStart > lastIndex) {
+      nodes.push(text.slice(lastIndex, linkStart))
+    }
+    const linkEnd = parenStart + match[0].length
+    nodes.push(
+      <Link
+        key={`chain-${key++}`}
+        href={`/resources/${resourceSlug(target)}`}
+        className="font-semibold text-primary hover:underline"
+      >
+        {text.slice(linkStart, linkEnd)}
+      </Link>,
+    )
+    lastIndex = linkEnd
+  }
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex))
+  }
+  return nodes
+}
 
 function getResource(slug: string): ResourceDetail | null {
   return RESOURCE_DETAIL_BY_SLUG[slug] ?? null
@@ -361,11 +434,11 @@ export default async function ResourcePage({ params }: PageProps) {
               <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted">
                 <li>
                   <strong className="font-bold text-foreground">Takes in:</strong>{" "}
-                  {inside.takesIn}.
+                  {linkChainText(inside.takesIn)}.
                 </li>
                 <li>
                   <strong className="font-bold text-foreground">Hands to:</strong>{" "}
-                  {inside.handsTo}.
+                  {linkChainText(inside.handsTo)}.
                 </li>
                 <li>
                   <strong className="font-bold text-foreground">What it holds:</strong>{" "}
