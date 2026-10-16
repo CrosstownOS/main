@@ -416,7 +416,7 @@ export default function ToolShell(props: ToolShellProps) {
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Keep the record
             </p>
-            <div className="mt-4 flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
               <button
                 type="button"
                 onClick={handleDownload}
@@ -477,7 +477,7 @@ export default function ToolShell(props: ToolShellProps) {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{ctaBody}</p>
             <Link
               href={`/workspace?tool=${slug}`}
-              className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               {ctaButton}
             </Link>

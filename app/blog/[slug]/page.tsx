@@ -238,7 +238,7 @@ export default async function BlogPost({ params }: PageProps) {
               <>
                 <Link
                   href={`/resources/${nextResource.slug}`}
-                  className="mt-5 inline-block border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="mx-auto mt-5 block w-fit border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
                 >
                   Get {nextResource.code ? `${nextResource.code}: ` : ""}{nextResource.title}
                 </Link>
@@ -252,7 +252,7 @@ export default async function BlogPost({ params }: PageProps) {
             ) : (
               <Link
                 href="/resources"
-                className="mt-5 inline-block border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                className="mx-auto mt-5 block w-fit border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
               >
                 Get the free resources
               </Link>
@@ -264,7 +264,7 @@ export default async function BlogPost({ params }: PageProps) {
             </p>
             <Link
               href="/workspace"
-              className="mt-5 inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
+              className="mx-auto mt-5 block w-fit border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
             >
               Apply for a pilot place
             </Link>

@@ -258,7 +258,7 @@ export default function AcquisitionWorkspacePage() {
       commit capital.
      </p>
      <ToolContextLine />
-     <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+     <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
       <TrackedApplyLink plan="pilot"
        className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
@@ -476,7 +476,7 @@ Five qualified participants will receive free access. Paid access is available s
        
        <TrackedApplyLink
         plan="pilot"
-        className="mt-8 inline-block border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
+        className="mx-auto mt-8 block w-fit border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
        >
         Apply for a free pilot place
        </TrackedApplyLink>

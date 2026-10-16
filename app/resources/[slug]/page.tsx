@@ -417,7 +417,7 @@ export default async function ResourcePage({ params }: PageProps) {
               <GatedDownloadButton
                 file={resource.file}
                 label={resource.code ?? resource.title}
-                className="mt-6 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="mt-6 inline-flex w-fit cursor-pointer items-center gap-2 self-center bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               />
               <Link
                 href="/resources/catalog"

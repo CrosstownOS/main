@@ -253,7 +253,7 @@ export default function DataRoomComparisonPage() {
               90 days from activation. No payment required and no automatic
               conversion.
             </p>
-            <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace#apply"
                 className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"

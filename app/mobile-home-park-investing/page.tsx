@@ -396,7 +396,7 @@ export default function MobileHomeParkInvestingPage() {
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               When both businesses are proven on their own evidence, the closing is a signature, not a second negotiation.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 text-center">
               <Link
                 href="/workspace"
                 className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"

@@ -258,7 +258,7 @@ export default function ChecklistPage() {
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               The decision file at the end is the deal written so a lender, a partner, or an investment committee can read it without the buyer in the room.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 text-center">
               <Link
                 href="/workspace"
                 className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"

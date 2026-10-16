@@ -438,7 +438,7 @@ export default function TrailLogPage() {
               </p>
               <Link
                 href="/#paths"
-                className="mt-5 inline-block border border-border px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                className="mx-auto mt-5 block w-fit border border-border px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
               >
                 Join the Field Network
               </Link>

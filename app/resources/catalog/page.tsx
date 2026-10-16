@@ -230,7 +230,7 @@ export default function CatalogPage() {
             </ul>
             <a
               href="/workspace"
-              className="mt-6 inline-block border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               Apply for a pilot place
             </a>

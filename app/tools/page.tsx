@@ -413,7 +413,7 @@ export default function ToolsPage() {
             </p>
             <Link
               href="/workspace#apply"
-              className="mt-6 inline-block border border-primary/60 bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               Apply for a pilot place
             </Link>
