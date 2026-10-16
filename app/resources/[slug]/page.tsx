@@ -525,7 +525,7 @@ export default async function ResourcePage({ params }: PageProps) {
           {liveTool && (
             <section
               aria-label="Run this tool live"
-              className="theme-cream mt-12 border border-primary/40 bg-primary/5 p-6 sm:p-8"
+              className="theme-cream mt-12 border border-primary/40 bg-card p-6 sm:p-8"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                 Live Diligence Working Paper
@@ -569,7 +569,7 @@ export default async function ResourcePage({ params }: PageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="theme-cream border border-dashed border-border p-6">
+                  <div className="theme-cream border border-dashed border-border bg-card p-6">
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
                       Start of this Part
                     </p>
@@ -595,7 +595,7 @@ export default async function ResourcePage({ params }: PageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="theme-cream border border-dashed border-border p-6">
+                  <div className="theme-cream border border-dashed border-border bg-card p-6">
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
                       End of this Part
                     </p>
