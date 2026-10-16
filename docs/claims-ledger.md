@@ -166,6 +166,14 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 
 ---
 
+## Micro-batch (final): /resources/the-evidence-status-standard states table colors
+
+| Page | Change | Basis / Source | Status |
+|---|---|---|---|
+| /resources/the-evidence-status-standard | The states table (Letter / Name / Meaning) now carries the color system: Letter cells keep their bold treatment and take their state colors; Name cells take the same colors (Verified text-success, Broker-reported text-accent, Missing text-critical, Assumed text-primary, Calculated text-calculated, Unresolved text-muted). Content wording unchanged; this page's short name forms ("Missing," "Assumed") deliberately not harmonized. Applied in the resource template at the one section gated to this slug only (showEvidenceLetters), so no other resource page's tables were affected | The color system as shipped on /parkproof-standard and the /workspace evidence-states table (2026-10-15); state color tokens per lib/tools/evidence.ts | GROUNDED-INTERNAL. Commit `1ae467004270099bc47a7fe9fbdeb721dd42c15b`; verified in served HTML: all six letters and names carry their state color classes |
+
+---
+
 ## Open flags carried forward
 
 1. Occupancy note heading "The document buyers trust most": heading-level superlative; Jeremy's call (see remediation report, Decisions).
