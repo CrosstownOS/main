@@ -170,7 +170,7 @@ export default async function BlogPost({ params }: PageProps) {
               components={{
                 table: ({ children }) => (
                   <div className="mb-5 overflow-x-auto">
-                    <table className="w-full border-collapse text-left text-base leading-relaxed text-foreground/90">
+                    <table className="w-full border-collapse text-left text-base leading-relaxed text-foreground/90 [&_tbody_td:first-child]:font-bold [&_tbody_td:first-child]:text-foreground">
                       {children}
                     </table>
                   </div>
