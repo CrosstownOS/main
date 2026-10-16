@@ -67,7 +67,7 @@ const breadcrumbJsonLd = {
 const ROWS = [
   {
     point: "Primary job",
-    dataRoom: "Document storage and access control",
+    dataRoom: "Document storage, access control, and tracked diligence requests",
     workspace: "The diligence record itself: claims, evidence, and decisions in one place",
   },
   {
@@ -77,7 +77,7 @@ const ROWS = [
   },
   {
     point: "Claim handling",
-    dataRoom: "Documents filed in folders",
+    dataRoom: "Tracked diligence requests with an owner, due date, and status, with documents filed to the matching folder on completion. No evidence state is assigned to the seller claim itself",
     workspace: "Claims labeled with evidence states: Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, Unresolved",
   },
   {
@@ -87,12 +87,12 @@ const ROWS = [
   },
   {
     point: "Unresolved items",
-    dataRoom: "Q&A threads and document request lists",
+    dataRoom: "Open requests stay tracked by status, owner, and priority, with comment and Q&A threads that can be marked resolved. Resolution tracks the request, not whether the underlying claim is proven",
     workspace: "Unresolved diligence stays visible in the record until it resolves or ends the deal",
   },
   {
     point: "Who operates it",
-    dataRoom: "Deal teams, sellers, and intermediaries running a process",
+    dataRoom: "Buy-side and sell-side deal teams, plus the sellers and advisors they invite in by permission group",
     workspace: "The buyer. You build the record; the workflow guides you",
   },
   {
@@ -140,6 +140,11 @@ export default function DataRoomComparisonPage() {
             documents, and who may see them. The workspace answers: what
             has been proven, what is still claimed, and what is still open.
           </p>
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            Comparison checked against the vendors&apos; own published
+            material as of October 2026. Sources are linked under the
+            table below.
+          </p>
 
           <section className="mt-12" aria-label="What a data room does well">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
@@ -149,13 +154,64 @@ export default function DataRoomComparisonPage() {
               Data rooms such as DealRoom and Datasite are mature,
               institutional tools. They provide secure document storage,
               granular permissions, Q&amp;A threads between deal parties,
-              and audit trails of who viewed what. They are built for
-              sell-side M&amp;A process at scale, where many parties need
-              controlled access to a large file set, and they hold deep
-              review profiles and institutional adoption on the strength
-              of that work. If your problem is controlled disclosure across
-              a multi-party process, a data room is the right tool, and
-              this page does not argue otherwise.
+              and audit trails of who viewed what. They also run tracked
+              diligence workflows.{" "}
+              <a
+                href="https://dealroom.net/product/diligence"
+                className="font-semibold text-primary hover:underline"
+                rel="noreferrer"
+                target="_blank"
+              >
+                DealRoom documents
+              </a>{" "}
+              diligence requests that are created, assigned, and tracked,
+              with automated workflows, role-based access controls, and
+              detailed audit trails.{" "}
+              <a
+                href="https://media.datasite.com/d5f0c856-e31a-44d6-b773-b1e8012d895c/datasite-diligence-and-prepare-trackers-fact-sheet-original-file.pdf"
+                className="font-semibold text-primary hover:underline"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Datasite documents
+              </a>{" "}
+              trackers that work as a central list for tracking requests,
+              with ownership, priorities, comments, and permissions
+              applied at different levels. They serve buy-side and
+              sell-side M&amp;A processes, where many parties need
+              controlled access to a large file set. DealRoom, for
+              example, documents both{" "}
+              <a
+                href="https://dealroom.net/industry/investment-banking"
+                className="font-semibold text-primary hover:underline"
+                rel="noreferrer"
+                target="_blank"
+              >
+                sell-side and buy-side M&amp;A
+              </a>{" "}
+              use. If your problem is controlled disclosure and tracked
+              requests across a multi-party process, a data room is the
+              right tool, and this page does not argue otherwise.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              The two vendors also differ from each other. In its{" "}
+              <a
+                href="https://www.globenewswire.com/news-release/2026/10/15/3381717/0/en/datasite-brings-ai-to-the-entire-deal-lifecycle-from-target-to-transaction.html"
+                className="font-semibold text-primary hover:underline"
+                rel="noreferrer"
+                target="_blank"
+              >
+                October 15, 2026 release
+              </a>
+              , Datasite describes authorized users querying live data
+              room documents during diligence through Grata Intelligence,
+              or through their own approved AI assistant using Datasite
+              Connect, with existing permissions determining what the AI
+              can retrieve and audit trails kept through the workflow.
+              DealRoom separately documents its own AI document analysis
+              on its diligence page. Neither feature is an evidence state
+              on a seller claim, which is the narrower contrast drawn
+              below.
             </p>
           </section>
 
@@ -164,16 +220,24 @@ export default function DataRoomComparisonPage() {
               What a data room does not do
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              A data room does not test a seller claim against evidence. It
-              does not carry an evidence state. It does not connect a site
-              observation to the financial claim it confirms or breaks. A
-              folder can hold a rent roll, a P&amp;L, and a bank statement
-              that contradict each other, and the folder is still complete.
-              A folder marked complete is a filing state, not a proof
-              state. The buyer of a park does not lose money because a
-              document was missing from a folder. The buyer loses money
-              because a claim inside the documents was treated as proven
-              when it was only filed.
+              A completed diligence request is not an evidence state on
+              the seller claim behind it. DealRoom documents that when a
+              seller uploads a file to a request, the document is filed in
+              the data room and the request is marked complete, and
+              Datasite documents tracker threads being marked resolved. In
+              the vendor material cited on this page, neither product
+              describes assigning an evidence state, such as Verified,
+              Broker-reported, Missing, Assumption, Calculated, or
+              Unresolved, to an individual seller claim, and neither
+              describes connecting a site observation to the financial
+              claim it confirms or breaks. A folder can hold a rent roll,
+              a P&amp;L, and a bank statement that contradict each other,
+              and the request for that folder can still be marked
+              complete. A request marked complete is a workflow state,
+              not a proof state. The buyer of a park does not lose money
+              because a document was missing from a folder. The buyer
+              loses money because a claim inside the documents was
+              treated as proven when it was only filed.
             </p>
           </section>
 
@@ -230,6 +294,86 @@ export default function DataRoomComparisonPage() {
                 </tbody>
               </table>
             </div>
+            <div className="mt-6 text-sm leading-relaxed text-foreground/85">
+              <p className="font-bold text-foreground">
+                Sources for the data room column, as of October 2026:
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>
+                  <span className="font-semibold">Primary job, Claim handling, Unresolved items, Who operates it (DealRoom):</span>{" "}
+                  <a
+                    href="https://dealroom.net/product/diligence"
+                    className="font-semibold text-primary hover:underline"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    DealRoom, M&amp;A Diligence Management Software
+                  </a>
+                  . DealRoom describes requests that carry a status, a
+                  seller assignee, an internal reviewer, a priority, and a
+                  due date, documents filed into the data room and marked
+                  complete when the seller uploads a file, findings logged
+                  against a request, comments scoped by permission group,
+                  and an audit log of uploads.
+                </li>
+                <li>
+                  <span className="font-semibold">Primary job, Claim handling, Unresolved items (Datasite):</span>{" "}
+                  <a
+                    href="https://media.datasite.com/d5f0c856-e31a-44d6-b773-b1e8012d895c/datasite-diligence-and-prepare-trackers-fact-sheet-original-file.pdf"
+                    className="font-semibold text-primary hover:underline"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Datasite, Diligence and Prepare Trackers fact sheet
+                  </a>
+                  . Datasite describes one central list for tracking
+                  requests, documents linked to tracker rows and folders,
+                  statuses updated as files attach, ownership and
+                  priorities assigned, requests discussed in comments with
+                  threads marked resolved, and permissions controlled for
+                  individual users and teams.
+                </li>
+                <li>
+                  <span className="font-semibold">Who operates it (buy-side and sell-side):</span>{" "}
+                  <a
+                    href="https://dealroom.net/industry/investment-banking"
+                    className="font-semibold text-primary hover:underline"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    DealRoom, Virtual Data Room for Investment Banking
+                  </a>
+                  , which covers both sell-side and buy-side M&amp;A, with
+                  sellers invited into the room under specified access and
+                  bidder groups separated by permission group and audit
+                  log.
+                </li>
+                <li>
+                  <span className="font-semibold">Datasite AI querying (Datasite only):</span>{" "}
+                  <a
+                    href="https://www.globenewswire.com/news-release/2026/10/15/3381717/0/en/datasite-brings-ai-to-the-entire-deal-lifecycle-from-target-to-transaction.html"
+                    className="font-semibold text-primary hover:underline"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Datasite release, GlobeNewswire, October 15, 2026
+                  </a>
+                  . Datasite describes authorized users querying live data
+                  room documents during diligence, with existing
+                  permissions determining what can be retrieved and audit
+                  trails kept through the workflow.
+                </li>
+                <li>
+                  <span className="font-semibold">Evidence states:</span>{" "}
+                  none of the vendor material above describes assigning
+                  Verified, Broker-reported, Missing, Assumption,
+                  Calculated, or Unresolved states to individual seller
+                  claims. That absence in the cited material is the basis
+                  for the Claim handling row, not a claim about every
+                  feature either vendor may offer.
+                </li>
+              </ul>
+            </div>
           </section>
 
           <section className="mt-12" aria-label="Who should use which">
@@ -237,9 +381,10 @@ export default function DataRoomComparisonPage() {
               Who should use which
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Use a data room for a multi-party sell-side process,
-              institutional M&amp;A, or regulated disclosure, where the
-              work is controlled access for many parties. Use CrosstownOS
+              Use a data room for a multi-party sell-side or buy-side
+              process, institutional M&amp;A, or regulated disclosure,
+              where the work is controlled access and tracked requests
+              for many parties. Use CrosstownOS
               when you are the buyer, the deal is an RV park, campground,
               or manufactured housing community, and the work is proving
               the deal before your capital commits: active buyers with a
