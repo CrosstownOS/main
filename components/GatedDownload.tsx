@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import SuccessPopup from '@/components/SuccessPopup'
 
 const STORAGE_KEY = 'crosstown_resource_email'
 
@@ -26,6 +27,7 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
   const [downloaded, setDownloaded] = useState(false)
+  const [popupOpen, setPopupOpen] = useState(false)
   const dialogRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
@@ -85,6 +87,7 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
     a.click()
     a.remove()
     setDownloaded(true)
+    setPopupOpen(true)
   }
 
   const handleClick = () => {
@@ -158,6 +161,20 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
             </Link>
           )}
         </div>
+      )}
+      {downloaded && popupOpen && (
+        <SuccessPopup
+          eyebrow="Download started"
+          title={title ?? label}
+          body={
+            <>
+              {title ?? label} is downloading now. Nothing is pending; the
+              file is yours.
+            </>
+          }
+          door={nextDoor}
+          onClose={() => setPopupOpen(false)}
+        />
       )}
       {open && (
         <div

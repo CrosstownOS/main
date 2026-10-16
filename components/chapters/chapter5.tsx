@@ -5,7 +5,7 @@ import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { TerminalLabel } from "@/components/ui/primitives"
 import CalBooking from "@/components/CalBooking"
-import SuccessState from "@/components/SuccessState"
+import SuccessPopup from "@/components/SuccessPopup"
 import {
   OPEN_BASECAMP_EVENT,
   OPEN_FOUNDING_CIRCLE_EVENT,
@@ -375,6 +375,11 @@ export default function Chapter5() {
   const [sourcePath, setSourcePath] = useState("")
   const [status, setStatus] = useState<SubmissionStatus>("idle")
   const [statusMessage, setStatusMessage] = useState("")
+  const [successPopup, setSuccessPopup] = useState<{
+    config: FormConfig
+    message: string
+  } | null>(null)
+  const successTimer = useRef<number | null>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLElement | null>(null)
   const alertRef = useRef<HTMLDivElement>(null)
@@ -392,6 +397,7 @@ export default function Chapter5() {
       closeTimer.current = null
     }
     setIsClosing(false)
+    setSuccessPopup(null)
     triggerRef.current = document.activeElement as HTMLElement | null
     setActiveForm(formType)
     setSourcePath(source)
@@ -427,6 +433,9 @@ export default function Chapter5() {
     return () => {
       if (closeTimer.current !== null) {
         window.clearTimeout(closeTimer.current)
+      }
+      if (successTimer.current !== null) {
+        window.clearTimeout(successTimer.current)
       }
     }
   }, [])
@@ -588,11 +597,23 @@ export default function Chapter5() {
         | null
 
       if (response.ok && body?.success) {
-        setStatus("success")
-        setStatusMessage(
-          body.message || "Thank you. Crosstown will review your submission.",
-        )
+        const message =
+          body.message || "Thank you. Crosstown will review your submission."
         form.reset()
+        // The inquiry modal closes first; the branded success pop-up
+        // then presents the same success content on its own, so the
+        // two overlays never stack.
+        closeForm()
+        const reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches
+        successTimer.current = window.setTimeout(
+          () => {
+            successTimer.current = null
+            setSuccessPopup({ config, message })
+          },
+          reduced ? 0 : MODAL_EXIT_MS,
+        )
       } else {
         setStatus("error")
         setStatusMessage(
@@ -655,23 +676,7 @@ export default function Chapter5() {
             </div>
 
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-6">
-              {status === "success" ? (
-                <SuccessState
-                  eyebrow="Submission received"
-                  title={config.successTitle}
-                  body={statusMessage}
-                  door={config.successDoor}
-                >
-                  <button
-                    type="button"
-                    onClick={closeForm}
-                    className="mt-4 w-full border border-border px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    Close
-                  </button>
-                </SuccessState>
-              ) : (
-                <>
+              <>
                   <p className="mb-6 text-sm leading-relaxed text-muted sm:text-base">
                     {config.intro}
                   </p>
@@ -814,12 +819,24 @@ export default function Chapter5() {
                       {status === "submitting" ? "Submitting…" : config.submitLabel}
                     </button>
                   </form>
-                </>
-              )}
+              </>
             </div>
       </div>
     </div>
   ) : null
 
-  return isMounted ? createPortal(modal, document.body) : null
+  return (
+    <>
+      {isMounted ? createPortal(modal, document.body) : null}
+      {successPopup ? (
+        <SuccessPopup
+          eyebrow="Submission received"
+          title={successPopup.config.successTitle}
+          body={successPopup.message}
+          door={successPopup.config.successDoor}
+          onClose={() => setSuccessPopup(null)}
+        />
+      ) : null}
+    </>
+  )
 }
