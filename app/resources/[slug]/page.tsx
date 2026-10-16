@@ -708,9 +708,19 @@ export default async function ResourcePage({ params }: PageProps) {
             </section>
           )}
 
-          <p className="mt-16 max-w-3xl text-base leading-relaxed text-muted">
-            On a live deal, the finished sheet joins the record: claimed, proven, or still open, with the evidence attached.
-          </p>
+          <div className="theme-cream paper mt-16 border border-primary/40 bg-card p-8 text-center">
+            <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
+              On a live deal, the finished sheet joins the record: claimed, proven, or still open, with the evidence attached.
+            </p>
+            <div className="mt-8 text-center">
+              <Link
+                href="/workspace"
+                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                See the Acquisition Workspace
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="border-t border-border pt-8">
