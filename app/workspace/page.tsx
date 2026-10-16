@@ -296,6 +296,9 @@ export default function AcquisitionWorkspacePage() {
         </div>
        ))}
       </div>
+      <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+       Capital commits only against what the record supports. What the record cannot prove does not get priced, and does not get paid for.
+      </p>
      </section>
 
      {/* How it works */}
@@ -404,6 +407,9 @@ export default function AcquisitionWorkspacePage() {
         The states are the same six. What changes in manufactured housing is which claims carry the deal.
        </p>
       </div>
+      <p className="mt-6 text-sm leading-relaxed text-foreground/85 sm:text-base">
+       The deal does not advance on open gates. It advances on verification, or on a waiver somebody signed their name to.
+      </p>
       <p className="mt-6 text-sm leading-relaxed text-muted sm:text-base">
        A spreadsheet holds the numbers typed into it; the CrosstownOS
        Acquisition Workspace holds each claim next to its evidence state
@@ -476,6 +482,9 @@ Five qualified participants will receive free access. Paid access is available s
        </TrackedApplyLink>
        <p className="mt-4 text-xs leading-relaxed text-muted">
         Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
+       </p>
+       <p className="mt-4 text-sm leading-relaxed text-foreground/85">
+        The file you build is the file your lender reads: claims, evidence, and open items, in the order a reviewer asks for them.
        </p>
       </div>
      </section>
@@ -576,6 +585,9 @@ Five qualified participants will receive free access. Paid access is available s
          standard does not change: claims are labeled, evidence is
          attached, and nothing counts as proven until the record proves
          it.
+        </p>
+        <p className="mt-5 text-sm leading-relaxed text-foreground/85">
+         A deal worked on the record reaches closing with its open items already decided, not discovered.
         </p>
        </div>
        <div className="theme-cream border border-border bg-card p-6 sm:p-8">

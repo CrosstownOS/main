@@ -187,6 +187,10 @@ export default function ParkProof() {
             See the ParkProof Walkthrough
           </Link>
         </div>
+
+        <p className="mt-8 text-sm leading-relaxed text-foreground/75">
+          The record is the product: what was claimed, what was proven, what stayed open, and what was decided, kept in one place where the next reader can find it.
+        </p>
       </Container>
     </Section>
   )

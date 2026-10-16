@@ -420,6 +420,9 @@ export default function ParkProofStandardPage() {
                 </Link>{" "}
                 that teach the discipline.
               </p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+                A standard earns its name when the file can be read by someone who was not in the room: every claim labeled, every gap stated as a gap.
+              </p>
             </div>
           </section>
         </div>

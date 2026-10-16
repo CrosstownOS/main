@@ -143,6 +143,9 @@ export default function ForBrokersLendersPage() {
                 </article>
               ))}
             </div>
+            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+              A buyer who arrives with the record arrives with a price that can be defended line by line.
+            </p>
           </section>
 
           <section aria-labelledby="toc-heading" className="mt-20">
@@ -230,6 +233,9 @@ export default function ForBrokersLendersPage() {
                   Brokers, lenders, and advisers run their own diligence.
                   CrosstownOS organizes the buyer's record. It replaces none
                   of that work.
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-muted">
+                  What arrives is not a summary prepared for the lender. It is the working record itself, with its open items still showing.
                 </p>
               </article>
             </div>

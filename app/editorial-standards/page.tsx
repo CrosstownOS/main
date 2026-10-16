@@ -224,6 +224,10 @@ export default function EditorialStandardsPage() {
               </Link>
             </p>
           </section>
+
+          <p className="mt-12 text-sm leading-relaxed text-muted">
+            The standard for the writing is the standard for the record: claims labeled, sources named, and gaps stated as gaps, never smoothed over.
+          </p>
         </div>
       </main>
     </>

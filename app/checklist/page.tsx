@@ -164,6 +164,9 @@ export default function ChecklistPage() {
             </Link>
             .
           </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            Work them in order, and nothing about the deal has to be reconstructed from inboxes when the deadline arrives.
+          </p>
 
           <section className="mt-12" aria-label="Diligence checklist">
             <p className="mb-4 text-sm font-bold text-foreground sm:text-base">
@@ -250,7 +253,10 @@ export default function ChecklistPage() {
               >
                 Start Here
               </Link>{" "}
-              shows how the 35 tools fit together before you print anything.
+              shows how the 35 tools fit together before you print anything. Worked in order, the fifteen are what keep a buyer's capital behind proof instead of behind a story.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+              The decision file at the end is the deal written so a lender, a partner, or an investment committee can read it without the buyer in the room.
             </p>
             <div className="mt-6">
               <Link

@@ -224,6 +224,9 @@ export default function SampleDecisionFilePage() {
                 puts the same deal on one page, in the language a lender
                 reads.
               </p>
+              <p className="mt-5 text-sm leading-relaxed text-muted">
+                Built to the standard, a file like this one is what lets a closing proceed on evidence instead of on the seller's summary.
+              </p>
             </div>
           </section>
         </div>
