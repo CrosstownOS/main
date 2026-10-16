@@ -20,16 +20,16 @@ import {
 import { RESOURCE_INSIDE } from "@/lib/resource-inside"
 
 const EVIDENCE_LETTERS = [
-  { letter: "V", name: "Verified", meaning: "You hold the document or saw it yourself.", color: "text-success" },
-  { letter: "B", name: "Broker-reported", meaning: "Claimed by the seller or broker. Not verified yet.", color: "text-accent" },
-  { letter: "M", name: "Missing", meaning: "Requested or not yet requested. Not yet received.", color: "text-critical" },
-  { letter: "A", name: "Assumed", meaning: "An underwriting assumption, stated openly.", color: "text-primary" },
-  { letter: "C", name: "Calculated", meaning: "Your math from verified inputs.", color: "text-calculated" },
+  { letter: "V", name: "Verified", meaning: "Backed by evidence you can point to, and reviewed by a person.", color: "text-success" },
+  { letter: "B", name: "Broker-reported", meaning: "Reported in an OM, call, model, or broker package; not independently checked yet.", color: "text-accent" },
+  { letter: "M", name: "Missing", meaning: "Material information has not been received or located yet.", color: "text-critical" },
+  { letter: "A", name: "Assumed", meaning: "A stated input in the investment case; not a verified fact.", color: "text-primary" },
+  { letter: "C", name: "Calculated", meaning: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.", color: "text-calculated" },
   {
     letter: "U",
     name: "Unresolved",
     meaning:
-      "Conflicting, unclear, or refused. Anything not produced by the deadline becomes U, and the silence is data.",
+      "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
     color: "text-muted",
   },
 ] as const
@@ -67,7 +67,7 @@ const RELATED_RESOURCE_SLUGS: Record<string, { slug: string; note: string }[]> =
   "the-offer-term-sheet-builder": [
     {
       slug: "seller-note-anatomy",
-      note: "When a seller note is part of the offer, the note is part of the structure, not a detail for later. This page starts with what the seller fears and turns it into terms they can say yes to.",
+      note: "When a seller note is part of the offer, the note is part of the structure, not a detail for later. This page starts with the concerns a seller raises and turns them into terms both sides can price.",
     },
   ],
   "capital-plan-sources-and-uses": [
@@ -406,8 +406,9 @@ export default async function ResourcePage({ params }: PageProps) {
               </p>
               <ol className="mt-3 list-decimal space-y-2 pl-6 text-base leading-relaxed text-muted">
                 <li>
-                  Unverified is worth $0. A B claim pays for nothing until it
-                  becomes a V.
+                  A broker-reported claim earns nothing in the price until
+                  it becomes Verified. Missing evidence is a finding, not a
+                  zero, and not a blank.
                 </li>
                 <li>
                   Every claim carries a source and a date. A claim with no
