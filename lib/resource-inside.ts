@@ -63,7 +63,7 @@ export const RESOURCE_INSIDE: Record<string, ResourceInside> = {
     takesIn: "the first call",
     handsTo: "the Offer Term-Sheet Builder (AS-07), Seller Note Anatomy (AS-22)",
     holds:
-      "the six seller types: listen, do not label; first-call emphasis: the first call maps, it does not negotiate; structures that win, matched to needs; from map to offer",
+      "the six seller types: listen, do not label; first-call emphasis: the first call maps, it does not negotiate; structures to consider, matched to needs; from map to offer",
   },
   "the-team-roster": {
     takesIn: "the deal timeline",
@@ -102,7 +102,7 @@ export const RESOURCE_INSIDE: Record<string, ResourceInside> = {
     takesIn: "RV P and L with OTA and amenity lines",
     handsTo:
       "the Offer Term-Sheet Builder (AS-07), the Lender One-Pager (AS-16), the Decision File (AS-19)",
-    holds: "why RV expenses lie; the normalize worksheet; normalized NOI",
+    holds: "why RV expenses can mislead; the normalize worksheet; normalized NOI",
   },
   "poh-toh-split-valuation-worksheet": {
     takesIn: "verified rent and the home inventory",
@@ -205,7 +205,7 @@ export const RESOURCE_INSIDE: Record<string, ResourceInside> = {
     takesIn: "the Seller Motivation Map (AS-21)",
     handsTo: "the Offer Term-Sheet Builder (AS-07)",
     holds:
-      "the terms that matter; security: what the seller holds; subordination: the word that scares sellers; balloon risk: the refinance plan is dated before you sign; default and cure; what sellers fear, and how the paper answers it; the attorney line",
+      "the terms that matter; security: what the seller holds; subordination: how to explain the term to the seller; balloon risk: the refinance plan is dated before you sign; default and cure; the seller concerns this sheet lists, and how the paper answers them; the attorney line",
   },
   "first-30-days-takeover-sheet": {
     takesIn: "the closed deal and your diligence file",
