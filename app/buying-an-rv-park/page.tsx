@@ -194,25 +194,50 @@ export default function BuyingAnRvParkPage() {
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Price per pad is the shorthand the market uses to compare parks,
-              but it is a starting point for questions, not an answer. In
-              recent years, stabilized parks in growth markets have traded
-              roughly in the $40,000 to $80,000 per pad range, while
-              value-add and rural parks have traded lower, often $20,000 to
-              $45,000 per pad. Destination and high-amenity parks can clear
-              $100,000 per pad. These are broad market ranges, not
-              appraisals: confirm against closed comps in your target
-              market before anchoring any underwriting.
+              but it is a starting point for questions, not an answer. The
+              figures on this page come from one cited source:{" "}
+              <a
+                href="https://www.innowave-studio.com/post/2026-u-s-rv-park-development-cost-benchmarks-per-pad-economics-across-50-states"
+                className="font-semibold text-primary hover:underline"
+              >
+                Innowave Studio, 2026 U.S. RV Park Development Cost
+                Benchmarks (2026)
+              </a>
+              . That report gives general acquisition pricing of $30,000 to
+              $55,000 per site, basic rural campgrounds at $10,000 to
+              $17,000 per site, and premium resort properties at $50,000 to
+              $62,000 per site.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Cap rates tell the other half. Stabilized parks in strong
-              markets have traded in the 7 to 8.5 percent range; value-add
-              deals price higher to compensate for the work. When a marketed
-              cap rate looks a point better than the market, the income or
-              the expenses are usually doing something creative. Normalize
-              first, then compare.
+              Cap rates tell the other half. The same report puts the
+              practical cap rate benchmark for stabilized RV parks in 2025
+              to 2026 at 8 to 10 percent, prime destination resorts at 6 to
+              7 percent, and value-add going-in cap rate targets at 8 to 12
+              percent. The value-add figure is a target reported by
+              Innowave, not a traded average. Innowave also reports a Parks
+              and Places brokerage average of 9.3 percent across 21 sold
+              properties in 2024. When a marketed cap rate looks a point
+              better than these benchmarks, the income or the expenses are
+              usually doing something creative. Normalize first, then
+              compare.
             </p>
+            <div className="theme-cream mt-6 border border-border bg-card p-5">
+              <p className="text-sm leading-relaxed text-foreground/85">
+                <strong>Read the table with its caveat first:</strong>{" "}
+                These are broad published ranges, not appraisals: confirm
+                against closed comps in your target market before anchoring
+                any underwriting. The Innowave figures are published
+                benchmark statements, not a closed-comp dataset that
+                CrosstownOS compiled, and they are not asking price data.
+                The per-site figure in the stabilized row is
+                Innowave&apos;s general acquisition pricing range, not a
+                stabilized-only price series. Innowave gives no separate
+                value-add per-pad range, so the table states none instead
+                of inventing one.
+              </p>
+            </div>
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
-              Price-per-pad and cap rate benchmarks (CrosstownOS, How to Buy an RV Park):
+              Price-per-pad and cap rate benchmarks (Innowave Studio, 2026; see Sources and limits below):
             </p>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
@@ -226,26 +251,27 @@ export default function BuyingAnRvParkPage() {
                 <tbody>
                   <tr className="border-b border-border/60">
                     <td className="px-3 py-2 align-top font-bold text-foreground">Stabilized</td>
-                    <td className="px-3 py-2 align-top">$40,000 to $80,000</td>
-                    <td className="px-3 py-2 align-top">7% to 8.5%</td>
+                    <td className="px-3 py-2 align-top">$30,000 to $55,000 (general acquisition pricing)</td>
+                    <td className="px-3 py-2 align-top">8% to 10%</td>
                   </tr>
                   <tr className="border-b border-border/60">
-                    <td className="px-3 py-2 align-top font-bold text-foreground">Value-add and rural</td>
-                    <td className="px-3 py-2 align-top">$20,000 to $45,000</td>
-                    <td className="px-3 py-2 align-top">Higher, priced for the work required</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Value-add</td>
+                    <td className="px-3 py-2 align-top">No separate range in the cited source</td>
+                    <td className="px-3 py-2 align-top">8% to 12% going-in target (a target, not a traded average)</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Basic rural campgrounds</td>
+                    <td className="px-3 py-2 align-top">$10,000 to $17,000</td>
+                    <td className="px-3 py-2 align-top">No separate range in the cited source</td>
                   </tr>
                   <tr>
-                    <td className="px-3 py-2 align-top font-bold text-foreground">Destination</td>
-                    <td className="px-3 py-2 align-top">Can clear $100,000</td>
-                    <td className="px-3 py-2 align-top">Varies with the amenity base</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Destination and premium resort</td>
+                    <td className="px-3 py-2 align-top">$50,000 to $62,000</td>
+                    <td className="px-3 py-2 align-top">6% to 7% for prime destination resorts</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Broad ranges, not appraisals: confirm against closed comps in
-              your target market before anchoring any underwriting.
-            </p>
             <div className="theme-cream mt-6 border border-border bg-card p-5">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Run the headline numbers in under a minute: implied cap rate,
@@ -380,6 +406,70 @@ export default function BuyingAnRvParkPage() {
               </Link>
             </div>
           </section>
+
+          <section className="mt-12" aria-label="Sources and limits">
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              Sources and limits
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <strong>What the numbers on this page rest on:</strong>{" "}
+              <a
+                href="https://www.innowave-studio.com/post/2026-u-s-rv-park-development-cost-benchmarks-per-pad-economics-across-50-states"
+                className="font-semibold text-primary hover:underline"
+              >
+                Innowave Studio, 2026 U.S. RV Park Development Cost
+                Benchmarks (2026)
+              </a>
+              , for every cap rate and per-pad figure in the benchmark
+              section and table, and{" "}
+              <a
+                href="https://www.nmrk.com/storage-nmrk/uploads/documents/The-2021-RV-Expense-Summary.pdf"
+                className="font-semibold text-primary hover:underline"
+              >
+                Newmark, RV Park Expense Analysis (2021)
+              </a>
+              , cited on the companion investing guide for the management
+              fee reference point. Newmark evaluated 62 properties and
+              10,682 sites in 13 states, using actual financial statements
+              reviewed from 2015 to 2021, and put the average management
+              fee at $237 per site, or 5.1 percent of revenue. That source
+              supports only that 5.1 percent average. It does not support a
+              wider management band, and this page states no such band.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <strong>What this page does not establish:</strong> The
+              Innowave ranges are published benchmark statements drawn from
+              industry sources listed on that page. They are not a
+              closed-comp dataset that CrosstownOS compiled or verified
+              deal by deal, and they are not asking price data. The one
+              sold-property figure cited, the 9.3 percent brokerage
+              average across 21 sold properties in 2024, is reported by
+              Innowave, not researched by CrosstownOS from primary closing
+              records. The value-add cap figure is a going-in target, not a
+              traded average, and the cited source gives no separate
+              value-add per-pad range. Nothing on this page establishes the
+              price, cap rate, or value of any specific park, and nothing
+              here is an appraisal or investment advice. Confirm any figure
+              against closed comps and the records of the park in front of
+              you.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              See also our{" "}
+              <Link
+                href="/editorial-standards"
+                className="font-semibold text-primary hover:underline"
+              >
+                editorial standards
+              </Link>
+              .
+            </p>
+          </section>
+
+          <p className="mt-10 text-sm italic leading-relaxed text-muted">
+            This page may use AI-assisted research and drafting. Sources,
+            claims, and final editorial judgment remain subject to human
+            review.
+          </p>
 
           <p className="mt-10 text-sm">
             <Link

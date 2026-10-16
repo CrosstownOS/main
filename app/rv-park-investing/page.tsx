@@ -143,7 +143,17 @@ const LEAKS: { title: string; body: ReactNode }[] = [
   },
   {
     title: "Management drag",
-    body: "Self-managed parks look cheap until you price your own time or a third-party manager at market rates. Underwrite management at 5 to 8 percent whether you plan to self-manage or not.",
+    body: (
+      <>
+        Self-managed parks look cheap until you price your own time or a
+        third-party manager at market rates. Underwrite management whether
+        you plan to self-manage or not. As one sourced reference point,
+        Newmark&apos;s RV Park Expense Analysis (2021) put the average
+        management fee at 5.1 percent of revenue across 62 properties,
+        based on financial statements reviewed from 2015 to 2021. See
+        Sources and limits below.
+      </>
+    ),
   },
 ]
 
@@ -190,9 +200,9 @@ export default function RvParkInvestingPage() {
             in your first year of ownership.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            This page is about the economics, in plain order. What the
-            market is paying in 2026, in broad ranges you still have to
-            confirm against closed sales near your park. The four places
+            This page is about the economics, in plain order. What
+            published benchmarks report for 2026, in broad ranges you still
+            have to confirm against closed sales near your park. The four places
             returns actually come from. The four leaks that take them back.
             And the one habit that separates buyers who keep the returns
             from buyers who donate them: verify the income from records you
@@ -205,25 +215,43 @@ export default function RvParkInvestingPage() {
               The 2026 snapshot
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Stabilized parks in growth markets have recently traded in the
-              7 to 8.5 percent cap rate range, with price per pad commonly
-              landing between $40,000 and $80,000 depending on market,
-              occupancy, and amenity level. Value-add deals price at higher
-              cap rates to compensate for the work required. These are broad
-              market ranges, not appraisals: confirm against closed comps in
-              your target market before anchoring any underwriting.
-              Resort is a marketing word, not a separate asset class: a
-              high-amenity RV park underwrites on the same income, the
-              same occupancy questions, and the same utility exposure as
-              any other park, with a larger amenity payroll riding on top.
+              Source for the figures in this snapshot:{" "}
+              <a
+                href="https://www.innowave-studio.com/post/2026-u-s-rv-park-development-cost-benchmarks-per-pad-economics-across-50-states"
+                className="font-semibold text-primary hover:underline"
+              >
+                Innowave Studio, 2026 U.S. RV Park Development Cost
+                Benchmarks (2026)
+              </a>
+              . That report puts the practical cap rate benchmark for
+              stabilized RV parks in 2025 to 2026 at 8 to 10 percent, with
+              prime destination resorts at 6 to 7 percent. It also reports
+              a Parks and Places brokerage average of 9.3 percent across 21
+              sold properties in 2024. That 9.3 percent figure is a
+              brokerage-reported average on sold properties, as reported by
+              Innowave. The wider 8 to 10 percent range is a published
+              benchmark statement, not a closed-comp dataset and not asking
+              price data. On price, the same report gives general
+              acquisition pricing of $30,000 to $55,000 per site, basic
+              rural campgrounds at $10,000 to $17,000 per site, and premium
+              resort properties at $50,000 to $62,000 per site. For
+              value-add deals, it reports going-in cap rate targets of 8 to
+              12 percent: a target, not a traded average. These are broad
+              published ranges, not appraisals: confirm against closed
+              comps in your target market before anchoring any
+              underwriting. Resort is a marketing word, not a separate
+              asset class: a high-amenity RV park underwrites on the same
+              income, the same occupancy questions, and the same utility
+              exposure as any other park, with a larger amenity payroll
+              riding on top.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Financing remains the gatekeeper. Agency and bank debt for RV
-              parks prices wider than multifamily, and lenders scrutinize
-              trailing income more skeptically than broker packages do. If
-              your lender will underwrite only verified income, you should
-              too, because their skepticism is a preview of your resale
-              buyer&apos;s skepticism.
+              Financing remains the gatekeeper. Park debt is typically bank
+              or local-lender debt, with terms varying by deal, and lenders
+              scrutinize trailing income more skeptically than broker
+              packages do. If your lender will underwrite only verified
+              income, you should too, because their skepticism is a preview
+              of your resale buyer&apos;s skepticism.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Market ranges describe other people's parks. The price gets set on the one in front of you, on what its record proves.
@@ -340,6 +368,66 @@ export default function RvParkInvestingPage() {
               </Link>
             </div>
           </section>
+
+          <section className="mt-12" aria-label="Sources and limits">
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              Sources and limits
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <strong>What the numbers on this page rest on:</strong>{" "}
+              <a
+                href="https://www.innowave-studio.com/post/2026-u-s-rv-park-development-cost-benchmarks-per-pad-economics-across-50-states"
+                className="font-semibold text-primary hover:underline"
+              >
+                Innowave Studio, 2026 U.S. RV Park Development Cost
+                Benchmarks (2026)
+              </a>
+              , for the cap rate and per-site figures in the snapshot, and{" "}
+              <a
+                href="https://www.nmrk.com/storage-nmrk/uploads/documents/The-2021-RV-Expense-Summary.pdf"
+                className="font-semibold text-primary hover:underline"
+              >
+                Newmark, RV Park Expense Analysis (2021)
+              </a>
+              , for the management fee figure. Newmark evaluated 62
+              properties and 10,682 sites in 13 states, using actual
+              financial statements reviewed from 2015 to 2021, and put the
+              average management fee at $237 per site, or 5.1 percent of
+              revenue. That source supports only that 5.1 percent average.
+              It does not support a wider management band.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <strong>What this page does not establish:</strong> The
+              Innowave ranges are published benchmark statements drawn from
+              industry sources listed on that page. They are not a
+              closed-comp dataset that CrosstownOS compiled or verified
+              deal by deal, and they are not asking price data. The one
+              sold-property figure cited, the 9.3 percent brokerage
+              average, is reported by Innowave, not researched by
+              CrosstownOS from primary closing records. The Newmark sample
+              is older expense data, not a current market quote. Nothing on
+              this page establishes the price, cap rate, or value of any
+              specific park, and nothing here is an appraisal or investment
+              advice. Confirm any figure against closed comps and the
+              records of the park in front of you.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              See also our{" "}
+              <Link
+                href="/editorial-standards"
+                className="font-semibold text-primary hover:underline"
+              >
+                editorial standards
+              </Link>
+              .
+            </p>
+          </section>
+
+          <p className="mt-10 text-sm italic leading-relaxed text-muted">
+            This page may use AI-assisted research and drafting. Sources,
+            claims, and final editorial judgment remain subject to human
+            review.
+          </p>
 
           <p className="mt-10 text-sm">
             <Link
