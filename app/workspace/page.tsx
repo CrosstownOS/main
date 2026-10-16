@@ -667,8 +667,26 @@ Five qualified participants will receive free access. Paid access is available s
       <p className="mt-4 text-xs leading-relaxed text-muted">
         Submitting an application does not reserve a place or begin access. We&apos;ll confirm acceptance and your activation date separately.
       </p>
-      <div className="mt-4 border border-border bg-card p-4 sm:p-5 text-center">
-        <a href="/parkproof-walkthrough" className="font-semibold text-[#00468B] underline underline-offset-2">See an illustrative ParkProof decision record.</a>
+      <div className="theme-cream mt-4 border border-[#3a86f2] bg-card p-6 shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] sm:p-8">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+          ParkProof Walkthrough / Illustrative record
+        </p>
+        <p className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
+          One deal, walked all the way down.
+        </p>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+          Harbor Pines is fictional. The habit is not. Walk the deal claim
+          by claim, source by source, every claim carrying its evidence
+          state, until the record says what it can support and names what
+          it cannot. One gate refuses to close, and the record holds at
+          Pause.
+        </p>
+        <Link
+          href="/parkproof-walkthrough"
+          className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          See an illustrative ParkProof decision record
+        </Link>
       </div>
      </section>
 
