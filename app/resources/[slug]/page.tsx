@@ -614,6 +614,10 @@ export default async function ResourcePage({ params }: PageProps) {
               </div>
             </section>
           )}
+
+          <p className="mt-16 max-w-3xl text-base leading-relaxed text-muted">
+            On a live deal, the finished sheet joins the record: claimed, proven, or still open, with the evidence attached.
+          </p>
         </div>
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="border-t border-border pt-8">
