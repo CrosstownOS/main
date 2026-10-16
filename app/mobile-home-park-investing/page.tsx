@@ -327,19 +327,19 @@ export default function MobileHomeParkInvestingPage() {
                 </thead>
                 <tbody>
                   <tr className="border-b border-border/60">
-                    <td className="px-3 py-2 align-top">The home mix</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">The home mix</td>
                     <td className="px-3 py-2 align-top">Titles, counted home by home: park-owned outright, park-owned with liens, resident-owned</td>
                   </tr>
                   <tr className="border-b border-border/60">
-                    <td className="px-3 py-2 align-top">The lot rent</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">The lot rent</td>
                     <td className="px-3 py-2 align-top">Bank deposits against the rent roll over 12 to 24 months, with delinquency aged, not averaged away</td>
                   </tr>
                   <tr className="border-b border-border/60">
-                    <td className="px-3 py-2 align-top">The utility systems</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">The utility systems</td>
                     <td className="px-3 py-2 align-top">Bills, meter records, and permits: who owns each system, who pays for it, and what capacity is permitted</td>
                   </tr>
                   <tr>
-                    <td className="px-3 py-2 align-top">The permitted site count</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">The permitted site count</td>
                     <td className="px-3 py-2 align-top">The county&apos;s count reconciled against the broker&apos;s, before any price per pad is quoted</td>
                   </tr>
                 </tbody>

@@ -225,17 +225,17 @@ export default function BuyingAnRvParkPage() {
                 </thead>
                 <tbody>
                   <tr className="border-b border-border/60">
-                    <td className="px-3 py-2 align-top">Stabilized</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Stabilized</td>
                     <td className="px-3 py-2 align-top">$40,000 to $80,000</td>
                     <td className="px-3 py-2 align-top">7% to 8.5%</td>
                   </tr>
                   <tr className="border-b border-border/60">
-                    <td className="px-3 py-2 align-top">Value-add and rural</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Value-add and rural</td>
                     <td className="px-3 py-2 align-top">$20,000 to $45,000</td>
                     <td className="px-3 py-2 align-top">Higher, priced for the work required</td>
                   </tr>
                   <tr>
-                    <td className="px-3 py-2 align-top">Destination</td>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Destination</td>
                     <td className="px-3 py-2 align-top">Can clear $100,000</td>
                     <td className="px-3 py-2 align-top">Varies with the amenity base</td>
                   </tr>
