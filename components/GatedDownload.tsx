@@ -143,7 +143,7 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
       {downloaded && (
         <div
           role="status"
-          className="theme-cream mt-4 w-full border border-primary/40 bg-primary/5 p-4 text-left"
+          className="theme-cream mt-4 w-full border border-primary/40 bg-card p-4 text-left"
         >
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Download started

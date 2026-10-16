@@ -20,16 +20,18 @@ type SaveMode = "save" | "download"
 
 function PostureBanner({ label, statement }: { label: ReadinessLabel; statement: string }) {
   const info = READINESS_LABELS[label]
+  // Border accents are pinned to the literal :root values so the semantic
+  // state color is identical inside the cream scope.
   const color =
     label === "walk"
-      ? "border-critical/60 bg-critical/5"
+      ? "border-[color-mix(in_oklab,oklch(0.62_0.16_25)_60%,transparent)]"
       : label === "pause"
-        ? "border-accent/60 bg-accent/5"
+        ? "border-[color-mix(in_oklab,oklch(0.65_0.12_55)_60%,transparent)]"
         : label === "retrade"
-          ? "border-primary/60 bg-primary/5"
-          : "border-success/60 bg-success/5"
+          ? "border-[color-mix(in_oklab,oklch(0.628_0.179_258)_60%,transparent)]"
+          : "border-[color-mix(in_oklab,oklch(0.60_0.13_148)_60%,transparent)]"
   return (
-    <div className={cn("border p-6", color)}>
+    <div className={cn("theme-cream border bg-card p-6", color)}>
       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
         Evidence-readiness posture
       </p>

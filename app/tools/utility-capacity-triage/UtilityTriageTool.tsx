@@ -33,10 +33,11 @@ const UTILITIES: { key: UtilityKey; label: string; gating: boolean }[] = [
 type Score = "green" | "amber" | "red" | "missing"
 
 const SCORE_META: Record<Score, { label: string; cls: string }> = {
-  green: { label: "Clear", cls: "border-success/60 text-success" },
-  amber: { label: "Caution", cls: "border-accent/60 text-accent" },
-  red: { label: "Gate risk", cls: "border-critical/60 text-critical" },
-  missing: { label: "Missing", cls: "border-border text-muted" },
+  // Chip colors pinned to literal :root values: identical in every token scope.
+  green: { label: "Clear", cls: "border-[color-mix(in_oklab,oklch(0.60_0.13_148)_60%,transparent)] text-[oklch(0.60_0.13_148)]" },
+  amber: { label: "Caution", cls: "border-[color-mix(in_oklab,oklch(0.65_0.12_55)_60%,transparent)] text-[oklch(0.65_0.12_55)]" },
+  red: { label: "Gate risk", cls: "border-[color-mix(in_oklab,oklch(0.62_0.16_25)_60%,transparent)] text-[oklch(0.62_0.16_25)]" },
+  missing: { label: "Missing", cls: "border-[oklch(0.20_0.02_80)] text-[oklch(0.72_0.02_80)]" },
 }
 
 function scoreSystem(type: string, permit: string): { score: Score; reason: string } {
@@ -392,7 +393,7 @@ export default function UtilityTriageTool() {
       pdfHref="/resources/utility-and-wastewater-diligence-sheet"
       relatedNote={{ href: "/blog/the-utility-system-nobody-underwrote", label: "The Utility System Nobody Underwrote" }}
     >
-      <section className="border border-border bg-card p-6">
+      <section className="theme-cream border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The park
         </h2>
@@ -414,13 +415,13 @@ export default function UtilityTriageTool() {
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {systems.map((s) => (
-          <section key={s.key} className="border border-border bg-card p-6">
+          <section key={s.key} className="theme-cream border border-border bg-card p-6">
             <div className="flex items-center justify-between gap-2">
               <h2 className="serif-display text-xl tracking-tight">{s.label}</h2>
               <span
                 className={cn(
                   "border px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em]",
-                  s.gating ? "border-critical/60 text-critical" : "border-border text-muted",
+                  s.gating ? "border-[color-mix(in_oklab,oklch(0.62_0.16_25)_60%,transparent)] text-[oklch(0.62_0.16_25)]" : "border-[oklch(0.20_0.02_80)] text-[oklch(0.72_0.02_80)]",
                 )}
               >
                 {s.gating ? "Capacity gate" : "Advisory"}
@@ -468,7 +469,7 @@ export default function UtilityTriageTool() {
         ))}
       </div>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Capacity scores
         </h2>
@@ -508,7 +509,7 @@ export default function UtilityTriageTool() {
         </p>
       </section>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Open evidence requests
         </h2>

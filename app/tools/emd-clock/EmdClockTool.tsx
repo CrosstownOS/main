@@ -126,10 +126,11 @@ function depositDateLabel(days: number | null): string {
   return `Deposited ${Math.abs(days)} day${days === -1 ? "" : "s"} ago`
 }
 
+// Chip colors pinned to literal :root values: identical in every token scope.
 const STATUS_CHIP: Record<ContingencyStatus, string> = {
-  Open: "border-accent/60 text-accent",
-  Satisfied: "border-success/60 text-success",
-  Waived: "border-border text-muted",
+  Open: "border-[color-mix(in_oklab,oklch(0.65_0.12_55)_60%,transparent)] text-[oklch(0.65_0.12_55)]",
+  Satisfied: "border-[color-mix(in_oklab,oklch(0.60_0.13_148)_60%,transparent)] text-[oklch(0.60_0.13_148)]",
+  Waived: "border-[oklch(0.20_0.02_80)] text-[oklch(0.72_0.02_80)]",
 }
 
 export default function EmdClockTool() {
@@ -373,7 +374,7 @@ export default function EmdClockTool() {
       pdfHref="/resources/the-emd-countdown-tracker"
       relatedNote={{ href: "/blog/speed-is-a-strategy-for-sellers-not-buyers", label: "Speed Is a Strategy for Sellers, Not Buyers" }}
     >
-      <section className="border border-border bg-card p-6">
+      <section className="theme-cream border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The money
         </h2>
@@ -416,7 +417,7 @@ export default function EmdClockTool() {
         </p>
       </section>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Contingency register
@@ -520,7 +521,7 @@ export default function EmdClockTool() {
         </div>
       </section>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Exposure summary
         </h2>

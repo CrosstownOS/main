@@ -319,7 +319,7 @@ export default function PohTohTool() {
       pdfHref="/resources/poh-toh-split-valuation-worksheet"
       relatedNote={{ href: "/blog/manufactured-housing-diligence-starts-with-who-owns-the-homes", label: "Manufactured Housing Diligence Starts With Who Owns the Homes" }}
     >
-      <section className="border border-border bg-card p-6">
+      <section className="theme-cream border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The ask
         </h2>
@@ -339,7 +339,7 @@ export default function PohTohTool() {
         </div>
       </section>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The two businesses
         </h2>
@@ -405,7 +405,7 @@ export default function PohTohTool() {
         </div>
       </section>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Your underwriting assumptions
         </h2>
@@ -455,7 +455,7 @@ export default function PohTohTool() {
         </p>
       </section>
 
-      <section className="mt-8 border border-border bg-card p-6">
+      <section className="theme-cream mt-8 border border-border bg-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Split valuation
         </h2>
@@ -494,7 +494,7 @@ export default function PohTohTool() {
       </section>
 
       {openItems.length > 0 && (
-        <section className="mt-8 border border-border bg-card p-6">
+        <section className="theme-cream mt-8 border border-border bg-card p-6">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Missing inputs
           </h2>

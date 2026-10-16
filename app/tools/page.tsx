@@ -315,7 +315,7 @@ export default function ToolsPage() {
           </div>
 
           {/* Trust strip */}
-          <div className="mt-10 border border-border bg-card/60 p-6">
+          <div className="theme-cream mt-10 border border-border bg-card p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               The standard, in six chips
             </p>
@@ -326,7 +326,7 @@ export default function ToolsPage() {
                   href="/parkproof-standard"
                   title={EVIDENCE_STATES[s].definition}
                   className={cn(
-                    "inline-flex items-center gap-1.5 border bg-background px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] transition-opacity hover:opacity-80",
+                    "inline-flex items-center gap-1.5 border bg-[oklch(0.06_0.005_80)] px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] transition-opacity hover:opacity-80",
                     EVIDENCE_STATES[s].chipClass,
                   )}
                 >

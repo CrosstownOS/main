@@ -248,7 +248,7 @@ export default function ChecklistPage() {
             </p>
           </section>
 
-          <section className="mt-12 border border-primary/40 bg-primary/5 p-6 sm:p-8">
+          <section className="theme-cream mt-12 border border-primary/40 bg-card p-6 sm:p-8">
             <h2 className="serif-display text-2xl tracking-tight text-foreground sm:text-3xl">
               This checklist gets you started.
             </h2>
