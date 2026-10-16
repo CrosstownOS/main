@@ -164,11 +164,7 @@ export default function LifecycleVision() {
           })}
         </ol>
 
-        <p className="theme-cream paper mt-8 border border-border/60 bg-card/50 px-5 py-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted">
-          Opens November 2026: Source + Field + Acquire.
-        </p>
-
-        <div className="theme-cream paper mt-5 border border-primary/40 bg-card p-6 text-center sm:p-8">
+        <div className="theme-cream paper mt-8 border border-primary/40 bg-card p-6 text-center sm:p-8">
           <p className="mono-label mb-3">Field Network / Build Log</p>
           <p className="serif-display text-3xl leading-tight sm:text-4xl">
             The Trail Log.
