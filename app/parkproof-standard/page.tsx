@@ -42,6 +42,7 @@ const EVIDENCE_STATES = [
     counts:
       "A cited source, the page or record it came from, how it was obtained, and a named human review. A verified claim says what the source supports. It does not turn a source into a guarantee.",
     className: "border-success/60 text-success",
+    titleClassName: "text-success",
   },
   {
     title: "Broker-reported",
@@ -50,6 +51,7 @@ const EVIDENCE_STATES = [
     counts:
       "The claim and its source are recorded. Broker-reported information may organize the work, but it is never silently promoted into a verified field.",
     className: "border-accent/60 text-accent",
+    titleClassName: "text-accent",
   },
   {
     title: "Missing evidence",
@@ -58,6 +60,7 @@ const EVIDENCE_STATES = [
     counts:
       "The absence is named as an open item, with an owner and a due date. Missing evidence is a finding, not a blank, and it is never treated as zero.",
     className: "border-critical/60 text-critical",
+    titleClassName: "text-critical",
   },
   {
     title: "Underwriting assumption",
@@ -66,6 +69,7 @@ const EVIDENCE_STATES = [
     counts:
       "The input is labeled, versioned, and approved by a named person. The file shows what the assumption stands in for and which outputs it feeds.",
     className: "border-primary/60 text-primary",
+    titleClassName: "text-primary",
   },
   {
     title: "Calculated",
@@ -74,6 +78,7 @@ const EVIDENCE_STATES = [
     counts:
       "The inputs, their states, and the calculation lineage stay visible. Models may propose. People confirm. Code calculates.",
     className: "border-calculated/60 text-calculated",
+    titleClassName: "text-calculated",
   },
   {
     title: "Unresolved",
@@ -82,6 +87,7 @@ const EVIDENCE_STATES = [
     counts:
       "The disagreement is recorded with both sources cited. It is not averaged away, edited away, or resolved by silence.",
     className: "border-border text-muted",
+    titleClassName: "text-muted",
   },
 ] as const
 
@@ -258,7 +264,12 @@ export default function ParkProofStandardPage() {
                   key={state.title}
                   className={cn("theme-cream paper border p-6", state.className)}
                 >
-                  <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
+                  <h3
+                    className={cn(
+                      "font-sans text-lg font-bold tracking-tight",
+                      state.titleClassName,
+                    )}
+                  >
                     {state.title}
                   </h3>
                   <p className="mt-3 text-sm font-medium leading-relaxed text-foreground/85">
