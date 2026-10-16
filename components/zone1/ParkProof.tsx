@@ -176,10 +176,19 @@ export default function ParkProof() {
 
             <Heading
               level={2}
-              className="mb-6 text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl"
+              className="mb-4 text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl"
             >
-              The record is the product: what was claimed, what was proven, what stayed open, and what was decided, kept in one place where the next reader can find it.
+              The record is the product:
             </Heading>
+
+            <div className="mb-8 font-serif text-xl leading-snug text-foreground/85 sm:text-2xl">
+              <span className="block">
+                what was claimed, what was proven, what stayed open, and what was decided,
+              </span>
+              <span className="mt-2 block">
+                kept in one place where the next reader can find it.
+              </span>
+            </div>
 
             <p className="mb-8 text-base leading-relaxed text-muted sm:text-lg">
               ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
