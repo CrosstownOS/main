@@ -183,10 +183,19 @@ export default function ParkProof() {
 
             <div className="mb-8 font-serif text-xl leading-snug text-foreground/85 sm:text-2xl">
               <span className="block">
-                what was claimed, what was proven, what stayed open, and what was decided,
+                What was claimed,
               </span>
-              <span className="mt-2 block">
-                kept in one place where the next reader can find it.
+              <span className="mt-1 block">
+                What was proven,
+              </span>
+              <span className="mt-1 block">
+                What stayed open,
+              </span>
+              <span className="mt-1 block">
+                And what was decided,
+              </span>
+              <span className="mt-3 block">
+                Kept in one place where the next reader can find it.
               </span>
             </div>
 
