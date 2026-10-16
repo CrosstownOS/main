@@ -337,27 +337,27 @@ export default function AcquisitionWorkspacePage() {
          </thead>
          <tbody>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Verified</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Verified</td>
            <td className="px-3 py-2 align-top">Evidence you can point to, reviewed by a person.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Broker-reported</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Broker-reported</td>
            <td className="px-3 py-2 align-top">Claimed in the package or on a call; not checked yet.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Missing evidence</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Missing evidence</td>
            <td className="px-3 py-2 align-top">Material information not received or located yet.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Underwriting assumption</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Underwriting assumption</td>
            <td className="px-3 py-2 align-top">A stated input in your case; not a verified fact.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Calculated</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Calculated</td>
            <td className="px-3 py-2 align-top">Output from stated inputs; only as reliable as they are.</td>
           </tr>
           <tr>
-           <td className="px-3 py-2 align-top">Unresolved</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Unresolved</td>
            <td className="px-3 py-2 align-top">Sources conflict, or the answer is not established yet.</td>
           </tr>
          </tbody>
@@ -433,15 +433,15 @@ export default function AcquisitionWorkspacePage() {
          </thead>
          <tbody>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Home title status</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Home title status</td>
            <td className="px-3 py-2 align-top">Every home counted from its title: park-owned outright, park-owned with a lien, or resident-owned. A home whose title cannot be located is missing evidence, not a rounding error.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top">Tenant-owned vs park-owned split</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Tenant-owned vs park-owned split</td>
            <td className="px-3 py-2 align-top">The mix stated home by home, each side priced on its own evidence. Until the titles are counted, the split is broker-reported.</td>
           </tr>
           <tr>
-           <td className="px-3 py-2 align-top">Utility ownership and metering</td>
+           <td className="px-3 py-2 align-top font-bold text-foreground">Utility ownership and metering</td>
            <td className="px-3 py-2 align-top">Who owns each system, who pays for it, and how it is metered: master meter, sub-meter, or resident account. Capacity claims stay unresolved until permits or bills establish them.</td>
           </tr>
          </tbody>
