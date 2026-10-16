@@ -471,14 +471,14 @@ export default function BuyingAnRvParkPage() {
             review.
           </p>
 
-          <p className="mt-10 text-sm">
+          <div className="theme-cream mt-10 border border-primary/40 bg-card p-6 text-center sm:p-8">
             <Link
               href="/checklist"
-              className="font-semibold text-primary hover:underline"
+              className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Get the free due diligence checklist
             </Link>
-          </p>
+          </div>
         </div>
       </main>
     </>

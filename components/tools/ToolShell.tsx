@@ -524,11 +524,9 @@ export default function ToolShell(props: ToolShellProps) {
             </Link>
           </div>
 
-          <div className="mt-8 border-t border-border pt-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
-              Go deeper
-            </p>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+          <div className="theme-cream paper mt-8 border border-primary/40 bg-card p-8 text-center">
+            <p className="mono-label mb-3">Go deeper</p>
+            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
               Working the full file? Run the{" "}
               <Link href="/checklist" className="font-semibold text-primary hover:underline">
                 free RV park due diligence checklist
@@ -553,9 +551,32 @@ export default function ToolShell(props: ToolShellProps) {
               )}
               .
             </p>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               One tool settles one question. The record is where the settled questions add up to a decision.
             </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              <Link
+                href="/checklist"
+                className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Free RV park due diligence checklist
+              </Link>
+              {relatedNote ? (
+                <Link
+                  href={relatedNote.href}
+                  className="inline-block border border-primary/60 px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  {relatedNote.label}
+                </Link>
+              ) : (
+                <Link
+                  href="/blog"
+                  className="inline-block border border-primary/60 px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Read the Field Notes
+                </Link>
+              )}
+            </div>
           </div>
 
         </div>
