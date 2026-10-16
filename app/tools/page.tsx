@@ -409,6 +409,7 @@ export default function ToolsPage() {
               Running a live deal and want the full record? The Acquisition Workspace
               connects source evidence, field observations, and underwriting
               in one deal record. First five buyers get it free. After that: single-deal $1,250, annual $2,500.
+              Each working paper settles one question. The workspace is where the settled questions accumulate into a record a decision can rest on.
             </p>
             <Link
               href="/workspace#apply"

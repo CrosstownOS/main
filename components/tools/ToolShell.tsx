@@ -512,6 +512,9 @@ export default function ToolShell(props: ToolShellProps) {
               )}
               .
             </p>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+              One tool settles one question. The record is where the settled questions add up to a decision.
+            </p>
           </div>
 
         </div>
