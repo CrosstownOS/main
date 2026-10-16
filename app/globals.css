@@ -17,6 +17,7 @@
   --color-accent-secondary: var(--accent-secondary);
   --color-success: var(--success);
   --color-critical: var(--critical);
+  --color-calculated: var(--calculated);
 
   --radius-sm: 0px;
   --radius-md: 0px;
@@ -52,6 +53,9 @@
 
   /* ── Critical: brick signal red — missing evidence, the state that demands action ── */
   --critical: oklch(0.62 0.16 25);
+
+  /* ── Calculated: violet, computed outputs, distinct from assumption blue ── */
+  --calculated: oklch(0.60 0.15 295);
 
   /* ── Status ── */
   --status-live: oklch(0.628 0.179 258);
@@ -189,6 +193,7 @@
   --accent-secondary: oklch(0.46 0.13 55);
   --success: oklch(0.47 0.12 148);
   --critical: oklch(0.5 0.16 25);
+  --calculated: oklch(0.47 0.14 295);
   --status-live: oklch(0.456 0.128 252);
   --status-alert: oklch(0.5 0.13 55);
   --status-dormant: oklch(0.45 0.04 250);

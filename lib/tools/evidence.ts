@@ -14,6 +14,13 @@ export type EvidenceState =
 
 export type ReadinessLabel = "walk" | "pause" | "retrade" | "advance"
 
+/**
+ * Chip colors are pinned to literal values (the :root token values, with the
+ * /60 border expressed as the color-mix Tailwind compiles it to) so the six
+ * states keep their exact colors in every token scope, cream included.
+ * Calculated is the exception: it carries the --calculated token, whose
+ * scopes are tuned per surface like its siblings.
+ */
 export const EVIDENCE_STATES: Record<
   EvidenceState,
   { code: string; title: string; definition: string; chipClass: string }
@@ -22,40 +29,44 @@ export const EVIDENCE_STATES: Record<
     code: "V",
     title: "Verified",
     definition: "Backed by evidence you can point to, and reviewed by a person.",
-    chipClass: "border-success/60 text-success",
+    chipClass:
+      "border-[color-mix(in_oklab,oklch(0.60_0.13_148)_60%,transparent)] text-[oklch(0.60_0.13_148)]",
   },
   "broker-reported": {
     code: "B",
     title: "Broker-reported",
     definition:
       "Reported in an OM, call, model, or broker package; not independently checked yet.",
-    chipClass: "border-accent/60 text-accent",
+    chipClass:
+      "border-[color-mix(in_oklab,oklch(0.65_0.12_55)_60%,transparent)] text-[oklch(0.65_0.12_55)]",
   },
   missing: {
     code: "M",
     title: "Missing evidence",
     definition: "Material information has not been received or located yet.",
-    chipClass: "border-critical/60 text-critical",
+    chipClass:
+      "border-[color-mix(in_oklab,oklch(0.62_0.16_25)_60%,transparent)] text-[oklch(0.62_0.16_25)]",
   },
   assumption: {
     code: "A",
     title: "Underwriting assumption",
     definition: "A stated input in the investment case; not a verified fact.",
-    chipClass: "border-primary/60 text-primary",
+    chipClass:
+      "border-[color-mix(in_oklab,oklch(0.628_0.179_258)_60%,transparent)] text-[oklch(0.628_0.179_258)]",
   },
   calculated: {
     code: "C",
     title: "Calculated",
     definition:
       "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
-    chipClass: "border-primary/60 text-primary",
+    chipClass: "border-calculated/60 text-calculated",
   },
   unresolved: {
     code: "U",
     title: "Unresolved",
     definition:
       "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
-    chipClass: "border-border text-muted",
+    chipClass: "border-[oklch(0.20_0.02_80)] text-[oklch(0.72_0.02_80)]",
   },
 }
 
