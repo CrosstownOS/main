@@ -45,7 +45,7 @@ const CLAIMS: Claim[] = [
   {
     name: "Paying occupancy",
     details: [
-      "The package calls it 92 percent occupied: 63 of 68 sites claimed occupied.",
+      "The package calls it 93 percent occupied: 63 of 68 sites claimed occupied.",
       "63 of 68 sites claimed occupied. The paying count has not been reconciled yet.",
       "63 of 68 sites claimed occupied. The walk can count rigs, not payments.",
       "63 of 68 claimed occupied; 57 of 68 supported as paying after review.",
@@ -479,7 +479,7 @@ export default function SampleDecisionFileExplorer() {
                     title="The package is confident. That is its job."
                   >
                     <p>
-                      Sixty-eight sites. The package calls it ninety-two
+                      Sixty-eight sites. The package calls it ninety-three
                       percent occupied. Municipal water and sewer. Room for
                       twenty more out back. The pages are clean, the photos
                       are bright, and the numbers line up because nobody has
@@ -978,7 +978,7 @@ export default function SampleDecisionFileExplorer() {
                             The package said
                           </p>
                           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-                            <li>The package calls it 92 percent occupancy.</li>
+                            <li>The package calls it 93 percent occupancy.</li>
                             <li>Municipal capacity for every site.</li>
                             <li>68 sites, settled.</li>
                             <li>20 more sites out back.</li>
