@@ -155,6 +155,8 @@ export default function EditorialStandardsPage() {
               We distinguish sourced facts, attributed statements, calculations,
               assumptions, and unresolved questions. Where material to reader
               understanding, we identify the basis and limitations of a claim.
+              These are the same six evidence states defined in the
+              CrosstownOS ParkProof Standard.
             </p>
             <div className="mt-6 space-y-3">
               {STATES.map((s) => (

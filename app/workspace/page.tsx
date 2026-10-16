@@ -319,6 +319,9 @@ export default function AcquisitionWorkspacePage() {
        ))}
       </ol>
       <div className="theme-cream mt-6 border border-border bg-card p-5 sm:p-6">
+       <p className="mb-4 text-sm font-bold text-foreground">
+        The six evidence states (the CrosstownOS ParkProof Standard):
+       </p>
        <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
          <thead>
@@ -359,6 +362,11 @@ export default function AcquisitionWorkspacePage() {
         CrosstownOS does not assign these for you and does not independently verify a claim. You supply the evidence, you document the review, the record keeps both.
        </p>
       </div>
+      <p className="mt-6 text-sm leading-relaxed text-muted sm:text-base">
+       A spreadsheet holds the numbers typed into it; the CrosstownOS
+       Acquisition Workspace holds each claim next to its evidence state
+       and the review behind it.
+      </p>
      </section>
 
      {/* The November product, compact */}

@@ -113,7 +113,7 @@ export default function ParkProof() {
         <TelemetryBox glass="heavy" className="theme-cream paper border-primary/40 p-5 sm:p-6">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
             <TerminalLabel className="block">
-              ParkProof / Decision File
+              CrosstownOS ParkProof / Decision File
             </TerminalLabel>
             <span className="border border-border/60 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-muted">
               Conceptual example

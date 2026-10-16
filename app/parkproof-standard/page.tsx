@@ -235,10 +235,11 @@ export default function ParkProofStandardPage() {
               The evidence states.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              The state names the relationship between a claim and the
-              evidence behind it. Changing the state requires new evidence or
-              a recorded human decision. It never happens because a document
-              was uploaded.
+              These are the six evidence states of the CrosstownOS ParkProof
+              Standard. The state names the relationship between a claim and
+              the evidence behind it. Changing the state requires new
+              evidence or a recorded human decision. It never happens
+              because a document was uploaded.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {EVIDENCE_STATES.map((state) => (
@@ -384,6 +385,11 @@ export default function ParkProofStandardPage() {
                 ParkProof supports a disciplined decision process. It does
                 not replace legal, engineering, environmental, title, tax,
                 insurance, regulatory, lending, or investment professionals.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Where a broker package leaves its claims standing alone, the
+                CrosstownOS Acquisition Workspace keeps every claim next to
+                its evidence state in one record.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link

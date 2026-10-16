@@ -189,7 +189,9 @@ export default function SampleDecisionFilePage() {
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
                 Read the standard, then bring the deal that is already sitting
                 in the inbox. The work is the same: establish what is true
-                before capital is committed.
+                before capital is committed. The file walked here is the
+                ParkProof decision file a buyer builds in the CrosstownOS
+                Acquisition Workspace.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
