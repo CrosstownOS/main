@@ -89,7 +89,7 @@ const SHIPPED = [
     date: "October 15, 2026",
     title: "The library's method moved into the open",
     href: "/resources",
-    body: "The extraction layer put structured twins beside the prose: evidence tables, worked examples, and Inside this tool blocks on the resource pages, so each worksheet's method sits on the page in HTML instead of only inside its PDF.",
+    body: "The extraction layer put structured twins beside the prose: evidence tables, worked examples, and Inside this CrosstownOS tool blocks on the resource pages, so each worksheet's method sits on the page in HTML instead of only inside its PDF.",
   },
   {
     date: "October 15, 2026",
@@ -109,13 +109,13 @@ const SHIPPED = [
   },
   {
     date: "October 15, 2026",
-    title: "Every resource page got its description",
-    body: "All 38 resource pages now carry a written meta description of what the tool does and where it hands off, replacing the short placeholders search engines were left to guess from.",
+    title: "The short pages got their descriptions",
+    body: "All 38 pages whose meta descriptions measured under 100 characters, 36 resource pages plus the privacy and terms pages, now carry a written description of what the page holds, replacing the short placeholders search engines were left to guess from.",
   },
   {
     date: "October 15, 2026",
-    title: "Twenty-two links woven through the Field Notes",
-    body: "The essays and guides now point to the resource and tool pages their arguments build toward, so a reader who lands on one page can walk through the next door.",
+    title: "Twenty-two links woven through the site",
+    body: "Twenty-two internal links were placed across the estate, in the essays, the guides, the catalog, and between the resource pages themselves, so a reader who lands on one page can walk through the next door.",
   },
   {
     date: "October 15, 2026",
