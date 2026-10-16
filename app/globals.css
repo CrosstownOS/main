@@ -501,6 +501,29 @@ span[data-signal-line].signal-line-armed.is-visible {
   }
 }
 
+/* ── Branded success pop-up (components/SuccessPopup): the completion
+   overlay reuses the inquiry backdrop fade; the panel adds a subtle
+   scale to the rise. Transform/opacity only; one-shot on mount.
+   prefers-reduced-motion collapses via the global rule. */
+.success-popup-backdrop {
+  animation: inquiry-fade-in 200ms ease-out;
+}
+
+.success-popup-panel {
+  animation: success-popup-in 240ms ease-out;
+}
+
+@keyframes success-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* -- Card hover lift: subtle physicality for cards (tools, blog, resources).
    Uses the standalone `translate` property rather than `transform`, so the
    lift composes with the scroll-reveal `.reveal` transforms instead of
