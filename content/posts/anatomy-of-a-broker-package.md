@@ -54,7 +54,7 @@ This is where packages often turn a physical observation into an investment conc
 
 ## Claim 5: expenses run at 40 percent
 
-The seller's expense ratio is presented as a strength. The package includes a summary P&L, but property taxes are listed at the prior owner's amount, insurance is represented by a broker estimate, and utility reimbursements are netted without a supporting schedule. Those two lines have their own first pass: the [Insurance and Property-Tax Preflight](/resources/insurance-and-property-tax-preflight) prices the insurance at this address and the taxes at the assessor's number, before either one enters a model at the seller's figure.
+The seller's expense ratio is presented as a strength. The package includes a summary P&L, but property taxes are listed at the prior owner's amount, insurance is represented by a broker estimate, and utility reimbursements are netted without a supporting schedule. Whether property taxes are reassessed on a sale, and by how much, varies by jurisdiction, so the prior owner's tax amount cannot be assumed to carry over, or to reset by any particular amount, without checking how the local assessor treats a transfer. Those two lines have their own first pass: the [Insurance and Property-Tax Preflight](/resources/insurance-and-property-tax-preflight) prices the insurance at this address and the taxes at the assessor's number, before either one enters a model at the seller's figure.
 
 **State: Underwriting assumption** when the buyer's model uses the 40 percent ratio to project forward.
 
@@ -85,4 +85,13 @@ Next question for any package: if the headline number disappeared, what evidence
 
 A package taken apart claim by claim becomes a file a partner can rely on, because every number in it carries its state.
 
+## Sources and Limits
+
+- **Internal grounding:** the six evidence states used throughout this piece come from the CrosstownOS [ParkProof Standard](/parkproof-standard). The claim-by-claim reading method also draws on the Acquisition Signal research program and on operator-community research, with contributors anonymized.
+- **Nonconforming use:** the [Town of Boone, North Carolina, Unified Development Ordinance, Article 7, Nonconformities](https://boonenc.gov/DocumentCenter/View/4410/Article-7-Nonconformities-PDF) shows how one jurisdiction treats the grandfathered claim in practice: a nonconformity must have been legally created, the burden of establishing a legal nonconformity rests on the owner, and a nonconforming use may continue but may not be expanded or enlarged. Rules differ by jurisdiction, so this ordinance illustrates the kind of record to request. It does not decide any other park's status.
+- **Utility capacity:** the City of Houston's [Wastewater Capacity Reservation Letter](https://www.houstonpermittingcenter.org/hpwua1002) documentation shows what a capacity record actually does: it determines whether adequate and available wastewater and water utilities can serve a proposed development, identifies the point of connection, and determines whether impact fees are due. A photograph of a meter does none of that.
+- **Limits:** the park, the package, and every number in this piece are synthetic and illustrative. Zoning, nonconforming-use, tax-reassessment, and utility-capacity rules are jurisdiction-specific. Nothing here substitutes for the records of the jurisdiction and the utility that actually serve a given park.
+
 *Put it to work: run the [60-Second Deal Screener](/tools/60-second-screener) on your live package, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
+
+*This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.*

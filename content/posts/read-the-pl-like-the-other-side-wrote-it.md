@@ -27,7 +27,7 @@ None of this requires fraud. Related businesses share costs. Live-on-site owners
 
 Normalization is the restatement: what does this park cost to run, and produce, under real operation?
 
-Costs the seller's other businesses absorbed come back onto the P&L. Personal expenses come off where the support is there. Owner labor gets valued at what hired labor would cost, because the buyer will be hiring. Deferred maintenance gets recognized. Consider an illustrative composite: a buyer takes over a mid-size park where historical maintenance spending appears unusually low. The operational consequences become visible only after takeover, as the team works through deferred conditions the historical P&L never showed. The P&L described the seller's operation. It did not describe the park's condition.
+Costs the seller's other businesses absorbed come back onto the P&L. Personal expenses come off where the support is there. Owner labor gets valued at what hired labor would cost to test the deal, because a buyer who will be hiring needs that cost in the numbers. A buyer who will owner-operate should still run that test, while recognizing that their own economics differ, because they are supplying the labor themselves. Deferred maintenance gets recognized. Consider an illustrative composite: a buyer takes over a mid-size park where historical maintenance spending appears unusually low. The operational consequences become visible only after takeover, as the team works through deferred conditions the historical P&L never showed. The P&L described the seller's operation. It did not describe the park's condition.
 
 Unreported cash income gets investigated, never assumed. Anything that cannot be supported stays missing evidence. The model should show its work.
 
@@ -36,6 +36,21 @@ This always draws the same objection: just read the books. The books show the ex
 ## Every adjustment needs a label
 
 Here is the discipline in plain buyer language. The seller's P&L is the source document: a seller-reported claim, nothing more. Each normalization adjustment is a buyer underwriting assumption, stated openly with the reasoning attached. The material behind it is the evidence. The adjustment you cannot support is missing evidence, an unresolved question, not a number you get to round in your favor. The final underwriting run is the decision record: what you believed, what you verified, and what you still did not know. Then the operating result tests whether the assumption held. Unknown is not zero, and the model shows its work.
+
+**Worked illustration (invented numbers, one year):**
+
+| Line | Amount |
+|---|---|
+| Seller-reported NOI | $200,000 |
+| Owner labor valued at hired cost | -$30,000 |
+| Personal expenses removed | +$12,000 |
+| Deferred maintenance normalized | -$18,000 |
+| Costs absorbed by the seller's other businesses, brought back | -$9,000 |
+| Normalized NOI | $155,000 |
+
+The arithmetic: total adjustments are -$30,000 plus $12,000 minus $18,000 minus $9,000, which equals -$45,000. Normalized NOI is $200,000 minus $45,000, which equals $155,000.
+
+The value impact of one recurring adjustment, at a stated cap rate: the $30,000 owner-labor adjustment, divided by a 6 percent capitalization rate, equals $500,000 of indicated value ($30,000 / 0.06 = $500,000). One recurring line, restored to the P&L, reprices the asset by half a million dollars at that cap rate. The cap rate is an assumption in this illustration, and a different rate changes the result.
 
 ## What the multiple does to the gap
 
@@ -48,6 +63,13 @@ Run the discipline from the earlier field notes through the P&L and the diligenc
 A normalized P&L with every adjustment labeled is a file a lender can underwrite beside you, not a story a lender has to discount.
 
 Next in Field Notes: the permits buyers skip.
+
+## Sources and Limits
+
+- **Internal grounding:** the labeling discipline in this piece, seller-reported claim, underwriting assumption, missing evidence, comes from the CrosstownOS [ParkProof Standard](/parkproof-standard). The reading method also draws on the Acquisition Signal research program and on operator-community research, with contributors anonymized.
+- **Quality of earnings:** RKL's guidance, [Quality of Earnings Becomes a Key Step in SBA-Financed Acquisitions](https://www.rklcpa.com/quality-of-earnings-becomes-a-key-step-in-sba-financed-acquisitions/), describes the same review this piece performs in buyer language: test proposed adjustments and add-backs for support, treat personal expenses and discretionary costs as items to examine rather than assume, recognize that owner compensation can overstate ongoing earnings when the owner performs work a buyer must replace, and compare reported results against bank deposits, tax returns, and other records behind the statements.
+- **Expense-ratio benchmark:** operators in community research for this program commonly describe park operating expenses in a range of roughly 35 to 50 percent of revenue. That range is reported here as an operator-community research figure, a prompt for questions when a seller's ratio sits far outside it. It is not an industry statistic, and it is not a substitute for testing the actual expense lines of a specific park.
+- **Limits:** the normalization table above is a labeled illustration with invented numbers and a stated cap rate assumption. Normalization adjustments require support in the records of the actual deal, and tax, legal, and accounting treatment should be confirmed with the appropriate professionals.
 
 *Put it to work: run the [Expense Normalizer](/tools/expense-normalizer) on the seller's P&L, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
 

@@ -6,7 +6,7 @@ tags: ["diligence", "verification", "field notes"]
 seoTitle: "The Rent Roll Is a Claim, Not Proof | CrosstownOS"
 ---
 
-Every buyer asks for the rent roll first. It looks like the cleanest document in the package: names, sites, rates, balances, lease dates. It has the confidence of a ledger.
+Buyers typically ask for the rent roll early in the package. It looks like the cleanest document in the package: names, sites, rates, balances, lease dates. It has the confidence of a ledger.
 
 It is not a ledger. It is a claim about what should be collected.
 
@@ -26,7 +26,7 @@ The first is scheduled rent: the amount the rent roll says tenants owe. The seco
 
 Only the third one is behavior. The first is a claim, the second is a report, and the work is reconciling the three until the gaps have names.
 
-**Verify in this order:** bank deposits first, then collections, then the rent roll, then the leases. Start with the record the seller cannot edit and work toward the one he wrote.
+**Verify in this order:** bank deposits first, then collections, then the rent roll, then the leases. Start with the deposit records, obtained and compared against collections, and work toward the document the seller prepared. Where possible, get deposit records from the source institution rather than relying on a seller-prepared summary, because seller-supplied records can be altered. The method is comparison across records, not trust in any single one.
 
 Those numbers should be close. When they are not, the gap is the diligence.
 
@@ -43,6 +43,10 @@ The reconciliation should answer plain questions. Do monthly deposits tie to mon
 One experienced operator described the first number they verify as actual rent collected, not scheduled or potential rent. The trailing twelve months get reconciled across deposits, management reports, the general ledger, and tax filings where available. The discipline is not glamorous. That is why it works.
 
 When the records agree, the rent roll becomes useful. When they do not, the rent roll becomes a list of questions.
+
+**Worked illustration (invented numbers, one month):** the rent roll schedules $48,000 in rent. The collections report shows $44,160 collected. Bank records show $42,720 deposited. The first gap is billed but not collected: $48,000 minus $44,160 equals $3,840. The second gap is collected but not shown as deposited: $44,160 minus $42,720 equals $1,440. Together the gaps total $5,280, which is $48,000 minus $42,720. Until both gaps have names, the verified income figure for that month is the deposited number, $42,720, not the scheduled $48,000.
+
+The paper reconciliation also needs a field check. Walk the park and physically verify a sample of sites against the roll: is the site occupied, by whom, and does what is on the ground match the name, rate, and status on the roll? Where the size and structure of the deal support them, estoppel certificates add a second check, because tenants confirm their own rent amount, lease term, and whether any side agreement exists, in writing, independent of the seller's roll. A roll that ties to deposits but not to the ground, or to the ground but not to deposits, is only half verified.
 
 ## Cash is not a footnote
 
@@ -74,9 +78,16 @@ But a map is not the territory, and a claim is not proof.
 
 The verified number is rarely the cleanest number in the package. It is the one that survived contact with the bank.
 
-Deposits set the income. The income sets the price. Everything upstream of the deposits is a claim.
+Deposits set the income. The income, after expenses and at a capitalization rate, helps set the price. Everything upstream of the deposits is a claim.
 
 Next in Field Notes: A Filled-Out Form Is Not Proof.
+
+## Sources and Limits
+
+- **Internal grounding:** the verification order and the evidence labels in this piece come from the CrosstownOS [ParkProof Standard](/parkproof-standard). The method also draws on the Acquisition Signal research program and on operator-community research, with contributors anonymized.
+- **Mobile Home University:** its due diligence doctrine, in [The Truth About Mobile Home Park Due Diligence](https://www.mobilehomeuniversity.com/articles/the-truth-about-mobile-home-park-due-diligence), is to verify every number and condition from scratch rather than trust seller-supplied information, including whether occupancy is as promised. A Mobile Home University forum discussion, [Would You Buy a Park Without Bank Statements from the Seller?](https://forum.mobilehomeuniversity.com/t/would-you-buy-a-park-without-bank-statements-from-the-seller/11765), applies the same point to income specifically: participants describe confirming the rent roll by comparing gross receipts deposited to the bank account against the roll.
+- **Rent-roll reconciliation:** Primior's [Commercial Real Estate Rent Roll Analysis](https://primior.com/commercial-real-estate-rent-roll-analysis/) sets out the same bridge used above: build a tenant-by-tenant path from contractual rent to billed rent to collected rent, and reconcile collections to the general ledger, bank deposits, the aging report, and trailing operating statements before using the income in valuation.
+- **Limits:** the worked reconciliation above is a labeled illustration with invented numbers. Deposits corroborate income. They do not prove it by themselves, because deposits can include amounts that are not rent. And verified income alone does not set price: expenses and the capitalization rate sit between income and value.
 
 *Put it to work: run the [Rent-Roll Truth Check](/tools/rent-roll-truth-check) on your deal, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
 
