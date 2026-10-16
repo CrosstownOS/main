@@ -125,7 +125,7 @@ export default function CatalogPage() {
               </li>
             </ul>
           </section>
-          <div className="theme-cream mt-8 border border-primary/40 bg-primary/5 p-6">
+          <div className="theme-cream mt-8 border border-primary/40 bg-card p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Prefer to run the math?
             </p>

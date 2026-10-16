@@ -362,7 +362,7 @@ export default function ToolsPage() {
           ))}
 
           {/* 3.3 Connect band */}
-          <section className="theme-cream mt-16 border border-primary/40 bg-primary/5 p-8" aria-label="How the working papers connect">
+          <section className="theme-cream mt-16 border border-primary/40 bg-card p-8" aria-label="How the working papers connect">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               How the working papers connect
             </p>
