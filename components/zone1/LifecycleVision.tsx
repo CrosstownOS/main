@@ -168,12 +168,20 @@ export default function LifecycleVision() {
           Opens November 2026: Source + Field + Acquire.
         </p>
 
-        <Link
-          href="/trail-log"
-          className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          Follow the build in The Trail Log
-        </Link>
+        <div className="theme-cream paper mt-5 border border-primary/40 bg-card p-6 text-center sm:p-8">
+          <p className="mono-label mb-3">Field Network / Build Log</p>
+          <p className="serif-display text-3xl leading-tight sm:text-4xl">
+            The Trail Log.
+          </p>
+          <div className="mt-6">
+            <Link
+              href="/trail-log"
+              className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Follow the build in The Trail Log
+            </Link>
+          </div>
+        </div>
       </Container>
     </Section>
   )
