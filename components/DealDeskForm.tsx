@@ -4,6 +4,7 @@ import { useRef, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import CalBooking from "@/components/CalBooking"
+import SuccessState from "@/components/SuccessState"
 
 // OWNER SWITCH: set to true only when /privacy has approved attorney text
 // and is live. Until then the privacy consent line stays hidden.
@@ -144,14 +145,22 @@ export default function DealDeskForm() {
 
   if (status === "success") {
     return (
-      <div role="status" className="border border-primary/50 bg-primary/5 p-6 sm:p-8">
-        <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
-          Application received
-        </p>
-        <p className="text-base leading-relaxed text-foreground sm:text-lg">
-          {statusMessage}
-        </p>
-      </div>
+      <SuccessState
+        eyebrow="Application received"
+        title="Thank you. Your application is in."
+        body={
+          <>
+            <p>{statusMessage}</p>
+            <p className="mt-2">
+              Acceptance and your activation date are confirmed separately.
+            </p>
+          </>
+        }
+        door={{
+          href: "/parkproof-walkthrough",
+          label: "See an illustrative ParkProof decision record",
+        }}
+      />
     )
   }
 

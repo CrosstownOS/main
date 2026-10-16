@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, type FormEvent } from "react"
+import SuccessState from "@/components/SuccessState"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -61,6 +62,17 @@ export default function TrailLogForm() {
     }
   }
 
+  if (status === "success") {
+    return (
+      <SuccessState
+        eyebrow="Weigh-in received"
+        title="Thank you for weighing in."
+        body={message}
+        door={{ href: "#trail-shipped", label: "Read what has shipped" }}
+      />
+    )
+  }
+
   return (
     <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2" noValidate>
       <div className="absolute left-[-9999px] top-[-9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
@@ -119,14 +131,10 @@ export default function TrailLogForm() {
         <span>I understand this vote is input for the build conversation, not a commitment or a product order.</span>
       </label>
 
-      {message ? (
+      {status === "error" && message ? (
         <div
-          role={status === "error" ? "alert" : "status"}
-          className={
-            status === "error"
-              ? "border border-accent/60 bg-accent/10 px-4 py-3 text-sm text-foreground sm:col-span-2"
-              : "border border-primary/50 bg-primary/5 px-4 py-3 text-sm text-foreground sm:col-span-2"
-          }
+          role="alert"
+          className="border border-accent/60 bg-accent/10 px-4 py-3 text-sm text-foreground sm:col-span-2"
         >
           {message}
         </div>

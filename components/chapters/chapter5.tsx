@@ -5,6 +5,7 @@ import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { TerminalLabel } from "@/components/ui/primitives"
 import CalBooking from "@/components/CalBooking"
+import SuccessState from "@/components/SuccessState"
 import {
   OPEN_BASECAMP_EVENT,
   OPEN_FOUNDING_CIRCLE_EVENT,
@@ -40,6 +41,8 @@ type FormConfig = {
   intro: string
   microcopy: string[]
   submitLabel: string
+  successTitle: string
+  successDoor: { href: string; label: string }
   fields: FieldConfig[]
   calUrl?: string
   calTitle?: string
@@ -71,6 +74,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "We review each request personally. No investor information is requested or required.",
     ],
     submitLabel: "Request an Invitation",
+    successTitle: "Your invitation request is in.",
+    successDoor: { href: "/trail-log", label: "Read the Trail Log" },
     calUrl: "https://cal.com/crosstownos/field-network-intro",
     calTitle: "Book a Field Network intro call",
     fields: [
@@ -118,6 +123,11 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Submitting this form does not create an agency, brokerage, or partnership relationship.",
     ],
     submitLabel: "Start a Partner Conversation",
+    successTitle: "Your partner conversation request is in.",
+    successDoor: {
+      href: "/parkproof-walkthrough",
+      label: "Inside a documented decision file",
+    },
     calUrl: "https://cal.com/crosstownos/referral-alliance-intro",
     calTitle: "Book a Referral Alliance intro call",
     fields: [
@@ -165,6 +175,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Submitting this form does not create an advisory, agency, investment, financing, brokerage, or transaction relationship.",
     ],
     submitLabel: "Start the Conversation",
+    successTitle: "Your note is in.",
+    successDoor: { href: "/blog", label: "Read the Field Notes" },
     calUrl: "https://cal.com/crosstownos/conversation",
     calTitle: "Book a conversation",
     fields: [
@@ -201,6 +213,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Crosstown reviews opportunities confidentially. Submission does not create an offer, broker relationship, agency relationship, valuation opinion, financing commitment, or obligation to transact.",
     ],
     submitLabel: "Submit Opportunity",
+    successTitle: "Your opportunity is in.",
+    successDoor: { href: "/workspace", label: "See the Acquisition Workspace" },
     fields: [
       {
         key: "relationshipToOpportunity",
@@ -298,6 +312,8 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
       "Basecamp is for strategic conversations. Submission does not create an offer, solicitation, advisory relationship, partnership, or investment opportunity.",
     ],
     submitLabel: "Start a Conversation",
+    successTitle: "Your note is in.",
+    successDoor: { href: "/trail-log", label: "Read the Trail Log" },
     fields: [
       { key: "name", label: "Name", input: "text", required: true, autoComplete: "name", half: true },
       { key: "company", label: "Company/entity", input: "text", required: true, autoComplete: "organization", half: true },
@@ -640,24 +656,20 @@ export default function Chapter5() {
 
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-6">
               {status === "success" ? (
-                <div
-                  role="status"
-                  className="border border-primary/50 bg-primary/5 p-6"
+                <SuccessState
+                  eyebrow="Submission received"
+                  title={config.successTitle}
+                  body={statusMessage}
+                  door={config.successDoor}
                 >
-                  <TerminalLabel className="mb-4 block text-primary">
-                    Submission Received
-                  </TerminalLabel>
-                  <p className="mb-8 text-sm leading-relaxed text-foreground sm:text-base">
-                    {statusMessage}
-                  </p>
                   <button
                     type="button"
                     onClick={closeForm}
-                    className="w-full border border-primary/60 bg-primary px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="mt-4 w-full border border-border px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     Close
                   </button>
-                </div>
+                </SuccessState>
               ) : (
                 <>
                   <p className="mb-6 text-sm leading-relaxed text-muted sm:text-base">

@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Container, TerminalLabel } from "@/components/ui/primitives"
+import SuccessState from "@/components/SuccessState"
 
 const FOOTER_LINKS = [
   { href: "/parkproof-standard", label: "ParkProof Standard" },
@@ -65,6 +66,15 @@ export default function SiteFooter() {
             </p>
           </div>
 
+          {footerStatus === "success" ? (
+            <SuccessState
+              eyebrow="Crosstown Updates"
+              title="You are on the list."
+              body="Occasional build notes and diligence patterns. No noise."
+              door={{ href: "/blog", label: "Read the Field Notes" }}
+              className="w-full md:max-w-md"
+            />
+          ) : (
           <form
             onSubmit={handleFooterSubscribe}
             className="flex w-full flex-col gap-3 sm:flex-row md:w-auto"
@@ -84,23 +94,15 @@ export default function SiteFooter() {
             />
             <button
               type="submit"
-              disabled={footerStatus === "loading" || footerStatus === "success"}
+              disabled={footerStatus === "loading"}
               className="whitespace-nowrap border border-primary/60 bg-primary px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {footerStatus === "success"
-                ? "Subscribed"
-                : footerStatus === "loading"
-                  ? "Sending…"
-                  : "Subscribe"}
+              {footerStatus === "loading" ? "Sending…" : "Subscribe"}
             </button>
           </form>
+          )}
 
           <div aria-live="polite" className="min-h-[1rem]">
-            {footerStatus === "success" ? (
-              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-primary">
-                You are on the list.
-              </p>
-            ) : null}
             {footerStatus === "error" ? (
               <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
                 Could not subscribe. Please try again.
