@@ -337,27 +337,27 @@ export default function AcquisitionWorkspacePage() {
          </thead>
          <tbody>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top font-bold text-foreground">Verified</td>
+           <td className="px-3 py-2 align-top font-bold text-success">Verified</td>
            <td className="px-3 py-2 align-top">Evidence you can point to, reviewed by a person.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top font-bold text-foreground">Broker-reported</td>
+           <td className="px-3 py-2 align-top font-bold text-accent">Broker-reported</td>
            <td className="px-3 py-2 align-top">Claimed in the package or on a call; not checked yet.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top font-bold text-foreground">Missing evidence</td>
+           <td className="px-3 py-2 align-top font-bold text-critical">Missing evidence</td>
            <td className="px-3 py-2 align-top">Material information not received or located yet.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top font-bold text-foreground">Underwriting assumption</td>
+           <td className="px-3 py-2 align-top font-bold text-primary">Underwriting assumption</td>
            <td className="px-3 py-2 align-top">A stated input in your case; not a verified fact.</td>
           </tr>
           <tr className="border-b border-border/60">
-           <td className="px-3 py-2 align-top font-bold text-foreground">Calculated</td>
+           <td className="px-3 py-2 align-top font-bold text-calculated">Calculated</td>
            <td className="px-3 py-2 align-top">Output from stated inputs; only as reliable as they are.</td>
           </tr>
           <tr>
-           <td className="px-3 py-2 align-top font-bold text-foreground">Unresolved</td>
+           <td className="px-3 py-2 align-top font-bold text-muted">Unresolved</td>
            <td className="px-3 py-2 align-top">Sources conflict, or the answer is not established yet.</td>
           </tr>
          </tbody>
