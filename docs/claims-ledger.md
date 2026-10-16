@@ -163,6 +163,17 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 
 ---
 
+## Corrective batch: RESOURCE_INSIDE bodies + report reconciliation (commit 4a1ad47)
+
+| Page / surface | Claim | Basis / Source | Status |
+|---|---|---|---|
+| Resource Inside content, all 38 (lib/resource-inside.ts) | Full-file claim audit (corrective): content is worksheet method (internal doctrine), one expired relative-date line already fixed in Batch 11 (the AS-20 walkthrough reference), three behavioral universals | Audit read the whole file against source. Three qualifications shipped in 4a1ad47: AS-21 "structures that win" to "structures to consider"; AS-08R "why RV expenses lie" to "why RV expenses can mislead"; AS-22 "the word that scares sellers" and "what sellers fear" to seller-concern framing tied to the sheet itself | GROUNDED-INTERNAL |
+| Batch 10 builder report | Described edits to structures that do not exist in this repo (HOWTO_SCHEMAS, per-resource bodies in lib/resources.ts, copyright stamping, ATCO load-factor replacement, labeled rate defaults, an E&O multiple removal) | Coordinator reconciled the shipped diff (fecbd98) line by line: actual Batch 10 work is the template Basis and limits paragraph, one softened related-resource note, and the description qualifications shared with Batch 11. The phantom items were never in the tree and never shipped | REPORT DISCREPANCY, recorded; ledger Batch 10 section rewritten to the diff |
+| Expansion verifier hard failures (2) | Buy-it page part-name/code residues; benchmark-builder body still carrying the 15% factor | Coordinator grep of source AND live HTML: neither quoted string exists in the codebase or on the live pages. Third and fourth non-reproducing fetch-based findings in this program | NOT REPRODUCED, recorded |
+| Expansion verifier secondary items | Trail Log Oct 7/Oct 9 within-entry mismatch; one unpinned evidence-chip literal | Trail Log: the two dates are two separate entries (Oct 7 entry; Oct 9 entry added by Batch 8 for the MHP note publication); no within-entry conflict exists. Chip literal: no odd-one-out rendering identifiable in source; tool chips render centrally from the pinned literals in lib/tools/evidence.ts | NOT REPRODUCED, recorded |
+
+---
+
 ## Micro-batch (final): /resources/the-evidence-status-standard states table colors
 
 | Page | Change | Basis / Source | Status |
