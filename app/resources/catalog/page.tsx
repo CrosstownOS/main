@@ -271,9 +271,11 @@ export default function CatalogPage() {
             </a>
             .
           </p>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
-            Every sheet in the library exists to move one claim from asserted to proven.
-          </p>
+          <div className="theme-cream paper mt-12 border border-primary/40 bg-card p-8 text-center">
+            <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
+              Every sheet in the library exists to move one claim from asserted to proven.
+            </p>
+          </div>
         </div>
       </main>
       <script

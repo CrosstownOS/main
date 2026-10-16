@@ -265,9 +265,11 @@ export default function EditorialStandardsPage() {
             </p>
           </section>
 
-          <p className="mt-12 text-sm leading-relaxed text-muted">
-            The standard for the writing is the standard for the record: claims labeled, sources named, and gaps stated as gaps, never smoothed over.
-          </p>
+          <div className="theme-cream paper mt-12 border border-primary/40 bg-card p-8 text-center">
+            <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
+              The standard for the writing is the standard for the record: claims labeled, sources named, and gaps stated as gaps, never smoothed over.
+            </p>
+          </div>
         </div>
       </main>
     </>

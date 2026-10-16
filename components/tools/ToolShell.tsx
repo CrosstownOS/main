@@ -39,6 +39,7 @@ function PostureBanner({ label, statement }: { label: ReadinessLabel; statement:
       <p className="serif-display mt-2 text-3xl tracking-tight text-foreground">{info.title}</p>
       <p className="mt-2 text-sm leading-relaxed text-foreground/90">{statement}</p>
       <p className="mt-3 text-xs leading-relaxed text-muted">{POSTURE_FOOTER}</p>
+      <p className="mt-3 text-xs leading-relaxed text-muted">{READINESS_DISCLAIMER}</p>
     </div>
   )
 }
@@ -422,7 +423,6 @@ export default function ToolShell(props: ToolShellProps) {
           {posture && (
             <div className="mt-10">
               <PostureBanner label={posture.label} statement={posture.statement} />
-              <p className="mt-3 text-xs leading-relaxed text-muted">{READINESS_DISCLAIMER}</p>
             </div>
           )}
 

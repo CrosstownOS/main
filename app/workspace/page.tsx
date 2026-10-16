@@ -664,10 +664,10 @@ Five qualified participants will receive free access. Paid access is available s
       </p>
       <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
        <DealDeskForm />
-      </div>
-      <p className="mt-4 text-xs leading-relaxed text-muted">
+       <p className="mt-4 text-xs leading-relaxed text-muted">
         Submitting an application does not reserve a place or begin access. We&apos;ll confirm acceptance and your activation date separately.
-      </p>
+       </p>
+      </div>
       <div className="theme-cream mt-4 border border-[#3a86f2] bg-card p-6 shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] sm:p-8">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
           ParkProof Walkthrough / Illustrative record
