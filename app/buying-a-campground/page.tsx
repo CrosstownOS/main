@@ -91,7 +91,7 @@ const DIFFERENCES: { title: string; body: ReactNode }[] = [
   },
   {
     title: "Amenities are the product",
-    body: "Pools, bathhouses, playgrounds, camp stores, and activity programming are not extras at a campground. They are the reason guests choose it over the park down the road. Price their condition honestly: a bathhouse renovation or a pool resurface is a six-figure line item that never appears in the broker's expense summary.",
+    body: "Pools, bathhouses, playgrounds, camp stores, and activity programming are not extras at a campground. They are the reason guests choose it over the park down the road. Price their condition honestly: a major bathhouse renovation can run into six figures depending on scope and region, and even a pool resurface is a material capital cost. Costs like that rarely appear in the broker's expense summary, so get a contractor scope and price for this park instead of budgeting from a general figure.",
   },
   {
     title: "Regulatory exposure is wider",
@@ -102,7 +102,7 @@ const DIFFERENCES: { title: string; body: ReactNode }[] = [
 const SEASONAL_TRAPS = [
   {
     title: "The annualized average",
-    body: "Twelve-month revenue divided by twelve tells you nothing about a business that makes 70 percent of its money in five months. Build the monthly P&L. Find the breakeven occupancy for the shoulder months. Know exactly how bad a bad summer has to be before the debt service sweats.",
+    body: "Twelve-month revenue divided by twelve tells you nothing about a business with a concentrated season. Illustrative shape, not a benchmark: a park that made 70 percent of its money in five months would still be averaged into a flat monthly figure that hides that shape. Build the monthly P&L. Find the breakeven occupancy for the shoulder months. Know exactly how bad a bad season has to be before the debt service sweats.",
   },
   {
     title: "Last year's weather",
@@ -110,7 +110,7 @@ const SEASONAL_TRAPS = [
   },
   {
     title: "Rate growth assumed, not demonstrated",
-    body: "Broker packages love to underwrite 5 percent annual rate increases on transient sites. Check the actual rate history for the last three years. If rates have been flat while costs rose, the upside is a turnaround story priced as a stabilized asset.",
+    body: "Packages often assume mid-single-digit annual rate growth on transient sites, sometimes 5 percent a year, without showing that this market has absorbed it. Treat that growth as an assumption to test, not as income. Check the actual rate history for the last three years and test the assumed increase against local comparable parks. If rates have been flat while costs rose, the upside is a turnaround story priced as a stabilized asset.",
   },
   {
     title: "The shoulder season headcount",
@@ -195,6 +195,16 @@ export default function BuyingACampgroundPage() {
               Seasonality does not just change the numbers. It changes which
               numbers you can trust. Four traps catch campground buyers more
               than any others.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              One regional caveat before any of these traps: the season is
+              not the same everywhere. The pattern most buyers picture
+              assumes a northern summer peak. In Sun Belt and
+              winter-destination markets, the season can run the other way,
+              with snowbird and winter guests carrying the year and summer
+              as the soft period. Do not assume either shape. Map this
+              park&apos;s monthly revenue and occupancy, month by month,
+              and underwrite the shape you actually find.
             </p>
             <ul className="mt-6 space-y-3">
               {SEASONAL_TRAPS.map((trap) => (
@@ -291,6 +301,39 @@ export default function BuyingACampgroundPage() {
                 See the Acquisition Workspace
               </Link>
             </div>
+          </section>
+
+          <section className="mt-12" aria-label="Sources and limits">
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              Sources and limits
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <span className="font-bold text-foreground">Sources:</span>{" "}
+              this guide cites no external dataset for its cost or
+              seasonality figures, and none of them should be read as a
+              benchmark. The 70 percent in five months figure above is
+              labeled in the text as an illustrative shape of one seasonal
+              business, not a measured average. Amenity costs are stated as
+              scope-dependent general framing only. The figures that matter
+              on a specific deal come from that park&apos;s own records: its
+              monthly revenue and occupancy, its rate history, local
+              comparable parks, and contractor scopes for its amenities.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <span className="font-bold text-foreground">Limits:</span>{" "}
+              this guide is a diligence framework, not legal, engineering,
+              or professional advice. Season shape, permit requirements,
+              and utility rules vary by region, state, and locality, and the
+              season inverts in Sun Belt and winter-destination markets.
+              Confirm the season, the permits, and the costs for the park
+              in front of you, from its records and the issuing authorities,
+              before pricing any of them into a deal.
+            </p>
+            <p className="mt-6 text-sm italic leading-relaxed text-muted">
+              This guide may use AI-assisted research and drafting. Sources,
+              claims, and final editorial judgment remain subject to human
+              review.
+            </p>
           </section>
 
           <p className="mt-10 text-sm">

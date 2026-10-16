@@ -151,7 +151,7 @@ export default function MobileHomeParkInvestingPage() {
                   </tr>
                   <tr className="border-b border-border/60">
                     <th className="px-3 py-2 font-bold text-foreground">The home itself</th>
-                    <td className="px-3 py-2 align-top">The resident&apos;s property, titled as personal property in the resident&apos;s name</td>
+                    <td className="px-3 py-2 align-top">The resident&apos;s property, typically titled as personal property in the resident&apos;s name, though in many states a home can be converted to or affixed as real property</td>
                     <td className="px-3 py-2 align-top">The park&apos;s property; the park holds title and the wear</td>
                   </tr>
                   <tr className="border-b border-border/60">
@@ -188,8 +188,10 @@ export default function MobileHomeParkInvestingPage() {
             </p>
             <div className="theme-cream mt-6 border border-border bg-card p-5">
               <p className="text-sm leading-relaxed text-foreground/85">
-                Value the two businesses separately: park-owned homes as
-                personal property, tenant-owned lot rent as real estate.{" "}
+                Value the two businesses separately: park-owned homes on
+                their title status, typically personal property and
+                sometimes converted to real property, and tenant-owned lot
+                rent as real estate.{" "}
                 <Link
                   href="/tools/poh-toh-split"
                   className="font-semibold text-primary hover:underline"
@@ -210,9 +212,14 @@ export default function MobileHomeParkInvestingPage() {
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               The rent roll says what lot rent should be. In tenant-owned
-              parks, delinquency is stickier than in apartments: evicting a
-              homeowner who owns the structure is slower, costlier, and
-              politically harder than turning an apartment. The method for
+              parks, delinquency can be stickier than in apartments, and
+              removing a homeowner who owns the structure can be slower and
+              costlier than turning an apartment unit. How much slower or
+              costlier is not a national rule: eviction of a homeowner, as
+              distinct from a renter of a park-owned home, is governed by
+              state landlord-tenant law, and timelines, notice, and
+              protections vary materially by state. Price the delinquency
+              risk for the state the park is actually in. The method for
               proving the income, bank deposits against the rent roll over
               12 to 24 months, lives in{" "}
               <Link
@@ -275,19 +282,31 @@ export default function MobileHomeParkInvestingPage() {
               Utility infrastructure: the hidden capex
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Mobile home parks are old. Much of the national stock was built
-              in the 1960s through 1980s, which means the water lines, sewer
-              lines, and electrical systems are often original. Deferred
+              Many mobile home parks a buyer will see are decades old, and
+              the homes in them skew old as well. National Association of
+              Home Builders analysis of the U.S. Census Bureau&apos;s 2023
+              American Housing Survey found that about 72.2 percent of the
+              occupied manufactured home stock was built before 2000 (see
+              Sources and limits below). That figure describes homes, not
+              park utility lines. For a specific park, the age of the water
+              lines, sewer lines, and electrical systems still has to be
+              proven from permits, records, and inspection, and in an older
+              park those systems may be original. Deferred
               underground infrastructure is the silent deal killer: invisible
               in photos, absent from the P&amp;L, and priced in five or six
               figures when it fails.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Two things are specific to parks of this era. First, the
-              metering: master-metered parks where the owner eats the utility
-              bill need immediate sub-metering capex in your underwriting.
-              Second, the pipe: water and sewer lines from the 1960s to
-              1980s build era are often original material, and their
+              Two things are specific to older parks. First, the
+              metering: in a master-metered park where the owner eats the
+              utility bill, sub-metering is a capex item to underwrite where
+              the jurisdiction and utility rules allow it. Some states and
+              localities restrict resale of utilities or require specific
+              metering arrangements, and where sub-metering or pass-through
+              is not allowed, the cost lands differently, as an ongoing
+              owner-paid utility expense to price into the deal instead of a
+              metering project. Second, the pipe: in an older park, water
+              and sewer lines may be original material, and their
               condition, from inspection reports or a scoped sample, not
               from the seller&apos;s memory, sets the capital plan. The
               general utility verification, who pays for each system, what
@@ -412,6 +431,48 @@ export default function MobileHomeParkInvestingPage() {
                 See the Acquisition Workspace
               </Link>
             </div>
+          </section>
+
+          <section className="mt-12" aria-label="Sources and limits">
+            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
+              Sources and limits
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <span className="font-bold text-foreground">Source:</span>{" "}
+              <a
+                href="https://eyeonhousing.org/2025/12/top-posts-manufactured-homes-an-alternative-means-of-housing-supply/"
+                className="font-semibold text-primary hover:underline"
+                rel="noreferrer"
+                target="_blank"
+              >
+                National Association of Home Builders, Eye on Housing,
+                &ldquo;Manufactured Homes: An Alternative Means of Housing
+                Supply&rdquo; (December 2025)
+              </a>
+              , an analysis of the U.S. Census Bureau&apos;s 2023 American
+              Housing Survey. It reports 7.2 million occupied manufactured
+              homes in the United States and that about 72.2 percent of that
+              stock was built before 2000. This guide uses that figure only
+              for the age of the homes. It does not establish the age or
+              condition of any specific park&apos;s utility systems.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <span className="font-bold text-foreground">Limits:</span>{" "}
+              this guide is a diligence framework, not legal advice.
+              Eviction, home title, and utility metering and resale are
+              governed by state and local law and utility rules, which vary
+              materially by jurisdiction. How a home is titled, whether it
+              has been converted to real property, and whether sub-metering
+              or utility pass-through is allowed on a specific deal must be
+              confirmed from the titles, the state&apos;s rules, and the
+              utility&apos;s terms for that park, with qualified local
+              counsel where the answer matters to the price.
+            </p>
+            <p className="mt-6 text-sm italic leading-relaxed text-muted">
+              This guide may use AI-assisted research and drafting. Sources,
+              claims, and final editorial judgment remain subject to human
+              review.
+            </p>
           </section>
 
         </div>
