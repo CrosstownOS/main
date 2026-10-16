@@ -370,9 +370,13 @@ export default function AcquisitionWorkspacePage() {
      </section>
 
      {/* Manufactured housing */}
-     <section aria-label="Manufactured housing" className="mt-20">
+     <section aria-labelledby="manufactured-housing" className="mt-20">
+      <p className="mono-label mb-4">CrosstownOS / Manufactured housing</p>
       <SignalLine />
-      <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
+      <h2 id="manufactured-housing" className="serif-display text-2xl tracking-tight sm:text-3xl">
+       Manufactured housing.
+      </h2>
+      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
        <strong className="font-semibold text-foreground">
         Buying a mobile home park?
        </strong>{" "}
@@ -386,15 +390,34 @@ export default function AcquisitionWorkspacePage() {
        attached, and nothing counts as proven until the record proves
        it.
       </p>
+      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+       A manufactured housing acquisition runs two records at once.
+      </p>
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+       <div className="theme-cream border border-border bg-card p-6">
+        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+         The land record
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+         The first record is the land: permitted sites, utility capacity, the
+         age of the lines.
+        </p>
+       </div>
+       <div className="theme-cream border border-border bg-card p-6">
+        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+         The homes record
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+         The second record is the homes: who holds each title, which homes are
+         tenant-owned and which are park-owned, and what the lot rent actually
+         deposits.
+        </p>
+       </div>
+      </div>
       <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
-       A manufactured housing acquisition runs two records at once. The
-       first record is the land: permitted sites, utility capacity, the
-       age of the lines. The second record is the homes: who holds each
-       title, which homes are tenant-owned and which are park-owned, and
-       what the lot rent actually deposits. CrosstownOS keeps both
-       records in the one workspace, so seller claims, source evidence,
-       site observations, and unresolved diligence stay connected across
-       the land and the homes before capital commits.
+       CrosstownOS keeps both records in the one workspace, so seller claims,
+       source evidence, site observations, and unresolved diligence stay
+       connected across the land and the homes before capital commits.
       </p>
       <div className="theme-cream mt-6 border border-border bg-card p-5 sm:p-6">
        <p className="mb-4 text-sm font-bold text-foreground">
