@@ -215,15 +215,20 @@ export default function PlatformLinks() {
           })}
         </div>
 
-        <div className="mx-auto mt-8 max-w-5xl text-center">
-          <button
-            type="button"
-            onClick={() => dispatchFormEvent(OPEN_GENERAL_EVENT, "paths-not-sure")}
-            aria-haspopup="dialog"
-            className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
+        <div className="theme-cream paper mx-auto mt-8 max-w-5xl border border-primary/40 bg-card p-6 text-center sm:p-8">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
             Not sure where you fit? Start a general conversation and we&rsquo;ll route it.
-          </button>
+          </p>
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={() => dispatchFormEvent(OPEN_GENERAL_EVENT, "paths-not-sure")}
+              aria-haspopup="dialog"
+              className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Start a general conversation
+            </button>
+          </div>
         </div>
       </Container>
     </Section>
