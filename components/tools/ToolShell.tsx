@@ -10,6 +10,7 @@ import { downloadJson, type ToolExport } from "@/lib/tools/schema"
 import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/workingPaper"
 import type { Faq } from "@/lib/tools/faqs"
 import FaqSection from "./FaqSection"
+import SuccessState from "@/components/SuccessState"
 import { cn } from "@/lib/utils"
 import SignalLine from "@/components/ui/SignalLine"
 
@@ -217,6 +218,19 @@ export default function ToolShell(props: ToolShellProps) {
   const [pendingDownload, setPendingDownload] = useState<"paper" | "json" | null>(null)
   const [savedEmail, setSavedEmail] = useState<string | null>(null)
   const [sending, setSending] = useState(false)
+  const [completion, setCompletion] = useState<
+    | { kind: "paper" }
+    | { kind: "json" }
+    | { kind: "email"; email: string }
+    | null
+  >(null)
+  const completionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (completion) {
+      completionRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" })
+    }
+  }, [completion])
 
   const sendPaper = async (toEmail: string) => {
     setSending(true)
@@ -233,6 +247,7 @@ export default function ToolShell(props: ToolShellProps) {
       })
       if (!res.ok) throw new Error("Send failed")
       setSavedEmail(toEmail)
+      setCompletion({ kind: "email", email: toEmail })
       import("@vercel/analytics").then(({ track }) => track("tool_save", { tool: slug, mode: "resend" }))
     } catch {
       setSaveMode("save")
@@ -253,11 +268,13 @@ export default function ToolShell(props: ToolShellProps) {
   const doDownloadPaper = () => {
     import("@vercel/analytics").then(({ track }) => track("tool_export_paper", { tool: slug }))
     downloadWorkingPaperHtml(getExport(), workingPaperFilename(slug, dealName))
+    setCompletion({ kind: "paper" })
   }
 
   const doDownloadJson = () => {
     import("@vercel/analytics").then(({ track }) => track("tool_export_json", { tool: slug }))
     downloadJson(getExport(), exportFileName)
+    setCompletion({ kind: "json" })
   }
 
   const handleSave = () => {
@@ -312,6 +329,8 @@ export default function ToolShell(props: ToolShellProps) {
         doDownloadPaper()
       }
       setPendingDownload(null)
+    } else {
+      setCompletion({ kind: "email", email })
     }
   }
 
@@ -468,6 +487,33 @@ export default function ToolShell(props: ToolShellProps) {
               Your numbers stay in your browser until you choose to move them.
             </p>
           </div>
+
+          {completion && (
+            <div ref={completionRef} className="mt-8">
+              <SuccessState
+                eyebrow={
+                  completion.kind === "email"
+                    ? "Working paper sent"
+                    : "Working paper downloaded"
+                }
+                title={
+                  completion.kind === "email"
+                    ? "Your working paper is on its way."
+                    : completion.kind === "json"
+                      ? "Your raw data is downloading."
+                      : "Your working paper is downloading."
+                }
+                body={
+                  completion.kind === "email"
+                    ? `Sent to ${completion.email}. Nothing else is pending; your numbers stayed in your browser until you sent them.`
+                    : completion.kind === "json"
+                      ? "Nothing is pending. The file carries the same numbers and evidence states as the paper."
+                      : "Nothing is pending. The file carries your numbers and their evidence states, ready to sit with the deal record."
+                }
+                door={{ href: `/workspace?tool=${slug}`, label: ctaButton }}
+              />
+            </div>
+          )}
 
           {faqs && faqs.length > 0 && <FaqSection faqs={faqs} />}
 
