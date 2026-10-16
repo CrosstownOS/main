@@ -296,9 +296,11 @@ export default function AcquisitionWorkspacePage() {
         </div>
        ))}
       </div>
-      <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
-       Capital commits only against what the record supports. What the record cannot prove does not get priced, and does not get paid for.
-      </p>
+      <div className="theme-cream mt-6 border border-border border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
+       <p className="text-sm font-medium leading-relaxed text-foreground sm:text-base">
+        Capital commits only against what the record supports. What the record cannot prove does not get priced, and does not get paid for.
+       </p>
+      </div>
      </section>
 
      {/* How it works */}
@@ -465,6 +467,13 @@ export default function AcquisitionWorkspacePage() {
         </div>
        ))}
       </div>
+      <div className="theme-cream mt-6 border border-border border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
+       <p className="text-sm font-medium leading-relaxed text-foreground sm:text-base">
+        A spreadsheet holds the numbers typed into it; the CrosstownOS
+        Acquisition Workspace holds each claim next to its evidence state
+        and the review behind it.
+       </p>
+      </div>
      </section>
 
      {/* Free pilot */}
@@ -488,8 +497,9 @@ In exchange, use the workspace and give candid feedback about what works, what b
 
 Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
        </p>
-      
-       
+       <p className="mt-6 border-t border-primary/30 pt-5 text-base font-semibold leading-relaxed text-foreground sm:text-lg">
+        The file you build is the file your lender reads: claims, evidence, and open items, in the order a reviewer asks for them.
+       </p>
        <TrackedApplyLink
         plan="pilot"
         className="mx-auto mt-8 block w-fit border border-primary/60 bg-primary-deep px-8 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90"
@@ -498,9 +508,6 @@ Five qualified participants will receive free access. Paid access is available s
        </TrackedApplyLink>
        <p className="mt-4 text-xs leading-relaxed text-muted">
         Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
-       </p>
-       <p className="mt-4 text-sm leading-relaxed text-foreground/85">
-        The file you build is the file your lender reads: claims, evidence, and open items, in the order a reviewer asks for them.
        </p>
       </div>
      </section>
