@@ -168,29 +168,32 @@ export default function ParkProof() {
           ))}
         </div>
 
-        {/* Disclaimer */}
-        <p className="mt-8 text-sm leading-relaxed text-foreground/60">
-          ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
-        </p>
+        {/* Closing card — disclaimer, doors, and the record line, housed in the section's cream card family */}
+        <TelemetryBox glass="light" className="theme-cream paper mt-8 p-6 sm:p-8">
+          {/* Disclaimer */}
+          <p className="text-sm leading-relaxed text-foreground/60">
+            ParkProof supports a disciplined decision process. It does not replace legal, engineering, environmental, title, tax, insurance, regulatory, lending, or investment professionals.
+          </p>
 
-        <div className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
-          <Link
-            href="/parkproof-standard"
-            className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            Read the ParkProof Standard
-          </Link>
-          <Link
-            href="/parkproof-walkthrough"
-            className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            See the ParkProof Walkthrough
-          </Link>
-        </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              href="/parkproof-standard"
+              className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              Read the ParkProof Standard
+            </Link>
+            <Link
+              href="/parkproof-walkthrough"
+              className="inline-block border border-primary/60 px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              See the ParkProof Walkthrough
+            </Link>
+          </div>
 
-        <p className="mt-8 text-sm leading-relaxed text-foreground/75">
-          The record is the product: what was claimed, what was proven, what stayed open, and what was decided, kept in one place where the next reader can find it.
-        </p>
+          <p className="serif-display mt-8 text-balance text-xl leading-snug tracking-tight text-foreground sm:text-2xl">
+            The record is the product: what was claimed, what was proven, what stayed open, and what was decided, kept in one place where the next reader can find it.
+          </p>
+        </TelemetryBox>
       </Container>
     </Section>
   )
