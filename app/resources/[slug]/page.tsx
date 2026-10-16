@@ -281,9 +281,10 @@ export default async function ResourcePage({ params }: PageProps) {
                 The evidence status letters
               </h2>
               <p className="text-base font-bold leading-relaxed text-foreground">
-                Every claim in this library carries one letter. The letter is
-                the claim&apos;s status, not its strength. A letter changes
-                only when the evidence changes.
+                Every claim in this library carries one letter, from the
+                CrosstownOS Evidence Status Standard. The letter is the
+                claim&apos;s status, not its strength. A letter changes only
+                when the evidence changes.
               </p>
               <div className="mt-5 overflow-x-auto">
                 <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
@@ -333,7 +334,7 @@ export default async function ResourcePage({ params }: PageProps) {
               className="theme-cream mt-12 border border-border bg-card p-6 sm:p-8"
             >
               <h2 id="resource-inside" className="serif-display text-2xl tracking-tight sm:text-3xl">
-                Inside this tool
+                Inside this CrosstownOS tool
                 {resource.code && part
                   ? ` (${resource.code}, Part ${part.id}: ${part.name})`
                   : ""}
