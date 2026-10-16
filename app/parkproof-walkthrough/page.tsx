@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
+import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 import SampleDecisionFileExplorer from "./SampleDecisionFileExplorer"
 import SignalLine from "@/components/ui/SignalLine"
@@ -94,6 +95,13 @@ export default function SampleDecisionFilePage() {
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <Breadcrumb
+            className="mb-6"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "ParkProof Walkthrough" },
+            ]}
+          />
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
               <p className="mono-label">ParkProof Walkthrough / Inside the Record</p>

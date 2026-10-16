@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
+import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
@@ -115,6 +116,13 @@ export default function BuyingACampgroundPage() {
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <Breadcrumb
+            className="mb-6"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Buying a Campground" },
+            ]}
+          />
           <p className="mono-label mb-4">CrosstownOS / Buyer&apos;s guide</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Buying a campground? Verify it before you buy it.
