@@ -590,6 +590,17 @@ Five qualified participants will receive free access. Paid access is available s
           </li>
          ))}
         </ul>
+        <p className="mt-5 text-sm leading-relaxed text-foreground/85">
+         Weighing the workspace against the data room your deal team
+         already uses? The comparison is direct,{" "}
+         <Link
+          href="/data-room-vs-diligence-software"
+          className="font-semibold text-primary hover:underline"
+         >
+          data room vs due diligence software
+         </Link>
+         , side by side: what each one does with a claim.
+        </p>
        </div>
       </div>
      </section>

@@ -331,6 +331,18 @@ export default function BuyingAnRvParkPage() {
               Acquisition Workspace is where the buyer&apos;s case gets
               built, claim by claim, against the evidence.
             </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              If the deal file currently lives in a data room or a shared
+              drive, the distinction that matters is what the tool does
+              with a claim once the document is filed.{" "}
+              <Link
+                href="/data-room-vs-diligence-software"
+                className="font-semibold text-primary hover:underline"
+              >
+                Data room vs due diligence software
+              </Link>{" "}
+              puts the two side by side.
+            </p>
             <div className="mt-6">
               <Link
                 href="/workspace"
