@@ -191,6 +191,9 @@ export default function MobileHomeParkInvestingPage() {
                 .
               </p>
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Separate businesses get separate prices: the land on proven lot rent, the homes on their rental record.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="Lot rent verification">
@@ -349,6 +352,9 @@ export default function MobileHomeParkInvestingPage() {
               unresolved diligence connected in one place, priced only
               when proven.
             </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              What cannot be proven does not get priced. The capital follows the record, not the package.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="Finish with the record">
@@ -386,6 +392,9 @@ export default function MobileHomeParkInvestingPage() {
               again. Against the broker&apos;s single blended number, the
               CrosstownOS POH/TOH Split values the land business and the
               homes business on separate evidence.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              When both businesses are proven on their own evidence, the closing is a signature, not a second negotiation.
             </p>
             <div className="mt-6">
               <Link

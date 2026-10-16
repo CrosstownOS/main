@@ -243,6 +243,9 @@ export default function BuyingAnRvParkPage() {
                 .
               </p>
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Benchmarks start the conversation. Only verified numbers are allowed to finish it.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="The five verification gates">
@@ -273,6 +276,9 @@ export default function BuyingAnRvParkPage() {
                 </div>
               ))}
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Worked in order, the gates turn closing into a confirmation. Skipped, they turn it into a negotiation nobody planned.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="Red flags">
@@ -299,6 +305,9 @@ export default function BuyingAnRvParkPage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Every flag resolved before closing is capital that stays yours. Every flag found after closing is capital already spent.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="Start with the checklist">
@@ -342,6 +351,9 @@ export default function BuyingAnRvParkPage() {
                 Data room vs due diligence software
               </Link>{" "}
               puts the two side by side.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Partners and lenders do not have to take the buyer's word for any of it. The record shows its work.
             </p>
             <div className="mt-6">
               <Link

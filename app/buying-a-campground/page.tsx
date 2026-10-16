@@ -224,6 +224,9 @@ export default function BuyingACampgroundPage() {
                 .
               </p>
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Capacity proven before the offer is a term of the deal. Capacity assumed is a closing condition waiting to fail.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="Start with the checklist">
@@ -251,6 +254,9 @@ export default function BuyingACampgroundPage() {
               holds the full record: seller claims, source evidence, site
               observations, unresolved diligence, and underwriting connected
               before you commit capital.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              The campground you can prove is the only one worth paying for. The rest is scenery priced as income.
             </p>
             <div className="mt-6">
               <Link

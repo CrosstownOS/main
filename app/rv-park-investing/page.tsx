@@ -213,6 +213,9 @@ export default function RvParkInvestingPage() {
               too, because their skepticism is a preview of your resale
               buyer&apos;s skepticism.
             </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Market ranges describe other people's parks. The price gets set on the one in front of you, on what its record proves.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="Where returns come from">
@@ -276,6 +279,9 @@ export default function RvParkInvestingPage() {
                 .
               </p>
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              A leak found in diligence is a line item. The same leak found after closing is your money leaving.
+            </p>
           </section>
 
           <section className="mt-12" aria-label="The verification framework">
@@ -309,6 +315,9 @@ export default function RvParkInvestingPage() {
               Where the package arranges the numbers into a story, the
               CrosstownOS record keeps the same numbers next to the evidence
               that proves or breaks them.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Returns traced to evidence survive a lender's questions. Returns traced to a projection do not.
             </p>
             <div className="mt-6">
               <Link
