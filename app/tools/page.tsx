@@ -135,7 +135,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Do you keep my numbers?",
-    a: "No. Everything runs in your browser and saves to your browser's local storage. Nothing leaves your machine until you choose to download the JSON.",
+    a: "No. The tools run in your browser and save to your browser's local storage, and we do not receive your inputs while you work. Nothing leaves your machine until you choose to export. A direct download stays on your machine. If you choose email delivery instead, your email address and the working paper you built are sent so we can email it to you.",
   },
   {
     q: "Do I need an account?",
@@ -413,7 +413,7 @@ export default function ToolsPage() {
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
               Running a live deal and want the full record? The Acquisition Workspace
               connects source evidence, field observations, and underwriting
-              in one deal record. First five buyers get it free. After that: single-deal $1,250, annual $2,500.
+              in one deal record. Five free pilot places are open to qualified buyers. Paid access: single-deal $1,250, annual $2,500.
               Each working paper settles one question. The workspace is where the settled questions accumulate into a record a decision can rest on.
             </p>
             <Link

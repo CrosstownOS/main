@@ -119,7 +119,7 @@ export default function ForBrokersLendersPage() {
             partner conversation with Crosstown.
           </p>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/85">
-            Your buyers keep their record. You get a partner who answers.
+            Your buyers keep their record. You get a standing partner conversation with Crosstown, through the door below.
           </p>
 
           <section aria-labelledby="arrival-heading" className="mt-20">

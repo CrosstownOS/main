@@ -59,7 +59,7 @@ const BUILD_COLUMNS = [
   {
     title: "Now building",
     items: [
-      "Source + Field + Acquire, the first connected loop across Know it and Take it.",
+      "Source + Field + Acquire, the first connected loop across Know it and Take it, set as the November scope on October 1. The loop has not been run end to end yet.",
       "The record that starts with public sources, gets tested on the site walk, and is organized before capital is committed.",
     ],
   },
@@ -152,6 +152,12 @@ const SHIPPED = [
     body: "The Product schema on the workspace page gained the merchant listings fields Google requires, the fix the later Search Console flag turned out to predate.",
   },
   {
+    date: "October 9, 2026",
+    title: "Manufactured Housing Diligence Starts With Who Owns the Homes published",
+    href: "/blog/manufactured-housing-diligence-starts-with-who-owns-the-homes",
+    body: "The ninth Field Note took on who owns the homes in a manufactured housing community, and what that means for what a buyer is actually buying.",
+  },
+  {
     date: "October 7, 2026",
     title: "The offer became the Acquisition Workspace",
     href: "/workspace",
@@ -229,8 +235,8 @@ const SHIPPED = [
   },
   {
     date: "October 2, 2026",
-    title: "Founder review confirmed the loop as Field went live",
-    body: "The founder review confirmed Source as the start of the record and Field as on-site capture. That night, Field was seen running for site-walk capture: photos, notes, and observations tied to the deal they belong to. Captured evidence stays unreviewed until a person reviews it.",
+    title: "Field capture was seen running",
+    body: "Founder review set Source as the start of the record and Field as on-site capture. That night, Field capture was seen running: photos, notes, and observations tied to the deal they belong to. Captured evidence stays unreviewed until a person reviews it. The connected Source to Field to Acquire loop had not been run end to end at this date.",
   },
   {
     date: "October 2, 2026",
@@ -263,7 +269,7 @@ const SHIPPED = [
     date: "September 28, 2026",
     title: "The Acquisition Signal library reached 38 resources",
     href: "/resources/catalog",
-    body: "The resource library grew to 38 PDFs organized across the seven Parts of the deal journey, with the catalog and router tying each tool to the next step.",
+    body: "The resource library grew to 38 PDFs: the 35 coded tools organized across the seven Parts of the deal journey, plus the three spine documents, with the catalog and router tying each tool to the next step.",
   },
   {
     date: "September 27, 2026",
@@ -302,7 +308,7 @@ const SHIPPED = [
     date: "September 15, 2026",
     title: "Field Notes opened",
     href: "/blog",
-    body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The first notes took on reported occupancy, utility systems, and what must be established before underwriting.",
+    body: "The buyer-side publication launched with Markdown posts, a blog index, RSS, sitemap support, and related posts. The opening note, dated September 15, took on what must be established before underwriting.",
   },
 ] as const
 
@@ -328,7 +334,7 @@ export default function TrailLogPage() {
             members can weigh in before the next piece hardens.
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/80 sm:text-base">
-            Opens November 2026: Source + Field + Acquire.
+            Target opening: November 2026, for Source + Field + Acquire. The workspace is not open yet.
           </p>
 
           <section aria-labelledby="trail-columns" className="mt-16">

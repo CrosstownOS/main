@@ -100,8 +100,17 @@ export default function BlogIndex() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
             Acquisition intelligence for RV park and manufactured-housing buyers.
-            Diligence notes, underwriting discipline, and field observations from
-            the deals we study.
+            Diligence notes and underwriting discipline for buyers working a
+            live deal.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
+            {posts.length} Field Notes are published, newest first. Each one
+            publishes with a Sources and Limits section and an AI-assistance
+            note, under the{" "}
+            <Link href="/editorial-standards" className="font-semibold text-primary hover:underline">
+              editorial standards
+            </Link>
+            .
           </p>
           <a
             href="/blog/rss.xml"

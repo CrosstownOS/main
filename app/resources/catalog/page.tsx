@@ -4,7 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
-import { PARTS, TOOLS, resourceSlug } from "@/lib/resources"
+import { PARTS, SPINES, TOOLS, resourceSlug, resourceTitleSlug } from "@/lib/resources"
 import SignalLine from "@/components/ui/SignalLine"
 import StaggerReveal from "@/components/ui/StaggerReveal"
 
@@ -13,12 +13,12 @@ const BASE_URL = "https://www.crosstownosrv.camp"
 export const metadata: Metadata = {
   title: "Resource Catalog | CrosstownOS",
   description:
-    "All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey, in order. Free PDF downloads; one email unlocks the whole library.",
+    "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents. Free PDF downloads; one email unlocks the whole library.",
   alternates: { canonical: "/resources/catalog" },
   openGraph: {
     title: "Resource Catalog | CrosstownOS",
     description:
-      "All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey, in order.",
+      "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents.",
     type: "website",
     url: "/resources/catalog",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Resource Catalog | CrosstownOS",
     description:
-      "All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey.",
+      "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents.",
     images: ["/og-logo.png"],
   },
 }
@@ -44,15 +44,24 @@ const jsonLd = {
   "@type": "ItemList",
   name: "Acquisition Signal Resource Library",
   description:
-    "Thirty-five free diligence tools for RV park and manufactured-housing buyers from CrosstownOS // Acquire.",
-  numberOfItems: 35,
-  itemListElement: TOOLS.map((t, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: `${t.code}: ${t.title}`,
-    description: t.description,
-    url: `${BASE_URL}/resources/${resourceSlug(t)}`,
-  })),
+    "Thirty-eight free diligence resources for RV park and manufactured-housing buyers from CrosstownOS // Acquire: 35 coded tools plus the three spine documents.",
+  numberOfItems: TOOLS.length + SPINES.length,
+  itemListElement: [
+    ...TOOLS.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${t.code}: ${t.title}`,
+      description: t.description,
+      url: `${BASE_URL}/resources/${resourceSlug(t)}`,
+    })),
+    ...SPINES.map((sp, i) => ({
+      "@type": "ListItem",
+      position: TOOLS.length + i + 1,
+      name: sp.title,
+      description: sp.description,
+      url: `${BASE_URL}/resources/${resourceTitleSlug(sp.title)}`,
+    })),
+  ],
 }
 
 export default function CatalogPage() {
@@ -73,12 +82,13 @@ export default function CatalogPage() {
           <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
-            All 35 tools, in journey order.
+            All 38 resources, in journey order.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-            Seven Parts, one order. Each Part answers one question about your
-            deal. Run the tools in a Part in order; each tool&apos;s Hands to
-            line tells you the next one. One email unlocks every download. Tap a
+            The library is 35 coded tools in seven Parts, plus the three spine
+            documents below. Each Part answers one question about your deal.
+            Run the tools in a Part in order; each tool&apos;s Hands to line
+            tells you the next one. One email unlocks every download. Tap a
             download and take it to the truck.
           </p>
           <section
@@ -100,7 +110,7 @@ export default function CatalogPage() {
                 >
                   Start Here
                 </Link>{" "}
-                shows how the 35 tools fit together. Read this before you
+                shows how the 38 resources fit together. Read this before you
                 print anything.
               </li>
               <li>
@@ -110,7 +120,7 @@ export default function CatalogPage() {
                 >
                   The Journey Map
                 </Link>{" "}
-                puts thirty-five tools in one order. Find the Part that
+                puts all 38 resources in one order. Find the Part that
                 matches where you are.
               </li>
               <li>

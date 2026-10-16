@@ -20,12 +20,12 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: "Acquisition Signal Resources | CrosstownOS",
-  description: "35 free RV park diligence tools: checklists, scripts, and working papers for every stage of the acquisition journey. Download them or run them in your browser.",
+  description: "38 free RV park diligence resources: 35 coded tools plus the three spine documents, for every stage of the acquisition journey. Download them or run six of them in your browser.",
   alternates: { canonical: "/resources" },
   openGraph: {
     title: "Acquisition Signal Resources | CrosstownOS",
     description:
-      "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
+      "Thirty-eight free diligence resources for RV park and manufactured-housing buyers: 35 coded tools plus the three spine documents. Tell us where your deal stands and get the right tool first.",
     type: "website",
     url: "/resources",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Acquisition Signal Resources | CrosstownOS",
     description:
-      "Thirty-five free diligence tools for RV park and manufactured-housing buyers.",
+      "Thirty-eight free diligence resources for RV park and manufactured-housing buyers: 35 coded tools plus the three spine documents.",
     images: ["/og-logo.png"],
   },
 }
@@ -53,19 +53,28 @@ const jsonLd = {
   "@type": "CollectionPage",
   name: "Acquisition Signal Resources",
   description:
-    "Thirty-five free diligence tools for RV park and manufactured-housing buyers. Tell us where your deal stands and get the right tool first.",
+    "Thirty-eight free diligence resources for RV park and manufactured-housing buyers: 35 coded tools plus the three spine documents. Tell us where your deal stands and get the right tool first.",
   url: `${BASE_URL}/resources`,
   mainEntity: {
     "@type": "ItemList",
     name: "Acquisition Signal Resource Library",
-    numberOfItems: TOOLS.length,
-    itemListElement: TOOLS.map((t, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: `${t.code}: ${t.title}`,
-      description: t.description,
-      url: `${BASE_URL}/resources/${resourceSlug(t)}`,
-    })),
+    numberOfItems: TOOLS.length + SPINES.length,
+    itemListElement: [
+      ...TOOLS.map((t, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${t.code}: ${t.title}`,
+        description: t.description,
+        url: `${BASE_URL}/resources/${resourceSlug(t)}`,
+      })),
+      ...SPINES.map((sp, i) => ({
+        "@type": "ListItem",
+        position: TOOLS.length + i + 1,
+        name: sp.title,
+        description: sp.description,
+        url: `${BASE_URL}/resources/${resourceTitleSlug(sp.title)}`,
+      })),
+    ],
   },
 }
 
@@ -292,7 +301,7 @@ export default async function ResourcesPage({
                 Full catalog
               </p>
               <p className="mt-2 font-semibold leading-snug">
-                Browse all 35 tools by Part
+                Browse all 38 resources by Part
               </p>
             </a>
           </div>

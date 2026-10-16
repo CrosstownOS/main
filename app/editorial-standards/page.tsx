@@ -100,8 +100,31 @@ const SECTIONS = [
     heading: "How we use AI-assisted tools",
     body: [
       "CrosstownOS uses technology, including AI-assisted research and drafting tools, to organize information and accelerate production. Every published resource, Field Note, product rule, website claim, and customer-facing statement receives human review before publication or release.",
-      "We do not place a loud AI-generated disclaimer on ordinary posts merely because AI assisted with drafting or research. Research-heavy Field Notes carry a brief note stating that AI-assisted research and drafting may have been used and that sources, claims, and final editorial judgment remain subject to human review.",
+      "Every piece covered by the Content Production Protocol publishes with an AI-assistance disclosure. Research-heavy Field Notes carry the standing note verbatim: \"This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.\" The disclosure is part of the piece, not an optional extra, and a piece missing it is incomplete.",
       "AI output is not evidence. Accountability for source selection, claim accuracy, uncertainty labels, and the final publication remains with CrosstownOS.",
+    ],
+  },
+  {
+    heading: "Research first: the dossier and the claims ledger",
+    body: [
+      "For Field Notes, guides, comparison pages, and other research-heavy content, research comes before drafting. A research dossier is assembled before a draft begins: the sources relied on, identified by name, date, and a location a reader or checker can reach, with notes connecting each source to the claims it supports.",
+      "Every such piece carries a claims ledger: a list of its load-bearing claims, each with its source and one status: grounded, consistent but uncited, labeled illustration, or working assumption. A claim with no ledger entry does not publish. A claim that is consistent but uncited does not publish as a statement of fact: it is grounded, rewritten as a labeled judgment, converted to a labeled working assumption where the standard permits, or cut.",
+      "No number publishes without a source and an as-of date. A benchmark range requires a named dataset, a geography, and a period. A statement of law names its jurisdiction and cites the instrument relied on. A claim about a named competitor cites that competitor's own current material and carries an as-of date. No source is invented, and a figure whose only source is an earlier CrosstownOS page has no source.",
+      "Synthetic examples, scenarios, and worked examples are labeled as illustrative at their first appearance, and their numbers are never restated elsewhere as benchmarks, market figures, or observed results. Frequency and superlative claims, including every, always, never, and only, require evidence or are rewritten as labeled CrosstownOS judgment or cut. An experience claim is stated only where the experience is real and recorded.",
+    ],
+  },
+  {
+    heading: "Sources and Limits, published with the piece",
+    body: [
+      "Every research-heavy piece publishes with a Sources and Limits section. The section names the sources the piece relies on, with enough detail for a reader to locate each one and the as-of dates the rules above require. It also states what the piece does not know: claims that rest on judgment, domains consciously omitted, the limits of the data used, and material questions the research did not answer.",
+      "Grounding that exists only in an internal file does not count. If the research was done, the reader sees it cited on the page. A warning or disclaimer does not substitute for a source.",
+      "Before publication, each piece is checked across four domains: regulatory, operational, financial, and field observation. A missing domain is filled with grounded material or recorded in the claims ledger as a conscious decision, with the reason stated.",
+    ],
+  },
+  {
+    heading: "Flags and corrections to claims",
+    body: [
+      "When an audit, a review, or the publishing gate flags a claim, the flag attaches to the piece's claims ledger and stays until it is cleared by fixing the underlying claim: grounding it, rewriting it under the rule that governs it, or cutting it. A flagged piece is not republished, linked in a campaign, or given a structured-data version until its flags are cleared. Correcting a claim in the body of a piece includes checking every structured-data version, summary, and internal link description that restates it.",
     ],
   },
   {
@@ -200,6 +223,23 @@ export default function EditorialStandardsPage() {
               defend this without saying &ldquo;the AI told me&rdquo;? If yes,
               it publishes. If no, it needs more source work, clearer labeling,
               or a narrower claim.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              For research-heavy content the gate is also a checklist, kept
+              with the piece's record: the dossier and claims ledger exist and
+              are attached, no claim publishes as fact without a source or a
+              permitted label, the Sources and Limits section and the
+              AI-assistance disclosure are in place, the four-domain check is
+              recorded, and no flag is open. If any item cannot be checked,
+              the piece does not publish.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              These rules are stated in full in the CrosstownOS Content
+              Production Protocol, which extends the Editorial Integrity and
+              AI-Assistance Standard adopted on October 5, 2026. Where an
+              earlier standard and the protocol conflict, the stricter
+              requirement applies until the founder resolves the conflict in
+              writing.
             </p>
             <p className="mt-6 text-sm">
               <Link
