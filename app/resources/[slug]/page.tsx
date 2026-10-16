@@ -72,7 +72,7 @@ const RELATED_RESOURCE_SLUGS: Record<string, { slug: string; note: string }[]> =
   "capital-plan-sources-and-uses": [
     {
       slug: "lender-one-pager",
-      note: "A lender package cannot be built without sources and uses. This plan sets the price, the capex, and the reserve target first. The one-pager then carries those numbers onto one page, in the language a lender reads.",
+      note: "A lender package starts with sources and uses. This plan sets the price, the capex, and the reserve target first. The one-pager then carries those numbers onto one page for the lender.",
     },
   ],
   "first-30-days-takeover-sheet": [
@@ -719,8 +719,15 @@ export default async function ResourcePage({ params }: PageProps) {
               Acquisition Signal Resources are educational tools, not
               professional advice. They organize a disciplined diligence
               workflow; they do not replace legal, tax, engineering, or
-              investment review. Illustrative examples are labeled as such.
-              Read{" "}
+              investment review. Basis and limits: each worksheet states
+              the CrosstownOS diligence method and its Evidence Status
+              Standard, not a market benchmark or a sourced rate. Any
+              figure in a worked example is an illustration or a working
+              assumption, labeled as such, to replace with the deal in
+              front of you and its verified numbers. Tax, insurance,
+              landlord-tenant, and fair-housing rules vary by state and
+              locality; confirm the rule for the park&apos;s own
+              jurisdiction before acting on it. Read{" "}
               <Link
                 href="/editorial-standards"
                 className="font-semibold text-primary hover:underline"
