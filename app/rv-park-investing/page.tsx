@@ -115,6 +115,10 @@ const LEAKS: { title: string; body: ReactNode }[] = [
         <Link href="/checklist" className="font-semibold text-primary hover:underline">
           due diligence checklist
         </Link>
+        . Triage the exposure before you spend on engineers with the{" "}
+        <Link href="/tools/utility-capacity-triage" className="font-semibold text-primary hover:underline">
+          Utility Capacity Risk Triage
+        </Link>
         .
       </>
     ),

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
@@ -63,10 +64,26 @@ const breadcrumbJsonLd = {
   ],
 }
 
-const DIFFERENCES = [
+const DIFFERENCES: { title: string; body: ReactNode }[] = [
   {
     title: "Seasonality runs the P&L",
-    body: "Most campgrounds earn the bulk of annual revenue in a four to six month window. That compresses every mistake: a soft shoulder season, a washed-out holiday weekend, or a rate that lags the market by ten dollars does not average out over twelve months. Underwrite month by month, not on an annualized average that hides the shape of the year.",
+    body: (
+      <>
+        Most campgrounds earn the bulk of annual revenue in a four to six
+        month window. That compresses every mistake: a soft shoulder season,
+        a washed-out holiday weekend, or a rate that lags the market by ten
+        dollars does not average out over twelve months. Underwrite month by
+        month, not on an annualized average that hides the shape of the year.
+        Prove the fill by season with{" "}
+        <Link
+          href="/resources/the-transient-site-fill-calculator"
+          className="font-semibold text-primary hover:underline"
+        >
+          The Transient-Site Fill Calculator
+        </Link>
+        .
+      </>
+    ),
   },
   {
     title: "The guest mix is more volatile",

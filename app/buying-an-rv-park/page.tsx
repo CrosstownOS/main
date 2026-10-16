@@ -166,7 +166,15 @@ export default function BuyingAnRvParkPage() {
               a claim until you verify it against an independent source. The
               information gap is the whole game: the buyer who closes the gap
               pays for the park that exists, and the buyer who does not pays
-              for the park in the brochure.
+              for the park in the brochure. The Field Note{" "}
+              <Link
+                href="/blog/anatomy-of-a-broker-package"
+                className="font-semibold text-primary hover:underline"
+              >
+                Anatomy of a Broker Package
+              </Link>{" "}
+              reads one package claim by claim and lands each claim on an
+              evidence state.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Overpaying rarely looks like one big mistake. It looks like six
