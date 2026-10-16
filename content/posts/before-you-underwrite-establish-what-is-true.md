@@ -41,6 +41,8 @@ Every number in a deal is one of six things. Labeling them is the whole discipli
 
 **Unresolved.** It has been looked at, but the evidence cannot be determined yet. Not missing, not unknown, just stuck. Name it as unresolved so it does not get priced as a fact or buried as an unknown.
 
+**The six evidence states (the CrosstownOS ParkProof Standard):**
+
 | State | What it means |
 |---|---|
 | Verified | Backed by evidence you can point to, and reviewed by a person. |

@@ -44,6 +44,8 @@ Underwrite the expansion the way you underwrite the purchase: permitted, costed,
 
 The permits discipline is short. Confirm the zoning designation and that park use is allowed there. Confirm the permitted site count against the rent roll's site count. Pull permit history and code enforcement records. Ask about upcoming zoning or utility changes. Where the use is nonconforming, get the determination and its conditions in writing. Confirm anything material with appropriate legal and regulatory professionals. This is diligence, not legal advice.
 
+**The permits sequence, in order (CrosstownOS Field Notes):**
+
 1. The zoning designation for the parcel, from the county or municipality, not the package.
 2. The permitted site count, set against the site count on the rent roll.
 3. The permit history, and any code enforcement record that comes with it.

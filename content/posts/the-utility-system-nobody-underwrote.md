@@ -24,7 +24,7 @@ Capacity: whether the system can serve the park as operated and as planned. A wa
 
 Compliance: whether the system is permitted, inspected, and in good standing with every authority that governs it. A functioning system without a permit is a liability wearing a disguise.
 
-**Every utility system gets three questions:**
+**Every utility system gets three questions (the CrosstownOS Utility Capacity Risk Triage):**
 
 - **Condition:** what state is the system actually in, not what the package says about it.
 - **Capacity:** does the permitted capacity cover the sites the park runs today and the sites the price assumes tomorrow.

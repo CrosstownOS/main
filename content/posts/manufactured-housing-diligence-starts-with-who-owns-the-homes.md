@@ -25,6 +25,8 @@ In a tenant-owned community, the residents own their homes. The buyer is purchas
 
 In a park-owned community, the buyer is purchasing all of that plus a fleet of houses. The homes belong to the park. They are typically titled as personal property, not deeded as real estate, which means title work, not just a deed transfer. Every roof, furnace, water heater, and set of floors in those homes is now the buyer's maintenance exposure. Turnover does not mean a home moves out. It means a renovation.
 
+**Tenant-owned vs park-owned homes (the CrosstownOS POH/TOH Split):**
+
 | | Tenant-owned homes (TOH) | Park-owned homes (POH) |
 |---|---|---|
 | What you are buying | The land business: lots, roads, utility lines, and lot rent | A landlord business on top of the land: the homes and the rent they carry |
@@ -60,3 +62,5 @@ Manufactured housing due diligence is not a different discipline. It is the same
 Who owns the homes determines what you are buying, what you are maintaining, and which lines of the P&L deserve suspicion. Everything else is the same work: separate claims from evidence, label every number, verify what matters.
 
 That is the discipline in the [ParkProof Standard](/parkproof-standard). The asset changes. The standard does not.
+
+*Put it to work: run the [POH/TOH Split Valuation](/tools/poh-toh-split) on your deal, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

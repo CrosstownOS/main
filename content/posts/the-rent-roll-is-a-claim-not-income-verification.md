@@ -18,7 +18,7 @@ Operators who have done this for a while tend to separate three numbers that bro
 
 The first is scheduled rent: the amount the rent roll says tenants owe. The second is collected rent: the amount the collections report says came in. The third is deposited income: the amount that reached the bank and cleared.
 
-**Three numbers that get called the same thing:**
+**Three numbers that get called the same thing (the CrosstownOS Rent Roll Truth Check):**
 
 - **Scheduled rent:** what the rent roll says should have been collected.
 - **Collected rent:** what tenants actually paid.
