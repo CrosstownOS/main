@@ -61,7 +61,7 @@ const ITEMS: ChecklistItem[] = [
   },
   {
     title: "Utility systems: who pays and what they cost",
-    body: "Confirm who pays for water, sewer, electric, gas, and trash on every site type. Get 12 months of utility bills. A utility bill nobody underwrote is the fastest way to blow up a pro forma.",
+    body: "Confirm who pays for water, sewer, electric, gas, and trash on every site type. Get 12 months of utility bills. A utility bill nobody underwrote can blow up a pro forma.",
     tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
     resource: { href: "/resources/utility-and-wastewater-diligence-sheet", label: "Work it in the Utility and Wastewater Diligence Sheet" },
   },
@@ -84,7 +84,7 @@ const ITEMS: ChecklistItem[] = [
   },
   {
     title: "Infrastructure condition",
-    body: "Water lines, sewer lines, roads, electrical pedestals. Get eyes on them or get a report. Deferred infrastructure is the silent deal killer in older parks.",
+    body: "Water lines, sewer lines, roads, electrical pedestals. Get eyes on them or get a report. Deferred infrastructure is a silent deal killer in older parks.",
     tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
     resource: { href: "/resources/utility-and-wastewater-diligence-sheet", label: "Work it in the Utility and Wastewater Diligence Sheet" },
   },
@@ -137,7 +137,6 @@ const howToJsonLd = {
     name: item.title,
     text: item.body,
   })),
-  totalTime: "P1D",
 };
 
 export default function ChecklistPage() {
@@ -276,7 +275,7 @@ export default function ChecklistPage() {
               >
                 Start Here
               </Link>{" "}
-              shows how the 35 tools fit together before you print anything. Worked in order, the fifteen are what keep a buyer's capital behind proof instead of behind a story.
+              shows how the 35 tools fit together before you print anything. Worked in order, the fifteen are built to keep a buyer's capital behind proof instead of behind a story.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               The decision file at the end is the deal written so a lender, a partner, or an investment committee can read it without the buyer in the room.

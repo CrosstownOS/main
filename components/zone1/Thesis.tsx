@@ -69,7 +69,7 @@ export default function Thesis() {
               >
                 broker packages
               </a>
-              , spreadsheets, and memory. Crosstown makes the record disciplined before capital is committed, and for the life of the asset.
+              , spreadsheets, and memory. Crosstown is built to make the record disciplined before capital is committed, and to keep it for the life of the asset.
             </p>
 
             <div className="theme-cream paper mt-10 divide-y divide-border/60 border border-border/60 bg-card/40 shadow-[0_0_60px_-15px_oklch(0.50_0.08_250/0.25)]">

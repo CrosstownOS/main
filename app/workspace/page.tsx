@@ -521,7 +521,7 @@ In exchange, use the workspace and give candid feedback about what works, what b
 Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
        </p>
        <p className="mt-6 border-t border-primary/30 pt-5 text-base font-semibold leading-relaxed text-foreground sm:text-lg">
-        The file you build is the file your lender reads: claims, evidence, and open items, in the order a reviewer asks for them.
+        The file you build is built for a lender's or partner's read: claims, evidence, and open items in one place, each carrying its evidence state.
        </p>
        <TrackedApplyLink
         plan="pilot"
@@ -622,7 +622,7 @@ Five qualified participants will receive free access. Paid access is available s
          ))}
         </ul>
         <p className="mt-5 border-t border-border/60 pt-4 text-sm font-medium leading-relaxed text-foreground">
-         A deal worked on the record reaches closing with its open items already decided, not discovered.
+         A deal worked on the record is built to reach closing with its open items already decided, not discovered.
         </p>
        </div>
        <div className="theme-cream border border-border bg-card p-6 sm:p-8">

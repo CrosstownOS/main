@@ -72,7 +72,7 @@ export default function FieldReality() {
               not automatically supported by collections, payroll, or utility
               reimbursements. A utility system that appears functional may
               still carry permit, maintenance, capacity, or deferred-capital
-              exposure. The costliest surprises sit in the gap between what was
+              exposure. The costly surprises sit in the gap between what was
               reported and what can actually be verified.
             </p>
           </div>

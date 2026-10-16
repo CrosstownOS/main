@@ -33,7 +33,7 @@ const GUIDES = [
     href: "/rv-park-investing",
     label: "RV Park Investing in 2026",
     description:
-      "Where returns come from, where they leak, and the verification framework that protects your capital.",
+      "Where returns come from, where they leak, and the verification framework buyers run before capital commits.",
   },
 ]
 

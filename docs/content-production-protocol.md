@@ -238,7 +238,7 @@ Flags and structured data:
 
 ## 7. Administration
 
-7.1. The dossier, the ledger, and the completed gate checklist are kept with the piece's record for as long as the piece is published.
+7.1. The dossier, the ledger, and the completed gate checklist are kept with the piece's record for as long as the piece is published. The site-wide claims ledger for published pages is maintained at docs/claims-ledger.md in this repository and is the enforcement record for this protocol across the live site; per-piece ledgers reconcile to it at publication.
 
 7.2. An amendment to this protocol is made in writing, recorded with its date, and applies to pieces published or republished after the amendment takes effect.
 

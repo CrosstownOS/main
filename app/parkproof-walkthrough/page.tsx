@@ -233,7 +233,7 @@ export default function SampleDecisionFilePage() {
                 reads.
               </p>
               <p className="mt-5 text-sm leading-relaxed text-muted">
-                Built to the standard, a file like this one is what lets a closing proceed on evidence instead of on the seller's summary.
+                Built to the standard, a file like this one is built to let a closing proceed on evidence instead of on the seller's summary.
               </p>
             </div>
           </section>
