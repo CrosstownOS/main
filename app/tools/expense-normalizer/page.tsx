@@ -3,7 +3,7 @@ import ExpenseNormalizerTool from "./ExpenseNormalizerTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "Expense Normalizer | CrosstownOS"
-const DESCRIPTION = "Normalize any RV park seller's P&L for the operation you will actually run. Restate expenses, expose phantom profit, and underwrite the true deal numbers."
+const DESCRIPTION = "Restate a seller's P&L with your own expense lines and stated assumptions, and compare the normalized NOI to the seller's stated NOI. Free working paper, runs in your browser."
 const PATH = "/tools/expense-normalizer"
 const OG_IMAGE = "/og-logo.png"
 

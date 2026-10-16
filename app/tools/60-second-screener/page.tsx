@@ -3,7 +3,7 @@ import ScreenerTool from "./ScreenerTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
 const TITLE = "60-Second Deal Screener | CrosstownOS"
-const DESCRIPTION = "Screen any RV park deal in 60 seconds. Six numbers reveal whether the seller's story survives contact with math. Free working paper, runs in your browser."
+const DESCRIPTION = "Screen an RV park or manufactured housing deal in about a minute. Six inputs, calculated outputs, and an evidence-readiness posture. Free working paper, runs in your browser."
 const PATH = "/tools/60-second-screener"
 const OG_IMAGE = "/og-logo.png"
 

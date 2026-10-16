@@ -181,7 +181,7 @@ export default function EmdClockTool() {
     if (exposureRows.length > 0) {
       const lines = exposureRows.map((c) => {
         const name = c.name.trim() || "an unnamed gate"
-        return `${fmtMoney(emd)} goes hard in ${c.days} day${c.days === 1 ? "" : "s"} with ${name} evidence unresolved`
+        return `${fmtMoney(emd)} is tied to a gate expiring in ${c.days} day${c.days === 1 ? "" : "s"} with ${name} evidence unresolved`
       })
       return {
         label: "pause",
@@ -195,13 +195,13 @@ export default function EmdClockTool() {
       })
       return {
         label: "pause",
-        statement: `The record supports Pause: ${lines.join("; ")}. A date that already passed with an open gate means the money may already be at risk.`,
+        statement: `The record supports Pause: ${lines.join("; ")}. A date that already passed with an open gate means the money may already be at risk under your agreement.`,
       }
     }
     return {
       label: "advance",
       statement:
-        "The record supports Advance: all gates tracked, no date at risk.",
+        "The record supports Advance: all gates on the register are tracked, and none falls in the 7 day exposure window or past due on the dates entered.",
     }
   }, [exposureRows, pastDue, emd, contingencies])
 
@@ -275,7 +275,7 @@ export default function EmdClockTool() {
         display: exposureRows.length > 0 ? fmtMoney(emd) : "n/a",
         state: "calculated" as EvidenceState,
         lineage:
-          "The full EMD is at risk once any gate goes hard unresolved. One exposure row puts the entire amount on the line.",
+          "Tool treatment: the full entered EMD amount is shown as exposed when an open gate reaches its entered expiry with evidence unresolved; it is not prorated across gates in this tool. Whether the deposit is actually refundable or forfeited is set by your purchase agreement, escrow instructions, and applicable law.",
       },
     ],
     [closingDays, contingencies, exposureRows, emd],
@@ -324,8 +324,8 @@ export default function EmdClockTool() {
       </table>
       <p style={{ fontSize: 12, marginTop: 12 }}>
         {exposureRows.length > 0
-          ? `EXPOSURE: ${fmtMoney(emd)} at risk in the next 7 days across ${exposureRows.length} gate${exposureRows.length === 1 ? "" : "s"}.`
-          : "No EMD goes hard in the next 7 days."}
+          ? `EXPOSURE: ${fmtMoney(emd)} shown as exposed in the next 7 days across ${exposureRows.length} gate${exposureRows.length === 1 ? "" : "s"}, on the dates entered. Actual refundability is set by your purchase agreement and applicable law.`
+          : "No entered gate expiry falls in the next 7 days."}
       </p>
     </div>
   )
@@ -337,7 +337,8 @@ export default function EmdClockTool() {
       title={TOOL_NAME}
       description={
         <>
-          Your earnest money, on a clock. Dates move. Gates do not.{" "}
+          Your earnest money, on a clock. Dates move. Gates do not. What each gate does to
+          your deposit is set by your purchase agreement, not by this page.{" "}
           <a
             href="/blog/speed-is-a-strategy-for-sellers-not-buyers"
             className="text-primary underline underline-offset-2 hover:no-underline"
@@ -414,6 +415,12 @@ export default function EmdClockTool() {
         </div>
         <p className="mt-4 text-xs leading-relaxed text-muted">
           {depositDateLabel(depositDays)} &middot; Closing {daysLabel(closingDays)}
+        </p>
+        <p className="mt-3 text-xs leading-relaxed text-muted">
+          How to read this tool: it tracks the contingency names and expiry dates you enter.
+          Refundability, extensions, cure rights, and forfeiture are governed by your signed
+          purchase agreement, escrow instructions, and the law of the state where the property
+          sits. This tool does not interpret your contract.
         </p>
       </section>
 
@@ -527,23 +534,25 @@ export default function EmdClockTool() {
         </h2>
         {exposureRows.length === 0 ? (
           <p className="mt-4 text-sm text-muted">
-            No EMD goes hard in the next 7 days.
+            No entered gate expiry falls in the next 7 days.
           </p>
         ) : (
           <div className="mt-4 space-y-3">
             {exposureRows.map((c) => (
               <p key={c.id} className="text-sm leading-relaxed text-foreground">
                 <span className="font-semibold">
-                  {fmtMoney(emd)} in earnest money goes hard in {c.days} day
-                  {c.days === 1 ? "" : "s"}
+                  {fmtMoney(emd)} in earnest money reaches an entered gate expiry in {c.days}{" "}
+                  day{c.days === 1 ? "" : "s"}
                 </span>{" "}
                 with <span className="font-semibold">{c.name.trim() || "an unnamed gate"}</span>{" "}
                 evidence unresolved.
               </p>
             ))}
             <p className="border-t border-border/60 pt-3 text-sm leading-relaxed text-muted">
-              Total exposure: {fmtMoney(emd)}. The full EMD is at risk once any gate goes hard
-              unresolved. It is not prorated across gates.
+              Total exposure shown: {fmtMoney(emd)}. This tool shows the full entered amount
+              when any open gate reaches its entered expiry unresolved; it does not prorate
+              across gates. Actual refundability is set by your purchase agreement, escrow
+              instructions, and applicable law.
             </p>
           </div>
         )}

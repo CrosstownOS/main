@@ -132,7 +132,8 @@ export default function PohTohTool() {
     }
     return {
       label: "advance",
-      statement: "The record supports Advance: the blended price survives the split.",
+      statement:
+        "The record supports Advance: the asking price sits within 5% of the split-implied value on the stated assumptions.",
     }
   }, [coreMissing, retradeDelta, splitValue])
 
@@ -311,7 +312,7 @@ export default function PohTohTool() {
       exportFileName={exportFilename(SLUG, dealName)}
       posture={posture}
       printSummary={printSummary}
-      ctaTitle="This is the number you take back to the seller."
+      ctaTitle="The split belongs in the full record."
       ctaBody="Running a live deal? The Acquisition Workspace connects your underwriting in one record."
       ctaButton="Build my retrade case in the fit call."
       faqs={POH_TOH_FAQS}
@@ -433,7 +434,7 @@ export default function PohTohTool() {
             sourceNote={state.pohMultipleNote}
             onSourceNote={(n) => patch({ pohMultipleNote: n })}
             placeholder="e.g. 3"
-            hint="Underwriting assumption, adjustable. POH rent is personal-property income, valued at this multiple of annual rent."
+            hint="Underwriting assumption, adjustable. The prefilled value is an illustrative default; set your own. POH rent is valued at this multiple of annual rent."
             inputMode="decimal"
           />
         </div>
@@ -450,8 +451,8 @@ export default function PohTohTool() {
           {retradeDelta == null
             ? "Enter the inputs above and the retrade number computes itself."
             : retradeDelta > 0
-              ? "The asking price exceeds the split-implied value. This is the number you take back to the seller."
-              : "The asking price sits at or under the split-implied value."}
+              ? "The asking price exceeds the split-implied value on the stated assumptions. The delta is the amount behind the Retrade label."
+              : "The asking price sits at or under the split-implied value on the stated assumptions."}
         </p>
       </section>
 
@@ -487,9 +488,12 @@ export default function PohTohTool() {
           />
         </div>
         <p className="mt-3 text-xs leading-relaxed text-muted">
-          POH homes are depreciating personal property, not dirt. Capitalizing their rent as real
-          estate is how buyers overpay. The 5% band around the split-implied value is the tolerance
-          before the record supports a retrade.
+          In many states, park-owned homes that have not been converted to real property are
+          titled as personal property and depreciate, unlike the land. Title and tax treatment
+          vary by state and by the home&apos;s status, so confirm it on the record. This tool
+          values POH rent separately instead of capitalizing it with lot rent. The 5% band
+          around the split-implied value is this tool&apos;s stated tolerance before the record
+          supports a Retrade label.
         </p>
       </section>
 

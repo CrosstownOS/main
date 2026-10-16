@@ -310,8 +310,8 @@ export default function RentRollTool() {
           </ul>
         </>
       }
-      ctaTitle="The deposits do not match the OM."
-      ctaBody="That gap is a retrade or a walk. Running a live deal? The Acquisition Workspace keeps the full record."
+      ctaTitle="Deposits and the OM belong in the same record."
+      ctaBody="Running a live deal? The Acquisition Workspace keeps the full record, including any gap between deposits and the OM and what is still missing."
       ctaButton="Bring my rent roll to the fit call."
       faqs={RENT_ROLL_FAQS}
 
@@ -472,8 +472,9 @@ export default function RentRollTool() {
           />
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          Twelve months of bank deposits, most recent first. Blank is fine; blank months are
-          Missing evidence, never zero.
+          Twelve months of bank deposits, most recent first. Enter totals from the bank
+          statements, not from the rent roll. Blank is fine; blank months are Missing evidence,
+          never zero.
         </p>
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {state.deposits.map((d, i) => (

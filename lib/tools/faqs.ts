@@ -52,7 +52,7 @@ export const RENT_ROLL_FAQS: Faq[] = [
   {
     question: "What does a variance over 5 points mean?",
     answer:
-      "Deposits trail the reported occupancy by more than 5 points. The record supports Pause. That gap is either a retrade or a walk, and the record does not say which yet.",
+      "Reported occupancy and deposit-derived occupancy are more than 5 points apart in either direction. The record supports Pause. That gap is either a retrade or a walk, and the record does not say which yet.",
   },
   {
     question: "What if the OM doesn't report occupancy?",
@@ -65,7 +65,7 @@ export const EXPENSE_FAQS: Faq[] = [
   {
     question: "What is a normalized NOI?",
     answer:
-      "Normalized net operating income is revenue minus the expenses a buyer will actually carry, with one-time and owner-specific costs removed as stated add-backs.",
+      "Normalized net operating income is revenue minus the expenses you keep on the record, with costs you mark as add-backs excluded and labeled as underwriting assumptions.",
   },
   {
     question: "What are add-backs and why must they be stated as assumptions?",
@@ -75,7 +75,7 @@ export const EXPENSE_FAQS: Faq[] = [
   {
     question: "What is the 10% retrade band?",
     answer:
-      "If normalized NOI lands more than 10 percent below the seller's stated NOI, the record supports Retrade. That delta is the retrade number.",
+      "A tolerance set by this tool, not a market rule. If normalized NOI lands more than 10 percent below the seller's stated NOI, the record supports Retrade. That delta is the amount behind the Retrade label.",
   },
   {
     question: "What if I don't know whether an expense stays or goes?",
@@ -93,12 +93,12 @@ export const UTILITY_FAQS: Faq[] = [
   {
     question: "What do red, amber, and green mean for water, sewer, and electric?",
     answer:
-      "Red means capacity is a deal-level risk. Amber means capacity is constrained and needs verification. Green means capacity supports the park as operated. Each rating carries its reason on the record.",
+      "In this tool, Green (Clear) means only that the system is recorded as municipal and permitted; it is not a measurement of capacity and does not verify that capacity supports the park. Amber (Caution) means the recorded type or permit status leaves a capacity question open on the record. Red (Gate risk) means the system is recorded as unpermitted or its type is unknown. Each rating carries its reason on the record.",
   },
   {
     question: "Why does utility capacity kill deals?",
     answer:
-      "Water, sewer, and electric are the physical ceiling on the asset. Somebody always eats the utilities. If capacity cannot support the pads, no underwriting survives it.",
+      "Water, sewer, and electric set a physical ceiling on the asset. If capacity cannot support the pads as operated, underwriting built on those pads does not hold. That is why this tool gates on the record before an offer.",
   },
   {
     question: "What counts as a capacity gate?",
@@ -111,12 +111,12 @@ export const POH_TOH_FAQS: Faq[] = [
   {
     question: "Why value park-owned homes separately from lot rent?",
     answer:
-      "Park-owned homes are depreciating personal property. Lot rent is real estate. Capitalizing home rent as real estate is how buyers overpay. Two businesses, one price tag, valued separately.",
+      "Park-owned homes are commonly treated as depreciating personal property, though title and tax treatment vary by state and by whether a home has been converted to real property. Lot rent is rent for the real estate. This tool values the two separately so home rent is not capitalized at the lot-rent cap rate. Two businesses, one price tag, valued separately.",
   },
   {
     question: "What is the POH multiple?",
     answer:
-      "The multiple of annual POH rent used to value the homes as personal property. It is an underwriting assumption, stated and adjustable, never a verified fact.",
+      "The multiple of annual POH rent used to value the homes as personal property. It is an underwriting assumption, stated and adjustable, never a verified fact. The prefilled value is an illustrative default; set your own.",
   },
   {
     question: "What is blended gross rent yield?",
@@ -126,7 +126,7 @@ export const POH_TOH_FAQS: Faq[] = [
   {
     question: "What is the 5% split retrade band?",
     answer:
-      "If the asking price exceeds the split-implied value by more than 5 percent, the record supports Retrade. That delta is the number you take back to the seller.",
+      "This tool's stated tolerance. If the asking price exceeds the split-implied value by more than 5 percent, the record supports Retrade. That delta is the amount behind the Retrade label.",
   },
 ]
 
@@ -134,7 +134,7 @@ export const EMD_FAQS: Faq[] = [
   {
     question: "What is an EMD contingency clock?",
     answer:
-      "A register of every contingency and deadline attached to your earnest money deposit. Dates move. Gates do not.",
+      "A register of the contingencies and deadlines you enter from your purchase agreement, tracked against your earnest money deposit. What each deadline does to the deposit is set by that agreement and applicable law. Dates move. Gates do not.",
   },
   {
     question: "Why does this tool never overstate time left?",

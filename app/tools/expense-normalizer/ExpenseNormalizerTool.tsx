@@ -167,7 +167,7 @@ export default function ExpenseNormalizerTool() {
         label: "retrade",
         statement: `The record supports Retrade: normalized NOI trails the seller's number by ${fmtMoney(
           variance,
-        )}. That variance is the retrade.`,
+        )}. That variance is the delta behind the Retrade label.`,
       }
     }
     const hasKeptExpense = keptRows.some((r) => parseNum(r.amount) != null)
@@ -313,7 +313,8 @@ export default function ExpenseNormalizerTool() {
           >
             Read the P&amp;L like the other side wrote it
           </a>
-          , because mom-and-pop P&amp;Ls are fiction until normalized.
+          , because a seller&apos;s P&amp;L describes the seller&apos;s operation until you
+          restate it.
         </>
       }
       timeEstimate="15 minutes"
@@ -352,7 +353,7 @@ export default function ExpenseNormalizerTool() {
           </ul>
         </>
       }
-      ctaTitle="Normalized NOI is where the retrade gets built."
+      ctaTitle="The normalized number belongs in the record."
       ctaBody="Running a live deal? The Acquisition Workspace connects your evidence in one record."
       ctaButton="Work my P&L in the fit call."
       faqs={EXPENSE_FAQS}
@@ -421,9 +422,9 @@ export default function ExpenseNormalizerTool() {
           />
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          Enter every expense line from the seller&apos;s P&L. Tick Add-back only for costs that
-          die with the seller: owner salary, personal vehicles, one-time capital. The suggestion
-          is a guess, the call is yours.
+          Enter every expense line from the seller&apos;s P&L. Tick Add-back only for costs you
+          judge will not continue under your operation, for example owner salary, personal
+          vehicles, or one-time capital items. The suggestion is a guess, the call is yours.
         </p>
         <div className="mt-4 space-y-3">
           {state.rows.map((row, i) => {
@@ -533,7 +534,9 @@ export default function ExpenseNormalizerTool() {
           <div>
             <label className={labelClass} htmlFor="mgmt-rate">
               Normalized management rate (%){" "}
-              <span className="text-xs text-muted">Underwriting assumption, adjustable</span>
+              <span className="text-xs text-muted">
+                Underwriting assumption, adjustable. Illustrative default; set your own.
+              </span>
             </label>
             <input
               id="mgmt-rate"
@@ -558,8 +561,9 @@ export default function ExpenseNormalizerTool() {
           </div>
         </div>
         <p className="mt-2 text-xs leading-relaxed text-muted">
-          Mom-and-pop sellers run on free family labor. Your operation pays management. The rate
-          is your stated assumption, not a market fact.
+          A seller&apos;s stated expenses may include unpaid or below-market labor. If your
+          operation will pay for management, state the rate here. The prefilled rate is an
+          illustrative default only; set your own. It is an assumption, not a market fact.
         </p>
       </section>
 

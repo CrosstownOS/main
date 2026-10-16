@@ -504,8 +504,10 @@ export default function UtilityTriageTool() {
         </div>
         <p className="mt-3 text-xs leading-relaxed text-muted">
           Scoring: Municipal plus Permitted is Clear. Unpermitted, or an Unknown system type, is a
-          gate risk. Everything else is Caution. Unknown is never Clear. Water and sewer are
-          capacity gates; electrical is advisory and never gates the deal.
+          gate risk. Everything else is Caution. Unknown is never Clear. Clear reflects the
+          recorded type and permit status only; it is not a measurement of actual capacity. In
+          this tool, water and sewer are treated as capacity gates; electrical is scored as
+          advisory and does not by itself trigger a Pause label.
         </p>
       </section>
 

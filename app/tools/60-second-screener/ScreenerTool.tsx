@@ -163,7 +163,7 @@ export default function ScreenerTool() {
       { id: "impliedCap", label: "Implied cap rate", value: cap, display: fmtPct(cap), state: "calculated", lineage: `T12 NOI / asking price, from ${state.t12NoiState} and ${state.askingPriceState} inputs` },
       { id: "pricePerPad", label: "Price per pad", value: perPad, display: fmtMoney(perPad), state: "calculated", lineage: `Asking price / site count, from ${state.askingPriceState} and ${state.siteCountState} inputs` },
       { id: "gprAnnual", label: "Gross potential annual rent", value: gprAnnual, display: fmtMoney(gprAnnual), state: "calculated", lineage: `Site count x average lot rent x 12, from ${state.siteCountState} and ${state.avgLotRentState} inputs` },
-      { id: "expenseRatio", label: "Expense ratio", value: expRatio, display: fmtPct(expRatio), state: "calculated", lineage: `Annual expense total / gross potential annual rent; ${bandAsset} sanity band ${band} is an Underwriting assumption` },
+      { id: "expenseRatio", label: "Expense ratio", value: expRatio, display: fmtPct(expRatio), state: "calculated", lineage: `Annual expense total / gross potential annual rent; ${bandAsset} sanity band ${band} is an illustrative tool assumption (Underwriting assumption), not a market benchmark` },
     ],
     [cap, perPad, gprAnnual, expRatio, band, bandAsset, state],
   )
@@ -190,8 +190,8 @@ export default function ScreenerTool() {
       title="60-Second Deal Screener"
       description={
         <>
-          Six numbers, one posture. If a deal cannot survive this page, it does not deserve
-          a phone call.{" "}
+          Six numbers, one posture. The screen shows what the record supports before you
+          spend time on a call.{" "}
           <a
             href="/blog/before-you-underwrite-establish-what-is-true"
             className="text-primary underline underline-offset-2 hover:no-underline"
@@ -227,7 +227,7 @@ export default function ScreenerTool() {
             <li>Price per pad: {fmtMoney(perPad)}</li>
             <li>Gross potential annual rent: {fmtMoney(gprAnnual)}</li>
             <li>
-              Expense ratio: {fmtPct(expRatio)} ({bandAsset} sanity band {band}, Underwriting assumption)
+              Expense ratio: {fmtPct(expRatio)} ({bandAsset} sanity band {band}, illustrative tool assumption)
             </li>
             <li>
               Missing inputs:{" "}
@@ -236,7 +236,7 @@ export default function ScreenerTool() {
           </ul>
         </>
       }
-      ctaTitle="This survived sixty seconds."
+      ctaTitle="A sixty second screen is not a decision."
       ctaBody="Running a live deal? The Acquisition Workspace keeps the full record in one place."
       ctaButton="Bring this deal to the fit call."
       faqs={SCREENER_FAQS}
@@ -393,14 +393,15 @@ export default function ScreenerTool() {
           />
         </div>
         <p className="mt-3 text-xs leading-relaxed text-muted">
-          Sanity band, {bandAsset} norm {band}. Underwriting assumption, adjustable per your model,
-          not verified data: {fmtNum(expRatio != null ? expRatio * 100 : null, 1)}%{" "}
+          Illustrative sanity band used by this tool for {bandAsset}: {band}. It is a tool
+          assumption, not a market benchmark or verified data, and the band itself is fixed in
+          this tool: {fmtNum(expRatio != null ? expRatio * 100 : null, 1)}%{" "}
           {expRatio == null
             ? "cannot be banded until expenses and rent are entered."
             : expRatio * 100 < (state.assetType === "mhp" ? 35 : 45)
-              ? "sits under the band: expenses look thin, sellers underreport."
+              ? "sits under the band: expenses look thin on the stated inputs, which can reflect underreported expenses."
               : expRatio * 100 > (state.assetType === "mhp" ? 45 : 60)
-                ? "sits above the band: expenses look heavy or rent is understated."
+                ? "sits above the band: expenses look heavy or rent is understated on the stated inputs."
                 : "sits inside the band."}
         </p>
       </section>
