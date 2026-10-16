@@ -216,7 +216,7 @@ function resolveCta(pathname: string): CtaConfig | null {
 }
 
 /**
- * QuietCta — slim contextual bar that slides up after the visitor scrolls
+ * QuietCta: slim contextual bar that slides up after the visitor scrolls
  * past half a viewport. Mobile: full-width bottom bar. Desktop: bottom-right
  * chip. Dismissible; stays gone for the session via sessionStorage (set only
  * on explicit dismiss, so it never hides for users who never dismissed it).
@@ -250,7 +250,7 @@ export default function QuietCta() {
     check()
     window.addEventListener("scroll", check, { passive: true })
     // Re-evaluate on resize: innerHeight can change (mobile chrome show/hide,
-    // orientation) which moves the half-viewport trigger point.
+    // orientation change), which moves the half-viewport trigger point.
     window.addEventListener("resize", check)
     return () => {
       window.removeEventListener("scroll", check)
