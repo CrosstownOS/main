@@ -72,7 +72,7 @@ Third, the walk-away decision gets clean. The signal to walk is rarely one tenan
 
 This is the first field note, and it is the foundation for everything after it. The method above, label every number, verify what matters, is the lens this blog will apply to each layer of a deal, one verification at a time.
 
-Next, we start with the rent roll: a document buyers tend to trust most and verify least. After that, occupancy, utilities, infrastructure, and the rest of the file, each one worked through the same six labels.
+Next, we start with the rent roll: a document buyers, in our judgment, often trust readily and verify late. After that, occupancy, utilities, infrastructure, and the rest of the file, each one worked through the same six labels.
 
 Before you underwrite the deal, establish what is true. Everything else follows from that.
 

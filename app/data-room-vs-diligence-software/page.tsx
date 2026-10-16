@@ -82,7 +82,7 @@ const ROWS = [
   },
   {
     point: "Site evidence",
-    dataRoom: "Files uploaded after the visit",
+    dataRoom: "Files the deal team uploads, including anything collected on a site visit. The room stores the file; it does not grade what the file proves",
     workspace: "Site observations connected to the claims they confirm or break",
   },
   {
@@ -375,6 +375,12 @@ export default function DataRoomComparisonPage() {
               </ul>
             </div>
           </section>
+
+          <p className="mt-10 text-sm italic leading-relaxed text-muted">
+            This page may use AI-assisted research and drafting. Sources,
+            claims, and final editorial judgment remain subject to human
+            review.
+          </p>
 
           <section className="mt-12" aria-label="Who should use which">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">

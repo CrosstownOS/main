@@ -74,7 +74,7 @@ const GATES = [
   },
   {
     title: "Gate 3: Utilities",
-    body: "Confirm who pays for water, sewer, electric, gas, and trash on each site type, then get 12 months of actual bills. For parks on well, septic, or lagoon, confirm permitted capacity against current and planned site counts with the county, not the seller. Utility exposure is the line item buyers underwrite least and regret most.",
+    body: "Confirm who pays for water, sewer, electric, gas, and trash on each site type, then get 12 months of actual bills. For parks on well, septic, or lagoon, confirm permitted capacity against current and planned site counts with the county, not the seller. Utility exposure is, in our judgment, the line item buyers most often underwrite lightly and regret later.",
   },
   {
     title: "Gate 4: Zoning and permits",

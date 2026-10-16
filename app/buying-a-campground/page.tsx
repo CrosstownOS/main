@@ -69,8 +69,8 @@ const DIFFERENCES: { title: string; body: ReactNode }[] = [
     title: "Seasonality runs the P&L",
     body: (
       <>
-        Most campgrounds earn the bulk of annual revenue in a four to six
-        month window. That compresses every mistake: a soft shoulder season,
+        Many campgrounds earn the bulk of annual revenue in a concentrated
+        season, often four to six months. That compresses every mistake: a soft shoulder season,
         a washed-out holiday weekend, or a rate that lags the market by ten
         dollars does not average out over twelve months. Underwrite month by
         month, not on an annualized average that hides the shape of the year.

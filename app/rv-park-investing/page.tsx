@@ -246,8 +246,9 @@ export default function RvParkInvestingPage() {
               riding on top.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Financing remains the gatekeeper. Park debt is typically bank
-              or local-lender debt, with terms varying by deal, and lenders
+              Financing remains the gatekeeper. Expect park debt to come
+              from a bank or a local lender rather than an agency program,
+              with terms varying by deal, and lenders
               scrutinize trailing income more skeptically than broker
               packages do. If your lender will underwrite only verified
               income, you should too, because their skepticism is a preview
