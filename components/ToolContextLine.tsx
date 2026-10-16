@@ -19,7 +19,7 @@ function ToolContextInner() {
   const name = tool ? TOOL_NAMES[tool] : null
   if (!name || !tool) return null
   return (
-    <div className="theme-cream mt-6 border border-primary/40 bg-primary/5 p-5">
+    <div className="theme-cream mt-6 border border-primary/40 bg-card p-5">
       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         You came from the {name}
       </p>

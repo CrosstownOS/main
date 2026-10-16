@@ -66,7 +66,7 @@ export default function SuccessState({
       <div
         role="status"
         className={cn(
-          "theme-cream border border-primary/40 bg-primary/5 p-6 sm:p-8",
+          "theme-cream border border-primary/40 bg-card p-6 sm:p-8",
           className,
         )}
       >
