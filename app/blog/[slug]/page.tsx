@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import Navigation from "@/components/ui/navigation"
+import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 import { getAllSlugs, getPost, getRelatedPosts, getSeoDescription, getSeoTitle } from "@/lib/blog"
 import { RESOURCE_DETAIL_BY_SLUG } from "@/lib/resources"
@@ -121,6 +122,14 @@ export default async function BlogPost({ params }: PageProps) {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          <Breadcrumb
+            className="mb-6"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Field Notes", href: "/blog" },
+              { label: post.title },
+            ]}
           />
           <Link
             href="/blog"

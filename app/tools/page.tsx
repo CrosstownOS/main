@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
+import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
@@ -287,6 +288,10 @@ export default function ToolsPage() {
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <Breadcrumb
+            className="mb-6"
+            items={[{ label: "Home", href: "/" }, { label: "Working Papers" }]}
+          />
           {/* 3.1 Header */}
           <div className="max-w-3xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
