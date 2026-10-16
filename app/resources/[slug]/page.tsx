@@ -20,16 +20,17 @@ import {
 import { RESOURCE_INSIDE } from "@/lib/resource-inside"
 
 const EVIDENCE_LETTERS = [
-  { letter: "V", name: "Verified", meaning: "You hold the document or saw it yourself." },
-  { letter: "B", name: "Broker-reported", meaning: "Claimed by the seller or broker. Not verified yet." },
-  { letter: "M", name: "Missing", meaning: "Requested or not yet requested. Not yet received." },
-  { letter: "A", name: "Assumed", meaning: "An underwriting assumption, stated openly." },
-  { letter: "C", name: "Calculated", meaning: "Your math from verified inputs." },
+  { letter: "V", name: "Verified", meaning: "You hold the document or saw it yourself.", color: "text-success" },
+  { letter: "B", name: "Broker-reported", meaning: "Claimed by the seller or broker. Not verified yet.", color: "text-accent" },
+  { letter: "M", name: "Missing", meaning: "Requested or not yet requested. Not yet received.", color: "text-critical" },
+  { letter: "A", name: "Assumed", meaning: "An underwriting assumption, stated openly.", color: "text-primary" },
+  { letter: "C", name: "Calculated", meaning: "Your math from verified inputs.", color: "text-calculated" },
   {
     letter: "U",
     name: "Unresolved",
     meaning:
       "Conflicting, unclear, or refused. Anything not produced by the deadline becomes U, and the silence is data.",
+    color: "text-muted",
   },
 ] as const
 
@@ -390,10 +391,10 @@ export default async function ResourcePage({ params }: PageProps) {
                   <tbody>
                     {EVIDENCE_LETTERS.map((row) => (
                       <tr key={row.letter} className="border-b border-border/60">
-                        <td className="px-3 py-2 align-top font-bold text-foreground">
+                        <td className={`px-3 py-2 align-top font-bold ${row.color}`}>
                           {row.letter}
                         </td>
-                        <td className="px-3 py-2 align-top">{row.name}</td>
+                        <td className={`px-3 py-2 align-top ${row.color}`}>{row.name}</td>
                         <td className="px-3 py-2 align-top">{row.meaning}</td>
                       </tr>
                     ))}
