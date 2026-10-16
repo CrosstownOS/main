@@ -7,9 +7,11 @@ import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { getAllPosts, type PostMeta } from "@/lib/blog"
 import {
+  LIVE_TOOL_BY_RESOURCE_SLUG,
   PART_BY_ID,
   RESOURCE_DETAIL_BY_SLUG,
   RESOURCE_DETAILS,
+  TOOL_BY_CODE,
   TOOLS,
   resourceSlug,
   type ResourceDetail,
@@ -75,18 +77,6 @@ const RELATED_RESOURCE_SLUGS: Record<string, { slug: string; note: string }[]> =
   ],
 }
 
-
-/** Resources with a live working-paper version. Maps resource slug to tool slug + name. */
-const LIVE_TOOL_BY_SLUG: Record<string, { toolSlug: string; toolName: string }> = {
-  "60-second-deal-screener": { toolSlug: "60-second-screener", toolName: "60-Second Deal Screener" },
-  "the-rent-roll-truth-check": { toolSlug: "rent-roll-truth-check", toolName: "Rent-Roll Truth Check" },
-  "rent-roll-truth-check-rv-edition": { toolSlug: "rent-roll-truth-check", toolName: "Rent-Roll Truth Check" },
-  "mom-and-pop-expense-normalizer": { toolSlug: "expense-normalizer", toolName: "Expense Normalizer" },
-  "the-rv-expense-normalizer": { toolSlug: "expense-normalizer", toolName: "Expense Normalizer" },
-  "utility-and-wastewater-diligence-sheet": { toolSlug: "utility-capacity-triage", toolName: "Utility Capacity Risk Triage" },
-  "the-emd-countdown-tracker": { toolSlug: "emd-clock", toolName: "EMD Clock and Gate Tracker" },
-  "poh-toh-split-valuation-worksheet": { toolSlug: "poh-toh-split", toolName: "POH/TOH Split Valuation" },
-}
 
 function getResource(slug: string): ResourceDetail | null {
   return RESOURCE_DETAIL_BY_SLUG[slug] ?? null
@@ -157,8 +147,37 @@ export default async function ResourcePage({ params }: PageProps) {
   const previous = partIndex > 0 ? partTools[partIndex - 1] : null
   const next =
     partIndex >= 0 && partIndex < partTools.length - 1 ? partTools[partIndex + 1] : null
-  const liveTool = LIVE_TOOL_BY_SLUG[resource.slug] ?? null
+  const liveTool = LIVE_TOOL_BY_RESOURCE_SLUG[resource.slug] ?? null
   const inside = RESOURCE_INSIDE[resource.slug] ?? null
+  // The one next door offered after this page's PDF download: the paired
+  // live tool where one exists, else the first resource this worksheet
+  // hands to (its Inside chain), else the related Field Note.
+  const downloadDoor = ((): { href: string; label: string } | undefined => {
+    if (liveTool) {
+      return {
+        href: `/tools/${liveTool.toolSlug}`,
+        label: `Run the ${liveTool.toolName} live`,
+      }
+    }
+    if (inside) {
+      const code = inside.handsTo.match(/AS-\d+R?/)?.[0]
+      const target = code ? TOOL_BY_CODE[code] : undefined
+      if (target) {
+        return {
+          href: `/resources/${resourceSlug(target)}`,
+          label: `Next in the chain: ${target.code}: ${target.title}`,
+        }
+      }
+    }
+    const firstRelated = relatedPosts(resource)[0]
+    if (firstRelated) {
+      return {
+        href: `/blog/${firstRelated.slug}`,
+        label: `Read the Field Note: ${firstRelated.title}`,
+      }
+    }
+    return undefined
+  })()
   const showEvidenceLetters = resource.slug === "the-evidence-status-standard"
   const related = relatedPosts(resource)
   const relatedResources = (RELATED_RESOURCE_SLUGS[resource.slug] ?? [])
@@ -417,6 +436,8 @@ export default async function ResourcePage({ params }: PageProps) {
               <GatedDownloadButton
                 file={resource.file}
                 label={resource.code ?? resource.title}
+                title={displayName(resource)}
+                nextDoor={downloadDoor}
                 className="mt-6 inline-flex w-fit cursor-pointer items-center gap-2 self-center bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               />
               <Link

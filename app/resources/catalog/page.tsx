@@ -178,6 +178,11 @@ export default function CatalogPage() {
                         <GatedDownloadButton
                           file={tool.file}
                           label={tool.code}
+                          title={`${tool.code}: ${tool.title}`}
+                          nextDoor={{
+                            href: `/resources/${resourceSlug(tool)}`,
+                            label: "See how it fits the chain",
+                          }}
                           className="mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                         />
                       </div>

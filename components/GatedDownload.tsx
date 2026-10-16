@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 
 const STORAGE_KEY = 'crosstown_resource_email'
 
@@ -8,6 +9,10 @@ type Props = {
   file: string
   label: string
   className?: string
+  /** Full name of the thing being downloaded, used by the success state. */
+  title?: string
+  /** The one contextual next door offered after the download starts. */
+  nextDoor?: { href: string; label: string }
 }
 
 /**
@@ -15,11 +20,12 @@ type Props = {
  * First click opens the email modal; the address is remembered in
  * localStorage so every later download is one click.
  */
-export function GatedDownloadButton({ file, label, className }: Props) {
+export function GatedDownloadButton({ file, label, className, title, nextDoor }: Props) {
   const [open, setOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
+  const [downloaded, setDownloaded] = useState(false)
   const dialogRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
@@ -78,6 +84,7 @@ export function GatedDownloadButton({ file, label, className }: Props) {
     document.body.appendChild(a)
     a.click()
     a.remove()
+    setDownloaded(true)
   }
 
   const handleClick = () => {
@@ -130,6 +137,28 @@ export function GatedDownloadButton({ file, label, className }: Props) {
       <button type="button" ref={triggerRef} onClick={handleClick} className={className}>
         Download PDF
       </button>
+      {downloaded && (
+        <div
+          role="status"
+          className="theme-cream mt-4 w-full border border-primary/40 bg-primary/5 p-4 text-left"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+            Download started
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+            {title ?? label} is downloading now. Nothing is pending; the file
+            is yours.
+          </p>
+          {nextDoor && (
+            <Link
+              href={nextDoor.href}
+              className="mt-2 inline-block text-sm font-semibold text-primary hover:underline"
+            >
+              {nextDoor.label}
+            </Link>
+          )}
+        </div>
+      )}
       {open && (
         <div
           ref={dialogRef}

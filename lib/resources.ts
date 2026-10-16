@@ -73,6 +73,21 @@ export const TOOL_BY_CODE: Record<string, Tool> = Object.fromEntries(
   TOOLS.map((t) => [t.code, t])
 )
 
+/** Resources with a live working-paper version. Maps resource slug to tool slug + name. */
+export const LIVE_TOOL_BY_RESOURCE_SLUG: Record<
+  string,
+  { toolSlug: string; toolName: string }
+> = {
+  "60-second-deal-screener": { toolSlug: "60-second-screener", toolName: "60-Second Deal Screener" },
+  "the-rent-roll-truth-check": { toolSlug: "rent-roll-truth-check", toolName: "Rent-Roll Truth Check" },
+  "rent-roll-truth-check-rv-edition": { toolSlug: "rent-roll-truth-check", toolName: "Rent-Roll Truth Check" },
+  "mom-and-pop-expense-normalizer": { toolSlug: "expense-normalizer", toolName: "Expense Normalizer" },
+  "the-rv-expense-normalizer": { toolSlug: "expense-normalizer", toolName: "Expense Normalizer" },
+  "utility-and-wastewater-diligence-sheet": { toolSlug: "utility-capacity-triage", toolName: "Utility Capacity Risk Triage" },
+  "the-emd-countdown-tracker": { toolSlug: "emd-clock", toolName: "EMD Clock and Gate Tracker" },
+  "poh-toh-split-valuation-worksheet": { toolSlug: "poh-toh-split", toolName: "POH/TOH Split Valuation" },
+}
+
 export function resourceTitleSlug(title: string): string {
   return title
     .toLowerCase()

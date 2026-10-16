@@ -98,6 +98,11 @@ function ToolCard({ code, note }: { code: string; note?: string }) {
       <GatedDownloadButton
         file={tool.file}
         label={tool.code}
+        title={`${tool.code}: ${tool.title}`}
+        nextDoor={{
+          href: `/resources/${resourceSlug(tool)}`,
+          label: "See how it fits the chain",
+        }}
         className="mt-5 inline-flex cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
       />
     </div>
@@ -140,6 +145,11 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
                 <GatedDownloadButton
                   file={tool.file}
                   label={tool.code}
+                  title={`${tool.code}: ${tool.title}`}
+                  nextDoor={{
+                    href: `/resources/${resourceSlug(tool)}`,
+                    label: "See how it fits the chain",
+                  }}
                   className="mt-3 inline-block cursor-pointer bg-transparent p-0 text-left text-sm font-semibold text-primary hover:underline"
                 />
               </div>
@@ -335,6 +345,11 @@ export default async function ResourcesPage({
                   <GatedDownloadButton
                     file={sp.file}
                     label={sp.title}
+                    title={sp.title}
+                    nextDoor={{
+                      href: `/resources/${resourceTitleSlug(sp.title)}`,
+                      label: "See how it fits the chain",
+                    }}
                     className="mt-4 inline-block cursor-pointer bg-transparent p-0 text-left text-sm font-semibold text-primary hover:underline"
                   />
                 </div>
