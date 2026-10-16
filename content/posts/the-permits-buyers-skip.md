@@ -22,7 +22,7 @@ This is the same discipline from the earlier field notes, applied to the legal p
 
 Many parks operate as legal nonconforming uses: the zoning changed around them, and they were allowed to continue. Buyers hear "grandfathered" and treat it as permanent. It often is not.
 
-Nonconforming status can come with conditions. It can limit expansion, rebuilding after damage, or changes in use. In some jurisdictions a sale itself can trigger review. What grandfathering actually protects is established only by the record: the zoning designation, the nonconforming use determination, and whatever conditions attach to it. "Grandfathered" is a claim about a legal status. Like every claim in this series, it needs a source.
+Nonconforming status can come with conditions. It can limit expansion, rebuilding after damage, or changes in use. Those limits are written jurisdiction by jurisdiction, and two ordinances show the shape of them. In Boone, North Carolina, the Unified Development Ordinance, Article 7, section 7.03.02, bars any increase in the volume, frequency, or intensity of a nonconforming use and bars expanding it to occupy a greater area of land or floor area, and section 7.03.04 allows a change of use only to a permissible use. In Frisco, Texas, the Zoning Ordinance, Subsection 1.06, states the same intent in its own words: a nonconforming use shall not be expanded or extended, a nonconforming use may not be changed to another nonconforming use, a nonconforming structure destroyed in full may not be rebuilt except to conform, and partial destruction not exceeding 51 percent of appraised value may be reconstructed without expanding the existing square footage or function. Both ordinances also put the burden of establishing legal nonconforming status on the owner. Neither ordinance makes a sale, by itself, a review trigger, and this note no longer claims one does. The narrower ownership point that does exist is a utility one, covered in the municipality section below: in Florida, certain public water systems must re-demonstrate capacity after a change in ownership. What grandfathering actually protects is established only by the record: the zoning designation, the nonconforming use determination, and whatever conditions attach to it. "Grandfathered" is a claim about a legal status. Like every claim in this series, it needs a source.
 
 The related trap is replacement rights. A park permitted for its full site count is one thing. A park where some of those sites were added without permits is another. If the county ever enforces, the buyer does not get to keep the sites just because the seller collected rent on them for years.
 
@@ -32,11 +32,15 @@ The diligence question buyers skip is the municipal one: water and stormwater ca
 
 That call is cheap and it answers expensive questions. Are there open or expired permits on file? Any code enforcement actions? Has the zoning around the park changed, or is a change under discussion? Was utility capacity for the site count ever documented, or only discussed? New ownership itself can draw fresh municipal attention to a property that operated quietly for years under the seller.
 
+One ownership consequence is documented, and it is narrower than a zoning review. In Florida, Rule 62-555.525, F.A.C., requires a public water system that counts as a "new system" under that rule to demonstrate financial, managerial, and technical capacity, and the Florida Department of Environmental Protection form for that demonstration, Form 62-555.900(20), is due again within 90 days after a change in ownership of the system. That is a capacity re-demonstration for the water system, not a general sale trigger for the park, and it applies only to systems inside the rule's definition of a new system. A buyer of a park on its own water system in Florida should still ask the question in diligence, because the filing follows the ownership change.
+
 None of this requires an adversarial posture. It requires a phone call, before the price is final.
 
 ## The expansion trap
 
 Permits also govern what the buyer plans to do next. Consider an illustrative composite: a buyer plans to add sites, and the water system needs a state environmental approval: engineering, testing, treatment equipment, larger retention. The seller covers some engineering costs. Testing fees, a treatment system, and higher-capacity tanks fall on the buyer. The sites were buildable. They just were not free.
+
+Put illustrative numbers on that pattern so the risk is priced, not just named. Say the expansion is 20 sites (illustrative composite, not a quote and not a market price): engineering and permitting at $18,000, testing and treatment equipment at $42,000, and larger storage and retention capacity at $35,000. The utility side of the expansion totals $95,000, or $4,750 per added site, before a single pad is poured. If the seller covers the $18,000 in engineering, the remaining $77,000 still lands on the buyer. The figures are a labeled illustration of the shape of the cost: the sites were buildable, and the approval path is where the money went.
 
 Underwrite the expansion the way you underwrite the purchase: permitted, costed, and scheduled. A site that cannot be permitted is not inventory. It is a drawing.
 
@@ -64,6 +68,18 @@ The paper asset and the physical asset must meet before someone wires money. Per
 A permit question answered in diligence is paperwork. The same question answered after closing is a stop-work order with a purchase price attached.
 
 Next in Field Notes: the rent roll is a claim, not income verification.
+
+## Sources and Limits
+
+This note is grounded in the evidence discipline defined in the [ParkProof Standard](/parkproof-standard), in the Acquisition Signal research program, and in operator community research, anonymized so no park, seller, or commenter is identified. The legal examples are illustrative jurisdictions, not a survey of national law, and this note is diligence guidance, not legal advice.
+
+External sources opened for this note:
+
+- Town of Boone, North Carolina, [Unified Development Ordinance, Article 7, Nonconformities](https://boonenc.gov/DocumentCenter/View/4410/Article-7-Nonconformities-PDF): sections 7.03.02, 7.03.04, and 7.01.04 support the expansion, change of use, and owner burden points above.
+- City of Frisco, Texas, [Zoning Ordinance, Subsection 1.06, Nonconforming Uses and Structures](https://ecode360.com/45144041): supports the no expansion, no change to another nonconforming use, and rebuild limits above.
+- Florida Administrative Code, [Rule 62-555.525](https://law.cornell.edu/regulations/florida/Fla-Admin-Code-Ann-R-62-555-525), and Florida Department of Environmental Protection [Form 62-555.900(20)](http://softlive.floridadep.gov/sites/default/files/62-555.900_20.pdf): support the narrower Florida water system capacity point, including the operations plan due within 90 days after a change in ownership of a covered system.
+
+Limits: ordinance text changes, and the ordinance that governs a specific park is the one in force for its parcel and its dates. The priced expansion example is a labeled illustration, not a quote. Confirm the current text and its application with the municipality and with legal counsel before pricing a deal.
 
 *Put it to work: start with the [free RV park due diligence checklist](/checklist) for the fifteen items in order, including permits and zoning. When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
 
