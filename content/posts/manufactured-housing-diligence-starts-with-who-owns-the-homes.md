@@ -63,4 +63,6 @@ Who owns the homes determines what you are buying, what you are maintaining, and
 
 That is the discipline in the [ParkProof Standard](/parkproof-standard). The asset changes. The standard does not. On a live manufactured housing deal, that discipline runs in the [Acquisition Workspace](/workspace), where the land record and the homes record stay connected.
 
+Who owns the homes decides what is being bought; the record is what makes that decision still stand at closing.
+
 *Put it to work: run the [POH/TOH Split Valuation](/tools/poh-toh-split) on your deal, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

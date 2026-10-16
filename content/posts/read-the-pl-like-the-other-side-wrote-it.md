@@ -45,6 +45,8 @@ That is why normalization belongs before the offer, not after close. After close
 
 Run the discipline from the earlier field notes through the P&L and the diligence list writes itself. Every related-party cost needs a home. Every personal line needs a ruling. Every missing record needs a request. The seller's version of the numbers gets its hearing. Then the buyer's version goes into the model.
 
+A normalized P&L with every adjustment labeled is a file a lender can underwrite beside you, not a story a lender has to discount.
+
 Next in Field Notes: the permits buyers skip.
 
 *Put it to work: run the [Expense Normalizer](/tools/expense-normalizer) on the seller's P&L, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

@@ -74,6 +74,8 @@ But a map is not the territory, and a claim is not proof.
 
 The verified number is rarely the cleanest number in the package. It is the one that survived contact with the bank.
 
+Deposits set the income. The income sets the price. Everything upstream of the deposits is a claim.
+
 Next in Field Notes: A Filled-Out Form Is Not Proof.
 
 *Put it to work: run the [Rent-Roll Truth Check](/tools/rent-roll-truth-check) on your deal, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

@@ -61,6 +61,8 @@ Every item on that list is a document that either exists or does not. Where it d
 
 The paper asset and the physical asset must meet before someone wires money. Permits are where they meet.
 
+A permit question answered in diligence is paperwork. The same question answered after closing is a stop-work order with a purchase price attached.
+
 Next in Field Notes: the rent roll is a claim, not income verification.
 
 *Put it to work: start with the [free RV park due diligence checklist](/checklist) for the fifteen items in order, including permits and zoning. When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

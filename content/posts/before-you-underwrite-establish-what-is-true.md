@@ -74,4 +74,6 @@ Next, we start with the rent roll: a document buyers tend to trust most and veri
 
 Before you underwrite the deal, establish what is true. Everything else follows from that.
 
+Capital committed against established facts does not need defending later. Capital committed against claims does.
+
 *Put it to work: start with the [free RV park due diligence checklist](/checklist) for the fifteen items in order. When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record, every claim with its evidence state.*

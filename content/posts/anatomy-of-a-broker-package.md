@@ -83,4 +83,6 @@ That is the discipline in the [ParkProof Standard](/parkproof-standard): every m
 
 Next question for any package: if the headline number disappeared, what evidence would be left?
 
+A package taken apart claim by claim becomes a file a partner can rely on, because every number in it carries its state.
+
 *Put it to work: run the [60-Second Deal Screener](/tools/60-second-screener) on your live package, or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*

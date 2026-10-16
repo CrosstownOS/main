@@ -49,6 +49,8 @@ A seller can genuinely believe the property produces more than the records show.
 
 These are not unusual stories. Every buyer who has hurried on a seller's timeline has paid tuition on this lesson. The only question is whether you pay it during diligence or during ownership.
 
+A deadline met on a labeled record is a decision. A deadline met on hope is a closing that reopens.
+
 Next in Field Notes: reading the seller's package like the other side wrote it. Because they did.
 
 *Put it to work: track every diligence date with the [EMD Clock and Gate Tracker](/tools/emd-clock), or start with the [free RV park due diligence checklist](/checklist). When the deal gets real, the [Acquisition Workspace](/workspace) carries the full record.*
