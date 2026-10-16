@@ -7,63 +7,98 @@ import { useEffect, useRef } from "react"
  *
  * Attach the returned ref to a section wrapper. The hook adds the `reveal`
  * class (hidden states live behind it, so no-JS still shows content) and
- * observes the element once: on first intersect it adds `is-visible` to the
- * wrapper, then stamps `is-visible` onto each `[data-reveal-item]` child with
- * a 60ms stagger between siblings. One-shot: once visible, stays visible.
+ * observes two things:
  *
- * Motion: 400ms ease-out, 16px rise. The stamp (`[data-reveal-stamp]`) and
- * the signal line (`[data-reveal-line]`) are driven by the same `is-visible`
- * flip via CSS in app/globals.css.
+ *   - The wrapper itself, at threshold 0: as soon as any part of it is on
+ *     screen it gets `is-visible`, which fades the wrapper in and drives
+ *     the stamp (`[data-reveal-stamp]`) and the signal line
+ *     (`[data-reveal-line]`) via CSS in app/globals.css.
+ *   - Each `[data-reveal-item]` child INDIVIDUALLY, at threshold 0.12 of
+ *     the item itself: an item gets `is-visible` when it scrolls into
+ *     view, with a 60ms stagger between items revealed in the same batch.
+ *     One-shot: once visible, stays visible.
  *
- * Respects prefers-reduced-motion: everything resolves to visible instantly.
+ * Items are observed individually because a wrapper-level threshold
+ * breaks on tall containers. The Trail Log shipped list stands thousands
+ * of pixels tall, so a phone viewport can never show 12% of the wrapper
+ * at once; the old single-observer reveal never fired there and every
+ * entry stayed at opacity 0. An item's own 12% is always reachable.
+ *
+ * Motion: 400ms ease-out, 16px rise.
+ *
+ * Respects prefers-reduced-motion: everything resolves to visible
+ * instantly. If IntersectionObserver is unavailable, everything resolves
+ * to visible as well.
  */
 export function useReveal<T extends HTMLElement = HTMLElement>() {
   const ref = useRef<T | null>(null)
-  const ioRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
     const el = ref.current
-    if (!el || ioRef.current) return
+    if (!el) return
 
     // Hidden states live behind .reveal so no-JS still shows content.
     el.classList.add("reveal")
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.classList.add("is-visible")
-      el
-        .querySelectorAll<HTMLElement>("[data-reveal-item]")
-        .forEach((item) => item.classList.add("is-visible"))
-      return
-    }
 
     const items = Array.from(
       el.querySelectorAll<HTMLElement>("[data-reveal-item]"),
     )
 
-    const io = new IntersectionObserver(
+    const showAll = () => {
+      el.classList.add("is-visible")
+      items.forEach((item) => item.classList.add("is-visible"))
+    }
+
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      typeof IntersectionObserver === "undefined"
+    ) {
+      showAll()
+      return
+    }
+
+    const timers: number[] = []
+
+    // The wrapper: any pixel on screen flips it visible. Stamps, signal
+    // lines, and the wrapper's own fade hang off this class.
+    const wrapperIO = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue
-          io.disconnect()
-          ioRef.current = null
           el.classList.add("is-visible")
-          // 60ms stagger between siblings, one-shot.
-          items.forEach((item, i) => {
-            window.setTimeout(() => item.classList.add("is-visible"), i * 60)
-          })
+          wrapperIO.disconnect()
         }
+      },
+      { threshold: 0 },
+    )
+    wrapperIO.observe(el)
+
+    // Each item on its own: it reveals when IT scrolls into view, no
+    // matter how tall the container around it gets. Items revealed in
+    // the same batch keep the 60ms cascade, in document order.
+    const itemIO = new IntersectionObserver(
+      (entries) => {
+        const batch = entries
+          .filter((entry) => entry.isIntersecting)
+          .map((entry) => entry.target as HTMLElement)
+          .sort((a, b) => items.indexOf(a) - items.indexOf(b))
+        batch.forEach((item, i) => {
+          itemIO.unobserve(item)
+          timers.push(
+            window.setTimeout(() => item.classList.add("is-visible"), i * 60),
+          )
+        })
       },
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     )
-
-    ioRef.current = io
-    io.observe(el)
+    items.forEach((item) => itemIO.observe(item))
 
     return () => {
-      io.disconnect()
-      ioRef.current = null
+      wrapperIO.disconnect()
+      itemIO.disconnect()
+      timers.forEach((t) => window.clearTimeout(t))
     }
-  })
+  }, [])
 
   return ref
 }
