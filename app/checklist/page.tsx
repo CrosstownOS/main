@@ -37,6 +37,7 @@ type ChecklistItem = {
   body: string
   tool?: { href: string; label: string }
   resource?: { href: string; label: string }
+  note?: { href: string; label: string }
 }
 
 const ITEMS: ChecklistItem[] = [
@@ -73,42 +74,54 @@ const ITEMS: ChecklistItem[] = [
   {
     title: "Permits and zoning",
     body: "Confirm legal use with the county or municipality directly. Do not rely on the broker package. Ask whether the current use is conforming, grandfathered, or nonconforming, and what that means for expansion or rebuild.",
+    resource: { href: "/resources/evidence-request-list", label: "Work it in the Evidence-Request List" },
+    note: { href: "/blog/the-permits-buyers-skip", label: "Read the Field Note: The Permits Buyers Skip" },
   },
   {
     title: "Site count vs. permitted count",
     body: "The broker package lists a site count. The county may list a different one. Reconcile them before you price per pad.",
+    resource: { href: "/resources/lot-by-lot-walkthrough", label: "Work it in the Lot-by-Lot Walkthrough" },
   },
   {
     title: "Infrastructure condition",
     body: "Water lines, sewer lines, roads, electrical pedestals. Get eyes on them or get a report. Deferred infrastructure is the silent deal killer in older parks.",
+    tool: { href: "/tools/utility-capacity-triage", label: "Run the Utility Capacity Risk Triage" },
+    resource: { href: "/resources/utility-and-wastewater-diligence-sheet", label: "Work it in the Utility and Wastewater Diligence Sheet" },
   },
   {
     title: "Tenant estoppels",
     body: "Verify income beyond the rent roll. Estoppels confirm who lives there, what they pay, and what was promised. On park-owned homes, confirm the home is actually owned by the park.",
+    resource: { href: "/resources/manager-tell-all-interview", label: "Work it in the Manager Tell-All Interview" },
   },
   {
     title: "Floodplain, wetlands, and environmental",
     body: "Check FEMA maps, wetlands inventory, and order a Phase I if the history warrants it. Environmental issues do not negotiate.",
+    resource: { href: "/resources/insurance-and-property-tax-preflight", label: "Work it in the Insurance and Property-Tax Preflight" },
   },
   {
     title: "Title and survey",
     body: "Clean title, current survey, confirmed boundaries. Encroachments and easements discovered after close are your problem.",
+    resource: { href: "/resources/evidence-request-list", label: "Work it in the Evidence-Request List" },
   },
   {
     title: "Insurance: quotes and claims history",
     body: "Get real quotes, not the seller's historical cost. Pull the claims history. In some markets, insurance is the line item that kills the deal.",
+    resource: { href: "/resources/insurance-and-property-tax-preflight", label: "Work it in the Insurance and Property-Tax Preflight" },
   },
   {
     title: "Lot rents vs. market",
     body: "Compare current lot rents against comparable parks within a realistic drive. Know whether the upside you are underwriting is real or aspirational.",
+    resource: { href: "/resources/local-market-benchmark-builder", label: "Work it in the Local Market Benchmark Builder" },
   },
   {
     title: "Seller responsiveness",
     body: "Slow diligence responses are a signal. A seller who cannot produce basic documents during diligence will not be easier to work with after you are under contract. Absence is the finding.",
+    resource: { href: "/resources/seller-motivation-map", label: "Work it in the Seller Motivation Map" },
   },
   {
     title: "The decision file",
     body: "Document every claim, every source, and every gap before you go hard. If it is not written down with its evidence state, it did not happen. The file is what lets you walk away with confidence or commit with it.",
+    resource: { href: "/resources/the-decision-file", label: "Work it in The Decision File" },
   },
 ]
 
@@ -204,6 +217,16 @@ export default function ChecklistPage() {
                         className="font-semibold text-primary hover:underline"
                       >
                         {item.resource.label} &rarr;
+                      </Link>
+                    </p>
+                  )}
+                  {item.note && (
+                    <p className="mt-2 text-sm">
+                      <Link
+                        href={item.note.href}
+                        className="font-semibold text-primary hover:underline"
+                      >
+                        {item.note.label} &rarr;
                       </Link>
                     </p>
                   )}
