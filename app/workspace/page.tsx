@@ -365,6 +365,25 @@ export default function AcquisitionWorkspacePage() {
         CrosstownOS does not assign these for you and does not independently verify a claim. You supply the evidence, you document the review, the record keeps both.
        </p>
       </div>
+     </section>
+
+     {/* Manufactured housing */}
+     <section aria-label="Manufactured housing" className="mt-20">
+      <SignalLine />
+      <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
+       <strong className="font-semibold text-foreground">
+        Buying a mobile home park?
+       </strong>{" "}
+       The record works the same way. The
+       homes get counted the way a manufactured housing deal demands:
+       home by home, tenant-owned and park-owned separated, lot rent
+       verified against deposits, utility systems priced before they
+       become your emergency. Whether the sign out front says RV park,
+       campground, or manufactured housing community (MHP), the
+       standard does not change: claims are labeled, evidence is
+       attached, and nothing counts as proven until the record proves
+       it.
+      </p>
       <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
        A manufactured housing acquisition runs two records at once. The
        first record is the land: permitted sites, utility capacity, the
@@ -407,14 +426,11 @@ export default function AcquisitionWorkspacePage() {
         The states are the same six. What changes in manufactured housing is which claims carry the deal.
        </p>
       </div>
-      <p className="mt-6 text-sm leading-relaxed text-foreground/85 sm:text-base">
-       The deal does not advance on open gates. It advances on verification, or on a waiver somebody signed their name to.
-      </p>
-      <p className="mt-6 text-sm leading-relaxed text-muted sm:text-base">
-       A spreadsheet holds the numbers typed into it; the CrosstownOS
-       Acquisition Workspace holds each claim next to its evidence state
-       and the review behind it.
-      </p>
+      <div className="theme-cream mt-6 border border-border border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
+       <p className="text-sm font-medium leading-relaxed text-foreground sm:text-base">
+        The deal does not advance on open gates. It advances on verification, or on a waiver somebody signed their name to.
+       </p>
+      </div>
      </section>
 
      {/* The November product, compact */}
@@ -575,18 +591,7 @@ Five qualified participants will receive free access. Paid access is available s
           </li>
          ))}
         </ul>
-        <p className="mt-5 text-sm leading-relaxed text-foreground/85">
-         Buying a mobile home park? The record works the same way. The
-         homes get counted the way a manufactured housing deal demands:
-         home by home, tenant-owned and park-owned separated, lot rent
-         verified against deposits, utility systems priced before they
-         become your emergency. Whether the sign out front says RV park,
-         campground, or manufactured housing community (MHP), the
-         standard does not change: claims are labeled, evidence is
-         attached, and nothing counts as proven until the record proves
-         it.
-        </p>
-        <p className="mt-5 text-sm leading-relaxed text-foreground/85">
+        <p className="mt-5 border-t border-border/60 pt-4 text-sm font-medium leading-relaxed text-foreground">
          A deal worked on the record reaches closing with its open items already decided, not discovered.
         </p>
        </div>
