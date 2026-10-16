@@ -81,6 +81,77 @@ const BUILD_COLUMNS = [
 
 const SHIPPED = [
   {
+    date: "October 15, 2026",
+    title: "The name now travels with the work",
+    body: "Captions, table titles, and framework names across the site now carry CrosstownOS inside the passage itself. When a table or a definition gets lifted and quoted, its source comes with it.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "The library's method moved into the open",
+    href: "/resources",
+    body: "The extraction layer put structured twins beside the prose: evidence tables, worked examples, and Inside this tool blocks on the resource pages, so each worksheet's method sits on the page in HTML instead of only inside its PDF.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "The library was handed to Google, page by page",
+    body: "Fifty-one pages went into Google's validation queue and the eleven priority pages were hand requested for indexing, so the library the audit found waiting can finally be crawled.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "Legacy addresses retired",
+    body: "The old deck subdomains now redirect to the main site, and the retired underwriter app was taken off the domain. One front door, kept clean.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "Manufactured housing found its vocabulary on the site",
+    href: "/mobile-home-park-investing",
+    body: "The workspace page, the checklist title, and the mobile home park guide now speak in the terms manufactured housing buyers use, and the guide gained a section on what due diligence looks like on a manufactured housing community.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "Every resource page got its description",
+    body: "All 38 resource pages now carry a written meta description of what the tool does and where it hands off, replacing the short placeholders search engines were left to guess from.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "Twenty-two links woven through the Field Notes",
+    body: "The essays and guides now point to the resource and tool pages their arguments build toward, so a reader who lands on one page can walk through the next door.",
+  },
+  {
+    date: "October 15, 2026",
+    title: "The two investing guides got separate arguments",
+    href: "/rv-park-investing",
+    body: "The mobile home park guide and the RV park guide were differentiated so each argues its own case, and the checklist page was differentiated with them, name kept, doing its own job in the sequence.",
+  },
+  {
+    date: "October 13, 2026",
+    title: "Structured data completed across the site",
+    body: "Schema was added to the pages still missing it and to the resource detail template, so every page states what it is in the language search engines read first.",
+  },
+  {
+    date: "October 13, 2026",
+    title: "The privacy page was corrected to match the tools in use",
+    href: "/privacy",
+    body: "The advertising cookies line on the privacy page now matches the Meta Pixel the site actually runs.",
+  },
+  {
+    date: "October 11, 2026",
+    title: "The workspace page was corrected to what is actually built",
+    href: "/workspace",
+    body: "Source copy on the workspace page was cut back to the locked, built scope, and the ParkProof Walkthrough was given its own card on the page.",
+  },
+  {
+    date: "October 10, 2026",
+    title: "Site language aligned to the free pilot",
+    body: "Trial wording across the site became the five-place free pilot: calls to action, FAQs, terms, and emails, with the Meta Pixel disclosed in the privacy policy the same night.",
+  },
+  {
+    date: "October 10, 2026",
+    title: "The workspace Product schema was completed",
+    href: "/workspace",
+    body: "The Product schema on the workspace page gained the merchant listings fields Google requires, the fix the later Search Console flag turned out to predate.",
+  },
+  {
     date: "October 7, 2026",
     title: "The offer became the Acquisition Workspace",
     href: "/workspace",
