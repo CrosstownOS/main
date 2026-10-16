@@ -3,7 +3,10 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
-import { cn } from "@/lib/utils"
+import {
+  EvidenceStateChip,
+  evidenceStateKey,
+} from "@/components/evidence/EvidenceStateChip"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
@@ -41,8 +44,6 @@ const EVIDENCE_STATES = [
       "Backed by evidence you can point to, and reviewed by a person.",
     counts:
       "A cited source, the page or record it came from, how it was obtained, and a named human review. A verified claim says what the source supports. It does not turn a source into a guarantee.",
-    className: "border-success/60 text-success",
-    titleClassName: "text-success",
   },
   {
     title: "Broker-reported",
@@ -50,8 +51,6 @@ const EVIDENCE_STATES = [
       "Reported in an OM, call, model, or broker package; not independently checked yet.",
     counts:
       "The claim and its source are recorded. Broker-reported information may organize the work, but it is never silently promoted into a verified field.",
-    className: "border-accent/60 text-accent",
-    titleClassName: "text-accent",
   },
   {
     title: "Missing evidence",
@@ -59,8 +58,6 @@ const EVIDENCE_STATES = [
       "Material information has not been received or located yet.",
     counts:
       "The absence is named as an open item, with an owner and a due date. Missing evidence is a finding, not a blank, and it is never treated as zero.",
-    className: "border-critical/60 text-critical",
-    titleClassName: "text-critical",
   },
   {
     title: "Underwriting assumption",
@@ -68,8 +65,6 @@ const EVIDENCE_STATES = [
       "A stated input in the investment case; not a verified fact.",
     counts:
       "The input is labeled, versioned, and approved by a named person. The file shows what the assumption stands in for and which outputs it feeds.",
-    className: "border-primary/60 text-primary",
-    titleClassName: "text-primary",
   },
   {
     title: "Calculated",
@@ -77,8 +72,6 @@ const EVIDENCE_STATES = [
       "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
     counts:
       "The inputs, their states, and the calculation lineage stay visible. Models may propose. People confirm. Code calculates.",
-    className: "border-calculated/60 text-calculated",
-    titleClassName: "text-calculated",
   },
   {
     title: "Unresolved",
@@ -86,8 +79,6 @@ const EVIDENCE_STATES = [
       "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
     counts:
       "The disagreement is recorded with both sources cited. It is not averaged away, edited away, or resolved by silence.",
-    className: "border-border text-muted",
-    titleClassName: "text-muted",
   },
 ] as const
 
@@ -142,19 +133,6 @@ const READINESS_LABELS = [
     body: "The evidence is sufficient, the gates are clear, and price and terms sit within the modeled range. Advance records readiness. It does not tell the buyer to transact.",
   },
 ] as const
-
-function stateClass(state: string) {
-  if (state === "Verified") return "border-success/60 text-success"
-  if (state === "Broker-reported") return "border-accent/60 text-accent"
-  if (state === "Missing evidence") return "border-critical/60 text-critical"
-  if (state === "Underwriting assumption") {
-    return "border-primary/60 text-primary"
-  }
-  if (state === "Calculated") {
-    return "border-calculated/60 text-calculated"
-  }
-  return "border-border text-muted"
-}
 
 const BASE_URL = "https://www.crosstownosrv.camp"
 const PATH = "/parkproof-standard"
@@ -262,15 +240,12 @@ export default function ParkProofStandardPage() {
               {EVIDENCE_STATES.map((state) => (
                 <article
                   key={state.title}
-                  className={cn("theme-cream paper border p-6", state.className)}
+                  className="theme-cream paper border border-border p-6"
                 >
-                  <h3
-                    className={cn(
-                      "font-sans text-lg font-bold tracking-tight",
-                      state.titleClassName,
-                    )}
-                  >
-                    {state.title}
+                  <h3>
+                    <EvidenceStateChip
+                      state={evidenceStateKey(state.title)}
+                    />
                   </h3>
                   <p className="mt-3 text-sm font-medium leading-relaxed text-foreground/85">
                     {state.definition}
@@ -302,16 +277,12 @@ export default function ParkProofStandardPage() {
                 {WORKED_EXAMPLE.map((row) => (
                   <li
                     key={row.state}
-                    className="grid gap-3 border-b border-border/40 py-4 last:border-b-0 sm:grid-cols-[190px_1fr]"
+                    className="grid gap-3 border-b border-border/40 py-4 last:border-b-0 sm:grid-cols-[216px_1fr]"
                   >
-                    <span
-                      className={cn(
-                        "h-fit w-fit border bg-background/40 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
-                        stateClass(row.state),
-                      )}
-                    >
-                      {row.state}
-                    </span>
+                    <EvidenceStateChip
+                      state={evidenceStateKey(row.state)}
+                      className="h-fit w-fit"
+                    />
                     <p className="text-sm leading-relaxed text-foreground/85">
                       {row.record}
                     </p>

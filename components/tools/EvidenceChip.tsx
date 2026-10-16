@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { EVIDENCE_STATES, INPUT_STATES, type EvidenceState } from "@/lib/tools/evidence"
+import { EVIDENCE_CHIP_CLASS } from "@/components/evidence/EvidenceStateChip"
 import { isInvalidNum } from "@/lib/tools/calc"
 import { cn } from "@/lib/utils"
 
@@ -46,7 +47,7 @@ export function EvidenceChip({
         title={`${info.title}: ${info.definition}${onChange ? " Tap to change." : ""}`}
         aria-label={`Evidence state: ${info.title}. ${info.definition}`}
         className={cn(
-          "inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em]",
+          EVIDENCE_CHIP_CLASS,
           info.chipClass,
           onChange && "cursor-pointer hover:opacity-80",
         )}

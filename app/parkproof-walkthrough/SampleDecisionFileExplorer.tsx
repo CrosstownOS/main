@@ -3,6 +3,10 @@
 import { useMemo, useRef, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import {
+  EvidenceStateChip,
+  evidenceStateKey,
+} from "@/components/evidence/EvidenceStateChip"
 
 const STEPS = [
   "In the inbox",
@@ -234,33 +238,12 @@ const EVIDENCE_PACKETS = [
   },
 ] as const
 
-function stateClass(state: string) {
-  switch (state) {
-    case "Verified":
-      return "border-success/60 text-success"
-    case "Broker-reported":
-      return "border-accent/60 text-accent"
-    case "Missing evidence":
-      return "border-critical/60 text-critical"
-    case "Underwriting assumption":
-      return "border-primary/60 text-primary"
-    case "Calculated":
-      return "border-calculated/60 text-calculated"
-    default:
-      return "border-border text-muted"
-  }
-}
-
 function StateBadge({ state }: { state: string }) {
   return (
-    <span
-      className={cn(
-        "inline-flex w-fit shrink-0 border bg-background/40 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
-        stateClass(state),
-      )}
-    >
-      {state}
-    </span>
+    <EvidenceStateChip
+      state={evidenceStateKey(state)}
+      className="w-fit shrink-0"
+    />
   )
 }
 

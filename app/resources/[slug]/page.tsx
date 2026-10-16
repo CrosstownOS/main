@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
+import { EvidenceStateChip } from "@/components/evidence/EvidenceStateChip"
 import { getAllPosts, type PostMeta } from "@/lib/blog"
 import {
   LIVE_TOOL_BY_RESOURCE_SLUG,
@@ -20,17 +21,15 @@ import {
 import { RESOURCE_INSIDE } from "@/lib/resource-inside"
 
 const EVIDENCE_LETTERS = [
-  { letter: "V", name: "Verified", meaning: "Backed by evidence you can point to, and reviewed by a person.", color: "text-success" },
-  { letter: "B", name: "Broker-reported", meaning: "Reported in an OM, call, model, or broker package; not independently checked yet.", color: "text-accent" },
-  { letter: "M", name: "Missing", meaning: "Material information has not been received or located yet.", color: "text-critical" },
-  { letter: "A", name: "Assumed", meaning: "A stated input in the investment case; not a verified fact.", color: "text-primary" },
-  { letter: "C", name: "Calculated", meaning: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.", color: "text-calculated" },
+  { key: "verified", meaning: "Backed by evidence you can point to, and reviewed by a person." },
+  { key: "broker-reported", meaning: "Reported in an OM, call, model, or broker package; not independently checked yet." },
+  { key: "missing", meaning: "Material information has not been received or located yet." },
+  { key: "assumption", meaning: "A stated input in the investment case; not a verified fact." },
+  { key: "calculated", meaning: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it." },
   {
-    letter: "U",
-    name: "Unresolved",
+    key: "unresolved",
     meaning:
       "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
-    color: "text-muted",
   },
 ] as const
 
@@ -383,18 +382,16 @@ export default async function ResourcePage({ params }: PageProps) {
                 <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                   <thead>
                     <tr className="border-b-2 border-border">
-                      <th className="px-3 py-2 font-bold text-foreground">Letter</th>
-                      <th className="px-3 py-2 font-bold text-foreground">Name</th>
+                      <th className="px-3 py-2 font-bold text-foreground">Evidence state</th>
                       <th className="px-3 py-2 font-bold text-foreground">Meaning</th>
                     </tr>
                   </thead>
                   <tbody>
                     {EVIDENCE_LETTERS.map((row) => (
-                      <tr key={row.letter} className="border-b border-border/60">
-                        <td className={`px-3 py-2 align-top font-bold ${row.color}`}>
-                          {row.letter}
+                      <tr key={row.key} className="border-b border-border/60">
+                        <td className="px-3 py-2 align-top">
+                          <EvidenceStateChip state={row.key} />
                         </td>
-                        <td className={`px-3 py-2 align-top ${row.color}`}>{row.name}</td>
                         <td className="px-3 py-2 align-top">{row.meaning}</td>
                       </tr>
                     ))}

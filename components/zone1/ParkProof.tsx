@@ -10,40 +10,20 @@ import {
   TerminalLabel,
 } from "@/components/ui/primitives"
 import SignalLine from "@/components/ui/SignalLine"
-import { cn } from "@/lib/utils"
+import {
+  EvidenceStateChip,
+  evidenceStateKey,
+} from "@/components/evidence/EvidenceStateChip"
+import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
 
-const TRUTH_STATES = [
-  {
-    title: "Verified",
-    body: "Backed by evidence you can point to, and reviewed by a person.",
-    className: "border-success/60 text-success",
-  },
-  {
-    title: "Broker-reported",
-    body: "Reported in an OM, call, model, or broker package; not independently checked yet.",
-    className: "border-accent/60 text-accent",
-  },
-  {
-    title: "Missing evidence",
-    body: "Material information has not been received or located yet.",
-    className: "border-critical/60 text-critical",
-  },
-  {
-    title: "Underwriting assumption",
-    body: "A stated input in the investment case; not a verified fact.",
-    className: "border-primary/60 text-primary",
-  },
-  {
-    title: "Calculated",
-    body: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
-    className: "border-calculated/60 text-calculated",
-  },
-  {
-    title: "Unresolved",
-    body: "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
-    className: "border-border text-muted",
-  },
-] as const
+const TRUTH_STATE_ORDER: EvidenceState[] = [
+  "verified",
+  "broker-reported",
+  "missing",
+  "assumption",
+  "calculated",
+  "unresolved",
+]
 
 const DECISION_ROWS = [
   {
@@ -67,14 +47,6 @@ const DECISION_ROWS = [
     source: "Approved input to the investment case",
   },
 ] as const
-
-function getStateClass(state: string) {
-  if (state === "Verified") return "border-success/60 text-success"
-  if (state === "Broker-reported") return "border-accent/60 text-accent"
-  if (state === "Underwriting assumption") return "border-primary/60 text-primary"
-  if (state === "Missing evidence") return "border-critical/60 text-critical"
-  return "border-border text-muted"
-}
 
 export default function ParkProof() {
   const revealRef = useReveal<HTMLElement>()
@@ -136,14 +108,10 @@ export default function ParkProof() {
                       {row.source}
                     </p>
                   </div>
-                  <span
-                    className={cn(
-                      "shrink-0 border bg-background/40 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.14em]",
-                      getStateClass(row.state),
-                    )}
-                  >
-                    {row.state}
-                  </span>
+                  <EvidenceStateChip
+                    state={evidenceStateKey(row.state)}
+                    className="shrink-0"
+                  />
                 </li>
               ))}
             </ul>
@@ -157,13 +125,11 @@ export default function ParkProof() {
 
         {/* Row 3 — six truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {TRUTH_STATES.map((state) => (
-            <TelemetryBox key={state.title} data-reveal-item glass="light" className={cn("theme-cream paper p-5", state.className)}>
-              <TerminalLabel className="mb-3 block">
-                {state.title}
-              </TerminalLabel>
-              <p className="text-sm leading-relaxed text-foreground/75">
-                {state.body}
+          {TRUTH_STATE_ORDER.map((key) => (
+            <TelemetryBox key={key} data-reveal-item glass="light" className="theme-cream paper p-5">
+              <EvidenceStateChip state={key} />
+              <p className="mt-3 text-sm leading-relaxed text-foreground/75">
+                {EVIDENCE_STATES[key].definition}
               </p>
             </TelemetryBox>
           ))}

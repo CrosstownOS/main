@@ -37,7 +37,7 @@ const STATE_COLORS: Record<string, string> = {
   "broker-reported": "#994a00",
   missing: "#ac3031",
   assumption: "#00468B",
-  calculated: "#00468B",
+  calculated: "#6246a0",
   unresolved: "#6a5f4e",
 }
 

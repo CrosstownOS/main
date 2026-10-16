@@ -11,6 +11,7 @@ import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/work
 import type { Faq } from "@/lib/tools/faqs"
 import FaqSection from "./FaqSection"
 import SuccessState from "@/components/SuccessState"
+import { EvidenceStateChip } from "@/components/evidence/EvidenceStateChip"
 import { cn } from "@/lib/utils"
 import SignalLine from "@/components/ui/SignalLine"
 
@@ -379,27 +380,19 @@ export default function ToolShell(props: ToolShellProps) {
             </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2">
-            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
-              How to read this page:
-            </span>
-            {(Object.keys(EVIDENCE_STATES) as EvidenceState[]).map((s) => (
-              <span
-                key={s}
-                title={EVIDENCE_STATES[s].definition}
-                className={cn(
-                  "inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em]",
-                  EVIDENCE_STATES[s].chipClass,
-                )}
-              >
-                <span aria-hidden="true">{EVIDENCE_STATES[s].code}</span>
-                <span>{EVIDENCE_STATES[s].title}</span>
-              </span>
-            ))}
+          <div className="theme-cream mt-6 border border-border bg-card p-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
+              How to read this page
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {(Object.keys(EVIDENCE_STATES) as EvidenceState[]).map((s) => (
+                <EvidenceStateChip key={s} state={s} />
+              ))}
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              What you type starts as Broker-reported. Mark it Verified only when you can point to the source. What the tool computes is Calculated. Missing is named, never zeroed.
+            </p>
           </div>
-          <p className="mt-2 max-w-3xl text-xs leading-relaxed text-muted">
-            What you type starts as Broker-reported. Mark it Verified only when you can point to the source. What the tool computes is Calculated. Missing is named, never zeroed.
-          </p>
 
           <div className="theme-cream mt-10 border border-border bg-card p-6">
             <label htmlFor="deal-name" className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
