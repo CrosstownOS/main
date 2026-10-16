@@ -243,8 +243,9 @@ function stateClass(state: string) {
     case "Missing evidence":
       return "border-critical/60 text-critical"
     case "Underwriting assumption":
-    case "Calculated":
       return "border-primary/60 text-primary"
+    case "Calculated":
+      return "border-calculated/60 text-calculated"
     default:
       return "border-border text-muted"
   }

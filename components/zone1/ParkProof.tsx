@@ -35,7 +35,7 @@ const TRUTH_STATES = [
   {
     title: "Calculated",
     body: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
-    className: "border-primary/60 text-primary",
+    className: "border-calculated/60 text-calculated",
   },
   {
     title: "Unresolved",

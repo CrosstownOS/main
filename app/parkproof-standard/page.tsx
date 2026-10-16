@@ -73,7 +73,7 @@ const EVIDENCE_STATES = [
       "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
     counts:
       "The inputs, their states, and the calculation lineage stay visible. Models may propose. People confirm. Code calculates.",
-    className: "border-primary/60 text-primary",
+    className: "border-calculated/60 text-calculated",
   },
   {
     title: "Unresolved",
@@ -141,8 +141,11 @@ function stateClass(state: string) {
   if (state === "Verified") return "border-success/60 text-success"
   if (state === "Broker-reported") return "border-accent/60 text-accent"
   if (state === "Missing evidence") return "border-critical/60 text-critical"
-  if (state === "Underwriting assumption" || state === "Calculated") {
+  if (state === "Underwriting assumption") {
     return "border-primary/60 text-primary"
+  }
+  if (state === "Calculated") {
+    return "border-calculated/60 text-calculated"
   }
   return "border-border text-muted"
 }
