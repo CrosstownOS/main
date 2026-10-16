@@ -166,6 +166,9 @@ export default function ChecklistPage() {
           </p>
 
           <section className="mt-12" aria-label="Diligence checklist">
+            <p className="mb-4 text-sm font-bold text-foreground sm:text-base">
+              The fifteen verifications, in order (CrosstownOS):
+            </p>
             <ol className="space-y-3">
               {ITEMS.map((item, i) => (
                 <li

@@ -123,7 +123,10 @@ export default function MobileHomeParkInvestingPage() {
               business you are really buying, and each side gets priced the
               way it behaves.
             </p>
-            <div className="mt-6 overflow-x-auto">
+            <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
+              Tenant-owned vs park-owned homes (the CrosstownOS POH/TOH Split):
+            </p>
+            <div className="mt-3 overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
@@ -321,7 +324,9 @@ export default function MobileHomeParkInvestingPage() {
               Two businesses, two prices, one decision. Pay for the land on
               its verified lot rent, pay for the homes on their rental
               record, and never let a single price tag blur the two together
-              again.
+              again. Against the broker&apos;s single blended number, the
+              CrosstownOS POH/TOH Split values the land business and the
+              homes business on separate evidence.
             </p>
             <div className="mt-6">
               <Link

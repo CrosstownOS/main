@@ -195,7 +195,10 @@ export default function BuyingAnRvParkPage() {
               the expenses are usually doing something creative. Normalize
               first, then compare.
             </p>
-            <div className="mt-6 overflow-x-auto">
+            <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
+              Price-per-pad and cap rate benchmarks (CrosstownOS, How to Buy an RV Park):
+            </p>
+            <div className="mt-3 overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
@@ -322,6 +325,11 @@ export default function BuyingAnRvParkPage() {
               holds the full record: seller claims, source evidence, site
               observations, unresolved diligence, and underwriting connected
               before you commit capital.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              The package makes the seller&apos;s case; the CrosstownOS
+              Acquisition Workspace is where the buyer&apos;s case gets
+              built, claim by claim, against the evidence.
             </p>
             <div className="mt-6">
               <Link

@@ -305,6 +305,11 @@ export default function RvParkInvestingPage() {
               before the story gets expensive, then work the buyer&apos;s
               guide in order.
             </p>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              Where the package arranges the numbers into a story, the
+              CrosstownOS record keeps the same numbers next to the evidence
+              that proves or breaks them.
+            </p>
             <div className="mt-6">
               <Link
                 href="/workspace"
