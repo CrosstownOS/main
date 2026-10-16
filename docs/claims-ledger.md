@@ -190,3 +190,18 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 4. Protocol adoption: takes effect on founder confirmation (protocol Section 8).
 5. CLOSED (not reproduced): Batch 11's reported FAQ-schema drift on the-rent-roll-truth-check. Full-file follow-up audit plus coordinator grep of source and live page found no such text; see the Batch 11 ledger row for the full record.
 6. Batch 7 report discrepancy (coordinator reconciliation, 2026-10-16): the Batch 7 builder's report described two corrections to /parkproof-standard ("Decision review" gate name; a conditional on a knowing-questions sentence). Neither string exists in the page source or live page, and the file was never modified; the items are recorded as not reproduced. The page stands as verified in Batch 7's own read (definitions byte-identical across the four sources) with no change made or needed for those two items.
+
+---
+
+## Post-verification residuals (commit 7f5990d)
+
+| Page | Change | Basis | Status |
+|---|---|---|---|
+| /buying-an-rv-park | Gate 3 superlative "underwrite least and regret most" qualified as CrosstownOS judgment | Independent verifier residual 1 | FIXED, verified live |
+| /data-room-vs-diligence-software | Site-evidence cell rewritten from "Files uploaded after the visit" to a factual statement; AI disclosure footer added (page had none) | Independent verifier residual 2 + consistency gap | FIXED, verified live |
+| /buying-a-campground | "Most campgrounds earn the bulk of annual revenue in a four to six month window" qualified to "Many campgrounds... concentrated season, often four to six months" | Independent verifier residual 3 | FIXED, verified live |
+| Speed note | Body 1031 sentence now reads "due date (with extensions)" | Verifier minor | FIXED |
+| Rent Roll note | Forum attribution corrected to one participant + general discussion | Verifier minor | FIXED |
+| Before You Underwrite note | Closing teaser aligned to judgment-labeled phrasing | Verifier minor | FIXED |
+| /rv-park-investing | "Park debt is typically bank or local-lender debt" reframed as an expectation | Verifier minor | FIXED |
+| Speed + Occupancy notes | "These are not unusual stories" left as written: both passages carry explicit "in our judgment" framing in the same breath | Coordinator decision, recorded | LEFT, decision recorded |
