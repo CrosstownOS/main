@@ -118,11 +118,6 @@ export default function ParkProof() {
           </div>
         </TelemetryBox>
 
-        {/* Posture labels line */}
-        <p className="mt-5 text-sm leading-relaxed text-foreground/75">
-          Advance, Retrade, Pause, and Walk are evidence-readiness labels. They are not recommendations, approvals, or advice.
-        </p>
-
         {/* Row 3 — six truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {TRUTH_STATE_ORDER.map((key) => (
@@ -134,6 +129,11 @@ export default function ParkProof() {
             </TelemetryBox>
           ))}
         </div>
+
+        {/* Posture labels line — closing caption beneath the six truth states */}
+        <p className="mt-5 text-center text-sm leading-relaxed text-muted">
+          Advance, Retrade, Pause, and Walk are evidence-readiness labels. They are not recommendations, approvals, or advice.
+        </p>
 
         {/* Closing card — disclaimer, doors, and the record line, housed in the section's cream card family */}
         <TelemetryBox glass="light" className="theme-cream paper mt-8 p-6 sm:p-8">
