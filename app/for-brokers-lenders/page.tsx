@@ -243,7 +243,7 @@ export default function ForBrokersLendersPage() {
 
           <section aria-labelledby="partner-heading" className="mt-20">
             <div className="theme-cream paper border border-border p-6 sm:p-8">
-              <h2 id="partner-heading" className="serif-display text-2xl tracking-tight sm:text-3xl">
+              <h2 id="partner-heading" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
                 Start the partner conversation.
               </h2>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
