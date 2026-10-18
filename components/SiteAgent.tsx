@@ -151,6 +151,7 @@ export default function SiteAgent() {
   const [input, setInput] = useState("")
   const [busy, setBusy] = useState(false)
   const [showForm, setShowForm] = useState(false)
+  const [escalateOffer, setEscalateOffer] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [successMessage, setSuccessMessage] = useState("")
   const [formError, setFormError] = useState("")
@@ -203,7 +204,7 @@ export default function SiteAgent() {
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
     })
-  }, [messages, open, showForm, submitted])
+  }, [messages, open, showForm, submitted, escalateOffer])
 
   useEffect(() => {
     if (open && window.innerWidth >= 768) inputRef.current?.focus()
@@ -226,6 +227,7 @@ export default function SiteAgent() {
     if (!text || busy) return
     setInput("")
     setNote("")
+    setEscalateOffer(false)
     const history: ChatMessage[] = [...messages, { role: "user", content: text }]
     setMessages([...history, { role: "assistant", content: "" }])
     setBusy(true)
@@ -292,7 +294,10 @@ export default function SiteAgent() {
           }
         }
       }
-      if (acc.includes("[[ESCALATE]]")) openHumanForm()
+      if (acc.includes("[[ESCALATE]]")) {
+        flagsRef.current.escalated = true
+        setEscalateOffer(true)
+      }
       if (acc.includes("[[GAP]]")) flagsRef.current.gap = true
       setMessages([...history, { role: "assistant", content: visible() }])
     } catch {
@@ -690,6 +695,22 @@ export default function SiteAgent() {
                         </button>
                       ))}
                     </div>
+                  </div>
+                ) : null}
+
+                {escalateOffer && !showForm ? (
+                  <div className="border border-primary/40 bg-background/60 p-4">
+                    <p className="text-sm leading-relaxed text-foreground/90">
+                      That one goes to Jeremy. The form files it straight to
+                      him, with this conversation attached.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={openHumanForm}
+                      className="mt-3 border border-primary/60 bg-primary px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
+                      File it with Jeremy
+                    </button>
                   </div>
                 ) : null}
 
