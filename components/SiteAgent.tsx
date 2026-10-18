@@ -447,8 +447,10 @@ export default function SiteAgent() {
                     Talk to Jeremy.
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-                    {GOVERNED.escalation} It files from {pageRef.current},
-                    with this conversation attached, so nothing is lost.
+                    {GOVERNED.escalation}{" "}
+                    {pageRef.current === "/"
+                      ? "You are filing from the homepage."
+                      : `You are filing from ${pageRef.current}.`}
                   </p>
 
                   {formError || note ? (

@@ -36,7 +36,7 @@ export const GOVERNED = {
   parkProof:
     'The ParkProof Report is the decision file the workspace builds before capital is committed: the diligence and underwriting record for one deal, with every load-bearing fact graded under the ParkProof Standard, so what is verified, what is merely claimed, and what is missing are never blurred together.',
   standard:
-    'Every fact in a ParkProof record carries one of six states. Verified: evidence you can point to, reviewed by Jeremy. Broker-reported: claimed in the package or on a call, not checked yet. Missing evidence: material information not received or located yet. Underwriting assumption: a stated input in your case, not a verified fact. Calculated: output from stated inputs, only as reliable as they are. Unresolved: sources conflict, or the answer is not established yet. Missing evidence is a finding, not a blank, and it is never treated as zero.',
+    'Every fact in a ParkProof record carries one of six states. Verified: evidence you can point to, reviewed by a person. Broker-reported: claimed in the package or on a call, not checked yet. Missing evidence: material information not received or located yet. Underwriting assumption: a stated input in your case, not a verified fact. Calculated: output from stated inputs, only as reliable as they are. Unresolved: sources conflict, or the answer is not established yet. Missing evidence is a finding, not a blank, and it is never treated as zero.',
   pricing:
     'The Acquisition Workspace is $1,250 for a single deal, 90 days, or $2,500 annual. Pricing is public, on the Workspace page, and the same for everyone.',
   pilot:
@@ -72,7 +72,7 @@ export const GOVERNED = {
 
 const EVIDENCE_STATES = `
 The ParkProof Standard: six evidence states (definitions verbatim from the Standard page and lib/tools/evidence.ts):
-- Verified: Backed by evidence you can point to, and reviewed by Jeremy.
+- Verified: Backed by evidence you can point to, and reviewed by a person.
 - Broker-reported: Reported in an OM, call, model, or broker package; not independently checked yet.
 - Missing evidence: Material information has not been received or located yet.
 - Underwriting assumption: A stated input in the investment case; not a verified fact.
