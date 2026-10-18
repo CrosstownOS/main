@@ -152,6 +152,7 @@ export default function SiteAgent() {
   const [busy, setBusy] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [successMessage, setSuccessMessage] = useState("")
   const [formError, setFormError] = useState("")
   const [sending, setSending] = useState(false)
   const [note, setNote] = useState("")
@@ -308,6 +309,27 @@ export default function SiteAgent() {
     if (sending) return
     const fd = new FormData(event.currentTarget)
     const get = (k: string) => String(fd.get(k) ?? "").trim()
+    const required: [string, string][] = [
+      ["name", "Name"],
+      ["email", "Email"],
+      ["company", "Company"],
+      ["role", "Your role"],
+      ["goal", "What are you trying to do"],
+    ]
+    for (const [key, label] of required) {
+      if (!get(key)) {
+        setFormError(`Missing required field: ${label}`)
+        return
+      }
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(get("email"))) {
+      setFormError("A valid email is required.")
+      return
+    }
+    if (fd.get("consent") !== "on") {
+      setFormError("Privacy notice acknowledgement is required.")
+      return
+    }
     const context = `[Sent from the Site Agent on ${pageRef.current}]`
     setSending(true)
     setFormError("")
@@ -317,6 +339,7 @@ export default function SiteAgent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           formType: "not_sure",
+          consent: true,
           name: get("name"),
           email: get("email"),
           company: get("company"),
@@ -328,8 +351,10 @@ export default function SiteAgent() {
       const data = (await res.json().catch(() => null)) as {
         success?: boolean
         error?: string
+        message?: string
       } | null
       if (res.ok && data?.success) {
+        setSuccessMessage(data.message || "")
         setSubmitted(true)
         setMessages((prev) => [
           ...prev,
@@ -428,7 +453,10 @@ export default function SiteAgent() {
                     Jeremy has it from here.
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-                    {GOVERNED.escalationFiled}
+                    {successMessage || GOVERNED.escalationFiled}
+                  </p>
+                  <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
+                    This conversation is attached to it
                   </p>
                   <Link
                     href="/parkproof-walkthrough"
@@ -462,7 +490,7 @@ export default function SiteAgent() {
                     </div>
                   ) : null}
 
-                  <form onSubmit={submitForm} className="mt-5 grid gap-4">
+                  <form onSubmit={submitForm} noValidate className="mt-5 grid gap-4">
                     <div>
                       <label htmlFor="sa-name" className={labelClasses}>
                         Name
@@ -540,6 +568,35 @@ export default function SiteAgent() {
                         rows={3}
                         className={`${fieldClasses} resize-y`}
                       />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="sa-consent"
+                        className="flex cursor-pointer items-start gap-3 border border-border/60 bg-background/50 p-4"
+                      >
+                        <input
+                          id="sa-consent"
+                          name="consent"
+                          type="checkbox"
+                          required
+                          className="mt-0.5 h-4 w-4 flex-none border-border accent-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                        />
+                        <span className="text-xs leading-relaxed text-muted">
+                          I acknowledge the privacy notice and consent to
+                          Crosstown reviewing this message and following up
+                          with me about it.
+                        </span>
+                      </label>
+                      <p className="mt-3 text-xs leading-relaxed text-muted">
+                        How we handle your information:{" "}
+                        <Link
+                          href="/privacy"
+                          className="text-primary underline underline-offset-2 hover:no-underline"
+                        >
+                          privacy policy
+                        </Link>
+                        .
+                      </p>
                     </div>
                     <p className="border border-border/60 bg-background/50 p-4 text-xs leading-relaxed text-muted">
                       Please do not paste confidential deal documents or
