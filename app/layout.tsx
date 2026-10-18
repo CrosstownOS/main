@@ -4,6 +4,7 @@ import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
 import AnalyticsClient from '@/components/analytics/AnalyticsClient'
 import SiteFooter from '@/components/SiteFooter'
 import QuietCta from '@/components/QuietCta'
+import SiteAgent from '@/components/SiteAgent'
 import ScrollExperience from '@/components/ScrollExperience'
 import BrandLoader from '@/components/BrandLoader'
 import './globals.css'
@@ -136,6 +137,10 @@ export default function RootLayout({
             outside app/template.tsx) so the .page-enter transform can't break
             its position: fixed. Mounted globally: appears on every page. ── */}
         <QuietCta />
+        {/* ── SITE AGENT: the Front Door. Same mounting rule as QuietCta
+            (direct child of <body>, outside app/template.tsx) so its
+            position: fixed survives the page-enter transform. ── */}
+        <SiteAgent />
         <AnalyticsClient />
         <ScrollExperience />
         <BrandLoader />
