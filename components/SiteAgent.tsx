@@ -19,7 +19,7 @@ import {
 } from "@/components/evidence/EvidenceStateChip"
 
 /**
- * Hitch, the Site Agent (the Front Door).
+ * Hitch, the Site Agent.
  * Spec: engineering/site-agent-spec-2026-10-18.md.
  *
  * Design system: this panel is a site surface, built entirely from the
@@ -241,14 +241,14 @@ export default function SiteAgent() {
         setMessages(history)
         if (res.status === 429) {
           setNote(
-            "That is the top of what this chat can take for now. A person can still take it from here.",
+            "That is the top of what this chat can take for now. Jeremy can still take it from here.",
           )
         } else if (data?.error === "agent_unavailable") {
           setNote(
-            "The agent is not answering just yet. A person can take your question from here.",
+            "The agent is not answering just yet. Jeremy can take your question from here.",
           )
         } else {
-          setNote("Something failed on our side. A person can take it from here.")
+          setNote("Something failed on our side. Jeremy can take it from here.")
         }
         setShowForm(true)
         return
@@ -296,7 +296,7 @@ export default function SiteAgent() {
       setMessages([...history, { role: "assistant", content: visible() }])
     } catch {
       setMessages(history)
-      setNote("Something failed on our side. A person can take it from here.")
+      setNote("Something failed on our side. Jeremy can take it from here.")
       setShowForm(true)
     } finally {
       setBusy(false)
@@ -402,7 +402,7 @@ export default function SiteAgent() {
                     CrosstownOS
                   </p>
                   <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                    {AGENT_DISPLAY_NAME} · The Front Door
+                    {AGENT_DISPLAY_NAME} · Answers from the published record
                   </p>
                 </div>
               </div>
@@ -425,7 +425,7 @@ export default function SiteAgent() {
                     Filed to the record
                   </p>
                   <p className="mt-2 font-serif text-xl font-semibold tracking-tight text-foreground">
-                    A person has it from here.
+                    Jeremy has it from here.
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                     {GOVERNED.escalationFiled}
