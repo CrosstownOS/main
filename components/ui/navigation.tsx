@@ -463,7 +463,7 @@ export default function Navigation() {
             type="button"
             aria-label="Close navigation menu"
             onClick={() => setOpen(false)}
-            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-40 cursor-default bg-background/70 backdrop-blur-sm lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-[45] cursor-default bg-background/70 backdrop-blur-sm lg:hidden"
           />
 
           <div
@@ -472,7 +472,7 @@ export default function Navigation() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-navigation-title"
-            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-40 overflow-y-auto border-t border-border bg-background lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-[45] overflow-y-auto border-t border-border bg-background lg:hidden"
           >
             <div className="flex items-center justify-between border-b border-border px-5 py-4">
               <p
