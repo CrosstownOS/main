@@ -1,110 +1,195 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
-import { usePathname } from "next/navigation"
-import { MessageSquare, X } from "lucide-react"
-import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react"
+import { ArrowRight, MessageSquare, X } from "lucide-react"
 import { AGENT_DISPLAY_NAME, GOVERNED } from "@/lib/site-agent/knowledge"
+import { EVIDENCE_STATES } from "@/lib/tools/evidence"
+import {
+  EvidenceStateChip,
+  evidenceStateKey,
+} from "@/components/evidence/EvidenceStateChip"
 
 /**
- * SiteAgent: the Front Door (spec: site-agent-spec-2026-10-18.md).
+ * Hitch, the Site Agent (the Front Door).
+ * Spec: engineering/site-agent-spec-2026-10-18.md.
  *
- * Design follows the site's standing precedents, not a chat-widget kit:
- * square corners, Playfair for the name, JetBrains Mono micro-labels,
- * the border/background/blur panel treatment of QuietCta, the Hero's
- * solid primary-deep button, and the shared focus-ring pattern.
+ * Design system: this panel is a site surface, built entirely from the
+ * site's own precedents. Cream scope (.theme-cream, the decided scope
+ * for "working surfaces: sections, bands, modals"), panel framing from
+ * SuccessPopup (border-primary/40, bg-card, shadow-2xl), the logo mark
+ * and serif wordmark from the nav and SuccessPopup header, form fields
+ * from DealDeskForm, the success pattern from SuccessState, and the
+ * evidence chips from components/evidence (the one chip system).
  *
- * Mounted in app/layout.tsx as a direct child of <body>, beside QuietCta,
- * so the .page-enter transform cannot break its position: fixed. The
- * launcher stacks above the QuietCta chip's corner; the open panel
- * covers that corner (z-40 over its z-30).
- *
- * Behavior guarantees that live here, not in the model: the greeting and
- * its AI disclosure render from the governed answer set; every finished
- * conversation files its full transcript to /api/chat; escalation goes
- * through the site's existing inquiry flow (form type not_sure).
+ * Mounted in app/layout.tsx as a direct child of body, outside
+ * template.tsx, like QuietCta: a transformed ancestor would break the
+ * fixed positioning. Rendered on every page except the suppressed
+ * paths below (mirrors the QuietCta convention).
  */
 
-type Msg = { role: "user" | "assistant"; content: string }
+const SUPPRESSED_PREFIXES = ["/workspace", "/privacy", "/terms"]
 
-const OFFERS: { label: string; prompt?: string; human?: boolean }[] = [
-  { label: "The product", prompt: "What is CrosstownOS?" },
-  { label: "The ParkProof Standard", prompt: "What is the ParkProof Standard?" },
+type ChatMessage = { role: "user" | "assistant"; content: string }
+type Flags = { escalated?: boolean; gap?: boolean }
+
+const OFFERS: {
+  label: string
+  sub: string
+  prompt?: string
+  action?: "human"
+}[] = [
+  {
+    label: "The product",
+    sub: "What CrosstownOS is, in one breath",
+    prompt: "What is CrosstownOS?",
+  },
+  {
+    label: "The ParkProof Standard",
+    sub: "How every fact in the record gets graded",
+    prompt: "What is the ParkProof Standard?",
+  },
   {
     label: "Pricing and the pilot",
+    sub: "Public pricing, five free pilot places",
     prompt: "What does it cost, and how does the pilot work?",
   },
-  { label: "Talk to a human", human: true },
+  { label: "Talk to a human", sub: "File it with the desk", action: "human" },
 ]
 
-const FOCUS_RING =
-  "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+const STATE_TITLES = Object.values(EVIDENCE_STATES).map((s) => s.title)
 
-function renderRich(text: string) {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g)
+/** Inline rendering: **bold** and [label](/path) links, site link style. */
+function renderInline(text: string, keyBase: string): ReactNode[] {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g)
   return parts.map((part, i) => {
-    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
-    if (link) {
+    const key = `${keyBase}-${i}`
+    const bold = part.match(/^\*\*([^*]+)\*\*$/)
+    if (bold) {
       return (
-        <a
-          key={i}
-          href={link[2]}
-          className="text-primary underline underline-offset-2 hover:text-foreground"
-        >
-          {link[1]}
-        </a>
+        <strong key={key} className="font-semibold text-foreground">
+          {bold[1]}
+        </strong>
       )
     }
-    return <span key={i}>{part}</span>
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (link && link[2].startsWith("/")) {
+      return (
+        <Link
+          key={key}
+          href={link[2]}
+          className="font-medium text-primary underline underline-offset-2 hover:no-underline"
+        >
+          {link[1]}
+        </Link>
+      )
+    }
+    return <span key={key}>{part}</span>
   })
 }
 
-export default function SiteAgent() {
-  const pathname = usePathname()
-  const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState<Msg[]>([
-    { role: "assistant", content: GOVERNED.greeting },
-  ])
-  const [input, setInput] = useState("")
-  const [sending, setSending] = useState(false)
-  const [showHuman, setShowHuman] = useState(false)
-  const [human, setHuman] = useState({
-    name: "",
-    email: "",
-    company: "",
-    role: "",
-    goal: "",
+/**
+ * Assistant message rendering, branded: a trailing "Record: /path" line
+ * becomes the FROM THE RECORD footer; a line opening with an evidence
+ * state title renders the site's own EvidenceStateChip.
+ */
+function renderAssistant(content: string, keyBase: string): ReactNode {
+  const lines = content.split("\n")
+  let recordPath: string | null = null
+  const lastIdx = lines.length - 1
+  const recordMatch = lines[lastIdx]?.match(/^Record:\s*(\/\S*)$/)
+  if (recordMatch) {
+    recordPath = recordMatch[1]
+    lines.pop()
+  }
+  const blocks: ReactNode[] = []
+  lines.forEach((line, i) => {
+    const key = `${keyBase}-l${i}`
+    if (!line.trim()) return
+    const stateTitle = STATE_TITLES.find((t) => line.startsWith(`${t}:`))
+    if (stateTitle) {
+      blocks.push(
+        <p key={key} className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+          <EvidenceStateChip state={evidenceStateKey(stateTitle)} />
+          <span>{renderInline(line.slice(stateTitle.length + 1).trim(), key)}</span>
+        </p>,
+      )
+      return
+    }
+    blocks.push(<p key={key}>{renderInline(line, key)}</p>)
   })
-  const [humanState, setHumanState] = useState<"idle" | "sending" | "done" | "error">(
-    "idle",
+  return (
+    <>
+      <div className="space-y-2">{blocks}</div>
+      {recordPath ? (
+        <p className="mt-3 flex items-center gap-2 border-t border-border/70 pt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
+          From the record
+          <Link
+            href={recordPath}
+            className="font-semibold text-primary underline underline-offset-2 hover:no-underline"
+          >
+            {recordPath}
+          </Link>
+        </p>
+      ) : null}
+    </>
   )
-  const flagsRef = useRef<Set<string>>(new Set())
+}
+
+export default function SiteAgent() {
+  const [pathname, setPathname] = useState<string | null>(null)
+  const [open, setOpen] = useState(false)
+  const [messages, setMessages] = useState<ChatMessage[]>([])
+  const [input, setInput] = useState("")
+  const [busy, setBusy] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [formError, setFormError] = useState("")
+  const [sending, setSending] = useState(false)
+  const [note, setNote] = useState("")
+
+  const flagsRef = useRef<Flags>({})
   const filedRef = useRef(false)
+  const pageRef = useRef("/")
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-  const messagesRef = useRef(messages)
-  messagesRef.current = messages
 
-  const userCount = messages.filter((m) => m.role === "user").length
+  useEffect(() => {
+    setPathname(window.location.pathname)
+    pageRef.current = window.location.pathname
+  }, [])
+
+  const suppressed =
+    pathname !== null &&
+    SUPPRESSED_PREFIXES.some(
+      (p) => pathname === p || pathname.startsWith(`${p}/`),
+    )
 
   const fileTranscript = useCallback(() => {
-    const msgs = messagesRef.current
     if (filedRef.current) return
-    if (msgs.filter((m) => m.role === "user").length === 0) return
+    const hasUser = messages.some((m) => m.role === "user")
+    if (!hasUser) return
     filedRef.current = true
-    const payload = JSON.stringify({
-      type: "transcript",
-      page: pathname || "/",
-      flags: [...flagsRef.current],
-      messages: msgs,
-    })
-    fetch("/api/chat", {
+    void fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: payload,
+      body: JSON.stringify({
+        type: "transcript",
+        page: pageRef.current,
+        flags: flagsRef.current,
+        messages,
+      }),
       keepalive: true,
     }).catch(() => {})
-  }, [pathname])
+  }, [messages])
 
   useEffect(() => {
     const onHide = () => fileTranscript()
@@ -113,32 +198,36 @@ export default function SiteAgent() {
   }, [fileTranscript])
 
   useEffect(() => {
-    const el = scrollRef.current
-    if (el) el.scrollTop = el.scrollHeight
-  }, [messages, open, showHuman])
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    })
+  }, [messages, open, showForm, submitted])
 
   useEffect(() => {
     if (open && window.innerWidth >= 768) inputRef.current?.focus()
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setOpen(false)
-        fileTranscript()
-      }
-    }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [open, fileTranscript])
+  }, [open ])
 
-  const send = async (text: string) => {
-    const content = text.trim()
-    if (!content || sending) return
-    const history: Msg[] = [...messagesRef.current, { role: "user", content }]
-    setMessages(history)
+  if (pathname === null || suppressed) return null
+
+  const closePanel = () => {
+    fileTranscript()
+    setOpen(false)
+  }
+
+  const openHumanForm = () => {
+    flagsRef.current.escalated = true
+    setShowForm(true)
+  }
+
+  const send = async (raw?: string) => {
+    const text = (raw ?? input).trim()
+    if (!text || busy) return
     setInput("")
-    setSending(true)
-    let acc = ""
-    const pushAssistant = (value: string) =>
-      setMessages([...history, { role: "assistant", content: value }])
+    setNote("")
+    const history: ChatMessage[] = [...messages, { role: "user", content: text }]
+    setMessages([...history, { role: "assistant", content: "" }])
+    setBusy(true)
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -146,341 +235,451 @@ export default function SiteAgent() {
         body: JSON.stringify({ messages: history }),
       })
       if (!res.ok || !res.body) {
-        const note =
-          res.status === 429
-            ? "Too many messages in a short window. Give it a few minutes, or leave a note for a person below."
-            : "The agent could not answer just now. Nothing is lost: you can leave a note for a person instead."
-        pushAssistant(note)
-        if (res.status !== 429) setShowHuman(true)
+        const data = (await res.json().catch(() => null)) as {
+          error?: string
+        } | null
+        setMessages(history)
+        if (res.status === 429) {
+          setNote(
+            "That is the top of what this chat can take for now. A person can still take it from here.",
+          )
+        } else if (data?.error === "agent_unavailable") {
+          setNote(
+            "The agent is not answering just yet. A person can take your question from here.",
+          )
+        } else {
+          setNote("Something failed on our side. A person can take it from here.")
+        }
+        setShowForm(true)
         return
       }
       const reader = res.body.getReader()
       const decoder = new TextDecoder()
       let buffer = ""
+      let acc = ""
+      const visible = () =>
+        acc
+          .replace(/\[\[(ESCALATE|GAP)\]\]/g, "")
+          .replace(/\n{0,2}\[\[(ESCALATE|GAP)?$/, "")
+          .trim()
       for (;;) {
         const { done, value } = await reader.read()
         if (done) break
         buffer += decoder.decode(value, { stream: true })
-        const events = buffer.split("\n\n")
-        buffer = events.pop() || ""
-        for (const event of events) {
-          for (const line of event.split("\n")) {
-            if (!line.startsWith("data: ")) continue
-            const data = line.slice(6).trim()
-            if (data === "[DONE]") continue
+        const chunks = buffer.split("\n\n")
+        buffer = chunks.pop() ?? ""
+        for (const chunk of chunks) {
+          for (const line of chunk.split("\n")) {
+            if (!line.startsWith("data:")) continue
+            const payload = line.slice(5).trim()
+            if (payload === "[DONE]") continue
             try {
-              const json = JSON.parse(data)
-              const delta = json?.choices?.[0]?.delta?.content
-              if (typeof delta === "string") {
+              const json = JSON.parse(payload) as {
+                choices?: { delta?: { content?: string } }[]
+              }
+              const delta = json.choices?.[0]?.delta?.content
+              if (delta) {
                 acc += delta
-                pushAssistant(acc)
+                setMessages([
+                  ...history,
+                  { role: "assistant", content: visible() },
+                ])
               }
             } catch {
-              // Partial or non-JSON keepalive lines are ignored by design.
+              /* partial frame, wait for more */
             }
           }
         }
       }
-      // Protocol markers from the system prompt: behavior, not copy.
-      let escalate = false
-      const cleaned = acc
-        .split("\n")
-        .filter((line) => {
-          const t = line.trim()
-          if (t === "[[ESCALATE]]") {
-            escalate = true
-            return false
-          }
-          if (t === "[[GAP]]") {
-            flagsRef.current.add("corpus gap")
-            return false
-          }
-          return true
-        })
-        .join("\n")
-        .trim()
-      if (cleaned !== acc) pushAssistant(cleaned)
-      if (escalate) {
-        flagsRef.current.add("escalated")
-        setShowHuman(true)
-      }
-      if (!cleaned) {
-        pushAssistant(
-          "The agent returned an empty answer. Leave a note for a person and it will be picked up from there.",
-        )
-        setShowHuman(true)
-      }
+      if (acc.includes("[[ESCALATE]]")) openHumanForm()
+      if (acc.includes("[[GAP]]")) flagsRef.current.gap = true
+      setMessages([...history, { role: "assistant", content: visible() }])
     } catch {
-      pushAssistant(
-        "The agent could not be reached just now. You can leave a note for a person instead.",
-      )
-      setShowHuman(true)
+      setMessages(history)
+      setNote("Something failed on our side. A person can take it from here.")
+      setShowForm(true)
     } finally {
-      setSending(false)
+      setBusy(false)
     }
   }
 
-  const submitHuman = async () => {
-    if (humanState === "sending" || humanState === "done") return
-    setHumanState("sending")
+  const submitForm = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (sending) return
+    const fd = new FormData(event.currentTarget)
+    const get = (k: string) => String(fd.get(k) ?? "").trim()
+    const context = `[Sent from the Site Agent on ${pageRef.current}]`
+    setSending(true)
+    setFormError("")
     try {
       const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           formType: "not_sure",
-          name: human.name,
-          email: human.email,
-          company: human.company,
-          role: human.role,
-          goal: `${human.goal}\n\n[Sent from the Site Agent on ${pathname || "/"}]`,
+          name: get("name"),
+          email: get("email"),
+          company: get("company"),
+          role: get("role"),
+          goal: `${get("goal")}\n\n${context}`,
+          sourcePage: window.location.href,
         }),
       })
-      if (!res.ok) throw new Error("inquiry failed")
-      setHumanState("done")
-      flagsRef.current.add("escalated")
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: GOVERNED.escalationFiled },
-      ])
-      filedRef.current = false
-      fileTranscript()
+      const data = (await res.json().catch(() => null)) as {
+        success?: boolean
+        error?: string
+      } | null
+      if (res.ok && data?.success) {
+        setSubmitted(true)
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: GOVERNED.escalationFiled },
+        ])
+        setTimeout(() => fileTranscript(), 50)
+      } else {
+        setFormError(
+          data?.error || "We could not file that. Please try again.",
+        )
+      }
     } catch {
-      setHumanState("error")
+      setFormError("Network error. Please try again.")
+    } finally {
+      setSending(false)
     }
   }
 
-  const humanField =
-    "w-full border border-border bg-card px-3 py-2 text-sm text-foreground placeholder:text-muted/70 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-  const humanLabel =
-    "font-mono text-[9px] uppercase tracking-[0.2em] text-muted"
+  const fieldClasses =
+    "w-full border border-border/60 bg-background/50 px-3 py-3 text-sm text-foreground transition-colors placeholder:text-muted/50 focus:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+  const labelClasses =
+    "mb-2 block font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted"
 
   return (
     <>
-      {!open && (
+      {!open ? (
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-label={`Open ${AGENT_DISPLAY_NAME}`}
-          className={cn(
-            "fixed bottom-20 right-4 z-40 flex items-center gap-2 border border-border bg-background/95 px-4 py-3 backdrop-blur transition-colors hover:border-primary/60 md:bottom-24 md:right-6",
-            FOCUS_RING,
-          )}
+          className="theme-cream fixed bottom-20 right-4 z-40 flex items-center gap-2.5 border border-primary/40 bg-card py-2 pl-2 pr-4 shadow-2xl transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:bottom-24 md:right-6"
         >
-          <MessageSquare className="h-4 w-4 text-primary" aria-hidden="true" />
-          <span className="font-serif text-xs text-[#4A90D9]">CrosstownOS</span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
+          <span className="relative h-7 w-7 flex-none overflow-hidden [clip-path:circle(50%)]">
+            <Image
+              src="/logo.jpg"
+              alt=""
+              fill
+              sizes="28px"
+              className="object-cover"
+            />
+          </span>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground">
             {AGENT_DISPLAY_NAME}
           </span>
+          <MessageSquare className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
         </button>
-      )}
+      ) : null}
 
-      {open && (
-        <div
+      {open ? (
+        <section
           role="dialog"
+          aria-modal="false"
           aria-label={`${AGENT_DISPLAY_NAME} conversation`}
-          className="fixed inset-x-3 bottom-3 z-40 flex h-[min(600px,80vh)] flex-col border border-border bg-background/95 backdrop-blur md:inset-x-auto md:bottom-6 md:right-6 md:h-[600px] md:max-h-[80vh] md:w-[384px]"
+          className="theme-cream fixed inset-x-3 bottom-3 z-40 flex h-[min(640px,84vh)] flex-col border border-primary/40 bg-card shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:w-[400px]"
         >
-          <div className="flex items-start justify-between border-b border-border px-4 py-3">
-            <div>
-              <p className="font-serif text-xs text-[#4A90D9]">CrosstownOS</p>
-              <p className="font-serif text-lg leading-tight text-foreground">
-                {AGENT_DISPLAY_NAME}
-              </p>
-              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                AI agent · answers from the published record
-              </p>
-            </div>
-            <button
-              type="button"
-              aria-label="Close"
-              onClick={() => {
-                setOpen(false)
-                fileTranscript()
-              }}
-              className={cn(
-                "flex h-7 w-7 flex-none items-center justify-center text-muted transition-colors hover:text-foreground",
-                FOCUS_RING,
-              )}
-            >
-              <X className="h-4 w-4" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3">
-            <div className="space-y-3">
-              {messages.map((m, i) =>
-                m.role === "user" ? (
-                  <div
-                    key={i}
-                    className="ml-10 border border-primary/40 bg-card px-3 py-2 text-sm leading-relaxed text-foreground"
-                  >
-                    {m.content}
-                  </div>
-                ) : (
-                  <div
-                    key={i}
-                    className="pr-2 text-sm leading-relaxed text-foreground"
-                  >
-                    <p className="whitespace-pre-wrap">{renderRich(m.content)}</p>
-                  </div>
-                ),
-              )}
-              {userCount === 0 && (
+          <header className="border-b border-border bg-background px-5 py-4">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="relative h-10 w-10 flex-none overflow-hidden [clip-path:circle(50%)]">
+                  <Image
+                    src="/logo.jpg"
+                    alt="CrosstownOS"
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                  />
+                </span>
                 <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                    {GOVERNED.offersIntro}
+                  <p className="font-serif text-lg font-semibold leading-tight tracking-tight text-foreground">
+                    CrosstownOS
                   </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {OFFERS.map((offer) => (
-                      <button
-                        key={offer.label}
-                        type="button"
-                        onClick={() =>
-                          offer.human ? setShowHuman(true) : send(offer.prompt || "")
-                        }
-                        className={cn(
-                          "border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-foreground transition-colors hover:border-primary/60",
-                          FOCUS_RING,
-                        )}
-                      >
-                        {offer.label}
-                      </button>
-                    ))}
-                  </div>
+                  <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+                    {AGENT_DISPLAY_NAME} · The Front Door
+                  </p>
                 </div>
-              )}
-              {sending && (
-                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                  Working from the record
-                </p>
-              )}
+              </div>
+              <button
+                type="button"
+                onClick={closePanel}
+                aria-label={`Close ${AGENT_DISPLAY_NAME}`}
+                className="flex h-10 w-10 flex-none items-center justify-center border border-border text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <X className="h-4 w-4" aria-hidden="true" />
+              </button>
             </div>
+          </header>
 
-            {showHuman && humanState !== "done" && (
-              <div className="mt-4 border border-border bg-card px-3 py-3">
-                <p className="text-sm leading-relaxed text-foreground">
-                  {GOVERNED.escalation}
-                </p>
-                <div className="mt-3 space-y-2">
-                  <div>
-                    <label className={humanLabel} htmlFor="sa-name">Name</label>
-                    <input
-                      id="sa-name"
-                      className={humanField}
-                      value={human.name}
-                      onChange={(e) => setHuman({ ...human, name: e.target.value })}
-                      autoComplete="name"
-                    />
-                  </div>
-                  <div>
-                    <label className={humanLabel} htmlFor="sa-email">Email</label>
-                    <input
-                      id="sa-email"
-                      type="email"
-                      className={humanField}
-                      value={human.email}
-                      onChange={(e) => setHuman({ ...human, email: e.target.value })}
-                      autoComplete="email"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4">
+            {showForm ? (
+              submitted ? (
+                <div className="border border-primary/40 bg-background/60 p-5">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                    Filed to the record
+                  </p>
+                  <p className="mt-2 font-serif text-xl font-semibold tracking-tight text-foreground">
+                    A person has it from here.
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                    {GOVERNED.escalationFiled}
+                  </p>
+                  <Link
+                    href="/parkproof-walkthrough"
+                    className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-primary underline underline-offset-2 hover:no-underline"
+                  >
+                    See a ParkProof decision record
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                    Human handoff
+                  </p>
+                  <p className="mt-2 font-serif text-xl font-semibold tracking-tight text-foreground">
+                    Talk to the desk.
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                    {GOVERNED.escalation} It files from {pageRef.current},
+                    with this conversation attached, so nothing is lost.
+                  </p>
+
+                  {formError || note ? (
+                    <div
+                      role="alert"
+                      className="mt-4 border border-accent/60 bg-accent/10 px-4 py-3 text-sm leading-relaxed text-foreground"
+                    >
+                      {formError || note}
+                    </div>
+                  ) : null}
+
+                  <form onSubmit={submitForm} className="mt-5 grid gap-4">
                     <div>
-                      <label className={humanLabel} htmlFor="sa-company">Company</label>
+                      <label htmlFor="sa-name" className={labelClasses}>
+                        Name
+                        <span className="ml-1 text-primary" aria-hidden="true">
+                          *
+                        </span>
+                      </label>
+                      <input
+                        id="sa-name"
+                        name="name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        className={fieldClasses}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="sa-email" className={labelClasses}>
+                        Email
+                        <span className="ml-1 text-primary" aria-hidden="true">
+                          *
+                        </span>
+                      </label>
+                      <input
+                        id="sa-email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        className={fieldClasses}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="sa-company" className={labelClasses}>
+                        Company
+                        <span className="ml-1 text-primary" aria-hidden="true">
+                          *
+                        </span>
+                      </label>
                       <input
                         id="sa-company"
-                        className={humanField}
-                        value={human.company}
-                        onChange={(e) =>
-                          setHuman({ ...human, company: e.target.value })
-                        }
+                        name="company"
+                        type="text"
+                        required
                         autoComplete="organization"
+                        className={fieldClasses}
                       />
                     </div>
                     <div>
-                      <label className={humanLabel} htmlFor="sa-role">Role</label>
+                      <label htmlFor="sa-role" className={labelClasses}>
+                        Your role
+                        <span className="ml-1 text-primary" aria-hidden="true">
+                          *
+                        </span>
+                      </label>
                       <input
                         id="sa-role"
-                        className={humanField}
-                        value={human.role}
-                        onChange={(e) => setHuman({ ...human, role: e.target.value })}
+                        name="role"
+                        type="text"
+                        required
+                        className={fieldClasses}
                       />
                     </div>
-                  </div>
-                  <div>
-                    <label className={humanLabel} htmlFor="sa-goal">
-                      What are you trying to do
-                    </label>
-                    <textarea
-                      id="sa-goal"
-                      rows={3}
-                      className={humanField}
-                      value={human.goal}
-                      onChange={(e) => setHuman({ ...human, goal: e.target.value })}
-                    />
-                  </div>
-                  {humanState === "error" && (
-                    <p className="text-sm text-critical">
-                      The note could not be filed just now. Please try again.
+                    <div>
+                      <label htmlFor="sa-goal" className={labelClasses}>
+                        What are you trying to do
+                        <span className="ml-1 text-primary" aria-hidden="true">
+                          *
+                        </span>
+                      </label>
+                      <textarea
+                        id="sa-goal"
+                        name="goal"
+                        required
+                        rows={3}
+                        className={`${fieldClasses} resize-y`}
+                      />
+                    </div>
+                    <p className="border border-border/60 bg-background/50 p-4 text-xs leading-relaxed text-muted">
+                      Please do not paste confidential deal documents or
+                      financials here. If a conversation is a fit, we will set
+                      up a secure way to share materials.
                     </p>
-                  )}
-                  <button
-                    type="button"
-                    onClick={submitHuman}
-                    disabled={
-                      humanState === "sending" ||
-                      !human.name ||
-                      !human.email ||
-                      !human.company ||
-                      !human.role ||
-                      !human.goal
-                    }
-                    className={cn(
-                      "border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 disabled:cursor-not-allowed disabled:opacity-50",
-                      FOCUS_RING,
-                    )}
-                  >
-                    {humanState === "sending" ? "Filing" : "Send to a person"}
-                  </button>
+                    <button
+                      type="submit"
+                      disabled={sending}
+                      className="border border-primary/60 bg-primary px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {sending ? "Filing…" : "File it with the desk"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(false)}
+                      className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted underline underline-offset-2 hover:text-primary"
+                    >
+                      Back to the conversation
+                    </button>
+                  </form>
                 </div>
+              )
+            ) : (
+              <div className="space-y-5">
+                <div>
+                  <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-muted">
+                    {AGENT_DISPLAY_NAME}
+                  </p>
+                  <div className="mt-1.5 border-l-2 border-primary/50 pl-3 text-sm leading-relaxed text-foreground/90">
+                    {renderAssistant(GOVERNED.greeting, "greeting")}
+                  </div>
+                </div>
+
+                {messages.map((m, i) =>
+                  m.role === "user" ? (
+                    <div key={i} className="flex justify-end">
+                      <p className="max-w-[85%] bg-primary px-3.5 py-2.5 text-sm leading-relaxed text-white">
+                        {m.content}
+                      </p>
+                    </div>
+                  ) : (
+                    <div key={i}>
+                      <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-muted">
+                        {AGENT_DISPLAY_NAME}
+                      </p>
+                      <div className="mt-1.5 border-l-2 border-primary/50 pl-3 text-sm leading-relaxed text-foreground/90">
+                        {m.content
+                          ? renderAssistant(m.content, `m${i}`)
+                          : null}
+                        {busy && i === messages.length - 1 ? (
+                          <span
+                            aria-label="Answering"
+                            className="ml-1 inline-block h-2 w-2 animate-pulse bg-primary"
+                          />
+                        ) : null}
+                      </div>
+                    </div>
+                  ),
+                )}
+
+                {messages.length === 0 ? (
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                      {GOVERNED.offersIntro}
+                    </p>
+                    <div className="mt-3 grid gap-2">
+                      {OFFERS.map((offer) => (
+                        <button
+                          key={offer.label}
+                          type="button"
+                          onClick={() =>
+                            offer.action === "human"
+                              ? openHumanForm()
+                              : void send(offer.prompt)
+                          }
+                          className="group border border-border bg-background/60 p-3.5 text-left transition-colors hover:border-primary/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          <span className="flex items-center justify-between gap-3">
+                            <span className="font-serif text-[15px] font-semibold tracking-tight text-foreground">
+                              {offer.label}
+                            </span>
+                            <ArrowRight
+                              className="h-4 w-4 flex-none text-muted transition-colors group-hover:text-primary"
+                              aria-hidden="true"
+                            />
+                          </span>
+                          <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
+                            {offer.sub}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                {note && !showForm ? (
+                  <p className="border border-accent/60 bg-accent/10 px-4 py-3 text-sm leading-relaxed text-foreground">
+                    {note}
+                  </p>
+                ) : null}
               </div>
             )}
           </div>
 
-          <div className="border-t border-border">
-            <form
-              className="flex items-stretch"
-              onSubmit={(e) => {
-                e.preventDefault()
-                send(input)
-              }}
-            >
-              <input
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                maxLength={2000}
-                placeholder="Ask about the product, the Standard, pricing"
-                aria-label="Your question"
-                className="min-w-0 flex-1 bg-transparent px-3 py-3 text-sm text-foreground placeholder:text-muted/70 focus-visible:outline-none"
-              />
-              <button
-                type="submit"
-                disabled={sending || !input.trim()}
-                className={cn(
-                  "flex-none border-l border-primary/60 bg-primary-deep px-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 disabled:cursor-not-allowed disabled:opacity-50",
-                  FOCUS_RING,
-                )}
+          {!showForm ? (
+            <div className="border-t border-border bg-background px-5 py-3">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  void send()
+                }}
+                className="flex gap-2"
               >
-                Send
-              </button>
-            </form>
-            <p className="px-3 pb-2 font-mono text-[9px] uppercase tracking-[0.15em] text-muted">
-              Filed to Crosstown's record · Do not paste documents or financials here
-            </p>
-          </div>
-        </div>
-      )}
+                <label htmlFor="sa-input" className="sr-only">
+                  Ask a question
+                </label>
+                <input
+                  id="sa-input"
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Ask about the product, the Standard, the pilot…"
+                  maxLength={2000}
+                  className="min-w-0 flex-1 border border-border/60 bg-card px-3 py-3 text-sm text-foreground placeholder:text-muted/60 focus:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                />
+                <button
+                  type="submit"
+                  disabled={busy || !input.trim()}
+                  className="flex-none border border-primary/60 bg-primary px-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Ask
+                </button>
+              </form>
+              <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
+                Filed to Crosstown&rsquo;s record · Do not paste documents or
+                financials here
+              </p>
+            </div>
+          ) : null}
+        </section>
+      ) : null}
     </>
   )
 }
