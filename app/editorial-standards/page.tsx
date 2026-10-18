@@ -57,29 +57,29 @@ const jsonLd = {
 const STATES = [
   {
     title: "Verified",
-    definition: "Evidence was reviewed and the required source standard was met.",
+    definition: "Backed by evidence you can point to, and reviewed by a person.",
   },
   {
     title: "Broker-reported",
     definition:
-      "A claim attributed to broker or seller material that has not been independently verified.",
+      "Reported in an OM, call, model, or broker package; not independently checked yet.",
   },
   {
     title: "Missing evidence",
-    definition: "Required evidence is absent, unavailable, or still requested.",
+    definition: "Material information has not been received or located yet.",
   },
   {
     title: "Underwriting assumption",
     definition:
-      "A buyer-selected planning input while the underlying fact remains unsettled.",
+      "A stated input in the investment case; not a verified fact.",
   },
   {
     title: "Calculated",
-    definition: "A deterministic output derived from stated inputs and formula.",
+    definition: "An output calculated from stated inputs. The calculation is only as reliable as the inputs behind it.",
   },
   {
     title: "Unresolved",
-    definition: "An open issue that remains material to the decision.",
+    definition: "A material claim remains open because sources conflict, a review is incomplete, or the answer has not been established.",
   },
 ]
 
@@ -103,6 +103,16 @@ const SECTIONS = [
       "CrosstownOS uses technology, including AI-assisted research and drafting tools, to organize information and accelerate production. Every published resource, Field Note, product rule, website claim, and customer-facing statement receives human review before publication or release.",
       "Every piece covered by the Content Production Protocol publishes with an AI-assistance disclosure. Research-heavy Field Notes carry the standing note verbatim: \"This note may use AI-assisted research and drafting. Sources, claims, and final editorial judgment remain subject to human review.\" The disclosure is part of the piece, not an optional extra, and a piece missing it is incomplete.",
       "AI output is not evidence. Accountability for source selection, claim accuracy, uncertainty labels, and the final publication remains with CrosstownOS.",
+    ],
+  },
+  {
+    heading: "The site agent",
+    body: [
+      "This site's chat is answered by an AI agent, Hitch. He is a customer-facing statement that talks back, so he is governed here, under his own rules, not only by the drafting rules above.",
+      "He discloses that he is an AI in his first message, before any interaction, and answers questions about his identity truthfully. He never presents himself as a person.",
+      "He may state only what the published record on this site states. His fixed answers to the questions that matter most, pricing, the pilot, the ParkProof Standard, privacy, and every refusal, are founder-approved text. Where the record does not answer, he says so and offers a path to a person.",
+      "Every conversation is filed in full and read by the founder. An answer that invents a claim is a defined failure: it is reviewed the same day, the governed record is corrected at the source, and a second invention inside thirty days takes the agent offline until it is re-approved.",
+      "The agent never reviews documents, never gives a view on a specific deal, and never verifies anything for a visitor. Verification is the buyer's job, on this site as in the Standard.",
     ],
   },
   {

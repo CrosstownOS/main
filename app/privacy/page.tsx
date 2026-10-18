@@ -44,6 +44,7 @@ const SECTIONS = [
       "Identity and contact information: when you use our application form, book a fit call, join the free pilot, or buy the workspace, we collect the information you provide, such as name, email, phone, company, and website.",
       "Deal context: asset type, deal stage, deadline, price range, deal description, and referral source, so we can assess fit and serve you.",
       "Newsletter subscriptions: when you subscribe to Crosstown Updates, we collect your email address.",
+      "Site chat: when you use the chat on this site, we collect the messages you send and the transcript of the conversation. The chat is answered by an AI agent, and the transcript is filed to our record and delivered to us by email so we can follow up and improve what the site answers.",
       "Workspace data: your account information, credentials activity, and everything you enter into the workspace, including documents, numbers, notes, and records. Your deal data remains yours at all times.",
       "Payment information: payments are processed by our checkout provider. We do not store your full card number.",
       "Technical data: browser type, pages visited, and approximate region, collected through privacy-friendly analytics to understand site usage. We use the Meta Pixel for website visitor tracking related to our advertising campaigns.",
@@ -67,6 +68,7 @@ const SECTIONS = [
       "Application form submissions: to review your fit for the Acquisition Workspace and to contact you about it.",
       "Newsletter subscriptions: to send you Crosstown Updates. Every email includes an unsubscribe link.",
       "Scheduling information: to arrange and conduct your fit call.",
+      "Site chat conversations: to answer you, to follow up where you ask us to, and to learn what the site fails to answer. Transcripts are treated as correspondence records.",
       "Workspace data: solely to operate the workspace for you. Your deal data is never used in content, examples, or marketing, and never disclosed, without your written permission.",
       "We do not sell your information. We do not share it with third parties except the service providers needed to operate these functions, who are bound to use it only for that purpose.",
     ],
@@ -80,14 +82,15 @@ const SECTIONS = [
   {
     heading: "Third-party providers",
     body: [
-      "We rely on a small set of providers to operate the site and workspace: Vercel (hosting and analytics), Cal.com (scheduling), our email delivery provider (newsletters and workspace communications), and our checkout provider (payments). Each provider processes only the information needed for its function and is bound to use it only for that purpose.",
+      "We rely on a small set of providers to operate the site and workspace: Vercel (hosting and analytics), Cal.com (scheduling), our email delivery provider (newsletters, workspace communications, and chat transcripts), our AI provider (the site chat), and our checkout provider (payments). Each provider processes only the information needed for its function and is bound to use it only for that purpose.",
+      "Our AI provider processes site chat conversations under its paid-service terms. It does not use your messages, or its replies, to improve its products. It may keep limited logs for a short period to detect abuse and meet legal duties.",
     ],
   },
   {
     heading: "How long we keep it",
     body: [
       "Workspace account data is kept for the life of your subscription. After expiration, we retain it for 30 days so you can export your records, then schedule deletion.",
-      "Newsletter subscriptions are kept until you unsubscribe. Application and correspondence records are kept as long as needed to serve you and meet legal obligations.",
+      "Newsletter subscriptions are kept until you unsubscribe. Application and correspondence records, including site chat transcripts, are kept as long as needed to serve you and meet legal obligations.",
     ],
   },
   {
@@ -129,7 +132,7 @@ const SECTIONS = [
   },
   {
     heading: "Effective date",
-    body: ["October 8, 2026."],
+    body: ["October 18, 2026."],
   },
 ]
 

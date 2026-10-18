@@ -71,6 +71,15 @@ const SECTIONS = [
     ],
   },
   {
+    heading: "Site chat",
+    body: [
+      "This site includes a chat answered by an AI assistant, not a person. It introduces itself as an AI in its first message, before any interaction.",
+      "The chat answers from the published pages of this site. Its answers are educational information, not advice, and are not a basis for reliance in any transaction. Where the published record does not answer, it says so.",
+      "Conversations are recorded and filed so we can follow up and improve the site. How chat information is handled is described in the Privacy Policy.",
+      "Do not submit documents, financial statements, credentials, or confidential deal materials through the chat. Nothing submitted through the chat becomes part of a diligence record. Deal materials belong in the working papers in your browser, or in the workspace when it opens.",
+    ],
+  },
+  {
     heading: "Accounts and credentials",
     body: [
       "Each workspace purchase includes one named operator account. You are responsible for keeping your credentials confidential and for all activity under your account. We are not responsible for activity resulting from credentials you shared or failed to protect. Tell us promptly if you suspect unauthorized use.",
@@ -145,7 +154,7 @@ const SECTIONS = [
   {
     heading: "Expiration, cancellation, and termination",
     body: [
-      "Single-Deal access ends 90 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration. You may export your records during the 30-day retention period after expiration. then. We keep your data for 30 days after expiration, then schedule deletion.",
+      "Single-Deal access ends 90 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration. You may export your records during the 30-day retention period after expiration. We keep your data for 30 days after expiration, then schedule deletion.",
       "If you abandon a deal, Single-Deal access does not transfer to another property. Moving from Single-Deal to Annual is a separate purchase at any time. There is no credit, prorating, or conversion discount.",
       "You can cancel by not renewing, or by telling us you are done. Refunds are only available within the seven-day window above.",
       "We may suspend or terminate access for misuse of the workspace or violation of these terms. Termination does not extend the refund window.",
@@ -190,7 +199,7 @@ const SECTIONS = [
   },
   {
     heading: "Effective date",
-    body: ["October 8, 2026."],
+    body: ["October 18, 2026."],
   },
 ]
 
