@@ -6,6 +6,7 @@ import PageBackdrop from "@/components/PageBackdrop"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
+  keywords: ["data room vs due diligence software", "deal data room", "diligence record", "RV park acquisitions", "manufactured housing acquisitions"],
   title: "Data Room vs Due Diligence Software | CrosstownOS",
   description:
     "A data room stores the deal documents. CrosstownOS is the diligence record for RV park and manufactured housing acquisitions: claims, evidence, and unresolved diligence in one record before you commit capital.",

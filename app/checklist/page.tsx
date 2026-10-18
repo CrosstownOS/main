@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["mobile home park due diligence checklist", "RV park due diligence checklist", "due diligence checklist", "RV park buyers", "mobile home park buyers"],
   title: "Mobile Home Park and RV Park Due Diligence Checklist | CrosstownOS",
   description:
     "Free due diligence checklist for mobile home park and RV park buyers: 15 items covering rent roll verification, P&L normalization, utilities, permits, zoning, and the final decision file.",

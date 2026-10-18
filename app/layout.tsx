@@ -31,6 +31,7 @@ const siteDescription =
   'Diligence software for RV park and manufactured housing (MHP) buyers. Verified facts, broker claims, and missing evidence, separated before you buy.'
 
 export const metadata: Metadata = {
+  keywords: ["RV park due diligence software", "manufactured housing community acquisitions", "mobile home park due diligence", "RV park buying", "ParkProof Report", "acquisition workspace", "CrosstownOS"],
   metadataBase: new URL('https://www.crosstownosrv.camp'),
   title: 'CrosstownOS | RV Park Due Diligence Software',
   description: siteDescription,

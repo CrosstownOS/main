@@ -8,6 +8,7 @@ const PATH = "/tools/emd-clock"
 const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
+  keywords: ["earnest money deposit tracker", "EMD clock", "diligence gates", "contingency dates", "RV park purchase agreement"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },

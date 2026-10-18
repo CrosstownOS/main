@@ -8,6 +8,7 @@ const PATH = "/tools/rent-roll-truth-check"
 const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
+  keywords: ["rent roll truth check", "reported occupancy", "bank deposit totals", "rent roll verification", "CrosstownOS tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },

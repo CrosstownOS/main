@@ -7,6 +7,7 @@ import SignalLine from "@/components/ui/SignalLine"
 import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
+  keywords: ["Trail Log", "CrosstownOS build log", "product build", "what shipped"],
   title: "The Trail Log | CrosstownOS",
   description: "Follow the CrosstownOS build in the Trail Log. What has shipped, what is being built, and where the Field Network community weighs in on what is next.",
   alternates: { canonical: "/trail-log" },

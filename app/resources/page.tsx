@@ -19,6 +19,7 @@ import {
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
+  keywords: ["RV park diligence resources", "Acquisition Signal", "free working papers", "diligence tools", "RV park buyers"],
   title: "Acquisition Signal Resources | CrosstownOS",
   description: "38 free RV park diligence resources: 35 coded tools plus the three spine documents, for every stage of the acquisition journey. Download them or run six of them in your browser.",
   alternates: { canonical: "/resources" },

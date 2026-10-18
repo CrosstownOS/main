@@ -11,6 +11,7 @@ import StaggerReveal from "@/components/ui/StaggerReveal"
 const BASE_URL = "https://www.crosstownosrv.camp"
 
 export const metadata: Metadata = {
+  keywords: ["resource catalog", "Acquisition Signal resources", "diligence tools", "working papers", "deal diligence"],
   title: "Resource Catalog | CrosstownOS",
   description:
     "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents. Free PDF downloads; one email unlocks the whole library.",

@@ -8,6 +8,7 @@ const PATH = "/tools/utility-capacity-triage"
 const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
+  keywords: ["utility capacity triage", "water sewer electric capacity", "RV park utilities risk", "CrosstownOS tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },

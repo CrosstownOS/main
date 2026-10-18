@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["CrosstownOS terms of use"],
   title: "Terms of Use | CrosstownOS",
   description:
     "The terms for using crosstownosrv.camp and the free working papers, plus what you are buying with the Acquisition Workspace: payment, refunds, and pilot terms.",

@@ -7,6 +7,7 @@ import SampleDecisionFileExplorer from "./SampleDecisionFileExplorer"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
+  keywords: ["ParkProof walkthrough", "RV park deal", "broker package", "documented decision", "diligence record"],
   title: "ParkProof Walkthrough | CrosstownOS",
   description: "Walk a fictional RV park deal from broker package to documented decision. Watch claims gain support or stay unresolved inside the full ParkProof record.",
   alternates: { canonical: "/parkproof-walkthrough" },

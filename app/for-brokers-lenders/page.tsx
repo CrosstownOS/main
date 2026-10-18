@@ -6,6 +6,7 @@ import ReferralAllianceCta from "./ReferralAllianceCta"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
+  keywords: ["RV park brokers", "RV park lenders", "manufactured housing deals", "buyer diligence record", "CrosstownOS"],
   title: "For Brokers and Lenders | CrosstownOS",
   description:
     "An RV park or manufactured-housing deal worked in CrosstownOS gives the buyer one record: cited claims, unresolved gates, and a documented decision file.",

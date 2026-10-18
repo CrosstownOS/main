@@ -7,6 +7,7 @@ import { getAllPosts } from "@/lib/blog"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
+  keywords: ["RV park acquisition intelligence", "manufactured housing buyers", "Field Notes", "RV park diligence", "CrosstownOS"],
   title: "Field Notes | CrosstownOS",
   description:
     "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",

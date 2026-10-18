@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["how to buy an RV park", "RV park due diligence", "verify seller claims", "RV park financials", "occupancy verification", "RV park zoning"],
   title: "How to Buy an RV Park: Verification Guide | CrosstownOS",
   description:
     "Buying an RV park? Verify seller claims, financials, occupancy, utilities, and zoning before you commit capital. Buyer's guide from CrosstownOS.",

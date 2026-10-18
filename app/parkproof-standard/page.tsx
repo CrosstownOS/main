@@ -10,6 +10,7 @@ import {
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
+  keywords: ["ParkProof Standard", "evidence states", "verified evidence", "broker-reported", "diligence gates", "RV park buyers"],
   title: "The ParkProof Standard | CrosstownOS",
   description: "The ParkProof standard: how RV park buyers label evidence, clear diligence gates, and document the posture behind every single acquisition decision they make.",
   alternates: { canonical: "/parkproof-standard" },

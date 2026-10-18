@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["RV park investing", "RV park cap rates", "price per pad", "occupancy verification", "RV park returns"],
   title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
   description:
     "RV park investing guide for 2026: cap rates, price-per-pad, occupancy verification, and the diligence framework that protects your capital. From CrosstownOS.",

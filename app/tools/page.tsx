@@ -10,6 +10,7 @@ import SignalLine from "@/components/ui/SignalLine"
 import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
+  keywords: ["RV park diligence tools", "free working papers", "screen RV park deals", "verify rent rolls", "diligence calculators"],
   title: "Live Diligence Working Papers | CrosstownOS",
   description: "Six free RV park diligence tools that run in your browser. Screen deals, verify rent rolls, normalize P&Ls, and triage utility risk. No account is needed.",
   alternates: { canonical: "/tools" },

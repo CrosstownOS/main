@@ -8,6 +8,7 @@ const PATH = "/tools/60-second-screener"
 const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
+  keywords: ["RV park deal screener", "manufactured housing deal screening", "60-second screener", "deal screen", "CrosstownOS tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },

@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["buying a campground", "campground due diligence", "campground financials verification", "campground occupancy", "water sewer permits"],
   title: "Buying a Campground: Verification Guide | CrosstownOS",
   description:
     "How to buy a campground: verify financials, occupancy, water/sewer, permits, and seasonal risk before committing capital. Buyer's guide from CrosstownOS.",

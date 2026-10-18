@@ -18,6 +18,7 @@ import {
 } from "@/components/analytics/Trackers"
 
 export const metadata: Metadata = {
+  keywords: ["due diligence software", "RV park acquisitions", "mobile home park acquisitions", "acquisition workspace", "manufactured housing acquisitions"],
  title: "Due Diligence Software for RV Park and Mobile Home Park Acquisitions | CrosstownOS",
  description:
   "Run your RV park, campground, or manufactured housing acquisition in one workspace. Seller claims, source evidence, site observations, and unresolved diligence stay connected in a single record before you commit capital.",

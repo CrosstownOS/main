@@ -8,6 +8,7 @@ const PATH = "/tools/expense-normalizer"
 const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
+  keywords: ["expense normalizer", "seller P&L", "RV park expenses", "underwriting assumptions", "CrosstownOS tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },

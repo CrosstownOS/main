@@ -4,6 +4,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["editorial standards", "evidence standards", "verification", "AI-assisted work", "CrosstownOS"],
   title: "Editorial Standards | CrosstownOS",
   description: "How CrosstownOS handles evidence, community learning, and AI-assisted work. What we verify, what we label, and what we never publish. Read the full rules.",
   alternates: { canonical: "/editorial-standards" },

@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["mobile home park investing", "manufactured housing community", "park-owned homes", "tenant-owned homes", "home ownership mix"],
   title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
   description:
     "Buying a manufactured housing community or mobile home park? Verify the home mix from titles, prove the lot rent against deposits, and price the utility systems before the park becomes yours.",

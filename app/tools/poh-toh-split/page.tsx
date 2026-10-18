@@ -8,6 +8,7 @@ const PATH = "/tools/poh-toh-split"
 const OG_IMAGE = "/og-logo.png"
 
 export const metadata: Metadata = {
+  keywords: ["POH TOH split", "park-owned homes", "tenant-owned homes", "manufactured housing valuation", "CrosstownOS tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },

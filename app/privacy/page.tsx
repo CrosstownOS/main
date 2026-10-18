@@ -3,6 +3,7 @@ import Navigation from "@/components/ui/navigation"
 import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
+  keywords: ["CrosstownOS privacy policy"],
   title: "Privacy Policy | CrosstownOS",
   description:
     "How CrosstownOS collects, uses, and protects the information you share, including deal data confidentiality, cookies, third-party providers, and your rights.",
