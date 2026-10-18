@@ -47,7 +47,7 @@ export const GOVERNED = {
   stage:
     'Straight answer: CrosstownOS is in build, and the workspace is not open yet. The connected Source to Field to Acquire loop is being proven end to end first. What is live today is public: the six tools, the working papers, the Field Notes, and the Standard. The pilot is when the first five buyers run real deals through it.',
   trust:
-    'Because the record shows its work. Every fact is graded under the Standard and tied to its source. Assumptions are labeled as assumptions. Missing evidence is reported as missing, never smoothed into a zero. The system organizes and calculates; Jeremy verifies, approves, and decides. That line does not move.',
+    "You shouldn't, on anyone's say-so. Nobody here verifies your numbers: not the software, and not Jeremy. What the record does is show its work. Every fact is graded under the Standard and tied to its source. Assumptions are labeled as assumptions. Missing evidence is reported as missing, never smoothed into a zero. Verification is the buyer's job. The workspace is built to make that job doable: what is proven, what is claimed, and what is missing, never blurred together.",
   brokers:
     'Brokers and lenders come through the Referral Alliance. The partner page is /for-brokers-lenders, and the intro call books from there. No compensation terms are published or implied; terms are a private conversation, with Jeremy.',
   privacyShort:
