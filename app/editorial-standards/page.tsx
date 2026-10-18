@@ -113,6 +113,7 @@ const SECTIONS = [
       "He may state only what the published record on this site states. His fixed answers to the questions that matter most, pricing, the pilot, the ParkProof Standard, privacy, and every refusal, are founder-approved text. Where the record does not answer, he says so and offers a path to a person.",
       "Every conversation is filed in full and read by the founder. An answer that invents a claim is a defined failure: it is reviewed the same day, the governed record is corrected at the source, and a second invention inside thirty days takes the agent offline until it is re-approved.",
       "The agent never reviews documents, never gives a view on a specific deal, and never verifies anything for a visitor. Verification is the buyer's job, on this site as in the Standard.",
+      "His disclosure and data rules are stated in full in the Site Agent Disclosure and Data Standard, adopted October 18, 2026.",
     ],
   },
   {
