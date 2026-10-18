@@ -81,6 +81,35 @@ const BUILD_COLUMNS = [
 
 const SHIPPED = [
   {
+    date: "October 18, 2026",
+    title: "The mobile menu works at the bottom of the page",
+    body: "On a phone, opening the menu at the foot of the homepage buried its links under the last section. It opens on top now, the way it was drawn. Found and fixed the same night.",
+  },
+  {
+    date: "October 16, 2026",
+    title: "The whole library was checked against its sources",
+    href: "/editorial-standards",
+    body: "All 72 pages, claim by claim. Numbers that could not be stood behind were labeled as working assumptions or taken out. The comparison pages now say plainly what the other tools do well. Every Field Note prints its sources and its limits at the foot of the page. The ledger behind the audit lives in the repository and stays open.",
+  },
+  {
+    date: "October 16, 2026",
+    title: "One set of evidence labels, everywhere",
+    href: "/resources/the-evidence-status-standard",
+    body: "A claim reads the same on every page now. One chip, one color, one meaning, on the tools, the guides, the resources, and the homepage. Broker-reported is the same orange everywhere it appears.",
+  },
+  {
+    date: "October 16, 2026",
+    title: "The Trail Log joined the homepage",
+    href: "/trail-log",
+    body: "This log has a card on the homepage now, under the lifecycle. The build record is part of the front door, not a page a reader has to already know about.",
+  },
+  {
+    date: "October 16, 2026",
+    title: "Pages end inside their cards now",
+    href: "/resources",
+    body: "The closing lines of the tools, the guides, and the resource library sat bare on the dark background, fine print included. They close inside the cream card now. Not a word changed.",
+  },
+  {
     date: "October 15, 2026",
     title: "The name now travels with the work",
     body: "Captions, table titles, and framework names across the site now carry CrosstownOS inside the passage itself. When a table or a definition gets lifted and quoted, its source comes with it.",
