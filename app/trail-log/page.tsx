@@ -331,7 +331,7 @@ const SHIPPED = [
   {
     date: "September 18, 2026",
     title: "The partner doors took shape",
-    body: "Design Partner and Referral Alliance stood as public partner doors alongside the founding-circle door that became Field Network on October 4.",
+    body: "Referral Alliance stood as a public partner door alongside the founding-circle door that became Field Network on October 4.",
   },
   {
     date: "September 15, 2026",

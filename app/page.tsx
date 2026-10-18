@@ -72,10 +72,9 @@ export default function Home() {
           <FieldNotes />
           <WorkingPapers />
           <BuyingGuides />
-          {/* Legacy inbound links to /#design-partner land on the Deal Desk
-              promo, the successor to the retired design-partner section. */}
+          {/* The Deal Desk promo. */}
           <span
-            id="design-partner"
+            id="deal-desk"
             aria-hidden="true"
             className="block scroll-mt-28"
           />

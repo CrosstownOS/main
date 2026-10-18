@@ -59,7 +59,6 @@ const EMAIL_COLORS_LIGHT: EmailPalette = {
 
 type FormType =
   | 'deal_desk'
-  | 'design_partner'
   | 'founding_circle'
   | 'referral_network'
   | 'trail_log'
@@ -99,15 +98,6 @@ const WORKSPACE_FIT_CALL_BLOCK: EmailDestinationBlock = {
   description: 'The first five buyers get the full workspace free for 90 days. Put time on the deal instead of waiting for a reply to land.',
   href: 'https://cal.com/crosstownos/workspace-fit-call',
   buttonLabel: 'Apply for a pilot place',
-}
-
-const DESIGN_PARTNER_FIT_REVIEW_BLOCK: EmailDestinationBlock = {
-  eyebrow: 'NEXT STEP',
-  title: 'Book a Design Partner fit review',
-  description:
-    'Talk through fit, workflow, and the secure document-sharing process.',
-  href: 'https://cal.com/crosstownos/design-partner-fit-review',
-  buttonLabel: 'Book a fit review',
 }
 
 const LIVE_DEAL_BLOCK: EmailDestinationBlock = {
@@ -185,57 +175,6 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
       `New Acquisition Workspace Application: ${data.company || data.name}`,
     subtitle: (data) =>
       `${data.name} applied for the Acquisition Workspace.`,
-  },
-  design_partner: {
-    type: 'design_partner',
-    routingTag: 'PARKPROOF_DESIGN_PARTNER',
-    title: 'New ParkProof Design-Partner Request',
-    badge: 'Design Partner',
-    sourceForm: 'Design Partner access form',
-    successMessage:
-      'Thank you. Crosstown reviews each request personally. If there is a fit, we will follow up to discuss the opportunity, workflow, and secure document-sharing process.',
-    failureMessage:
-      'We could not submit your design-partner request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Design Partner Request: Crosstown',
-    confirmationTitle: 'Design Partner request received.',
-    confirmationBlocks: [
-      DESIGN_PARTNER_FIT_REVIEW_BLOCK,
-      WALKTHROUGH_EMAIL_BLOCK,
-      STANDARD_EMAIL_BLOCK,
-    ],
-    fields: [
-      { key: 'name', label: 'Name', required: true, maxLength: 160 },
-      { key: 'company', label: 'Company', required: true, maxLength: 180 },
-      { key: 'role', label: 'Role', required: true, maxLength: 160 },
-      { key: 'email', label: 'Business email', required: true, maxLength: 254 },
-      { key: 'linkedInUrl', label: 'LinkedIn URL', maxLength: 500 },
-      { key: 'primaryFocus', label: 'Primary focus', required: true, maxLength: 120 },
-      {
-        key: 'acquisitionsReviewedAnnually',
-        label: 'Approximate acquisitions reviewed annually',
-        required: true,
-        maxLength: 120,
-      },
-      { key: 'liveDealWithin90Days', label: 'Live deal within 90 days', required: true, maxLength: 80 },
-      {
-        key: 'shareBrokerPackage',
-        label: 'Open to sharing a broker package after fit review',
-        required: true,
-        maxLength: 80,
-      },
-      { key: 'howDidYouHear', label: 'How did you hear about us', maxLength: 200 },
-      {
-        key: 'diligencePain',
-        label: 'Biggest diligence pain today',
-        required: true,
-        multiline: true,
-        maxLength: 2000,
-      },
-    ],
-    subject: (data) =>
-      `New ParkProof Design-Partner Request: ${data.company || data.name}`,
-    subtitle: (data) =>
-      `${data.company || data.name} requested design-partner access.`,
   },
   founding_circle: {
     type: 'founding_circle',
@@ -730,7 +669,6 @@ function hasConsent(value: unknown) {
 function getFormType(value: unknown): FormType | null {
   const formType = sanitizeText(value, 40)
   return formType === 'deal_desk' ||
-    formType === 'design_partner' ||
     formType === 'founding_circle' ||
     formType === 'referral_network' ||
     formType === 'trail_log' ||
@@ -1144,11 +1082,10 @@ export async function POST(request: NextRequest) {
 
     // Best-effort: land the contact in the matching Resend segment.
     // Never blocks the submission — the notification emails above are the
-    // critical path. Design Partner, Field Network,
-    // Referral Alliance and Acquisition Workspace share one segment
+    // critical path. Field Network, Referral Alliance and
+    // Acquisition Workspace share one segment
     // (free-tier limit).
     const segmentForType: Record<string, SegmentKey | null> = {
-      design_partner: 'partners',
       founding_circle: 'partners',
       referral_network: 'partners',
       deal_desk: 'partners',
