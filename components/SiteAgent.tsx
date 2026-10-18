@@ -115,9 +115,107 @@ function renderAssistant(content: string, keyBase: string): ReactNode {
     lines.pop()
   }
   const blocks: ReactNode[] = []
-  lines.forEach((line, i) => {
-    const key = `${keyBase}-l${i}`
-    if (!line.trim()) return
+  let li = 0
+  const isListLine = (l: string) => /^\s*[-•]\s+/.test(l)
+  const isTableLine = (l: string) => /^\s*\|/.test(l)
+  while (li < lines.length) {
+    const line = lines[li]
+    const key = `${keyBase}-l${li}`
+    if (!line.trim()) {
+      li++
+      continue
+    }
+    if (isListLine(line)) {
+      const items: string[] = []
+      while (li < lines.length && isListLine(lines[li])) {
+        items.push(lines[li].replace(/^\s*[-•]\s+/, ""))
+        li++
+      }
+      blocks.push(
+        <ul key={key} className="space-y-1.5">
+          {items.map((item, j) => {
+            const itemKey = `${key}-${j}`
+            const stateTitle = STATE_TITLES.find((t) =>
+              item.startsWith(`${t}:`),
+            )
+            if (stateTitle) {
+              return (
+                <li
+                  key={itemKey}
+                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1"
+                >
+                  <EvidenceStateChip state={evidenceStateKey(stateTitle)} />
+                  <span>
+                    {renderInline(
+                      item.slice(stateTitle.length + 1).trim(),
+                      itemKey,
+                    )}
+                  </span>
+                </li>
+              )
+            }
+            const colon = item.indexOf(":")
+            const label =
+              colon > 0 ? item.slice(0, colon).replace(/\*\*/g, "") : ""
+            if (label && label.trim().split(/\s+/).length <= 4) {
+              return (
+                <li
+                  key={itemKey}
+                  className="border-l-2 border-primary/50 pl-3"
+                >
+                  <span className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-primary">
+                    {label.trim()}
+                  </span>
+                  <span className="block">
+                    {renderInline(item.slice(colon + 1).trim(), itemKey)}
+                  </span>
+                </li>
+              )
+            }
+            return (
+              <li key={itemKey} className="border-l-2 border-primary/50 pl-3">
+                {renderInline(item, itemKey)}
+              </li>
+            )
+          })}
+        </ul>,
+      )
+      continue
+    }
+    if (isTableLine(line)) {
+      const rows: string[][] = []
+      while (li < lines.length && isTableLine(lines[li])) {
+        const cells = lines[li]
+          .split("|")
+          .map((c) => c.trim())
+          .filter(
+            (c, idx, arr) =>
+              !(idx === 0 && c === "") && !(idx === arr.length - 1 && c === ""),
+          )
+        if (cells.length && !cells.every((c) => /^:?-{2,}:?$/.test(c))) {
+          rows.push(cells)
+        }
+        li++
+      }
+      const body = rows.length > 1 ? rows.slice(1) : rows
+      blocks.push(
+        <div key={key} className="space-y-2.5">
+          {body.map((cells, j) => (
+            <div key={`${key}-${j}`} className="border-l-2 border-primary/50 pl-3">
+              <span className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-primary">
+                {cells[0]}
+              </span>
+              {cells.slice(1).map((c, k) => (
+                <span key={k} className="block">
+                  {renderInline(c, `${key}-${j}-${k}`)}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>,
+      )
+      continue
+    }
     const stateTitle = STATE_TITLES.find((t) => line.startsWith(`${t}:`))
     if (stateTitle) {
       blocks.push(
@@ -126,10 +224,12 @@ function renderAssistant(content: string, keyBase: string): ReactNode {
           <span>{renderInline(line.slice(stateTitle.length + 1).trim(), key)}</span>
         </p>,
       )
-      return
+      li++
+      continue
     }
     blocks.push(<p key={key}>{renderInline(line, key)}</p>)
-  })
+    li++
+  }
   return (
     <>
       <div className="space-y-2">{blocks}</div>
