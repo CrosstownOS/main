@@ -62,7 +62,7 @@ const OFFERS: {
     sub: "Public pricing, five free pilot places",
     prompt: "What does it cost, and how does the pilot work?",
   },
-  { label: "Talk to a human", sub: "File it with the desk", action: "human" },
+  { label: "Talk to Jeremy", sub: "File it with the desk", action: "human" },
 ]
 
 const STATE_TITLES = Object.values(EVIDENCE_STATES).map((s) => s.title)
@@ -402,7 +402,7 @@ export default function SiteAgent() {
                     CrosstownOS
                   </p>
                   <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                    {AGENT_DISPLAY_NAME} · Answers from the published record
+                    {AGENT_DISPLAY_NAME}
                   </p>
                 </div>
               </div>
@@ -441,10 +441,10 @@ export default function SiteAgent() {
               ) : (
                 <div>
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                    Human handoff
+                    Handoff
                   </p>
                   <p className="mt-2 font-serif text-xl font-semibold tracking-tight text-foreground">
-                    Talk to the desk.
+                    Talk to Jeremy.
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                     {GOVERNED.escalation} It files from {pageRef.current},
