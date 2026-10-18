@@ -105,9 +105,13 @@ function renderAssistant(content: string, keyBase: string): ReactNode {
   const lines = content.split("\n")
   let recordPath: string | null = null
   const lastIdx = lines.length - 1
-  const recordMatch = lines[lastIdx]?.match(/^Record:\s*(\/\S*)$/)
+  const recordMatch = lines[lastIdx]?.match(/^Record:\s*(\/\S*)/)
   if (recordMatch) {
-    recordPath = recordMatch[1]
+    // First path only, trailing punctuation stripped. A citation to the
+    // home page itself renders no footer: it adds nothing and reads as
+    // a bare slash.
+    const first = recordMatch[1].split(",")[0].replace(/[,.;]+$/, "")
+    recordPath = first !== "/" ? first : null
     lines.pop()
   }
   const blocks: ReactNode[] = []
