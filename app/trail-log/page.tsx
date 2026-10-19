@@ -83,6 +83,12 @@ const BUILD_COLUMNS = [
 const SHIPPED = [
   {
     date: "October 18, 2026",
+    title: "The governance pages now cover the site chat",
+    href: "/editorial-standards",
+    body: "The Privacy Policy, the Terms, and the Editorial Standards now say what happens in the site chat: what is collected, that conversations are filed and read, that the AI provider does not keep them to train on, and the rules the agent answers under, including what counts as a failure. The standard behind those rules was adopted the same day. The pages state the practices plainly; the authorities behind them stay on file, the way the claims ledger does.",
+  },
+  {
+    date: "October 18, 2026",
     title: "The mobile menu works at the bottom of the page",
     body: "On a phone, opening the menu at the foot of the homepage buried its links under the last section. It opens on top now, the way it was drawn. Found and fixed the same night.",
   },
