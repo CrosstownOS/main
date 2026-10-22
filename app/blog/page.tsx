@@ -148,21 +148,31 @@ export default function BlogIndex() {
               </Link>
             ))}
           </div>
-          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-muted">
-            Reading is the start.{" "}
-            <Link href="/tools" className="font-semibold text-primary hover:underline">
-              Run the working papers
-            </Link>{" "}
-            on your live deal, work the{" "}
-            <Link href="/checklist" className="font-semibold text-primary hover:underline">
-              free diligence checklist
-            </Link>
-            , or bring it all to the{" "}
-            <Link href="/workspace" className="font-semibold text-primary hover:underline">
-              Acquisition Workspace
-            </Link>
-            .
-          </p>
+          <div className="theme-cream mt-12 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <h2 className="serif-display text-2xl tracking-tight text-foreground sm:text-3xl">
+              Reading is the start.
+            </h2>
+            <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Link
+                href="/tools"
+                className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Run the working papers
+              </Link>
+              <Link
+                href="/checklist"
+                className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Free diligence checklist
+              </Link>
+              <Link
+                href="/workspace"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Acquisition Workspace
+              </Link>
+            </div>
+          </div>
         </div>
       </main>
     </>
