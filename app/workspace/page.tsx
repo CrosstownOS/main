@@ -513,10 +513,7 @@ export default function AcquisitionWorkspacePage() {
          </div>
          <p
           className="absolute right-4 top-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em]"
-          style={{
-           color: module.color,
-           textShadow: `0 0 10px ${module.color}, 0 0 28px ${module.color}`,
-          }}
+          style={{ color: module.color }}
          >
           {module.family}
          </p>
