@@ -73,7 +73,7 @@ const PLANS = [
   name: "Monthly Workspace",
   price: "$299",
   per: "per 30 days",
-  body: "Monthly Workspace, $299: the full workspace, billed every 30 days. Work your deals while subscribed. Cancel anytime; your records stay readable.",
+  body: "The full workspace, billed every 30 days. Work your deals while subscribed. Cancel anytime; your records stay readable.",
  },
  {
   name: "Single-Deal Workspace",
@@ -158,7 +158,7 @@ export default function PricingPage() {
 
      {/* Pilot */}
      <section aria-labelledby="pricing-pilot" className="mt-16">
-      <div className="theme-cream border border-primary/40 bg-card p-6 sm:p-10">
+      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10">
        <h2 id="pricing-pilot" className="serif-display text-2xl tracking-tight sm:text-3xl">
         Start free: five pilot places.
        </h2>
@@ -184,7 +184,7 @@ export default function PricingPage() {
       </h2>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
        {PLANS.map((plan) => (
-        <div key={plan.name} className="theme-cream flex flex-col border border-border bg-card p-6">
+        <div key={plan.name} className="theme-cream flex flex-col border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {plan.name}
          </h3>
@@ -199,7 +199,7 @@ export default function PricingPage() {
        ))}
       </div>
       <PlanCalculator />
-      <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
+      <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-8">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
         Every plan includes
        </h3>
@@ -232,7 +232,7 @@ export default function PricingPage() {
       </p>
       <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-2">
        {ONE_OFFS.map((item) => (
-        <div key={item.name} className="theme-cream flex flex-col border border-border bg-card p-6">
+        <div key={item.name} className="theme-cream flex flex-col border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {item.name}
          </h3>
@@ -250,7 +250,7 @@ export default function PricingPage() {
 
      {/* The feed */}
      <section aria-labelledby="pricing-feed" className="mt-20">
-      <div className="theme-cream border border-border bg-card p-6 sm:p-10">
+      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10">
        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         Opens after the pilot
        </p>
@@ -275,7 +275,7 @@ export default function PricingPage() {
       </h2>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
        {RULES.map((rule) => (
-        <div key={rule.title} className="theme-cream border border-border bg-card p-6">
+        <div key={rule.title} className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {rule.title}
          </h3>
@@ -283,14 +283,30 @@ export default function PricingPage() {
         </div>
        ))}
       </div>
-      <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted">
-       Questions about what the workspace does belong on the{" "}
-       <Link href="/workspace" className="text-primary underline underline-offset-2 hover:no-underline">
-        Workspace page
-       </Link>
-       . Questions about what it costs belong here, and this page is the
-       whole answer.
-      </p>
+      <div className="theme-cream mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10">
+       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+        The next step
+       </p>
+       <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
+        Questions about what the workspace does belong on the Workspace
+        page. Questions about what it costs belong here, and this page is
+        the whole answer.
+       </p>
+       <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+        <a
+         href="/workspace#apply"
+         className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+         Apply for a free pilot place
+        </a>
+        <Link
+         href="/workspace"
+         className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+         See the Workspace
+        </Link>
+       </div>
+      </div>
      </section>
     </div>
    </main>

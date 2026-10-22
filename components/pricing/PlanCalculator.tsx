@@ -33,7 +33,7 @@ function Stepper({
     >
      −
     </button>
-    <span className="min-w-16 text-center font-mono text-sm text-foreground">
+    <span className="min-w-20 whitespace-nowrap text-center font-mono text-sm text-foreground">
      {value} {suffix}
     </span>
     <button
@@ -83,16 +83,16 @@ export default function PlanCalculator() {
    </div>
    <ul className="mt-6 space-y-3 border-t border-border/60 pt-5">
     {options.map((o) => (
-     <li key={o.name} className="flex flex-wrap items-baseline justify-between gap-2 text-sm">
-      <span className="text-foreground/85">
+     <li key={o.name} className="flex items-start justify-between gap-4 text-sm">
+      <span className="min-w-0 text-foreground/85">
        <span className="font-semibold text-foreground">{o.name}.</span> {o.note}.
        {o.name === best.name ? (
-        <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
+        <span className="ml-2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
          Your cheapest door
         </span>
        ) : null}
       </span>
-      <span className="font-mono text-sm font-semibold text-foreground">
+      <span className="whitespace-nowrap font-mono text-sm font-semibold text-foreground">
        ${o.total.toLocaleString()}
       </span>
      </li>
