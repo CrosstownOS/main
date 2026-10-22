@@ -287,24 +287,30 @@ export default function PricingPage() {
        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         The next step
        </p>
+       <h3 className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
+        Come see what it does.
+       </h3>
        <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
-        Questions about what the workspace does belong on the Workspace
-        page. Questions about what it costs belong here, and this page is
-        the whole answer.
+        Prices only tell you what it costs. The Workspace page shows you
+        what it does: a deal going in as a stack of seller claims and
+        coming out as one record you can stand behind, every claim
+        carrying its evidence. Take the tour, and if it fits the way you
+        buy, the pilot application is waiting there too. The first five
+        places are free.
        </p>
        <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-        <a
-         href="/workspace#apply"
-         className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-         Apply for a free pilot place
-        </a>
         <Link
          href="/workspace"
-         className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+         className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
          See the Workspace
         </Link>
+        <a
+         href="/workspace#apply"
+         className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+         Apply for a free pilot place
+        </a>
        </div>
       </div>
      </section>
