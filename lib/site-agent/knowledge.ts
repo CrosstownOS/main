@@ -3,7 +3,9 @@
  * its governed answer set, and its system prompt.
  *
  * Spec: ~/workspace/crosstownos/engineering/site-agent-spec-2026-10-18.md
- * Corpus sources (compiled 2026-10-18): the published site pages,
+ * Corpus sources (compiled 2026-10-18; resynced 2026-10-22 against the
+ * ruled pricing and the live /pricing page, the Single-Deal term at 180
+ * days, and Field Notes at eleven): the published site pages,
  * lib/tools/evidence.ts (the six ParkProof evidence states, verbatim),
  * docs/claims-ledger.md (claim authority), and the published offer on
  * /workspace. A site change that touches any of these requires a corpus
@@ -38,7 +40,7 @@ export const GOVERNED = {
   standard:
     'Every fact in a ParkProof record carries one of six states. Verified: evidence you can point to, reviewed by a person. Broker-reported: claimed in the package or on a call, not checked yet. Missing evidence: material information not received or located yet. Underwriting assumption: a stated input in your case, not a verified fact. Calculated: output from stated inputs, only as reliable as they are. Unresolved: sources conflict, or the answer is not established yet. Missing evidence is a finding, not a blank, and it is never treated as zero.',
   pricing:
-    'The Acquisition Workspace is $1,299 for a single deal, 90 days, or $2,999 annual. Pricing is public, on the Pricing page, and the same for everyone.',
+    'Three doors, one workspace. Monthly is $299 per 30-day period. Single-Deal is $1,299 for one property over 180 days. Annual is $2,999 for 12 months. Every plan includes the ParkProof Report, one for each property you work. Pricing is public, on the Pricing page, and the same for everyone.',
   pilot:
     'Five free pilot places. Target opening: November 2026. The first five buyers get the full workspace free for 90 days of real use and feedback. The Workspace Fit Call is the door.',
   liveDeal:
@@ -112,6 +114,8 @@ THE FIELD NOTES (the long-form writing at /blog; each note teaches one disciplin
 - The Permits Buyers Skip: the site count is a claim; grandfathering is not a force field; the municipality call nobody makes.
 - The Rent Roll Is a Claim, Not Income Verification: billed is not collected; start at the bank and work backward; cash is not a footnote.
 - The Utility System Nobody Underwrote: functional is not permitted, and permitted is not adequate; the evidence, system by system; the verification path.
+- RV Park Cap Rates: How One Park Gets Two Asking Prices: the same park marketed at two prices in two rooms; an asking price is a claim and a cap rate is arithmetic on claims, and the lender underwrites history, not the seller's story.
+- RV Park Due Diligence: Why the Site Walk Decides the Deal: a park's infrastructure is a claim until somebody walks it in conditions where it can be seen; what the walk proves, and what a snow-covered visit cannot.
 
 THE GUIDES (verification guides; route how-to questions here)
 - How to Buy an RV Park (/buying-an-rv-park) runs four gates: Gate 1 financials, Gate 2 occupancy, Gate 3 utilities, Gate 4 zoning and permits.
@@ -132,7 +136,7 @@ THE WORKING PAPERS LIBRARY (/resources)
 38 free Acquisition Signal resources: 35 coded tools plus the three spine documents, organized by the seven parts of the deal: Before you fall for anything; First contact; The package; Prove the numbers; Prove the ground; Decide and structure; Own it.
 
 PAGES YOU MAY CITE (link with markdown, root-relative paths)
-- / (home), /workspace (the offer and pilot), /parkproof-standard (the Standard), /parkproof-walkthrough (a decision file built to the Standard), /for-brokers-lenders (the partner channel), /checklist (the diligence checklist), /tools (the six tools), /resources (the working papers library), /blog (Field Notes, the long-form writing), /buying-an-rv-park, /buying-a-campground, /mobile-home-park-investing, /rv-park-investing (the guides), /editorial-standards (how the writing is governed), /trail-log (the public build log), /data-room-vs-diligence-software (the comparison page), /privacy, /terms.
+- / (home), /workspace (the offer and pilot), /pricing (the published pricing), /parkproof-standard (the Standard), /parkproof-walkthrough (a decision file built to the Standard), /for-brokers-lenders (the partner channel), /checklist (the diligence checklist), /tools (the six tools), /resources (the working papers library), /blog (Field Notes, the long-form writing), /buying-an-rv-park, /buying-a-campground, /mobile-home-park-investing, /rv-park-investing (the guides), /editorial-standards (how the writing is governed), /trail-log (the public build log), /data-room-vs-diligence-software (the comparison page), /privacy, /terms.
 
 FOR BROKERS AND LENDERS
 ${GOVERNED.brokers}
