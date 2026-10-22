@@ -195,7 +195,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What happens after the free pilot?",
     answer:
-      "Your free access ends 90 calendar days after activation. Editing ends at expiration, so export your records beforehand. Data is retained for 30 days after expiration, then scheduled for deletion under the published retention policy. Nothing is charged automatically. Further access requires a separate purchase: currently $1,299 for Single-Deal Workspace or $2,999 for Annual Workspace. Pilot participation provides no credit or conversion discount.",
+      "Your free access ends 90 calendar days after activation. Editing ends at expiration, so export your records beforehand. Data is retained for 30 days after expiration, then scheduled for deletion under the published retention policy. Nothing is charged automatically. Further access requires a separate purchase: currently $299 for Monthly Workspace, $1,299 for Single-Deal Workspace, or $2,999 for Annual Workspace. Pilot participation provides no credit or conversion discount.",
   },
   {
     question: "What is the workspace fit call?",
@@ -298,7 +298,12 @@ export const PRICING_FAQS: Faq[] = [
   {
     question: "Can I get a ParkProof Report without a subscription?",
     answer:
-      "Yes. A ParkProof Report for a deal you bring is $499 per property, no subscription required. The report is produced from your record: every material claim with its evidence state, the rule table run over your own thresholds, and the file your lender or partners can read.",
+      "Not as a separate purchase. The ParkProof Report is included with every workspace plan, one for each property you work, produced from the record you build in the workspace. If you are working a deal somewhere else, bring the deal into the workspace and the report comes with the plan.",
+  },
+  {
+    question: "How does the live Q&A work?",
+    answer:
+      "Every workspace purchase includes one 30-minute live software Q&A: per Single-Deal purchase, per Annual purchase or renewal, and on Monthly once, at your first activation. Book it within 30 days of activation; a session booked in that window can take place afterward. Additional properties do not add sessions. It covers how the software works, not diligence advice.",
   },
   {
     question: "Is there a refund window on paid access?",

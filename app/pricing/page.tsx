@@ -116,21 +116,14 @@ const ONE_OFFS = [
   cta: "Request a profile",
   price: "$125",
   per: "per park",
-  body: "One park, worked up before you spend a dollar chasing it: ownership, permits, the septic and utility picture, its web presence, and a derived grade, with every field carrying where it came from and when. Finished work, delivered on the park's record. Never sold as raw data.",
- },
- {
-  name: "A ParkProof Report for a deal you bring",
-  cta: "Bring a deal",
-  price: "$499",
-  per: "per property",
-  body: "Already working a deal somewhere else? Bring it. The report is produced from your record: every material claim with its evidence state, the rule table run over your own thresholds, and the file your lender or partners can read. No subscription required.",
+  body: "One park, worked up before you commit more time and money to pursuing it: ownership, permits, the septic and utility picture, its web presence, and a derived grade, with every field carrying where it came from and when. Finished work, delivered on the park's record. Never sold as raw data.",
  },
 ] as const
 
 const INCLUDED = [
  "Full access to Source, Field, and Acquire.",
  "Recorded onboarding walkthrough.",
- "One 30-minute live software Q&A per account, booked within the first 30 days.",
+ "One 30-minute live software Q&A per purchase (on Annual, per annual purchase or renewal; on Monthly, once, at your first activation), booked within 30 days of activation.",
  "Email technical support. Target response within two business days.",
  "One named operator account.",
 ] as const
@@ -220,7 +213,7 @@ export default function PricingPage() {
       <PlanCalculator />
       <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-8 text-center">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-        Every plan includes
+        Every workspace plan includes
        </h3>
        <ul className="mx-auto mt-4 grid w-fit gap-3 text-left sm:grid-cols-2">
         {INCLUDED.map((item) => (
