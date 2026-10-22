@@ -4,7 +4,6 @@ import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
 import PageBackdrop from "@/components/PageBackdrop"
 import SignalLine from "@/components/ui/SignalLine"
-import PlanCalculator from "@/components/pricing/PlanCalculator"
 import { PageViewTracker } from "@/components/analytics/Trackers"
 import { FAQ_JSON_LD, PRICING_FAQS } from "@/lib/tools/faqs"
 import FaqSection from "@/components/tools/FaqSection"
@@ -52,7 +51,7 @@ const PRICING_JSON_LD = {
   {
    "@type": "Offer",
    name: "Single-Deal Workspace",
-   description: "One property. 90 days. The full workspace, including one ParkProof decision file generation for the property.",
+   description: "One property. 180 days. The full workspace, including one ParkProof decision file generation for the property.",
    url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "1299",
    priceCurrency: "USD",
@@ -99,8 +98,8 @@ const PLANS = [
  {
   name: "Single-Deal Workspace",
   price: "$1,299",
-  per: "one property, 90 days",
-  body: "One property and 90 days of full access to Source, Field, and Acquire. Includes one ParkProof decision file generation for the property, the recorded onboarding walkthrough, one live software Q&A in your first 30 days, email support, and one named operator account.",
+  per: "one property, 180 days",
+  body: "One property and 180 days of full access to Source, Field, and Acquire. Includes one ParkProof decision file generation for the property, the recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email support, and one named operator account.",
  },
  {
   name: "Annual Workspace",
@@ -210,7 +209,32 @@ export default function PricingPage() {
         </div>
        ))}
       </div>
-      <PlanCalculator />
+      <div className="theme-cream mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
+       <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+        The three doors, side by side.
+       </h3>
+       <div className="mx-auto mt-4 max-w-2xl space-y-3 text-sm leading-relaxed text-foreground/85">
+        <p>
+         <span className="font-semibold text-foreground">Monthly:</span> $299 per
+         30-day period. Unlimited concurrent properties. Manual purchase of each
+         additional period.
+        </p>
+        <p>
+         <span className="font-semibold text-foreground">Single-Deal:</span>{" "}
+         $1,299 for one property over 180 consecutive calendar days. One
+         purchase for the fixed term.
+        </p>
+        <p>
+         <span className="font-semibold text-foreground">Annual:</span> $2,999
+         for unlimited properties over 12 months from activation. One purchase
+         for the annual term.
+        </p>
+        <p>
+         All workspace plans include ParkProof under the adopted per-property
+         entitlement and versioning rules.
+        </p>
+       </div>
+      </div>
       <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-8 text-center">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
         Every workspace plan includes

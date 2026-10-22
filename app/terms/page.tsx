@@ -112,15 +112,16 @@ const SECTIONS = [
   {
     heading: "Support",
     body: [
-      "Every plan includes a recorded onboarding walkthrough, one 30-minute live software Q&A per account booked within the first 30 days, and email technical support with a two-business-day target response. Support covers software operation: navigation, inputs, documented calculations, and software behavior. It does not cover interpretation of your documents or numbers, your diligence conclusions, or what to do about a property.",
+      "Every plan includes a recorded onboarding walkthrough, live software Q&A under the entitlement below, and email technical support with a two-business-day target response. Support covers software operation: navigation, inputs, documented calculations, and software behavior. It does not cover interpretation of your documents or numbers, your diligence conclusions, or what to do about a property.",
+      "Live Q&A entitlement. Single-Deal Workspace includes one 30-minute live session per purchase. Annual Workspace includes one per annual purchase or renewal. Monthly Workspace includes one at the account's first Monthly activation, and not one per successive 30-day purchase. Additional properties do not add sessions. Book within 30 calendar days of the qualifying activation; an unbooked entitlement expires when that booking window closes, and a session booked within the window may take place afterward, subject to scheduling availability. Sessions cover software operation only.",
     ],
   },
   {
     heading: "Acquisition Workspace: what you are buying",
     body: [
-      "Single-Deal Workspace, $1,299: one property and 90 calendar days of full access to Source, Field, and Acquire from activation. Includes one ParkProof decision file generation for the property, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
+      "Single-Deal Workspace, $1,299: one property and 180 calendar days of full access to Source, Field, and Acquire from activation. Includes one ParkProof decision file generation for the property, a recorded onboarding walkthrough, one 30-minute live software Q&A per purchase booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
       "Annual Workspace, $2,999: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one live Q&A per account. Additional properties do not add sessions.",
-      "Monthly Workspace, $299 per 30 days: full access to Source, Field, and Acquire while your subscription is active, for the properties you are working. Includes a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account. If your subscription ends, editing ends; your records remain readable in the workspace, and access resumes if you resubscribe.",
+      "Monthly Workspace, $299 per 30 days: full access to Source, Field, and Acquire while your subscription is active, for the properties you are working. Includes a recorded onboarding walkthrough, one 30-minute live software Q&A at your first Monthly activation, booked within 30 days of that activation, email technical support with a two-business-day target response, and one named operator account. If your subscription ends, editing ends; your records remain readable in the workspace, and access resumes if you resubscribe.",
       "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
       "This is software you operate. It does not include document review or interpretation of your numbers, confirmation of your diligence conclusions, or ongoing advisory. You build the record, the workflow guides you, and the decision stays yours.",
     ],
@@ -155,7 +156,7 @@ const SECTIONS = [
   {
     heading: "Expiration, cancellation, and termination",
     body: [
-      "Single-Deal access ends 90 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration. You may export your records during the 30-day retention period after expiration. We keep your data for 30 days after expiration, then schedule deletion.",
+      "Single-Deal access ends 180 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration. Your records remain readable and downloadable after expiration, and records are not deleted for non-payment.",
       "If you abandon a deal, Single-Deal access does not transfer to another property. Moving from Single-Deal to Annual is a separate purchase at any time. There is no credit, prorating, or conversion discount.",
       "You can cancel by not renewing, or by telling us you are done. Refunds are only available within the seven-day window above.",
       "We may suspend or terminate access for misuse of the workspace or violation of these terms. Termination does not extend the refund window.",

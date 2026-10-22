@@ -204,7 +204,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
    "@type": "Offer",
    name: "Single-Deal Workspace",
    description:
-    "One property. 90 days. The full workspace, from your first document to your decision file.",
+    "One property. 180 days. The full workspace, from your first document to your decision file.",
    url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "1299",
    priceCurrency: "USD",

@@ -215,7 +215,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What does the Single-Deal Workspace include?",
     answer:
-      "One property, 90 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
+      "One property, 180 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
   },
   {
     question: "What does the Annual Workspace include?",
@@ -253,9 +253,9 @@ export const WORKSPACE_FAQS: Faq[] = [
       "Information you provide through the application, fit call, or workspace is handled under our Privacy Policy and applicable confidentiality terms. We do not publish your deal materials or use them in public examples, marketing, or testimonials without separate written permission. The Privacy Policy explains operational processing, provider access, retention, and deletion.",
   },
   {
-    question: "What happens after 90 days, or if my deal ends early?",
+    question: "What happens when my term ends, or if my deal ends early?",
     answer:
-      "Single-Deal access ends 90 calendar days from activation. Editing stops at expiration; export your records before then. We retain your data for 30 days after expiration, then schedule deletion. If your deal is still live at day 90 and you want to continue, purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
+      "Single-Deal access ends 180 calendar days from activation. Editing stops at expiration; your records stay readable; records are not deleted for non-payment; and buying access again restores editing for the same property. If your deal is still live at day 180 and you want to continue, keep working on Monthly or purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
   },
   {
     question: "What is the refund policy?",
