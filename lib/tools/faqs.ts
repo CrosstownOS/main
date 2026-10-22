@@ -274,6 +274,39 @@ export const WORKSPACE_FAQS: Faq[] = [
   },
 ]
 
+export const PRICING_FAQS: Faq[] = [
+  {
+    question: "What does the free pilot include?",
+    answer:
+      "Five qualified buyers get the full workspace free for 90 days on one live acquisition: Source, Field, and Acquire for one property, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support targeting an initial response within two business days. No payment required, no payment method collected, and no automatic conversion when the term ends.",
+  },
+  {
+    question: "What happens to my records if I cancel?",
+    answer:
+      "Your record is never held hostage. If access ends, your records stay readable and frozen. Nothing is deleted for non-payment, and the record wakes when you resubscribe.",
+  },
+  {
+    question: "Do you charge a success fee?",
+    answer:
+      "No. No percentage of any deal, no cut of any closing. We charge for the workspace and the work, never for your outcome.",
+  },
+  {
+    question: "Can I get a ParkProof Report without a subscription?",
+    answer:
+      "Yes. A ParkProof Report for a deal you bring is $499 per property, no subscription required. The report is produced from your record: every material claim with its evidence state, the rule table run over your own thresholds, and the file your lender or partners can read.",
+  },
+  {
+    question: "Is there a refund window on paid access?",
+    answer:
+      "Paid purchases have a seven-calendar-day refund window from activation. Requesting a refund ends paid access immediately.",
+  },
+  {
+    question: "When does the enriched Source feed open, and what does it cost?",
+    answer:
+      "The feed is $199 a month and opens after the pilot, once the workspace it feeds is standing. Every park lands in the feed already worked up once: what the ground is, who owns it, what the place looks like online, and a grade that says how hard it is worth chasing.",
+  },
+]
+
 export const FAQ_JSON_LD: Record<string, ReturnType<typeof faqPage>> = {
   "/tools/60-second-screener": faqPage(
     `${SITE}/tools/60-second-screener`,
@@ -295,6 +328,7 @@ export const FAQ_JSON_LD: Record<string, ReturnType<typeof faqPage>> = {
   "/tools/emd-clock": faqPage(`${SITE}/tools/emd-clock`, EMD_FAQS),
   "/tools": faqPage(`${SITE}/tools`, TOOLS_INDEX_FAQS),
   "/workspace": faqPage(`${SITE}/workspace`, WORKSPACE_FAQS),
+  "/pricing": faqPage(`${SITE}/pricing`, PRICING_FAQS),
 }
 
 export const FAQ_LISTS: Record<string, Faq[]> = {
@@ -306,6 +340,7 @@ export const FAQ_LISTS: Record<string, Faq[]> = {
   "/tools/emd-clock": EMD_FAQS,
   "/tools": TOOLS_INDEX_FAQS,
   "/workspace": WORKSPACE_FAQS,
+  "/pricing": PRICING_FAQS,
 }
 
 // Deploy trigger 1791675106

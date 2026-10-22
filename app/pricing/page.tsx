@@ -6,6 +6,8 @@ import PageBackdrop from "@/components/PageBackdrop"
 import SignalLine from "@/components/ui/SignalLine"
 import PlanCalculator from "@/components/pricing/PlanCalculator"
 import { PageViewTracker } from "@/components/analytics/Trackers"
+import { FAQ_JSON_LD, PRICING_FAQS } from "@/lib/tools/faqs"
+import FaqSection from "@/components/tools/FaqSection"
 
 export const metadata: Metadata = {
  keywords: ["RV park software pricing", "mobile home park software pricing", "due diligence software pricing", "acquisition workspace pricing"],
@@ -64,6 +66,25 @@ const PRICING_JSON_LD = {
    price: "2999",
    priceCurrency: "USD",
    availability: "https://schema.org/PreOrder",
+  },
+ ],
+} as const
+
+const PRICING_BREADCRUMB_JSON_LD = {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ itemListElement: [
+  {
+   "@type": "ListItem",
+   position: 1,
+   name: "Home",
+   item: "https://www.crosstownosrv.camp/",
+  },
+  {
+   "@type": "ListItem",
+   position: 2,
+   name: "Pricing",
+   item: "https://www.crosstownosrv.camp/pricing",
   },
  ],
 } as const
@@ -135,6 +156,14 @@ export default function PricingPage() {
    <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{ __html: JSON.stringify(PRICING_JSON_LD) }}
+   />
+   <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD["/pricing"]) }}
+   />
+   <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(PRICING_BREADCRUMB_JSON_LD) }}
    />
    <Navigation />
    <PageViewTracker event="pricing_view" />
@@ -279,6 +308,11 @@ export default function PricingPage() {
        </p>
       </div>
      </section>
+
+     {/* Questions */}
+     <div className="mt-20">
+      <FaqSection faqs={PRICING_FAQS} />
+     </div>
 
      {/* The rules */}
      <section aria-labelledby="pricing-rules" className="mt-20">

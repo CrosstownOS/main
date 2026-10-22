@@ -55,13 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...CORE_ROUTES.map((route) => ({
       url: `${BASE}${route.path}`,
-      lastModified: route.path === "/blog" ? latestPostDate : new Date(),
+      ...(route.path === "/blog" ? { lastModified: latestPostDate } : {}),
       changeFrequency: route.changeFrequency as "weekly" | "monthly",
       priority: route.priority,
     })),
     ...RESOURCE_DETAILS.map((resource) => ({
       url: `${BASE}/resources/${resource.slug}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.75,
     })),

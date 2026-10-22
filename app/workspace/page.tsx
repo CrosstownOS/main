@@ -175,6 +175,33 @@ const WORKSPACE_PRODUCT_JSON_LD = {
  offers: [
   {
    "@type": "Offer",
+   name: "Monthly Workspace",
+   description: "The full workspace, billed every 30 days.",
+   url: "https://www.crosstownosrv.camp/pricing#plans",
+   price: "299",
+   priceCurrency: "USD",
+   availability: "https://schema.org/PreOrder",
+   shippingDetails: {
+    "@type": "OfferShippingDetails",
+    shippingRate: {
+     "@type": "MonetaryAmount",
+     value: "0",
+     currency: "USD",
+    },
+    shippingDestination: {
+     "@type": "DefinedRegion",
+     addressCountry: "US",
+    },
+   },
+   hasMerchantReturnPolicy: {
+    "@type": "MerchantReturnPolicy",
+    returnPolicyCategory:
+     "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: 7,
+   },
+  },
+  {
+   "@type": "Offer",
    name: "Single-Deal Workspace",
    description:
     "One property. 90 days. The full workspace, from your first document to your decision file.",
@@ -268,7 +295,7 @@ export default function AcquisitionWorkspacePage() {
       </TrackedApplyLink>
       <a
        href="#how-it-works"
-       className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+       className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
        See how it works
       </a>
@@ -276,12 +303,12 @@ export default function AcquisitionWorkspacePage() {
 
      {/* The problem */}
      <section aria-labelledby="deal-desk-problem" className="mt-20">
-      <h2 id="deal-desk-problem" className="serif-display text-2xl tracking-tight sm:text-3xl">
+      <h2 id="deal-desk-problem" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
        The problem, briefly.
       </h2>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
        {PAINS.map((pain) => (
-        <div key={pain.title} className="theme-cream border border-border bg-card p-6">
+        <div key={pain.title} className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {pain.title}
          </h3>
@@ -298,8 +325,8 @@ export default function AcquisitionWorkspacePage() {
         </div>
        ))}
       </div>
-      <div className="theme-cream mt-6 border border-border border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
-       <p className="text-sm font-medium leading-relaxed text-foreground sm:text-base">
+      <div className="theme-cream mt-6 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
+       <p className="text-center text-sm font-medium leading-relaxed text-foreground sm:text-base">
         Capital commits only against what the record supports. What the record cannot prove does not get priced, and does not get paid for.
        </p>
       </div>
@@ -307,12 +334,12 @@ export default function AcquisitionWorkspacePage() {
 
      {/* How it works */}
      <section id="how-it-works" aria-labelledby="deal-desk-how" className="mt-20 scroll-mt-24">
-      <h2 id="deal-desk-how" className="serif-display text-2xl tracking-tight sm:text-3xl">
+      <h2 id="deal-desk-how" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
        How the workspace works.
       </h2>
       <ol className="mt-6 space-y-4">
        {HOW_IT_WORKS.map((step, index) => (
-        <li key={step.title} className="theme-cream flex gap-4 border border-border bg-card p-5 sm:p-6">
+        <li key={step.title} className="theme-cream flex gap-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-5 sm:p-6">
          <span className="serif-display flex-none text-2xl text-primary">
           {index + 1}
          </span>
@@ -325,8 +352,8 @@ export default function AcquisitionWorkspacePage() {
         </li>
        ))}
       </ol>
-      <div className="theme-cream mt-6 border border-border bg-card p-5 sm:p-6">
-       <p className="mb-4 text-sm font-bold text-foreground">
+      <div className="theme-cream mt-6 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-5 sm:p-6">
+       <p className="mb-4 text-center text-sm font-bold text-foreground">
         The six evidence states (the CrosstownOS ParkProof Standard):
        </p>
        <div className="overflow-x-auto">
@@ -365,7 +392,7 @@ export default function AcquisitionWorkspacePage() {
          </tbody>
         </table>
        </div>
-       <p className="mt-4 text-sm leading-relaxed text-muted">
+       <p className="mt-4 text-center text-sm leading-relaxed text-muted">
         CrosstownOS does not assign these for you and does not independently verify a claim. You supply the evidence, you document the review, the record keeps both.
        </p>
       </div>
@@ -373,11 +400,11 @@ export default function AcquisitionWorkspacePage() {
 
      {/* Manufactured housing */}
      <section aria-labelledby="manufactured-housing" className="mt-20">
-      <SignalLine />
-      <h2 id="manufactured-housing" className="serif-display text-2xl tracking-tight sm:text-3xl">
+      <SignalLine className="mx-auto" />
+      <h2 id="manufactured-housing" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
        Manufactured housing.
       </h2>
-      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+      <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-relaxed text-foreground/85 sm:text-base">
        <strong className="font-semibold text-foreground">
         Buying a mobile home park?
        </strong>{" "}
@@ -391,11 +418,11 @@ export default function AcquisitionWorkspacePage() {
        attached, and nothing counts as proven until the record proves
        it.
       </p>
-      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+      <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-relaxed text-foreground/85 sm:text-base">
        A manufactured housing acquisition runs two records at once.
       </p>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-       <div className="theme-cream border border-border bg-card p-6">
+       <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
          The land record
         </h3>
@@ -404,7 +431,7 @@ export default function AcquisitionWorkspacePage() {
          age of the lines.
         </p>
        </div>
-       <div className="theme-cream border border-border bg-card p-6">
+       <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
          The homes record
         </h3>
@@ -415,13 +442,13 @@ export default function AcquisitionWorkspacePage() {
         </p>
        </div>
       </div>
-      <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
+      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-foreground/85 sm:text-base">
        CrosstownOS keeps both records in the one workspace, so seller claims,
        source evidence, site observations, and unresolved diligence stay
        connected across the land and the homes before capital commits.
       </p>
-      <div className="theme-cream mt-6 border border-border bg-card p-5 sm:p-6">
-       <p className="mb-4 text-sm font-bold text-foreground">
+      <div className="theme-cream mt-6 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-5 sm:p-6">
+       <p className="mb-4 text-center text-sm font-bold text-foreground">
         Manufactured housing: the claims that carry an evidence state (CrosstownOS Acquisition Workspace):
        </p>
        <div className="overflow-x-auto">
@@ -448,12 +475,12 @@ export default function AcquisitionWorkspacePage() {
          </tbody>
         </table>
        </div>
-       <p className="mt-4 text-sm leading-relaxed text-muted">
+       <p className="mt-4 text-center text-sm leading-relaxed text-muted">
         The states are the same six. What changes in manufactured housing is which claims carry the deal.
        </p>
       </div>
-      <div className="theme-cream mt-6 border border-border border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
-       <p className="text-sm font-medium leading-relaxed text-foreground sm:text-base">
+      <div className="theme-cream mt-6 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
+       <p className="text-center text-sm font-medium leading-relaxed text-foreground sm:text-base">
         The deal does not advance on open gates. It advances on verification, or on a waiver somebody signed their name to.
        </p>
       </div>
@@ -461,20 +488,20 @@ export default function AcquisitionWorkspacePage() {
 
      {/* The November product, compact */}
      <section aria-labelledby="deal-desk-product" className="mt-20">
-      <h2 id="deal-desk-product" className="serif-display text-2xl tracking-tight sm:text-3xl">
+      <h2 id="deal-desk-product" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
        The November product, in one view.
       </h2>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+      <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-muted sm:text-base">
        <strong className="font-semibold text-foreground">Source</strong> + <strong className="font-semibold text-foreground">Field</strong> + <strong className="font-semibold text-foreground">Acquire</strong> is the <strong className="font-semibold text-foreground">Acquisition Workspace&apos;s</strong> first connected loop, targeting <strong className="font-semibold text-foreground">November 2026</strong> access. The <strong className="font-semibold text-foreground">Transition Workspace</strong> and <strong className="font-semibold text-foreground">Operations Workspace</strong> are planned system direction.
       </p>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
        {NOVEMBER_PRODUCT.map((module) => (
         <div
          key={module.name}
-         className="theme-cream border border-border bg-card p-6"
+         className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center"
          style={{ borderTop: `2px solid ${module.color}` }}
         >
-         <div className="flex items-center gap-2">
+         <div className="flex items-center justify-center gap-2">
           <span
            className="h-2.5 w-2.5 flex-none"
            style={{ backgroundColor: module.color }}
@@ -491,8 +518,8 @@ export default function AcquisitionWorkspacePage() {
         </div>
        ))}
       </div>
-      <div className="theme-cream mt-6 border border-border border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
-       <p className="text-sm font-medium leading-relaxed text-foreground sm:text-base">
+      <div className="theme-cream mt-6 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] border-l-2 border-l-primary bg-card px-5 py-4 sm:px-6">
+       <p className="text-center text-sm font-medium leading-relaxed text-foreground sm:text-base">
         A spreadsheet holds the numbers typed into it; the CrosstownOS
         Acquisition Workspace holds each claim next to its evidence state
         and the review behind it.
@@ -503,23 +530,25 @@ export default function AcquisitionWorkspacePage() {
      {/* Free pilot */}
      {/* Pilot: the offer */}
      <section aria-labelledby="deal-desk-pilot" className="mt-20">
-      <SignalLine />
-      <h2 id="deal-desk-pilot" className="serif-display text-3xl tracking-tight sm:text-4xl">
+      <SignalLine className="mx-auto" />
+      <h2 id="deal-desk-pilot" className="serif-display text-center text-3xl tracking-tight sm:text-4xl">
        Five free pilot places. Target opening: November 2026.
       </h2>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-muted sm:text-lg">
        I&apos;m opening five free pilot places before charging for access. I need active buyers to use the workspace on real acquisitions and tell me where the workflow fails.
       </p>
-      <div className="theme-cream mt-8 border border-primary/40 bg-card p-6 sm:p-10">
+      <div className="theme-cream mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         The trade
        </p>
-       <p className="mt-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
+       <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
         Run one live acquisition through Source, Field, and Acquire for 90 days from activation. No payment required and no automatic conversion.
-
-In exchange, use the workspace and give candid feedback about what works, what breaks, and what is confusing. I troubleshoot software behavior, not your deal. Testimonials are optional and require separate written permission.
-
-Five qualified participants will receive free access. Paid access is available separately at $1,299 single-deal or $2,999 annual.
+       </p>
+       <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
+        In exchange, use the workspace and give candid feedback about what works, what breaks, and what is confusing. I troubleshoot software behavior, not your deal. Testimonials are optional and require separate written permission.
+       </p>
+       <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
+        Five qualified participants will receive free access. Paid access is available separately at $1,299 single-deal or $2,999 annual.
        </p>
        <p className="mt-6 border-t border-primary/30 pt-5 text-base font-semibold leading-relaxed text-foreground sm:text-lg">
         The file you build is built for a lender's or partner's read: claims, evidence, and open items in one place, each carrying its evidence state.
@@ -530,7 +559,7 @@ Five qualified participants will receive free access. Paid access is available s
        >
         Apply for a free pilot place
        </TrackedApplyLink>
-       <p className="mt-4 text-xs leading-relaxed text-muted">
+       <p className="mt-4 text-center text-xs leading-relaxed text-muted">
         Acceptance reserves a place. Your 90-day term begins when access and onboarding materials are delivered. Your acquisition timeline must allow you to begin using the workspace after your confirmed activation date.
        </p>
       </div>
@@ -539,11 +568,11 @@ Five qualified participants will receive free access. Paid access is available s
      {/* Pricing summary: the full architecture lives on /pricing */}
      <section id="plans" className="mt-20 scroll-mt-24">
      <SectionViewTracker event="pricing_view" />
-      <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
+      <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
         Pricing lives on its own page now
        </h3>
-       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground/85">
+       <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-foreground/85">
         Monthly Workspace $299, Single-Deal $1,299, Annual $2,999, and
         five free pilot places. The full pricing, the one-off work, and
         the rules the prices run on are on the Pricing page, public and
@@ -561,11 +590,11 @@ Five qualified participants will receive free access. Paid access is available s
      {/* Who it is for / not for */}
      <section aria-labelledby="deal-desk-who" className="mt-20">
       <div className="grid gap-4 md:grid-cols-2">
-       <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-        <h2 id="deal-desk-who" className="serif-display text-2xl tracking-tight">
+       <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
+        <h2 id="deal-desk-who" className="serif-display text-center text-2xl tracking-tight">
          Who the workspace is for.
         </h2>
-        <ul className="mt-5 space-y-3">
+        <ul className="mx-auto mt-5 w-fit space-y-3">
          {FOR_ITEMS.map((item) => (
           <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
            <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
@@ -577,11 +606,11 @@ Five qualified participants will receive free access. Paid access is available s
          A deal worked on the record is built to reach closing with its open items already decided, not discovered.
         </p>
        </div>
-       <div className="theme-cream border border-border bg-card p-6 sm:p-8">
-        <h2 className="serif-display text-2xl tracking-tight">
+       <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
+        <h2 className="serif-display text-center text-2xl tracking-tight">
          Who it is not for.
         </h2>
-        <ul className="mt-5 space-y-3">
+        <ul className="mx-auto mt-5 w-fit space-y-3">
          {NOT_FOR_ITEMS.map((item) => (
           <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
            <span className="mt-2 h-1.5 w-1.5 flex-none bg-accent" aria-hidden="true" />
@@ -606,27 +635,27 @@ Five qualified participants will receive free access. Paid access is available s
 
      {/* Application */}
      <section id="apply" aria-labelledby="deal-desk-apply" className="mt-20 scroll-mt-24">
-     <SignalLine />
-      <h2 id="deal-desk-apply" className="serif-display text-2xl tracking-tight sm:text-3xl">
+     <SignalLine className="mx-auto" />
+      <h2 id="deal-desk-apply" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
        Apply for a free pilot place.
       </h2>
-      <p className="mt-4 text-sm leading-relaxed text-muted">
+      <p className="mt-4 text-center text-sm leading-relaxed text-muted">
         Tell me your asset type, deal stage, and decision deadline. No documents or call required to submit. If the fit looks right, we&apos;ll arrange the next step.
       </p>
-      <div className="theme-cream mt-6 border border-border bg-card p-6 sm:p-8">
+      <div className="theme-cream mt-6 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-8">
        <DealDeskForm />
-       <p className="mt-4 text-xs leading-relaxed text-muted">
+       <p className="mt-4 text-center text-xs leading-relaxed text-muted">
         Submitting an application does not reserve a place or begin access. We&apos;ll confirm acceptance and your activation date separately.
        </p>
       </div>
-      <div className="theme-cream mt-4 border border-[#3a86f2] bg-card p-6 shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] sm:p-8">
+      <div className="theme-cream mt-4 border border-[#3a86f2] bg-card p-6 shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] sm:p-8 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
           ParkProof Walkthrough / Illustrative record
         </p>
         <p className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
           One deal, walked all the way down.
         </p>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+        <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
           Harbor Pines is fictional. The habit is not. Walk the deal claim
           by claim, source by source, every claim carrying its evidence
           state, until the record says what it can support and names what
