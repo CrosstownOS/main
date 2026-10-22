@@ -398,19 +398,13 @@ export default function ToolsPage() {
           </section>
 
           {/* 3.5 Conversion band */}
-          <section className="theme-cream mt-16 border border-border bg-card p-8 sm:p-10" aria-label="Work your deal in the workspace">
+          <section className="theme-cream mt-16 border border-border bg-card p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               The Acquisition Workspace
             </p>
-            <h2 className="serif-display mt-3 max-w-2xl text-3xl tracking-tight">
+            <h2 className="serif-display mt-3 text-3xl tracking-tight">
               Work your real acquisition inside CrosstownOS.
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
-              Running a live deal and want the full record? The Acquisition Workspace
-              connects source evidence, field observations, and underwriting
-              in one deal record. Five free pilot places are open to qualified buyers. Paid access: single-deal $1,299, annual $2,999.
-              Each working paper settles one question. The workspace is where the settled questions accumulate into a record a decision can rest on.
-            </p>
             <Link
               href="/workspace#apply"
               className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
