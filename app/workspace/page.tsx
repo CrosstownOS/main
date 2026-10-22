@@ -498,7 +498,7 @@ export default function AcquisitionWorkspacePage() {
        {NOVEMBER_PRODUCT.map((module) => (
         <div
          key={module.name}
-         className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center"
+         className="theme-cream relative border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center"
          style={{ borderTop: `2px solid ${module.color}` }}
         >
          <div className="flex items-center justify-center gap-2">
@@ -511,7 +511,13 @@ export default function AcquisitionWorkspacePage() {
            {module.name}
           </h3>
          </div>
-         <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+         <p
+          className="absolute right-4 top-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em]"
+          style={{
+           color: module.color,
+           textShadow: `0 0 10px ${module.color}, 0 0 28px ${module.color}`,
+          }}
+         >
           {module.family}
          </p>
          <p className="mt-3 text-sm leading-relaxed text-foreground/80">{module.body}</p>
@@ -570,13 +576,11 @@ export default function AcquisitionWorkspacePage() {
      <SectionViewTracker event="pricing_view" />
       <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-        Pricing lives on its own page now
+        Pricing.
        </h3>
        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-foreground/85">
         Monthly Workspace $299, Single-Deal $1,299, Annual $2,999, and
-        five free pilot places. The full pricing, the one-off work, and
-        the rules the prices run on are on the Pricing page, public and
-        the same for everyone.
+        five free pilot places.
        </p>
        <Link
         href="/pricing"
