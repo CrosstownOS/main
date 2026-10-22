@@ -13,6 +13,7 @@ type CoreRoute = {
 const CORE_ROUTES: CoreRoute[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/workspace", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.9 },
   { path: "/tools", changeFrequency: "weekly", priority: 0.9 },
   { path: "/resources", changeFrequency: "monthly", priority: 0.9 },

@@ -178,7 +178,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
    name: "Single-Deal Workspace",
    description:
     "One property. 90 days. The full workspace, from your first document to your decision file.",
-   url: "https://www.crosstownosrv.camp/workspace#plans",
+   url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "1299",
    priceCurrency: "USD",
    availability: "https://schema.org/PreOrder",
@@ -206,7 +206,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
    name: "Annual Workspace",
    description:
     "Unlimited properties. 12 months. Stop rebuilding the record every time you look at a deal.",
-   url: "https://www.crosstownosrv.camp/workspace#plans",
+   url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "2999",
    priceCurrency: "USD",
    availability: "https://schema.org/PreOrder",
@@ -536,74 +536,25 @@ Five qualified participants will receive free access. Paid access is available s
       </div>
      </section>
 
-     {/* After the pilot */}
+     {/* Pricing summary: the full architecture lives on /pricing */}
      <section id="plans" className="mt-20 scroll-mt-24">
      <SectionViewTracker event="pricing_view" />
-      
       <div className="theme-cream mt-4 border border-border bg-card p-6 sm:p-8">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-        Every plan includes
+        Pricing lives on its own page now
        </h3>
-       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-        {INCLUDED_SHARED.map((item) => (
-         <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-          <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-          <span>{item}</span>
-         </li>
-        ))}
-       </ul>
-       <div className="mt-8">
-        <h4 className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-foreground">
-         Terms of access
-        </h4>
-        <ol className="mt-4 space-y-3 text-sm leading-relaxed text-foreground/85">
-         <li>
-          <span className="font-bold text-foreground">Activation.</span>{" "}
-          Access commences upon delivery of your account credentials
-          and onboarding materials. The date of delivery is your
-          activation date.
-         </li>
-         <li>
-          <span className="font-bold text-foreground">Renewal.</span>{" "}
-          Renewal is manual. <strong className="font-semibold text-foreground">CrosstownOS</strong> does not enroll accounts in
-          automatic renewal and does not charge cards on file without
-          a new, explicit purchase.
-         </li>
-         <li>
-          <span className="font-bold text-foreground">License scope.</span>{" "}
-          A Single-Deal Workspace license covers one property: one
-          park or community acquisition, including associated parcels
-          transacted under a single purchase agreement. The license is
-          non-transferable. If the transaction is abandoned or does
-          not close, it does not transfer to another property.
-         </li>
-         <li>
-          <span className="font-bold text-foreground">Expiration.</span>{" "}
-          Single-Deal access ends 90 calendar days from activation.
-          Annual access ends 12 months from activation. Editing
-          privileges end at expiration, so export your records before
-          then.
-         </li>
-         <li>
-          <span className="font-bold text-foreground">Data retention.</span>{" "}
-          Account data is retained for thirty (30) calendar days
-          following expiration, after which deletion is scheduled and
-          carried out.
-         </li>
-         <li>
-          <span className="font-bold text-foreground">Refunds.</span>{" "}
-          A full refund is available within seven (7) calendar days of
-          activation. Requesting a refund terminates access
-          immediately.
-         </li>
-        </ol>
-        <Link
-         href="/terms"
-         className="mt-4 inline-block text-sm text-primary underline underline-offset-2 transition-colors hover:text-foreground hover:no-underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-         Read the full Terms of Use
-        </Link>
-       </div>
+       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground/85">
+        Monthly Workspace $299, Single-Deal $1,299, Annual $2,999, and
+        five free pilot places. The full pricing, the one-off work, and
+        the rules the prices run on are on the Pricing page, public and
+        the same for everyone.
+       </p>
+       <Link
+        href="/pricing"
+        className="mt-5 inline-block border border-primary/60 bg-primary-deep px-6 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+       >
+        See pricing
+       </Link>
       </div>
      </section>
 
