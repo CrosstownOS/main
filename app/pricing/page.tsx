@@ -158,11 +158,11 @@ export default function PricingPage() {
 
      {/* Pilot */}
      <section aria-labelledby="pricing-pilot" className="mt-16">
-      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10">
+      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10 text-center">
        <h2 id="pricing-pilot" className="serif-display text-2xl tracking-tight sm:text-3xl">
         Start free: five pilot places.
        </h2>
-       <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
+       <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
         Five qualified buyers get the full workspace free for 90 days on
         one live acquisition. No payment required, no payment method
         collected, and no automatic conversion when the term ends.
@@ -283,14 +283,14 @@ export default function PricingPage() {
         </div>
        ))}
       </div>
-      <div className="theme-cream mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10">
+      <div className="theme-cream mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10 text-center">
        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         The next step
        </p>
        <h3 className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
         Come see what it does.
        </h3>
-       <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
+       <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
         Prices only tell you what it costs. The Workspace page shows you
         what it does: a deal going in as a stack of seller claims and
         coming out as one record you can stand behind, every claim
@@ -298,7 +298,7 @@ export default function PricingPage() {
         buy, the pilot application is waiting there too. The first five
         places are free.
        </p>
-       <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+       <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Link
          href="/workspace"
          className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
