@@ -233,25 +233,11 @@ export default function CatalogPage() {
             </a>
           </div>
 
-          <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
+          <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8 text-center">
             <p className="serif-display text-2xl tracking-tight">
               Running a live deal? Bring it to the Acquisition Workspace.
             </p>
-            <ul className="mt-5 space-y-3 text-left text-sm leading-relaxed text-muted">
-              <li>
-                Screened a deal worth pursuing? Bring it to the Acquisition Workspace
-                before diligence scatters across inboxes.
-              </li>
-              <li>
-                Walking a park soon? Bring the deal and walk it inside the
-                Workspace, where every capture lands in the record instead of
-                a photo folder.
-              </li>
-              <li>
-                Building the record by hand? The Acquisition Workspace connects it: source evidence, field observations, and underwriting in one deal record.
-              </li>
-            </ul>
-            <a
+                        <a
               href="/workspace"
               className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
