@@ -17,11 +17,12 @@ type NavEntry = {
 
 const NAV_ITEMS: NavEntry[] = [
   { index: "01", label: "Workspace", href: "/workspace" },
-  { index: "02", label: "ParkProof", href: "/parkproof-walkthrough" },
-  { index: "03", label: "Resources", href: "/resources" },
-  { index: "04", label: "Tools", href: "/tools" },
-  { index: "05", label: "Field Notes", href: "/blog" },
-  { index: "06", label: "Standards", href: "/editorial-standards" },
+  { index: "02", label: "Pricing", href: "/pricing" },
+  { index: "03", label: "ParkProof", href: "/parkproof-walkthrough" },
+  { index: "04", label: "Resources", href: "/resources" },
+  { index: "05", label: "Tools", href: "/tools" },
+  { index: "06", label: "Field Notes", href: "/blog" },
+  { index: "07", label: "Standards", href: "/editorial-standards" },
 ]
 
 const ANCHOR_IDS = NAV_ITEMS.map((item) => item.anchorId).filter(

@@ -11,6 +11,7 @@ const FOOTER_LINKS = [
   { href: "/editorial-standards", label: "Editorial Standards" },
   { href: "/parkproof-walkthrough", label: "ParkProof Walkthrough" },
   { href: "/workspace", label: "Workspace" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/for-brokers-lenders", label: "Brokers & Lenders" },
   { href: "/blog", label: "Field Notes" },
   { href: "/trail-log", label: "The Trail Log" },

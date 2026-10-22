@@ -102,12 +102,6 @@ const ONE_OFFS = [
   per: "per property",
   body: "Already working a deal somewhere else? Bring it. The report is produced from your record: every material claim with its evidence state, the rule table run over your own thresholds, and the file your lender or partners can read. No subscription required.",
  },
- {
-  name: "Report refresh",
-  price: "$99",
-  per: "per refresh",
-  body: "New evidence lands after your report is issued. The refresh runs the record again and the report comes back as a new version. The old version is kept and marked superseded, never quietly edited.",
- },
 ] as const
 
 const INCLUDED = [
@@ -195,7 +189,7 @@ export default function PricingPage() {
           {plan.name}
          </h3>
          <p className="mt-4">
-          <span className="serif-display text-4xl tracking-tight text-foreground">{plan.price}</span>
+          <span className="serif-display text-4xl tracking-tight text-[#00468B]" style={{ textShadow: "0 0 16px rgba(0, 70, 139, 0.45), 0 0 44px rgba(0, 70, 139, 0.22)" }}>{plan.price}</span>
           <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
            {plan.per}
           </span>
@@ -236,14 +230,14 @@ export default function PricingPage() {
        Not every park deserves a workspace. Some deserve a look, and some
        deserve the file. Buy the work itself, one park at a time.
       </p>
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-2">
        {ONE_OFFS.map((item) => (
         <div key={item.name} className="theme-cream flex flex-col border border-border bg-card p-6">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {item.name}
          </h3>
          <p className="mt-4">
-          <span className="serif-display text-4xl tracking-tight text-foreground">{item.price}</span>
+          <span className="serif-display text-4xl tracking-tight text-[#00468B]" style={{ textShadow: "0 0 16px rgba(0, 70, 139, 0.45), 0 0 44px rgba(0, 70, 139, 0.22)" }}>{item.price}</span>
           <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
            {item.per}
           </span>
@@ -261,7 +255,7 @@ export default function PricingPage() {
         Opens after the pilot
        </p>
        <h2 id="pricing-feed" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
-        The enriched Source feed. $199 a month.
+        The enriched Source feed. <span className="text-[#00468B]" style={{ textShadow: "0 0 16px rgba(0, 70, 139, 0.45), 0 0 44px rgba(0, 70, 139, 0.22)" }}>$199</span> a month.
        </h2>
        <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
         Every park on the board, enriched and graded before it reaches
