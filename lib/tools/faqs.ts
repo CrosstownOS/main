@@ -310,11 +310,6 @@ export const PRICING_FAQS: Faq[] = [
     answer:
       "Paid purchases have a seven-calendar-day refund window from activation. Requesting a refund ends paid access immediately.",
   },
-  {
-    question: "When does the enriched Source feed open, and what does it cost?",
-    answer:
-      "The feed is $199 a month and opens after the pilot, once the workspace it feeds is standing. Every park lands in the feed already worked up once: what the ground is, who owns it, what the place looks like online, and a grade that says how hard it is worth chasing.",
-  },
 ]
 
 export const FAQ_JSON_LD: Record<string, ReturnType<typeof faqPage>> = {

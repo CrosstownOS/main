@@ -12,12 +12,12 @@ export const metadata: Metadata = {
  keywords: ["RV park software pricing", "mobile home park software pricing", "due diligence software pricing", "acquisition workspace pricing"],
  title: "Pricing | CrosstownOS",
  description:
-  "Public pricing for the CrosstownOS Acquisition Workspace: $299 monthly, $1,299 single-deal, $2,999 annual, five free pilot places, and the one-off work priced on its own. The same for everyone.",
+  "Public pricing for the CrosstownOS Acquisition Workspace: $299 monthly, $1,299 single-deal, $2,999 annual, and five free pilot places. The same for everyone.",
  alternates: { canonical: "/pricing" },
  openGraph: {
   title: "CrosstownOS Pricing",
   description:
-   "Rent the workspace, or pay for the finished work. Public pricing, the same for everyone.",
+   "Rent the workspace by the period, the deal, or the year. Public pricing, the same for everyone.",
   type: "website",
   url: "/pricing",
   images: [{ url: "/og-logo.png", width: 1024, height: 1024, alt: "CrosstownOS Pricing" }],
@@ -109,16 +109,6 @@ const PLANS = [
  },
 ] as const
 
-const ONE_OFFS = [
- {
-  name: "Enriched park profile",
-  cta: "Request a profile",
-  price: "$125",
-  per: "per park",
-  body: "One park, worked up before you commit more time and money to pursuing it: ownership, permits, the septic and utility picture, its web presence, and a derived grade, with every field carrying where it came from and when. Finished work, delivered on the park's record. Never sold as raw data.",
- },
-] as const
-
 const INCLUDED = [
  "Full access to Source, Field, and Acquire.",
  "Recorded onboarding walkthrough.",
@@ -126,7 +116,6 @@ const INCLUDED = [
  "Email technical support. Target response within two business days.",
  "One named operator account.",
 ] as const
-
 
 export default function PricingPage() {
  return (
@@ -253,62 +242,6 @@ export default function PricingPage() {
        >
         Read the full Terms of Use
        </Link>
-      </div>
-     </section>
-
-     {/* One-off work */}
-     <section aria-labelledby="pricing-one-off" className="mt-20">
-      <SignalLine className="mx-auto" />
-      <h2 id="pricing-one-off" className="serif-display mt-4 text-center text-3xl tracking-tight sm:text-4xl">
-       Finished work, priced on its own.
-      </h2>
-      <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-muted">
-       Not every park deserves a workspace. Some deserve a look, and some
-       deserve the file. Buy the work itself, one park at a time.
-      </p>
-      <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-2">
-       {ONE_OFFS.map((item) => (
-        <div key={item.name} className="theme-cream flex flex-col items-center border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
-         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-          {item.name}
-         </h3>
-         <p className="mt-4">
-          <span className="serif-display text-4xl tracking-tight text-[#00468B]" style={{ textShadow: "0 0 16px rgba(0, 70, 139, 0.45), 0 0 44px rgba(0, 70, 139, 0.22)" }}>{item.price}</span>
-          <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-           {item.per}
-          </span>
-         </p>
-         <p className="mt-4 text-sm leading-relaxed text-foreground/85">{item.body}</p>
-         <div className="mt-auto pt-6">
-          <a
-           href="/workspace#apply"
-           className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-           {item.cta}
-          </a>
-         </div>
-        </div>
-       ))}
-      </div>
-     </section>
-
-     {/* The feed */}
-     <section aria-labelledby="pricing-feed" className="mt-20">
-      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
-       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-        Opens after the pilot
-       </p>
-       <h2 id="pricing-feed" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
-        The enriched Source feed. <span className="text-[#00468B]" style={{ textShadow: "0 0 16px rgba(0, 70, 139, 0.45), 0 0 44px rgba(0, 70, 139, 0.22)" }}>$199</span> a month.
-       </h2>
-       <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
-        For buyers who hunt. Every park lands in the feed already
-        worked up once: what the ground is, who owns it, what the place
-        looks like online, and a grade that says how hard it is worth
-        chasing. No more scrolling raw listings and starting from zero
-        on every one. The feed opens after the pilot, once the workspace
-        it feeds is standing.
-       </p>
       </div>
      </section>
 
