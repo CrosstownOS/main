@@ -43,7 +43,7 @@ export default function DealDeskPromo() {
             </p>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
               One live deal. 90 days. The full workspace. After the five, it is
-              $1,250 single-deal, $2,500 annual.
+              $1,299 single-deal, $2,999 annual.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link

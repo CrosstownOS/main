@@ -195,7 +195,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What happens after the free pilot?",
     answer:
-      "Your free access ends 90 calendar days after activation. Editing ends at expiration, so export your records beforehand. Data is retained for 30 days after expiration, then scheduled for deletion under the published retention policy. Nothing is charged automatically. Further access requires a separate purchase: currently $1,250 for Single-Deal Workspace or $2,500 for Annual Workspace. Pilot participation provides no credit or conversion discount.",
+      "Your free access ends 90 calendar days after activation. Editing ends at expiration, so export your records beforehand. Data is retained for 30 days after expiration, then scheduled for deletion under the published retention policy. Nothing is charged automatically. Further access requires a separate purchase: currently $1,299 for Single-Deal Workspace or $2,999 for Annual Workspace. Pilot participation provides no credit or conversion discount.",
   },
   {
     question: "What is the workspace fit call?",

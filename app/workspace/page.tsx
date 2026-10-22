@@ -179,7 +179,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
    description:
     "One property. 90 days. The full workspace, from your first document to your decision file.",
    url: "https://www.crosstownosrv.camp/workspace#plans",
-   price: "1250",
+   price: "1299",
    priceCurrency: "USD",
    availability: "https://schema.org/PreOrder",
    shippingDetails: {
@@ -207,7 +207,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
    description:
     "Unlimited properties. 12 months. Stop rebuilding the record every time you look at a deal.",
    url: "https://www.crosstownosrv.camp/workspace#plans",
-   price: "2500",
+   price: "2999",
    priceCurrency: "USD",
    availability: "https://schema.org/PreOrder",
    shippingDetails: {
@@ -519,7 +519,7 @@ export default function AcquisitionWorkspacePage() {
 
 In exchange, use the workspace and give candid feedback about what works, what breaks, and what is confusing. I troubleshoot software behavior, not your deal. Testimonials are optional and require separate written permission.
 
-Five qualified participants will receive free access. Paid access is available separately at $1,250 single-deal or $2,500 annual.
+Five qualified participants will receive free access. Paid access is available separately at $1,299 single-deal or $2,999 annual.
        </p>
        <p className="mt-6 border-t border-primary/30 pt-5 text-base font-semibold leading-relaxed text-foreground sm:text-lg">
         The file you build is built for a lender's or partner's read: claims, evidence, and open items in one place, each carrying its evidence state.

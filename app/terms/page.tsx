@@ -118,8 +118,8 @@ const SECTIONS = [
   {
     heading: "Acquisition Workspace: what you are buying",
     body: [
-      "Single-Deal Workspace, $1,250: one property and 90 calendar days of full access to Source, Field, and Acquire from activation. Includes a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
-      "Annual Workspace, $2,500: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one live Q&A per account. Additional properties do not add sessions.",
+      "Single-Deal Workspace, $1,299: one property and 90 calendar days of full access to Source, Field, and Acquire from activation. Includes one ParkProof decision file generation for the property, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
+      "Annual Workspace, $2,999: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one live Q&A per account. Additional properties do not add sessions.",
       "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
       "This is software you operate. It does not include document review or interpretation of your numbers, confirmation of your diligence conclusions, or ongoing advisory. You build the record, the workflow guides you, and the decision stays yours.",
     ],

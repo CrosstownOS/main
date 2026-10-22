@@ -38,7 +38,7 @@ export const GOVERNED = {
   standard:
     'Every fact in a ParkProof record carries one of six states. Verified: evidence you can point to, reviewed by a person. Broker-reported: claimed in the package or on a call, not checked yet. Missing evidence: material information not received or located yet. Underwriting assumption: a stated input in your case, not a verified fact. Calculated: output from stated inputs, only as reliable as they are. Unresolved: sources conflict, or the answer is not established yet. Missing evidence is a finding, not a blank, and it is never treated as zero.',
   pricing:
-    'The Acquisition Workspace is $1,250 for a single deal, 90 days, or $2,500 annual. Pricing is public, on the Workspace page, and the same for everyone.',
+    'The Acquisition Workspace is $1,299 for a single deal, 90 days, or $2,999 annual. Pricing is public, on the Workspace page, and the same for everyone.',
   pilot:
     'Five free pilot places. Target opening: November 2026. The first five buyers get the full workspace free for 90 days of real use and feedback. The Workspace Fit Call is the door.',
   liveDeal:
