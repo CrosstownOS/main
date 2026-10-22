@@ -572,12 +572,20 @@ export default function AcquisitionWorkspacePage() {
      <section id="plans" className="mt-20 scroll-mt-24">
      <SectionViewTracker event="pricing_view" />
       <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
-       <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+       <h3 className="serif-display text-center text-2xl tracking-tight">
         Pricing.
        </h3>
-       <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-foreground/85">
-        Monthly Workspace $299, Single-Deal $1,299, Annual $2,999, and
-        five free pilot places.
+       <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-foreground/85">
+        <span className="font-semibold text-foreground">Monthly Workspace</span>{" "}
+        <span className="font-semibold text-[#00468B]">$299</span>{" "}
+        <span className="text-muted">|</span>{" "}
+        <span className="font-semibold text-foreground">Single-Deal</span>{" "}
+        <span className="font-semibold text-[#00468B]">$1,299</span>{" "}
+        <span className="text-muted">|</span>{" "}
+        <span className="font-semibold text-foreground">Annual</span>{" "}
+        <span className="font-semibold text-[#00468B]">$2,999</span>
+        <br />
+        and five free pilot places.
        </p>
        <Link
         href="/pricing"
