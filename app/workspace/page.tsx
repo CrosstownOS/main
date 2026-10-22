@@ -498,7 +498,7 @@ export default function AcquisitionWorkspacePage() {
        {NOVEMBER_PRODUCT.map((module) => (
         <div
          key={module.name}
-         className="theme-cream relative border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center"
+         className="theme-cream relative border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card px-6 pb-6 pt-12 text-center"
          style={{ borderTop: `2px solid ${module.color}` }}
         >
          <div className="flex items-center justify-center gap-2">
