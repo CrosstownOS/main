@@ -92,12 +92,14 @@ const PLANS = [
 const ONE_OFFS = [
  {
   name: "Enriched park profile",
+  cta: "Request a profile",
   price: "$125",
   per: "per park",
   body: "One park, worked up before you spend a dollar chasing it: ownership, permits, the septic and utility picture, its web presence, and a derived grade, with every field carrying where it came from and when. Finished work, delivered on the park's record. Never sold as raw data.",
  },
  {
   name: "A ParkProof Report for a deal you bring",
+  cta: "Bring a deal",
   price: "$499",
   per: "per property",
   body: "Already working a deal somewhere else? Bring it. The report is produced from your record: every material claim with its evidence state, the rule table run over your own thresholds, and the file your lender or partners can read. No subscription required.",
@@ -148,12 +150,6 @@ export default function PricingPage() {
       <h1 className="serif-display mt-4 text-4xl tracking-tight sm:text-5xl">
        Pricing, on the record.
       </h1>
-      <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-       Rent the workspace while you work, or pay for finished work on a
-       single park. Every price is public and the same for everyone, the
-       way the product treats every claim: stated plainly, with nothing
-       held back for the negotiation.
-      </p>
      </div>
 
      {/* Pilot */}
@@ -178,13 +174,13 @@ export default function PricingPage() {
 
      {/* Plans */}
      <section id="plans" aria-labelledby="pricing-plans" className="mt-20 scroll-mt-24">
-      <SignalLine />
-      <h2 id="pricing-plans" className="serif-display mt-4 text-3xl tracking-tight sm:text-4xl">
+      <SignalLine className="mx-auto" />
+      <h2 id="pricing-plans" className="serif-display mt-4 text-center text-3xl tracking-tight sm:text-4xl">
        The workspace, three ways in.
       </h2>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
        {PLANS.map((plan) => (
-        <div key={plan.name} className="theme-cream flex flex-col border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6">
+        <div key={plan.name} className="theme-cream flex flex-col items-center border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {plan.name}
          </h3>
@@ -195,15 +191,23 @@ export default function PricingPage() {
           </span>
          </p>
          <p className="mt-4 text-sm leading-relaxed text-foreground/85">{plan.body}</p>
+         <div className="mt-auto pt-6">
+          <a
+           href="/workspace#apply"
+           className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+           Apply for a free pilot place
+          </a>
+         </div>
         </div>
        ))}
       </div>
       <PlanCalculator />
-      <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-8">
+      <div className="theme-cream mt-4 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-8 text-center">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
         Every plan includes
        </h3>
-       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+       <ul className="mx-auto mt-4 grid w-fit gap-3 text-left sm:grid-cols-2">
         {INCLUDED.map((item) => (
          <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
           <span className="mt-2 h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
@@ -222,17 +226,17 @@ export default function PricingPage() {
 
      {/* One-off work */}
      <section aria-labelledby="pricing-one-off" className="mt-20">
-      <SignalLine />
-      <h2 id="pricing-one-off" className="serif-display mt-4 text-3xl tracking-tight sm:text-4xl">
+      <SignalLine className="mx-auto" />
+      <h2 id="pricing-one-off" className="serif-display mt-4 text-center text-3xl tracking-tight sm:text-4xl">
        Finished work, priced on its own.
       </h2>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+      <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-muted">
        Not every park deserves a workspace. Some deserve a look, and some
        deserve the file. Buy the work itself, one park at a time.
       </p>
       <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-2">
        {ONE_OFFS.map((item) => (
-        <div key={item.name} className="theme-cream flex flex-col border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6">
+        <div key={item.name} className="theme-cream flex flex-col items-center border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {item.name}
          </h3>
@@ -243,6 +247,14 @@ export default function PricingPage() {
           </span>
          </p>
          <p className="mt-4 text-sm leading-relaxed text-foreground/85">{item.body}</p>
+         <div className="mt-auto pt-6">
+          <a
+           href="/workspace#apply"
+           className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+           {item.cta}
+          </a>
+         </div>
         </div>
        ))}
       </div>
@@ -250,32 +262,33 @@ export default function PricingPage() {
 
      {/* The feed */}
      <section aria-labelledby="pricing-feed" className="mt-20">
-      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10">
+      <div className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         Opens after the pilot
        </p>
        <h2 id="pricing-feed" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
         The enriched Source feed. <span className="text-[#00468B]" style={{ textShadow: "0 0 16px rgba(0, 70, 139, 0.45), 0 0 44px rgba(0, 70, 139, 0.22)" }}>$199</span> a month.
        </h2>
-       <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
-        Every park on the board, enriched and graded before it reaches
-        you: the dirt, the ownership, the digital shadow, in one feed.
-        Priced now, opening after the pilot, because a hunting tool and a
-        working tool are two different doors and we are opening them in
-        order.
+       <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
+        For buyers who hunt. Every park lands in the feed already
+        worked up once: what the ground is, who owns it, what the place
+        looks like online, and a grade that says how hard it is worth
+        chasing. No more scrolling raw listings and starting from zero
+        on every one. The feed opens after the pilot, once the workspace
+        it feeds is standing.
        </p>
       </div>
      </section>
 
      {/* The rules */}
      <section aria-labelledby="pricing-rules" className="mt-20">
-      <SignalLine />
-      <h2 id="pricing-rules" className="serif-display mt-4 text-3xl tracking-tight sm:text-4xl">
+      <SignalLine className="mx-auto" />
+      <h2 id="pricing-rules" className="serif-display mt-4 text-center text-3xl tracking-tight sm:text-4xl">
        The rules the prices run on.
       </h2>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
        {RULES.map((rule) => (
-        <div key={rule.title} className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6">
+        <div key={rule.title} className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
          <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
           {rule.title}
          </h3>
@@ -290,14 +303,6 @@ export default function PricingPage() {
        <h3 className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
         Come see what it does.
        </h3>
-       <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground/90">
-        Prices only tell you what it costs. The Workspace page shows you
-        what it does: a deal going in as a stack of seller claims and
-        coming out as one record you can stand behind, every claim
-        carrying its evidence. Take the tour, and if it fits the way you
-        buy, the pilot application is waiting there too. The first five
-        places are free.
-       </p>
        <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Link
          href="/workspace"

@@ -69,7 +69,7 @@ export default function PlanCalculator() {
  const best = options.reduce((a, b) => (b.total < a.total ? b : a))
 
  return (
-  <div className="theme-cream mt-8 border border-border bg-card p-6 sm:p-8">
+  <div className="theme-cream mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-8">
    <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
     Run your own year
    </h3>
