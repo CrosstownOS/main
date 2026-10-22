@@ -96,43 +96,19 @@ export default function BlogIndex() {
           />
           <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
           <SignalLine />
-          <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
+          <h1 className="serif-display text-3xl tracking-tight sm:text-4xl">
             Field Notes: what operators learn before they buy.
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-            Acquisition intelligence for RV park and manufactured-housing buyers.
-            Diligence notes and underwriting discipline for buyers working a
-            live deal.
-          </p>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
-            {posts.length} Field Notes are published, newest first. Each one
-            publishes with a Sources and Limits section and an AI-assistance
-            note, under the{" "}
+            {posts.length} Field Notes, newest first · Every note publishes
+            with Sources and Limits ·{" "}
             <Link href="/editorial-standards" className="font-semibold text-primary hover:underline">
-              editorial standards
-            </Link>
-            .
-          </p>
-          <a
-            href="/blog/rss.xml"
-            className="mono-label mt-6 inline-block text-primary hover:underline"
-          >
-            Subscribe via RSS
-          </a>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
-            Reading is the start.{" "}
-            <Link href="/tools" className="font-semibold text-primary hover:underline">
-              Run the working papers
+              Editorial standards
             </Link>{" "}
-            on your live deal, work the{" "}
-            <Link href="/checklist" className="font-semibold text-primary hover:underline">
-              free diligence checklist
-            </Link>
-            , or bring it all to the{" "}
-            <Link href="/workspace" className="font-semibold text-primary hover:underline">
-              Acquisition Workspace
-            </Link>
-            .
+            ·{" "}
+            <a href="/blog/rss.xml" className="font-semibold text-primary hover:underline">
+              Subscribe via RSS
+            </a>
           </p>
           <div className="mt-12 space-y-2">
             {posts.length === 0 && (
@@ -173,6 +149,21 @@ export default function BlogIndex() {
               </Link>
             ))}
           </div>
+          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-muted">
+            Reading is the start.{" "}
+            <Link href="/tools" className="font-semibold text-primary hover:underline">
+              Run the working papers
+            </Link>{" "}
+            on your live deal, work the{" "}
+            <Link href="/checklist" className="font-semibold text-primary hover:underline">
+              free diligence checklist
+            </Link>
+            , or bring it all to the{" "}
+            <Link href="/workspace" className="font-semibold text-primary hover:underline">
+              Acquisition Workspace
+            </Link>
+            .
+          </p>
         </div>
       </main>
     </>
