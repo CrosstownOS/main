@@ -182,7 +182,7 @@ export default function SampleDecisionFilePage() {
           </section>
 
           <section aria-labelledby="sample-next" className="mt-20">
-            <div className="theme-cream paper border border-border p-6 sm:p-8">
+            <div className="theme-cream paper border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                 From sample to live deal
               </p>
@@ -192,47 +192,43 @@ export default function SampleDecisionFilePage() {
               >
                 The sample is fictional. The deadline pressure is not.
               </h2>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-                Read the standard, then bring the deal that is already sitting
-                in the inbox. The work is the same: establish what is true
-                before capital is committed. The file walked here is the
-                ParkProof decision file a buyer builds in the CrosstownOS
-                Acquisition Workspace.
-              </p>
-              <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/parkproof-standard"
-                  className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
-                >
-                  Read the ParkProof Standard
-                </Link>
+              <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href="/workspace"
-                  className="inline-block border border-border px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Apply for a pilot place
                 </Link>
+                <Link
+                  href="/parkproof-standard"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Read the ParkProof Standard
+                </Link>
               </div>
-              <p className="mt-5 text-sm leading-relaxed text-muted">
-                Start smaller: the{" "}
-                <Link href="/checklist" className="font-semibold text-primary hover:underline">
-                  free diligence checklist
-                </Link>{" "}
-                covers the fifteen items in order, and the{" "}
-                <Link href="/tools" className="font-semibold text-primary hover:underline">
-                  working papers
-                </Link>{" "}
-                run the math in your browser. When a file like this one has
-                to go to a lender, the{" "}
-                <Link href="/resources/lender-one-pager" className="font-semibold text-primary hover:underline">
+              <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
+                Start smaller
+              </p>
+              <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/checklist"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Free diligence checklist
+                </Link>
+                <Link
+                  href="/tools"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Working papers
+                </Link>
+                <Link
+                  href="/resources/lender-one-pager"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
                   Lender One-Pager
-                </Link>{" "}
-                puts the same deal on one page, in the language a lender
-                reads.
-              </p>
-              <p className="mt-5 text-sm leading-relaxed text-muted">
-                Built to the standard, a file like this one is built to let a closing proceed on evidence instead of on the seller's summary.
-              </p>
+                </Link>
+              </div>
             </div>
           </section>
         </div>
