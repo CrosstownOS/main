@@ -80,7 +80,6 @@ export default function CatalogPage() {
               { label: "Catalog" },
             ]}
           />
-          <p className="mono-label mb-4">Acquisition Signal Resources // Catalog</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             All 38 resources, in journey order.
@@ -235,7 +234,6 @@ export default function CatalogPage() {
           </div>
 
           <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
-            <p className="mono-label mb-3">The next step</p>
             <p className="serif-display text-2xl tracking-tight">
               Running a live deal? Bring it to the Acquisition Workspace.
             </p>

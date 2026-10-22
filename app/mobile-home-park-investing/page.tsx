@@ -86,7 +86,6 @@ export default function MobileHomeParkInvestingPage() {
               { label: "Mobile Home Park Investing" },
             ]}
           />
-          <p className="mono-label mb-4">CrosstownOS / Investor&apos;s guide</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             A mobile home park is two businesses. Price them like it.
           </h1>

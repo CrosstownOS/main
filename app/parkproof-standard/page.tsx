@@ -203,7 +203,6 @@ export default function ParkProofStandardPage() {
               { label: "The ParkProof Standard" },
             ]}
           />
-          <p className="mono-label mb-4">ParkProof / The Standard</p>
           <SignalLine />
           <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
             ParkProof turns a deal file into a decision file.

@@ -497,7 +497,6 @@ export default async function ResourcePage({ params }: PageProps) {
               aria-labelledby="resource-download"
               className="theme-cream flex flex-col border border-border bg-card p-6 sm:p-8"
             >
-              <p className="mono-label">Free PDF download</p>
               <h2 id="resource-download" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
                 Get {resource.code ?? resource.title}
               </h2>
@@ -526,9 +525,6 @@ export default async function ResourcePage({ params }: PageProps) {
               aria-label="Run this tool live"
               className="theme-cream mt-12 border border-primary/40 bg-card p-6 sm:p-8"
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-                Live Diligence Working Paper
-              </p>
               <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
                 Run the {liveTool.toolName} in your browser.
               </h2>

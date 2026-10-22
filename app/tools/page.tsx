@@ -295,23 +295,17 @@ export default function ToolsPage() {
           />
           {/* 3.1 Header */}
           <div className="max-w-3xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-              The interactive suite
-            </p>
             <SignalLine />
-            <h1 className="serif-display mt-4 text-4xl tracking-tight sm:text-6xl">
+            <h1 className="serif-display mt-4 text-3xl tracking-tight sm:text-5xl">
               Live Diligence Working Papers.
             </h1>
             <p className="serif-display mt-4 text-xl tracking-tight text-foreground/90 sm:text-2xl">
               Free tools that run in your browser. Run the math on your live
               deal, keep the record, export the file.
             </p>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
-              These are the working papers behind the Field Notes, rebuilt to run in your
-              browser. Every number you enter carries an evidence state. Every output shows
-              its lineage. Nothing here tells you whether to buy; it shows you what the
-              record supports, so your call is defensible. Your numbers stay in your browser
-              until you choose to export them.
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
+              Every number you enter carries an evidence state. Your numbers
+              stay in your browser until you choose to export them.
             </p>
           </div>
 

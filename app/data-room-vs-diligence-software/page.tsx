@@ -125,7 +125,6 @@ export default function DataRoomComparisonPage() {
               { label: "Data Room vs Due Diligence Software" },
             ]}
           />
-          <p className="mono-label mb-4">CrosstownOS / Comparison</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             A data room stores the deal. The workspace runs the record.
           </h1>

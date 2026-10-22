@@ -8,9 +8,6 @@ export default function NotFound() {
     <>
       <Navigation />
       <main className="mx-auto w-full max-w-3xl px-4 pb-24 pt-32 sm:px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
-          CrosstownOS
-        </p>
         <h1 className="serif-display mt-5 text-4xl tracking-tight sm:text-5xl">
           This page is missing evidence.
         </h1>

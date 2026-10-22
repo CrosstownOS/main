@@ -263,7 +263,6 @@ export default async function ResourcesPage({
             className="mb-6"
             items={[{ label: "Home", href: "/" }, { label: "Resources" }]}
           />
-          <p className="mono-label mb-4">CrosstownOS // Acquisition Signals</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             What is happening with your deal right now?
@@ -463,7 +462,6 @@ export default async function ResourcesPage({
           </div>
 
           <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
-            <p className="mono-label mb-3">The next step</p>
             <p className="serif-display text-2xl tracking-tight">
               Running a live deal? Bring it to the Acquisition Workspace.
             </p>

@@ -513,7 +513,6 @@ export default function ToolShell(props: ToolShellProps) {
           {faqs && faqs.length > 0 && <FaqSection faqs={faqs} />}
 
           <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
-            <p className="mono-label mb-3">The next step</p>
             <p className="serif-display text-2xl tracking-tight">{ctaTitle}</p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{ctaBody}</p>
             <Link
@@ -525,7 +524,6 @@ export default function ToolShell(props: ToolShellProps) {
           </div>
 
           <div className="theme-cream paper mt-8 border border-primary/40 bg-card p-8 text-center">
-            <p className="mono-label mb-3">Go deeper</p>
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
               Working the full file? Run the{" "}
               <Link href="/checklist" className="font-semibold text-primary hover:underline">

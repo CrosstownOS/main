@@ -171,7 +171,6 @@ export default function EditorialStandardsPage() {
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-          <p className="mono-label mb-4">CrosstownOS / Editorial standards</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Know what is true before you buy. We hold our own work to it.
           </h1>

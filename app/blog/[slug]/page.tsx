@@ -138,7 +138,6 @@ export default async function BlogPost({ params }: PageProps) {
             &larr; All field notes
           </Link>
 
-          <p className="mono-label mb-4 mt-8">Field Note</p>
           <SignalLine />
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             {post.title}
@@ -237,7 +236,6 @@ export default async function BlogPost({ params }: PageProps) {
           </div>
 
           <div className="theme-cream mt-16 border border-border bg-card p-6 sm:p-8">
-            <p className="mono-label mb-3">Next step</p>
             <p className="text-sm leading-relaxed text-muted">
               Start with the free Acquisition Signal resources: the working
               papers behind the Field Notes, including the tool this note
@@ -281,7 +279,6 @@ export default async function BlogPost({ params }: PageProps) {
 
           {related.length > 0 && (
             <div className="mt-16">
-              <p className="mono-label mb-6">More field notes</p>
               <div className="space-y-2">
                 {related.map((rel) => (
                   <Link

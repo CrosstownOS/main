@@ -373,7 +373,6 @@ export default function AcquisitionWorkspacePage() {
 
      {/* Manufactured housing */}
      <section aria-labelledby="manufactured-housing" className="mt-20">
-      <p className="mono-label mb-4">CrosstownOS / Manufactured housing</p>
       <SignalLine />
       <h2 id="manufactured-housing" className="serif-display text-2xl tracking-tight sm:text-3xl">
        Manufactured housing.

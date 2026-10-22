@@ -104,9 +104,6 @@ export default function SampleDecisionFilePage() {
             ]}
           />
           <div className="max-w-4xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <p className="mono-label">ParkProof Walkthrough / Inside the Record</p>
-            </div>
             <SignalLine />
             <h1 className="serif-display mt-6 max-w-4xl text-5xl leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
               The package is not the decision.

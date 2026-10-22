@@ -136,7 +136,6 @@ export default function BuyingAnRvParkPage() {
               { label: "Buying an RV Park" },
             ]}
           />
-          <p className="mono-label mb-4">CrosstownOS / Buyer&apos;s guide</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             How to buy an RV park without buying someone else&apos;s problems.
           </h1>

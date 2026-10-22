@@ -141,7 +141,6 @@ export default function BuyingACampgroundPage() {
               { label: "Buying a Campground" },
             ]}
           />
-          <p className="mono-label mb-4">CrosstownOS / Buyer&apos;s guide</p>
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Buying a campground? Verify it before you buy it.
           </h1>

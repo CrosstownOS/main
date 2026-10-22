@@ -94,7 +94,6 @@ export default function BlogIndex() {
               { label: "Field Notes" },
             ]}
           />
-          <p className="mono-label mb-4">CrosstownOS // Field Notes</p>
           <SignalLine />
           <h1 className="serif-display text-3xl tracking-tight sm:text-4xl">
             Field Notes: what operators learn before they buy.

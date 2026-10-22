@@ -165,7 +165,6 @@ export default function LifecycleVision() {
         </ol>
 
         <div className="theme-cream paper mt-8 border border-primary/40 bg-card p-6 text-center sm:p-8">
-          <p className="mono-label mb-3">Field Network / Build Log</p>
           <p className="serif-display text-3xl leading-tight sm:text-4xl">
             The Trail Log.
           </p>
