@@ -135,20 +135,6 @@ const INCLUDED = [
  "One named operator account.",
 ] as const
 
-const RULES = [
- {
-  title: "No success fees.",
-  body: "No percentage of any deal, no cut of any closing. We charge for the workspace and the work, never for your outcome.",
- },
- {
-  title: "Your record is never held hostage.",
-  body: "If access ends, your records stay readable and frozen. Nothing is deleted for non-payment, and the record wakes when you resubscribe.",
- },
- {
-  title: "Public, and the same for everyone.",
-  body: "What is on this page is what every buyer pays. There is no other price list.",
- },
-] as const
 
 export default function PricingPage() {
  return (
@@ -314,27 +300,14 @@ export default function PricingPage() {
       <FaqSection faqs={PRICING_FAQS} />
      </div>
 
-     {/* The rules */}
-     <section aria-labelledby="pricing-rules" className="mt-20">
+     {/* The close */}
+     <section aria-labelledby="pricing-next-step" className="mt-20">
       <SignalLine className="mx-auto" />
-      <h2 id="pricing-rules" className="serif-display mt-4 text-center text-3xl tracking-tight sm:text-4xl">
-       The rules the prices run on.
-      </h2>
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
-       {RULES.map((rule) => (
-        <div key={rule.title} className="theme-cream border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center">
-         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-          {rule.title}
-         </h3>
-         <p className="mt-2 text-sm leading-relaxed text-muted">{rule.body}</p>
-        </div>
-       ))}
-      </div>
       <div className="theme-cream mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 sm:p-10 text-center">
        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
         The next step
        </p>
-       <h3 className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
+       <h3 id="pricing-next-step" className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
         Come see what it does.
        </h3>
        <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -346,7 +319,7 @@ export default function PricingPage() {
         </Link>
         <a
          href="/workspace#apply"
-         className="inline-block border border-border px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+         className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
          Apply for a free pilot place
         </a>

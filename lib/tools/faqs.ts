@@ -291,6 +291,11 @@ export const PRICING_FAQS: Faq[] = [
       "No. No percentage of any deal, no cut of any closing. We charge for the workspace and the work, never for your outcome.",
   },
   {
+    question: "Is this the same price everyone pays?",
+    answer:
+      "Yes. What is on this page is what every buyer pays. There is no other price list.",
+  },
+  {
     question: "Can I get a ParkProof Report without a subscription?",
     answer:
       "Yes. A ParkProof Report for a deal you bring is $499 per property, no subscription required. The report is produced from your record: every material claim with its evidence state, the rule table run over your own thresholds, and the file your lender or partners can read.",
