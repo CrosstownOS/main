@@ -209,3 +209,11 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 | Before You Underwrite note | Closing teaser aligned to judgment-labeled phrasing | Verifier minor | FIXED |
 | /rv-park-investing | "Park debt is typically bank or local-lender debt" reframed as an expectation | Verifier minor | FIXED |
 | Speed + Occupancy notes | "These are not unusual stories" left as written: both passages carry explicit "in our judgment" framing in the same breath | Coordinator decision, recorded | LEFT, decision recorded |
+
+---
+
+## Publication update (2026-10-22, commit 55be825addb199b76307c08af8e3b713f76ddbdc)
+
+| Page | Change | Basis | Status |
+|---|---|---|---|
+| /blog | Two new Field Notes published: "RV Park Cap Rates: How One Park Gets Two Asking Prices" (dated 2026-10-20) and "RV Park Due Diligence: Why the Site Walk Decides the Deal" (dated 2026-10-15). Published count is now 11 Field Notes; the Batch 8 count row above (9) stands as its historical record. Index hero slimmed in the same commit: headline one size down, intro paragraph removed (its terms already carried in the page meta description), count and standards text and RSS link folded into one meta line with a computed count, closing block moved below the list | Founder order and approval of the exact plan, 2026-10-22. Each note carries its research dossier and claims ledger on file with seat two, a Sources and Limits section with named sources, and the AI-assistance footer, per the content production protocol | PUBLISHED, verified live on the index and both article pages 2026-10-22 |
