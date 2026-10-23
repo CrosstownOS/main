@@ -35,16 +35,11 @@ export default function DealDeskPromo() {
             >
               The Acquisition Workspace. Five free pilot places.
             </Heading>
-            <p className="mb-8 text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mb-10 text-base leading-relaxed text-muted sm:text-lg">
               Seller claims, source evidence, site observations, unresolved
               diligence, and underwriting, connected in one workspace before
               you commit capital. I am opening five free pilot places because
               I need proof it works on real deals.
-            </p>
-            <p className="mb-10 text-base leading-relaxed text-foreground/85">
-              One live deal. 90 days. The full workspace. After the five: $299
-              Monthly per 30-day period, $1,299 Single-Deal for one property
-              over 180 days, or $2,999 Annual for 12 months.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
@@ -56,10 +51,10 @@ export default function DealDeskPromo() {
               </Link>
               <Link
                 data-reveal-item
-                href="/workspace#how-it-works"
+                href="/pricing"
                 className="border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                How it works
+                See pricing
               </Link>
             </div>
           </div>
