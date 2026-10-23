@@ -223,27 +223,54 @@ export default function RvParkInvestingPage() {
                 Innowave Studio, 2026 U.S. RV Park Development Cost
                 Benchmarks (2026)
               </a>
-              . That report puts the practical cap rate benchmark for
-              stabilized RV parks in 2025 to 2026 at 8 to 10 percent, with
-              prime destination resorts at 6 to 7 percent. It also reports
-              a Parks and Places brokerage average of 9.3 percent across 21
-              sold properties in 2024. That 9.3 percent figure is a
-              brokerage-reported average on sold properties, as reported by
-              Innowave. The wider 8 to 10 percent range is a published
-              benchmark statement, not a closed-comp dataset and not asking
-              price data. On price, the same report gives general
-              acquisition pricing of $30,000 to $55,000 per site, basic
-              rural campgrounds at $10,000 to $17,000 per site, and premium
-              resort properties at $50,000 to $62,000 per site. For
-              value-add deals, it reports going-in cap rate targets of 8 to
-              12 percent: a target, not a traded average. These are broad
-              published ranges, not appraisals: confirm against closed
-              comps in your target market before anchoring any
-              underwriting. Resort is a marketing word, not a separate
-              asset class: a high-amenity RV park underwrites on the same
-              income, the same occupancy questions, and the same utility
-              exposure as any other park, with a larger amenity payroll
-              riding on top.
+              .
+            </p>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th className="px-3 py-2 font-bold text-foreground">Park type</th>
+                    <th className="px-3 py-2 font-bold text-foreground">Price per site</th>
+                    <th className="px-3 py-2 font-bold text-foreground">Cap rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Stabilized</td>
+                    <td className="px-3 py-2 align-top">$30,000 to $55,000 (general acquisition pricing)</td>
+                    <td className="px-3 py-2 align-top">8% to 10%</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Value-add</td>
+                    <td className="px-3 py-2 align-top">No separate range in the cited source</td>
+                    <td className="px-3 py-2 align-top">8% to 12% going-in target (a target, not a traded average)</td>
+                  </tr>
+                  <tr className="border-b border-border/60">
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Basic rural campgrounds</td>
+                    <td className="px-3 py-2 align-top">$10,000 to $17,000</td>
+                    <td className="px-3 py-2 align-top">No separate range in the cited source</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 align-top font-bold text-foreground">Destination and premium resort</td>
+                    <td className="px-3 py-2 align-top">$50,000 to $62,000</td>
+                    <td className="px-3 py-2 align-top">6% to 7% for prime destination resorts</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              It also reports a Parks and Places brokerage average of 9.3
+              percent across 21 sold properties in 2024. That 9.3 percent
+              figure is a brokerage-reported average on sold properties, as
+              reported by Innowave. The wider 8 to 10 percent range is a
+              published benchmark statement, not a closed-comp dataset and
+              not asking price data. These are broad published ranges, not
+              appraisals: confirm against closed comps in your target
+              market before anchoring any underwriting. Resort is a
+              marketing word, not a separate asset class: a high-amenity
+              RV park underwrites on the same income, the same occupancy
+              questions, and the same utility exposure as any other park,
+              with a larger amenity payroll riding on top.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Financing remains the gatekeeper. Expect park debt to come

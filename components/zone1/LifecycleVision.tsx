@@ -60,13 +60,7 @@ export default function LifecycleVision() {
             Know it. Take it. Hold it.
           </Heading>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-            CrosstownOS is three workspaces across the asset lifecycle. The{" "}
-            <strong className="font-semibold text-foreground">Acquisition Workspace</strong>{" "}
-            (<strong className="font-semibold text-foreground">Know it</strong>: <strong className="font-semibold text-foreground">Source</strong>, <strong className="font-semibold text-foreground">Field</strong>, <strong className="font-semibold text-foreground">Acquire</strong>) <strong className="font-semibold text-foreground">opens November 2026</strong>. The{" "}
-            <strong className="font-semibold text-foreground">Transition Workspace</strong>{" "}
-            (<strong className="font-semibold text-foreground">Take it</strong>: <strong className="font-semibold text-foreground">Field</strong>, <strong className="font-semibold text-foreground">Close</strong>, <strong className="font-semibold text-foreground">Launch</strong>) and the{" "}
-            <strong className="font-semibold text-foreground">Operations Workspace</strong>{" "}
-            (<strong className="font-semibold text-foreground">Hold it</strong>: <strong className="font-semibold text-foreground">Operate</strong>, <strong className="font-semibold text-foreground">Capital</strong>, <strong className="font-semibold text-foreground">Exit</strong>) are the direction of the system.
+            CrosstownOS is three workspaces across the asset lifecycle.
             The record you build to decide is the record you carry after you close;
             the deal does not end at closing, and the truth record should not either.
           </p>

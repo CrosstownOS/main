@@ -7,7 +7,7 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 ## What the site offers
 
 - **Live Diligence Working Papers** (interactive, free): six browser-based tools that run deterministically on the buyer's own numbers. Every input carries an evidence-state chip (Verified, Broker-reported, Missing, Underwriting assumption, Calculated, Unresolved). Missing is named, never zeroed. https://www.crosstownosrv.camp/tools
-- **Acquisition Signal resource library** (35 tools as PDFs): the full diligence library organized by the seven Parts of the deal journey, plus 3 spine documents (Start Here, Journey Map, Evidence Status Standard) and 4 program one-pagers. https://www.crosstownosrv.camp/resources and https://www.crosstownosrv.camp/resources/catalog
+- **Acquisition Signal resource library** (35 tools as PDFs): the full diligence library organized by the seven Parts of the deal journey, plus 3 spine documents (Start Here, Journey Map, Evidence Status Standard), 38 PDFs in total. https://www.crosstownosrv.camp/resources and https://www.crosstownosrv.camp/resources/catalog
 - **Field Notes** (blog): operator-grade essays on diligence, underwriting, and acquisition craft. https://www.crosstownosrv.camp/blog
 - **Free RV park due diligence checklist**: 15 diligence items drawn from the CrosstownOS framework, with links to the working papers. The checklist is the starting point; the Acquisition Workspace is what happens when the deal gets real. https://www.crosstownosrv.camp/checklist
 - **ParkProof**: the source-backed decision file (walkthrough and standard). Not a legal, engineering, or environmental certification. https://www.crosstownosrv.camp/parkproof-walkthrough and https://www.crosstownosrv.camp/parkproof-standard
@@ -47,6 +47,6 @@ Posture language: "the record supports Walk / Pause / Retrade / Advance." The to
 - First product: CrosstownOS // Acquire (lead-to-close acquisition intelligence).
 - Customer artifact: the ParkProof Report, a source-backed decision file.
 - The tools are free to use; email is requested only to save or export a working paper.
-- 35 Acquisition Signal tools, 3 spine documents, 4 program one-pagers (42 PDFs total).
+- 35 Acquisition Signal tools and 3 spine documents (38 PDFs total).
 - Sitemap: https://www.crosstownosrv.camp/sitemap.xml
 
