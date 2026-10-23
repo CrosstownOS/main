@@ -439,7 +439,7 @@ export default function TrailLogPage() {
           </section>
 
           <section aria-labelledby="trail-vote" className="mt-20">
-            <div className="theme-cream paper border border-primary/40 p-6 sm:p-8">
+            <div className="theme-cream paper border border-primary/40 bg-card p-6 sm:p-8">
               <h2 id="trail-vote" className="serif-display scroll-mt-28 text-2xl tracking-tight sm:text-3xl">
                 Weigh in.
               </h2>

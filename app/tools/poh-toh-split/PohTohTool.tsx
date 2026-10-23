@@ -285,10 +285,10 @@ export default function PohTohTool() {
           Park-owned and tenant-owned homes are two businesses wearing one price tag. Value
           them separately.{" "}
           <a
-            href="/blog/reported-occupancy-is-not-paying-occupancy"
+            href="/blog/manufactured-housing-diligence-starts-with-who-owns-the-homes"
             className="text-primary underline underline-offset-2 hover:no-underline"
           >
-            Reported occupancy is not paying occupancy.
+            Manufactured housing diligence starts with who owns the homes.
           </a>
         </>
       }

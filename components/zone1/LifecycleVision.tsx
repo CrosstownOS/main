@@ -45,9 +45,9 @@ export default function LifecycleVision() {
       aria-labelledby="lifecycle-vision-heading"
     >
       <Container>
-        <div className="mb-12 max-w-3xl">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="mb-5">
-            <span aria-hidden="true" data-reveal-line className="mb-3" />
+            <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
             <TerminalLabel data-reveal-stamp className="block">
               Long-Term System Vision
             </TerminalLabel>
@@ -59,7 +59,7 @@ export default function LifecycleVision() {
           >
             Know it. Take it. Hold it.
           </Heading>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
             CrosstownOS is three workspaces across the asset lifecycle. The{" "}
             <strong className="font-semibold text-foreground">Acquisition Workspace</strong>{" "}
             (<strong className="font-semibold text-foreground">Know it</strong>: <strong className="font-semibold text-foreground">Source</strong>, <strong className="font-semibold text-foreground">Field</strong>, <strong className="font-semibold text-foreground">Acquire</strong>) <strong className="font-semibold text-foreground">opens November 2026</strong>. The{" "}
