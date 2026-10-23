@@ -252,14 +252,16 @@ function renderAssistant(content: string, keyBase: string): ReactNode {
 export default function SiteAgent() {
   const [pathname, setPathname] = useState<string | null>(null)
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const routePathname = usePathname()
 
-  // The agent lives in the root layout, so its open state would survive
-  // client-side navigation: following a page Hitch cites must close the
-  // panel on arrival (founder report, 2026-10-22).
+  // The agent lives in the root layout, so its state survives client-side
+  // navigation: following a page Hitch cites must close the panel on
+  // arrival (founder report, 2026-10-22), and the suppression check must
+  // track the current route, not the path at first mount.
   useEffect(() => {
     setOpen(false)
-  }, [pathname])
+    if (routePathname) setPathname(routePathname)
+  }, [routePathname])
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")
   const [busy, setBusy] = useState(false)
