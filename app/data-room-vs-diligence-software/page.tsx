@@ -376,12 +376,6 @@ export default function DataRoomComparisonPage() {
             </div>
           </section>
 
-          <p className="mt-10 text-sm italic leading-relaxed text-muted">
-            This page may use AI-assisted research and drafting. Sources,
-            claims, and final editorial judgment remain subject to human
-            review.
-          </p>
-
           <section className="mt-12" aria-label="Who should use which">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               Who should use which
@@ -401,27 +395,33 @@ export default function DataRoomComparisonPage() {
             </p>
           </section>
 
-          <section className="mt-12" aria-label="The November pilot">
+          <p className="mt-10 text-sm italic leading-relaxed text-muted">
+            This page may use AI-assisted research and drafting. Sources,
+            claims, and final editorial judgment remain subject to human
+            review.
+          </p>
+
+          <section className="theme-cream paper mt-12 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10" aria-label="The November pilot">
             <SignalLine />
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               The November pilot
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
               Five free pilot places. Target opening: November 2026. Run
               one live acquisition through Source, Field, and Acquire for
               90 days from activation. No payment required and no automatic
               conversion.
             </p>
-            <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace#apply"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a free pilot place
               </Link>
               <Link
                 href="/parkproof-standard"
-                className="inline-block border border-border px-7 py-4 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Read the ParkProof Standard
               </Link>

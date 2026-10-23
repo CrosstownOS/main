@@ -272,18 +272,19 @@ export default function BuyingAnRvParkPage() {
                 </tbody>
               </table>
             </div>
-            <div className="theme-cream mt-6 border border-border bg-card p-5">
+            <div className="theme-cream mt-6 border border-border bg-card p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Run the headline numbers in under a minute: implied cap rate,
-                price per pad, and gross potential rent from six inputs.{" "}
+                price per pad, and gross potential rent from six inputs.
+              </p>
+              <div className="mt-4">
                 <Link
                   href="/tools/60-second-screener"
-                  className="font-semibold text-primary hover:underline"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Try the 60-Second Deal Screener
                 </Link>
-                .
-              </p>
+              </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Benchmarks start the conversation. Only verified numbers are allowed to finish it.
@@ -352,61 +353,6 @@ export default function BuyingAnRvParkPage() {
             </p>
           </section>
 
-          <section className="mt-12" aria-label="Start with the checklist">
-            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Start with the checklist, finish with the record
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              The fifteen-item{" "}
-              <Link
-                href="/checklist"
-                className="font-semibold text-primary hover:underline"
-              >
-                RV park due diligence checklist
-              </Link>{" "}
-              is the free starting point: every item in this guide, in the
-              order you work them. When the deal gets real and evidence starts
-              scattering across inboxes, the{" "}
-              <Link
-                href="/workspace"
-                className="font-semibold text-primary hover:underline"
-              >
-                Acquisition Workspace
-              </Link>{" "}
-              holds the full record: seller claims, source evidence, site
-              observations, unresolved diligence, and underwriting connected
-              before you commit capital.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              The package makes the seller&apos;s case; the CrosstownOS
-              Acquisition Workspace is where the buyer&apos;s case gets
-              built, claim by claim, against the evidence.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              If the deal file currently lives in a data room or a shared
-              drive, the distinction that matters is what the tool does
-              with a claim once the document is filed.{" "}
-              <Link
-                href="/data-room-vs-diligence-software"
-                className="font-semibold text-primary hover:underline"
-              >
-                Data room vs due diligence software
-              </Link>{" "}
-              puts the two side by side.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Partners and lenders do not have to take the buyer's word for any of it. The record shows its work.
-            </p>
-            <div className="mt-6 text-center">
-              <Link
-                href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                See the Acquisition Workspace
-              </Link>
-            </div>
-          </section>
-
           <section className="mt-12" aria-label="Sources and limits">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               Sources and limits
@@ -471,13 +417,44 @@ export default function BuyingAnRvParkPage() {
             review.
           </p>
 
-          <div className="theme-cream mt-10 border border-primary/40 bg-card p-6 text-center sm:p-8">
-            <Link
-              href="/checklist"
-              className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Get the free due diligence checklist
-            </Link>
+          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              Next step
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              Start with the checklist, finish with the record
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              The fifteen-item RV park due diligence checklist is the free
+              starting point: every item in this guide, in the order you
+              work them. When the deal gets real and evidence starts
+              scattering across inboxes, the Acquisition Workspace holds
+              the full record: seller claims, source evidence, site
+              observations, unresolved diligence, and underwriting
+              connected before you commit capital.
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/checklist"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Get the free due diligence checklist
+              </Link>
+              <Link
+                href="/workspace"
+                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                See the Acquisition Workspace
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/data-room-vs-diligence-software"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Data room vs due diligence software
+              </Link>
+            </div>
           </div>
         </div>
       </main>

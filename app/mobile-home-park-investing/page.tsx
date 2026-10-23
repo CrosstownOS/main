@@ -98,22 +98,9 @@ export default function MobileHomeParkInvestingPage() {
             cost differently, and they fail differently.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Tenant-owned homes are the clean business. The resident owns the
-            home, pays lot rent, and the park maintains the ground and the
-            systems under it. Park-owned homes are a landlord business
-            wearing a park&apos;s clothes: higher income per site, and the
-            park carries the roof, the furnace, the turnover, and the slow
-            wear of housing stock that gets older every year.
-          </p>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             So the first question on any manufactured housing deal is not the
             cap rate. It is the mix, counted home by home from titles, not
-            taken from the broker&apos;s summary. A park that is mostly
-            tenant-owned is a land business with steady rent. A park that is
-            mostly park-owned is a rental housing operation, and it deserves
-            a landlord&apos;s underwriting and a landlord&apos;s price. This
-            guide shows how to separate the two, verify the lot rent, and
-            value each side on its own evidence.
+            taken from the broker&apos;s summary.
           </p>
 
           <section className="mt-12" aria-label="Tenant owned versus park owned">
@@ -186,20 +173,21 @@ export default function MobileHomeParkInvestingPage() {
               </Link>
               .
             </p>
-            <div className="theme-cream mt-6 border border-border bg-card p-5">
+            <div className="theme-cream mt-6 border border-border bg-card p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Value the two businesses separately: park-owned homes on
                 their title status, typically personal property and
                 sometimes converted to real property, and tenant-owned lot
-                rent as real estate.{" "}
+                rent as real estate.
+              </p>
+              <div className="mt-4">
                 <Link
                   href="/tools/poh-toh-split"
-                  className="font-semibold text-primary hover:underline"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Run the POH/TOH Split Valuation
                 </Link>
-                .
-              </p>
+              </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Separate businesses get separate prices: the land on proven lot rent, the homes on their rental record.
@@ -266,14 +254,9 @@ export default function MobileHomeParkInvestingPage() {
               park-owned home is a rental unit you will maintain, insure,
               and one day replace. The land under all of it gets verified
               the way any park does: the permitted site count, the utility
-              capacity, the real age of the lines. Work the order on the{" "}
-              <Link
-                href="/checklist"
-                className="font-semibold text-primary hover:underline"
-              >
-                due diligence checklist
-              </Link>
-              , then price each side of the split on evidence of its own.
+              capacity, the real age of the lines. Work the order on the
+              due diligence checklist, then price each side of the split
+              on evidence of its own.
             </p>
           </section>
 
@@ -311,18 +294,11 @@ export default function MobileHomeParkInvestingPage() {
               from the seller&apos;s memory, sets the capital plan. The
               general utility verification, who pays for each system, what
               it costs, and what capacity is permitted, is worked step by
-              step on the{" "}
-              <Link
-                href="/checklist"
-                className="font-semibold text-primary hover:underline"
-              >
-                due diligence checklist
-              </Link>
-              .
+              step on the due diligence checklist.
             </p>
           </section>
 
-          <section className="mt-12" aria-label="The diligence record" id="diligence-record">
+          <section className="mt-12 scroll-mt-28 sm:scroll-mt-32" aria-label="The diligence record" id="diligence-record">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               The diligence record for a manufactured housing community
             </h2>
@@ -384,55 +360,6 @@ export default function MobileHomeParkInvestingPage() {
             </p>
           </section>
 
-          <section className="mt-12" aria-label="Finish with the record">
-            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Underwrite the park that exists
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              The pattern across every section is the same: the marketed park
-              and the verifiable park are two different assets until you
-              close the gap. Verify the home mix from titles. Verify income
-              from deposits. Verify utilities from bills and permits. Then
-              price the deal on what you proved, not what you were told.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Two free resources work this section. The{" "}
-              <Link
-                href="/resources/poh-toh-split-valuation-worksheet"
-                className="font-semibold text-primary hover:underline"
-              >
-                POH/TOH Split-Valuation Worksheet
-              </Link>{" "}
-              values park-owned and tenant-owned homes separately.{" "}
-              <Link
-                href="/resources/the-park-owned-rental-valuation"
-                className="font-semibold text-primary hover:underline"
-              >
-                The Park-Owned Rental Valuation
-              </Link>{" "}
-              values the park-owned homes as rentals, not as lot rent.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Two businesses, two prices, one decision. Pay for the land on
-              its verified lot rent, pay for the homes on their rental
-              record, and never let a single price tag blur the two together
-              again. Against the broker&apos;s single blended number, the
-              CrosstownOS POH/TOH Split values the land business and the
-              homes business on separate evidence.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              When both businesses are proven on their own evidence, the closing is a signature, not a second negotiation.
-            </p>
-            <div className="mt-6 text-center">
-              <Link
-                href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                See the Acquisition Workspace
-              </Link>
-            </div>
-          </section>
-
           <section className="mt-12" aria-label="Sources and limits">
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               Sources and limits
@@ -474,6 +401,44 @@ export default function MobileHomeParkInvestingPage() {
               review.
             </p>
           </section>
+
+          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              Next step
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              Underwrite the park that exists
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              The pattern across every section is the same: the marketed park
+              and the verifiable park are two different assets until you
+              close the gap. Verify the home mix from titles. Verify income
+              from deposits. Verify utilities from bills and permits. Then
+              price the deal on what you proved, not what you were told.
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/workspace"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                See the Acquisition Workspace
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/resources/poh-toh-split-valuation-worksheet"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                POH/TOH Split-Valuation Worksheet
+              </Link>
+              <Link
+                href="/resources/the-park-owned-rental-valuation"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                The Park-Owned Rental Valuation
+              </Link>
+            </div>
+          </div>
 
         </div>
       </main>

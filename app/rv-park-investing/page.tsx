@@ -306,68 +306,24 @@ export default function RvParkInvestingPage() {
                 </li>
               ))}
             </ul>
-            <div className="theme-cream mt-6 border border-border bg-card p-5">
+            <div className="theme-cream mt-6 border border-border bg-card p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Normalize the seller&apos;s P&amp;L before you believe any
                 return projection: add-backs stated as assumptions, nothing
-                hidden.{" "}
+                hidden.
+              </p>
+              <div className="mt-4">
                 <Link
                   href="/tools/expense-normalizer"
-                  className="font-semibold text-primary hover:underline"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Run the Expense Normalizer
                 </Link>
-                .
-              </p>
+              </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               A leak found in diligence is a line item. The same leak found after closing is your money leaving.
             </p>
-          </section>
-
-          <section className="mt-12" aria-label="The verification framework">
-            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The verification framework
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Returns are underwritten. Risk is verified. The full process
-              for verifying a real deal, gate by gate and in order, lives in
-              the{" "}
-              <Link
-                href="/buying-an-rv-park"
-                className="font-semibold text-primary hover:underline"
-              >
-                RV park buyer&apos;s verification guide
-              </Link>
-              .
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              When a real deal is in front of you, start small: run the{" "}
-              <Link
-                href="/tools/60-second-screener"
-                className="font-semibold text-primary hover:underline"
-              >
-                60-Second Deal Screener
-              </Link>{" "}
-              before the story gets expensive, then work the buyer&apos;s
-              guide in order.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Where the package arranges the numbers into a story, the
-              CrosstownOS record keeps the same numbers next to the evidence
-              that proves or breaks them.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              Returns traced to evidence survive a lender's questions. Returns traced to a projection do not.
-            </p>
-            <div className="mt-6 text-center">
-              <Link
-                href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                See the Acquisition Workspace
-              </Link>
-            </div>
           </section>
 
           <section className="mt-12" aria-label="Sources and limits">
@@ -430,13 +386,38 @@ export default function RvParkInvestingPage() {
             review.
           </p>
 
-          <div className="theme-cream mt-10 border border-primary/40 bg-card p-6 text-center sm:p-8">
-            <Link
-              href="/buying-an-rv-park"
-              className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Read the buyer&apos;s verification guide
-            </Link>
+          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              Next step
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              The verification framework
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              Returns traced to evidence survive a lender's questions. Returns traced to a projection do not.
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/buying-an-rv-park"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Read the buyer&apos;s verification guide
+              </Link>
+              <Link
+                href="/workspace"
+                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                See the Acquisition Workspace
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/tools/60-second-screener"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                60-Second Deal Screener
+              </Link>
+            </div>
           </div>
         </div>
       </main>

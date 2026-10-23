@@ -171,16 +171,16 @@ export default function ForBrokersLendersPage() {
                   </li>
                 ))}
               </ol>
-              <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/parkproof-walkthrough"
-                  className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
+                  className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   ParkProof Walkthrough
                 </Link>
                 <Link
                   href="/parkproof-standard"
-                  className="inline-block border border-border px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Read the standard
                 </Link>
@@ -242,11 +242,11 @@ export default function ForBrokersLendersPage() {
           </section>
 
           <section aria-labelledby="partner-heading" className="mt-20">
-            <div className="theme-cream paper border border-border p-6 sm:p-8">
-              <h2 id="partner-heading" className="serif-display text-center text-2xl tracking-tight sm:text-3xl">
+            <div className="theme-cream paper border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+              <h2 id="partner-heading" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Start the partner conversation.
               </h2>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
                 Book a Referral Alliance intro call, or start with the form below. Crosstown reviews each partner
                 request personally.
               </p>

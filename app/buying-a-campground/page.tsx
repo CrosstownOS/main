@@ -246,61 +246,23 @@ export default function BuyingACampgroundPage() {
               comfort from a seller about permits is worth exactly nothing at
               closing.
             </p>
-            <div className="theme-cream mt-6 border border-border bg-card p-5">
+            <div className="theme-cream mt-6 border border-border bg-card p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Triage the utility risk before you spend on engineers: water,
-                sewer, and electric capacity scored red, amber, or green.{" "}
+                sewer, and electric capacity scored red, amber, or green.
+              </p>
+              <div className="mt-4">
                 <Link
                   href="/tools/utility-capacity-triage"
-                  className="font-semibold text-primary hover:underline"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Run the Utility Capacity Risk Triage
                 </Link>
-                .
-              </p>
+              </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Capacity proven before the offer is a term of the deal. Capacity assumed is a closing condition waiting to fail.
             </p>
-          </section>
-
-          <section className="mt-12" aria-label="Start with the checklist">
-            <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
-              Start with the checklist, finish with the record
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              The fifteen-item{" "}
-              <Link
-                href="/checklist"
-                className="font-semibold text-primary hover:underline"
-              >
-                RV park due diligence checklist
-              </Link>{" "}
-              covers the shared foundation: income verification, occupancy,
-              utilities, permits, and the decision file. Layer this
-              guide&apos;s campground-specific checks on top. When the deal
-              gets real, the{" "}
-              <Link
-                href="/workspace"
-                className="font-semibold text-primary hover:underline"
-              >
-                Acquisition Workspace
-              </Link>{" "}
-              holds the full record: seller claims, source evidence, site
-              observations, unresolved diligence, and underwriting connected
-              before you commit capital.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-              The campground you can prove is the only one worth paying for. The rest is scenery priced as income.
-            </p>
-            <div className="mt-6 text-center">
-              <Link
-                href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                See the Acquisition Workspace
-              </Link>
-            </div>
           </section>
 
           <section className="mt-12" aria-label="Sources and limits">
@@ -336,13 +298,38 @@ export default function BuyingACampgroundPage() {
             </p>
           </section>
 
-          <div className="theme-cream mt-10 border border-primary/40 bg-card p-6 text-center sm:p-8">
-            <Link
-              href="/buying-an-rv-park"
-              className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Read the RV park buyer&apos;s verification guide
-            </Link>
+          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              Next step
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              Start with the checklist, finish with the record
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              The campground you can prove is the only one worth paying for. The rest is scenery priced as income.
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/buying-an-rv-park"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Read the RV park buyer&apos;s verification guide
+              </Link>
+              <Link
+                href="/workspace"
+                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                See the Acquisition Workspace
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/checklist"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Get the free due diligence checklist
+              </Link>
+            </div>
           </div>
         </div>
       </main>
