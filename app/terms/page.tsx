@@ -119,9 +119,9 @@ const SECTIONS = [
   {
     heading: "Acquisition Workspace: what you are buying",
     body: [
-      "Single-Deal Workspace, $1,299: one property and 180 calendar days of full access to Source, Field, and Acquire from activation. Includes one ParkProof decision file generation for the property, a recorded onboarding walkthrough, one 30-minute live software Q&A per purchase booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
-      "Annual Workspace, $2,999: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one live Q&A per account. Additional properties do not add sessions.",
-      "Monthly Workspace, $299 per 30 days: full access to Source, Field, and Acquire while your subscription is active, for the properties you are working. Includes a recorded onboarding walkthrough, one 30-minute live software Q&A at your first Monthly activation, booked within 30 days of that activation, email technical support with a two-business-day target response, and one named operator account. If your subscription ends, editing ends; your records remain readable in the workspace, and access resumes if you resubscribe.",
+      "Single-Deal Workspace, $1,299: one property and 180 calendar days of full access to Source, Field, and Acquire from activation. Includes ParkProof generation for the property, a recorded onboarding walkthrough, one 30-minute live software Q&A per purchase booked within your first 30 days, email technical support with a two-business-day target response, and one named operator account.",
+      "Annual Workspace, $2,999: everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough and one 30-minute live software Q&A per annual purchase or renewal. Additional properties do not add sessions.",
+      "Monthly Workspace, $299 per 30-day period: full access to Source, Field, and Acquire for unlimited concurrent properties while the purchased period is active. Includes ParkProof generation for each property you work, a recorded onboarding walkthrough, one 30-minute live software Q&A at your first Monthly activation, booked within 30 days of that activation, email technical support with a two-business-day target response, and one named operator account. Each additional period is a separate manual purchase. When a period ends, editing and new issuance stop; your records remain readable and downloadable, and buying another period restores editing and issuance for the same properties.",
       "One property means one park or community acquisition, including associated parcels under the same transaction. Separate parks are separate properties, even under one buyer.",
       "This is software you operate. It does not include document review or interpretation of your numbers, confirmation of your diligence conclusions, or ongoing advisory. You build the record, the workflow guides you, and the decision stays yours.",
     ],
@@ -143,7 +143,7 @@ const SECTIONS = [
   {
     heading: "Payment",
     body: [
-      "Payment is due in full when you purchase, charged through the checkout on this site. Access begins when your credentials and onboarding materials are delivered. That delivery date is your activation date.",
+      "Payment is due in full when you purchase. No checkout is currently available on this site. Access begins when your credentials and onboarding materials are delivered. That delivery date is your activation date.",
       "Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
     ],
   },
@@ -156,7 +156,7 @@ const SECTIONS = [
   {
     heading: "Expiration, cancellation, and termination",
     body: [
-      "Single-Deal access ends 180 calendar days from activation. Annual access runs 12 months from the annual activation date. Editing stops at expiration. Your records remain readable and downloadable after expiration, and records are not deleted for non-payment.",
+      "Single-Deal access ends 180 calendar days from activation. Annual access runs 12 months from the annual activation date. Monthly access ends at the end of the purchased 30-day period. After expiration, editing and new ParkProof issuance stop. Issued records and report versions remain readable and downloadable, are not deleted for non-payment, and buying access again restores editing and issuance for those same properties without repurchasing their ParkProof entitlements.",
       "If you abandon a deal, Single-Deal access does not transfer to another property. Moving from Single-Deal to Annual is a separate purchase at any time. There is no credit, prorating, or conversion discount.",
       "You can cancel by not renewing, or by telling us you are done. Refunds are only available within the seven-day window above.",
       "We may suspend or terminate access for misuse of the workspace or violation of these terms. Termination does not extend the refund window.",

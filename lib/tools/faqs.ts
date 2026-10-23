@@ -215,12 +215,12 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What does the Single-Deal Workspace include?",
     answer:
-      "One property, 180 calendar days of full access to Source, Field, and Acquire, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
+      "One property, 180 calendar days of full access to Source, Field, and Acquire, ParkProof generation for the property, a recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, and email technical support with a two-business-day target response.",
   },
   {
     question: "What does the Annual Workspace include?",
     answer:
-      "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one live Q&A per account. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
+      "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one 30-minute live software Q&A per annual purchase or renewal. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
   },
   {
     question: "What do you mean by software Q&A? What is it not?",
@@ -255,7 +255,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What happens when my term ends, or if my deal ends early?",
     answer:
-      "Single-Deal access ends 180 calendar days from activation. Editing stops at expiration; your records stay readable; records are not deleted for non-payment; and buying access again restores editing for the same property. If your deal is still live at day 180 and you want to continue, keep working on Monthly or purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
+      "Single-Deal access ends 180 calendar days from activation. After expiration, editing and new ParkProof issuance stop; issued records and report versions stay readable and downloadable; records are not deleted for non-payment; and buying access again restores editing and issuance for the same property without repurchasing its ParkProof entitlement. If your deal is still live at day 180 and you want to continue, keep working on Monthly or purchase Annual Workspace as a separate purchase. Annual access runs 12 months from the annual activation date. If you abandon a deal, single-deal access does not transfer to another property.",
   },
   {
     question: "What is the refund policy?",
@@ -283,7 +283,7 @@ export const PRICING_FAQS: Faq[] = [
   {
     question: "What happens to my records if I cancel?",
     answer:
-      "Your record is never held hostage. If access ends, your records stay readable and frozen. Nothing is deleted for non-payment, and the record wakes when you resubscribe.",
+      "Your record is never held hostage. After access ends, editing and new ParkProof issuance stop. Issued records and report versions stay readable and downloadable, nothing is deleted for non-payment, and buying access again restores editing and issuance for the same properties without repurchasing their ParkProof entitlements.",
   },
   {
     question: "Do you charge a success fee?",

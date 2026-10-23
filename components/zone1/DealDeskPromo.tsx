@@ -42,8 +42,9 @@ export default function DealDeskPromo() {
               I need proof it works on real deals.
             </p>
             <p className="mb-10 text-base leading-relaxed text-foreground/85">
-              One live deal. 90 days. The full workspace. After the five, it is
-              $1,299 single-deal, $2,999 annual.
+              One live deal. 90 days. The full workspace. After the five: $299
+              Monthly per 30-day period, $1,299 Single-Deal for one property
+              over 180 days, or $2,999 Annual for 12 months.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link

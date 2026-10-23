@@ -42,7 +42,7 @@ const PRICING_JSON_LD = {
   {
    "@type": "Offer",
    name: "Monthly Workspace",
-   description: "The full workspace, billed every 30 days.",
+   description: "The full workspace for one purchased 30-day period. Each additional period is a separate manual purchase.",
    url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "299",
    priceCurrency: "USD",
@@ -51,7 +51,7 @@ const PRICING_JSON_LD = {
   {
    "@type": "Offer",
    name: "Single-Deal Workspace",
-   description: "One property. 180 days. The full workspace, including one ParkProof decision file generation for the property.",
+   description: "One property. 180 days. The full workspace, including ParkProof generation for the property.",
    url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "1299",
    priceCurrency: "USD",
@@ -93,13 +93,13 @@ const PLANS = [
   name: "Monthly Workspace",
   price: "$299",
   per: "per 30 days",
-  body: "The full workspace, billed every 30 days. Work your deals while subscribed. Cancel anytime; your records stay readable.",
+  body: "The full workspace for one 30-day period. Work unlimited properties while the period is active. Each additional period is a separate manual purchase; your records stay readable and downloadable.",
  },
  {
   name: "Single-Deal Workspace",
   price: "$1,299",
   per: "one property, 180 days",
-  body: "One property and 180 days of full access to Source, Field, and Acquire. Includes one ParkProof decision file generation for the property, the recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email support, and one named operator account.",
+  body: "One property and 180 days of full access to Source, Field, and Acquire. Includes ParkProof generation for the property, the recorded onboarding walkthrough, one 30-minute live software Q&A booked within your first 30 days, email support, and one named operator account.",
  },
  {
   name: "Annual Workspace",
@@ -111,6 +111,7 @@ const PLANS = [
 
 const INCLUDED = [
  "Full access to Source, Field, and Acquire.",
+ "ParkProof generation for each property you work.",
  "Recorded onboarding walkthrough.",
  "One 30-minute live software Q&A per purchase (on Annual, per annual purchase or renewal; on Monthly, once, at your first activation), booked within 30 days of activation.",
  "Email technical support. Target response within two business days.",

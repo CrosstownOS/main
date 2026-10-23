@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   card: "summary_large_image",
   title: "CrosstownOS Acquisition Workspace",
   description:
-   "Single-deal or annual.",
+   "Monthly, single-deal, or annual.",
   images: ["/og-logo.png"],
  },
 }
@@ -139,9 +139,9 @@ const NOVEMBER_PRODUCT = [
 ] as const
 
 const INCLUDED_SHARED = [
- "Full access to Source, Field, and Acquire. Single-deal access covers one property; annual access covers unlimited properties during the term.",
+ "Full access to Source, Field, and Acquire. Monthly access covers unlimited concurrent properties during each purchased 30-day period; single-deal access covers one property; annual access covers unlimited properties during the term.",
  "Recorded onboarding walkthrough.",
- "One 30-minute live software Q&A per account, booked within the first 30 days.",
+ "One 30-minute live software Q&A under the plan entitlement: per Single-Deal purchase, per Annual purchase or renewal, and on Monthly only at first activation, booked within 30 days of the qualifying activation.",
  "Email technical support. Target response within two business days.",
  "One named operator account.",
 ] as const
@@ -165,7 +165,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
  "@type": "Product",
  name: "CrosstownOS Acquisition Workspace",
  description:
-  "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Single-deal or annual plans. You operate it.",
+  "Run your RV park or manufactured housing acquisition inside the CrosstownOS Acquisition Workspace. Source, Field, and Acquire connect your evidence into a ParkProof decision file. Monthly, single-deal, or annual plans. You operate it.",
  url: "https://www.crosstownosrv.camp/workspace",
  image: "https://www.crosstownosrv.camp/og-logo.png",
  brand: {
@@ -176,7 +176,7 @@ const WORKSPACE_PRODUCT_JSON_LD = {
   {
    "@type": "Offer",
    name: "Monthly Workspace",
-   description: "The full workspace, billed every 30 days.",
+   description: "The full workspace for one purchased 30-day period. Each additional period is a separate manual purchase.",
    url: "https://www.crosstownosrv.camp/pricing#plans",
    price: "299",
    priceCurrency: "USD",

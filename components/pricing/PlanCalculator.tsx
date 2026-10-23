@@ -55,7 +55,7 @@ export default function PlanCalculator() {
 
  const totalMonths = Math.min(12, deals * months)
  const monthlyTotal = MONTHLY * totalMonths
- const singleApplies = months <= 3
+ const singleApplies = months <= 6
  const singleTotal = singleApplies ? SINGLE * deals : null
  const annualTotal = ANNUAL
 
@@ -100,8 +100,8 @@ export default function PlanCalculator() {
    </ul>
    {!singleApplies ? (
     <p className="mt-4 text-xs leading-relaxed text-muted">
-     Single-Deal covers 90 days per property, so a deal you work longer than
-     three months runs on Monthly or Annual instead.
+     Single-Deal covers 180 days per property, so a deal you work longer than
+     six months runs on Monthly or Annual instead.
     </p>
    ) : null}
   </div>

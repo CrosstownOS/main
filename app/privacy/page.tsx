@@ -89,7 +89,7 @@ const SECTIONS = [
   {
     heading: "How long we keep it",
     body: [
-      "Workspace account data is kept for the life of your subscription. After expiration, we retain it for 30 days so you can export your records, then schedule deletion.",
+      "Pilot workspace data is retained for 30 days after the pilot term ends, then scheduled for deletion. Paid workspace records remain readable and downloadable after paid access expires; they are not deleted for non-payment.",
       "Newsletter subscriptions are kept until you unsubscribe. Application and correspondence records, including site chat transcripts, are kept as long as needed to serve you and meet legal obligations.",
     ],
   },
