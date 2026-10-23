@@ -396,7 +396,7 @@ export default function TrailLogPage() {
           </section>
 
           <section aria-labelledby="trail-shipped" className="mt-20">
-            <h2 id="trail-shipped" className="serif-display text-2xl tracking-tight sm:text-3xl">
+            <h2 id="trail-shipped" className="serif-display scroll-mt-28 text-2xl tracking-tight sm:text-3xl">
               Shipped, on the record.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
@@ -440,7 +440,7 @@ export default function TrailLogPage() {
 
           <section aria-labelledby="trail-vote" className="mt-20">
             <div className="theme-cream paper border border-primary/40 p-6 sm:p-8">
-              <h2 id="trail-vote" className="serif-display text-2xl tracking-tight sm:text-3xl">
+              <h2 id="trail-vote" className="serif-display scroll-mt-28 text-2xl tracking-tight sm:text-3xl">
                 Weigh in.
               </h2>
               <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">

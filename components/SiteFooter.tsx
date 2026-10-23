@@ -160,7 +160,7 @@ export default function SiteFooter() {
         </Container>
       </div>
 
-      <div className="border-t border-border/60 py-8">
+      <div className="border-t border-border/60 py-8 pb-24 md:pb-8">
         <Container>
           <div className="mx-auto max-w-4xl space-y-4">
             {DISCLAIMER_PARAGRAPHS.map((paragraph) => (

@@ -718,7 +718,7 @@ export default async function ResourcePage({ params }: PageProps) {
             </div>
           </div>
         </div>
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 sm:px-6 lg:px-8">
           <div className="border-t border-border pt-8">
             <p className="max-w-3xl text-xs leading-relaxed text-muted">
               Acquisition Signal Resources are educational tools, not

@@ -426,22 +426,22 @@ export default function ToolShell(props: ToolShellProps) {
             </div>
           )}
 
-          <div className="theme-cream mt-10 border border-border bg-card p-6">
+          <div className="theme-cream mt-10 border border-border bg-card p-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Keep the record
             </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
               <button
                 type="button"
                 onClick={handleDownload}
-                className="bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Download working paper
               </button>
               <button
                 type="button"
                 onClick={handlePrint}
-                className="border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Print one-page summary
               </button>
@@ -449,36 +449,34 @@ export default function ToolShell(props: ToolShellProps) {
                 type="button"
                 onClick={handleSave}
                 disabled={sending}
-                className="border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
+                className="border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50"
               >
                 {sending ? "Sending..." : savedEmail ? "Resend working paper" : "Save via email"}
               </button>
               <Link
                 href={pdfHref}
-                className="inline-flex items-center border border-border px-5 py-3 text-sm font-semibold text-muted transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Get the PDF
               </Link>
               {pdfHrefAlt ? (
                 <Link
                   href={pdfHrefAlt.href}
-                  className="inline-flex items-center border border-border px-5 py-3 text-sm font-semibold text-muted transition-colors hover:border-primary hover:text-primary"
+                  className="inline-flex items-center border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {pdfHrefAlt.label}
                 </Link>
               ) : null}
-            </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted">
-              The tool is free to use. Email is only asked when you save or export.
-              Take the working paper with you.{" "}
               <button
                 type="button"
                 onClick={handleDownloadJson}
-                className="cursor-pointer underline hover:text-primary"
+                className="border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Raw data (JSON)
-              </button>{" "}
-              available for your records.
+              </button>
+            </div>
+            <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-muted">
+              The tool is free to use. Email is only asked when you save or export.
               Your numbers stay in your browser until you choose to move them.
             </p>
           </div>
@@ -512,64 +510,44 @@ export default function ToolShell(props: ToolShellProps) {
 
           {faqs && faqs.length > 0 && <FaqSection faqs={faqs} />}
 
-          <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8">
-            <p className="serif-display text-2xl tracking-tight">{ctaTitle}</p>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{ctaBody}</p>
-            <Link
-              href={`/workspace?tool=${slug}`}
-              className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-            >
-              {ctaButton}
-            </Link>
+          <div className="theme-cream paper mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              The Acquisition Workspace
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">{ctaTitle}</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted">{ctaBody}</p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href={`/workspace?tool=${slug}`}
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                {ctaButton}
+              </Link>
+            </div>
           </div>
 
-          <div className="theme-cream paper mt-8 border border-primary/40 bg-card p-8 text-center">
+          <div className="theme-cream paper mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
-              Working the full file? Run the{" "}
-              <Link href="/checklist" className="font-semibold text-primary hover:underline">
-                free RV park due diligence checklist
-              </Link>{" "}
-              for all fifteen items in order
-              {relatedNote ? (
-                <>
-                  , or read{" "}
-                  <Link href={relatedNote.href} className="font-semibold text-primary hover:underline">
-                    {relatedNote.label}
-                  </Link>{" "}
-                  for the thinking behind this verification
-                </>
-              ) : (
-                <>
-                  , or{" "}
-                  <Link href="/blog" className="font-semibold text-primary hover:underline">
-                    read the Field Notes
-                  </Link>{" "}
-                  for the thinking behind each verification
-                </>
-              )}
-              .
-            </p>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               One tool settles one question. The record is where the settled questions add up to a decision.
             </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/checklist"
-                className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Free RV park due diligence checklist
               </Link>
               {relatedNote ? (
                 <Link
                   href={relatedNote.href}
-                  className="inline-block border border-primary/60 px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {relatedNote.label}
                 </Link>
               ) : (
                 <Link
                   href="/blog"
-                  className="inline-block border border-primary/60 px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Read the Field Notes
                 </Link>
