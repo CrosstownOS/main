@@ -4,6 +4,7 @@ import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
 import AnalyticsClient from '@/components/analytics/AnalyticsClient'
 import SiteFooter from '@/components/SiteFooter'
 import QuietCta from '@/components/QuietCta'
+import SiteAgent from '@/components/SiteAgent'
 import ScrollExperience from '@/components/ScrollExperience'
 import BrandLoader from '@/components/BrandLoader'
 import './globals.css'
@@ -140,7 +141,7 @@ export default function RootLayout({
         {/* ── SITE AGENT: the Front Door. Same mounting rule as QuietCta
             (direct child of <body>, outside app/template.tsx) so its
             position: fixed survives the page-enter transform. ── */}
-        {/* Hitch is unmounted until the provider billing is on (founder's order, 2026-10-18; returns the following weekend). Code stays in the repo: components/SiteAgent.tsx, app/api/chat, lib/site-agent. Remount: restore the import and this line. */}
+        <SiteAgent />
         <AnalyticsClient />
         <ScrollExperience />
         <BrandLoader />
