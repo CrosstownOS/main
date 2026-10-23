@@ -82,6 +82,44 @@ const BUILD_COLUMNS = [
 
 const SHIPPED = [
   {
+    date: "October 23, 2026",
+    title: "The homepage offer points at pricing now",
+    href: "/pricing",
+    body: "The offer panel on the homepage repeated the full price list in prose, on a site that already has a pricing page. The list is cut. The panel now ends on the pilot story and two buttons with different jobs: Apply for a pilot place, and See pricing, which goes to the page where the terms live.",
+  },
+  {
+    date: "October 23, 2026",
+    title: "Every page ends the same way now",
+    body: "A sitewide pass gave every closing panel one treatment: the cream card, the royal border, the full halo kept for offer, pricing, and call to action panels, and real buttons where links used to sit buried inside paragraphs. The guides, the tools, the library, the Field Notes, and the homepage all close in the same language now, checked in the render on desktop and on a phone.",
+  },
+  {
+    date: "October 22, 2026",
+    title: "Hitch returned, reading from the current record",
+    body: "Hitch, the guide in the corner of every page, is back and was resynced to the site as it stands: the settled pricing, all eleven Field Notes, and the pricing page itself as a source it can cite. What it quotes is what the pages say.",
+  },
+  {
+    date: "October 22, 2026",
+    title: "The offer was settled, and pricing got its own page",
+    href: "/pricing",
+    body: "The lineup is ruled and published in one place: five free pilot places; Monthly at $299 per 30-day period; Single-Deal at $1,299 for one property over 180 days; Annual at $2,999 for 12 months. ParkProof generation is included per property on every paid plan, and every price anywhere else on the site traces back to this page.",
+  },
+  {
+    date: "October 20, 2026",
+    title: "RV Park Cap Rates: How One Park Gets Two Asking Prices published",
+    href: "/blog/rv-park-cap-rates-how-one-park-gets-two-asking-prices",
+    body: "The eleventh Field Note takes on the park that wears two prices in two rooms, and walks the cap rate math back to the evidence under each number. Same park, same dirt, two asking prices; the note shows where the second one comes from.",
+  },
+  {
+    date: "October 20, 2026",
+    title: "Sign-in ran end to end on the bench",
+    body: "The desk workspace and the Field app both signed in, start to finish, on a local bench, the first time sign-in has been observed working in this program. The connected Source to Field to Acquire loop has still not been run end to end, and this log will say so on the day it is.",
+  },
+  {
+    date: "October 19, 2026",
+    title: "The build was measured before it was believed",
+    body: "A full audit graded 28 components of the codebase: 21 committed only, 3 partial, 4 absent, and none called verified without proof behind the label. The environment baseline then ran clean, with install, lint, typecheck, and build green, 977 tests passing, and the migration set running up, down, and up again without an error. What is broken is a list now, not a feeling.",
+  },
+  {
     date: "October 18, 2026",
     title: "The governance pages now cover the site chat",
     href: "/editorial-standards",
