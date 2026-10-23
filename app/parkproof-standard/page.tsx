@@ -214,11 +214,11 @@ export default function ParkProofStandardPage() {
             the deal as it stands, not a pile of documents.
           </p>
 
-          <div className="theme-cream paper mt-10 border border-primary/40 p-6 sm:p-8">
+          <div className="theme-cream paper mt-10 border border-primary/40 p-6 text-center sm:p-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               What this page is
             </p>
-            <p className="mt-3 text-base leading-relaxed text-foreground/85">
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-foreground/85">
               This page defines a process standard. It does not certify a
               deal, a park, or a decision. No state is ever assigned by
               silence.
@@ -334,20 +334,6 @@ export default function ParkProofStandardPage() {
             <h2 id="standard-labels" className="serif-display text-2xl tracking-tight sm:text-3xl">
               The readiness labels.
             </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              Advance, Retrade, Pause, and Walk are evidence-readiness labels.
-              That call belongs in one record:{" "}
-              <Link
-                href="/resources/the-decision-file"
-                className="font-semibold text-primary hover:underline"
-              >
-                The Decision File
-              </Link>
-              , where every tool feeds the same file. They are not
-              recommendations, approvals, or advice. When more
-              than one label is triggered, the precedence is Walk, then Pause,
-              then Retrade, then Advance.
-            </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {READINESS_LABELS.map((label) => (
                 <article key={label.title} className="theme-cream border border-border bg-card p-6">
@@ -363,59 +349,59 @@ export default function ParkProofStandardPage() {
           </section>
 
           <section aria-labelledby="standard-boundaries" className="mt-20">
-            <div className="theme-cream paper border border-border p-6 sm:p-8">
+            <div className="theme-cream paper border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
               <h2 id="standard-boundaries" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 The boundary of the standard.
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
+              <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
                 Evidence sufficient means every gating field is Verified with
                 independent support, or is carried as a labeled assumption
                 with a named approver, and the governing variance test has
                 been run. A count of verified fields does not, by itself, make
                 a deal sound.
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-muted">
+              <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-muted">
                 ParkProof supports a disciplined decision process. It does
                 not replace legal, engineering, environmental, title, tax,
                 insurance, regulatory, lending, or investment professionals.
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                Where a broker package leaves its claims standing alone, the
-                CrosstownOS Acquisition Workspace keeps every claim next to
-                its evidence state in one record.
-              </p>
-              <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href="/parkproof-walkthrough"
-                  className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
+                  className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   ParkProof Walkthrough
                 </Link>
                 <Link
                   href="/workspace"
-                  className="inline-block border border-border px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Apply for a pilot place
                 </Link>
               </div>
-              <p className="mt-5 text-sm leading-relaxed text-muted">
-                See the standard applied: the{" "}
-                <Link href="/checklist" className="font-semibold text-primary hover:underline">
-                  diligence checklist
+              <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
+                See the standard applied
+              </p>
+              <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/checklist"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Diligence checklist
                 </Link>
-                , the{" "}
-                <Link href="/tools" className="font-semibold text-primary hover:underline">
-                  working papers
+                <Link
+                  href="/tools"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Working papers
                 </Link>
-                , and the{" "}
-                <Link href="/blog" className="font-semibold text-primary hover:underline">
+                <Link
+                  href="/blog"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
                   Field Notes
-                </Link>{" "}
-                that teach the discipline.
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
-                A standard earns its name when the file can be read by someone who was not in the room: every claim labeled, every gap stated as a gap.
-              </p>
+                </Link>
+              </div>
             </div>
           </section>
         </div>
