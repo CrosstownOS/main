@@ -408,11 +408,7 @@ export default function AcquisitionWorkspacePage() {
        <strong className="font-semibold text-foreground">
         Buying a mobile home park?
        </strong>{" "}
-       The record works the same way. The
-       homes get counted the way a manufactured housing deal demands:
-       home by home, tenant-owned and park-owned separated, lot rent
-       verified against deposits, utility systems priced before they
-       become your emergency. Whether the sign out front says RV park,
+       The record works the same way. Whether the sign out front says RV park,
        campground, or manufactured housing community (MHP), the
        standard does not change: claims are labeled, evidence is
        attached, and nothing counts as proven until the record proves
