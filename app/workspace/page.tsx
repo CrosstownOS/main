@@ -550,9 +550,6 @@ export default function AcquisitionWorkspacePage() {
        <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
         In exchange, use the workspace and give candid feedback about what works, what breaks, and what is confusing. I troubleshoot software behavior, not your deal. Testimonials are optional and require separate written permission.
        </p>
-       <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-foreground/90 sm:text-lg">
-        Five qualified participants will receive free access. Paid access is available separately: $299 monthly, $1,299 single-deal, or $2,999 annual.
-       </p>
        <p className="mt-6 border-t border-primary/30 pt-5 text-base font-semibold leading-relaxed text-foreground sm:text-lg">
         The file you build is built for a lender's or partner's read: claims, evidence, and open items in one place, each carrying its evidence state.
        </p>
