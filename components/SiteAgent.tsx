@@ -505,21 +505,21 @@ export default function SiteAgent() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label={`Open ${AGENT_DISPLAY_NAME}`}
-          className="theme-cream fixed bottom-20 right-4 z-40 flex items-center gap-2.5 border border-primary/40 bg-card py-2 pl-2 pr-4 shadow-2xl transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:bottom-24 md:right-6"
+          className="theme-cream fixed bottom-20 right-4 z-40 flex h-12 w-12 items-center justify-center gap-2.5 overflow-hidden rounded-full border border-primary/40 bg-card p-0 shadow-2xl transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:bottom-24 md:right-6 md:h-auto md:w-auto md:justify-start md:overflow-visible md:rounded-none md:py-2 md:pl-2 md:pr-4"
         >
-          <span className="relative h-7 w-7 flex-none overflow-hidden [clip-path:circle(50%)]">
+          <span className="relative block h-full w-full flex-none overflow-hidden [clip-path:circle(50%)] md:h-7 md:w-7">
             <Image
               src="/logo.jpg"
               alt=""
               fill
-              sizes="28px"
+              sizes="48px"
               className="object-cover"
             />
           </span>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground">
+          <span className="hidden font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground md:inline">
             {AGENT_DISPLAY_NAME}
           </span>
-          <MessageSquare className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+          <MessageSquare className="hidden h-3.5 w-3.5 text-primary md:block" aria-hidden="true" />
         </button>
       ) : null}
 
