@@ -172,16 +172,16 @@ function WorkingPaperCard({ tool }: { tool: ToolCard }) {
       <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
         {tool.inputs} &middot; about {tool.time}
       </p>
-      <div className="mt-6 flex flex-wrap gap-3 pt-2">
+      <div className="mt-auto flex flex-wrap gap-3 pt-6">
         <Link
           href={`/tools/${tool.slug}`}
-          className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          className="inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Open tool
         </Link>
         <Link
           href={tool.pdfHref}
-          className="border border-border px-5 py-2.5 text-sm font-semibold text-muted transition-colors hover:border-primary hover:text-primary"
+          className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Get the PDF
         </Link>
@@ -406,19 +406,21 @@ export default function ToolsPage() {
           </section>
 
           {/* 3.5 Conversion band */}
-          <section className="theme-cream mt-16 border border-border bg-card p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
+          <section className="theme-cream paper mt-16 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
             <h2 className="serif-display mt-3 text-3xl tracking-tight">
               Work your real acquisition inside CrosstownOS.
             </h2>
-            <Link
-              href="/workspace#apply"
-              className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-            >
-              Apply for a pilot place
-            </Link>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/workspace#apply"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Apply for a pilot place
+              </Link>
+            </div>
           </section>
         </div>
       </main>

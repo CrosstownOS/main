@@ -149,7 +149,10 @@ export default function BlogIndex() {
             ))}
           </div>
           <div className="theme-cream mt-12 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
-            <h2 className="serif-display text-2xl tracking-tight text-foreground sm:text-3xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              Field Notes
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight text-foreground sm:text-3xl">
               Reading is the start.
             </h2>
             <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

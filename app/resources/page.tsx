@@ -445,32 +445,42 @@ export default async function ResourcesPage({
             </div>
           </div>
 
-          <div className="theme-cream mt-16 border border-border bg-card p-8 text-center">
-            <p className="serif-display text-2xl tracking-tight">
-              Know what is true before you buy.
+          <div className="theme-cream paper mt-16 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              The working papers
             </p>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted">
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              Know what is true before you buy.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted">
               These are the working papers behind the Field Notes. Read the
               thinking, then use the tools.
             </p>
-            <a
-              href="/blog"
-              className="mt-5 inline-block border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary-deep hover:text-white"
-            >
-              Read Field Notes
-            </a>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="/blog"
+                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Read Field Notes
+              </a>
+            </div>
           </div>
 
-          <div className="theme-cream paper mt-8 border border-primary/40 bg-primary/5 p-8 text-center">
-            <p className="serif-display text-2xl tracking-tight">
-              Running a live deal? Bring it to the Acquisition Workspace.
+          <div className="theme-cream paper mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              The Acquisition Workspace
             </p>
-                        <a
-              href="/workspace"
-              className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-            >
-              Apply for a pilot place
-            </a>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              Running a live deal? Bring it to the Acquisition Workspace.
+            </h2>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="/workspace"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Apply for a pilot place
+              </a>
+            </div>
           </div>
           <p className="mt-10 text-xs leading-relaxed text-muted">
             Acquisition Signal Resources are educational tools built from

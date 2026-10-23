@@ -40,6 +40,8 @@ const POST_RESOURCE_SLUGS: Record<string, string> = {
   "the-permits-buyers-skip": "evidence-request-list",
   "the-rent-roll-is-a-claim-not-income-verification": "the-rent-roll-truth-check",
   "the-utility-system-nobody-underwrote": "utility-and-wastewater-diligence-sheet",
+  "rv-park-cap-rates-how-one-park-gets-two-asking-prices": "60-second-deal-screener",
+  "rv-park-due-diligence-why-the-site-walk-decides-the-deal": "utility-and-wastewater-diligence-sheet",
 }
 
 type CtaConfig = {

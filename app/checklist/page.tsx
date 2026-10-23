@@ -247,56 +247,48 @@ export default function ChecklistPage() {
             </p>
           </section>
 
-          <section className="theme-cream mt-12 border border-primary/40 bg-card p-6 sm:p-8">
-            <h2 className="serif-display text-2xl tracking-tight text-foreground sm:text-3xl">
+          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              Next step
+            </p>
+            <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
               This checklist gets you started.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
               A checklist tells you what to verify. It does not hold the
-              evidence, track what is missing, or connect the rent roll to the
-              bank deposits to the site walk. The states behind that work are
-              defined in{" "}
-              <Link
-                href="/resources/the-evidence-status-standard"
-                className="font-semibold text-primary hover:underline"
-              >
-                The Evidence Status Standard
-              </Link>
-              : every claim carries one letter, and the letter is the status,
-              not the strength. What it leaves you with is the
-              honest list: what you proved, what you could not, and what the
-              gap is worth. Work the fifteen in order, and what is still
-              unresolved at the end is not a footnote. It is the finding, and
-              it goes on the record before your money goes hard. If you want
-              the whole library in order,{" "}
-              <Link
-                href="/resources/start-here"
-                className="font-semibold text-primary hover:underline"
-              >
-                Start Here
-              </Link>{" "}
-              shows how the 35 tools fit together before you print anything. Worked in order, the fifteen are built to keep a buyer's capital behind proof instead of behind a story.
+              evidence, track what is missing, or connect the rent roll to
+              the bank deposits to the site walk. What it leaves you with
+              is the honest list: what you proved, what you could not, and
+              what the gap is worth.
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-              The decision file at the end is the deal written so a lender, a partner, or an investment committee can read it without the buyer in the room.
-            </p>
-            <div className="mt-6 text-center">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
+              <Link
+                href="/resources"
+                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Browse the full resource library
+              </Link>
             </div>
-          </section>
-
-          <div className="theme-cream mt-10 border border-primary/40 bg-card p-6 text-center sm:p-8">
-            <Link
-              href="/resources"
-              className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              Browse the full resource library
-            </Link>
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/resources/the-evidence-status-standard"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                The Evidence Status Standard
+              </Link>
+              <Link
+                href="/resources/start-here"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Start Here
+              </Link>
+            </div>
           </div>
         </div>
       </main>

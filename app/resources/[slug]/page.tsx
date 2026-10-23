@@ -525,7 +525,7 @@ export default async function ResourcePage({ params }: PageProps) {
               aria-label="Run this tool live"
               className="theme-cream mt-12 border border-primary/40 bg-card p-6 sm:p-8"
             >
-              <h2 className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
+              <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Run the {liveTool.toolName} in your browser.
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
@@ -535,7 +535,7 @@ export default async function ResourcePage({ params }: PageProps) {
               </p>
               <Link
                 href={`/tools/${liveTool.toolSlug}`}
-                className="mt-6 inline-block bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="mt-6 inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Open the live tool
               </Link>

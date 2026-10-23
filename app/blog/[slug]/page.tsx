@@ -65,6 +65,8 @@ const POST_RESOURCE_SLUGS: Record<string, string> = {
   "the-permits-buyers-skip": "evidence-request-list",
   "the-rent-roll-is-a-claim-not-income-verification": "the-rent-roll-truth-check",
   "the-utility-system-nobody-underwrote": "utility-and-wastewater-diligence-sheet",
+  "rv-park-cap-rates-how-one-park-gets-two-asking-prices": "60-second-deal-screener",
+  "rv-park-due-diligence-why-the-site-walk-decides-the-deal": "utility-and-wastewater-diligence-sheet",
 }
 
 function formatDate(iso: string) {
@@ -235,46 +237,53 @@ export default async function BlogPost({ params }: PageProps) {
             </ReactMarkdown>
           </div>
 
-          <div className="theme-cream mt-16 border border-border bg-card p-6 sm:p-8">
-            <p className="text-sm leading-relaxed text-muted">
+          <div className="theme-cream paper mt-16 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              The working papers
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted">
               Start with the free Acquisition Signal resources: the working
               papers behind the Field Notes, including the tool this note
               points to.
             </p>
             {nextResource ? (
-              <>
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href={`/resources/${nextResource.slug}`}
-                  className="mx-auto mt-5 block w-fit border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Get {nextResource.code ? `${nextResource.code}: ` : ""}{nextResource.title}
                 </Link>
                 <Link
                   href="/resources/catalog"
-                  className="mt-4 block text-sm font-semibold text-primary hover:underline"
+                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Browse the full catalog
                 </Link>
-              </>
+              </div>
             ) : (
-              <Link
-                href="/resources"
-                className="mx-auto mt-5 block w-fit border border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary/50 hover:bg-primary/5"
-              >
-                Get the free resources
-              </Link>
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/resources"
+                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Get the free resources
+                </Link>
+              </div>
             )}
-            <p className="mt-8 border-t border-border/60 pt-6 text-sm leading-relaxed text-muted">
+            <p className="mx-auto mt-8 max-w-2xl border-t border-border/60 pt-6 text-sm leading-relaxed text-muted">
               Running a live deal? Bring it to the Acquisition Workspace and work it inside
               CrosstownOS, from intake to a documented
               decision posture.
             </p>
-            <Link
-              href="/workspace"
-              className="mx-auto mt-5 block w-fit border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90"
-            >
-              Apply for a pilot place
-            </Link>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/workspace"
+                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Apply for a pilot place
+              </Link>
+            </div>
           </div>
 
           {related.length > 0 && (
