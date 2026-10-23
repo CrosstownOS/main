@@ -357,26 +357,34 @@ export default function ToolsPage() {
           ))}
 
           {/* 3.3 Connect band */}
-          <section className="theme-cream mt-16 border border-primary/40 bg-card p-8" aria-label="How the working papers connect">
+          <section className="theme-cream mt-16 border border-primary/40 bg-card p-8 text-center" aria-label="How the working papers connect">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               How the working papers connect
             </p>
-            <p className="serif-display mt-3 max-w-2xl text-2xl tracking-tight">
+            <p className="serif-display mx-auto mt-3 max-w-2xl text-2xl tracking-tight">
               Run a tool. Keep the record.
             </p>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               Every tool exports your numbers, your evidence states, and
               your open items in one file. Free, no account, yours to keep.
-              New to the discipline? Start with the{" "}
-              <Link href="/checklist" className="font-semibold text-primary hover:underline">
-                free diligence checklist
-              </Link>{" "}
-              or{" "}
-              <Link href="/blog" className="font-semibold text-primary hover:underline">
-                read the Field Notes
-              </Link>{" "}
-              behind each verification.
             </p>
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
+              New to the discipline
+            </p>
+            <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/checklist"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Free diligence checklist
+              </Link>
+              <Link
+                href="/blog"
+                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                Field Notes
+              </Link>
+            </div>
           </section>
 
           {/* FAQ */}

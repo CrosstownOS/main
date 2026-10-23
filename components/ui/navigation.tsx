@@ -398,7 +398,7 @@ export default function Navigation() {
 
         <Link
           href="/workspace"
-          className="theme-cream flex min-h-8 items-center justify-center border-b border-border/70 bg-background/95 px-2 py-1.5 sm:px-4"
+          className="theme-cream flex min-h-8 items-center justify-center border-b border-border/70 bg-background px-2 py-1.5 sm:px-4"
         >
           <p className="flex items-center gap-1.5 whitespace-nowrap text-center font-mono text-[8px] font-bold uppercase tracking-[0.06em] text-muted transition-colors hover:text-foreground sm:gap-2 sm:text-[11px] sm:tracking-[0.22em]">
             <span className="h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
@@ -406,7 +406,7 @@ export default function Navigation() {
           </p>
         </Link>
 
-        <header className="border-b border-border bg-background/95">
+        <header className="border-b border-border bg-background">
           <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
             <button
               type="button"
