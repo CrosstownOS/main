@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import {
   useCallback,
   useEffect,
@@ -251,6 +252,14 @@ function renderAssistant(content: string, keyBase: string): ReactNode {
 export default function SiteAgent() {
   const [pathname, setPathname] = useState<string | null>(null)
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  // The agent lives in the root layout, so its open state would survive
+  // client-side navigation: following a page Hitch cites must close the
+  // panel on arrival (founder report, 2026-10-22).
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")
   const [busy, setBusy] = useState(false)
@@ -517,7 +526,7 @@ export default function SiteAgent() {
           role="dialog"
           aria-modal="false"
           aria-label={`${AGENT_DISPLAY_NAME} conversation`}
-          className="theme-cream fixed inset-x-3 bottom-3 z-40 flex h-[min(640px,84vh)] flex-col border border-primary/40 bg-card shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:w-[400px]"
+          className="theme-cream fixed inset-x-3 bottom-24 top-30 z-40 flex flex-col border border-primary/40 bg-card shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:top-auto md:h-[min(640px,84dvh)] md:w-[400px]"
         >
           <header className="border-b border-border bg-background px-5 py-4">
             <div className="flex items-start justify-between gap-4">
