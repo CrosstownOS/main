@@ -65,12 +65,17 @@ export default function FieldNotes() {
             posts.length > 1 && "md:grid-cols-2 lg:grid-cols-3"
           )}
         >
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <Link
               key={post.slug}
               data-reveal-item
               href={`/blog/${post.slug}`}
-              className="group theme-cream paper flex flex-col border border-border bg-card p-6 transition-colors hover:border-primary/60"
+              className={cn(
+                "group theme-cream paper flex flex-col border border-border bg-card p-6 transition-colors hover:border-primary/60",
+                posts.length % 2 === 1 &&
+                  index === posts.length - 1 &&
+                  "md:col-span-2 md:w-[calc(50%-0.5rem)] md:justify-self-center lg:col-span-1 lg:w-auto lg:justify-self-stretch"
+              )}
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                 {formatDate(post.date)}

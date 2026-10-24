@@ -75,7 +75,14 @@ export default function LifecycleVision() {
             const bandText = bandTextColor(module.color)
 
             return (
-              <li key={module.name} data-reveal-item>
+              <li
+                key={module.name}
+                data-reveal-item
+                className={cn(
+                  index === LIFECYCLE.length - 1 &&
+                    "sm:col-span-2 sm:w-[calc(50%-0.5rem)] sm:justify-self-center xl:col-span-1 xl:w-auto xl:justify-self-stretch"
+                )}
+              >
                 <TelemetryBox
                   glass={isNovember ? "light" : "none"}
                   className={cn(
