@@ -57,6 +57,9 @@ const CONVERSION_PATHS: ConversionPath[] = [
     cta: "Apply for a pilot place",
     action: "deal_desk",
     href: "/workspace",
+    secondaryLink: {
+      label: "See pricing",
+      href: "/pricing" },
     icon: Target },
   {
     code: "02",
