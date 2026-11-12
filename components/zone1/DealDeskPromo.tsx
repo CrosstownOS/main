@@ -6,7 +6,7 @@ import {
   Container,
   Heading,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 
@@ -20,7 +20,7 @@ export default function DealDeskPromo() {
       aria-labelledby="deal-desk-promo-heading"
     >
       <Container>
-        <TelemetryBox glass="none" className="theme-cream paper border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] p-6 text-foreground sm:p-8 lg:p-10">
+        <SheetCard className="p-6 sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
@@ -45,20 +45,20 @@ export default function DealDeskPromo() {
               <Link
                 data-reveal-item
                 href="/workspace"
-                className="border border-primary/60 bg-primary-deep px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate border border-primary/60 bg-primary-deep px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a pilot place
               </Link>
               <Link
                 data-reveal-item
                 href="/pricing"
-                className="border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press border border-primary/60 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See pricing
               </Link>
             </div>
           </div>
-        </TelemetryBox>
+        </SheetCard>
       </Container>
     </Section>
   )

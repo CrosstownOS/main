@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/blog"
 
-const BASE = "https://www.crosstownosrv.camp"
+const BASE = "https://www.getevidens.com"
 
 function escapeXml(value: string): string {
   return value
@@ -34,7 +34,7 @@ export async function GET() {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0">',
     "  <channel>",
-    "    <title>CrosstownOS // Field Notes</title>",
+    "    <title>Evidens // Field Notes</title>",
     `    <link>${BASE}/blog</link>`,
     "    <description>Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.</description>",
     items,

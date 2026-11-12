@@ -3,35 +3,34 @@ import type { ReactNode } from "react"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   keywords: ["RV park investing", "RV park cap rates", "price per pad", "occupancy verification", "RV park returns"],
-  title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
+  title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | Evidens",
   description:
-    "RV park investing guide for 2026: cap rates, price-per-pad, occupancy verification, and the diligence framework that protects your capital. From CrosstownOS.",
+    "RV park investing guide for 2026: cap rates, price-per-pad, occupancy verification, and the diligence framework that protects your capital. From Evidens.",
   alternates: { canonical: "/rv-park-investing" },
   openGraph: {
-    title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
+    title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | Evidens",
     description:
       "Where RV park returns come from, where they leak, and the verification framework that protects your capital.",
     type: "website",
     url: "/rv-park-investing",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | CrosstownOS",
+    title: "RV Park Investing in 2026: Where Returns Come From and Where They Leak | Evidens",
     description:
       "Where RV park returns come from, where they leak, and the verification framework that protects your capital.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -41,9 +40,9 @@ const articleJsonLd = {
   headline: "RV Park Investing in 2026: Numbers, Risks, and Verification",
   description:
     "An investor's guide to RV park investing: 2026 market numbers, where returns come from and where they leak, and the verification framework.",
-  author: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  publisher: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  mainEntityOfPage: "https://www.crosstownosrv.camp/rv-park-investing",
+  author: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  publisher: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  mainEntityOfPage: "https://www.getevidens.com/rv-park-investing",
 }
 
 const breadcrumbJsonLd = {
@@ -54,13 +53,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.crosstownosrv.camp/",
+      item: "https://www.getevidens.com/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "RV Park Investing",
-      item: "https://www.crosstownosrv.camp/rv-park-investing",
+      item: "https://www.getevidens.com/rv-park-investing",
     },
   ],
 }
@@ -171,7 +170,6 @@ export default function RvParkInvestingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -225,7 +223,8 @@ export default function RvParkInvestingPage() {
               </a>
               .
             </p>
-            <div className="mt-3 overflow-x-auto">
+            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
@@ -257,6 +256,7 @@ export default function RvParkInvestingPage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               It also reports a Parks and Places brokerage average of 9.3
@@ -294,7 +294,7 @@ export default function RvParkInvestingPage() {
               {RETURN_DRIVERS.map((d, i) => (
                 <div
                   key={d.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="sheet-card corners card-lift p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {String(i + 1).padStart(2, "0")}
@@ -322,7 +322,7 @@ export default function RvParkInvestingPage() {
               {LEAKS.map((leak) => (
                 <li
                   key={leak.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="sheet-card corners card-lift p-5"
                 >
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {leak.title}
@@ -333,7 +333,7 @@ export default function RvParkInvestingPage() {
                 </li>
               ))}
             </ul>
-            <div className="theme-cream mt-6 border border-border bg-card p-6">
+            <div className="sheet-card corners mt-6 p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Normalize the seller&apos;s P&amp;L before you believe any
                 return projection: add-backs stated as assumptions, nothing
@@ -342,7 +342,7 @@ export default function RvParkInvestingPage() {
               <div className="mt-4">
                 <Link
                   href="/tools/expense-normalizer"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Run the Expense Normalizer
                 </Link>
@@ -384,11 +384,11 @@ export default function RvParkInvestingPage() {
               <strong>What this page does not establish:</strong> The
               Innowave ranges are published benchmark statements drawn from
               industry sources listed on that page. They are not a
-              closed-comp dataset that CrosstownOS compiled or verified
+              closed-comp dataset that Evidens compiled or verified
               deal by deal, and they are not asking price data. The one
               sold-property figure cited, the 9.3 percent brokerage
               average, is reported by Innowave, not researched by
-              CrosstownOS from primary closing records. The Newmark sample
+              Evidens from primary closing records. The Newmark sample
               is older expense data, not a current market quote. Nothing on
               this page establishes the price, cap rate, or value of any
               specific park, and nothing here is an appraisal or investment
@@ -413,7 +413,8 @@ export default function RvParkInvestingPage() {
             review.
           </p>
 
-          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-source stack-spring">
+          <div className="sheet-card mt-10 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Next step
             </p>
@@ -426,13 +427,13 @@ export default function RvParkInvestingPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/buying-an-rv-park"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Read the buyer&apos;s verification guide
               </Link>
               <Link
                 href="/workspace"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
@@ -440,11 +441,12 @@ export default function RvParkInvestingPage() {
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/tools/60-second-screener"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 60-Second Deal Screener
               </Link>
             </div>
+          </div>
           </div>
         </div>
       </main>

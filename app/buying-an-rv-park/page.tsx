@@ -2,35 +2,34 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   keywords: ["how to buy an RV park", "RV park due diligence", "verify seller claims", "RV park financials", "occupancy verification", "RV park zoning"],
-  title: "How to Buy an RV Park: Verification Guide | CrosstownOS",
+  title: "How to Buy an RV Park: Verification Guide | Evidens",
   description:
-    "Buying an RV park? Verify seller claims, financials, occupancy, utilities, and zoning before you commit capital. Buyer's guide from CrosstownOS.",
+    "Buying an RV park? Verify seller claims, financials, occupancy, utilities, and zoning before you commit capital. Buyer's guide from Evidens.",
   alternates: { canonical: "/buying-an-rv-park" },
   openGraph: {
-    title: "How to Buy an RV Park: Verification Guide | CrosstownOS",
+    title: "How to Buy an RV Park: Verification Guide | Evidens",
     description:
       "The five verification gates every RV park buyer should clear before committing capital.",
     type: "website",
     url: "/buying-an-rv-park",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "How to Buy an RV Park: Verification Guide | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "How to Buy an RV Park: Verification Guide | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Buy an RV Park: Verification Guide | CrosstownOS",
+    title: "How to Buy an RV Park: Verification Guide | Evidens",
     description:
       "The five verification gates every RV park buyer should clear before committing capital.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -40,9 +39,9 @@ const articleJsonLd = {
   headline: "How to Buy an RV Park: The Buyer's Verification Guide",
   description:
     "A buyer's guide to verifying an RV park acquisition: price-per-pad benchmarks, the five verification gates, and the red flags that kill deals.",
-  author: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  publisher: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  mainEntityOfPage: "https://www.crosstownosrv.camp/buying-an-rv-park",
+  author: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  publisher: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  mainEntityOfPage: "https://www.getevidens.com/buying-an-rv-park",
 }
 
 const breadcrumbJsonLd = {
@@ -53,13 +52,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.crosstownosrv.camp/",
+      item: "https://www.getevidens.com/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Buying an RV Park",
-      item: "https://www.crosstownosrv.camp/buying-an-rv-park",
+      item: "https://www.getevidens.com/buying-an-rv-park",
     },
   ],
 }
@@ -127,7 +126,6 @@ export default function BuyingAnRvParkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -221,14 +219,14 @@ export default function BuyingAnRvParkPage() {
               usually doing something creative. Normalize first, then
               compare.
             </p>
-            <div className="theme-cream mt-6 border border-border bg-card p-5">
+            <div className="sheet-card corners mt-6 p-5">
               <p className="text-sm leading-relaxed text-foreground/85">
                 <strong>Read the table with its caveat first:</strong>{" "}
                 These are broad published ranges, not appraisals: confirm
                 against closed comps in your target market before anchoring
                 any underwriting. The Innowave figures are published
                 benchmark statements, not a closed-comp dataset that
-                CrosstownOS compiled, and they are not asking price data.
+                Evidens compiled, and they are not asking price data.
                 The per-site figure in the stabilized row is
                 Innowave&apos;s general acquisition pricing range, not a
                 stabilized-only price series. Innowave gives no separate
@@ -239,7 +237,8 @@ export default function BuyingAnRvParkPage() {
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
               Price-per-pad and cap rate benchmarks (Innowave Studio, 2026; see Sources and limits below):
             </p>
-            <div className="mt-3 overflow-x-auto">
+            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
@@ -272,7 +271,8 @@ export default function BuyingAnRvParkPage() {
                 </tbody>
               </table>
             </div>
-            <div className="theme-cream mt-6 border border-border bg-card p-6">
+            </div>
+            <div className="sheet-card corners mt-6 p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Run the headline numbers in under a minute: implied cap rate,
                 price per pad, and gross potential rent from six inputs.
@@ -280,7 +280,7 @@ export default function BuyingAnRvParkPage() {
               <div className="mt-4">
                 <Link
                   href="/tools/60-second-screener"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Try the 60-Second Deal Screener
                 </Link>
@@ -305,7 +305,7 @@ export default function BuyingAnRvParkPage() {
               {GATES.map((gate, i) => (
                 <div
                   key={gate.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="sheet-card corners card-lift p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {String(i + 1).padStart(2, "0")}
@@ -337,7 +337,7 @@ export default function BuyingAnRvParkPage() {
               {RED_FLAGS.map((flag) => (
                 <li
                   key={flag.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="sheet-card corners card-lift p-5"
                 >
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {flag.title}
@@ -386,11 +386,11 @@ export default function BuyingAnRvParkPage() {
               <strong>What this page does not establish:</strong> The
               Innowave ranges are published benchmark statements drawn from
               industry sources listed on that page. They are not a
-              closed-comp dataset that CrosstownOS compiled or verified
+              closed-comp dataset that Evidens compiled or verified
               deal by deal, and they are not asking price data. The one
               sold-property figure cited, the 9.3 percent brokerage
               average across 21 sold properties in 2024, is reported by
-              Innowave, not researched by CrosstownOS from primary closing
+              Innowave, not researched by Evidens from primary closing
               records. The value-add cap figure is a going-in target, not a
               traded average, and the cited source gives no separate
               value-add per-pad range. Nothing on this page establishes the
@@ -417,7 +417,8 @@ export default function BuyingAnRvParkPage() {
             review.
           </p>
 
-          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-source stack-spring">
+          <div className="sheet-card mt-10 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Next step
             </p>
@@ -436,13 +437,13 @@ export default function BuyingAnRvParkPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/checklist"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Get the free due diligence checklist
               </Link>
               <Link
                 href="/workspace"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
@@ -450,11 +451,12 @@ export default function BuyingAnRvParkPage() {
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/data-room-vs-diligence-software"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Data room vs due diligence software
               </Link>
             </div>
+          </div>
           </div>
         </div>
       </main>

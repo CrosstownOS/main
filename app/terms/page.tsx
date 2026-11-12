@@ -1,13 +1,12 @@
 // Build trigger
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
-  keywords: ["CrosstownOS terms of use"],
-  title: "Terms of Use | CrosstownOS",
+  keywords: ["Evidens terms of use"],
+  title: "Terms of Use | Evidens",
   description:
-    "The terms for using crosstownosrv.camp and the free working papers, plus what you are buying with the Acquisition Workspace: payment, refunds, and pilot terms.",
+    "The terms for using getevidens.com and the free working papers, plus what you are buying with the Acquisition Workspace: payment, refunds, and pilot terms.",
   alternates: { canonical: "/terms" },
 }
 
@@ -15,19 +14,19 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Terms of Use",
-  description: "Terms of use for the CrosstownOS website.",
-  url: "https://www.crosstownosrv.camp/terms",
+  description: "Terms of use for the Evidens website.",
+  url: "https://www.getevidens.com/terms",
   isPartOf: {
     "@type": "WebSite",
-    name: "CrosstownOS",
-    url: "https://www.crosstownosrv.camp",
+    name: "Evidens",
+    url: "https://www.getevidens.com",
   },
   publisher: {
     "@type": "Organization",
-    name: "CrosstownOS",
+    name: "Evidens",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.crosstownosrv.camp/logo.jpg",
+      url: "https://www.getevidens.com/logo.jpg",
     },
   },
 }
@@ -36,20 +35,20 @@ const SECTIONS = [
   {
     heading: "Agreement",
     body: [
-      "By accessing crosstownosrv.camp, using the free working papers, or purchasing the Acquisition Workspace, you agree to these Terms of Use. If you do not agree, do not use the site or the workspace.",
+      "By accessing getevidens.com, using the free working papers, or purchasing the Acquisition Workspace, you agree to these Terms of Use. If you do not agree, do not use the site or the workspace.",
       "CrosstownOS is operated by Jeremy Cross, based in Kaufman, Texas. References to CrosstownOS, we, or us mean the operator of this site and the Acquisition Workspace.",
     ],
   },
   {
     heading: "What this site is",
     body: [
-      "CrosstownOS operates this website to share information about diligence software for RV park and manufactured housing community buyers. The site includes articles, free browser-based working papers, a resource library, and purchase pages for the Acquisition Workspace, which opens November 2026.",
+      "CrosstownOS operates this website to share information about diligence software for RV park and manufactured housing community buyers. The site includes articles, free browser-based working papers, a resource library, and purchase pages for the Acquisition Workspace.",
     ],
   },
   {
     heading: "Definitions",
     body: [
-      "Site means crosstownosrv.camp and its pages, tools, and content. Workspace means the Acquisition Workspace software, including its Source, Field, and Acquire modules. Operator means the named person on a workspace account. Activation means the date we deliver your account credentials and onboarding materials.",
+      "Site means getevidens.com and its pages, tools, and content. Workspace means the Acquisition Workspace software, including its Source, Field, and Acquire modules. Operator means the named person on a workspace account. Activation means the date we deliver your account credentials and onboarding materials.",
     ],
   },
   {
@@ -67,7 +66,7 @@ const SECTIONS = [
   {
     heading: "Free working papers",
     body: [
-      "The free working papers at crosstownosrv.camp/tools run entirely in your browser. Your inputs are saved to your browser's local storage on your own device. Nothing is transmitted to us. You can download your work as JSON at any time.",
+      "The free working papers at getevidens.com/tools run entirely in your browser. Your inputs are saved to your browser's local storage on your own device. Nothing is transmitted to us. You can download your work as JSON at any time.",
     ],
   },
   {
@@ -214,8 +213,8 @@ export default function TermsPage() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <div className="sheet-card corners p-6 sm:p-10">
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Terms of Use
           </h1>
@@ -235,6 +234,7 @@ export default function TermsPage() {
               ))}
             </section>
           ))}
+          </div>
         </div>
       </main>
     </>

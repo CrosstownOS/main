@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 import { getAllSlugs, getPost, getRelatedPosts, getSeoDescription, getSeoTitle } from "@/lib/blog"
 import { RESOURCE_DETAIL_BY_SLUG } from "@/lib/resources"
 import SignalLine from "@/components/ui/SignalLine"
@@ -21,7 +20,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const post = getPost(slug)
-  if (!post) return { title: "Not found | CrosstownOS" }
+  if (!post) return { title: "Not found | Evidens" }
 
   const seoTitle = getSeoTitle(post)
   const seoDescription = getSeoDescription(post)
@@ -36,12 +35,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       url: `/blog/${slug}`,
       publishedTime: post.date,
-      authors: ["CrosstownOS"],
+      authors: ["Evidens"],
       images: [
         {
-          url: "/og-logo.png",
-          width: 1024,
-          height: 1024,
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
           alt: post.title,
         },
       ],
@@ -50,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: seoTitle,
       description: seoDescription,
-      images: ["/og-logo.png"],
+      images: ["/og-image.jpg"],
     },
   }
 }
@@ -98,19 +97,19 @@ export default async function BlogPost({ params }: PageProps) {
     dateModified: post.date,
     author: {
       "@type": "Organization",
-      name: "CrosstownOS",
+      name: "Evidens",
     },
     publisher: {
       "@type": "Organization",
-      name: "CrosstownOS",
+      name: "Evidens",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.crosstownosrv.camp/logo.jpg",
+        url: "https://www.getevidens.com/logo.jpg",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.crosstownosrv.camp/blog/${slug}`,
+      "@id": `https://www.getevidens.com/blog/${slug}`,
     },
   }
 
@@ -118,7 +117,6 @@ export default async function BlogPost({ params }: PageProps) {
     <>
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <article className="relative z-10">
           <div className="mx-auto w-full max-w-3xl px-4 pt-32 sm:px-6 lg:px-8">
           <script
@@ -162,7 +160,7 @@ export default async function BlogPost({ params }: PageProps) {
             )}
           </div>
           </div>
-          <div className="theme-cream mt-10 bg-background">
+          <div className="mt-10 bg-background">
             <div className="mx-auto w-full max-w-3xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
           <div className="paper p-6 sm:p-8">
             <div className="prose-blog">
@@ -215,7 +213,7 @@ export default async function BlogPost({ params }: PageProps) {
                   </ol>
                 ),
                 blockquote: ({ children }) => (
-                  <blockquote className="theme-cream mb-5 border-l-2 border-primary bg-card px-5 py-4 text-base italic leading-relaxed text-foreground/90">
+                  <blockquote className="mb-5 border-l-2 border-primary bg-card px-5 py-4 text-base italic leading-relaxed text-foreground/90">
                     {children}
                   </blockquote>
                 ),
@@ -237,7 +235,7 @@ export default async function BlogPost({ params }: PageProps) {
             </ReactMarkdown>
           </div>
 
-          <div className="theme-cream paper mt-16 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="sheet-card corners mt-16 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The working papers
             </p>
@@ -250,13 +248,13 @@ export default async function BlogPost({ params }: PageProps) {
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href={`/resources/${nextResource.slug}`}
-                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Get {nextResource.code ? `${nextResource.code}: ` : ""}{nextResource.title}
                 </Link>
                 <Link
                   href="/resources/catalog"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Browse the full catalog
                 </Link>
@@ -265,7 +263,7 @@ export default async function BlogPost({ params }: PageProps) {
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/resources"
-                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Get the free resources
                 </Link>
@@ -273,13 +271,13 @@ export default async function BlogPost({ params }: PageProps) {
             )}
             <p className="mx-auto mt-8 max-w-2xl border-t border-border/60 pt-6 text-sm leading-relaxed text-muted">
               Running a live deal? Bring it to the Acquisition Workspace and work it inside
-              CrosstownOS, from intake to a documented
+              Evidens, from intake to a documented
               decision posture.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a pilot place
               </Link>
@@ -290,10 +288,10 @@ export default async function BlogPost({ params }: PageProps) {
             <div className="mt-16">
               <div className="space-y-2">
                 {related.map((rel) => (
+                  <div key={rel.slug} className="card-stack card-stack-field stack-spring">
                   <Link
-                    key={rel.slug}
                     href={`/blog/${rel.slug}`}
-                    className="theme-cream group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
+                    className="record-card group block h-full p-6 hover:border-primary/60 sm:p-8"
                   >
                     <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                       {formatDate(rel.date)}
@@ -319,6 +317,7 @@ export default async function BlogPost({ params }: PageProps) {
                       </div>
                     )}
                   </Link>
+                  </div>
                 ))}
               </div>
             </div>

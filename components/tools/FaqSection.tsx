@@ -1,9 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import type { Faq } from "@/lib/tools/faqs"
 import { cn } from "@/lib/utils"
+import { SPRING } from "@/components/ui/motion"
 
+/**
+ * FAQ accordion, rebuilt from the accordion-solutions specimen in house
+ * dress: the answer does not snap in under a hidden flag; the row
+ * springs open on the same spring as the site's sheets and stacks, and
+ * the plus mark rotates into a close mark. One answer open at a time.
+ */
 export default function FaqSection({ faqs }: { faqs: Faq[] }) {
   const [open, setOpen] = useState<number | null>(null)
 
@@ -32,22 +40,30 @@ export default function FaqSection({ faqs }: { faqs: Faq[] }) {
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "shrink-0 font-mono text-lg leading-none text-primary transition-transform",
+                    "shrink-0 font-mono text-lg leading-none text-primary transition-transform duration-300",
                     isOpen && "rotate-45",
                   )}
                 >
                   +
                 </span>
               </button>
-              <div
-                id={`faq-answer-${i}`}
-                hidden={!isOpen}
-                className="pb-5"
-              >
-                <p className="max-w-3xl text-sm leading-relaxed text-muted">
-                  {faq.answer}
-                </p>
-              </div>
+              <AnimatePresence initial={false}>
+                {isOpen ? (
+                  <motion.div
+                    key="answer"
+                    id={`faq-answer-${i}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={SPRING}
+                    className="overflow-hidden"
+                  >
+                    <p className="max-w-3xl pb-5 text-sm leading-relaxed text-muted">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
             </div>
           )
         })}

@@ -5,8 +5,9 @@ import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
+  RecordCard,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 import SignalLine from "@/components/ui/SignalLine"
@@ -82,11 +83,12 @@ export default function ParkProof() {
           </div>
         </div>
 
-        {/* Row 2 — conceptual decision file, stacked rows */}
-        <TelemetryBox glass="heavy" className="theme-cream paper border-primary/40 p-5 sm:p-6">
+        {/* Row 2 — conceptual decision file, stacked rows, on the stack */}
+        <div className="card-stack card-stack-acquire stack-spring">
+        <RecordCard className="p-5 sm:p-6">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
             <TerminalLabel className="block">
-              CrosstownOS ParkProof / Decision File
+              Evidens ParkProof / Decision File
             </TerminalLabel>
             <span className="border border-border/60 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-muted">
               Conceptual example
@@ -116,17 +118,24 @@ export default function ParkProof() {
               ))}
             </ul>
           </div>
-        </TelemetryBox>
+        </RecordCard>
+        </div>
 
         {/* Row 3 — six truth states, full width */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {TRUTH_STATE_ORDER.map((key) => (
-            <TelemetryBox key={key} data-reveal-item glass="light" className="theme-cream paper p-5">
+            <div
+              key={key}
+              data-reveal-item
+              className="card-stack card-stack-acquire stack-spring"
+            >
+              <SheetCard className="h-full p-5">
               <EvidenceStateChip state={key} />
               <p className="mt-3 text-sm leading-relaxed text-foreground/75">
                 {EVIDENCE_STATES[key].definition}
               </p>
-            </TelemetryBox>
+              </SheetCard>
+            </div>
           ))}
         </div>
 
@@ -136,7 +145,7 @@ export default function ParkProof() {
         </p>
 
         {/* Closing card — disclaimer, doors, and the record line, housed in the section's cream card family */}
-        <TelemetryBox glass="none" className="theme-cream paper mt-8 border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] p-6 sm:p-8">
+        <SheetCard className="mt-8 p-6 sm:p-8">
           <div className="mx-auto max-w-3xl text-center">
             <SignalLine className="mx-auto" />
 
@@ -172,19 +181,19 @@ export default function ParkProof() {
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <Link
                 href="/parkproof-standard"
-                className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Read the ParkProof Standard
               </Link>
               <Link
                 href="/parkproof-walkthrough"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the ParkProof Walkthrough
               </Link>
             </div>
           </div>
-        </TelemetryBox>
+        </SheetCard>
       </Container>
     </Section>
   )

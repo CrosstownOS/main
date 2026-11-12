@@ -9,12 +9,17 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
   --color-border: var(--border);
   --color-primary: var(--primary);
   --color-primary-deep: var(--primary-deep);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent-secondary);
+  --color-source: var(--source);
+  --color-field: var(--field);
+  --color-acquire: var(--acquire);
   --color-success: var(--success);
   --color-critical: var(--critical);
   --color-calculated: var(--calculated);
@@ -26,40 +31,49 @@
 }
 
 :root {
-  /* ── Foundation ── */
-  --background: oklch(0.06 0.005 80);
-  --foreground: oklch(0.94 0.01 80);
-  --card: oklch(0.11 0.01 80);
-  --cream: #eadfc6;
+  /* ── Foundation: the app design system (Evidens redesign, 2026-11-11).
+     Cream ground end to end; the work sits on white cards and sheets;
+     record-family cards are cream-faced with hairline borders. ── */
+  --background: #f7efda;
+  --foreground: #141923;
+  --card: #ffffff;
+  --cream: #f7efda;
+  --paper: #ffffff;
+  --ink: #141923;
 
-  /* ── Primary: lit royal, sampled from the logo arcs (#3A86F2) ── */
-  --primary: oklch(0.628 0.179 258);
+  /* ── Primary: the app blue, the product's interface primary ── */
+  --primary: #1d4ed8;
 
-  /* ── Primary deep: solid button backgrounds behind white text.
-     The lit royal is ~3.6:1 with white (fails 4.5:1); #0B589B is 7.3:1. ── */
-  --primary-deep: #0b589b;
+  /* ── Primary deep: Acquire navy. Solid button backgrounds behind white
+     text and the big price figures (site charter). ── */
+  --primary-deep: #00468b;
 
-  /* ── Neutrals: weathered sand, clay, warm ivory ── */
-  --border: oklch(0.20 0.02 80);
-  --muted: oklch(0.72 0.02 80);
+  /* ── Room colors: the lifecycle, Source to Field to Acquire ── */
+  --source: #4a90d9;
+  --field: #d97706;
+  --acquire: #00468b;
 
-  /* ── Secondary: copper / amber field-ops accent ── */
-  /* L 0.65: small text (e.g. 9-10px mono labels) holds ≥4.5:1 on dark bg/card */
-  --accent: oklch(0.65 0.12 55);
-  --accent-secondary: oklch(0.52 0.14 55);
+  /* ── Neutrals: warm hairline, weathered-sand muted text on cream ── */
+  --border: #d8c5a0;
+  --muted: #6a5f4e;
 
-  /* ── Tertiary: signal green — verified evidence ── */
-  --success: oklch(0.60 0.13 148);
+  /* ── Accents: Field orange primary accent, Source blue secondary ── */
+  --accent: #d97706;
+  --accent-secondary: #4a90d9;
 
-  /* ── Critical: brick signal red — missing evidence, the state that demands action ── */
-  --critical: oklch(0.62 0.16 25);
+  /* ── Evidence signals, darkened a step so they read on cream ── */
+  /* Tertiary: signal green — verified evidence */
+  --success: oklch(0.47 0.12 148);
 
-  /* ── Calculated: violet, computed outputs, distinct from assumption blue ── */
-  --calculated: oklch(0.60 0.15 295);
+  /* Critical: brick signal red — missing evidence, the state that demands action */
+  --critical: oklch(0.5 0.16 25);
+
+  /* Calculated: violet, computed outputs, distinct from assumption blue */
+  --calculated: oklch(0.47 0.14 295);
 
   /* ── Status ── */
-  --status-live: oklch(0.628 0.179 258);
-  --status-alert: oklch(0.58 0.12 55);
+  --status-live: #1d4ed8;
+  --status-alert: oklch(0.5 0.13 55);
   --status-dormant: oklch(0.45 0.04 250);
 }
 
@@ -132,6 +146,55 @@
   letter-spacing: -0.01em;
 }
 
+/* ── CARD PRIMITIVES: the app grammar, shared by every page lane.
+   Radius 0 throughout (global reset). Flat only: hairline borders and the
+   stacked offset carry the treatment; no glow, no halo, no blur shadows. ── */
+
+@layer components {
+  /* White working sheet on the cream ground. */
+  .sheet-card {
+    background-color: var(--paper);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+  }
+
+  /* Cream record card: the dossier face, hairline border. */
+  .record-card {
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+  }
+
+  /* Stacked treatment: a full card in the room color sits offset behind the
+     face, peeking out. Wrap the face card: <div class="card-stack
+     card-stack-field"><div class="sheet-card">…</div></div>. The offset is a
+     real second card in a solid room color, never a shadow. */
+  .card-stack {
+    position: relative;
+  }
+  .card-stack::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(0.5rem, 0.5rem);
+    background-color: var(--stack-color, var(--primary));
+    z-index: 0;
+  }
+  .card-stack > * {
+    position: relative;
+    z-index: 1;
+  }
+  .card-stack-source {
+    --stack-color: var(--source);
+  }
+  .card-stack-field {
+    --stack-color: var(--field);
+  }
+  .card-stack-acquire {
+    --stack-color: var(--acquire);
+  }
+}
+
 /* ── Telemetry pulse animations ── */
 @keyframes live-pulse {
   0%, 100% { opacity: 1; }
@@ -174,41 +237,42 @@
   --muted: oklch(0.47 0.02 70);
   --border: oklch(0.87 0.008 85);
   /* Deep arc royal (#0B589B) — reads on white where the lit royal would wash out */
-  --primary: oklch(0.456 0.128 252);
-  --primary-deep: oklch(0.456 0.128 252);
+  --primary: #1d4ed8;
+  --primary-deep: #00468B;
 }
 
 /* ── WARM CREAM: light token scope for working surfaces (sections, bands, modals) ── */
 .theme-cream {
-  --background: #eadfc6;
+  --background: #f7efda;
   --foreground: #292219;
-  --card: #f7efda;
+  --card: #ffffff;
   --muted: #6a5f4e;
   --border: #d8c5a0;
   /* Deep arc royal — the lit royal washes out on cream */
-  --primary: oklch(0.456 0.128 252);
-  --primary-deep: oklch(0.456 0.128 252);
+  --primary: #1d4ed8;
+  --primary-deep: #00468B;
   /* Copper / green / brick darkened a step so they read on cream */
   --accent: oklch(0.5 0.13 55);
   --accent-secondary: oklch(0.46 0.13 55);
   --success: oklch(0.47 0.12 148);
   --critical: oklch(0.5 0.16 25);
   --calculated: oklch(0.47 0.14 295);
-  --status-live: oklch(0.456 0.128 252);
+  --status-live: #1d4ed8;
   --status-alert: oklch(0.5 0.13 55);
   --status-dormant: oklch(0.45 0.04 250);
   color: var(--foreground);
 }
 
-/* ── PAPER: the decision-file card on cream, reads like a printed sheet ── */
+/* ── PAPER: the decision-file card on cream, reads like a printed sheet.
+   Flat: the sheet is carried by its face and hairline, never a shadow. ── */
 .paper {
   background-color: #fbf4e2;
-  box-shadow: 0 18px 44px -26px rgb(41 34 25 / 0.4);
+  border: 1px solid var(--border);
 }
 
-/* ── ROYAL GLOW SCROLLBAR ── */
+/* ── SCROLLBAR: flat app blue on the cream ground. No glow. ── */
 html {
-  scrollbar-color: #3a86f2 #0c0b09;
+  scrollbar-color: #1d4ed8 #f7efda;
   scrollbar-width: thin;
 }
 
@@ -217,18 +281,15 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0c0b09;
+  background: #f7efda;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3a86f2;
-  box-shadow:
-    0 0 10px rgba(58, 134, 242, 0.9),
-    0 0 22px rgba(58, 134, 242, 0.45);
+  background: #1d4ed8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5f9df5;
+  background: #00468b;
 }
 
 /* ==========================================================================
@@ -325,7 +386,7 @@ a[href*="v0.app"] {
   display: block;
   width: 3rem;
   height: 2px;
-  background-color: #3a86f2;
+  background-color: var(--primary);
   transform: scaleX(0);
   transform-origin: left center;
 }
@@ -347,7 +408,7 @@ a[href*="v0.app"] {
   right: 0;
   bottom: -3px;
   height: 2px;
-  background-color: #3a86f2;
+  background-color: var(--primary);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 150ms ease-out;
@@ -404,7 +465,7 @@ span[data-signal-line].signal-line-armed {
   display: block;
   width: 3rem;
   height: 2px;
-  background-color: #3a86f2;
+  background-color: var(--primary);
   transform: scaleX(0);
   transform-origin: left center;
 }
@@ -478,7 +539,7 @@ span[data-signal-line].signal-line-armed.is-visible {
 }
 
 .inquiry-panel {
-  animation: inquiry-panel-in 200ms ease-out;
+  animation: inquiry-panel-in 400ms cubic-bezier(0.3, 1.25, 0.5, 1);
   transition:
     opacity 200ms ease-out,
     transform 200ms ease-out;
@@ -496,11 +557,15 @@ span[data-signal-line].signal-line-armed.is-visible {
 }
 
 @keyframes inquiry-panel-in {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(18px) scale(0.97);
   }
-  to {
+  55% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.006);
+  }
+  100% {
     opacity: 1;
     transform: none;
   }
@@ -515,15 +580,19 @@ span[data-signal-line].signal-line-armed.is-visible {
 }
 
 .success-popup-panel {
-  animation: success-popup-in 240ms ease-out;
+  animation: success-popup-in 420ms cubic-bezier(0.3, 1.25, 0.5, 1);
 }
 
 @keyframes success-popup-in {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(12px) scale(0.98);
+    transform: translateY(16px) scale(0.96);
   }
-  to {
+  55% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.008);
+  }
+  100% {
     opacity: 1;
     transform: none;
   }
@@ -544,7 +613,6 @@ span[data-signal-line].signal-line-armed.is-visible {
 .card-lift:hover,
 .card-lift:focus-visible {
   translate: 0 -2px;
-  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.55);
 }
 @media (prefers-reduced-motion: reduce) {
   .card-lift:hover,
@@ -554,20 +622,18 @@ span[data-signal-line].signal-line-armed.is-visible {
   }
 }
 
-/* ── Input focus glow: soft royal halo on text fields ──
-   Upgrades the plain focus ring on form fields (footer subscribe, DealDeskForm,
-   trail-log form, gated-download and tool-save modals) to a subtle premium glow.
-   :focus-visible keeps it keyboard-only; the royal halo stays clearly visible,
-   so keyboard users never lose the indicator. Checkbox/radio/hidden inputs
+/* ── Input focus: flat app-blue ring on text fields ──
+   A crisp 1px ring (zero blur) on form fields (footer subscribe, DealDeskForm,
+   trail-log form, gated-download and tool-save modals). No halo, no glow
+   (founder ruling, 2026-11-11). :focus-visible keeps it keyboard-only, so
+   keyboard users never lose the indicator. Checkbox/radio/hidden inputs
    are excluded. */
 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus-visible,
 textarea:focus-visible,
 select:focus-visible {
   outline: none;
-  border-color: #3a86f2;
-  box-shadow:
-    0 0 0 1px rgba(58, 134, 242, 0.9),
-    0 0 16px 2px rgba(58, 134, 242, 0.35);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
   transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
 }
 
@@ -609,7 +675,7 @@ select:focus-visible {
   display: block;
   height: 2px;
   width: 3rem;
-  background-color: #3a86f2;
+  background-color: var(--primary);
   transform-origin: left center;
   animation: brand-loader-line-draw 0.6s ease-out 0.3s both;
 }
@@ -628,4 +694,326 @@ select:focus-visible {
       intentional class difference). ── */
 .brand-loader-seen .brand-loader-root {
   display: none !important;
+}
+
+/* ==========================================================================
+   ELEVATION MOTION SYSTEM (2026-11-12): the Hover family rebuilt in house
+   dress. Behavior only, never costume: radius 0, cream carriers, hard
+   offsets in the room colors, Playfair / Inter / JetBrains Mono faces.
+   Springs are overshoot cubic-beziers or framer-motion springs in the
+   components; every rule here is transform/opacity only, and the global
+   prefers-reduced-motion rule above collapses all of it.
+   ========================================================================== */
+
+/* ── Spring stack: the stacked treatment, alive. On hover or focus the
+   room-color card steps further out from behind the face and the face
+   lifts to meet it: a card visibly built of sheets (spring cards). ── */
+.stack-spring::before {
+  transition: transform 480ms cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+.stack-spring > * {
+  transition: translate 480ms cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+@media (hover: hover) {
+  .stack-spring:hover::before,
+  .stack-spring:focus-within::before {
+    transform: translate(0.875rem, 0.875rem);
+  }
+  .stack-spring:hover > *,
+  .stack-spring:focus-within > * {
+    translate: -2px -2px;
+  }
+}
+
+/* ── Stacked sheets: a second sheet (white, hairline) steps out up-left
+   while the room card steps down-right, so the card reads as three
+   sheets stepping diagonally apart (spring cards, second layer). ── */
+.stack-sheets::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(-0.375rem, -0.375rem);
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  z-index: 0;
+  transition: transform 480ms cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+@media (hover: hover) {
+  .stack-sheets:hover::after,
+  .stack-sheets:focus-within::after {
+    transform: translate(-0.625rem, -0.625rem);
+  }
+}
+
+/* ── The press (neu button): a filled control on a hard 3px offset slab.
+   On hover the slab collapses and the control translates into the space
+   it held, pressing flat. The slab takes --press-color (ink by default,
+   the room's swatch on that room's surfaces). Two states, no library. ── */
+.btn-press {
+  box-shadow: 3px 3px 0 var(--press-color, var(--ink));
+  transition:
+    transform 130ms ease-out,
+    box-shadow 130ms ease-out,
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    border-color 150ms ease-out;
+}
+@media (hover: hover) {
+  .btn-press:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--press-color, var(--ink));
+  }
+}
+.btn-press:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--press-color, var(--ink));
+}
+
+/* ── The plate (neu follow button, static half): the one primary action
+   on a surface sits on a 5px slab in the room color and presses into it.
+   The magnetic cursor-follow stays a desk behavior; the plate and the
+   press are what transfer to a reading page. ── */
+.btn-plate {
+  box-shadow: 5px 5px 0 var(--press-color, var(--ink));
+  transition:
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out,
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    border-color 150ms ease-out;
+}
+@media (hover: hover) {
+  .btn-plate:hover {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--press-color, var(--ink));
+  }
+}
+.btn-plate:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--press-color, var(--ink));
+}
+
+/* ── Registration corners (grid cards): on hover, crop-mark ticks draw
+   in at all four corners of an exhibit card, a photograph being marked
+   into the record. One overlay pseudo carries all eight strokes. ── */
+.corners {
+  position: relative;
+}
+.corners::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 220ms ease-out;
+  --corner: var(--corner-color, var(--primary));
+  background-image:
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner)),
+    linear-gradient(var(--corner), var(--corner));
+  background-size:
+    14px 2px, 2px 14px,
+    14px 2px, 2px 14px,
+    14px 2px, 2px 14px,
+    14px 2px, 2px 14px;
+  background-position:
+    0 0, 0 0,
+    100% 0, 100% 0,
+    0 100%, 0 100%,
+    100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+}
+@media (hover: hover) {
+  .corners:hover::after,
+  .corners:focus-within::after {
+    opacity: 1;
+  }
+}
+
+/* ── Sheet set down (spring modal): a dialog arrives like a sheet set
+   down on the desk, a short rise, a small overshoot, a settle. Square,
+   cream, no tilt cartoon, no scale from zero. ── */
+@keyframes sheet-set-down {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.006);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.modal-spring {
+  animation: sheet-set-down 400ms cubic-bezier(0.3, 1.25, 0.5, 1) both;
+}
+
+@keyframes backdrop-settle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.backdrop-spring {
+  animation: backdrop-settle 220ms ease-out both;
+}
+
+/* ── Panel spring (drawers and the Hitch panel): the panel slides in
+   with a small overshoot and settles against its edge. ── */
+@keyframes panel-settle {
+  0% {
+    opacity: 0;
+    transform: translateX(56px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateX(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.panel-spring {
+  animation: panel-settle 440ms cubic-bezier(0.3, 1.25, 0.5, 1) both;
+}
+
+/* ── Stacked notices: slips spring up in the corner and stack with
+   layout manners (stacked notifications). The slip itself wears the
+   card-stack treatment in its room color (see NoticeStack). ── */
+@keyframes slip-in {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.notice-slip {
+  animation: slip-in 400ms cubic-bezier(0.3, 1.25, 0.5, 1) both;
+}
+@keyframes slip-out {
+  to {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+.notice-slip.is-leaving {
+  animation: slip-out 220ms ease-in both;
+}
+
+/* ── Shift tabs (shift highlight tabs): each tab is a white face on a
+   base slab in the room color; the selected face lifts off its slab so
+   the color shows beneath as the hard offset, and the highlight plate
+   travels with framer-motion layout in the component. ── */
+.shift-tab {
+  position: relative;
+  transition: translate 320ms cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+.shift-tab[data-selected="true"] {
+  translate: -2px -2px;
+}
+@media (hover: hover) {
+  .shift-tab:not([data-selected="true"]):hover {
+    translate: -1px -1px;
+  }
+}
+
+/* ── Floating strip entrance (floating bottom nav, shore form): the
+   strip rises from below the fold with the press family's spring and
+   settles floating over the work. ── */
+@keyframes strip-rise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 24px);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.strip-rise {
+  animation: strip-rise 460ms cubic-bezier(0.3, 1.25, 0.5, 1) both;
+}
+
+/* ── Drawer spring (mobile navigation): the drawer drops in with a
+   small overshoot and its entries arrive in a quick stagger, slips
+   laid down in order (floating bottom nav's stagger, shell form). ── */
+@keyframes drawer-settle {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.drawer-spring {
+  animation: drawer-settle 420ms cubic-bezier(0.3, 1.25, 0.5, 1) both;
+}
+@keyframes nav-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.nav-stagger li {
+  animation: nav-item-in 360ms cubic-bezier(0.3, 1.2, 0.5, 1) both;
+}
+.nav-stagger li:nth-child(1) { animation-delay: 40ms; }
+.nav-stagger li:nth-child(2) { animation-delay: 80ms; }
+.nav-stagger li:nth-child(3) { animation-delay: 120ms; }
+.nav-stagger li:nth-child(4) { animation-delay: 160ms; }
+.nav-stagger li:nth-child(5) { animation-delay: 200ms; }
+.nav-stagger li:nth-child(6) { animation-delay: 240ms; }
+.nav-stagger li:nth-child(7) { animation-delay: 280ms; }
+
+/* ── Stepped stations (stepped progress): a completed station's numeral
+   flips into its check with a quick rotation, the stamp landing once. ── */
+@keyframes station-stamp {
+  0% {
+    transform: rotate(-14deg) scale(1.35);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(2deg) scale(0.96);
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+.station-stamp {
+  animation: station-stamp 360ms cubic-bezier(0.3, 1.3, 0.5, 1) both;
 }

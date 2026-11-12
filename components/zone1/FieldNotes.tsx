@@ -65,17 +65,15 @@ export default function FieldNotes() {
             posts.length > 1 && "md:grid-cols-2 lg:grid-cols-3"
           )}
         >
-          {posts.map((post, index) => (
-            <Link
+          {posts.map((post) => (
+            <div
               key={post.slug}
               data-reveal-item
+              className="card-stack card-stack-field stack-spring"
+            >
+            <Link
               href={`/blog/${post.slug}`}
-              className={cn(
-                "group theme-cream paper flex flex-col border border-border bg-card p-6 transition-colors hover:border-primary/60",
-                posts.length % 2 === 1 &&
-                  index === posts.length - 1 &&
-                  "md:col-span-2 md:w-[calc(50%-0.5rem)] md:justify-self-center lg:col-span-1 lg:w-auto lg:justify-self-stretch"
-              )}
+              className="record-card group flex h-full flex-col p-6 hover:border-primary/60"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                 {formatDate(post.date)}
@@ -92,6 +90,7 @@ export default function FieldNotes() {
                 Read the note
               </span>
             </Link>
+            </div>
           ))}
         </div>
       </Container>

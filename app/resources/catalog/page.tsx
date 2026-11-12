@@ -2,41 +2,40 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { PARTS, SPINES, TOOLS, resourceSlug, resourceTitleSlug } from "@/lib/resources"
 import SignalLine from "@/components/ui/SignalLine"
 import StaggerReveal from "@/components/ui/StaggerReveal"
 
-const BASE_URL = "https://www.crosstownosrv.camp"
+const BASE_URL = "https://www.getevidens.com"
 
 export const metadata: Metadata = {
   keywords: ["resource catalog", "Acquisition Signal resources", "diligence tools", "working papers", "deal diligence"],
-  title: "Resource Catalog | CrosstownOS",
+  title: "Resource Catalog | Evidens",
   description:
     "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents. Free PDF downloads; one email unlocks the whole library.",
   alternates: { canonical: "/resources/catalog" },
   openGraph: {
-    title: "Resource Catalog | CrosstownOS",
+    title: "Resource Catalog | Evidens",
     description:
       "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents.",
     type: "website",
     url: "/resources/catalog",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "Resource Catalog | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Resource Catalog | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resource Catalog | CrosstownOS",
+    title: "Resource Catalog | Evidens",
     description:
       "All 38 Acquisition Signal resources: 35 coded tools organized by the seven Parts of the deal journey, plus the three spine documents.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -45,7 +44,7 @@ const jsonLd = {
   "@type": "ItemList",
   name: "Acquisition Signal Resource Library",
   description:
-    "Thirty-eight free diligence resources for RV park and manufactured-housing buyers from CrosstownOS // Acquire: 35 coded tools plus the three spine documents.",
+    "Thirty-eight free diligence resources for RV park and manufactured-housing buyers from Evidens // Acquire: 35 coded tools plus the three spine documents.",
   numberOfItems: TOOLS.length + SPINES.length,
   itemListElement: [
     ...TOOLS.map((t, i) => ({
@@ -70,7 +69,6 @@ export default function CatalogPage() {
     <>
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -93,7 +91,7 @@ export default function CatalogPage() {
           </p>
           <section
             aria-label="Start with the spine"
-            className="theme-cream mt-8 border border-border bg-card p-6"
+            className="sheet-card corners mt-8 p-6"
           >
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               Start with the spine.
@@ -135,7 +133,7 @@ export default function CatalogPage() {
               </li>
             </ul>
           </section>
-          <div className="theme-cream mt-8 border border-primary/40 bg-card p-6">
+          <div className="sheet-card corners mt-8 p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Prefer to run the math?
             </p>
@@ -173,7 +171,7 @@ export default function CatalogPage() {
                       <div
                         key={tool.code}
                         data-reveal-item
-                        className="theme-cream card-lift flex flex-col border border-border bg-card p-6"
+                        className="sheet-card corners card-lift flex flex-col p-6"
                       >
                         <div className="flex flex-wrap items-center gap-3">
                           <span className="bg-primary-deep px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
@@ -202,7 +200,7 @@ export default function CatalogPage() {
                             href: `/resources/${resourceSlug(tool)}`,
                             label: "See how it fits the chain",
                           }}
-                          className="mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                          className="btn-plate mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                         />
                       </div>
                     ))}
@@ -212,12 +210,12 @@ export default function CatalogPage() {
             })}
           </div>
 
-          <p className="theme-cream paper mt-6 border border-border/60 bg-card/40 p-4 text-sm leading-relaxed text-muted">
+          <p className="record-card corners mt-6 p-4 text-sm leading-relaxed text-muted">
             Advance, Retrade, Pause, and Walk are evidence-readiness labels.
             They are not recommendations, approvals, or advice.
           </p>
 
-          <div className="theme-cream paper mt-20 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="sheet-card corners mt-20 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The working papers
             </p>
@@ -231,14 +229,14 @@ export default function CatalogPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="/blog"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Read Field Notes
               </a>
             </div>
           </div>
 
-          <div className="theme-cream paper mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="sheet-card corners mt-8 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
@@ -248,13 +246,13 @@ export default function CatalogPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a pilot place
               </a>
             </div>
           </div>
-          <div className="theme-cream paper mt-12 border border-primary/40 bg-card p-8 text-center">
+          <div className="sheet-card corners mt-12 p-8 text-center">
             <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
               Every sheet in the library exists to move one claim from asserted to proven.
             </p>

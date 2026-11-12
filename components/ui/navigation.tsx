@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react"
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
@@ -84,7 +84,7 @@ function ProgressBar() {
     <div className="relative h-0.5 bg-border" aria-hidden="true">
       <div
         ref={barRef}
-        className="h-full w-full origin-left scale-x-0 bg-primary shadow-[0_0_8px_rgba(58,134,242,0.95),0_0_18px_rgba(58,134,242,0.55)]"
+        className="h-full w-full origin-left scale-x-0 bg-primary"
       />
     </div>
   )
@@ -402,7 +402,7 @@ export default function Navigation() {
         >
           <p className="flex items-center gap-1.5 whitespace-nowrap text-center font-mono text-[8px] font-bold uppercase tracking-[0.06em] text-muted transition-colors hover:text-foreground sm:gap-2 sm:text-[11px] sm:tracking-[0.22em]">
             <span className="h-1.5 w-1.5 flex-none bg-primary" aria-hidden="true" />
-            Five free pilot places. Target opening: November 2026.
+            Five free pilot places.
           </p>
         </Link>
 
@@ -411,21 +411,17 @@ export default function Navigation() {
             <button
               type="button"
               onClick={goHome}
-              className="group flex min-w-fit items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              aria-label="Return to the CrosstownOS homepage"
+              className="group flex min-w-fit items-center text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              aria-label="Return to the Evidens homepage"
             >
-              <span className="relative h-11 w-11 flex-none overflow-hidden [clip-path:circle(50%)]">
-                <Image
-                  src="/logo.jpg"
-                  alt="CrosstownOS"
-                  fill
-                  sizes="40px"
-                  className="object-cover"
-                />
-              </span>
-              <span className="font-serif text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                CrosstownOS
-              </span>
+              <Image
+                src="/logo-tiedye-horizontal.png"
+                alt="Evidens"
+                width={2048}
+                height={496}
+                priority
+                className="h-10 w-auto flex-none"
+              />
             </button>
 
             <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center lg:flex">
@@ -438,7 +434,8 @@ export default function Navigation() {
 
             <Link
               href="/workspace"
-              className="hidden min-w-fit border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
+              style={{ "--press-color": "var(--acquire)" } as CSSProperties}
+              className="btn-plate hidden min-w-fit border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:block"
             >
               Apply for a pilot place
             </Link>
@@ -473,7 +470,7 @@ export default function Navigation() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-navigation-title"
-            className="fixed inset-x-0 bottom-0 top-[6.125rem] z-[45] overflow-y-auto border-t border-border bg-background lg:hidden"
+            className="drawer-spring fixed inset-x-0 bottom-0 top-[6.125rem] z-[45] overflow-y-auto border-t border-border bg-background lg:hidden"
           >
             <div className="flex items-center justify-between border-b border-border px-5 py-4">
               <p
@@ -493,7 +490,7 @@ export default function Navigation() {
             </div>
 
             <nav aria-label="Mobile primary" className="px-5 py-5">
-              <ul className="space-y-1">
+              <ul className="nav-stagger space-y-1">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.label}>{renderEntry(item, "mobile")}</li>
                 ))}
@@ -504,7 +501,7 @@ export default function Navigation() {
               <Link
                 href="/workspace"
                 onClick={() => setOpen(false)}
-                className="block w-full border border-primary/60 bg-primary-deep px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate block w-full border border-primary/60 bg-primary-deep px-4 py-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a pilot place
               </Link>

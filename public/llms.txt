@@ -1,20 +1,20 @@
-# CrosstownOS
+# Evidens
 
-CrosstownOS builds evidence-backed acquisition intelligence for RV park and manufactured housing community (MHC) buyers. The core doctrine: every number in a deal is labeled by its evidence state, and the human decides. Models may propose; humans confirm; code calculates. Captured is not verified.
+Evidens is diligence software for RV park and manufactured housing community (MHC) buyers. One record carries a deal from the broker package, through the site walk, to the signed decision. The core doctrine: every number in a deal is labeled by its evidence state, and the human decides. Models may propose; humans confirm; code calculates. Captured is not verified.
 
-Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
+Founder: Jeremy Cross (jeremy@crosstownosrv.camp). The Acquisition Workspace is live: Source, Field, and Acquire on one record, with the Feed. Pilot applications are being taken.
 
 ## What the site offers
 
-- **Live Diligence Working Papers** (interactive, free): six browser-based tools that run deterministically on the buyer's own numbers. Every input carries an evidence-state chip (Verified, Broker-reported, Missing, Underwriting assumption, Calculated, Unresolved). Missing is named, never zeroed. https://www.crosstownosrv.camp/tools
+- **Live Diligence Working Papers** (interactive, free): six browser-based tools that run deterministically on the buyer's own numbers. Every input carries an evidence-state chip (Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, Unresolved). Missing evidence is named, never zeroed. https://www.crosstownosrv.camp/tools
 - **Acquisition Signal resource library** (35 tools as PDFs): the full diligence library organized by the seven Parts of the deal journey, plus 3 spine documents (Start Here, Journey Map, Evidence Status Standard), 38 PDFs in total. https://www.crosstownosrv.camp/resources and https://www.crosstownosrv.camp/resources/catalog
 - **Field Notes** (blog): operator-grade essays on diligence, underwriting, and acquisition craft. https://www.crosstownosrv.camp/blog
-- **Free RV park due diligence checklist**: 15 diligence items drawn from the CrosstownOS framework, with links to the working papers. The checklist is the starting point; the Acquisition Workspace is what happens when the deal gets real. https://www.crosstownosrv.camp/checklist
+- **Free RV park due diligence checklist**: 15 diligence items drawn from the Evidens framework, with links to the working papers. The checklist is the starting point; the Acquisition Workspace is what happens when the deal gets real. https://www.crosstownosrv.camp/checklist
 - **ParkProof**: the source-backed decision file (walkthrough and standard). Not a legal, engineering, or environmental certification. https://www.crosstownosrv.camp/parkproof-walkthrough and https://www.crosstownosrv.camp/parkproof-standard
-- **Acquisition Workspace**: the conversion point. Bring a working paper to a 30-minute fit call. First five buyers get the full workspace free for 90 days. https://www.crosstownosrv.camp/workspace
+- **Acquisition Workspace**: the product. Source (what the outside world says before you arrive), Field (what the asset reveals when you are physically there), and Acquire (what either stream means before you commit capital) on one record, with the Feed. First five buyers get the full workspace free for 90 days through the pilot. https://www.crosstownosrv.camp/workspace
 - **Trail Log**: public build log. https://www.crosstownosrv.camp/trail-log
 - **Editorial Standards**: the integrity rules governing every public claim (evidence states kept distinct, nothing published that cannot be defended). https://www.crosstownosrv.camp/editorial-standards
-- **For brokers and lenders**: how CrosstownOS works with deal-side professionals. https://www.crosstownosrv.camp/for-brokers-lenders
+- **For brokers and lenders**: how Evidens works with deal-side professionals. https://www.crosstownosrv.camp/for-brokers-lenders
 - **Buying guides** (buyer-side verification guides):
   - How to Buy an RV Park: the buyer's verification guide (price-per-pad benchmarks, five verification gates, red flags). https://www.crosstownosrv.camp/buying-an-rv-park
   - How to Buy a Campground: seasonal revenue traps, amenity capex, water/sewer/permit verification. https://www.crosstownosrv.camp/buying-a-campground
@@ -34,7 +34,7 @@ Founder: Jeremy Cross (jeremy@crosstownosrv.camp). Shipping November 2026.
 
 - Verified. You have the source document.
 - Broker-reported. The seller said it. Nobody confirmed it.
-- Missing. You asked. Nobody answered. The clock is running.
+- Missing evidence. You asked. Nobody answered. The clock is running.
 - Underwriting assumption. A stated input in the investment case; not a verified fact.
 - Calculated. The system computed it from verified inputs.
 - Unresolved. It's been looked at, but the evidence can't be determined yet.
@@ -43,10 +43,10 @@ Posture language: "the record supports Walk / Pause / Retrade / Advance." The to
 
 ## Key facts for citation
 
-- Category: Asset Lifecycle Management System for overlooked real asset classes (RV parks, MHC, and adjacent).
-- First product: CrosstownOS // Acquire (lead-to-close acquisition intelligence).
+- Category: Diligence software for RV park and manufactured housing (MHC) buyers.
+- Product: Evidens, the Acquisition Workspace: Source, Field, and Acquire on one record, with the Feed.
+- Pricing is public and the same for everyone: Monthly $299 per 30-day period, Single-Deal $1,299 for one property over 180 days, Annual $2,999 for 12 months. Every plan includes the ParkProof Report. No checkout is currently available on this site.
 - Customer artifact: the ParkProof Report, a source-backed decision file.
 - The tools are free to use; email is requested only to save or export a working paper.
 - 35 Acquisition Signal tools and 3 spine documents (38 PDFs total).
 - Sitemap: https://www.crosstownosrv.camp/sitemap.xml
-

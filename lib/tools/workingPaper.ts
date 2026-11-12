@@ -10,7 +10,7 @@
  */
 import type { ToolExport } from "./schema"
 
-const SITE_URL = "https://www.crosstownosrv.camp"
+const SITE_URL = "https://www.getevidens.com"
 const LOGO_URL = `${SITE_URL}/logo.jpg`
 const ACQUIRE_BLUE = "#00468B"
 

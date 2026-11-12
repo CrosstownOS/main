@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
   type FormEvent,
+  type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react"
 import { ArrowRight, MessageSquare, X } from "lucide-react"
@@ -50,8 +51,8 @@ const OFFERS: {
 }[] = [
   {
     label: "The product",
-    sub: "What CrosstownOS is, in one breath",
-    prompt: "What is CrosstownOS?",
+    sub: "What Evidens is, in one breath",
+    prompt: "What is Evidens?",
   },
   {
     label: "The ParkProof Standard",
@@ -332,6 +333,29 @@ export default function SiteAgent() {
     setOpen(false)
   }
 
+  // Drag close drawer behavior (drag close drawer, phone posture): the
+  // panel is bottom-anchored, so a firm downward drag on its header
+  // dismisses it, the way a bottom sheet leaves the hand. Past a 90px
+  // threshold the drag files the transcript and closes; short drags do
+  // nothing. Mouse drags on desktop are left to the close button.
+  const onHeaderPointerDown = (event: ReactPointerEvent<HTMLElement>) => {
+    if (event.pointerType !== "touch" && event.pointerType !== "pen") return
+    const startY = event.clientY
+    const onMove = (move: PointerEvent) => {
+      if (move.clientY - startY > 90) {
+        window.removeEventListener("pointermove", onMove)
+        window.removeEventListener("pointerup", onUp)
+        closePanel()
+      }
+    }
+    const onUp = () => {
+      window.removeEventListener("pointermove", onMove)
+      window.removeEventListener("pointerup", onUp)
+    }
+    window.addEventListener("pointermove", onMove)
+    window.addEventListener("pointerup", onUp)
+  }
+
   const openHumanForm = () => {
     flagsRef.current.escalated = true
     setShowForm(true)
@@ -528,15 +552,18 @@ export default function SiteAgent() {
           role="dialog"
           aria-modal="false"
           aria-label={`${AGENT_DISPLAY_NAME} conversation`}
-          className="theme-cream fixed inset-x-3 bottom-24 top-30 z-40 flex flex-col border border-primary/40 bg-card shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:top-auto md:h-[min(640px,84dvh)] md:w-[400px]"
+          className="theme-cream panel-spring fixed inset-x-3 bottom-24 top-30 z-40 flex flex-col border border-primary/40 bg-card shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:top-auto md:h-[min(640px,84dvh)] md:w-[400px]"
         >
-          <header className="border-b border-border bg-background px-5 py-4">
+          <header
+            className="border-b border-border bg-background px-5 py-4"
+            onPointerDown={onHeaderPointerDown}
+          >
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
-                <span className="relative h-10 w-10 flex-none overflow-hidden [clip-path:circle(50%)]">
+                <span className="relative h-10 w-10 flex-none overflow-hidden">
                   <Image
-                    src="/logo.jpg"
-                    alt="CrosstownOS"
+                    src="/icon-512.png"
+                    alt="Evidens"
                     fill
                     sizes="40px"
                     className="object-cover"
@@ -544,9 +571,6 @@ export default function SiteAgent() {
                 </span>
                 <div>
                   <p className="font-serif text-lg font-semibold leading-tight tracking-tight text-foreground">
-                    CrosstownOS
-                  </p>
-                  <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
                     {AGENT_DISPLAY_NAME}
                   </p>
                 </div>
@@ -703,7 +727,7 @@ export default function SiteAgent() {
                         />
                         <span className="text-xs leading-relaxed text-muted">
                           I acknowledge the privacy notice and consent to
-                          Crosstown reviewing this message and following up
+                          Evidens reviewing this message and following up
                           with me about it.
                         </span>
                       </label>
@@ -726,7 +750,7 @@ export default function SiteAgent() {
                     <button
                       type="submit"
                       disabled={sending}
-                      className="border border-primary/60 bg-primary px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60"
+                      className="btn-plate border border-primary/60 bg-primary px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {sending ? "Filing…" : "File it with the desk"}
                     </button>
@@ -754,7 +778,7 @@ export default function SiteAgent() {
                 {messages.map((m, i) =>
                   m.role === "user" ? (
                     <div key={i} className="flex justify-end">
-                      <p className="max-w-[85%] bg-primary px-3.5 py-2.5 text-sm leading-relaxed text-white">
+                      <p className="btn-plate max-w-[85%] bg-primary px-3.5 py-2.5 text-sm leading-relaxed text-white">
                         {m.content}
                       </p>
                     </div>
@@ -822,7 +846,7 @@ export default function SiteAgent() {
                     <button
                       type="button"
                       onClick={openHumanForm}
-                      className="mt-3 border border-primary/60 bg-primary px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      className="btn-plate mt-3 border border-primary/60 bg-primary px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     >
                       File it with Jeremy
                     </button>
@@ -862,13 +886,13 @@ export default function SiteAgent() {
                 <button
                   type="submit"
                   disabled={busy || !input.trim()}
-                  className="flex-none border border-primary/60 bg-primary px-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
+                  className="btn-plate flex-none border border-primary/60 bg-primary px-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Ask
                 </button>
               </form>
               <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
-                Filed to Crosstown&rsquo;s record · Do not paste documents or
+                Filed to the Evidens record · Do not paste documents or
                 financials here
               </p>
             </div>

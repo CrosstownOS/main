@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
-  keywords: ["CrosstownOS privacy policy"],
-  title: "Privacy Policy | CrosstownOS",
+  keywords: ["Evidens privacy policy"],
+  title: "Privacy Policy | Evidens",
   description:
-    "How CrosstownOS collects, uses, and protects the information you share, including deal data confidentiality, cookies, third-party providers, and your rights.",
+    "How Evidens collects, uses, and protects the information you share, including deal data confidentiality, cookies, third-party providers, and your rights.",
   alternates: { canonical: "/privacy" },
 }
 
@@ -14,19 +13,19 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Privacy Policy",
-  description: "How CrosstownOS handles information you share with us.",
-  url: "https://www.crosstownosrv.camp/privacy",
+  description: "How Evidens handles information you share with us.",
+  url: "https://www.getevidens.com/privacy",
   isPartOf: {
     "@type": "WebSite",
-    name: "CrosstownOS",
-    url: "https://www.crosstownosrv.camp",
+    name: "Evidens",
+    url: "https://www.getevidens.com",
   },
   publisher: {
     "@type": "Organization",
-    name: "CrosstownOS",
+    name: "Evidens",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.crosstownosrv.camp/logo.jpg",
+      url: "https://www.getevidens.com/logo.jpg",
     },
   },
 }
@@ -35,7 +34,7 @@ const SECTIONS = [
   {
     heading: "Who we are",
     body: [
-      "CrosstownOS is operated by Jeremy Cross, based in Kaufman, Texas. This policy covers crosstownosrv.camp and the Acquisition Workspace. Contact for privacy questions: jeremy@crosstownosrv.camp.",
+      "CrosstownOS is operated by Jeremy Cross, based in Kaufman, Texas. This policy covers getevidens.com and the Acquisition Workspace. Contact for privacy questions: jeremy@crosstownosrv.camp.",
     ],
   },
   {
@@ -43,7 +42,7 @@ const SECTIONS = [
     body: [
       "Identity and contact information: when you use our application form, book a fit call, join the free pilot, or buy the workspace, we collect the information you provide, such as name, email, phone, company, and website.",
       "Deal context: asset type, deal stage, deadline, price range, deal description, and referral source, so we can assess fit and serve you.",
-      "Newsletter subscriptions: when you subscribe to Crosstown Updates, we collect your email address.",
+      "Newsletter subscriptions: when you subscribe to Evidens Updates, we collect your email address.",
       "Site chat: when you use the chat on this site, we collect the messages you send and the transcript of the conversation. The chat is answered by an AI agent, and the transcript is filed to our record and delivered to us by email so we can follow up and improve what the site answers.",
       "Workspace data: your account information, credentials activity, and everything you enter into the workspace, including documents, numbers, notes, and records. Your deal data remains yours at all times.",
       "Payment information: payments are processed by our checkout provider. We do not store your full card number.",
@@ -53,7 +52,7 @@ const SECTIONS = [
   {
     heading: "What we do not collect",
     body: [
-      "The free working papers at crosstownosrv.camp/tools run entirely in your browser. Your inputs are stored in your browser's local storage on your own device. We do not receive, store, or have access to your working paper inputs.",
+      "The free working papers at getevidens.com/tools run entirely in your browser. Your inputs are stored in your browser's local storage on your own device. We do not receive, store, or have access to your working paper inputs.",
     ],
   },
   {
@@ -66,7 +65,7 @@ const SECTIONS = [
     heading: "How we use what you share",
     body: [
       "Application form submissions: to review your fit for the Acquisition Workspace and to contact you about it.",
-      "Newsletter subscriptions: to send you Crosstown Updates. Every email includes an unsubscribe link.",
+      "Newsletter subscriptions: to send you Evidens Updates. Every email includes an unsubscribe link.",
       "Scheduling information: to arrange and conduct your fit call.",
       "Site chat conversations: to answer you, to follow up where you ask us to, and to learn what the site fails to answer. Transcripts are treated as correspondence records.",
       "Workspace data: solely to operate the workspace for you. Your deal data is never used in content, examples, or marketing, and never disclosed, without your written permission.",
@@ -145,8 +144,8 @@ export default function PrivacyPage() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <div className="sheet-card corners p-6 sm:p-10">
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Privacy Policy
           </h1>
@@ -166,6 +165,7 @@ export default function PrivacyPage() {
               ))}
             </section>
           ))}
+          </div>
         </div>
       </main>
     </>

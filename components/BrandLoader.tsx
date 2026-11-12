@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 /**
- * BrandLoader — branded loading screen for CrosstownOS.
+ * BrandLoader — branded loading screen for Evidens.
  *
  * Full-screen brand moment on first visit per session: logo, wordmark
  * (Playfair), signal-line draw, launch teaser (sans), and launch date
@@ -84,38 +84,35 @@ export default function BrandLoader() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Welcome to CrosstownOS"
+      aria-label="Welcome to Evidens"
       onClick={goToWorkspace}
-      className={`brand-loader-root fixed inset-0 z-[200] flex cursor-pointer items-center justify-center bg-[#0c0b09] transition-opacity duration-300 ${
+      className={`brand-loader-root fixed inset-0 z-[200] flex cursor-pointer items-center justify-center bg-[#f7efda] transition-opacity duration-300 ${
         leaving ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
       <div className="flex flex-col items-center px-6 text-center">
-        <span className="relative h-24 w-24 overflow-hidden [clip-path:circle(50%)]">
+        <span className="relative h-24 w-24">
           <Image
-            src="/logo.jpg"
-            alt="CrosstownOS logo"
+            src="/icon-512.png"
+            alt="Evidens"
             fill
             sizes="96px"
             className="object-cover"
             priority
           />
         </span>
-        <p className="mt-6 font-serif text-5xl font-semibold tracking-tight text-white">
-          CrosstownOS
+        <p className="mt-6 font-serif text-5xl font-semibold tracking-tight text-[#141923]">
+          Evidens
         </p>
         <span aria-hidden="true" className="brand-loader-line mt-5" />
-        <p className="mt-5 text-lg text-neutral-300">Acquisition Workspace</p>
-        <p className="mt-3 font-mono text-xs uppercase tracking-[0.3em] text-[#3a86f2]">
-          Launching November 2026
-        </p>
+        <p className="mt-5 text-lg text-[#6a5f4e]">Acquisition Workspace</p>
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation()
             goToWorkspace()
           }}
-          className="mt-8 border border-[#3a86f2] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-[#3a86f2]"
+          className="mt-8 border border-[#00468B] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.24em] text-[#141923] transition-colors hover:bg-[#00468B] hover:text-white"
         >
           See the Workspace
         </button>

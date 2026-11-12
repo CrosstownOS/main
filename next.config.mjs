@@ -13,6 +13,18 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'crosstownosrv.camp' }],
+        destination: 'https://www.getevidens.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.crosstownosrv.camp' }],
+        destination: 'https://www.getevidens.com/:path*',
+        permanent: true,
+      },
+      {
         source: '/sample-decision-file',
         destination: '/parkproof-walkthrough',
         permanent: true,

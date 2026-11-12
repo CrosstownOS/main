@@ -12,7 +12,7 @@ import {
   Container,
   Heading,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel } from "@/components/ui/primitives"
 import { useReveal } from "@/hooks/useReveal"
 import { cn } from "@/lib/utils"
@@ -53,13 +53,10 @@ const CONVERSION_PATHS: ConversionPath[] = [
     name: "Acquisition Workspace",
     question: "Actively acquiring an RV park or MHC?",
     description:
-      "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the CrosstownOS workspace, from evidence to a documented decision file.",
+      "For buyers with a live or imminent deal and a decision deadline. Run the deal inside the Evidens workspace, from evidence to a documented decision file.",
     cta: "Apply for a pilot place",
     action: "deal_desk",
     href: "/workspace",
-    secondaryLink: {
-      label: "See pricing",
-      href: "/pricing" },
     icon: Target },
   {
     code: "02",
@@ -78,7 +75,7 @@ const CONVERSION_PATHS: ConversionPath[] = [
     name: "Referral Alliance",
     question: "Know the assets and the people?",
     description:
-      "For brokers, lenders, operators, and advisers who want a standing partner conversation with Crosstown.",
+      "For brokers, lenders, operators, and advisers who want a standing partner conversation with Evidens.",
     cta: "Start a Partner Conversation",
     action: "referral_network",
     secondaryLink: {
@@ -145,7 +142,7 @@ export default function PlatformLinks() {
           <div className="mb-5">
             <span aria-hidden="true" data-reveal-line className="mb-3" />
             <TerminalLabel data-reveal-stamp className="block">
-              Paths Into Crosstown
+              Paths Into Evidens
             </TerminalLabel>
           </div>
           <Heading
@@ -153,7 +150,7 @@ export default function PlatformLinks() {
             level={2}
             className="text-balance text-3xl leading-tight sm:text-4xl lg:text-5xl"
           >
-            Find your path into CrosstownOS.
+            Find your path into Evidens.
           </Heading>
         </div>
 
@@ -162,17 +159,19 @@ export default function PlatformLinks() {
             const Icon = path.icon
 
             return (
-              <TelemetryBox
+              <div
                 key={path.name}
                 data-reveal-item
-                glass="light"
-                className="theme-cream paper flex h-full w-full flex-col p-5 transition-colors hover:border-primary/50 hover:bg-primary/5 md:w-[calc(50%-0.5rem)]"
+                className="card-stack card-stack-acquire stack-spring w-full md:w-[calc(50%-0.5rem)]"
+              >
+              <SheetCard
+                className="flex h-full w-full flex-col p-5 hover:border-primary/50 hover:bg-primary/5"
               >
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <span className="font-mono text-[10px] tracking-[0.22em] text-muted/60">
                     {path.code}
                   </span>
-                  <div className="flex h-9 w-9 items-center justify-center border border-border/60 bg-background/50">
+                  <div className="flex h-9 w-9 items-center justify-center border border-border/60 bg-[var(--cream)]">
                     <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
                   </div>
                 </div>
@@ -190,7 +189,7 @@ export default function PlatformLinks() {
                 {path.href ? (
                   <Link
                     href={path.href}
-                    className="mt-auto border border-primary/60 bg-primary-deep px-4 py-3 text-center font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="btn-plate mt-auto border border-primary/60 bg-primary-deep px-4 py-3 text-center font-mono text-[9px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     {path.cta}
                   </Link>
@@ -199,7 +198,7 @@ export default function PlatformLinks() {
                     type="button"
                     onClick={() => handlePathAction(path)}
                     aria-haspopup="dialog"
-                    className="mt-auto border border-primary/60 px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="btn-press mt-auto border border-primary/60 px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     {path.cta}
                   </button>
@@ -213,12 +212,13 @@ export default function PlatformLinks() {
                     {path.secondaryLink.label}
                   </Link>
                 ) : null}
-              </TelemetryBox>
+              </SheetCard>
+              </div>
             )
           })}
         </div>
 
-        <div className="theme-cream paper mx-auto mt-8 max-w-5xl border border-primary/40 bg-card p-6 text-center sm:p-8">
+        <SheetCard className="mx-auto mt-8 max-w-5xl p-6 text-center sm:p-8">
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
             Not sure where you fit? Start a general conversation and we&rsquo;ll route it.
           </p>
@@ -227,12 +227,12 @@ export default function PlatformLinks() {
               type="button"
               onClick={() => dispatchFormEvent(OPEN_GENERAL_EVENT, "paths-not-sure")}
               aria-haspopup="dialog"
-              className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="btn-plate inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Start a general conversation
             </button>
           </div>
-        </div>
+        </SheetCard>
       </Container>
     </Section>
   )
@@ -245,16 +245,15 @@ export function CompassCriteriaDrawer() {
   const [compassOpen, setCompassOpen] = useState(false)
   const drawerRef = useRef<HTMLDivElement>(null)
   const wasOpenRef = useRef(false)
+  const triggerRef = useRef<HTMLElement | null>(null)
+
+  const closeCompass = () => {
+    setCompassOpen(false)
+    // Return focus to the trigger that opened the drawer
+    requestAnimationFrame(() => triggerRef.current?.focus())
+  }
 
   useEffect(() => {
-    const triggerRef = useRef<HTMLElement | null>(null)
-
-    const closeCompass = () => {
-      setCompassOpen(false)
-      // Return focus to the trigger that opened the drawer
-      requestAnimationFrame(() => triggerRef.current?.focus())
-    }
-
     const openDrawer = () => {
       triggerRef.current = document.activeElement as HTMLElement | null
       setCompassOpen(true)
@@ -390,7 +389,7 @@ export function CompassCriteriaDrawer() {
             <button
               type="button"
               onClick={submitOpportunityFromCompass}
-              className="w-full border border-primary/60 bg-primary-deep px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="btn-plate w-full border border-primary/60 bg-primary-deep px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Submit an Opportunity
             </button>

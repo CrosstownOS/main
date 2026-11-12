@@ -393,7 +393,7 @@ export default function UtilityTriageTool() {
       pdfHref="/resources/utility-and-wastewater-diligence-sheet"
       relatedNote={{ href: "/blog/the-utility-system-nobody-underwrote", label: "The Utility System Nobody Underwrote" }}
     >
-      <section className="theme-cream border border-border bg-card p-6">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The park
         </h2>
@@ -415,7 +415,7 @@ export default function UtilityTriageTool() {
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {systems.map((s) => (
-          <section key={s.key} className="theme-cream border border-border bg-card p-6">
+          <section key={s.key} className="theme-cream sheet-card p-6">
             <div className="flex items-center justify-between gap-2">
               <h2 className="serif-display text-xl tracking-tight">{s.label}</h2>
               <span
@@ -469,7 +469,7 @@ export default function UtilityTriageTool() {
         ))}
       </div>
 
-      <section className="theme-cream mt-8 border border-border bg-card p-6">
+      <section className="theme-cream sheet-card mt-8 p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Capacity scores
         </h2>
@@ -511,7 +511,7 @@ export default function UtilityTriageTool() {
         </p>
       </section>
 
-      <section className="theme-cream mt-8 border border-border bg-card p-6">
+      <section className="theme-cream sheet-card mt-8 p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Open evidence requests
         </h2>

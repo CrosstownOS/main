@@ -4,8 +4,9 @@ import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
+  RoomStack,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 import { SOURCE_SENTENCE } from "@/lib/source-copy"
@@ -21,7 +22,7 @@ const MODULES = [
   {
     name: "Field",
     color: "#D97706",
-    family: "Know it · Take it",
+    family: "Take it",
     tagline: "What the asset reveals when you are physically there.",
     body: "Field captures what you see when you get there. Photos, notes, and observations from the site walk are tied to the deal and held as unreviewed evidence until a person reviews them. Captured is not verified.",
   },
@@ -30,7 +31,7 @@ const MODULES = [
     color: "#00468B",
     family: "Know it",
     tagline: "What either stream means before you commit capital.",
-    body: "Acquire organizes what either stream means before you make the decision. The diligence register, evidence states, capacity gates, and deterministic underwriting feed the ParkProof decision file. CrosstownOS organizes the record. You own the decision.",
+    body: "Acquire organizes what either stream means before you make the decision. The diligence register, evidence states, capacity gates, and deterministic underwriting feed the ParkProof decision file. Evidens organizes the record. You own the decision.",
   },
 ] as const
 
@@ -60,37 +61,38 @@ export default function ProductLoop() {
           </Heading>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {MODULES.map((module) => (
-            <TelemetryBox
+            <RoomStack
               key={module.name}
+              room={module.name.toLowerCase() as "source" | "field" | "acquire"}
               data-reveal-item
-              glass="light"
-              className="theme-cream paper flex h-full flex-col p-6"
-              style={{ borderTop: `2px solid ${module.color}` }}
+              className="stack-spring stack-sheets h-full"
             >
-              <div className="mb-5 flex items-center justify-between gap-3">
-                <span className="flex items-center gap-2">
-                  <span
-                    className="h-2.5 w-2.5 flex-none"
-                    style={{ backgroundColor: module.color }}
-                    aria-hidden="true"
-                  />
-                  <Heading level={3} className="text-xl">
-                    {module.name}
-                  </Heading>
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                  {module.family}
-                </span>
-              </div>
-              <p className="mb-4 font-sans text-sm font-bold tracking-tight text-foreground">
-                {module.tagline}
-              </p>
-              <p className="text-sm leading-relaxed text-foreground/75">
-                {module.body}
-              </p>
-            </TelemetryBox>
+              <SheetCard className="flex h-full flex-col p-6">
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="h-2.5 w-2.5 flex-none"
+                      style={{ backgroundColor: module.color }}
+                      aria-hidden="true"
+                    />
+                    <Heading level={3} className="text-xl">
+                      {module.name}
+                    </Heading>
+                  </span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+                    {module.family}
+                  </span>
+                </div>
+                <p className="mb-4 font-sans text-sm font-bold tracking-tight text-foreground">
+                  {module.tagline}
+                </p>
+                <p className="text-sm leading-relaxed text-foreground/75">
+                  {module.body}
+                </p>
+              </SheetCard>
+            </RoomStack>
           ))}
         </div>
       </Container>

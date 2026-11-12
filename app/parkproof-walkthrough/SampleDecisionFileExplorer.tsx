@@ -327,7 +327,7 @@ export default function SampleDecisionFileExplorer() {
   return (
     <section
       aria-labelledby="sample-explorer-heading"
-      className="theme-cream paper border border-primary/40 p-5 sm:p-7"
+      className="record-card corners p-5 sm:p-7"
     >
       <div className="flex flex-col gap-5 border-b border-border/60 pb-6 lg:flex-row lg:items-start lg:justify-between">
         <div>
@@ -361,7 +361,7 @@ export default function SampleDecisionFileExplorer() {
                 className={cn(
                   "h-full w-full border px-3 py-3 text-left font-mono text-[9px] uppercase tracking-[0.15em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
                   activeStep === index
-                    ? "border-primary bg-primary-deep text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
+                    ? "border-primary bg-primary-deep text-white"
                     : "border-border bg-card text-muted hover:border-primary/50 hover:text-foreground",
                 )}
               >
@@ -390,7 +390,7 @@ export default function SampleDecisionFileExplorer() {
               animate={{ opacity: 1, y: 0 }}
               exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
               transition={{ duration: 0.38, ease: "easeOut" }}
-              className="border border-border bg-card p-5 text-card-foreground shadow-[0_22px_50px_-34px_rgba(41,34,25,0.55)] sm:p-7"
+              className="border border-border bg-card p-5 text-card-foreground sm:p-7"
             >
               {activeStep === 0 && (
                 <div>
@@ -695,7 +695,7 @@ export default function SampleDecisionFileExplorer() {
                         className={cn(
                           "border px-3 py-3 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary",
                           recordStage === index
-                            ? "border-primary bg-primary-deep text-white shadow-[0_14px_30px_-18px_rgba(41,34,25,0.65)]"
+                            ? "border-primary bg-primary-deep text-white"
                             : "border-border bg-background/40 text-muted hover:border-primary/50 hover:text-foreground",
                         )}
                       >
@@ -1012,7 +1012,7 @@ export default function SampleDecisionFileExplorer() {
               type="button"
               onClick={() => goToStep(activeStep + 1)}
               disabled={activeStep === STEPS.length - 1}
-              className="border border-primary/60 bg-primary-deep px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-plate border border-primary/60 bg-primary-deep px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Next
             </button>
@@ -1021,7 +1021,7 @@ export default function SampleDecisionFileExplorer() {
 
         <aside
           aria-labelledby="claim-ledger-heading"
-          className="border border-primary/50 bg-card shadow-[0_24px_60px_-34px_rgba(41,34,25,0.65)] xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto"
+          className="border border-primary/50 bg-card xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto"
         >
           <div className="border-b border-border/60 p-5">
             <div className="flex items-start justify-between gap-4">

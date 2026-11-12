@@ -123,3 +123,124 @@ export const TerminalLabel = React.forwardRef<
   );
 });
 TerminalLabel.displayName = "TerminalLabel";
+
+// ── CARD PRIMITIVES: the app grammar (Evidens foundation, 2026-11-11) ──
+// Faces and treatments live in globals.css (.sheet-card, .record-card,
+// .card-stack). Flat only: hairline borders and the stacked offset carry
+// the treatment. No glow, no halo.
+
+// White working sheet on the cream ground.
+export const SheetCard = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    return <div ref={ref} className={cn("sheet-card", className)} {...props} />;
+  }
+);
+SheetCard.displayName = "SheetCard";
+
+// Cream record card: the dossier face.
+export const RecordCard = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    return <div ref={ref} className={cn("record-card", className)} {...props} />;
+  }
+);
+RecordCard.displayName = "RecordCard";
+
+// Stacked treatment wrapper: a full card in the room color sits offset
+// behind the face card placed inside.
+interface RoomStackProps extends React.HTMLAttributes<HTMLDivElement> {
+  room: "source" | "field" | "acquire";
+}
+
+export const RoomStack = React.forwardRef<HTMLDivElement, RoomStackProps>(
+  ({ className, room, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn("card-stack", `card-stack-${room}`, className)}
+        {...props}
+      />
+    );
+  }
+);
+RoomStack.displayName = "RoomStack";
+
+// ── EVIDENCE CHIP: the six states, worn like a stamp ──
+export type EvidenceState =
+  | "verified"
+  | "broker-reported"
+  | "missing-evidence"
+  | "underwriting-assumption"
+  | "calculated"
+  | "unresolved";
+
+const EVIDENCE_STATE_LABELS: Record<EvidenceState, string> = {
+  verified: "Verified",
+  "broker-reported": "Broker-reported",
+  "missing-evidence": "Missing evidence",
+  "underwriting-assumption": "Underwriting assumption",
+  calculated: "Calculated",
+  unresolved: "Unresolved",
+};
+
+const EVIDENCE_STATE_COLORS: Record<EvidenceState, string> = {
+  verified: "var(--success)",
+  "broker-reported": "var(--accent-secondary)",
+  "missing-evidence": "var(--critical)",
+  "underwriting-assumption": "var(--status-alert)",
+  calculated: "var(--calculated)",
+  unresolved: "var(--muted)",
+};
+
+interface EvidenceChipProps extends React.HTMLAttributes<HTMLSpanElement> {
+  state: EvidenceState;
+}
+
+export const EvidenceChip = React.forwardRef<HTMLSpanElement, EvidenceChipProps>(
+  ({ className, state, children, ...props }, ref) => {
+    return (
+      <span
+        ref={ref}
+        className={cn(
+          "inline-flex items-center gap-2 border border-border bg-[var(--paper)] px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground",
+          className
+        )}
+        {...props}
+      >
+        <span
+          aria-hidden="true"
+          className="h-1.5 w-1.5 flex-none"
+          style={{ backgroundColor: EVIDENCE_STATE_COLORS[state] }}
+        />
+        {children ?? EVIDENCE_STATE_LABELS[state]}
+      </span>
+    );
+  }
+);
+EvidenceChip.displayName = "EvidenceChip";
+
+// ── BUTTONS: the established styles, flat. Primary is Acquire navy behind
+// white text; outline is hairline ink. No halo on either (2026-11-11). ──
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "outline";
+}
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "primary", type = "button", ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className={cn(
+          "font-mono text-[10px] uppercase tracking-[0.2em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60",
+          variant === "primary" &&
+            "border border-primary/60 bg-primary-deep px-6 py-3 text-white hover:bg-primary-deep/90",
+          variant === "outline" &&
+            "border border-border bg-transparent px-6 py-3 text-foreground hover:border-primary/60 hover:text-primary",
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";

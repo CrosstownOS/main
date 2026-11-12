@@ -117,7 +117,7 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
     eyebrow: "Referral Alliance",
     title: "Start a Partner Conversation",
     intro:
-      "The Referral Alliance is for brokers, lenders, operators, and advisers who know the assets and the people, and want a standing partner conversation with Crosstown.",
+      "The Referral Alliance is for brokers, lenders, operators, and advisers who know the assets and the people, and want a standing partner conversation with Evidens.",
     microcopy: [
       "No compensation terms are published or implied. If a partnership makes sense, terms are discussed privately.",
       "Submitting this form does not create an agency, brokerage, or partnership relationship.",
@@ -210,7 +210,7 @@ const FORM_CONFIGS: Record<FormType, FormConfig> = {
     intro:
       "For owners, brokers, and referral partners submitting a possible sale, recapitalization, operating transition, or strategic opportunity.",
     microcopy: [
-      "Crosstown reviews opportunities confidentially. Submission does not create an offer, broker relationship, agency relationship, valuation opinion, financing commitment, or obligation to transact.",
+      "Evidens reviews opportunities confidentially. Submission does not create an offer, broker relationship, agency relationship, valuation opinion, financing commitment, or obligation to transact.",
     ],
     submitLabel: "Submit Opportunity",
     successTitle: "Your opportunity is in.",
@@ -598,7 +598,7 @@ export default function Chapter5() {
 
       if (response.ok && body?.success) {
         const message =
-          body.message || "Thank you. Crosstown will review your submission."
+          body.message || "Thank you. Evidens will review your submission."
         form.reset()
         // The inquiry modal closes first; the branded success pop-up
         // then presents the same success content on its own, so the
@@ -790,7 +790,7 @@ export default function Chapter5() {
                           className="mt-0.5 h-4 w-4 flex-none border-border accent-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                         />
                         <span className="text-xs leading-relaxed text-muted">
-                          I acknowledge the privacy notice and consent to Crosstown
+                          I acknowledge the privacy notice and consent to Evidens
                           reviewing this submission and following up with me about it.
                         </span>
                       </label>
@@ -814,7 +814,7 @@ export default function Chapter5() {
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className="border border-primary/60 bg-primary px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
+                      className="btn-plate border border-primary/60 bg-primary px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
                     >
                       {status === "submitting" ? "Submitting…" : config.submitLabel}
                     </button>

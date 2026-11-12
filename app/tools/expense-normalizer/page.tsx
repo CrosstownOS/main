@@ -2,13 +2,13 @@ import type { Metadata } from "next"
 import ExpenseNormalizerTool from "./ExpenseNormalizerTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
-const TITLE = "Expense Normalizer | CrosstownOS"
+const TITLE = "Expense Normalizer | Evidens"
 const DESCRIPTION = "Restate a seller's P&L with your own expense lines and stated assumptions, and compare the normalized NOI to the seller's stated NOI. Free working paper, runs in your browser."
 const PATH = "/tools/expense-normalizer"
-const OG_IMAGE = "/og-logo.png"
+const OG_IMAGE = "/og-image.jpg"
 
 export const metadata: Metadata = {
-  keywords: ["expense normalizer", "seller P&L", "RV park expenses", "underwriting assumptions", "CrosstownOS tools"],
+  keywords: ["expense normalizer", "seller P&L", "RV park expenses", "underwriting assumptions", "Evidens tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     type: "website",
     url: PATH,
-    siteName: "CrosstownOS",
-    images: [{ url: OG_IMAGE, width: 1024, height: 1024, alt: TITLE }],
+    siteName: "Evidens",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
@@ -35,12 +35,12 @@ const jsonLd = {
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
   description: DESCRIPTION,
-  url: `https://www.crosstownosrv.camp${PATH}`,
+  url: `https://www.getevidens.com${PATH}`,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   isPartOf: {
     "@type": "ItemList",
     name: "Live Diligence Working Papers",
-    url: "https://www.crosstownosrv.camp/tools",
+    url: "https://www.getevidens.com/tools",
   },
 }
 

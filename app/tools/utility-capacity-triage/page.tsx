@@ -2,13 +2,13 @@ import type { Metadata } from "next"
 import UtilityTriageTool from "./UtilityTriageTool"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 
-const TITLE = "Utility Capacity Risk Triage | CrosstownOS"
+const TITLE = "Utility Capacity Risk Triage | Evidens"
 const DESCRIPTION = "Triage water, sewer, and electric capacity risk on any RV park deal before it becomes the emergency. The Arizona Rule, live in your browser right now."
 const PATH = "/tools/utility-capacity-triage"
-const OG_IMAGE = "/og-logo.png"
+const OG_IMAGE = "/og-image.jpg"
 
 export const metadata: Metadata = {
-  keywords: ["utility capacity triage", "water sewer electric capacity", "RV park utilities risk", "CrosstownOS tools"],
+  keywords: ["utility capacity triage", "water sewer electric capacity", "RV park utilities risk", "Evidens tools"],
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     type: "website",
     url: PATH,
-    siteName: "CrosstownOS",
-    images: [{ url: OG_IMAGE, width: 1024, height: 1024, alt: TITLE }],
+    siteName: "Evidens",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
@@ -35,12 +35,12 @@ const jsonLd = {
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
   description: DESCRIPTION,
-  url: `https://www.crosstownosrv.camp${PATH}`,
+  url: `https://www.getevidens.com${PATH}`,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   isPartOf: {
     "@type": "ItemList",
     name: "Live Diligence Working Papers",
-    url: "https://www.crosstownosrv.camp/tools",
+    url: "https://www.getevidens.com/tools",
   },
 }
 

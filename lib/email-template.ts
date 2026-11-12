@@ -9,8 +9,8 @@
 
 export const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
 export const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
-export const LOGO_URL = 'https://www.crosstownosrv.camp/logo.jpg'
-export const SITE_URL = 'https://www.crosstownosrv.camp'
+export const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
+export const SITE_URL = 'https://www.getevidens.com'
 
 const EMAIL_COLORS = {
   background: '#12110e',

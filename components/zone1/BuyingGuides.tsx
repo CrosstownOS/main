@@ -6,7 +6,7 @@ import {
   Container,
   Heading,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 
@@ -47,7 +47,7 @@ export default function BuyingGuides() {
       aria-labelledby="buying-guides-heading"
     >
       <Container>
-        <TelemetryBox glass="none" className="theme-cream paper border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] p-6 text-foreground sm:p-8 lg:p-10">
+        <SheetCard className="p-6 sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
@@ -73,7 +73,7 @@ export default function BuyingGuides() {
               <Link
                 key={guide.href}
                 href={guide.href}
-                className="theme-cream card-lift border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                className="sheet-card flyout-link corners card-lift block p-6 hover:border-primary/60"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   Buyer&apos;s guide
@@ -90,7 +90,7 @@ export default function BuyingGuides() {
               </Link>
             ))}
           </div>
-        </TelemetryBox>
+        </SheetCard>
       </Container>
     </Section>
   )

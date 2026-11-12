@@ -13,10 +13,10 @@ import { checkRateLimit, getClientIp, FORM_RATE_LIMIT, DOWNLOAD_RATE_LIMIT } fro
 
 export const runtime = 'nodejs'
 
-const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
+const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
-const LOGO_URL = 'https://www.crosstownosrv.camp/logo.jpg'
-const SITE_URL = 'https://www.crosstownosrv.camp'
+const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
+const SITE_URL = 'https://www.getevidens.com'
 const MAX_BODY_SIZE = 25_000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const HONEYPOT_FIELDS = ['companyWebsite', 'website', 'url', 'faxNumber']
@@ -155,8 +155,8 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     successMessage:
       'Received. Expect a reply within two business days.',
     failureMessage:
-      'We could not submit your application. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Workspace Application: Crosstown',
+      'We could not submit your application. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Workspace Application: Evidens',
     confirmationTitle: 'Workspace application received.',
     confirmationBlocks: [
       WALKTHROUGH_EMAIL_BLOCK,
@@ -183,10 +183,10 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     badge: 'Field Network',
     sourceForm: 'Field Network invitation form',
     successMessage:
-      'Thank you. Crosstown reviews each Field Network request personally. If there is a fit, we will follow up with an invitation and next steps.',
+      'Thank you. Evidens reviews each Field Network request personally. If there is a fit, we will follow up with an invitation and next steps.',
     failureMessage:
-      'We could not submit your Field Network request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Field Network Request: Crosstown',
+      'We could not submit your Field Network request. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Field Network Request: Evidens',
     confirmationTitle: 'Field Network request received.',
     confirmationBlocks: [
       TRAIL_LOG_EMAIL_BLOCK,
@@ -225,10 +225,10 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     badge: 'Referral Alliance',
     sourceForm: 'Referral Alliance conversation form',
     successMessage:
-      'Thank you. Crosstown reviews each partner request personally. If there is a fit, we will follow up to start the conversation. No compensation terms are published or implied; any partnership terms are discussed privately.',
+      'Thank you. Evidens reviews each partner request personally. If there is a fit, we will follow up to start the conversation. No compensation terms are published or implied; any partnership terms are discussed privately.',
     failureMessage:
-      'We could not submit your partner conversation request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Referral Alliance Request: Crosstown',
+      'We could not submit your partner conversation request. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Referral Alliance Request: Evidens',
     confirmationTitle: 'Partner conversation request received.',
     confirmationBlocks: [
       BROKERS_AND_LENDERS_REFERRAL_BLOCK,
@@ -265,8 +265,8 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     successMessage:
       'Received. Your vote is input for the build conversation. November scope stays the founder\'s call.',
     failureMessage:
-      'We could not submit your Trail Log vote. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Trail Log Vote: Crosstown',
+      'We could not submit your Trail Log vote. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Trail Log Vote: Evidens',
     confirmationTitle: 'Trail Log vote received.',
     confirmationBlocks: [
       TRAIL_LOG_EMAIL_BLOCK,
@@ -302,10 +302,10 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     badge: 'General Conversation',
     sourceForm: 'General conversation form',
     successMessage:
-      'Thank you. Your note has been received. Crosstown will route it to the right conversation and follow up if there is a fit.',
+      'Thank you. Your note has been received. Evidens will route it to the right conversation and follow up if there is a fit.',
     failureMessage:
-      'We could not submit your note. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Note: Crosstown',
+      'We could not submit your note. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Note: Evidens',
     confirmationTitle: 'Conversation request received.',
     confirmationIntroLine:
       'Prefer a time? Book a conversation: https://cal.com/crosstownos/conversation',
@@ -345,10 +345,10 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     badge: 'Outpost Opportunity',
     sourceForm: 'Outpost opportunity form',
     successMessage:
-      'Thank you. Crosstown reviews opportunities confidentially. If the submission appears to be a fit, we will follow up regarding next steps and an appropriate secure process for sharing supporting materials.',
+      'Thank you. Evidens reviews opportunities confidentially. If the submission appears to be a fit, we will follow up regarding next steps and an appropriate secure process for sharing supporting materials.',
     failureMessage:
-      'We could not submit your opportunity. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Outpost Opportunity: Crosstown',
+      'We could not submit your opportunity. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Outpost Opportunity: Evidens',
     confirmationTitle: 'Opportunity received.',
     confirmationBlocks: [],
     fields: [
@@ -387,10 +387,10 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
     badge: 'Basecamp Strategic',
     sourceForm: 'Basecamp strategic conversation form',
     successMessage:
-      'Thank you. Crosstown will review your note and follow up if there is a relevant reason to connect.',
+      'Thank you. Evidens will review your note and follow up if there is a relevant reason to connect.',
     failureMessage:
-      'We could not submit your conversation request. Please try again or contact Crosstown directly.',
-    confirmationSubject: 'We Received Your Basecamp Conversation Request: Crosstown',
+      'We could not submit your conversation request. Please try again or contact Evidens directly.',
+    confirmationSubject: 'We Received Your Basecamp Conversation Request: Evidens',
     confirmationTitle: 'Conversation request received.',
     confirmationBlocks: [],
     fields: [
@@ -433,7 +433,7 @@ function signatureBlock(colors: EmailPalette) {
   return `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${colors.border}; border-radius:0;">
   <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${colors.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    CrosstownOS
+    Evidens
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${colors.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
@@ -748,7 +748,7 @@ function renderMetadata({
   const rows = [
     ['Submitted at', timestamp],
     ['Source form', config.sourceForm],
-    ['Source page', sourcePage || 'Crosstown single-page site'],
+    ['Source page', sourcePage || 'Evidens single-page site'],
     ['Source path', data.sourcePath || 'direct'],
   ]
 
@@ -803,7 +803,7 @@ function generateAdminTemplate({
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Crosstown" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
       <h1>${title}</h1>
       <p>${subtitle}</p>
     </div>
@@ -817,7 +817,7 @@ function generateAdminTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">CrosstownOS</div>
+      <div class="footer-brand">Evidens</div>
     </div>
   </div>
 </body>
@@ -853,9 +853,9 @@ function generateConfirmationTemplate({
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Crosstown" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
       <h1>${escapeHtml(config.confirmationTitle)}</h1>
-      <p>Crosstown has received your submission.</p>
+      <p>Evidens has received your submission.</p>
     </div>
 
     <div class="content">
@@ -875,7 +875,7 @@ function generateConfirmationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">CrosstownOS</div>
+      <div class="footer-brand">Evidens</div>
     </div>
   </div>
 </body>
@@ -935,7 +935,7 @@ function generatePlainText({
     lines.push(
       `Submitted at: ${timestamp}`,
       `Source form: ${config.sourceForm}`,
-      `Source page: ${sourcePage || 'Crosstown single-page site'}`,
+      `Source page: ${sourcePage || 'Evidens single-page site'}`,
       `Source path: ${data.sourcePath || 'direct'}`,
     )
 
@@ -951,7 +951,7 @@ function generatePlainText({
   }
 
   lines.push(
-    'CrosstownOS',
+    'Evidens',
     'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
@@ -1043,7 +1043,7 @@ export async function POST(request: NextRequest) {
 
     const timestamp = new Date().toISOString()
     const sourcePage =
-      data.sourcePage || sanitizeText(request.headers.get('referer'), 500) || 'Crosstown single-page site'
+      data.sourcePage || sanitizeText(request.headers.get('referer'), 500) || 'Evidens single-page site'
 
 
     const adminEmail = await resend.emails.send({

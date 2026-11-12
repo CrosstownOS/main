@@ -1,37 +1,36 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 import ReferralAllianceCta from "./ReferralAllianceCta"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
-  keywords: ["RV park brokers", "RV park lenders", "manufactured housing deals", "buyer diligence record", "CrosstownOS"],
-  title: "For Brokers and Lenders | CrosstownOS",
+  keywords: ["RV park brokers", "RV park lenders", "manufactured housing deals", "buyer diligence record", "Evidens"],
+  title: "For Brokers and Lenders | Evidens",
   description:
-    "An RV park or manufactured-housing deal worked in CrosstownOS gives the buyer one record: cited claims, unresolved gates, and a documented decision file.",
+    "An RV park or manufactured-housing deal worked in Evidens gives the buyer one record: cited claims, unresolved gates, and a documented decision file.",
   alternates: { canonical: "/for-brokers-lenders" },
   openGraph: {
-    title: "For Brokers and Lenders | CrosstownOS",
+    title: "For Brokers and Lenders | Evidens",
     description:
       "One record. Claims with sources and states. Unresolved gates listed instead of buried.",
     type: "website",
     url: "/for-brokers-lenders",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "For Brokers and Lenders | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "For Brokers and Lenders | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "For Brokers and Lenders | CrosstownOS",
+    title: "For Brokers and Lenders | Evidens",
     description:
-      "What a buyer brings when the deal was worked in CrosstownOS.",
-    images: ["/og-logo.png"],
+      "What a buyer brings when the deal was worked in Evidens.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -40,19 +39,19 @@ const jsonLd = {
   "@type": "WebPage",
   name: "For Brokers and Lenders",
   description:
-    "What a buyer brings when an RV park or manufactured-housing deal is worked in CrosstownOS: one record, cited claims, unresolved gates, and a documented decision file.",
-  url: "https://www.crosstownosrv.camp/for-brokers-lenders",
+    "What a buyer brings when an RV park or manufactured-housing deal is worked in Evidens: one record, cited claims, unresolved gates, and a documented decision file.",
+  url: "https://www.getevidens.com/for-brokers-lenders",
   isPartOf: {
     "@type": "WebSite",
-    name: "CrosstownOS",
-    url: "https://www.crosstownosrv.camp",
+    name: "Evidens",
+    url: "https://www.getevidens.com",
   },
   publisher: {
     "@type": "Organization",
-    name: "CrosstownOS",
+    name: "Evidens",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.crosstownosrv.camp/logo.jpg",
+      url: "https://www.getevidens.com/logo.jpg",
     },
   },
 }
@@ -107,7 +106,6 @@ export default function ForBrokersLendersPage() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <SignalLine />
           <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
@@ -116,10 +114,10 @@ export default function ForBrokersLendersPage() {
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
             The Referral Alliance is for brokers, lenders, operators, and
             advisers who know the assets and the people, and want a standing
-            partner conversation with Crosstown.
+            partner conversation with Evidens.
           </p>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/85">
-            Your buyers keep their record. You get a standing partner conversation with Crosstown, through the door below.
+            Your buyers keep their record. You get a standing partner conversation with Evidens, through the door below.
           </p>
 
           <section aria-labelledby="arrival-heading" className="mt-20">
@@ -127,13 +125,13 @@ export default function ForBrokersLendersPage() {
               What a buyer arrives with.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              When a deal is worked inside CrosstownOS, the buyer does not
+              When a deal is worked inside Evidens, the buyer does not
               arrive with a folder of disconnected claims. The buyer arrives
               with the record those claims live in.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {ARRIVAL_ITEMS.map((item) => (
-                <article key={item.title} className="theme-cream paper border border-border p-6">
+                <article key={item.title} className="record-card corners card-lift p-6">
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {item.title}
                   </h3>
@@ -149,7 +147,7 @@ export default function ForBrokersLendersPage() {
           </section>
 
           <section aria-labelledby="toc-heading" className="mt-20">
-            <div className="theme-cream paper border border-primary/40 p-6 sm:p-8">
+            <div className="record-card corners p-6 sm:p-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                 ParkProof Walkthrough / illustrative
               </p>
@@ -174,13 +172,13 @@ export default function ForBrokersLendersPage() {
               <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/parkproof-walkthrough"
-                  className="inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-plate inline-block border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   ParkProof Walkthrough
                 </Link>
                 <Link
                   href="/parkproof-standard"
-                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-border bg-transparent text-foreground hover:border-primary/60 hover:text-primary px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Read the standard
                 </Link>
@@ -204,7 +202,7 @@ export default function ForBrokersLendersPage() {
               Clear lines on both sides of the table.
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <article className="theme-cream border border-border bg-card p-6 sm:p-8">
+              <article className="sheet-card corners card-lift p-6 sm:p-8">
                 <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
                   For brokers and advisers
                 </h3>
@@ -219,7 +217,7 @@ export default function ForBrokersLendersPage() {
                   partnership terms are discussed privately.
                 </p>
               </article>
-              <article className="theme-cream border border-border bg-card p-6 sm:p-8">
+              <article className="sheet-card corners card-lift p-6 sm:p-8">
                 <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
                   For lenders
                 </h3>
@@ -231,7 +229,7 @@ export default function ForBrokersLendersPage() {
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted">
                   Brokers, lenders, and advisers run their own diligence.
-                  CrosstownOS organizes the buyer's record. It replaces none
+                  Evidens organizes the buyer's record. It replaces none
                   of that work.
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted">
@@ -242,17 +240,19 @@ export default function ForBrokersLendersPage() {
           </section>
 
           <section aria-labelledby="partner-heading" className="mt-20">
-            <div className="theme-cream paper border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <div className="card-stack card-stack-acquire stack-spring">
+            <div className="sheet-card p-6 text-center sm:p-10">
               <h2 id="partner-heading" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Start the partner conversation.
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-                Book a Referral Alliance intro call, or start with the form below. Crosstown reviews each partner
+                Book a Referral Alliance intro call, or start with the form below. Evidens reviews each partner
                 request personally.
               </p>
               <div className="mt-6">
                 <ReferralAllianceCta />
               </div>
+            </div>
             </div>
           </section>
         </div>

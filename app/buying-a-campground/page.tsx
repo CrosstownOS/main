@@ -3,35 +3,34 @@ import type { ReactNode } from "react"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   keywords: ["buying a campground", "campground due diligence", "campground financials verification", "campground occupancy", "water sewer permits"],
-  title: "Buying a Campground: Verification Guide | CrosstownOS",
+  title: "Buying a Campground: Verification Guide | Evidens",
   description:
-    "How to buy a campground: verify financials, occupancy, water/sewer, permits, and seasonal risk before committing capital. Buyer's guide from CrosstownOS.",
+    "How to buy a campground: verify financials, occupancy, water/sewer, permits, and seasonal risk before committing capital. Buyer's guide from Evidens.",
   alternates: { canonical: "/buying-a-campground" },
   openGraph: {
-    title: "Buying a Campground: Verification Guide | CrosstownOS",
+    title: "Buying a Campground: Verification Guide | Evidens",
     description:
       "Campground diligence is RV park diligence plus seasonality, water, and permits. Verify it before you buy it.",
     type: "website",
     url: "/buying-a-campground",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "Buying a Campground: Verification Guide | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Buying a Campground: Verification Guide | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buying a Campground: Verification Guide | CrosstownOS",
+    title: "Buying a Campground: Verification Guide | Evidens",
     description:
       "Campground diligence is RV park diligence plus seasonality, water, and permits. Verify it before you buy it.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -41,9 +40,9 @@ const articleJsonLd = {
   headline: "How to Buy a Campground: What to Verify Before You Buy",
   description:
     "A buyer's guide to campground acquisitions: how campground diligence differs from RV parks, seasonal revenue traps, and water, sewer, and permit verification.",
-  author: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  publisher: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  mainEntityOfPage: "https://www.crosstownosrv.camp/buying-a-campground",
+  author: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  publisher: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  mainEntityOfPage: "https://www.getevidens.com/buying-a-campground",
 }
 
 const breadcrumbJsonLd = {
@@ -54,13 +53,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.crosstownosrv.camp/",
+      item: "https://www.getevidens.com/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Buying a Campground",
-      item: "https://www.crosstownosrv.camp/buying-a-campground",
+      item: "https://www.getevidens.com/buying-a-campground",
     },
   ],
 }
@@ -132,7 +131,6 @@ export default function BuyingACampgroundPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -171,7 +169,7 @@ export default function BuyingACampgroundPage() {
               {DIFFERENCES.map((d, i) => (
                 <div
                   key={d.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="sheet-card corners card-lift p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {String(i + 1).padStart(2, "0")}
@@ -210,7 +208,7 @@ export default function BuyingACampgroundPage() {
               {SEASONAL_TRAPS.map((trap) => (
                 <li
                   key={trap.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="sheet-card corners card-lift p-5"
                 >
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {trap.title}
@@ -246,7 +244,7 @@ export default function BuyingACampgroundPage() {
               comfort from a seller about permits is worth exactly nothing at
               closing.
             </p>
-            <div className="theme-cream mt-6 border border-border bg-card p-6">
+            <div className="sheet-card corners mt-6 p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Triage the utility risk before you spend on engineers: water,
                 sewer, and electric capacity scored red, amber, or green.
@@ -254,7 +252,7 @@ export default function BuyingACampgroundPage() {
               <div className="mt-4">
                 <Link
                   href="/tools/utility-capacity-triage"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Run the Utility Capacity Risk Triage
                 </Link>
@@ -298,7 +296,8 @@ export default function BuyingACampgroundPage() {
             </p>
           </section>
 
-          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-source stack-spring">
+          <div className="sheet-card mt-10 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Next step
             </p>
@@ -311,13 +310,13 @@ export default function BuyingACampgroundPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/buying-an-rv-park"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Read the RV park buyer&apos;s verification guide
               </Link>
               <Link
                 href="/workspace"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
@@ -325,11 +324,12 @@ export default function BuyingACampgroundPage() {
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/checklist"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Get the free due diligence checklist
               </Link>
             </div>
+          </div>
           </div>
         </div>
       </main>

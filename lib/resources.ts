@@ -117,17 +117,17 @@ export const SPINES: Spine[] = [
   {
     title: "Start Here",
     file: `${R}/CrosstownOS-Start-Here.pdf`,
-    description: "New to the CrosstownOS working papers? Start here: how the 35 diligence worksheets fit together, which part matches your deal stage, and what to print first.",
+    description: "New to the Evidens working papers? Start here: how the 35 diligence worksheets fit together, which part matches your deal stage, and what to print first.",
   },
   {
     title: "The Journey Map",
     file: `${R}/CrosstownOS-Journey-Map.pdf`,
-    description: "The map of all 35 CrosstownOS working papers in deal order, from first look to first year of ownership, so you can find the worksheet your stage calls for.",
+    description: "The map of all 35 Evidens working papers in deal order, from first look to first year of ownership, so you can find the worksheet your stage calls for.",
   },
   {
     title: "The Evidence Status Standard",
     file: `${R}/CrosstownOS-Evidence-Status-Standard.pdf`,
-    description: "The CrosstownOS standard that labels every material claim in a deal with one evidence state, so a verified number never sits in your file looking like a broker-reported one.",
+    description: "The Evidens standard that labels every material claim in a deal with one evidence state, so a verified number never sits in your file looking like a broker-reported one.",
   },
 ]
 

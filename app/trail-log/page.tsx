@@ -1,36 +1,35 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 import TrailLogForm from "./TrailLogForm"
 import SignalLine from "@/components/ui/SignalLine"
 import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
-  keywords: ["Trail Log", "CrosstownOS build log", "product build", "what shipped"],
-  title: "The Trail Log | CrosstownOS",
-  description: "Follow the CrosstownOS build in the Trail Log. What has shipped, what is being built, and where the Field Network community weighs in on what is next.",
+  keywords: ["Trail Log", "Evidens build log", "product build", "what shipped"],
+  title: "The Trail Log | Evidens",
+  description: "Follow the Evidens build in the Trail Log. What has shipped, what is being built, and where the Field Network community weighs in on what is next.",
   alternates: { canonical: "/trail-log" },
   openGraph: {
-    title: "The Trail Log | CrosstownOS",
+    title: "The Trail Log | Evidens",
     description:
       "Follow the build from the inside. Shipped work, current build, and member input.",
     type: "website",
     url: "/trail-log",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "The Trail Log | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The Trail Log | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Trail Log | CrosstownOS",
-    description: "The Field Network build log for CrosstownOS.",
-    images: ["/og-logo.png"],
+    title: "The Trail Log | Evidens",
+    description: "The Field Network build log for Evidens.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -40,18 +39,18 @@ const jsonLd = {
   name: "The Trail Log",
   description:
     "The Field Network build log: what has shipped, what is being built, and where members can weigh in.",
-  url: "https://www.crosstownosrv.camp/trail-log",
+  url: "https://www.getevidens.com/trail-log",
   isPartOf: {
     "@type": "WebSite",
-    name: "CrosstownOS",
-    url: "https://www.crosstownosrv.camp",
+    name: "Evidens",
+    url: "https://www.getevidens.com",
   },
   publisher: {
     "@type": "Organization",
-    name: "CrosstownOS",
+    name: "Evidens",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.crosstownosrv.camp/logo.jpg",
+      url: "https://www.getevidens.com/logo.jpg",
     },
   },
 }
@@ -395,7 +394,6 @@ export default function TrailLogPage() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <SignalLine />
           <h1 className="serif-display max-w-3xl text-4xl tracking-tight sm:text-5xl">
@@ -406,9 +404,6 @@ export default function TrailLogPage() {
             what shipped, what is being built, and where Field Network
             members can weigh in before the next piece hardens.
           </p>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/80 sm:text-base">
-            Target opening: November 2026, for Source + Field + Acquire. The workspace is not open yet.
-          </p>
 
           <section aria-labelledby="trail-columns" className="mt-16">
             <h2 id="trail-columns" className="sr-only">
@@ -416,7 +411,7 @@ export default function TrailLogPage() {
             </h2>
             <StaggerReveal className="grid gap-4 md:grid-cols-3">
               {BUILD_COLUMNS.map((column) => (
-                <article key={column.title} data-reveal-item className="theme-cream paper card-lift border border-border p-6">
+                <article key={column.title} data-reveal-item className="sheet-card corners card-lift p-6">
                   <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {column.title}
                   </h3>
@@ -452,7 +447,7 @@ export default function TrailLogPage() {
             </p>
             <StaggerReveal className="mt-6 space-y-4">
               {SHIPPED.map((entry) => (
-                <article key={entry.title} data-reveal-item className="theme-cream card-lift border border-border bg-card p-6 sm:p-7">
+                <article key={entry.title} data-reveal-item className="record-card corners card-lift p-6 sm:p-7">
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     {entry.date}
                   </p>
@@ -477,7 +472,7 @@ export default function TrailLogPage() {
           </section>
 
           <section aria-labelledby="trail-vote" className="mt-20">
-            <div className="theme-cream paper border border-primary/40 bg-card p-6 sm:p-8">
+            <div className="sheet-card corners p-6 sm:p-8">
               <h2 id="trail-vote" className="serif-display scroll-mt-28 text-2xl tracking-tight sm:text-3xl">
                 Weigh in.
               </h2>

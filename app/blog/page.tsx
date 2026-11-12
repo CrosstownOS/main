@@ -2,37 +2,36 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 import { getAllPosts } from "@/lib/blog"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
-  keywords: ["RV park acquisition intelligence", "manufactured housing buyers", "Field Notes", "RV park diligence", "CrosstownOS"],
-  title: "Field Notes | CrosstownOS",
+  keywords: ["RV park acquisition intelligence", "manufactured housing buyers", "Field Notes", "RV park diligence", "Evidens"],
+  title: "Field Notes | Evidens",
   description:
     "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Field Notes | CrosstownOS",
+    title: "Field Notes | Evidens",
     description:
       "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
     type: "website",
     url: "/blog",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "Field Notes | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Field Notes | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Field Notes | CrosstownOS",
+    title: "Field Notes | Evidens",
     description:
       "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -55,13 +54,13 @@ export default function BlogIndex() {
     name: "Field Notes",
     description:
       "Acquisition intelligence for RV park and manufactured-housing buyers. Field notes on diligence, underwriting, and knowing what is true before you buy.",
-    url: "https://www.crosstownosrv.camp/blog",
+    url: "https://www.getevidens.com/blog",
     publisher: {
       "@type": "Organization",
-      name: "CrosstownOS",
+      name: "Evidens",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.crosstownosrv.camp/logo.jpg",
+        url: "https://www.getevidens.com/logo.jpg",
       },
     },
     mainEntity: {
@@ -72,7 +71,7 @@ export default function BlogIndex() {
         position: i + 1,
         name: post.title,
         description: post.excerpt,
-        url: `https://www.crosstownosrv.camp/blog/${post.slug}`,
+        url: `https://www.getevidens.com/blog/${post.slug}`,
       })),
     },
   }
@@ -85,7 +84,6 @@ export default function BlogIndex() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -111,16 +109,16 @@ export default function BlogIndex() {
           </p>
           <div className="mt-12 space-y-2">
             {posts.length === 0 && (
-              <p className="theme-cream border border-border bg-card p-8 text-sm text-muted">
+              <p className="sheet-card p-8 text-sm text-muted">
                 The first field note is on its way. Check back soon.
               </p>
             )}
 
             {posts.map((post) => (
+              <div key={post.slug} className="card-stack card-stack-field stack-spring">
               <Link
-                key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="theme-cream card-lift group block border border-border bg-card p-6 transition-colors hover:border-primary/60 sm:p-8"
+                className="record-card group block h-full p-6 hover:border-primary/60 sm:p-8"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   {formatDate(post.date)}
@@ -146,9 +144,10 @@ export default function BlogIndex() {
                   </div>
                 )}
               </Link>
+              </div>
             ))}
           </div>
-          <div className="theme-cream mt-12 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="sheet-card corners mt-12 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Field Notes
             </p>
@@ -158,19 +157,19 @@ export default function BlogIndex() {
             <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
                 href="/tools"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Run the working papers
               </Link>
               <Link
                 href="/checklist"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Free diligence checklist
               </Link>
               <Link
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Acquisition Workspace
               </Link>

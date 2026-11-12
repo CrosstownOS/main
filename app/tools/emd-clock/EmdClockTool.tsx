@@ -375,7 +375,7 @@ export default function EmdClockTool() {
       pdfHref="/resources/the-emd-countdown-tracker"
       relatedNote={{ href: "/blog/speed-is-a-strategy-for-sellers-not-buyers", label: "Speed Is a Strategy for Sellers, Not Buyers" }}
     >
-      <section className="theme-cream border border-border bg-card p-6">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The money
         </h2>
@@ -424,7 +424,7 @@ export default function EmdClockTool() {
         </p>
       </section>
 
-      <section className="theme-cream mt-8 border border-border bg-card p-6">
+      <section className="theme-cream sheet-card mt-8 p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Contingency register
@@ -510,7 +510,7 @@ export default function EmdClockTool() {
                     type="checkbox"
                     checked={c.evidenceComplete}
                     onChange={(e) => updateContingency(c.id, { evidenceComplete: e.target.checked })}
-                    className="h-4 w-4 accent-[#1D4ED8]"
+                    className="h-4 w-4 accent-primary"
                   />
                   Evidence complete
                 </label>
@@ -528,7 +528,7 @@ export default function EmdClockTool() {
         </div>
       </section>
 
-      <section className="theme-cream mt-8 border border-border bg-card p-6">
+      <section className="theme-cream sheet-card mt-8 p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Exposure summary
         </h2>

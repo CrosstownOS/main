@@ -66,7 +66,7 @@ export default function SuccessState({
       <div
         role="status"
         className={cn(
-          "theme-cream border border-primary/40 bg-card p-6 sm:p-8",
+          "theme-cream sheet-card border-primary/40 p-6 sm:p-8",
           className,
         )}
       >
@@ -84,7 +84,7 @@ export default function SuccessState({
         {door ? (
           <Link
             href={door.href}
-            className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="btn-plate mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {door.label}
           </Link>

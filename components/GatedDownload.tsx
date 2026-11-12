@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import SuccessPopup from '@/components/SuccessPopup'
+import { pushNotice } from '@/components/ui/motion'
 
 const STORAGE_KEY = 'crosstown_resource_email'
 
@@ -88,6 +89,11 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
     a.remove()
     setDownloaded(true)
     setPopupOpen(true)
+    pushNotice({
+      title: 'Download started',
+      body: `${title ?? label} is on its way to your downloads.`,
+      room: 'source',
+    })
   }
 
   const handleClick = () => {
@@ -143,7 +149,7 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
       {downloaded && (
         <div
           role="status"
-          className="theme-cream mt-4 w-full border border-primary/40 bg-card p-4 text-left"
+          className="theme-cream sheet-card mt-4 w-full border-primary/40 p-4 text-left"
         >
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Download started
@@ -179,14 +185,14 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
       {open && (
         <div
           ref={dialogRef}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          className="backdrop-spring fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
           onClick={close}
           role="dialog"
           aria-modal="true"
           aria-label="Email required to download"
         >
           <div
-            className="theme-cream w-full max-w-sm border border-border bg-card p-6"
+            className="theme-cream sheet-card modal-spring w-full max-w-sm p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
@@ -226,7 +232,7 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
               <button
                 type="submit"
                 disabled={busy}
-                className="mt-3 w-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="btn-plate mt-3 w-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
               >
                 {busy ? 'Sending...' : 'Send me the PDF'}
               </button>

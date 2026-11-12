@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 import {
   EvidenceStateChip,
   evidenceStateKey,
@@ -11,30 +10,30 @@ import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   keywords: ["ParkProof Standard", "evidence states", "verified evidence", "broker-reported", "diligence gates", "RV park buyers"],
-  title: "The ParkProof Standard | CrosstownOS",
+  title: "The ParkProof Standard | Evidens",
   description: "The ParkProof standard: how RV park buyers label evidence, clear diligence gates, and document the posture behind every single acquisition decision they make.",
   alternates: { canonical: "/parkproof-standard" },
   openGraph: {
-    title: "The ParkProof Standard | CrosstownOS",
+    title: "The ParkProof Standard | Evidens",
     description:
       "Every material claim carries where it came from and what state it is in. The ParkProof standard, stated plainly.",
     type: "website",
     url: "/parkproof-standard",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "The ParkProof Standard | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The ParkProof Standard | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The ParkProof Standard | CrosstownOS",
+    title: "The ParkProof Standard | Evidens",
     description:
       "Evidence states, gates, and evidence-readiness labels for a documented decision file.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -135,7 +134,7 @@ const READINESS_LABELS = [
   },
 ] as const
 
-const BASE_URL = "https://www.crosstownosrv.camp"
+const BASE_URL = "https://www.getevidens.com"
 const PATH = "/parkproof-standard"
 
 const articleJsonLd = {
@@ -146,14 +145,14 @@ const articleJsonLd = {
     "The public ParkProof standard: evidence states, gates, and evidence-readiness labels for a documented decision file.",
   author: {
     "@type": "Organization",
-    name: "CrosstownOS",
+    name: "Evidens",
   },
   publisher: {
     "@type": "Organization",
-    name: "CrosstownOS",
+    name: "Evidens",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.crosstownosrv.camp/logo.jpg",
+      url: "https://www.getevidens.com/logo.jpg",
     },
   },
   mainEntityOfPage: {
@@ -194,7 +193,6 @@ export default function ParkProofStandardPage() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -214,7 +212,7 @@ export default function ParkProofStandardPage() {
             the deal as it stands, not a pile of documents.
           </p>
 
-          <div className="theme-cream paper mt-10 border border-primary/40 p-6 text-center sm:p-8">
+          <div className="record-card corners mt-10 p-6 text-center sm:p-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               What this page is
             </p>
@@ -230,7 +228,7 @@ export default function ParkProofStandardPage() {
               The evidence states.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              These are the six evidence states of the CrosstownOS ParkProof
+              These are the six evidence states of the Evidens ParkProof
               Standard. The state names the relationship between a claim and
               the evidence behind it. Changing the state requires new
               evidence or a recorded human decision. It never happens
@@ -240,7 +238,7 @@ export default function ParkProofStandardPage() {
               {EVIDENCE_STATES.map((state) => (
                 <article
                   key={state.title}
-                  className="theme-cream paper border border-border p-6"
+                  className="record-card corners card-lift p-6"
                 >
                   <h3>
                     <EvidenceStateChip
@@ -269,7 +267,7 @@ export default function ParkProofStandardPage() {
               Illustrative example. The claim is the same throughout. The
               record changes only when the evidence changes.
             </p>
-            <div className="theme-cream paper mt-6 border border-primary/40 p-5 sm:p-6">
+            <div className="record-card corners mt-6 p-5 sm:p-6">
               <p className="border-b border-border/60 pb-4 text-base font-semibold text-foreground">
                 Claim: water and sewer capacity supports every site in the park.
               </p>
@@ -297,7 +295,7 @@ export default function ParkProofStandardPage() {
               What a gate does.
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <div className="theme-cream border border-border bg-card p-6">
+              <div className="sheet-card corners card-lift p-6">
                 <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                   It names what can stop the deal.
                 </h3>
@@ -307,7 +305,7 @@ export default function ParkProofStandardPage() {
                   resolved or consciously accepted.
                 </p>
               </div>
-              <div className="theme-cream border border-border bg-card p-6">
+              <div className="sheet-card corners card-lift p-6">
                 <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                   It fails closed.
                 </h3>
@@ -317,7 +315,7 @@ export default function ParkProofStandardPage() {
                   dispute record until new evidence resolves them.
                 </p>
               </div>
-              <div className="theme-cream border border-border bg-card p-6">
+              <div className="sheet-card corners card-lift p-6">
                 <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                   It records the human call.
                 </h3>
@@ -336,7 +334,7 @@ export default function ParkProofStandardPage() {
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {READINESS_LABELS.map((label) => (
-                <article key={label.title} className="theme-cream border border-border bg-card p-6">
+                <article key={label.title} className="sheet-card corners card-lift p-6">
                   <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
                     {label.title}
                   </h3>
@@ -349,7 +347,8 @@ export default function ParkProofStandardPage() {
           </section>
 
           <section aria-labelledby="standard-boundaries" className="mt-20">
-            <div className="theme-cream paper border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+            <div className="card-stack card-stack-acquire stack-spring">
+            <div className="sheet-card p-6 text-center sm:p-10">
               <h2 id="standard-boundaries" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 The boundary of the standard.
               </h2>
@@ -368,13 +367,13 @@ export default function ParkProofStandardPage() {
               <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href="/parkproof-walkthrough"
-                  className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   ParkProof Walkthrough
                 </Link>
                 <Link
                   href="/workspace"
-                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-border bg-transparent text-foreground hover:border-primary/60 hover:text-primary px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Apply for a pilot place
                 </Link>
@@ -385,23 +384,24 @@ export default function ParkProofStandardPage() {
               <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/checklist"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-border px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Diligence checklist
                 </Link>
                 <Link
                   href="/tools"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-border px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Working papers
                 </Link>
                 <Link
                   href="/blog"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-border px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Field Notes
                 </Link>
               </div>
+            </div>
             </div>
           </section>
         </div>

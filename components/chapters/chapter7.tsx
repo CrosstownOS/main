@@ -46,7 +46,8 @@ export default function Chapter7() {
       className="bg-background/70"
     >
       <Container>
-        <div className="theme-cream paper mx-auto max-w-3xl border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+        <div className="card-stack card-stack-acquire stack-spring mx-auto max-w-3xl">
+        <div className="sheet-card p-6 text-center sm:p-10">
           <TerminalLabel className="mb-5 block">
             Contact
           </TerminalLabel>
@@ -59,14 +60,14 @@ export default function Chapter7() {
           </Heading>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
             If you are actively reviewing an RV park or manufactured-housing
-            opportunity, Crosstown wants to learn how you work, and whether
+            opportunity, Evidens wants to learn how you work, and whether
             ParkProof can help make the next decision more disciplined.
           </p>
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/workspace"
-              className="inline-flex items-center justify-center gap-2 border border-primary/60 bg-primary-deep px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="btn-plate inline-flex items-center justify-center gap-2 border border-primary/60 bg-primary-deep px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Apply for a pilot place
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -74,7 +75,7 @@ export default function Chapter7() {
             <a
               href="#paths"
               onClick={(event) => handleAnchorClick(event, "paths")}
-              className="inline-flex items-center justify-center gap-2 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="btn-press inline-flex items-center justify-center gap-2 border border-primary px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Find Your Path
             </a>
@@ -87,6 +88,7 @@ export default function Chapter7() {
             <Mail className="h-4 w-4" aria-hidden="true" />
             jeremy@crosstownosrv.camp
           </a>
+        </div>
         </div>
       </Container>
     </Section>

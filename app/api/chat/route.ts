@@ -25,7 +25,7 @@ import { SYSTEM_PROMPT } from '@/lib/site-agent/knowledge'
  *                                       filed, full transcript.
  */
 
-const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
+const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 const TRANSCRIPT_RECIPIENT =
   process.env.SITE_AGENT_TRANSCRIPT_EMAIL || 'jeremy@crosstownosrv.camp'
 
@@ -72,7 +72,7 @@ async function handleTranscript(body: Record<string, unknown>) {
     : []
   const exchanges = messages.filter((m) => m.role === 'user').length
   const lines = messages.map(
-    (m) => `${m.role === 'user' ? 'VISITOR' : 'SITE AGENT'}: ${m.content}`,
+    (m) => `${m.role === 'user' ? 'FOLK' : 'SITE AGENT'}: ${m.content}`,
   )
   const resend = new Resend(process.env.RESEND_API_KEY)
   const { error } = await resend.emails.send({

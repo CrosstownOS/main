@@ -4,7 +4,6 @@ import SignalLine from "@/components/ui/SignalLine"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 import { GatedDownloadButton } from "@/components/GatedDownload"
 import { EvidenceStateChip } from "@/components/evidence/EvidenceStateChip"
 import { getAllPosts, type PostMeta } from "@/lib/blog"
@@ -33,7 +32,7 @@ const EVIDENCE_LETTERS = [
   },
 ] as const
 
-const BASE_URL = "https://www.crosstownosrv.camp"
+const BASE_URL = "https://www.getevidens.com"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -172,9 +171,9 @@ function relatedPosts(resource: ResourceDetail): PostMeta[] {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const resource = getResource(slug)
-  if (!resource) return { title: "Not found | CrosstownOS" }
+  if (!resource) return { title: "Not found | Evidens" }
 
-  const title = `${displayName(resource)} | CrosstownOS`
+  const title = `${displayName(resource)} | Evidens`
   const canonical = `/resources/${slug}`
 
   return {
@@ -188,9 +187,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: canonical,
       images: [
         {
-          url: "/og-logo.png",
-          width: 1024,
-          height: 1024,
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
           alt: displayName(resource),
         },
       ],
@@ -199,7 +198,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description: resource.description,
-      images: ["/og-logo.png"],
+      images: ["/og-image.jpg"],
     },
   }
 }
@@ -298,14 +297,14 @@ export default async function ResourcePage({ params }: PageProps) {
     url: pageUrl,
     author: {
       "@type": "Organization",
-      name: "CrosstownOS",
+      name: "Evidens",
     },
     publisher: {
       "@type": "Organization",
-      name: "CrosstownOS",
+      name: "Evidens",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.crosstownosrv.camp/logo.jpg",
+        url: "https://www.getevidens.com/logo.jpg",
       },
     },
     isAccessibleForFree: true,
@@ -315,7 +314,6 @@ export default async function ResourcePage({ params }: PageProps) {
     <>
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <script
             type="application/ld+json"
@@ -367,14 +365,14 @@ export default async function ResourcePage({ params }: PageProps) {
           {showEvidenceLetters && (
             <section
               aria-labelledby="resource-evidence-letters"
-              className="theme-cream mt-12 border border-border bg-card p-6 sm:p-8"
+              className="record-card corners mt-12 p-6 sm:p-8"
             >
               <h2 id="resource-evidence-letters" className="sr-only">
                 The evidence status letters
               </h2>
               <p className="text-base font-bold leading-relaxed text-foreground">
                 Every claim in this library carries one letter, from the
-                CrosstownOS Evidence Status Standard. The letter is the
+                Evidens Evidence Status Standard. The letter is the
                 claim&apos;s status, not its strength. A letter changes only
                 when the evidence changes.
               </p>
@@ -422,10 +420,10 @@ export default async function ResourcePage({ params }: PageProps) {
           {inside && (
             <section
               aria-labelledby="resource-inside"
-              className="theme-cream mt-12 border border-border bg-card p-6 sm:p-8"
+              className="sheet-card corners mt-12 p-6 sm:p-8"
             >
               <h2 id="resource-inside" className="serif-display text-2xl tracking-tight sm:text-3xl">
-                Inside this CrosstownOS tool
+                Inside this Evidens tool
                 {resource.code && part
                   ? ` (${resource.code}, Part ${part.id}: ${part.name})`
                   : ""}
@@ -458,7 +456,7 @@ export default async function ResourcePage({ params }: PageProps) {
           <div className="mt-12 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
             <section
               aria-labelledby="resource-purpose"
-              className="theme-cream paper border border-border p-6 sm:p-8"
+              className="sheet-card corners p-6 sm:p-8"
             >
               <h2 id="resource-purpose" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 {isTool ? "What this tool is for" : "What this page is for"}
@@ -470,7 +468,7 @@ export default async function ResourcePage({ params }: PageProps) {
             </section>
             <section
               aria-labelledby="resource-fit"
-              className="theme-cream paper border border-border p-6 sm:p-8"
+              className="sheet-card corners p-6 sm:p-8"
             >
               <h2 id="resource-fit" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Where it fits
@@ -495,7 +493,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
             <section
               aria-labelledby="resource-download"
-              className="theme-cream flex flex-col border border-border bg-card p-6 sm:p-8"
+              className="sheet-card corners flex flex-col p-6 sm:p-8"
             >
               <h2 id="resource-download" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
                 Get {resource.code ?? resource.title}
@@ -509,7 +507,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 label={resource.code ?? resource.title}
                 title={displayName(resource)}
                 nextDoor={downloadDoor}
-                className="mt-6 inline-flex w-fit cursor-pointer items-center gap-2 self-center bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="btn-plate mt-6 inline-flex w-fit cursor-pointer items-center gap-2 self-center bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               />
               <Link
                 href="/resources/catalog"
@@ -523,7 +521,7 @@ export default async function ResourcePage({ params }: PageProps) {
           {liveTool && (
             <section
               aria-label="Run this tool live"
-              className="theme-cream mt-12 border border-primary/40 bg-card p-6 sm:p-8"
+              className="sheet-card corners mt-12 p-6 sm:p-8"
             >
               <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Run the {liveTool.toolName} in your browser.
@@ -535,7 +533,7 @@ export default async function ResourcePage({ params }: PageProps) {
               </p>
               <Link
                 href={`/tools/${liveTool.toolSlug}`}
-                className="mt-6 inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate mt-6 inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Open the live tool
               </Link>
@@ -551,7 +549,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 {previous ? (
                   <Link
                     href={`/resources/${resourceSlug(previous)}`}
-                    className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Previous in this Part
@@ -564,7 +562,7 @@ export default async function ResourcePage({ params }: PageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="theme-cream border border-dashed border-border bg-card p-6">
+                  <div className="border border-dashed border-border p-6">
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
                       Start of this Part
                     </p>
@@ -577,7 +575,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 {next ? (
                   <Link
                     href={`/resources/${resourceSlug(next)}`}
-                    className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Next in this Part
@@ -590,7 +588,7 @@ export default async function ResourcePage({ params }: PageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="theme-cream border border-dashed border-border bg-card p-6">
+                  <div className="border border-dashed border-border p-6">
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
                       End of this Part
                     </p>
@@ -613,7 +611,7 @@ export default async function ResourcePage({ params }: PageProps) {
                   <Link
                     key={item.slug}
                     href={`/resources/${item.slug}`}
-                    className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Resource
@@ -644,7 +642,7 @@ export default async function ResourcePage({ params }: PageProps) {
               <div className="mt-6 grid gap-4 md:grid-cols-2">
                 <Link
                   href="/parkproof-standard"
-                  className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                  className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
                 >
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     The Standard
@@ -658,7 +656,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 </Link>
                 <Link
                   href="/parkproof-walkthrough"
-                  className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                  className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
                 >
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     The Walkthrough
@@ -685,7 +683,7 @@ export default async function ResourcePage({ params }: PageProps) {
                   <Link
                     key={post.slug}
                     href={`/blog/${post.slug}`}
-                    className="theme-cream group border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Field Note
@@ -704,18 +702,20 @@ export default async function ResourcePage({ params }: PageProps) {
             </section>
           )}
 
-          <div className="theme-cream paper mt-16 border border-primary/40 bg-card p-8 text-center">
+          <div className="card-stack card-stack-source stack-spring">
+          <div className="sheet-card mt-16 p-8 text-center">
             <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
               On a live deal, the finished sheet joins the record: claimed, proven, or still open, with the evidence attached.
             </p>
             <div className="mt-8 text-center">
               <Link
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-7 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
             </div>
+          </div>
           </div>
         </div>
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 sm:px-6 lg:px-8">
@@ -725,7 +725,7 @@ export default async function ResourcePage({ params }: PageProps) {
               professional advice. They organize a disciplined diligence
               workflow; they do not replace legal, tax, engineering, or
               investment review. Basis and limits: each worksheet states
-              the CrosstownOS diligence method and its Evidence Status
+              the Evidens diligence method and its Evidence Status
               Standard, not a market benchmark or a sourced rate. Any
               figure in a worked example is an illustration or a working
               assumption, labeled as such, to replace with the deal in

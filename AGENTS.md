@@ -32,7 +32,7 @@ product (the OS lives in CrosstownOS/os) and the two never gate each other.
   labeled working assumptions or removed. See
   `docs/content-production-protocol.md`.
 - **Fixed reference points:** the /checklist page is never renamed; Field
-  Notes count is nine; pricing stays public; the Source card copy on
+  Notes count is eleven; pricing stays public; the Source card copy on
   /workspace is correct as written and is not an overclaim.
 - **Git pushes go through the GitHub API recipe** (this VM has no git push
   credentials). Full 40-character SHAs, raw commit message bytes, original
@@ -45,3 +45,7 @@ product (the OS lives in CrosstownOS/os) and the two never gate each other.
 ```bash
 pnpm build   # must pass before any push
 ```
+
+## Design consistency rule (Jeremy, 2026-10-22)
+
+Every copy change, edit, or expansion to any page ships inside the existing design system, with no exceptions and no one-off styling: the site typography hierarchy (Playfair Display display, Inter body, JetBrains Mono labels), the cream card treatment with the royal blue border, Acquire blue (#00468B) for the big price figures, and no glow anywhere on any panel, card, or button (founder ruling, 2026-11-11, superseding the earlier halo reservation and the soft halo on outline buttons), the established button styles (primary and outline), centered conversion panels and section structure, and the existing navigation and internal linking conventions. New elements are assembled from existing components. A change is not verified until its render matches the system on the page around it.

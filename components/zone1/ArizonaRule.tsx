@@ -4,7 +4,7 @@ import {
   Container,
   Heading,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 
@@ -13,7 +13,6 @@ export default function ArizonaRule() {
     <Section
       id="arizona-rule"
       aria-labelledby="arizona-rule-heading"
-      className="bg-background/80"
     >
       <Container>
         <div className="mx-auto max-w-3xl">
@@ -46,15 +45,17 @@ export default function ArizonaRule() {
             </p>
           </div>
 
-          <TelemetryBox status="alert" glass="light" className="mt-8 p-6">
+          <div className="card-stack card-stack-field stack-spring mt-8">
+          <SheetCard className="border-l-2 border-l-[var(--status-alert)] p-6">
             <p className="text-base leading-relaxed text-foreground/85">
-              The Arizona Rule is the doctrine inside CrosstownOS: a deal
+              The Arizona Rule is the doctrine inside Evidens: a deal
               cannot move toward offer while capacity-gate risks remain
               unresolved, unless an authorized person explicitly waives them
               with a documented reason. The system holds the line so a deadline
               cannot quietly move it.
             </p>
-          </TelemetryBox>
+          </SheetCard>
+          </div>
         </div>
       </Container>
     </Section>

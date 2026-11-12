@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://www.crosstownosrv.camp/sitemap.xml",
+    sitemap: "https://www.getevidens.com/sitemap.xml",
   }
 }

@@ -14,7 +14,7 @@ export const runtime = 'nodejs'
 
 const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
 const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
-const LOGO_URL = 'https://www.crosstownosrv.camp/logo.jpg'
+const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
 const MAX_BODY_SIZE = 5_000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const HONEYPOT_FIELDS = ['companyWebsite', 'website', 'url', 'faxNumber']
@@ -33,7 +33,7 @@ const START_HERE_EMAIL_BLOCK: EmailDestinationBlock = {
   eyebrow: 'START HERE',
   title: 'Start Here',
   description: 'How the 35 tools fit together. Read this before you print anything.',
-  href: 'https://www.crosstownosrv.camp/resources/start-here',
+  href: 'https://www.getevidens.com/resources/start-here',
   buttonLabel: 'Start Here',
 }
 
@@ -299,7 +299,7 @@ function subscribeBlocksFor(sourcePage: string): EmailDestinationBlock[] {
           eyebrow: 'CONTINUE WHERE YOU LEFT OFF',
           title: `Back to the ${name}`,
           description: 'Your numbers are still in your browser. Pick up right where you left off.',
-          href: `https://www.crosstownosrv.camp/tools/${slug}`,
+          href: `https://www.getevidens.com/tools/${slug}`,
           buttonLabel: 'Open the live tool',
         },
         START_HERE_EMAIL_BLOCK,
@@ -316,7 +316,7 @@ function subscribeBlocksFor(sourcePage: string): EmailDestinationBlock[] {
         eyebrow: 'CONTINUE WHERE YOU LEFT OFF',
         title: 'Back to the resource library',
         description: 'All 35 Acquisition Signal tools, organized by the seven Parts of the deal journey.',
-        href: `https://www.crosstownosrv.camp/resources/${slug}`,
+        href: `https://www.getevidens.com/resources/${slug}`,
         buttonLabel: 'Open the resource',
       },
       START_HERE_EMAIL_BLOCK,

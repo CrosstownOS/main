@@ -2,35 +2,34 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   keywords: ["mobile home park investing", "manufactured housing community", "park-owned homes", "tenant-owned homes", "home ownership mix"],
-  title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
+  title: "Mobile Home Park Investing: Two Businesses, One Price Tag | Evidens",
   description:
     "Buying a manufactured housing community or mobile home park? Verify the home mix from titles, prove the lot rent against deposits, and price the utility systems before the park becomes yours.",
   alternates: { canonical: "/mobile-home-park-investing" },
   openGraph: {
-    title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
+    title: "Mobile Home Park Investing: Two Businesses, One Price Tag | Evidens",
     description:
       "The mix determines everything: tenant-owned vs park-owned, lot rent verification, and the hidden infrastructure capex.",
     type: "website",
     url: "/mobile-home-park-investing",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mobile Home Park Investing: Two Businesses, One Price Tag | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile Home Park Investing: Two Businesses, One Price Tag | CrosstownOS",
+    title: "Mobile Home Park Investing: Two Businesses, One Price Tag | Evidens",
     description:
       "The mix determines everything: tenant-owned vs park-owned, lot rent verification, and the hidden infrastructure capex.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -40,9 +39,9 @@ const articleJsonLd = {
   headline: "Mobile Home Park Investing: How to Underwrite Before You Buy",
   description:
     "An underwriting guide for mobile home park investors: tenant-owned vs park-owned mix, lot rent verification, and utility infrastructure diligence.",
-  author: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  publisher: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  mainEntityOfPage: "https://www.crosstownosrv.camp/mobile-home-park-investing",
+  author: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  publisher: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  mainEntityOfPage: "https://www.getevidens.com/mobile-home-park-investing",
 }
 
 const breadcrumbJsonLd = {
@@ -53,13 +52,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.crosstownosrv.camp/",
+      item: "https://www.getevidens.com/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Mobile Home Park Investing",
-      item: "https://www.crosstownosrv.camp/mobile-home-park-investing",
+      item: "https://www.getevidens.com/mobile-home-park-investing",
     },
   ],
 }
@@ -77,7 +76,6 @@ export default function MobileHomeParkInvestingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -119,9 +117,10 @@ export default function MobileHomeParkInvestingPage() {
               way it behaves.
             </p>
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
-              Tenant-owned vs park-owned homes (the CrosstownOS POH/TOH Split):
+              Tenant-owned vs park-owned homes (the Evidens POH/TOH Split):
             </p>
-            <div className="mt-3 overflow-x-auto">
+            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
@@ -159,6 +158,7 @@ export default function MobileHomeParkInvestingPage() {
                 </tbody>
               </table>
             </div>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               The first diligence question on any mobile home park is the
               mix, verified home by home, not taken from the broker&apos;s
@@ -173,7 +173,7 @@ export default function MobileHomeParkInvestingPage() {
               </Link>
               .
             </p>
-            <div className="theme-cream mt-6 border border-border bg-card p-6">
+            <div className="sheet-card corners mt-6 p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Value the two businesses separately: park-owned homes on
                 their title status, typically personal property and
@@ -183,7 +183,7 @@ export default function MobileHomeParkInvestingPage() {
               <div className="mt-4">
                 <Link
                   href="/tools/poh-toh-split"
-                  className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Run the POH/TOH Split Valuation
                 </Link>
@@ -310,9 +310,10 @@ export default function MobileHomeParkInvestingPage() {
               evidence beside it.
             </p>
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
-              What must be proven before capital commits (the CrosstownOS diligence record):
+              What must be proven before capital commits (the Evidens diligence record):
             </p>
-            <div className="mt-3 overflow-x-auto">
+            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
@@ -339,6 +340,7 @@ export default function MobileHomeParkInvestingPage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               An item with no proof behind it is not a detail to settle
@@ -402,7 +404,8 @@ export default function MobileHomeParkInvestingPage() {
             </p>
           </section>
 
-          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-source stack-spring">
+          <div className="sheet-card mt-10 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Next step
             </p>
@@ -419,7 +422,7 @@ export default function MobileHomeParkInvestingPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
@@ -427,17 +430,18 @@ export default function MobileHomeParkInvestingPage() {
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/resources/poh-toh-split-valuation-worksheet"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 POH/TOH Split-Valuation Worksheet
               </Link>
               <Link
                 href="/resources/the-park-owned-rental-valuation"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 The Park-Owned Rental Valuation
               </Link>
             </div>
+          </div>
           </div>
 
         </div>

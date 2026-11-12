@@ -6,7 +6,7 @@ import {
   Container,
   Heading,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 
@@ -29,7 +29,7 @@ export default function WorkingPapers() {
       aria-labelledby="working-papers-heading"
     >
       <Container>
-        <TelemetryBox glass="none" className="theme-cream paper border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] p-6 text-foreground sm:p-8 lg:p-10">
+        <SheetCard className="p-6 sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
@@ -66,7 +66,7 @@ export default function WorkingPapers() {
                   key={paper.slug}
                   data-reveal-item
                   href={`/tools/${paper.slug}`}
-                  className="group flex items-center gap-3 border border-border bg-background/60 px-4 py-3 transition-colors hover:border-primary/60"
+                  className="group card-lift flyout-link flex items-center gap-3 border border-border bg-[var(--cream)] px-4 py-3 hover:border-primary/60"
                 >
                   <span className="bg-primary px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-white">
                     {paper.code}
@@ -80,19 +80,19 @@ export default function WorkingPapers() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="/tools"
-                className="border border-primary/60 bg-primary-deep px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate border border-primary/60 bg-primary-deep px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Open the working papers
               </Link>
               <Link
                 href="/resources/catalog"
-                className="border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press border border-primary/60 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Browse the 35 tools
               </Link>
             </div>
           </div>
-        </TelemetryBox>
+        </SheetCard>
       </Container>
     </Section>
   )

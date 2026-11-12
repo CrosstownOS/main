@@ -4,6 +4,7 @@ import { useReveal } from "@/hooks/useReveal"
 import {
   Container,
   Heading,
+  RecordCard,
   Section,
   TerminalLabel,
 } from "@/components/ui/primitives"
@@ -36,11 +37,6 @@ export default function Thesis() {
       aria-labelledby="thesis-heading"
       className="relative overflow-hidden"
     >
-      {/* Ambient primary glow — decorative only */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_40%,oklch(0.50_0.08_250/0.08),transparent_70%)]"
-      />
 
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -69,10 +65,11 @@ export default function Thesis() {
               >
                 broker packages
               </a>
-              , spreadsheets, and memory. Crosstown is built to make the record disciplined before capital is committed, and to keep it for the life of the asset.
+              , spreadsheets, and memory. Evidens is built to make the record disciplined before capital is committed, and to keep it for the life of the asset.
             </p>
 
-            <div className="theme-cream paper mt-10 divide-y divide-border/60 border border-border/60 bg-card/40 shadow-[0_0_60px_-15px_oklch(0.50_0.08_250/0.25)]">
+            <div className="card-stack card-stack-field stack-spring mt-10">
+            <RecordCard className="divide-y divide-border/60">
               {THESIS_SIGNALS.map((signal) => (
                 <div key={signal.index} data-reveal-item className="flex gap-5 p-5">
                   <span className="mt-1 font-mono text-[10px] tracking-[0.22em] text-primary">
@@ -88,6 +85,7 @@ export default function Thesis() {
                   </div>
                 </div>
               ))}
+            </RecordCard>
             </div>
           </div>
         </div>

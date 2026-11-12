@@ -5,7 +5,6 @@
  */
 
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 import Hero from "@/components/zone1/Hero"
 import ProductLoop from "@/components/zone1/ProductLoop"
 import EngagementPaths from "@/components/zone1/PlatformLinks"
@@ -23,8 +22,8 @@ import LifecycleVision from "@/components/zone1/LifecycleVision"
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "CrosstownOS",
-  url: "https://www.crosstownosrv.camp",
+  name: "Evidens",
+  url: "https://www.getevidens.com",
   description:
     "Acquisition intelligence and diligence software for RV park and manufactured housing buyers. Know what is true before you buy.",
   founder: { "@type": "Person", name: "Jeremy Cross" },
@@ -33,8 +32,8 @@ const HOME_JSON_LD = {
 const WEBSITE_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "CrosstownOS",
-  url: "https://www.crosstownosrv.camp",
+  name: "Evidens",
+  url: "https://www.getevidens.com",
 }
 
 export default function Home() {
@@ -55,8 +54,8 @@ export default function Home() {
         className="relative min-h-screen w-full bg-background text-foreground"
         style={{ overflowX: "clip" }}
       >
-        {/* ── SHARED VIDEO BACKDROP: same component, video, and poster as every page ── */}
-        <PageBackdrop fixed />
+        {/* ── VIDEO BACKDROP RETIRED (2026-11-11 redesign): the homepage stands
+            on the cream ground; films live click-to-play on the shelf only. ── */}
 
         {/* ── SINGLE-PAGE CONTENT ── */}
         <div

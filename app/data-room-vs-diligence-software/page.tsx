@@ -2,36 +2,35 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 import SignalLine from "@/components/ui/SignalLine"
 
 export const metadata: Metadata = {
   keywords: ["data room vs due diligence software", "deal data room", "diligence record", "RV park acquisitions", "manufactured housing acquisitions"],
-  title: "Data Room vs Due Diligence Software | CrosstownOS",
+  title: "Data Room vs Due Diligence Software | Evidens",
   description:
-    "A data room stores the deal documents. CrosstownOS is the diligence record for RV park and manufactured housing acquisitions: claims, evidence, and unresolved diligence in one record before you commit capital.",
+    "A data room stores the deal documents. Evidens is the diligence record for RV park and manufactured housing acquisitions: claims, evidence, and unresolved diligence in one record before you commit capital.",
   alternates: { canonical: "/data-room-vs-diligence-software" },
   openGraph: {
-    title: "Data Room vs Due Diligence Software | CrosstownOS",
+    title: "Data Room vs Due Diligence Software | Evidens",
     description:
       "Storage with permissions is not a diligence record. What each tool does with a seller claim, side by side.",
     type: "website",
     url: "/data-room-vs-diligence-software",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "Data Room vs Due Diligence Software | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Data Room vs Due Diligence Software | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Data Room vs Due Diligence Software | CrosstownOS",
+    title: "Data Room vs Due Diligence Software | Evidens",
     description:
       "Storage with permissions is not a diligence record. What each tool does with a seller claim, side by side.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -40,10 +39,10 @@ const articleJsonLd = {
   "@type": "Article",
   headline: "Data Room vs Due Diligence Software: Storage Is Not a Record",
   description:
-    "A comparison of generic virtual data rooms and the CrosstownOS Acquisition Workspace for buyers of RV parks, campgrounds, and manufactured housing communities.",
-  author: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  publisher: { "@type": "Organization", name: "CrosstownOS", url: "https://www.crosstownosrv.camp" },
-  mainEntityOfPage: "https://www.crosstownosrv.camp/data-room-vs-diligence-software",
+    "A comparison of generic virtual data rooms and the Evidens Acquisition Workspace for buyers of RV parks, campgrounds, and manufactured housing communities.",
+  author: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  publisher: { "@type": "Organization", name: "Evidens", url: "https://www.getevidens.com" },
+  mainEntityOfPage: "https://www.getevidens.com/data-room-vs-diligence-software",
 }
 
 const breadcrumbJsonLd = {
@@ -54,13 +53,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.crosstownosrv.camp/",
+      item: "https://www.getevidens.com/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Data Room vs Due Diligence Software",
-      item: "https://www.crosstownosrv.camp/data-room-vs-diligence-software",
+      item: "https://www.getevidens.com/data-room-vs-diligence-software",
     },
   ],
 }
@@ -99,7 +98,7 @@ const ROWS = [
   {
     point: "The verdict",
     dataRoom: "None. Storage does not decide",
-    workspace: "None. CrosstownOS organizes the record; the buyer owns the decision",
+    workspace: "None. Evidens organizes the record; the buyer owns the decision",
   },
 ] as const
 
@@ -116,7 +115,6 @@ export default function DataRoomComparisonPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -131,7 +129,7 @@ export default function DataRoomComparisonPage() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             A virtual data room is storage with permissions: a secure place
             where deal documents are filed, access is controlled, and a
-            process is run. CrosstownOS is an acquisition workspace: the
+            process is run. Evidens is an acquisition workspace: the
             diligence record itself, where seller claims, source evidence,
             site observations, and unresolved diligence stay connected in
             one record for an RV park, campground, or manufactured housing
@@ -269,15 +267,16 @@ export default function DataRoomComparisonPage() {
               counts as proven until the record proves it.
             </p>
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
-              Data room vs acquisition workspace (CrosstownOS):
+              Data room vs acquisition workspace (Evidens):
             </p>
-            <div className="mt-3 overflow-x-auto">
+            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
                   <tr className="border-b-2 border-border">
                     <th className="px-3 py-2" aria-label="Comparison point"></th>
                     <th className="px-3 py-2 font-bold text-foreground">Generic data room (DealRoom, Datasite)</th>
-                    <th className="px-3 py-2 font-bold text-foreground">CrosstownOS Acquisition Workspace</th>
+                    <th className="px-3 py-2 font-bold text-foreground">Evidens Acquisition Workspace</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -293,6 +292,7 @@ export default function DataRoomComparisonPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
             </div>
             <div className="mt-6 text-sm leading-relaxed text-foreground/85">
               <p className="font-bold text-foreground">
@@ -384,7 +384,7 @@ export default function DataRoomComparisonPage() {
               Use a data room for a multi-party sell-side or buy-side
               process, institutional M&amp;A, or regulated disclosure,
               where the work is controlled access and tracked requests
-              for many parties. Use CrosstownOS
+              for many parties. Use Evidens
               when you are the buyer, the deal is an RV park, campground,
               or manufactured housing community, and the work is proving
               the deal before your capital commits: active buyers with a
@@ -401,13 +401,13 @@ export default function DataRoomComparisonPage() {
             review.
           </p>
 
-          <section className="theme-cream paper mt-12 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10" aria-label="The November pilot">
+          <section className="sheet-card corners mt-12 p-6 text-center sm:p-10" aria-label="The pilot">
             <SignalLine />
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
-              The November pilot
+              The pilot
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              Five free pilot places. Target opening: November 2026. Run
+              Five free pilot places. Run
               one live acquisition through Source, Field, and Acquire for
               90 days from activation. No payment required and no automatic
               conversion.
@@ -415,13 +415,13 @@ export default function DataRoomComparisonPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace#apply"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a free pilot place
               </Link>
               <Link
                 href="/parkproof-standard"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Read the ParkProof Standard
               </Link>

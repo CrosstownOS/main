@@ -13,7 +13,7 @@ function faqPage(url: string, faqs: Faq[]) {
   }
 }
 
-const SITE = "https://www.crosstownosrv.camp"
+const SITE = "https://www.getevidens.com"
 
 export const SCREENER_FAQS: Faq[] = [
   {
@@ -180,7 +180,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What is the free pilot?",
     answer:
-      "Five qualified participants receive Acquisition Workspace access without charge for one live acquisition. In exchange, you use the software and give candid feedback about what works, what breaks, and what is confusing. Testimonials are optional and require separate written permission. Applications are open; November 2026 is the target opening, and access dates will be confirmed before activation.",
+      "Five qualified participants receive Acquisition Workspace access without charge for one live acquisition. In exchange, you use the software and give candid feedback about what works, what breaks, and what is confusing. Testimonials are optional and require separate written permission. Applications are open, and access dates will be confirmed before activation.",
   },
   {
     question: "How long is the free pilot?",
@@ -220,7 +220,7 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What does the Annual Workspace include?",
     answer:
-      "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one 30-minute live software Q&A per annual purchase or renewal. Additional properties do not add sessions. Renewal is manual. CrosstownOS does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
+      "Everything in Single-Deal, for unlimited properties over 12 months from activation. Same onboarding: one walkthrough, one 30-minute live software Q&A per annual purchase or renewal. Additional properties do not add sessions. Renewal is manual. Evidens does not enroll accounts in automatic renewal and does not charge cards on file without a new, explicit purchase.",
   },
   {
     question: "What do you mean by software Q&A? What is it not?",
@@ -230,17 +230,17 @@ export const WORKSPACE_FAQS: Faq[] = [
   {
     question: "What does Verified mean in the evidence states?",
     answer:
-      "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named human reviewer. CrosstownOS does not independently verify your deal claims. The label records your documented review, not certification by CrosstownOS.",
+      "You assign the state using the ParkProof definitions. Verified means your documented review meets the applicable evidence requirements, with the supporting source, page or record reference, how it was obtained, and a named reviewer. Evidens does not independently verify your deal claims. The label records your documented review, not certification by Evidens.",
   },
   {
-    question: "What does CrosstownOS not do?",
+    question: "What does Evidens not do?",
     answer:
       "It does not tell you whether to buy, certify the deal, verify the property, or guarantee any investment outcome. It does not replace your attorney, engineer, inspector, environmental consultant, title company, appraiser, lender, tax professional, insurance professional, utility or wastewater specialist, or your own investment judgment. It organizes the record.",
   },
   {
-    question: "Does CrosstownOS replace my professional team?",
+    question: "Does Evidens replace my professional team?",
     answer:
-      "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. CrosstownOS organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",
+      "No. Obtain qualified professional review appropriate to the legal, financial, physical, and regulatory issues in your acquisition. Evidens organizes the sources, evidence states, unresolved issues, and assumptions for that review. It does not replace professional judgment.",
   },
   {
     question: "Who makes the final call on my deal?",

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { getAllPosts } from "@/lib/blog"
 import { RESOURCE_DETAILS } from "@/lib/resources"
 
-const BASE = "https://www.crosstownosrv.camp"
+const BASE = "https://www.getevidens.com"
 
 type CoreRoute = {
   path: string

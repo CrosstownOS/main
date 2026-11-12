@@ -23,7 +23,7 @@ const FOOTER_LINKS = [
 ] as const
 
 const DISCLAIMER_PARAGRAPHS = [
-  "CrosstownOS provides diligence software and decision-support records for RV park and manufactured housing acquisitions. It does not provide legal, investment, tax, engineering, environmental, appraisal, title, lending, or insurance advice, and no advisory, agency, investment-advisory, or brokerage relationship is created by using the product, purchasing the workspace, or reading this site.",
+  "Evidens provides diligence software and decision-support records for RV park and manufactured housing acquisitions. It does not provide legal, investment, tax, engineering, environmental, appraisal, title, lending, or insurance advice, and no advisory, agency, investment-advisory, or brokerage relationship is created by using the product, purchasing the workspace, or reading this site.",
   "The buyer is solely responsible for all investment decisions and for engaging qualified professionals to review diligence outputs before committing capital. ParkProof organizes the buyer's documented posture from reviewed evidence, unresolved gates, and approved assumptions. It does not certify the deal, verify the property, or guarantee any investment outcome.",
 ] as const
 
@@ -60,7 +60,7 @@ export default function SiteFooter() {
         <Container className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div>
             <TerminalLabel className="mb-2 block">
-              Crosstown Updates
+              Evidens Updates
             </TerminalLabel>
             <p className="font-sans text-xl font-bold text-foreground">
               Occasional build notes and diligence patterns. No noise.
@@ -69,7 +69,7 @@ export default function SiteFooter() {
 
           {footerStatus === "success" ? (
             <SuccessState
-              eyebrow="Crosstown Updates"
+              eyebrow="Evidens Updates"
               title="You are on the list."
               body="Occasional build notes and diligence patterns. No noise."
               door={{ href: "/blog", label: "Read the Field Notes" }}
@@ -96,7 +96,7 @@ export default function SiteFooter() {
             <button
               type="submit"
               disabled={footerStatus === "loading"}
-              className="whitespace-nowrap border border-primary/60 bg-primary px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60"
+              className="btn-press whitespace-nowrap border border-primary/60 bg-primary px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-60"
             >
               {footerStatus === "loading" ? "Sending…" : "Subscribe"}
             </button>
@@ -116,17 +116,17 @@ export default function SiteFooter() {
       <div className="py-10">
         <Container className="flex flex-col items-center justify-between gap-10 lg:flex-row">
           <div className="flex items-center gap-4">
-            <div className="relative h-10 w-10 flex-none overflow-hidden [clip-path:circle(50%)]">
+            <div className="relative h-10 w-10 flex-none overflow-hidden">
               <Image
-                src="/logo.jpg"
-                alt="Crosstown logo"
+                src="/logo-tiedye-on-ink.png"
+                alt="Evidens"
                 fill
                 className="object-contain"
               />
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-lg tracking-tight text-foreground">
-                CrosstownOS
+                Evidens
               </span>
               <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-muted">
                 The Code is the System. The Dirt is the Prize.
@@ -154,7 +154,7 @@ export default function SiteFooter() {
               Confidentiality and data-handling terms will apply to use of the Acquisition Workspace when it opens.
             </p>
             <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted/70">
-              &copy;{' '}{new Date().getFullYear()}{' '}CrosstownOS
+              &copy;{' '}{new Date().getFullYear()}{' '}Evidens
             </p>
           </div>
         </Container>

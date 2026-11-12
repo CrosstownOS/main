@@ -1,35 +1,34 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 
 export const metadata: Metadata = {
   keywords: ["mobile home park due diligence checklist", "RV park due diligence checklist", "due diligence checklist", "RV park buyers", "mobile home park buyers"],
-  title: "Mobile Home Park and RV Park Due Diligence Checklist | CrosstownOS",
+  title: "Mobile Home Park and RV Park Due Diligence Checklist | Evidens",
   description:
     "Free due diligence checklist for mobile home park and RV park buyers: 15 items covering rent roll verification, P&L normalization, utilities, permits, zoning, and the final decision file.",
   alternates: { canonical: "/checklist" },
   openGraph: {
-    title: "RV Park Due Diligence Checklist | CrosstownOS",
+    title: "RV Park Due Diligence Checklist | Evidens",
     description:
       "The 15 items to verify before you commit capital on an RV park or manufactured housing deal.",
     type: "website",
     url: "/checklist",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "RV Park Due Diligence Checklist | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RV Park Due Diligence Checklist | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RV Park Due Diligence Checklist | CrosstownOS",
+    title: "RV Park Due Diligence Checklist | Evidens",
     description:
       "The 15 items to verify before you commit capital on an RV park or manufactured housing deal.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -149,7 +148,6 @@ export default function ChecklistPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             RV park due diligence checklist.
@@ -182,13 +180,13 @@ export default function ChecklistPage() {
 
           <section className="mt-12" aria-label="Diligence checklist">
             <p className="mb-4 text-sm font-bold text-foreground sm:text-base">
-              The fifteen verifications, in order (CrosstownOS):
+              The fifteen verifications, in order (Evidens):
             </p>
             <ol className="space-y-3">
               {ITEMS.map((item, i) => (
                 <li
                   key={item.title}
-                  className="theme-cream border border-border bg-card p-5"
+                  className="record-card corners p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {String(i + 1).padStart(2, "0")}
@@ -247,7 +245,7 @@ export default function ChecklistPage() {
             </p>
           </section>
 
-          <div className="theme-cream paper mt-10 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="sheet-card corners mt-10 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Next step
             </p>
@@ -264,13 +262,13 @@ export default function ChecklistPage() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 See the Acquisition Workspace
               </Link>
               <Link
                 href="/resources"
-                className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Browse the full resource library
               </Link>
@@ -278,13 +276,13 @@ export default function ChecklistPage() {
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/resources/the-evidence-status-standard"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 The Evidence Status Standard
               </Link>
               <Link
                 href="/resources/start-here"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Start Here
               </Link>

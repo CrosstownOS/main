@@ -84,7 +84,7 @@ export function getSeoDescription(post: PostMeta): string {
 }
 
 export function getSeoTitle(post: PostMeta): string {
-  return post.seoTitle ?? `${post.title} | CrosstownOS`
+  return post.seoTitle ?? `${post.title} | Evidens`
 }
 
 export function getAllSlugs(): string[] {

@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import Navigation from "@/components/ui/navigation"
-import PageBackdrop from "@/components/PageBackdrop"
 import { EVIDENCE_STATES, POSTURE_FOOTER, READINESS_DISCLAIMER, READINESS_LABELS, type EvidenceState, type ReadinessLabel } from "@/lib/tools/evidence"
 import { downloadJson, type ToolExport } from "@/lib/tools/schema"
 import { downloadWorkingPaperHtml, workingPaperFilename } from "@/lib/tools/workingPaper"
@@ -32,7 +31,8 @@ function PostureBanner({ label, statement }: { label: ReadinessLabel; statement:
           ? "border-[color-mix(in_oklab,oklch(0.628_0.179_258)_60%,transparent)]"
           : "border-[color-mix(in_oklab,oklch(0.60_0.13_148)_60%,transparent)]"
   return (
-    <div className={cn("theme-cream border bg-card p-6", color)}>
+    <div className="card-stack card-stack-acquire stack-spring">
+    <div className={cn("theme-cream sheet-card p-6", color)}>
       <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
         Evidence-readiness posture
       </p>
@@ -40,6 +40,7 @@ function PostureBanner({ label, statement }: { label: ReadinessLabel; statement:
       <p className="mt-2 text-sm leading-relaxed text-foreground/90">{statement}</p>
       <p className="mt-3 text-xs leading-relaxed text-muted">{POSTURE_FOOTER}</p>
       <p className="mt-3 text-xs leading-relaxed text-muted">{READINESS_DISCLAIMER}</p>
+    </div>
     </div>
   )
 }
@@ -134,7 +135,7 @@ function EmailSaveModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      className="backdrop-spring fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -142,7 +143,7 @@ function EmailSaveModal({
     >
       <div
         ref={dialogRef}
-        className="theme-cream w-full max-w-sm border border-border bg-card p-6"
+        className="theme-cream sheet-card modal-spring w-full max-w-sm p-6"
         onClick={(e) => e.stopPropagation()}
       >
         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
@@ -169,7 +170,7 @@ function EmailSaveModal({
           <button
             type="submit"
             disabled={busy}
-            className="mt-3 w-full bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="btn-plate mt-3 w-full bg-primary-deep px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {busy ? "Sending..." : "Save via email"}
           </button>
@@ -229,6 +230,7 @@ export default function ToolShell(props: ToolShellProps) {
     | null
   >(null)
   const completionRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     if (completion) {
@@ -354,7 +356,6 @@ export default function ToolShell(props: ToolShellProps) {
       }`}</style>
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
@@ -381,7 +382,7 @@ export default function ToolShell(props: ToolShellProps) {
             </p>
           </div>
 
-          <div className="theme-cream mt-6 border border-border bg-card p-6">
+          <div className="theme-cream sheet-card corners mt-6 p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               How to read this page
             </p>
@@ -395,7 +396,7 @@ export default function ToolShell(props: ToolShellProps) {
             </p>
           </div>
 
-          <div className="theme-cream mt-10 border border-border bg-card p-6">
+          <div className="theme-cream sheet-card corners mt-10 p-6">
             <label htmlFor="deal-name" className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               Deal name <span className="normal-case tracking-normal">(keeps each deal&apos;s work separate)</span>
             </label>
@@ -426,7 +427,7 @@ export default function ToolShell(props: ToolShellProps) {
             </div>
           )}
 
-          <div className="theme-cream mt-10 border border-border bg-card p-6 text-center">
+          <div className="theme-cream sheet-card corners mt-10 p-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Keep the record
             </p>
@@ -434,14 +435,14 @@ export default function ToolShell(props: ToolShellProps) {
               <button
                 type="button"
                 onClick={handleDownload}
-                className="border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate border border-primary/60 bg-primary-deep px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Download working paper
               </button>
               <button
                 type="button"
                 onClick={handlePrint}
-                className="border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press border border-primary/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Print one-page summary
               </button>
@@ -449,20 +450,20 @@ export default function ToolShell(props: ToolShellProps) {
                 type="button"
                 onClick={handleSave}
                 disabled={sending}
-                className="border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50"
+                className="btn-press border border-primary/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50"
               >
                 {sending ? "Sending..." : savedEmail ? "Resend working paper" : "Save via email"}
               </button>
               <Link
                 href={pdfHref}
-                className="inline-flex items-center border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-flex items-center border border-primary/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Get the PDF
               </Link>
               {pdfHrefAlt ? (
                 <Link
                   href={pdfHrefAlt.href}
-                  className="inline-flex items-center border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-flex items-center border border-primary/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {pdfHrefAlt.label}
                 </Link>
@@ -470,7 +471,7 @@ export default function ToolShell(props: ToolShellProps) {
               <button
                 type="button"
                 onClick={handleDownloadJson}
-                className="border border-[#3a86f2]/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press border border-primary/60 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Raw data (JSON)
               </button>
@@ -510,7 +511,7 @@ export default function ToolShell(props: ToolShellProps) {
 
           {faqs && faqs.length > 0 && <FaqSection faqs={faqs} />}
 
-          <div className="theme-cream paper mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="theme-cream paper sheet-card corners mt-8 border-primary p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
@@ -519,35 +520,35 @@ export default function ToolShell(props: ToolShellProps) {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href={`/workspace?tool=${slug}`}
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {ctaButton}
               </Link>
             </div>
           </div>
 
-          <div className="theme-cream paper mt-8 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-6 text-center sm:p-10">
+          <div className="theme-cream paper sheet-card corners mt-8 border-primary p-6 text-center sm:p-10">
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
               One tool settles one question. The record is where the settled questions add up to a decision.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/checklist"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Free RV park due diligence checklist
               </Link>
               {relatedNote ? (
                 <Link
                   href={relatedNote.href}
-                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {relatedNote.label}
                 </Link>
               ) : (
                 <Link
                   href="/blog"
-                  className="inline-block border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_14px_1px_rgba(58,134,242,0.18)] px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="btn-press inline-block border border-primary px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Read the Field Notes
                 </Link>
@@ -561,8 +562,8 @@ export default function ToolShell(props: ToolShellProps) {
       {/* Print-only summary */}
       <div data-print-root className="hidden print:block">
         <div className="print-brandbar">
-          <Image src="/logo.jpg" alt="CrosstownOS" width={40} height={40} loading="eager" decoding="async" style={{ borderRadius: "50%", marginBottom: 8 }} />
-          <p className="print-eyebrow">CrosstownOS &middot; Live Diligence Working Paper</p>
+          <Image src="/icon-512.png" alt="Evidens" width={40} height={40} loading="eager" decoding="async" style={{ marginBottom: 8 }} />
+          <p className="print-eyebrow">Evidens &middot; Live Diligence Working Paper</p>
           <p className="print-title">{title}</p>
           <p className="print-meta">
             {dealName || "Untitled deal"} &middot; {sourceCode} &middot; {new Date().toLocaleDateString("en-US")}
@@ -578,7 +579,7 @@ export default function ToolShell(props: ToolShellProps) {
         )}
         <p style={{ marginTop: 12, fontSize: 10, color: "#555" }}>{READINESS_DISCLAIMER}</p>
         <p style={{ marginTop: 8, fontSize: 10, color: "#555" }}>
-          Generated by CrosstownOS &middot; crosstownosrv.camp/tools/{slug} &middot; (972) 914-9046
+          Generated by Evidens &middot; getevidens.com/tools/{slug} &middot; (972) 914-9046
         </p>
       </div>
 

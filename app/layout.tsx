@@ -7,6 +7,7 @@ import QuietCta from '@/components/QuietCta'
 import SiteAgent from '@/components/SiteAgent'
 import ScrollExperience from '@/components/ScrollExperience'
 import BrandLoader from '@/components/BrandLoader'
+import { NoticeStack } from '@/components/ui/motion'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -31,43 +32,43 @@ const siteDescription =
   'Diligence software for RV park and manufactured housing (MHP) buyers. Verified facts, broker claims, and missing evidence, separated before you buy.'
 
 export const metadata: Metadata = {
-  keywords: ["RV park due diligence software", "manufactured housing community acquisitions", "mobile home park due diligence", "RV park buying", "ParkProof Report", "acquisition workspace", "CrosstownOS"],
-  metadataBase: new URL('https://www.crosstownosrv.camp'),
-  title: 'CrosstownOS | RV Park Due Diligence Software',
+  keywords: ["RV park due diligence software", "manufactured housing community acquisitions", "mobile home park due diligence", "RV park buying", "ParkProof Report", "acquisition workspace", "Evidens"],
+  metadataBase: new URL('https://www.getevidens.com'),
+  title: 'Evidens | RV Park Due Diligence Software',
   description: siteDescription,
-  applicationName: 'CrosstownOS',
-  authors: [{ name: 'CrosstownOS' }],
-  creator: 'CrosstownOS',
-  publisher: 'CrosstownOS',
+  applicationName: 'Evidens',
+  authors: [{ name: 'Evidens' }],
+  creator: 'Evidens',
+  publisher: 'Evidens',
   alternates: {
     canonical: '/',
     types: {
-      'application/rss+xml': 'https://www.crosstownosrv.camp/blog/rss.xml',
+      'application/rss+xml': 'https://www.getevidens.com/blog/rss.xml',
     },
   },
   openGraph: {
-    title: 'CrosstownOS',
+    title: 'Evidens',
     description:
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
     type: 'website',
     url: '/',
-    siteName: 'CrosstownOS',
+    siteName: 'Evidens',
     locale: 'en_US',
     images: [
       {
-        url: '/og-logo.png',
-        width: 1024,
-        height: 1024,
-        alt: 'CrosstownOS: evidence-backed acquisition intelligence',
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Evidens: evidence-backed acquisition intelligence',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CrosstownOS',
+    title: 'Evidens',
     description:
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities. Know what is true before you buy.',
-    images: ['/og-logo.png'],
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -80,8 +81,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.png?v=2',
-    apple: '/apple-touch-icon.png?v=2',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 }
 
@@ -91,7 +97,7 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen selection:bg-primary/20 selection:text-foreground`}
@@ -142,6 +148,10 @@ export default function RootLayout({
             (direct child of <body>, outside app/template.tsx) so its
             position: fixed survives the page-enter transform. ── */}
         <SiteAgent />
+        {/* ── STACKED NOTICES: the notice system (stacked notifications).
+            Cream slips spring up bottom-right when a surface files a
+            confirmation via the `evidens:notice` window event. ── */}
+        <NoticeStack />
         <AnalyticsClient />
         <ScrollExperience />
         <BrandLoader />

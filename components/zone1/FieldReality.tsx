@@ -5,7 +5,7 @@ import {
   Container,
   Heading,
   Section,
-  TelemetryBox,
+  SheetCard,
   TerminalLabel,
 } from "@/components/ui/primitives"
 import { cn } from "@/lib/utils"
@@ -83,15 +83,17 @@ export default function FieldReality() {
           className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4"
         >
           {TRUTH_LAYERS.map((layer) => (
-            <TelemetryBox
+            <div
               key={layer.title}
               data-reveal-item
-              glass="light"
+              className="card-stack card-stack-field stack-spring"
+            >
+            <SheetCard
               className={cn(
-                "theme-cream paper flex h-full flex-col p-5 text-foreground transition-all duration-300 hover:-translate-y-1",
+                "flex h-full flex-col p-5",
                 layer.emphasis
-                  ? "border-accent/50 hover:border-accent/80 hover:shadow-[0_0_45px_-10px_oklch(0.58_0.12_55/0.45)]"
-                  : "hover:border-primary/60 hover:shadow-[0_0_45px_-10px_oklch(0.50_0.08_250/0.45)]",
+                  ? "border-accent/50 hover:border-accent/80"
+                  : "hover:border-primary/60",
               )}
             >
               <span
@@ -108,10 +110,11 @@ export default function FieldReality() {
               <p className="text-sm leading-relaxed text-foreground/75">
                 {layer.body}
               </p>
-            </TelemetryBox>
+            </SheetCard>
+            </div>
           ))}
         </div>
       </Container>
     </Section>
   )
-}
+}

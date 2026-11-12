@@ -30,7 +30,7 @@ const FOCUSABLE =
 
 /**
  * The branded success pop-up. When a completion fires, this overlay is
- * the moment: the circular logo and CrosstownOS wordmark over the same
+ * the moment: the app icon and Evidens wordmark over the same
  * confirmation the in-flow SuccessState carries (same eyebrow, title,
  * next-step line, and single contextual door, fed from the same props
  * so the two layers cannot drift). Dismiss by the X, the backdrop, or
@@ -113,21 +113,21 @@ export default function SuccessPopup({
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className="success-popup-panel theme-cream w-full max-w-md border border-primary/40 bg-card p-6 shadow-2xl sm:p-8"
+        className="success-popup-panel theme-cream sheet-card w-full max-w-md border-primary/40 p-6 shadow-2xl sm:p-8"
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="relative h-10 w-10 flex-none overflow-hidden [clip-path:circle(50%)]">
+            <span className="relative h-10 w-10 flex-none overflow-hidden">
               <Image
-                src="/logo.jpg"
-                alt="CrosstownOS"
+                src="/icon-192.png"
+                alt="Evidens"
                 fill
                 sizes="40px"
                 className="object-cover"
               />
             </span>
             <span className="font-serif text-lg font-semibold tracking-tight text-foreground">
-              CrosstownOS
+              Evidens
             </span>
           </div>
           <button
@@ -157,7 +157,7 @@ export default function SuccessPopup({
           <Link
             href={door.href}
             onClick={onClose}
-            className="mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="btn-plate mx-auto mt-6 block w-fit border border-primary/60 bg-primary-deep px-5 py-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {door.label}
           </Link>

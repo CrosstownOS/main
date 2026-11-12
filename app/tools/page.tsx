@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
-import PageBackdrop from "@/components/PageBackdrop"
 import { EVIDENCE_STATES, type EvidenceState } from "@/lib/tools/evidence"
 import { FAQ_JSON_LD } from "@/lib/tools/faqs"
 import { cn } from "@/lib/utils"
@@ -11,30 +10,30 @@ import StaggerReveal from "@/components/ui/StaggerReveal"
 
 export const metadata: Metadata = {
   keywords: ["RV park diligence tools", "free working papers", "screen RV park deals", "verify rent rolls", "diligence calculators"],
-  title: "Live Diligence Working Papers | CrosstownOS",
+  title: "Live Diligence Working Papers | Evidens",
   description: "Six free RV park diligence tools that run in your browser. Screen deals, verify rent rolls, normalize P&Ls, and triage utility risk. No account is needed.",
   alternates: { canonical: "/tools" },
   openGraph: {
-    title: "Live Diligence Working Papers | CrosstownOS",
+    title: "Live Diligence Working Papers | Evidens",
     description:
       "Six working papers that run in your browser. Every number carries an evidence state. Nothing tells you whether to buy.",
     type: "website",
     url: "/tools",
     images: [
       {
-        url: "/og-logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "Live Diligence Working Papers | CrosstownOS",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Live Diligence Working Papers | Evidens",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Live Diligence Working Papers | CrosstownOS",
+    title: "Live Diligence Working Papers | Evidens",
     description:
       "Six working papers that run in your browser. Every number carries an evidence state.",
-    images: ["/og-logo.png"],
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -154,7 +153,7 @@ const FAQS: { q: string; a: string }[] = [
 
 function WorkingPaperCard({ tool }: { tool: ToolCard }) {
   return (
-    <div data-reveal-item className="theme-cream card-lift flex flex-col border border-border bg-card p-6 sm:p-8">
+    <div data-reveal-item className="theme-cream sheet-card corners card-lift flex flex-col p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.sourceCode}
@@ -175,13 +174,13 @@ function WorkingPaperCard({ tool }: { tool: ToolCard }) {
       <div className="mt-auto flex flex-wrap gap-3 pt-6">
         <Link
           href={`/tools/${tool.slug}`}
-          className="inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="btn-plate inline-block border border-primary/60 bg-primary-deep px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Open tool
         </Link>
         <Link
           href={tool.pdfHref}
-          className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           Get the PDF
         </Link>
@@ -196,7 +195,7 @@ const toolsJsonLd = {
   name: "Live Diligence Working Papers",
   description:
     "Six interactive diligence working papers for RV park and manufactured-housing buyers. Every number carries an evidence state.",
-  url: "https://www.crosstownosrv.camp/tools",
+  url: "https://www.getevidens.com/tools",
   numberOfItems: 6,
   itemListElement: [
     {
@@ -207,7 +206,7 @@ const toolsJsonLd = {
         name: "60-Second Deal Screener",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web",
-        url: "https://www.crosstownosrv.camp/tools/60-second-screener",
+        url: "https://www.getevidens.com/tools/60-second-screener",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     },
@@ -219,7 +218,7 @@ const toolsJsonLd = {
         name: "Rent-Roll Truth Check",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web",
-        url: "https://www.crosstownosrv.camp/tools/rent-roll-truth-check",
+        url: "https://www.getevidens.com/tools/rent-roll-truth-check",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     },
@@ -231,7 +230,7 @@ const toolsJsonLd = {
         name: "Expense Normalizer",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web",
-        url: "https://www.crosstownosrv.camp/tools/expense-normalizer",
+        url: "https://www.getevidens.com/tools/expense-normalizer",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     },
@@ -243,7 +242,7 @@ const toolsJsonLd = {
         name: "Utility Capacity Risk Triage",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web",
-        url: "https://www.crosstownosrv.camp/tools/utility-capacity-triage",
+        url: "https://www.getevidens.com/tools/utility-capacity-triage",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     },
@@ -255,7 +254,7 @@ const toolsJsonLd = {
         name: "POH/TOH Split Valuation",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web",
-        url: "https://www.crosstownosrv.camp/tools/poh-toh-split",
+        url: "https://www.getevidens.com/tools/poh-toh-split",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     },
@@ -267,7 +266,7 @@ const toolsJsonLd = {
         name: "EMD Clock and Gate Tracker",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web",
-        url: "https://www.crosstownosrv.camp/tools/emd-clock",
+        url: "https://www.getevidens.com/tools/emd-clock",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     },
@@ -287,7 +286,6 @@ export default function ToolsPage() {
       />
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
-        <PageBackdrop />
         <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
           <Breadcrumb
             className="mb-6"
@@ -310,7 +308,7 @@ export default function ToolsPage() {
           </div>
 
           {/* Trust strip */}
-          <div className="theme-cream mt-10 border border-border bg-card p-6">
+          <div className="theme-cream sheet-card corners mt-10 p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               The standard, in six chips
             </p>
@@ -357,7 +355,7 @@ export default function ToolsPage() {
           ))}
 
           {/* 3.3 Connect band */}
-          <section className="theme-cream mt-16 border border-primary/40 bg-card p-8 text-center" aria-label="How the working papers connect">
+          <section className="theme-cream sheet-card corners mt-16 border-primary/40 p-8 text-center" aria-label="How the working papers connect">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               How the working papers connect
             </p>
@@ -374,13 +372,13 @@ export default function ToolsPage() {
             <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/checklist"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Free diligence checklist
               </Link>
               <Link
                 href="/blog"
-                className="inline-block border border-[#3a86f2]/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-press inline-block border border-primary/60 px-4 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Field Notes
               </Link>
@@ -406,17 +404,17 @@ export default function ToolsPage() {
           </section>
 
           {/* 3.5 Conversion band */}
-          <section className="theme-cream paper mt-16 border border-[#3a86f2] shadow-[0_0_0_1px_rgba(58,134,242,0.45),0_0_24px_2px_rgba(58,134,242,0.30),0_0_72px_10px_rgba(58,134,242,0.16)] bg-card p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
+          <section className="theme-cream paper sheet-card corners mt-16 border-primary p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
             <h2 className="serif-display mt-3 text-3xl tracking-tight">
-              Work your real acquisition inside CrosstownOS.
+              Work your real acquisition inside Evidens.
             </h2>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/workspace#apply"
-                className="inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="btn-plate inline-block border border-primary/60 bg-primary-deep px-6 py-3.5 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:bg-primary-deep/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Apply for a pilot place
               </Link>
