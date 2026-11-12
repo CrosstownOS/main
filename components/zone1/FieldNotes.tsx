@@ -65,11 +65,16 @@ export default function FieldNotes() {
             posts.length > 1 && "md:grid-cols-2 lg:grid-cols-3"
           )}
         >
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <div
               key={post.slug}
               data-reveal-item
-              className="card-stack card-stack-field stack-spring"
+              className={cn(
+                "card-stack card-stack-field stack-spring",
+                posts.length % 2 === 1 &&
+                  index === posts.length - 1 &&
+                  "md:col-span-2 md:w-[calc(50%-0.5rem)] md:justify-self-center lg:col-span-1 lg:w-auto lg:justify-self-stretch"
+              )}
             >
             <Link
               href={`/blog/${post.slug}`}

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useReveal } from "@/hooks/useReveal"
+import { cn } from "@/lib/utils"
 import {
   Container,
   Heading,
@@ -120,7 +121,14 @@ export default function LifecycleVision() {
 
             if (isLive) {
               return (
-                <li key={module.name} data-reveal-item>
+                <li
+                key={module.name}
+                data-reveal-item
+                className={cn(
+                  index === LIFECYCLE.length - 1 &&
+                    "sm:col-span-2 sm:w-[calc(50%-0.5rem)] sm:justify-self-center xl:col-span-1 xl:w-auto xl:justify-self-stretch"
+                )}
+              >
                   <RoomStack
                     room={
                       module.name.toLowerCase() as
@@ -139,7 +147,14 @@ export default function LifecycleVision() {
             }
 
             return (
-              <li key={module.name} data-reveal-item>
+              <li
+                key={module.name}
+                data-reveal-item
+                className={cn(
+                  index === LIFECYCLE.length - 1 &&
+                    "sm:col-span-2 sm:w-[calc(50%-0.5rem)] sm:justify-self-center xl:col-span-1 xl:w-auto xl:justify-self-stretch"
+                )}
+              >
                 <RecordCard
                   className="corners card-lift flex h-full flex-col p-5"
                   style={{ borderStyle: "dashed" }}
