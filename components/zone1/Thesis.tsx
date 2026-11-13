@@ -68,7 +68,7 @@ export default function Thesis() {
               , spreadsheets, and memory. Evidens is built to make the record disciplined before capital is committed, and to keep it for the life of the asset.
             </p>
 
-            <div className="card-stack card-stack-field stack-spring mt-10">
+            <div className="card-stack card-stack-acquire stack-spring mt-10">
             <RecordCard className="divide-y divide-border/60">
               {THESIS_SIGNALS.map((signal) => (
                 <div key={signal.index} data-reveal-item className="flex gap-5 p-5">
