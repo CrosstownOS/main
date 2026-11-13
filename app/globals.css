@@ -760,6 +760,13 @@ select:focus-visible {
   }
 }
 
+/* ── The stack press: on a stack whose face is the link, pressing settles
+   the face onto its slab by the slab's own offset, the card-level twin of
+   .btn-press. Deliberately not hover-gated: a tap presses it too. ── */
+.stack-press:active > * {
+  translate: 0.5rem 0.5rem;
+}
+
 /* ── Stacked sheets: a second sheet (white, hairline) steps out up-left
    while the room card steps down-right, so the card reads as three
    sheets stepping diagonally apart (spring cards, second layer). ── */

@@ -40,7 +40,8 @@ export default function WorkingPapers() {
       aria-labelledby="working-papers-heading"
     >
       <Container>
-        <SheetCard className="p-6 sm:p-8 lg:p-10">
+        <div className="card-stack card-stack-acquire stack-spring">
+          <SheetCard className="p-6 sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
@@ -75,7 +76,7 @@ export default function WorkingPapers() {
               {PAPERS.map((paper) => (
                 <div
                   key={paper.slug}
-                  className={`card-stack card-stack-${PAPER_ROOM[paper.code] ?? "acquire"} stack-spring`}
+                  className={`card-stack card-stack-${PAPER_ROOM[paper.code] ?? "acquire"} stack-spring stack-press`}
                 >
                   <Link
                     data-reveal-item
@@ -107,7 +108,8 @@ export default function WorkingPapers() {
               </Link>
             </div>
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
       </Container>
     </Section>
   )

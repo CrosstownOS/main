@@ -47,7 +47,8 @@ export default function BuyingGuides() {
       aria-labelledby="buying-guides-heading"
     >
       <Container>
-        <SheetCard className="p-6 sm:p-8 lg:p-10">
+        <div className="card-stack card-stack-acquire stack-spring">
+          <SheetCard className="p-6 sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
@@ -72,7 +73,7 @@ export default function BuyingGuides() {
             {GUIDES.map((guide) => (
               <div
                 key={guide.href}
-                className="card-stack card-stack-acquire stack-spring"
+                className="card-stack card-stack-acquire stack-spring stack-press"
               >
                 <Link
                   href={guide.href}
@@ -94,7 +95,8 @@ export default function BuyingGuides() {
               </div>
             ))}
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
       </Container>
     </Section>
   )
