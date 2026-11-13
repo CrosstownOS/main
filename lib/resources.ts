@@ -107,6 +107,35 @@ export const PART_BY_ID: Record<string, Part> = Object.fromEntries(
   PARTS.map((part) => [part.id, part])
 )
 
+/* Card dress by journey stage (Jeremy's ruling, 2026-11-13): a card wears
+   the room that owns its stage of the deal. Parts A to D are Source work
+   (finding the deal and proving it on paper), Part E is Field work (proving
+   the ground), Parts F and G are Acquire work (decide, structure, own).
+   Surfaces that hold the whole journey wear Acquire navy, the frame color. */
+export type Room = "source" | "field" | "acquire"
+
+export const PART_ROOM: Record<string, Room> = {
+  A: "source",
+  B: "source",
+  C: "source",
+  D: "source",
+  E: "field",
+  F: "acquire",
+  G: "acquire",
+}
+
+export function roomForPart(partId: string | undefined): Room {
+  return (partId && PART_ROOM[partId]) || "acquire"
+}
+
+export function stackClassForRoom(room: Room): string {
+  return `card-stack card-stack-${room} stack-spring`
+}
+
+export function stackClassForPart(partId: string | undefined): string {
+  return stackClassForRoom(roomForPart(partId))
+}
+
 export type Spine = {
   title: string
   file: string

@@ -12,8 +12,22 @@ import {
   TOOL_BY_CODE,
   resourceSlug,
   resourceTitleSlug,
+  stackClassForPart,
+  stackClassForRoom,
+  type Room,
   type Situation,
 } from "@/lib/resources"
+
+/* Situation dress by journey stage (Jeremy's ruling, 2026-11-13): A and B
+   are Source work (the package and its numbers on paper), C is Field work
+   (the site visit), D and E are Acquire work (the offer deadline, closing). */
+const SITUATION_ROOM: Record<string, Room> = {
+  a: "source",
+  b: "source",
+  c: "field",
+  d: "acquire",
+  e: "acquire",
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -82,7 +96,8 @@ function ToolCard({ code, note }: { code: string; note?: string }) {
   const tool = TOOL_BY_CODE[code]
   if (!tool) return null
   return (
-    <div className="sheet-card corners p-6 sm:p-8">
+    <div className={stackClassForPart(tool.part)}>
+    <div className="sheet-card corners h-full p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary-deep px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.code}
@@ -116,6 +131,7 @@ function ToolCard({ code, note }: { code: string; note?: string }) {
         className="btn-plate mt-5 inline-flex cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
       />
     </div>
+    </div>
   )
 }
 
@@ -133,10 +149,8 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
           const tool = TOOL_BY_CODE[step.code]
           if (!tool) return null
           return (
-            <li
-              key={step.code}
-              className="sheet-card corners card-lift flex gap-4 p-5 sm:p-6"
-            >
+            <li key={step.code} className={stackClassForPart(tool.part)}>
+              <div className="sheet-card corners card-lift flex h-full gap-4 p-5 sm:p-6">
               <span className="serif-display flex-none text-2xl text-primary">
                 {i + 1}
               </span>
@@ -163,6 +177,7 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
                   className="mt-3 inline-block cursor-pointer bg-transparent p-0 text-left text-sm font-semibold text-primary hover:underline"
                 />
               </div>
+              </div>
             </li>
           )
         })}
@@ -174,7 +189,8 @@ function NextSteps({ steps }: { steps: { code: string; why: string }[] }) {
 function SituationResult({ situation, branch }: { situation: Situation; branch?: string }) {
   if (situation.id === "b" && branch !== "mhc" && branch !== "rv") {
     return (
-      <div className="sheet-card corners mt-10 p-6 sm:p-8">
+      <div className={`${stackClassForRoom("source")} mt-10`}>
+      <div className="sheet-card corners h-full p-6 sm:p-8">
         <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
           Which kind of park?
         </h2>
@@ -182,9 +198,10 @@ function SituationResult({ situation, branch }: { situation: Situation; branch?:
           {situation.question}
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className={stackClassForRoom("source")}>
           <a
             href="/resources?situation=b&branch=mhc"
-            className="sheet-card flyout-link corners block p-6 hover:border-primary/60"
+            className="sheet-card flyout-link corners block h-full p-6 hover:border-primary/60"
           >
             <p className="serif-display text-xl tracking-tight">
               Manufactured-housing community
@@ -193,9 +210,11 @@ function SituationResult({ situation, branch }: { situation: Situation; branch?:
               Lot-rent math. Start with AS-15, The Rent-Roll Truth Check.
             </p>
           </a>
+          </div>
+          <div className={stackClassForRoom("source")}>
           <a
             href="/resources?situation=b&branch=rv"
-            className="sheet-card flyout-link corners block p-6 hover:border-primary/60"
+            className="sheet-card flyout-link corners block h-full p-6 hover:border-primary/60"
           >
             <p className="serif-display text-xl tracking-tight">RV park</p>
             <p className="mt-2 text-sm text-muted">
@@ -203,7 +222,9 @@ function SituationResult({ situation, branch }: { situation: Situation; branch?:
               Edition.
             </p>
           </a>
+          </div>
         </div>
+      </div>
       </div>
     )
   }
@@ -274,14 +295,17 @@ export default async function ResourcesPage({
             {SITUATIONS.map((s, i) => {
               const isActive = active?.id === s.id
               return (
-                <a
+                <div
                   key={s.id}
+                  className={stackClassForRoom(SITUATION_ROOM[s.id] ?? "acquire")}
+                >
+                <a
                   href={isActive ? "/resources" : `/resources?situation=${s.id}`}
                   aria-current={isActive ? "true" : undefined}
                   className={
                     isActive
-                      ? "sheet-card corners border-2 border-primary bg-primary/10 p-5"
-                      : "sheet-card corners card-lift p-5 hover:border-primary/60"
+                      ? "sheet-card corners block h-full border-2 border-primary bg-primary/10 p-5"
+                      : "sheet-card corners card-lift block h-full p-5 hover:border-primary/60"
                   }
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
@@ -289,6 +313,7 @@ export default async function ResourcesPage({
                   </p>
                   <p className="mt-2 font-semibold leading-snug">{s.label}</p>
                 </a>
+                </div>
               )
             })}
             <a
@@ -312,7 +337,8 @@ export default async function ResourcesPage({
           )}
 
           {!active && (
-            <div className="sheet-card corners mt-10 p-6 sm:p-8">
+            <div className={`${stackClassForRoom("acquire")} mt-10`}>
+            <div className="sheet-card corners h-full p-6 sm:p-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                 Prefer the full list
               </p>
@@ -328,6 +354,7 @@ export default async function ResourcesPage({
                 tool for the gap that matters most.
               </p>
             </div>
+            </div>
           )}
 
           <div className="mt-20">
@@ -342,7 +369,8 @@ export default async function ResourcesPage({
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {SPINES.map((sp) => (
-                <div key={sp.title} className="sheet-card corners card-lift p-6">
+                <div key={sp.title} className={stackClassForRoom("acquire")}>
+                <div className="sheet-card corners card-lift h-full p-6">
                   <h3 className="serif-display text-xl tracking-tight">
                     <Link
                       href={`/resources/${resourceTitleSlug(sp.title)}`}
@@ -365,6 +393,7 @@ export default async function ResourcesPage({
                     className="mt-4 inline-block cursor-pointer bg-transparent p-0 text-left text-sm font-semibold text-primary hover:underline"
                   />
                 </div>
+                </div>
               ))}
             </div>
           </div>
@@ -380,9 +409,10 @@ export default async function ResourcesPage({
               </p>
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className={stackClassForRoom("acquire")}>
               <Link
                 href="/buying-an-rv-park"
-                className="sheet-card flyout-link corners card-lift p-6 hover:border-primary/60"
+                className="sheet-card flyout-link corners card-lift block h-full p-6 hover:border-primary/60"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   Buyer&apos;s guide
@@ -395,9 +425,11 @@ export default async function ResourcesPage({
                   the red flags that kill deals.
                 </p>
               </Link>
+              </div>
+              <div className={stackClassForRoom("acquire")}>
               <Link
                 href="/buying-a-campground"
-                className="sheet-card flyout-link corners card-lift p-6 hover:border-primary/60"
+                className="sheet-card flyout-link corners card-lift block h-full p-6 hover:border-primary/60"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   Buyer&apos;s guide
@@ -410,9 +442,11 @@ export default async function ResourcesPage({
                   and permit verification.
                 </p>
               </Link>
+              </div>
+              <div className={stackClassForRoom("acquire")}>
               <Link
                 href="/mobile-home-park-investing"
-                className="sheet-card flyout-link corners card-lift p-6 hover:border-primary/60"
+                className="sheet-card flyout-link corners card-lift block h-full p-6 hover:border-primary/60"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   Investor&apos;s guide
@@ -425,9 +459,11 @@ export default async function ResourcesPage({
                   hidden infrastructure capex.
                 </p>
               </Link>
+              </div>
+              <div className={stackClassForRoom("acquire")}>
               <Link
                 href="/rv-park-investing"
-                className="sheet-card flyout-link corners card-lift p-6 hover:border-primary/60"
+                className="sheet-card flyout-link corners card-lift block h-full p-6 hover:border-primary/60"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   Investor&apos;s guide
@@ -440,6 +476,7 @@ export default async function ResourcesPage({
                   verification framework.
                 </p>
               </Link>
+              </div>
             </div>
           </div>
 
@@ -466,7 +503,8 @@ export default async function ResourcesPage({
           </div>
           </div>
 
-          <div className="sheet-card corners mt-8 p-6 text-center sm:p-10">
+          <div className={`${stackClassForRoom("acquire")} mt-8`}>
+          <div className="sheet-card corners h-full p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
@@ -481,6 +519,7 @@ export default async function ResourcesPage({
                 Apply for a pilot place
               </a>
             </div>
+          </div>
           </div>
           <p className="mt-10 text-xs leading-relaxed text-muted">
             Acquisition Signal Resources are educational tools built from

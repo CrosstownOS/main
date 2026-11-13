@@ -3,7 +3,7 @@ import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
 import Breadcrumb from "@/components/ui/breadcrumb"
 import { GatedDownloadButton } from "@/components/GatedDownload"
-import { PARTS, SPINES, TOOLS, resourceSlug, resourceTitleSlug } from "@/lib/resources"
+import { PARTS, SPINES, TOOLS, resourceSlug, resourceTitleSlug, stackClassForPart, stackClassForRoom } from "@/lib/resources"
 import SignalLine from "@/components/ui/SignalLine"
 import StaggerReveal from "@/components/ui/StaggerReveal"
 
@@ -89,9 +89,10 @@ export default function CatalogPage() {
             tells you the next one. One email unlocks every download. Tap a
             download and take it to the truck.
           </p>
+          <div className={`${stackClassForRoom("acquire")} mt-8`}>
           <section
             aria-label="Start with the spine"
-            className="sheet-card corners mt-8 p-6"
+            className="sheet-card corners h-full p-6"
           >
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               Start with the spine.
@@ -133,7 +134,9 @@ export default function CatalogPage() {
               </li>
             </ul>
           </section>
-          <div className="sheet-card corners mt-8 p-6">
+          </div>
+          <div className={`${stackClassForRoom("acquire")} mt-8`}>
+          <div className="sheet-card corners h-full p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Prefer to run the math?
             </p>
@@ -149,6 +152,7 @@ export default function CatalogPage() {
               </Link>
               .
             </p>
+          </div>
           </div>
           <div className="mt-14 space-y-14">
             {PARTS.map((part) => {
@@ -171,8 +175,9 @@ export default function CatalogPage() {
                       <div
                         key={tool.code}
                         data-reveal-item
-                        className="sheet-card corners card-lift flex flex-col p-6"
+                        className={stackClassForPart(part.id)}
                       >
+                        <div className="sheet-card corners card-lift flex h-full flex-col p-6">
                         <div className="flex flex-wrap items-center gap-3">
                           <span className="bg-primary-deep px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
                             {tool.code}
@@ -202,6 +207,7 @@ export default function CatalogPage() {
                           }}
                           className="btn-plate mt-5 inline-flex w-fit cursor-pointer items-center gap-2 bg-primary-deep px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                         />
+                        </div>
                       </div>
                     ))}
                   </StaggerReveal>
@@ -238,7 +244,8 @@ export default function CatalogPage() {
           </div>
           </div>
 
-          <div className="sheet-card corners mt-8 p-6 text-center sm:p-10">
+          <div className={`${stackClassForRoom("acquire")} mt-8`}>
+          <div className="sheet-card corners h-full p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
@@ -254,10 +261,13 @@ export default function CatalogPage() {
               </a>
             </div>
           </div>
-          <div className="sheet-card corners mt-12 p-8 text-center">
+          </div>
+          <div className={`${stackClassForRoom("acquire")} mt-12`}>
+          <div className="sheet-card corners h-full p-8 text-center">
             <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
               Every sheet in the library exists to move one claim from asserted to proven.
             </p>
+          </div>
           </div>
           <p className="mt-10 text-xs leading-relaxed text-muted">
             Acquisition Signal Resources are educational tools built from

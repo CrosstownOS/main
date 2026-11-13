@@ -151,9 +151,22 @@ const FAQS: { q: string; a: string }[] = [
   },
 ]
 
+/* Dress by journey stage (Jeremy's ruling, 2026-11-13): each working paper
+   wears its Part's room. AS-02 Part A, AS-09/AS-15/AS-08 Part D (Source);
+   AS-13 Part E (Field); AS-17 Part F (Acquire). */
+const CODE_ROOM: Record<string, string> = {
+  "AS-02": "source",
+  "AS-09": "source",
+  "AS-15": "source",
+  "AS-08": "source",
+  "AS-13": "field",
+  "AS-17": "acquire",
+}
+
 function WorkingPaperCard({ tool, className = "" }: { tool: ToolCard; className?: string }) {
   return (
-    <div data-reveal-item className={`theme-cream sheet-card corners card-lift flex flex-col p-6 sm:p-8 ${className}`}>
+    <div data-reveal-item className={`card-stack card-stack-${CODE_ROOM[tool.sourceCode] ?? "acquire"} stack-spring ${className}`}>
+    <div className="theme-cream sheet-card corners card-lift flex h-full flex-col p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.sourceCode}
@@ -185,6 +198,7 @@ function WorkingPaperCard({ tool, className = "" }: { tool: ToolCard; className?
           Get the PDF
         </Link>
       </div>
+    </div>
     </div>
   )
 }
@@ -308,7 +322,8 @@ export default function ToolsPage() {
           </div>
 
           {/* Trust strip */}
-          <div className="theme-cream sheet-card corners mt-10 p-6">
+          <div className="card-stack card-stack-acquire stack-spring mt-10">
+          <div className="theme-cream sheet-card corners h-full p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               The standard, in six chips
             </p>
@@ -335,6 +350,7 @@ export default function ToolsPage() {
               </Link>
               . Every tool below speaks this language.
             </p>
+          </div>
           </div>
 
           {/* 3.2 Groups */}
@@ -363,7 +379,8 @@ export default function ToolsPage() {
           ))}
 
           {/* 3.3 Connect band */}
-          <section className="theme-cream sheet-card corners mt-16 border-primary/40 p-8 text-center" aria-label="How the working papers connect">
+          <div className="card-stack card-stack-acquire stack-spring mt-16">
+          <section className="theme-cream sheet-card corners h-full border-primary/40 p-8 text-center" aria-label="How the working papers connect">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               How the working papers connect
             </p>
@@ -392,6 +409,7 @@ export default function ToolsPage() {
               </Link>
             </div>
           </section>
+          </div>
 
           {/* FAQ */}
           <section className="mt-16" aria-label="Frequently asked questions">
@@ -412,7 +430,8 @@ export default function ToolsPage() {
           </section>
 
           {/* 3.5 Conversion band */}
-          <section className="theme-cream paper sheet-card corners mt-16 border-primary p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
+          <div className="card-stack card-stack-acquire stack-spring mt-16">
+          <section className="theme-cream paper sheet-card corners h-full border-primary p-8 text-center sm:p-10" aria-label="Work your deal in the workspace">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
@@ -428,6 +447,7 @@ export default function ToolsPage() {
               </Link>
             </div>
           </section>
+          </div>
         </div>
       </main>
     </>

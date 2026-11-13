@@ -16,6 +16,20 @@ import SignalLine from "@/components/ui/SignalLine"
 
 const EMAIL_KEY = "crosstown_resource_email"
 
+/* Dress by journey stage (Jeremy's ruling, 2026-11-13): the shell's framing
+   cards wear the tool's Part room; whole-journey bands wear Acquire navy. */
+const TOOL_ROOM: Record<string, string> = {
+  "AS-02": "source",
+  "AS-09": "source",
+  "AS-09R": "source",
+  "AS-15": "source",
+  "AS-15R": "source",
+  "AS-08": "source",
+  "AS-08R": "source",
+  "AS-13": "field",
+  "AS-17": "acquire",
+}
+
 type SaveMode = "save" | "download"
 
 function PostureBanner({ label, statement }: { label: ReadinessLabel; statement: string }) {
@@ -217,6 +231,7 @@ export default function ToolShell(props: ToolShellProps) {
     dealName, onDealName, onReset, getExport, exportFileName, posture,
     printSummary, ctaTitle, ctaBody, ctaButton, pdfHref, pdfHrefAlt, faqs, relatedNote, children,
   } = props
+  const room = TOOL_ROOM[sourceCode] ?? "acquire"
   const [saveOpen, setSaveOpen] = useState(false)
   const handleSaveClose = useCallback(() => setSaveOpen(false), [])
   const [saveMode, setSaveMode] = useState<SaveMode>("save")
@@ -382,7 +397,8 @@ export default function ToolShell(props: ToolShellProps) {
             </p>
           </div>
 
-          <div className="theme-cream sheet-card corners mt-6 p-6">
+          <div className="card-stack card-stack-acquire stack-spring mt-6">
+          <div className="theme-cream sheet-card corners h-full p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               How to read this page
             </p>
@@ -395,8 +411,10 @@ export default function ToolShell(props: ToolShellProps) {
               What you type starts as Broker-reported. Mark it Verified only when you can point to the source. What the tool computes is Calculated. Missing is named, never zeroed.
             </p>
           </div>
+          </div>
 
-          <div className="theme-cream sheet-card corners mt-10 p-6">
+          <div className={`card-stack card-stack-${room} stack-spring mt-10`}>
+          <div className="theme-cream sheet-card corners h-full p-6">
             <label htmlFor="deal-name" className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted">
               Deal name <span className="normal-case tracking-normal">(keeps each deal&apos;s work separate)</span>
             </label>
@@ -418,6 +436,7 @@ export default function ToolShell(props: ToolShellProps) {
               </button>
             </div>
           </div>
+          </div>
 
           <div className="mt-10">{children}</div>
 
@@ -427,7 +446,8 @@ export default function ToolShell(props: ToolShellProps) {
             </div>
           )}
 
-          <div className="theme-cream sheet-card corners mt-10 p-6 text-center">
+          <div className={`card-stack card-stack-${room} stack-spring mt-10`}>
+          <div className="theme-cream sheet-card corners h-full p-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
               Keep the record
             </p>
@@ -481,6 +501,7 @@ export default function ToolShell(props: ToolShellProps) {
               Your numbers stay in your browser until you choose to move them.
             </p>
           </div>
+          </div>
 
           {completion && (
             <div ref={completionRef} className="mt-8">
@@ -511,7 +532,8 @@ export default function ToolShell(props: ToolShellProps) {
 
           {faqs && faqs.length > 0 && <FaqSection faqs={faqs} />}
 
-          <div className="theme-cream paper sheet-card corners mt-8 border-primary p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-acquire stack-spring mt-8">
+          <div className="theme-cream paper sheet-card corners h-full border-primary p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The Acquisition Workspace
             </p>
@@ -526,8 +548,10 @@ export default function ToolShell(props: ToolShellProps) {
               </Link>
             </div>
           </div>
+          </div>
 
-          <div className="theme-cream paper sheet-card corners mt-8 border-primary p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-acquire stack-spring mt-8">
+          <div className="theme-cream paper sheet-card corners h-full border-primary p-6 text-center sm:p-10">
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
               One tool settles one question. The record is where the settled questions add up to a decision.
             </p>
@@ -554,6 +578,7 @@ export default function ToolShell(props: ToolShellProps) {
                 </Link>
               )}
             </div>
+          </div>
           </div>
 
         </div>

@@ -14,6 +14,9 @@ import {
   RESOURCE_DETAILS,
   TOOL_BY_CODE,
   TOOLS,
+  roomForPart,
+  stackClassForPart,
+  stackClassForRoom,
   resourceSlug,
   type ResourceDetail,
 } from "@/lib/resources"
@@ -210,6 +213,8 @@ export default async function ResourcePage({ params }: PageProps) {
 
   const isTool = Boolean(resource.code && resource.part)
   const part = resource.part ? PART_BY_ID[resource.part] : null
+  const room = roomForPart(resource.part)
+  const roomStack = stackClassForRoom(room)
   const partTools = resource.part
     ? TOOLS.filter((candidate) => candidate.part === resource.part)
     : []
@@ -418,9 +423,10 @@ export default async function ResourcePage({ params }: PageProps) {
           )}
 
           {inside && (
+            <div className={`${roomStack} mt-12`}>
             <section
               aria-labelledby="resource-inside"
-              className="sheet-card corners mt-12 p-6 sm:p-8"
+              className="sheet-card corners h-full p-6 sm:p-8"
             >
               <h2 id="resource-inside" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Inside this Evidens tool
@@ -451,12 +457,14 @@ export default async function ResourcePage({ params }: PageProps) {
                 )}
               </ul>
             </section>
+            </div>
           )}
 
           <div className="mt-12 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
+            <div className={roomStack}>
             <section
               aria-labelledby="resource-purpose"
-              className="sheet-card corners p-6 sm:p-8"
+              className="sheet-card corners h-full p-6 sm:p-8"
             >
               <h2 id="resource-purpose" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 {isTool ? "What this tool is for" : "What this page is for"}
@@ -466,9 +474,11 @@ export default async function ResourcePage({ params }: PageProps) {
               </p>
 
             </section>
+            </div>
+            <div className={roomStack}>
             <section
               aria-labelledby="resource-fit"
-              className="sheet-card corners p-6 sm:p-8"
+              className="sheet-card corners h-full p-6 sm:p-8"
             >
               <h2 id="resource-fit" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Where it fits
@@ -490,10 +500,12 @@ export default async function ResourcePage({ params }: PageProps) {
                 </p>
               )}
             </section>
+            </div>
 
+            <div className={`${roomStack} lg:col-span-2`}>
             <section
               aria-labelledby="resource-download"
-              className="sheet-card corners flex flex-col p-6 sm:p-8 lg:col-span-2 lg:items-center lg:text-center"
+              className="sheet-card corners flex h-full flex-col p-6 sm:p-8 lg:items-center lg:text-center"
             >
               <h2 id="resource-download" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
                 Get {resource.code ?? resource.title}
@@ -516,12 +528,14 @@ export default async function ResourcePage({ params }: PageProps) {
                 Back to the full catalog
               </Link>
             </section>
+            </div>
           </div>
 
           {liveTool && (
+            <div className={`${roomStack} mt-12`}>
             <section
               aria-label="Run this tool live"
-              className="sheet-card corners mt-12 p-6 sm:p-8"
+              className="sheet-card corners h-full p-6 sm:p-8"
             >
               <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Run the {liveTool.toolName} in your browser.
@@ -538,6 +552,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 Open the live tool
               </Link>
             </section>
+            </div>
           )}
 
           {part && (previous || next) && (
@@ -547,9 +562,10 @@ export default async function ResourcePage({ params }: PageProps) {
               </h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {previous ? (
+                  <div className={roomStack}>
                   <Link
                     href={`/resources/${resourceSlug(previous)}`}
-                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
+                    className="sheet-card flyout-link corners group block h-full p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Previous in this Part
@@ -561,6 +577,7 @@ export default async function ResourcePage({ params }: PageProps) {
                       {previous.description}
                     </p>
                   </Link>
+                  </div>
                 ) : (
                   <div className="border border-dashed border-border p-6">
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
@@ -573,9 +590,10 @@ export default async function ResourcePage({ params }: PageProps) {
                 )}
 
                 {next ? (
+                  <div className={roomStack}>
                   <Link
                     href={`/resources/${resourceSlug(next)}`}
-                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
+                    className="sheet-card flyout-link corners group block h-full p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Next in this Part
@@ -587,6 +605,7 @@ export default async function ResourcePage({ params }: PageProps) {
                       {next.description}
                     </p>
                   </Link>
+                  </div>
                 ) : (
                   <div className="border border-dashed border-border p-6">
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
@@ -608,10 +627,13 @@ export default async function ResourcePage({ params }: PageProps) {
               </h2>
               <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {relatedResources.map((item) => (
-                  <Link
+                  <div
                     key={item.slug}
+                    className={stackClassForPart(TOOL_BY_CODE[item.code]?.part)}
+                  >
+                  <Link
                     href={`/resources/${item.slug}`}
-                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
+                    className="sheet-card flyout-link corners group block h-full p-6 hover:border-primary/60"
                   >
                     <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                       Resource
@@ -623,6 +645,7 @@ export default async function ResourcePage({ params }: PageProps) {
                       {item.note}
                     </p>
                   </Link>
+                  </div>
                 ))}
               </div>
             </section>
@@ -640,9 +663,10 @@ export default async function ResourcePage({ params }: PageProps) {
                 documented posture.
               </p>
               <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className={stackClassForRoom("acquire")}>
                 <Link
                   href="/parkproof-standard"
-                  className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
+                  className="sheet-card flyout-link corners group block h-full p-6 hover:border-primary/60"
                 >
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     The Standard
@@ -654,9 +678,11 @@ export default async function ResourcePage({ params }: PageProps) {
                     Evidence states, gates, and posture labels, defined.
                   </p>
                 </Link>
+                </div>
+                <div className={stackClassForRoom("acquire")}>
                 <Link
                   href="/parkproof-walkthrough"
-                  className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
+                  className="sheet-card flyout-link corners group block h-full p-6 hover:border-primary/60"
                 >
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     The Walkthrough
@@ -669,6 +695,7 @@ export default async function ResourcePage({ params }: PageProps) {
                     posture.
                   </p>
                 </Link>
+                </div>
               </div>
             </section>
           )}
@@ -703,7 +730,7 @@ export default async function ResourcePage({ params }: PageProps) {
             </section>
           )}
 
-          <div className="card-stack card-stack-source stack-spring">
+          <div className="card-stack card-stack-acquire stack-spring">
           <div className="sheet-card mt-16 p-8 text-center">
             <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
               On a live deal, the finished sheet joins the record: claimed, proven, or still open, with the evidence attached.
