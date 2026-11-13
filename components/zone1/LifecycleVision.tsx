@@ -166,7 +166,8 @@ export default function LifecycleVision() {
           })}
         </ol>
 
-        <SheetCard className="mt-10 p-6 text-center sm:p-8">
+        <div className="card-stack card-stack-acquire stack-spring mt-10">
+          <SheetCard className="p-6 text-center sm:p-8">
           <p className="serif-display text-3xl leading-tight sm:text-4xl">
             The Trail Log.
           </p>
@@ -178,9 +179,11 @@ export default function LifecycleVision() {
               Follow the build in The Trail Log
             </Link>
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
 
-        <SheetCard className="mt-6 p-6 text-center sm:p-8">
+        <div className="card-stack card-stack-acquire stack-spring mt-6">
+          <SheetCard className="p-6 text-center sm:p-8">
           <p className="serif-display text-3xl leading-tight sm:text-4xl">
             Know what is true before you buy.
           </p>
@@ -192,7 +195,8 @@ export default function LifecycleVision() {
               Book a walkthrough
             </Link>
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
       </Container>
     </Section>
   )

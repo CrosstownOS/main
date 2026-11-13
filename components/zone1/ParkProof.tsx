@@ -145,7 +145,8 @@ export default function ParkProof() {
         </p>
 
         {/* Closing card — disclaimer, doors, and the record line, housed in the section's cream card family */}
-        <SheetCard className="mt-8 p-6 sm:p-8">
+        <div className="card-stack card-stack-acquire stack-spring mt-8">
+          <SheetCard className="p-6 sm:p-8">
           <div className="mx-auto max-w-3xl text-center">
             <SignalLine className="mx-auto" />
 
@@ -193,7 +194,8 @@ export default function ParkProof() {
               </Link>
             </div>
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
       </Container>
     </Section>
   )

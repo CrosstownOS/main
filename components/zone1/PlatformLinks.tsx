@@ -221,7 +221,8 @@ export default function PlatformLinks() {
           })}
         </div>
 
-        <SheetCard className="mx-auto mt-8 max-w-5xl p-6 text-center sm:p-8">
+        <div className="card-stack card-stack-acquire stack-spring mx-auto mt-8 max-w-5xl">
+          <SheetCard className="p-6 text-center sm:p-8">
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted">
             Not sure where you fit? Start a general conversation and we&rsquo;ll route it.
           </p>
@@ -235,7 +236,8 @@ export default function PlatformLinks() {
               Start a general conversation
             </button>
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
       </Container>
     </Section>
   )

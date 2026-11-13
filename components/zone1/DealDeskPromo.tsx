@@ -20,7 +20,8 @@ export default function DealDeskPromo() {
       aria-labelledby="deal-desk-promo-heading"
     >
       <Container>
-        <SheetCard className="p-6 sm:p-8 lg:p-10">
+        <div className="card-stack card-stack-acquire stack-spring">
+          <SheetCard className="p-6 sm:p-8 lg:p-10">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5">
               <span aria-hidden="true" data-reveal-line className="mx-auto mb-3" />
@@ -58,7 +59,8 @@ export default function DealDeskPromo() {
               </Link>
             </div>
           </div>
-        </SheetCard>
+          </SheetCard>
+        </div>
       </Container>
     </Section>
   )

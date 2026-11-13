@@ -70,11 +70,14 @@ export default function BuyingGuides() {
           </div>
           <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2">
             {GUIDES.map((guide) => (
-              <Link
+              <div
                 key={guide.href}
-                href={guide.href}
-                className="sheet-card flyout-link corners card-lift block p-6 hover:border-primary/60"
+                className="card-stack card-stack-acquire stack-spring"
               >
+                <Link
+                  href={guide.href}
+                  className="sheet-card flyout-link corners card-lift block h-full p-6 hover:border-primary/60"
+                >
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
                   Buyer&apos;s guide
                 </p>
@@ -86,8 +89,9 @@ export default function BuyingGuides() {
                 </p>
                 <p className="mt-3 text-sm font-semibold text-primary">
                   Read the guide &rarr;
-                </p>
-              </Link>
+                  </p>
+                </Link>
+              </div>
             ))}
           </div>
         </SheetCard>

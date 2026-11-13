@@ -10,6 +10,17 @@ import {
   TerminalLabel,
 } from "@/components/ui/primitives"
 
+// Room dress per paper code, mirroring CODE_ROOM on the tools index
+// (app/tools/page.tsx): each row wears the room its full card wears there.
+const PAPER_ROOM: Record<string, string> = {
+  "AS-02": "source",
+  "AS-09": "source",
+  "AS-15": "source",
+  "AS-08": "source",
+  "AS-13": "field",
+  "AS-17": "acquire",
+}
+
 const PAPERS = [
   { code: "AS-02", name: "60-Second Deal Screener", slug: "60-second-screener" },
   { code: "AS-09", name: "POH/TOH Split Valuation", slug: "poh-toh-split" },
@@ -62,19 +73,23 @@ export default function WorkingPapers() {
             </p>
             <div className="mb-10 grid gap-3 text-left sm:grid-cols-2">
               {PAPERS.map((paper) => (
-                <Link
+                <div
                   key={paper.slug}
-                  data-reveal-item
-                  href={`/tools/${paper.slug}`}
-                  className="group card-lift flyout-link flex items-center gap-3 border border-border bg-[var(--cream)] px-4 py-3 hover:border-primary/60"
+                  className={`card-stack card-stack-${PAPER_ROOM[paper.code] ?? "acquire"} stack-spring`}
                 >
-                  <span className="bg-primary px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-white">
-                    {paper.code}
-                  </span>
-                  <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
-                    {paper.name}
-                  </span>
-                </Link>
+                  <Link
+                    data-reveal-item
+                    href={`/tools/${paper.slug}`}
+                    className="group card-lift flyout-link flex h-full items-center gap-3 border border-border bg-[var(--cream)] px-4 py-3 hover:border-primary/60"
+                  >
+                    <span className="bg-primary px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-white">
+                      {paper.code}
+                    </span>
+                    <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+                      {paper.name}
+                    </span>
+                  </Link>
+                </div>
               ))}
             </div>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
