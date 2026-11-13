@@ -531,9 +531,9 @@ export default function SiteAgent() {
           aria-label={`Open ${AGENT_DISPLAY_NAME}`}
           className="theme-cream fixed bottom-20 right-4 z-40 flex items-center gap-2.5 border border-primary/40 bg-card py-2 pl-2 pr-4 shadow-2xl transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:bottom-24 md:right-6"
         >
-          <span className="relative h-7 w-7 flex-none overflow-hidden [clip-path:circle(50%)]">
+          <span className="relative h-7 w-7 flex-none overflow-hidden">
             <Image
-              src="/logo.jpg"
+              src="/icon-512.png"
               alt=""
               fill
               sizes="28px"

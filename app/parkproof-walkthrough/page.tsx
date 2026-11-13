@@ -52,7 +52,7 @@ const articleJsonLd = {
     name: "Evidens",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.getevidens.com/logo.jpg",
+      url: "https://www.getevidens.com/icon-512.png",
     },
   },
   mainEntityOfPage: {

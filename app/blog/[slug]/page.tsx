@@ -104,7 +104,7 @@ export default async function BlogPost({ params }: PageProps) {
       name: "Evidens",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.getevidens.com/logo.jpg",
+        url: "https://www.getevidens.com/icon-512.png",
       },
     },
     mainEntityOfPage: {
