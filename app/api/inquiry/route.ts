@@ -432,9 +432,6 @@ const FORM_CONFIG: Record<FormType, FormConfig> = {
 function signatureBlock(colors: EmailPalette) {
   return `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${colors.border}; border-radius:0;">
-  <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${colors.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    Evidens
-  </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${colors.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
   </p>
@@ -804,7 +801,7 @@ function generateAdminTemplate({
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
+      <a href="https://www.getevidens.com" style="text-decoration:none;"><img src="${LOGO_URL}" alt="Evidens" class="logo" /></a>
       <h1>${title}</h1>
       <p>${subtitle}</p>
     </div>
@@ -818,7 +815,7 @@ function generateAdminTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
+      <div class="footer-brand"><a href="https://www.getevidens.com" style="text-decoration:none;"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></a></div>
     </div>
   </div>
 </body>
@@ -856,7 +853,7 @@ function generateConfirmationTemplate({
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
+      <a href="https://www.getevidens.com" style="text-decoration:none;"><img src="${LOGO_URL}" alt="Evidens" class="logo" /></a>
       <h1>${escapeHtml(config.confirmationTitle)}</h1>
       <p>Evidens has received your submission.</p>
     </div>
@@ -878,7 +875,7 @@ function generateConfirmationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
+      <div class="footer-brand"><a href="https://www.getevidens.com" style="text-decoration:none;"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></a></div>
     </div>
   </div>
 </body>
@@ -954,7 +951,6 @@ function generatePlainText({
   }
 
   lines.push(
-    'Evidens',
     'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',

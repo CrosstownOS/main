@@ -39,9 +39,6 @@ const START_HERE_EMAIL_BLOCK: EmailDestinationBlock = {
 
 const SIGNATURE_BLOCK = `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${EMAIL_COLORS.border}; border-radius:0;">
-  <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${EMAIL_COLORS.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    Evidens
-  </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${EMAIL_COLORS.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
   </p>
@@ -346,7 +343,7 @@ function generateSubscribeTemplate(email: string, sourcePage: string) {
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
+      <a href="https://www.getevidens.com" style="text-decoration:none;"><img src="${LOGO_URL}" alt="Evidens" class="logo" /></a>
       <h1>Subscribed.</h1>
       <p>You are now following Evidens Updates.</p>
     </div>
@@ -370,7 +367,7 @@ function generateSubscribeTemplate(email: string, sourcePage: string) {
     </div>
 
     <div class="footer">
-      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
+      <div class="footer-brand"><a href="https://www.getevidens.com" style="text-decoration:none;"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></a></div>
     </div>
   </div>
 </body>
@@ -403,7 +400,7 @@ function generateAdminNotificationTemplate({
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
+      <a href="https://www.getevidens.com" style="text-decoration:none;"><img src="${LOGO_URL}" alt="Evidens" class="logo" /></a>
       <h1>New Evidens Updates Subscriber</h1>
       <p>A new email has joined the Evidens Updates list.</p>
     </div>
@@ -416,7 +413,7 @@ function generateAdminNotificationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
+      <div class="footer-brand"><a href="https://www.getevidens.com" style="text-decoration:none;"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></a></div>
     </div>
   </div>
 </body>
@@ -447,7 +444,6 @@ function generatePlainText({
       'You will receive occasional build notes, diligence patterns, and acquisition-workflow updates. No noise.',
       '',
       ...renderEmailBlocksText(subscribeBlocksFor(sourcePage)),
-      'Evidens',
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
       'Phone: (972) 914-9046',
       'Email: jeremy@crosstownosrv.camp',
@@ -463,7 +459,6 @@ function generatePlainText({
     `Source page: ${sourcePage || 'Evidens single-page site'}`,
     `Privacy consent: ${consentState}`,
     '',
-    'Evidens',
     'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',

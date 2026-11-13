@@ -170,7 +170,6 @@ function buildDownloadEmail({
 
   textLines.push(
     ...renderEmailBlocksText(blocks),
-    'Evidens',
     'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
