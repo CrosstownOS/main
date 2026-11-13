@@ -34,26 +34,26 @@ type EmailPalette = {
 
 // Internal ops console — dark field, lit royal signal (#3A86F2 from the logo arcs)
 const EMAIL_COLORS_DARK: EmailPalette = {
-  background: '#12110e',
-  card: '#1c1a16',
-  foreground: '#eee9df',
-  muted: '#a29b8e',
-  border: '#3a352b',
+  background: '#141923',
+  card: '#1d2735',
+  foreground: '#f3efe4',
+  muted: '#9aa3ad',
+  border: '#33404f',
   primary: '#3a86f2',
-  accent: '#a66a35',
-  success: '#4d7658',
+  accent: '#d97706',
+  success: '#5b8a67',
 }
 
 // Client confirmation — the white record. Mirrors the site's .theme-snow tokens,
 // with the deep arc royal (#0B589B) that reads on white.
 const EMAIL_COLORS_LIGHT: EmailPalette = {
-  background: '#f8f7f4',
-  card: '#fefdfc',
-  foreground: '#261d15',
-  muted: '#62594f',
-  border: '#d7d4ce',
-  primary: '#0b589b',
-  accent: '#a66a35',
+  background: '#f7efda',
+  card: '#ffffff',
+  foreground: '#141923',
+  muted: '#6a5f4e',
+  border: '#d8c5a0',
+  primary: '#00468b',
+  accent: '#d97706',
   success: '#4d7658',
 }
 

@@ -144,7 +144,7 @@ function buildDownloadEmail({
       </div>`
 
   const html = buildBrandedEmail({
-    pageTitle: 'Your CrosstownOS download',
+    pageTitle: 'Your Evidens download',
     headerTitle: 'Your download is ready.',
     headerSubtitle: 'Your PDF should be downloading now.',
     badge: 'Acquisition Signal Resource',
@@ -170,7 +170,7 @@ function buildDownloadEmail({
 
   textLines.push(
     ...renderEmailBlocksText(blocks),
-    'CrosstownOS',
+    'Evidens',
     'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
@@ -261,7 +261,7 @@ export async function POST(request: NextRequest) {
       from: FROM_ADDRESS,
       to: [email],
       replyTo: [INTERNAL_RECIPIENT],
-      subject: `Your CrosstownOS download${emailToolLabel ? `: ${emailToolLabel}` : ''}`,
+      subject: `Your Evidens download${emailToolLabel ? `: ${emailToolLabel}` : ''}`,
       html,
       text,
     })

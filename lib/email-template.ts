@@ -1,5 +1,5 @@
 /**
- * Shared branded email chrome for CrosstownOS transactional emails.
+ * Shared branded email chrome for Evidens transactional emails.
  *
  * The palette, styles, signature block, and footer are mirrored verbatim
  * from the subscribe route's email templates so every email Jeremy sends
@@ -7,19 +7,19 @@
  * here and in app/api/subscribe/route.ts together.
  */
 
-export const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
+export const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 export const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
 export const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
 export const SITE_URL = 'https://www.getevidens.com'
 
 const EMAIL_COLORS = {
-  background: '#12110e',
-  card: '#1c1a16',
-  foreground: '#eee9df',
-  muted: '#a29b8e',
-  border: '#3a352b',
-  primary: '#466b96',
-  accent: '#a66a35',
+  background: '#f7efda',
+  card: '#ffffff',
+  foreground: '#141923',
+  muted: '#6a5f4e',
+  border: '#d8c5a0',
+  primary: '#00468b',
+  accent: '#d97706',
 }
 
 const EMAIL_STYLES = `
@@ -37,7 +37,7 @@ const EMAIL_STYLES = `
     max-width: 640px;
     margin: 0 auto;
     background-color: ${EMAIL_COLORS.card};
-    border: 1px solid ${EMAIL_COLORS.border};
+    border: 1px solid ${EMAIL_COLORS.primary};
     border-radius: 0;
   }
 
@@ -172,7 +172,7 @@ const EMAIL_STYLES = `
 const SIGNATURE_BLOCK = `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${EMAIL_COLORS.border}; border-radius:0;">
   <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${EMAIL_COLORS.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    CrosstownOS
+    Evidens
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${EMAIL_COLORS.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
@@ -239,19 +239,19 @@ type EmailBlockTheme = {
 
 const EMAIL_BLOCK_THEMES: Record<'dark' | 'light', EmailBlockTheme> = {
   dark: {
-    border: EMAIL_COLORS.border,
-    background: EMAIL_COLORS.background,
-    foreground: EMAIL_COLORS.foreground,
-    muted: EMAIL_COLORS.muted,
-    primary: EMAIL_COLORS.primary,
-    buttonForeground: '#ffffff',
+    border: '#00468b',
+    background: '#00468b',
+    foreground: '#ffffff',
+    muted: '#d7e3ef',
+    primary: '#ffffff',
+    buttonForeground: '#00468b',
   },
   light: {
-    border: '#d7d4ce',
-    background: '#fbf4e2',
-    foreground: '#261d15',
-    muted: '#62594f',
-    primary: '#0b589b',
+    border: '#d8c5a0',
+    background: '#ffffff',
+    foreground: '#141923',
+    muted: '#6a5f4e',
+    primary: '#00468b',
     buttonForeground: '#ffffff',
   },
 }
@@ -327,7 +327,7 @@ export function buildBrandedEmail({
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Crosstown" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
       <h1>${escapeHtml(headerTitle)}</h1>
       <p>${escapeHtml(headerSubtitle)}</p>
     </div>
@@ -340,7 +340,7 @@ export function buildBrandedEmail({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">CrosstownOS</div>
+      <div class="footer-brand">Evidens</div>
     </div>
   </div>
 </body>

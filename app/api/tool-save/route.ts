@@ -159,7 +159,7 @@ export async function POST(req: NextRequest) {
     ]
 
     const html = buildBrandedEmail({
-      pageTitle: `Your CrosstownOS working paper: ${toolLabel}`,
+      pageTitle: `Your Evidens working paper: ${toolLabel}`,
       headerTitle: "Your working paper is attached.",
       headerSubtitle: `${toolLabel}: inputs, evidence states, calculated outputs, posture, and open items in one record.`,
       badge: "Live Diligence Working Paper",
@@ -179,7 +179,7 @@ export async function POST(req: NextRequest) {
       "Your numbers stayed in your browser until you sent them. Nothing else was kept.",
       "",
       ...blocks.flatMap((b) => [b.eyebrow, b.title, b.description, b.href, ""]),
-      "CrosstownOS",
+      "Evidens",
       "Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.",
       "Phone: (972) 914-9046",
       "Email: jeremy@crosstownosrv.camp",
@@ -189,7 +189,7 @@ export async function POST(req: NextRequest) {
       from: FROM_ADDRESS,
       to: [email],
       replyTo: [INTERNAL_RECIPIENT],
-      subject: `Your CrosstownOS working paper: ${toolLabel}`,
+      subject: `Your Evidens working paper: ${toolLabel}`,
       html,
       text: textLines.join("\n"),
       ...(attachment ? { attachments: [attachment] } : {}),

@@ -12,7 +12,7 @@ import { checkRateLimit, getClientIp, FORM_RATE_LIMIT, DOWNLOAD_RATE_LIMIT } fro
 
 export const runtime = 'nodejs'
 
-const FROM_ADDRESS = 'Crosstown <jeremy@crosstownosrv.camp>'
+const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
 const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
 const MAX_BODY_SIZE = 5_000
@@ -20,13 +20,13 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const HONEYPOT_FIELDS = ['companyWebsite', 'website', 'url', 'faxNumber']
 
 const EMAIL_COLORS = {
-  background: '#12110e',
-  card: '#1c1a16',
-  foreground: '#eee9df',
-  muted: '#a29b8e',
-  border: '#3a352b',
-  primary: '#466b96',
-  accent: '#a66a35',
+  background: '#f7efda',
+  card: '#ffffff',
+  foreground: '#141923',
+  muted: '#6a5f4e',
+  border: '#d8c5a0',
+  primary: '#00468b',
+  accent: '#d97706',
 }
 
 const START_HERE_EMAIL_BLOCK: EmailDestinationBlock = {
@@ -40,7 +40,7 @@ const START_HERE_EMAIL_BLOCK: EmailDestinationBlock = {
 const SIGNATURE_BLOCK = `
 <div class="signature-block" style="margin-top:28px; padding-top:24px; border-top:1px solid ${EMAIL_COLORS.border}; border-radius:0;">
   <p style="font-family:'Playfair Display', Georgia, serif; font-size:16px; color:${EMAIL_COLORS.foreground}; margin:0 0 6px 0; font-weight:700; letter-spacing:-0.01em;">
-    CrosstownOS
+    Evidens
   </p>
   <p style="font-family:'Inter', sans-serif; font-size:11px; color:${EMAIL_COLORS.muted}; margin:0 0 18px 0; line-height:1.5;">
     Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.
@@ -69,7 +69,7 @@ const EMAIL_STYLES = `
     max-width: 640px;
     margin: 0 auto;
     background-color: ${EMAIL_COLORS.card};
-    border: 1px solid ${EMAIL_COLORS.border};
+    border: 1px solid ${EMAIL_COLORS.primary};
     border-radius: 0;
   }
 
@@ -251,8 +251,8 @@ function renderMetadata({
   const rows = [
     ['Subscribed email', email],
     ['Submitted at', timestamp],
-    ['Source form', 'Footer Crosstown Updates subscription'],
-    ['Source page', sourcePage || 'Crosstown single-page site'],
+    ['Source form', 'Footer Evidens Updates subscription'],
+    ['Source page', sourcePage || 'Evidens single-page site'],
     ['Privacy consent', consentState],
   ]
 
@@ -337,19 +337,19 @@ function generateSubscribeTemplate(email: string, sourcePage: string) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Crosstown Updates</title>
+  <title>Welcome to Evidens Updates</title>
   <style>${EMAIL_STYLES}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Crosstown" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
       <h1>Subscribed.</h1>
-      <p>You are now following Crosstown Updates.</p>
+      <p>You are now following Evidens Updates.</p>
     </div>
 
     <div class="content">
-      <div class="badge">Crosstown Updates</div>
+      <div class="badge">Evidens Updates</div>
 
       <div class="field">
         <span class="field-label">Subscribed Email</span>
@@ -367,7 +367,7 @@ function generateSubscribeTemplate(email: string, sourcePage: string) {
     </div>
 
     <div class="footer">
-      <div class="footer-brand">CrosstownOS</div>
+      <div class="footer-brand">Evidens</div>
     </div>
   </div>
 </body>
@@ -392,15 +392,15 @@ function generateAdminNotificationTemplate({
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Crosstown Updates Subscriber</title>
+  <title>New Evidens Updates Subscriber</title>
   <style>${EMAIL_STYLES}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Crosstown" class="logo" style="border-radius:50%;" />
-      <h1>New Crosstown Updates Subscriber</h1>
-      <p>A new email has joined the Crosstown Updates list.</p>
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
+      <h1>New Evidens Updates Subscriber</h1>
+      <p>A new email has joined the Evidens Updates list.</p>
     </div>
 
     <div class="content">
@@ -411,7 +411,7 @@ function generateAdminNotificationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">CrosstownOS</div>
+      <div class="footer-brand">Evidens</div>
     </div>
   </div>
 </body>
@@ -436,13 +436,13 @@ function generatePlainText({
     return [
       'Subscribed.',
       '',
-      'You are now following Crosstown Updates.',
+      'You are now following Evidens Updates.',
       `Subscribed email: ${email}`,
       '',
       'You will receive occasional build notes, diligence patterns, and acquisition-workflow updates. No noise.',
       '',
       ...renderEmailBlocksText(subscribeBlocksFor(sourcePage)),
-      'CrosstownOS',
+      'Evidens',
       'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
       'Phone: (972) 914-9046',
       'Email: jeremy@crosstownosrv.camp',
@@ -450,15 +450,15 @@ function generatePlainText({
   }
 
   return [
-    'New Crosstown Updates Subscriber',
+    'New Evidens Updates Subscriber',
     '',
     `Subscribed email: ${email}`,
     `Submitted at: ${timestamp}`,
-    'Source form: Footer Crosstown Updates subscription',
-    `Source page: ${sourcePage || 'Crosstown single-page site'}`,
+    'Source form: Footer Evidens Updates subscription',
+    `Source page: ${sourcePage || 'Evidens single-page site'}`,
     `Privacy consent: ${consentState}`,
     '',
-    'CrosstownOS',
+    'Evidens',
     'Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.',
     'Phone: (972) 914-9046',
     'Email: jeremy@crosstownosrv.camp',
@@ -546,7 +546,7 @@ export async function POST(request: NextRequest) {
     const sourcePage =
       sanitizeText(body.sourcePage, 500) ||
       sanitizeText(request.headers.get('referer'), 500) ||
-      'Crosstown single-page site'
+      'Evidens single-page site'
     const consentState =
       'consent' in body
         ? hasConsent(body.consent)
@@ -558,7 +558,7 @@ export async function POST(request: NextRequest) {
       from: FROM_ADDRESS,
       to: [email],
       replyTo: [INTERNAL_RECIPIENT],
-      subject: 'Welcome to Crosstown Updates',
+      subject: 'Welcome to Evidens Updates',
       html: generateSubscribeTemplate(email, sourcePage),
       text: generatePlainText({ email, sourcePage, timestamp, consentState }),
     })
@@ -575,7 +575,7 @@ export async function POST(request: NextRequest) {
       from: FROM_ADDRESS,
       to: [INTERNAL_RECIPIENT],
       replyTo: [email],
-      subject: `New Crosstown Updates Subscriber: ${email}`,
+      subject: `New Evidens Updates Subscriber: ${email}`,
       html: generateAdminNotificationTemplate({ email, sourcePage, timestamp, consentState }),
       text: generatePlainText({ email, sourcePage, timestamp, consentState, admin: true }),
     })
@@ -588,13 +588,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Best-effort: land the contact in the Crosstown Updates segment.
+    // Best-effort: land the contact in the Evidens Updates segment.
     // Never blocks the subscription: the emails above are the critical path.
     await addToSegment(resend, 'updates', email)
 
     return NextResponse.json({
       success: true,
-      message: 'You are subscribed to Crosstown Updates.',
+      message: 'You are subscribed to Evidens Updates.',
       id: subscriberEmail.data?.id,
     })
   } catch (error) {
