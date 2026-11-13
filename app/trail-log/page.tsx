@@ -59,27 +59,62 @@ const BUILD_COLUMNS = [
   {
     title: "Now building",
     items: [
-      "Source + Field + Acquire, the first connected loop across Know it and Take it, set as the November scope on October 1. The loop has not been run end to end yet.",
-      "The record that starts with public sources, gets tested on the site walk, and is organized before capital is committed.",
+      "The finishing line: the last jobs between the built workspace and its acceptance run, closing in job order. The connected Source to Field to Acquire loop is built; the acceptance run that traverses it whole is still ahead, and this log will say so on the day it passes.",
+      "In-context help on every surface of the workspace, teaching the software itself: what a control does, what a state means, where a number came from.",
     ],
   },
   {
     title: "Next",
     items: [
-      "More worked language around the ParkProof standard, so a claim can be read the same way by buyer, broker, lender, and reviewer.",
+      "The acceptance run, then the combined launch: the film, the pilot cohort, and this site in its finished dress, through the door at getevidens.com.",
       "Trail Log entries as work ships, not as promises in advance.",
     ],
   },
   {
     title: "Exploring",
     items: [
-      "How a Field capture moves from unreviewed evidence to a reviewed record inside Acquire.",
-      "What Source should show about where a fact came from, and what it should leave unresolved.",
+      "How true parcel boundaries from the county record should sit beside the aerial on the Lead Brief, so the deed layer reads the way the satellite layer does.",
+      "The agent layer: agents a buyer names for themselves, standing on the record and citing its evidence, never originating facts.",
     ],
   },
 ] as const
 
 const SHIPPED = [
+  {
+    date: "November 12, 2026",
+    title: "This log was brought current",
+    body: "The Trail Log went quiet after October 23 while the build did not. The board above and the entries around this one now run through tonight. A public record that stops is worse than none, so the gap is named here rather than papered over: the weeks between are the entries below.",
+  },
+  {
+    date: "November 12, 2026",
+    title: "The site moved to getevidens.com",
+    body: "The marketing site now lives at its own name. The old addresses redirect to the new one page for page, so a saved link still lands on the page it meant, and the change of address was filed with Google the same day. The company mailbox keeps its old address; only the front door moved.",
+  },
+  {
+    date: "November 12, 2026",
+    title: "The site was rebuilt around the product as it stands",
+    body: "Every product picture on the site was reshot from the current build, and the pages were redressed to the standard the workspace itself is held to: the same cards, the same type, the same evidence language. If a screen on this site looks like the product, it is because it is the product, captured, not drawn.",
+  },
+  {
+    date: "November 12, 2026",
+    title: "Six evidence states now run on every fact in the workspace",
+    body: "Verified, Broker-reported, Missing evidence, Underwriting assumption, Calculated, Unresolved: the six states now apply on every surface of the workspace, not just the deal page. Each family of facts carries its own rubric for what earns a state, because a field photo can verify that a pedestal stands and cannot verify what it is rated for. A state change records the rubric, the evidence, and the date.",
+  },
+  {
+    date: "November 11, 2026",
+    title: "CrosstownOS became Evidens",
+    body: "The product has a new name. The company stays CrosstownOS LLC; the software it makes is Evidens, with Source, Field, and Acquire the tools inside it. The mark is the founder's own: a three-bar E in the colors of the lifecycle, fused into the word. The workspace and this site were rebranded in one move, and no surface carries the old name as the product's anymore.",
+  },
+  {
+    date: "November 2, 2026",
+    title: "The map filled in",
+    body: "Coordinates were placed on 56,094 of the parks in the library, so the map and the aerial on the Lead Brief have somewhere to stand. A park with no coordinates is not guessed onto the map; it waits in the record until its position is known.",
+  },
+  {
+    date: "October 24, 2026",
+    title: "The library loaded: 61,296 facilities on the record",
+    body: "Source opened with its registry loaded from public record: 5,202 Florida facilities from the Department of Health file and 56,094 from the archived national inventory, 61,296 in all. 32,307 of them arrived with no name recorded, and the record says exactly that rather than inventing one. The gaps are called out on every park, which is the point: a lead arrives with what is known and what is not, separated.",
+  },
   {
     date: "October 23, 2026",
     title: "The homepage offer points at pricing now",
