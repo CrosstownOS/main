@@ -215,7 +215,8 @@ export default function CatalogPage() {
             They are not recommendations, approvals, or advice.
           </p>
 
-          <div className="sheet-card corners mt-20 p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-field stack-spring mt-20">
+          <div className="sheet-card p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The working papers
             </p>
@@ -234,6 +235,7 @@ export default function CatalogPage() {
                 Read Field Notes
               </a>
             </div>
+          </div>
           </div>
 
           <div className="sheet-card corners mt-8 p-6 text-center sm:p-10">

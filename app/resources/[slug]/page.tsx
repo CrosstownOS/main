@@ -493,7 +493,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
             <section
               aria-labelledby="resource-download"
-              className="sheet-card corners flex flex-col p-6 sm:p-8"
+              className="sheet-card corners flex flex-col p-6 sm:p-8 lg:col-span-2 lg:items-center lg:text-center"
             >
               <h2 id="resource-download" className="serif-display mt-3 text-2xl tracking-tight sm:text-3xl">
                 Get {resource.code ?? resource.title}

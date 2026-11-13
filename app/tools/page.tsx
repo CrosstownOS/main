@@ -151,9 +151,9 @@ const FAQS: { q: string; a: string }[] = [
   },
 ]
 
-function WorkingPaperCard({ tool }: { tool: ToolCard }) {
+function WorkingPaperCard({ tool, className = "" }: { tool: ToolCard; className?: string }) {
   return (
-    <div data-reveal-item className="theme-cream sheet-card corners card-lift flex flex-col p-6 sm:p-8">
+    <div data-reveal-item className={`theme-cream sheet-card corners card-lift flex flex-col p-6 sm:p-8 ${className}`}>
       <div className="flex flex-wrap items-center gap-3">
         <span className="bg-primary px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
           {tool.sourceCode}
@@ -347,8 +347,16 @@ export default function ToolsPage() {
                 {group.question}
               </h2>
               <StaggerReveal className="mt-6 grid gap-6 md:grid-cols-2">
-                {group.tools.map((tool) => (
-                  <WorkingPaperCard key={tool.slug} tool={tool} />
+                {group.tools.map((tool, i) => (
+                  <WorkingPaperCard
+                    key={tool.slug}
+                    tool={tool}
+                    className={
+                      group.tools.length % 2 === 1 && i === group.tools.length - 1
+                        ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]"
+                        : ""
+                    }
+                  />
                 ))}
               </StaggerReveal>
             </section>

@@ -472,13 +472,19 @@ export default function AcquisitionWorkspacePage() {
        roomClass="bg-source"
        standfirst="The Library is where a lead earns its morning. A table is the proof the product handles real volume."
       />
-      <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/90">
-       Source organizes your broker packages, public records, and seller
-       statements with provenance on every document you attach. Source sees
-       what the outside world says before you arrive: organized, never
-       automatically trusted. A lead that does not survive screening stays
-       in the record with the reason attached.
-      </p>
+      <div className="mt-8">
+       <RoomStack room="source" className="stack-spring stack-sheets">
+        <div className="sheet-card p-6 sm:p-8">
+         <p className="text-base leading-relaxed text-foreground/90">
+          Source organizes your broker packages, public records, and seller
+          statements with provenance on every document you attach. Source sees
+          what the outside world says before you arrive: organized, never
+          automatically trusted. A lead that does not survive screening stays
+          in the record with the reason attached.
+         </p>
+        </div>
+       </RoomStack>
+      </div>
       <ShotFigure
        className="mt-8"
        src="/images/product/library-desktop.jpg"
@@ -493,7 +499,7 @@ export default function AcquisitionWorkspacePage() {
        }
       />
       <ShotFigure
-       className="mt-8 max-w-3xl"
+       className="mt-8 mx-auto max-w-3xl"
        src="/images/product/library-detail-desktop.jpg"
        alt="A detail crop of one Library record at full size: a single park's claims, each beside its source and evidence state. It shows one record read closely, the way a buyer reads it."
        caption={
@@ -515,19 +521,25 @@ export default function AcquisitionWorkspacePage() {
        roomClass="bg-acquire"
        standfirst="The Tray and the Lead Brief are the centrepiece: judgement and workflow, not storage. This is the longest chapter because it is the surface the decision is made from."
       />
-      <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/90">
-       Assign each claim an evidence state using the ParkProof definitions:
-       Verified, Broker-reported, Missing evidence, Underwriting assumption,
-       Calculated, or Unresolved. You supply the supporting evidence and
-       document your review; Evidens does not independently verify the
-       claim.
-      </p>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/90">
-       The Lead Brief is the deal on one page: the claims, their states,
-       the open gates, and the next action, rendered from the record
-       itself. It is the page the decision gets made from, and it carries
-       the park&apos;s aerial snapshot whenever it is opened.
-      </p>
+      <div className="mt-8">
+       <RoomStack room="acquire" className="stack-spring stack-sheets">
+        <div className="sheet-card p-6 sm:p-8">
+         <p className="text-base leading-relaxed text-foreground/90">
+          Assign each claim an evidence state using the ParkProof definitions:
+          Verified, Broker-reported, Missing evidence, Underwriting assumption,
+          Calculated, or Unresolved. You supply the supporting evidence and
+          document your review; Evidens does not independently verify the
+          claim.
+         </p>
+         <p className="mt-4 text-base leading-relaxed text-foreground/90">
+          The Lead Brief is the deal on one page: the claims, their states,
+          the open gates, and the next action, rendered from the record
+          itself. It is the page the decision gets made from, and it carries
+          the park&apos;s aerial snapshot whenever it is opened.
+         </p>
+        </div>
+       </RoomStack>
+      </div>
       <div className="mt-10 grid items-start gap-8 lg:grid-cols-5">
        <ShotFigure
         className="lg:col-span-3"
@@ -633,11 +645,10 @@ export default function AcquisitionWorkspacePage() {
        <RoomStack room="field" className="stack-spring stack-sheets">
         <div className="sheet-card p-6 sm:p-8">
          <p className="text-base leading-relaxed text-foreground/90">
-          Field captures what you see when you get there. Photos, notes,
-          and observations enter the record as unreviewed evidence until a
-          person reviews them. On the site walk you record what the paper
-          cannot show: utilities, wastewater, metering, roads, and site
-          conditions. Captured is not verified.
+          Photos, notes, and observations enter the record as unreviewed
+          evidence until a person reviews them. On the site walk you record
+          what the paper cannot show: utilities, wastewater, metering,
+          roads, and site conditions. Captured is not verified.
          </p>
          <p className="mt-4 text-sm leading-relaxed text-muted">
           Every capture is unreviewed evidence until you review it, and
@@ -767,24 +778,28 @@ export default function AcquisitionWorkspacePage() {
        A manufactured housing acquisition runs two records at once.
       </p>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-       <div className="record-card corners card-lift p-6 text-center">
-        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-         The land record
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-         The first record is the land: permitted sites, utility capacity, the
-         age of the lines.
-        </p>
+       <div className="card-stack card-stack-acquire stack-spring">
+        <div className="sheet-card h-full p-6 text-center">
+         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+          The land record
+         </h3>
+         <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+          The first record is the land: permitted sites, utility capacity, the
+          age of the lines.
+         </p>
+        </div>
        </div>
-       <div className="record-card corners card-lift p-6 text-center">
-        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
-         The homes record
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-         The second record is the homes: who holds each title, which homes are
-         tenant-owned and which are park-owned, and what the lot rent actually
-         deposits.
-        </p>
+       <div className="card-stack card-stack-acquire stack-spring">
+        <div className="sheet-card h-full p-6 text-center">
+         <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
+          The homes record
+         </h3>
+         <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+          The second record is the homes: who holds each title, which homes are
+          tenant-owned and which are park-owned, and what the lot rent actually
+          deposits.
+         </p>
+        </div>
        </div>
       </div>
       <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-foreground/85 sm:text-base">
@@ -792,7 +807,8 @@ export default function AcquisitionWorkspacePage() {
        source evidence, site observations, and unresolved diligence stay
        connected across the land and the homes before capital commits.
       </p>
-      <div className="record-card corners mt-6 p-5 sm:p-6">
+      <div className="card-stack card-stack-acquire stack-spring mt-6">
+       <div className="sheet-card p-5 sm:p-6">
        <p className="mb-4 text-center text-sm font-bold text-foreground">
         Manufactured housing: the claims that carry an evidence state (Evidens Acquisition Workspace):
        </p>
@@ -823,8 +839,9 @@ export default function AcquisitionWorkspacePage() {
        <p className="mt-4 text-center text-sm leading-relaxed text-muted">
         The states are the same six. What changes in manufactured housing is which claims carry the deal.
        </p>
+       </div>
       </div>
-      <div className="record-card corners mt-6 border-l-2 border-l-primary px-5 py-4 sm:px-6">
+      <div className="sheet-card mt-6 border-l-2 border-l-primary px-5 py-4 sm:px-6">
        <p className="text-center text-sm font-medium leading-relaxed text-foreground sm:text-base">
         The deal does not advance on open gates. It advances on verification, or on a waiver somebody signed their name to.
        </p>

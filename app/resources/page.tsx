@@ -443,7 +443,7 @@ export default async function ResourcesPage({
             </div>
           </div>
 
-          <div className="card-stack card-stack-source stack-spring">
+          <div className="card-stack card-stack-field stack-spring">
           <div className="sheet-card mt-16 p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The working papers

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import SuccessPopup from '@/components/SuccessPopup'
 import { pushNotice } from '@/components/ui/motion'
@@ -182,7 +183,8 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
           onClose={() => setPopupOpen(false)}
         />
       )}
-      {open && (
+      {open &&
+        createPortal(
         <div
           ref={dialogRef}
           className="backdrop-spring fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
@@ -245,7 +247,8 @@ export function GatedDownloadButton({ file, label, className, title, nextDoor }:
               Cancel
             </button>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   )

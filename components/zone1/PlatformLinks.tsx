@@ -168,7 +168,7 @@ export default function PlatformLinks() {
                 className="card-stack card-stack-acquire stack-spring w-full md:w-[calc(50%-0.5rem)]"
               >
               <SheetCard
-                className="flex h-full w-full flex-col p-5 hover:border-primary/50 hover:bg-primary/5"
+                className="flex h-full w-full flex-col p-5 hover:border-primary/50"
               >
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <span className="font-mono text-[10px] tracking-[0.22em] text-muted/60">

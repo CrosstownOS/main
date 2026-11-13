@@ -206,7 +206,7 @@ export function SteppedProgress({
           );
         })}
       </ol>
-      <ol className="mt-3 hidden justify-between gap-2 sm:flex">
+      <ol className="mt-3 flex justify-between gap-2">
         {steps.map((step, i) => (
           <li
             key={step.label}
@@ -218,7 +218,7 @@ export function SteppedProgress({
           >
             <span
               className={cn(
-                "font-mono text-[10px] uppercase tracking-[0.18em]",
+                "font-mono text-[9px] uppercase tracking-[0.1em] sm:text-[10px] sm:tracking-[0.18em]",
                 i <= current ? "text-foreground" : "text-muted",
               )}
             >
