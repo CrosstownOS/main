@@ -266,8 +266,12 @@ function ShotFigure({
     </picture>
    </div>
    </div>
-   <figcaption className="mt-3 text-sm leading-relaxed text-muted">
-    {caption}
+   <figcaption className="mt-4">
+    <div className={`card-stack card-stack-${room} stack-sheets`}>
+     <div className="sheet-card px-4 py-3 text-sm leading-relaxed text-foreground/85 sm:px-5 sm:py-4">
+      {caption}
+     </div>
+    </div>
    </figcaption>
   </figure>
  )
