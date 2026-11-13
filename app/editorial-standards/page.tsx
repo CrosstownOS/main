@@ -1,6 +1,21 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/ui/navigation"
+import {
+  EvidenceStateChip,
+  evidenceStateKey,
+} from "@/components/evidence/EvidenceStateChip"
+
+/* Card dress (Jeremy's ruling, 2026-11-13): the state cards wear their own
+   evidence swatches, the same stacks as /parkproof-standard. */
+const STATE_STACK: Record<string, string> = {
+  Verified: "card-stack card-stack-verified stack-spring",
+  "Broker-reported": "card-stack card-stack-broker stack-spring",
+  "Missing evidence": "card-stack card-stack-missing stack-spring",
+  "Underwriting assumption": "card-stack card-stack-assumption stack-spring",
+  Calculated: "card-stack card-stack-calculated stack-spring",
+  Unresolved: "card-stack card-stack-unresolved stack-spring",
+}
 
 export const metadata: Metadata = {
   keywords: ["editorial standards", "evidence standards", "verification", "AI-assisted work", "Evidens"],
@@ -194,14 +209,16 @@ export default function EditorialStandardsPage() {
               {STATES.map((s) => (
                 <div
                   key={s.title}
-                  className="sheet-card corners card-lift p-5"
+                  className={STATE_STACK[s.title] ?? "card-stack card-stack-acquire stack-spring"}
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
-                    {s.title}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-                    {s.definition}
-                  </p>
+                  <div className="sheet-card corners card-lift h-full p-5">
+                    <p>
+                      <EvidenceStateChip state={evidenceStateKey(s.title)} />
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                      {s.definition}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -274,10 +291,12 @@ export default function EditorialStandardsPage() {
             </p>
           </section>
 
-          <div className="sheet-card corners mt-12 p-8 text-center">
+          <div className="card-stack card-stack-acquire stack-spring mt-12">
+          <div className="sheet-card corners p-8 text-center">
             <p className="serif-display mx-auto max-w-3xl text-balance text-xl leading-snug text-foreground/85 sm:text-2xl">
               The standard for the writing is the standard for the record: claims labeled, sources named, and gaps stated as gaps, never smoothed over.
             </p>
+          </div>
           </div>
         </div>
       </main>
