@@ -49,7 +49,11 @@ export default function ProductLoop() {
           <div className="mb-5">
             <span aria-hidden="true" data-reveal-line className="mb-3" />
             <TerminalLabel data-reveal-stamp className="block">
-              Source + Field + Acquire
+              <span style={{ color: "var(--source)" }}>Source</span>
+              {" + "}
+              <span style={{ color: "var(--field)" }}>Field</span>
+              {" + "}
+              <span style={{ color: "var(--acquire)" }}>Acquire</span>
             </TerminalLabel>
           </div>
           <Heading
