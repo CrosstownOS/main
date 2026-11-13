@@ -421,7 +421,7 @@ export default function AcquisitionWorkspacePage() {
        standfirst="Never miss a park that fits. The doors open on the record, and the Feed keeps the hunt current while you work."
       />
       <div className="mt-8">
-       <RoomStack room="source" className="stack-spring stack-sheets">
+       <RoomStack room="source" className="stack-spring">
         <div className="sheet-card p-6 sm:p-8">
          <p className="text-base leading-relaxed text-foreground/90">
           {SOURCE_SENTENCE}
@@ -474,7 +474,7 @@ export default function AcquisitionWorkspacePage() {
        standfirst="The Library is where a lead earns its morning. A table is the proof the product handles real volume."
       />
       <div className="mt-8">
-       <RoomStack room="source" className="stack-spring stack-sheets">
+       <RoomStack room="source" className="stack-spring">
         <div className="sheet-card p-6 sm:p-8">
          <p className="text-base leading-relaxed text-foreground/90">
           Source organizes your broker packages, public records, and seller
@@ -523,7 +523,7 @@ export default function AcquisitionWorkspacePage() {
        standfirst="The Tray and the Lead Brief are the centrepiece: judgement and workflow, not storage. This is the longest chapter because it is the surface the decision is made from."
       />
       <div className="mt-8">
-       <RoomStack room="acquire" className="stack-spring stack-sheets">
+       <RoomStack room="acquire" className="stack-spring">
         <div className="sheet-card p-6 sm:p-8">
          <p className="text-base leading-relaxed text-foreground/90">
           Assign each claim an evidence state using the ParkProof definitions:
@@ -643,7 +643,7 @@ export default function AcquisitionWorkspacePage() {
        standfirst="Field captures what you see when you get there. These are the screens used on site at a park, shown smaller, because that is the size they are worked at."
       />
       <div className="mt-8">
-       <RoomStack room="field" className="stack-spring stack-sheets">
+       <RoomStack room="field" className="stack-spring">
         <div className="sheet-card p-6 sm:p-8">
          <p className="text-base leading-relaxed text-foreground/90">
           Photos, notes, and observations enter the record as unreviewed
