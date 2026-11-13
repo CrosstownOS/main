@@ -149,7 +149,7 @@ export default function SampleDecisionFilePage() {
             <h2 id="sample-boundary" className="sr-only">
               Sample boundaries
             </h2>
-            <article className="sheet-card corners card-lift p-6">
+            <div className="card-stack card-stack-acquire stack-spring"><article className="sheet-card corners h-full p-6">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                 What this shows
               </h3>
@@ -157,8 +157,8 @@ export default function SampleDecisionFilePage() {
                 How a claim keeps its source and state as records arrive,
                 observations are reviewed, and gates remain visible.
               </p>
-            </article>
-            <article className="sheet-card corners card-lift p-6">
+            </article></div>
+            <div className="card-stack card-stack-acquire stack-spring"><article className="sheet-card corners h-full p-6">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                 What this does not do
               </h3>
@@ -167,8 +167,8 @@ export default function SampleDecisionFilePage() {
                 a decision about any actual transaction. The ParkProof decision
                 file is not a legal/engineering/environmental certification.
               </p>
-            </article>
-            <article className="sheet-card corners card-lift p-6">
+            </article></div>
+            <div className="card-stack card-stack-acquire stack-spring"><article className="sheet-card corners h-full p-6">
               <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                 The standard behind it
               </h3>
@@ -176,7 +176,7 @@ export default function SampleDecisionFilePage() {
                 Advance, Retrade, Pause, and Walk are evidence-readiness
                 labels. They are not recommendations, approvals, or advice.
               </p>
-            </article>
+            </article></div>
           </section>
 
           <section aria-labelledby="sample-next" className="mt-20">
