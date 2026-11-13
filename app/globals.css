@@ -193,6 +193,41 @@
   .card-stack-acquire {
     --stack-color: var(--acquire);
   }
+  /* Evidence-state stacks: each state card wears its own swatch, the pinned
+     chip colors from lib/tools/evidence.ts. Unresolved is the mid value of
+     its warm-gray pair so the slab reads on cream. */
+  .card-stack-verified {
+    --stack-color: oklch(0.60 0.13 148);
+  }
+  .card-stack-broker {
+    --stack-color: oklch(0.65 0.12 55);
+  }
+  .card-stack-missing {
+    --stack-color: oklch(0.62 0.16 25);
+  }
+  .card-stack-assumption {
+    --stack-color: oklch(0.628 0.179 258);
+  }
+  .card-stack-calculated {
+    --stack-color: var(--calculated);
+  }
+  .card-stack-unresolved {
+    --stack-color: oklch(0.55 0.02 80);
+  }
+  /* Readiness-label stacks wear the same four signal hues: Advance green,
+     Retrade blue, Pause amber, Walk red. */
+  .card-stack-advance {
+    --stack-color: oklch(0.60 0.13 148);
+  }
+  .card-stack-retrade {
+    --stack-color: oklch(0.628 0.179 258);
+  }
+  .card-stack-pause {
+    --stack-color: oklch(0.65 0.12 55);
+  }
+  .card-stack-walk {
+    --stack-color: oklch(0.62 0.16 25);
+  }
 }
 
 /* ── Telemetry pulse animations ── */

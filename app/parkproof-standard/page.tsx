@@ -37,6 +37,24 @@ export const metadata: Metadata = {
   },
 }
 
+/* Card dress (Jeremy's ruling, 2026-11-13): the state cards wear their own
+   evidence swatches, the readiness labels wear their signal hues. */
+const STATE_STACK: Record<string, string> = {
+  Verified: "card-stack card-stack-verified stack-spring",
+  "Broker-reported": "card-stack card-stack-broker stack-spring",
+  "Missing evidence": "card-stack card-stack-missing stack-spring",
+  "Underwriting assumption": "card-stack card-stack-assumption stack-spring",
+  Calculated: "card-stack card-stack-calculated stack-spring",
+  Unresolved: "card-stack card-stack-unresolved stack-spring",
+}
+
+const LABEL_STACK: Record<string, string> = {
+  Advance: "card-stack card-stack-advance stack-spring",
+  Retrade: "card-stack card-stack-retrade stack-spring",
+  Pause: "card-stack card-stack-pause stack-spring",
+  Walk: "card-stack card-stack-walk stack-spring",
+}
+
 const EVIDENCE_STATES = [
   {
     title: "Verified",
@@ -236,10 +254,11 @@ export default function ParkProofStandardPage() {
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {EVIDENCE_STATES.map((state) => (
-                <article
+                <div
                   key={state.title}
-                  className="record-card corners card-lift p-6"
+                  className={STATE_STACK[state.title] ?? "card-stack card-stack-acquire stack-spring"}
                 >
+                <article className="record-card corners card-lift h-full p-6">
                   <h3>
                     <EvidenceStateChip
                       state={evidenceStateKey(state.title)}
@@ -255,6 +274,7 @@ export default function ParkProofStandardPage() {
                     {state.counts}
                   </p>
                 </article>
+                </div>
               ))}
             </div>
           </section>
@@ -295,7 +315,8 @@ export default function ParkProofStandardPage() {
               What a gate does.
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <div className="sheet-card corners card-lift p-6">
+              <div className="card-stack card-stack-acquire stack-spring">
+              <div className="sheet-card corners card-lift h-full p-6">
                 <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                   It names what can stop the deal.
                 </h3>
@@ -305,7 +326,9 @@ export default function ParkProofStandardPage() {
                   resolved or consciously accepted.
                 </p>
               </div>
-              <div className="sheet-card corners card-lift p-6">
+              </div>
+              <div className="card-stack card-stack-acquire stack-spring">
+              <div className="sheet-card corners card-lift h-full p-6">
                 <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                   It fails closed.
                 </h3>
@@ -315,7 +338,9 @@ export default function ParkProofStandardPage() {
                   dispute record until new evidence resolves them.
                 </p>
               </div>
-              <div className="sheet-card corners card-lift p-6">
+              </div>
+              <div className="card-stack card-stack-acquire stack-spring">
+              <div className="sheet-card corners card-lift h-full p-6">
                 <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                   It records the human call.
                 </h3>
@@ -324,6 +349,7 @@ export default function ParkProofStandardPage() {
                   authorized waiver with a documented reason. The override is
                   a record, never an edit that erases the original state.
                 </p>
+              </div>
               </div>
             </div>
           </section>
@@ -334,7 +360,11 @@ export default function ParkProofStandardPage() {
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {READINESS_LABELS.map((label) => (
-                <article key={label.title} className="sheet-card corners card-lift p-6">
+                <div
+                  key={label.title}
+                  className={LABEL_STACK[label.title] ?? "card-stack card-stack-acquire stack-spring"}
+                >
+                <article className="sheet-card corners card-lift h-full p-6">
                   <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
                     {label.title}
                   </h3>
@@ -342,6 +372,7 @@ export default function ParkProofStandardPage() {
                     {label.body}
                   </p>
                 </article>
+                </div>
               ))}
             </div>
           </section>

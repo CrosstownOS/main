@@ -182,11 +182,14 @@ const EVIDENCE_STATE_LABELS: Record<EvidenceState, string> = {
   unresolved: "Unresolved",
 };
 
+/* Dot colors match the pinned chip swatches in lib/tools/evidence.ts, the
+   one system: Broker-reported amber, Underwriting assumption blue (this map
+   previously had the two swapped, corrected 2026-11-13). */
 const EVIDENCE_STATE_COLORS: Record<EvidenceState, string> = {
   verified: "var(--success)",
-  "broker-reported": "var(--accent-secondary)",
+  "broker-reported": "oklch(0.65 0.12 55)",
   "missing-evidence": "var(--critical)",
-  "underwriting-assumption": "var(--status-alert)",
+  "underwriting-assumption": "oklch(0.628 0.179 258)",
   calculated: "var(--calculated)",
   unresolved: "var(--muted)",
 };
