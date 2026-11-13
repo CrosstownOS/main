@@ -678,25 +678,26 @@ export default async function ResourcePage({ params }: PageProps) {
               <h2 id="resource-field-notes" className="serif-display text-2xl tracking-tight sm:text-3xl">
                 Related Field Notes
               </h2>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
                 {related.map((post) => (
-                  <Link
-                    key={post.slug}
-                    href={`/blog/${post.slug}`}
-                    className="sheet-card flyout-link corners group p-6 hover:border-primary/60"
-                  >
-                    <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
-                      Field Note
-                    </p>
-                    <p className="serif-display mt-2 text-xl tracking-tight transition-colors group-hover:text-primary">
-                      {post.title}
-                    </p>
-                    {post.excerpt && (
-                      <p className="mt-2 text-sm leading-relaxed text-muted">
-                        {post.excerpt}
+                  <div key={post.slug} className="card-stack card-stack-field stack-spring">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="sheet-card flyout-link group block h-full p-6 hover:border-primary/60"
+                    >
+                      <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
+                        Field Note
                       </p>
-                    )}
-                  </Link>
+                      <p className="serif-display mt-2 text-xl tracking-tight transition-colors group-hover:text-primary">
+                        {post.title}
+                      </p>
+                      {post.excerpt && (
+                        <p className="mt-2 text-sm leading-relaxed text-muted">
+                          {post.excerpt}
+                        </p>
+                      )}
+                    </Link>
+                  </div>
                 ))}
               </div>
             </section>
