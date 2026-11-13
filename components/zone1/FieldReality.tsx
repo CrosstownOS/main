@@ -14,6 +14,7 @@ type TruthLayer = {
   index: string
   title: string
   body: string
+  room: "source" | "field" | "acquire"
   emphasis?: boolean
 }
 
@@ -22,24 +23,40 @@ const TRUTH_LAYERS: TruthLayer[] = [
     index: "01",
     title: "Financial truth",
     body: "Rent roll, leases, collections, delinquency, concessions, reimbursements, payroll, repairs, and real expense behavior.",
+    room: "acquire",
   },
   {
     index: "02",
     title: "Operational truth",
     body: "Management transition, resident files, tenant mix, POH titles, month-to-month status, policies, and ancillary income.",
+    room: "source",
   },
   {
     index: "03",
     title: "Infrastructure truth",
     body: "Water, sewer, septic, lagoons, electrical, roads, drainage, capacity, deferred repairs, and physical condition.",
+    room: "field",
     emphasis: true,
   },
   {
     index: "04",
     title: "Legal / ownership truth",
     body: "Title, survey, access, easements, permits, zoning, nonconforming use, ownership authority, and actual use.",
+    room: "source",
   },
 ]
+
+const ROOM_STACK: Record<TruthLayer["room"], string> = {
+  source: "card-stack card-stack-source stack-spring",
+  field: "card-stack card-stack-field stack-spring",
+  acquire: "card-stack card-stack-acquire stack-spring",
+}
+
+const ROOM_INDEX: Record<TruthLayer["room"], string> = {
+  source: "text-[#4a90d9]",
+  field: "text-accent",
+  acquire: "text-[#00468b]",
+}
 
 export default function FieldReality() {
   const revealRef = useReveal<HTMLElement>()
@@ -86,7 +103,7 @@ export default function FieldReality() {
             <div
               key={layer.title}
               data-reveal-item
-              className="card-stack card-stack-field stack-spring"
+              className={ROOM_STACK[layer.room]}
             >
             <SheetCard
               className={cn(
@@ -99,7 +116,7 @@ export default function FieldReality() {
               <span
                 className={cn(
                   "mb-5 font-mono text-[10px] tracking-[0.24em]",
-                  layer.emphasis ? "text-accent" : "text-primary",
+                  ROOM_INDEX[layer.room],
                 )}
               >
                 {layer.index}
