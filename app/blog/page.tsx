@@ -147,7 +147,8 @@ export default function BlogIndex() {
               </div>
             ))}
           </div>
-          <div className="sheet-card corners mt-12 p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-field stack-spring mt-12">
+          <div className="sheet-card corners p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Field Notes
             </p>
@@ -174,6 +175,7 @@ export default function BlogIndex() {
                 Acquisition Workspace
               </Link>
             </div>
+          </div>
           </div>
         </div>
       </main>
