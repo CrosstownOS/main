@@ -264,15 +264,12 @@ function ShotFigure({
       className="h-auto w-full"
      />
     </picture>
+    <figcaption className="px-2 pb-1 pt-3 text-sm leading-relaxed text-foreground/85 sm:px-3">
+     {caption}
+    </figcaption>
    </div>
    </div>
-   <figcaption className="mt-4">
-    <div className={`card-stack card-stack-${room} stack-sheets`}>
-     <div className="sheet-card px-4 py-3 text-sm leading-relaxed text-foreground/85 sm:px-5 sm:py-4">
-      {caption}
-     </div>
-    </div>
-   </figcaption>
+
   </figure>
  )
 }
