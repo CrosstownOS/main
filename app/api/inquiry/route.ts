@@ -15,7 +15,7 @@ export const runtime = 'nodejs'
 
 const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
-const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
+const LOGO_URL = 'https://www.getevidens.com/icon-512.png'
 const SITE_URL = 'https://www.getevidens.com'
 const MAX_BODY_SIZE = 25_000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -476,10 +476,9 @@ function emailStyles(colors: EmailPalette) {
   }
 
   .logo {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin-bottom: 16px;
-    border-radius: 50%;
   }
 
   .header h1 {
@@ -796,14 +795,16 @@ function generateAdminTemplate({
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
   <title>${title}</title>
   <style>${emailStyles(EMAIL_COLORS_DARK)}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
       <h1>${title}</h1>
       <p>${subtitle}</p>
     </div>
@@ -817,7 +818,7 @@ function generateAdminTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Evidens</div>
+      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
     </div>
   </div>
 </body>
@@ -846,14 +847,16 @@ function generateConfirmationTemplate({
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
   <title>${escapeHtml(config.confirmationTitle)}</title>
   <style>${emailStyles(EMAIL_COLORS_LIGHT)}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
       <h1>${escapeHtml(config.confirmationTitle)}</h1>
       <p>Evidens has received your submission.</p>
     </div>
@@ -875,7 +878,7 @@ function generateConfirmationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Evidens</div>
+      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
     </div>
   </div>
 </body>

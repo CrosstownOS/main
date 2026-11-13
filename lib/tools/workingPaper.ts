@@ -1,5 +1,5 @@
 /**
- * Branded working-paper HTML export for the CrosstownOS interactive tools.
+ * Branded working-paper HTML export for the Evidens interactive tools.
  *
  * Generates a standalone, print-friendly HTML document from a ToolExport:
  * logo, posture banner, inputs with evidence-state labels, outputs with
@@ -11,7 +11,7 @@
 import type { ToolExport } from "./schema"
 
 const SITE_URL = "https://www.getevidens.com"
-const LOGO_URL = `${SITE_URL}/logo.jpg`
+const LOGO_URL = `${SITE_URL}/icon-512.png`
 const ACQUIRE_BLUE = "#00468B"
 
 const STATE_LABELS: Record<string, string> = {
@@ -132,39 +132,41 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(exp.toolName)} - ${esc(exp.dealName)} | CrosstownOS</title>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>${esc(exp.toolName)} - ${esc(exp.dealName)} | Evidens</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
   * { box-sizing: border-box; }
-  body { margin: 0; padding: 0; background: #12110e; color: #eee9df; font-family: 'Inter', system-ui, sans-serif; }
-  .page { max-width: 720px; margin: 0 auto; padding: 40px 32px; }
+  body { margin: 0; padding: 0; background: #f7efda; color: #141923; font-family: 'Inter', system-ui, sans-serif; }
+  .page { max-width: 720px; margin: 24px auto; padding: 40px 32px; background: #ffffff; border: 1px solid #00468B; }
   .brandbar { border-top: 4px solid ${ACQUIRE_BLUE}; padding-top: 28px; }
   .masthead { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
-  .masthead img { width: 52px; height: 52px; border-radius: 50%; }
-  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: #466b96; margin: 0; }
+  .masthead img { width: 56px; height: 56px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: #00468B; margin: 0; }
   h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; margin: 8px 0 4px 0; letter-spacing: -0.01em; }
-  .meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #a29b8e; margin: 0 0 4px 0; }
-  .posture { border: 1px solid ${ACQUIRE_BLUE}; background: #1c1a16; padding: 20px; margin: 28px 0; }
-  .posture .eyebrow { color: #466b96; }
+  .meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #6a5f4e; margin: 0 0 4px 0; }
+  .posture { border: 1px solid ${ACQUIRE_BLUE}; background: #f7efda; padding: 20px; margin: 28px 0; }
+  .posture .eyebrow { color: #00468B; }
   .posture h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; margin: 8px 0; }
-  .posture p { font-size: 14px; line-height: 1.65; margin: 0; color: #eee9df; }
-  .posture .fine { font-size: 11px; color: #a29b8e; margin-top: 12px; line-height: 1.5; }
-  h3.section { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: #466b96; margin: 32px 0 4px 0; padding-bottom: 8px; border-bottom: 1px solid #3a352b; }
-  .row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #3a352b; }
+  .posture p { font-size: 14px; line-height: 1.65; margin: 0; color: #141923; }
+  .posture .fine { font-size: 11px; color: #6a5f4e; margin-top: 12px; line-height: 1.5; }
+  h3.section { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: #00468B; margin: 32px 0 4px 0; padding-bottom: 8px; border-bottom: 1px solid #d8c5a0; }
+  .row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #d8c5a0; }
   .row-main { flex: 1; }
   .row-label { font-size: 14px; font-weight: 500; }
-  .row-note { font-size: 12px; color: #a29b8e; margin-top: 4px; line-height: 1.5; }
+  .row-note { font-size: 12px; color: #6a5f4e; margin-top: 4px; line-height: 1.5; }
   .row-side { text-align: right; flex-shrink: 0; }
   .row-value { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; }
-  .state-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: #a66a35; border: 1px solid #a66a35; padding: 3px 8px; margin-top: 6px; }
-  .empty { font-size: 13px; color: #a29b8e; }
-  .footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid #3a352b; }
+  .state-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: #d97706; border: 1px solid #d97706; padding: 3px 8px; margin-top: 6px; }
+  .empty { font-size: 13px; color: #6a5f4e; }
+  .footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid #d8c5a0; }
   .footer-links { margin: 0 0 20px 0; }
-  .footer-links a { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: #466b96; text-decoration: none; margin: 0 16px 8px 0; }
+  .footer-links a { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: #00468B; text-decoration: none; margin: 0 16px 8px 0; }
   .sig-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; margin: 0 0 6px 0; }
-  .sig-tag { font-size: 11px; color: #a29b8e; margin: 0 0 14px 0; line-height: 1.5; }
-  .sig-line { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #a29b8e; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 3px 0; }
-  .brandline { text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; margin-top: 28px; color: #a29b8e; }
+  .sig-tag { font-size: 11px; color: #6a5f4e; margin: 0 0 14px 0; line-height: 1.5; }
+  .sig-line { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6a5f4e; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 3px 0; }
+  .brandline { text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; margin-top: 28px; color: #6a5f4e; }
   @media print {
     * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     body { background: #fff; color: #1a1a1a; }
@@ -186,10 +188,10 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
 <div class="page">
   <div class="brandbar">
     <div class="masthead">
-      <img src="${LOGO_URL}" alt="CrosstownOS">
+      <img src="${LOGO_URL}" alt="Evidens">
       <div>
         <p class="eyebrow">Live Diligence Working Paper</p>
-        <p class="meta">${esc(exp.sourceCode)} &middot; CrosstownOS</p>
+        <p class="meta">${esc(exp.sourceCode)} &middot; Evidens</p>
       </div>
     </div>
     <h1>${esc(exp.toolName)}</h1>
@@ -218,13 +220,14 @@ export function buildWorkingPaperHtml(exp: ToolExport): string {
       <a href="${SITE_URL}/tools">All working papers</a>
       <a href="${SITE_URL}/workspace?tool=${esc(exp.tool)}">Acquisition Workspace</a>
     </div>
-    <p class="sig-name">CrosstownOS</p>
+    <p class="sig-name">Evidens</p>
     <p class="sig-tag">Evidence-backed acquisition intelligence for RV parks and manufactured-housing communities.</p>
     <p class="sig-line">Jeremy Cross, Founder</p>
     <p class="sig-line">Acquisition Intelligence | Diligence Software</p>
     <p class="sig-line">Phone: (972) 914-9046</p>
     <p class="sig-line">Email: jeremy@crosstownosrv.camp</p>
-    <p class="brandline">Generated by CrosstownOS &middot; ${esc(dateStr)}</p>
+    <p class="brandline"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></p>
+    <p class="sig-line" style="text-align:center;">Generated by Evidens &middot; ${esc(dateStr)}</p>
   </div>
 </div>
 </body>

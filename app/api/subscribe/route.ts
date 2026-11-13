@@ -14,7 +14,7 @@ export const runtime = 'nodejs'
 
 const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
-const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
+const LOGO_URL = 'https://www.getevidens.com/icon-512.png'
 const MAX_BODY_SIZE = 5_000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const HONEYPOT_FIELDS = ['companyWebsite', 'website', 'url', 'faxNumber']
@@ -55,6 +55,8 @@ const SIGNATURE_BLOCK = `
 `
 
 const EMAIL_STYLES = `
+  :root { color-scheme: light; }
+
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
   body {
@@ -81,10 +83,9 @@ const EMAIL_STYLES = `
   }
 
   .logo {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin-bottom: 16px;
-    border-radius: 50%;
   }
 
   .header h1 {
@@ -336,14 +337,16 @@ function generateSubscribeTemplate(email: string, sourcePage: string) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
   <title>Welcome to Evidens Updates</title>
   <style>${EMAIL_STYLES}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
       <h1>Subscribed.</h1>
       <p>You are now following Evidens Updates.</p>
     </div>
@@ -367,7 +370,7 @@ function generateSubscribeTemplate(email: string, sourcePage: string) {
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Evidens</div>
+      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
     </div>
   </div>
 </body>
@@ -391,14 +394,16 @@ function generateAdminNotificationTemplate({
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
   <title>New Evidens Updates Subscriber</title>
   <style>${EMAIL_STYLES}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
       <h1>New Evidens Updates Subscriber</h1>
       <p>A new email has joined the Evidens Updates list.</p>
     </div>
@@ -411,7 +416,7 @@ function generateAdminNotificationTemplate({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Evidens</div>
+      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
     </div>
   </div>
 </body>

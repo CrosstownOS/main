@@ -9,7 +9,7 @@
 
 export const FROM_ADDRESS = 'Evidens <jeremy@crosstownosrv.camp>'
 export const INTERNAL_RECIPIENT = 'jeremy@crosstownosrv.camp'
-export const LOGO_URL = 'https://www.getevidens.com/logo.jpg'
+export const LOGO_URL = 'https://www.getevidens.com/icon-512.png'
 export const SITE_URL = 'https://www.getevidens.com'
 
 const EMAIL_COLORS = {
@@ -23,6 +23,8 @@ const EMAIL_COLORS = {
 }
 
 const EMAIL_STYLES = `
+  :root { color-scheme: light; }
+
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
   body {
@@ -49,10 +51,9 @@ const EMAIL_STYLES = `
   }
 
   .logo {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin-bottom: 16px;
-    border-radius: 50%;
   }
 
   .header h1 {
@@ -320,14 +321,16 @@ export function buildBrandedEmail({
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
   <title>${escapeHtml(pageTitle)}</title>
   <style>${EMAIL_STYLES}</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="${LOGO_URL}" alt="Evidens" class="logo" style="border-radius:50%;" />
+      <img src="${LOGO_URL}" alt="Evidens" class="logo" />
       <h1>${escapeHtml(headerTitle)}</h1>
       <p>${escapeHtml(headerSubtitle)}</p>
     </div>
@@ -340,7 +343,7 @@ export function buildBrandedEmail({
     </div>
 
     <div class="footer">
-      <div class="footer-brand">Evidens</div>
+      <div class="footer-brand"><img src="https://www.getevidens.com/logo-tiedye-horizontal.png" alt="Evidens" width="180" style="width:180px; max-width:60%; height:auto;" /></div>
     </div>
   </div>
 </body>
