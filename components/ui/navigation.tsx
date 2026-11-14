@@ -311,11 +311,12 @@ export default function Navigation() {
             href={item.href}
             aria-current={isCurrent ? "page" : undefined}
             className={cn(
-              "flex items-center gap-2 bg-[#141923]/30 px-3 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]",
-              isCurrent ? "bg-[#141923]/60 text-white shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004]" : undefined,
+              "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-foreground transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
+              "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:origin-left after:bg-[#de7004] after:transition-transform after:duration-200 after:ease-out xl:after:left-3 xl:after:right-3",
+              isCurrent ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100",
             )}
           >
-            <span className={cn("hidden text-[8px]", isCurrent ? "text-white" : "text-[#f7efda]/60", "xl:inline")}>
+            <span className={cn("hidden text-[8px]", isCurrent ? "text-[#de7004]" : "text-muted/60", "xl:inline")}>
               {item.index}
             </span>
             <span>{item.label}</span>
@@ -351,11 +352,12 @@ export default function Navigation() {
           aria-current={isActive ? "location" : undefined}
           onClick={(event) => handleAnchorClick(event, id)}
           className={cn(
-            "flex items-center gap-2 bg-[#141923]/30 px-3 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]",
-            isActive ? "bg-[#141923]/60 text-white shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004]" : undefined,
+            "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-foreground transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
+            "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:origin-left after:bg-[#de7004] after:transition-transform after:duration-200 after:ease-out xl:after:left-3 xl:after:right-3",
+            isActive ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100",
           )}
         >
-          <span className={cn("hidden text-[8px]", isActive ? "text-white" : "text-[#f7efda]/60", "xl:inline")}>
+          <span className={cn("hidden text-[8px]", isActive ? "text-[#de7004]" : "text-muted/60", "xl:inline")}>
             {item.index}
           </span>
           <span>{item.label}</span>
@@ -396,34 +398,22 @@ export default function Navigation() {
           </p>
         </Link>
 
-        <header className="relative overflow-hidden border-b border-[#f7efda]/30">
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(/footer-tiedye.png)" }}
-          />
-          <div aria-hidden className="absolute inset-0 bg-[#141923]/35" />
-          <div className="relative mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <header className="border-b border-border bg-background">
+          <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
             <button
               type="button"
               onClick={goHome}
               className="group flex min-w-fit items-center text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="Return to the Evidens homepage"
             >
-              <span className="flex items-center gap-3">
-                <span className="relative h-11 w-11 flex-none overflow-hidden">
-                  <Image
-                    src="/logo-tiedye-on-ink.png"
-                    alt=""
-                    fill
-                    priority
-                    className="object-contain"
-                  />
-                </span>
-                <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                  Evidens
-                </span>
-              </span>
+              <Image
+                src="/logo-fused-on-ink.png"
+                alt="Evidens"
+                width={2416}
+                height={622}
+                priority
+                className="h-12 w-auto flex-none sm:h-14"
+              />
             </button>
 
             <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center lg:flex">
@@ -449,7 +439,7 @@ export default function Navigation() {
               aria-expanded={open}
               aria-controls="mobile-navigation"
               aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-              className="flex h-11 w-11 items-center justify-center bg-[#141923]/30 text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda] lg:hidden"
+              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
             >
               {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
             </button>
