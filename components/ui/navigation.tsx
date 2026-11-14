@@ -412,7 +412,7 @@ export default function Navigation() {
                 width={2416}
                 height={622}
                 priority
-                className="h-12 w-auto flex-none sm:h-14"
+                className="h-10 w-auto flex-none sm:h-11"
               />
             </button>
 
