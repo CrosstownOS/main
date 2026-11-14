@@ -195,6 +195,8 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 7. CLOSED (not reproduced): Batch 11's reported FAQ-schema drift on the-rent-roll-truth-check. Full-file follow-up audit plus coordinator grep of source and live page found no such text; see the Batch 11 ledger row for the full record.
 8. CLOSED (interim-record contamination, reconciled 2026-10-16): several Batch 7 to 9 ledger rows were originally written from an interim summary rather than the builders' full reports, and described edits that never shipped (two /checklist citations, a /resources "Sample:" label, EMD day-length relabeling, a rent-roll datestamp, utility groundwater citations, a /workspace sentence deletion, a homepage preview replacement). The expansion verifier's diff-based checks exposed the pattern; the affected sections have been rewritten to the builders' actual reports and the shipped diffs. No phantom edit ever reached the site; the contamination lived in the ledger and interim reports only.
 
+9. Field Notes cross-links of the form /field-notes/<slug> return 404 on the live site (the article route is /blog/<slug>). The form is carried by two previously published notes (cap rates, site walk) and by "What the Paper Says, What the Ground Shows" (2026-11-14) as approved at gate B; recorded at that note's publication (J-344). Repair is a founder-approved copy change across the affected notes or a redirect rule; outside J-344's write set.
+
 ---
 
 ## Post-verification residuals (commit 7f5990d)
@@ -217,3 +219,10 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 | Page | Change | Basis | Status |
 |---|---|---|---|
 | /blog | Two new Field Notes published: "RV Park Cap Rates: How One Park Gets Two Asking Prices" (dated 2026-10-20) and "RV Park Due Diligence: Why the Site Walk Decides the Deal" (dated 2026-10-15). Published count is now 11 Field Notes; the Batch 8 count row above (9) stands as its historical record. Index hero slimmed in the same commit: headline one size down, intro paragraph removed (its terms already carried in the page meta description), count and standards text and RSS link folded into one meta line with a computed count, closing block moved below the list | Founder order and approval of the exact plan, 2026-10-22. Each note carries its research dossier and claims ledger on file with seat two, a Sources and Limits section with named sources, and the AI-assistance footer, per the content production protocol | PUBLISHED, verified live on the index and both article pages 2026-10-22 |
+---
+
+## Publication update (2026-11-14)
+
+| Page | Change | Basis | Status |
+|---|---|---|---|
+| /blog | Twelfth Field Note published: "What the Paper Says, What the Ground Shows" (dated 2026-11-14). Published count is now 12 Field Notes; the 2026-10-22 publication row above (11) stands as its historical record | Founder approval at gate B and publish order, 2026-11-14 (J-344 stage 3). The note carries its research dossier and claims ledger on file with seat two (jobs/j-344-diligence-2026-research-dossier.md and jobs/j-344-diligence-2026-claims-ledger.md), a Sources and Limits section with named sources, and the AI-assistance footer, per the content production protocol. Its graded counts are stated as an internal grading of one park's real document set, November 2026, the park unnamed; the per-piece ledger's cut items (the vendor benchmark figure, Verify pricing) do not appear in the published text | PUBLISHED, verified live on the index and the article page 2026-11-14 |
