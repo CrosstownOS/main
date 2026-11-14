@@ -241,3 +241,15 @@ Governance document, no page claims. docs/content-production-protocol.md; adopti
 | / | The week versus the afternoon band's duration contrast: diligence worked by hand can take days of transcription before the buyer's judgment begins, and the record's way can read the paper the day it lands; no duration in the band stands as a sourced fact. The only timing figure of record is the graded run's 179 seconds of machine time, which measures the machine, not a buyer's week or afternoon | The founder brainstorm of 2026-11-13 (Jeremy named the contrast) and the Content Production Protocol, Article 7 (labeled judgment in the disciplined language). Recorded under founder ruling, job J-346 Rule A, Jeremy Cross, 2026-11-13; the band's copy of record stands softened into this register | LABELED JUDGMENT |
 
 Product-status note, recorded with the extraction entry above (a product-status note; no site-ledger status applies, and the note itself is the record): the in-product extraction layer (jobs J-334 to J-339) is specced and not yet built, and the OS's live document path does not yet serve this extraction. Ruling recorded (founder decision job J-347, Jeremy Cross, 2026-11-13): Rule B in full, not narrow. Jeremy's words: "Call 3, B in full, not narrow. It will be a product layer so it's truthful." The dictated present-tense copy of record stands as written and ships under this ruling; the section demonstrates a graded, executed run, and its counts line carries the graded fact in the same view. This note remains the standing record of the product-status gap until the Extend layer lands, at which point the note is retired.
+
+---
+
+## J-343: workspace specimen walk (2026-11-14)
+
+| Page | Claim | Source | Status |
+|---|---|---|---|
+| /workspace | The walk presents one real production record, anonymized (names and figures changed, surfaces and sequence true) | jobs/j-341-captures-20261113/manifest.md (the capture and anonymization record) | LABELED ILLUSTRATION / WORKING ASSUMPTION |
+| /workspace | The six evidence state names and the stamp form are the product's own | The ParkProof Standard as published at /parkproof-standard and the OS evidence system the captures show | GROUNDED-INTERNAL |
+| /workspace | ParkProof issues from the record and the buyer owns the decision | The product doctrine of record (the Editorial Integrity Standard's ParkProof line); grounded as doctrine, stated as doctrine | GROUNDED-INTERNAL |
+
+Walk completeness note, standing with the first entry above: the shipped walk stands expressly incomplete. Beat 2 (the map find) does not build: J-341's f2 frames carry no public derivative because the basemap cannot paint from the capture bench (environment limit, proven in the J-341 manifest), so the beat does not build under the job's stop conditions. Beat 7 (the Lead Brief) renders when frame 8 lands as a follow-on commit after OS J-330 (Deploy 92). The specimen folder stands at 12 files at this ship (six frames at two widths), not 14 or 16, for those two named reasons.

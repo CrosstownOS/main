@@ -11,6 +11,7 @@ import { SteppedProgress } from "@/components/ui/motion"
 import SignalLine from "@/components/ui/SignalLine"
 import { RoomStack } from "@/components/ui/primitives"
 import { EvidenceStateChip } from "@/components/evidence/EvidenceStateChip"
+import SpecimenWalk from "@/components/demonstration/SpecimenWalk"
 import {
  PageViewTracker,
  SectionViewTracker,
@@ -761,6 +762,7 @@ export default function AcquisitionWorkspacePage() {
       </div>
      </section>
 
+     <SpecimenWalk />
      {/* Manufactured housing */}
      <section aria-labelledby="manufactured-housing" className="mt-24">
       <SignalLine className="mx-auto" />
