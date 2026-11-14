@@ -126,23 +126,18 @@ export default function SiteFooter() {
 
       <div className="relative py-10">
         <Container className="flex flex-col items-center justify-between gap-10 lg:flex-row">
-          <div className="flex items-center gap-4">
-            <div className="relative h-10 w-10 flex-none overflow-hidden">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <div className="relative aspect-[2416/622] h-16 flex-none overflow-hidden sm:h-20 lg:h-24">
               <Image
-                src="/logo-tiedye-on-ink.png"
+                src="/logo-fused-on-ink.png"
                 alt="Evidens"
                 fill
                 className="object-contain"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg font-bold tracking-tight text-white">
-                Evidens
-              </span>
-              <span className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-white">
-                The Code is the System. The Dirt is the Prize.
-              </span>
-            </div>
+            <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-white">
+              The Code is the System. The Dirt is the Prize.
+            </span>
           </div>
 
           <nav aria-label="Footer">
