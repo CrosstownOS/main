@@ -55,14 +55,25 @@ export default function SiteFooter() {
   }
 
   return (
-    <footer className="relative z-10 border-t border-border/60 bg-background">
-      <div className="border-b border-border/60 py-12">
+    <footer className="relative z-10 overflow-hidden border-t border-[#f7efda]/30 text-[#f7efda]">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-cover bg-center md:hidden"
+        style={{ backgroundImage: "url(/footer-tiedye-portrait.png)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 hidden bg-cover bg-center md:block"
+        style={{ backgroundImage: "url(/footer-tiedye.png)" }}
+      />
+      <div aria-hidden className="absolute inset-0 bg-[#141923]/35" />
+      <div className="relative border-b border-[#f7efda]/25 py-12">
         <Container className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div>
-            <TerminalLabel className="mb-2 block">
+            <TerminalLabel className="mb-2 block font-bold text-[#f7efda]">
               Evidens Updates
             </TerminalLabel>
-            <p className="font-sans text-xl font-bold text-foreground">
+            <p className="font-sans text-xl font-bold text-[#f7efda]">
               Occasional build notes and diligence patterns. No noise.
             </p>
           </div>
@@ -91,7 +102,7 @@ export default function SiteFooter() {
               placeholder="your@email.com"
               required
               autoComplete="email"
-              className="w-full border border-border/60 bg-background/50 px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/50 focus:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary md:w-72"
+              className="w-full border border-[#141923]/25 bg-[#f7efda] px-4 py-3 text-sm text-[#141923] transition-colors placeholder:text-[#141923]/45 focus:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary md:w-72"
             />
             <button
               type="submit"
@@ -105,7 +116,7 @@ export default function SiteFooter() {
 
           <div aria-live="polite" className="min-h-[1rem]">
             {footerStatus === "error" ? (
-              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-accent">
+              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-[#f7efda]">
                 Could not subscribe. Please try again.
               </p>
             ) : null}
@@ -113,7 +124,7 @@ export default function SiteFooter() {
         </Container>
       </div>
 
-      <div className="py-10">
+      <div className="relative py-10">
         <Container className="flex flex-col items-center justify-between gap-10 lg:flex-row">
           <div className="flex items-center gap-4">
             <div className="relative h-10 w-10 flex-none overflow-hidden">
@@ -125,22 +136,22 @@ export default function SiteFooter() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg tracking-tight text-foreground">
+              <span className="font-serif text-lg font-bold tracking-tight text-white">
                 Evidens
               </span>
-              <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-muted">
+              <span className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-white">
                 The Code is the System. The Dirt is the Prize.
               </span>
             </div>
           </div>
 
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            <ul className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                    className="block bg-[#141923]/30 px-2.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]"
                   >
                     {link.label}
                   </Link>
@@ -150,21 +161,21 @@ export default function SiteFooter() {
           </nav>
 
           <div className="flex flex-col items-center gap-2 text-center lg:items-end lg:text-right">
-            <p className="max-w-xs text-[11px] leading-relaxed text-muted/80">
+            <p className="max-w-xs text-[11px] leading-relaxed text-[#f7efda]/85">
               Confidentiality and data-handling terms will apply to use of the Acquisition Workspace when it opens.
             </p>
-            <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted/70">
+            <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#f7efda]/70">
               &copy;{' '}{new Date().getFullYear()}{' '}Evidens
             </p>
           </div>
         </Container>
       </div>
 
-      <div className="border-t border-border/60 py-8 pb-24 md:pb-8">
+      <div className="relative border-t border-[#f7efda]/25 py-8 pb-24 md:pb-8">
         <Container>
           <div className="mx-auto max-w-4xl space-y-4">
             {DISCLAIMER_PARAGRAPHS.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)} className="text-xs leading-relaxed text-muted">
+              <p key={paragraph.slice(0, 24)} className="text-xs leading-relaxed text-[#f7efda]/80">
                 {paragraph}
               </p>
             ))}
