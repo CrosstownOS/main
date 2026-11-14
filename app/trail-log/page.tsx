@@ -446,7 +446,8 @@ export default function TrailLogPage() {
             </h2>
             <StaggerReveal className="grid gap-4 md:grid-cols-3">
               {BUILD_COLUMNS.map((column) => (
-                <article key={column.title} data-reveal-item className="sheet-card corners card-lift p-6">
+                <div key={column.title} className="card-stack card-stack-acquire stack-spring">
+                <article data-reveal-item className="h-full sheet-card corners card-lift p-6">
                   <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                     {column.title}
                   </h3>
@@ -459,6 +460,7 @@ export default function TrailLogPage() {
                     ))}
                   </ul>
                 </article>
+                </div>
               ))}
             </StaggerReveal>
           </section>
@@ -482,7 +484,8 @@ export default function TrailLogPage() {
             </p>
             <StaggerReveal className="mt-6 space-y-4">
               {SHIPPED.map((entry) => (
-                <article key={entry.title} data-reveal-item className="record-card corners card-lift p-6 sm:p-7">
+                <div key={entry.title} className="card-stack card-stack-acquire stack-spring">
+                <article data-reveal-item className="record-card corners card-lift p-6 sm:p-7">
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-primary">
                     {entry.date}
                   </p>
@@ -502,11 +505,13 @@ export default function TrailLogPage() {
                     {entry.body}
                   </p>
                 </article>
+                </div>
               ))}
             </StaggerReveal>
           </section>
 
           <section aria-labelledby="trail-vote" className="mt-20">
+            <div className="card-stack card-stack-acquire stack-spring">
             <div className="sheet-card corners p-6 sm:p-8">
               <h2 id="trail-vote" className="serif-display scroll-mt-28 text-2xl tracking-tight sm:text-3xl">
                 Weigh in.
@@ -519,6 +524,7 @@ export default function TrailLogPage() {
               <div className="mt-7">
                 <TrailLogForm />
               </div>
+            </div>
             </div>
           </section>
 

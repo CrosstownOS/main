@@ -119,7 +119,8 @@ export default function MobileHomeParkInvestingPage() {
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
               Tenant-owned vs park-owned homes (the Evidens POH/TOH Split):
             </p>
-            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="record-card corners p-5 sm:p-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
@@ -159,6 +160,7 @@ export default function MobileHomeParkInvestingPage() {
               </table>
             </div>
             </div>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               The first diligence question on any mobile home park is the
               mix, verified home by home, not taken from the broker&apos;s
@@ -173,7 +175,8 @@ export default function MobileHomeParkInvestingPage() {
               </Link>
               .
             </p>
-            <div className="sheet-card corners mt-6 p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="sheet-card corners p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Value the two businesses separately: park-owned homes on
                 their title status, typically personal property and
@@ -188,6 +191,7 @@ export default function MobileHomeParkInvestingPage() {
                   Run the POH/TOH Split Valuation
                 </Link>
               </div>
+            </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Separate businesses get separate prices: the land on proven lot rent, the homes on their rental record.
@@ -312,7 +316,8 @@ export default function MobileHomeParkInvestingPage() {
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
               What must be proven before capital commits (the Evidens diligence record):
             </p>
-            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="record-card corners p-5 sm:p-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
@@ -340,6 +345,7 @@ export default function MobileHomeParkInvestingPage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
             </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">

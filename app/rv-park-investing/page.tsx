@@ -223,7 +223,8 @@ export default function RvParkInvestingPage() {
               </a>
               .
             </p>
-            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="record-card corners p-5 sm:p-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
@@ -256,6 +257,7 @@ export default function RvParkInvestingPage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
             </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
@@ -292,8 +294,8 @@ export default function RvParkInvestingPage() {
             </h2>
             <div className="mt-6 space-y-3">
               {RETURN_DRIVERS.map((d, i) => (
+                <div key={d.title} className="card-stack card-stack-source stack-spring">
                 <div
-                  key={d.title}
                   className="sheet-card corners card-lift p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
@@ -305,6 +307,7 @@ export default function RvParkInvestingPage() {
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                     {d.body}
                   </p>
+                </div>
                 </div>
               ))}
             </div>
@@ -320,8 +323,8 @@ export default function RvParkInvestingPage() {
             </p>
             <ul className="mt-6 space-y-3">
               {LEAKS.map((leak) => (
+                <div key={leak.title} className="card-stack card-stack-source stack-spring">
                 <li
-                  key={leak.title}
                   className="sheet-card corners card-lift p-5"
                 >
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
@@ -331,9 +334,11 @@ export default function RvParkInvestingPage() {
                     {leak.body}
                   </p>
                 </li>
+                </div>
               ))}
             </ul>
-            <div className="sheet-card corners mt-6 p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="sheet-card corners p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Normalize the seller&apos;s P&amp;L before you believe any
                 return projection: add-backs stated as assumptions, nothing
@@ -347,6 +352,7 @@ export default function RvParkInvestingPage() {
                   Run the Expense Normalizer
                 </Link>
               </div>
+            </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               A leak found in diligence is a line item. The same leak found after closing is your money leaving.

@@ -269,7 +269,8 @@ export default function DataRoomComparisonPage() {
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
               Data room vs acquisition workspace (Evidens):
             </p>
-            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="card-stack card-stack-acquire stack-spring mt-6">
+            <div className="record-card corners p-5 sm:p-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
@@ -292,6 +293,7 @@ export default function DataRoomComparisonPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
             </div>
             </div>
             <div className="mt-6 text-sm leading-relaxed text-foreground/85">
@@ -401,7 +403,8 @@ export default function DataRoomComparisonPage() {
             review.
           </p>
 
-          <section className="sheet-card corners mt-12 p-6 text-center sm:p-10" aria-label="The pilot">
+          <div className="card-stack card-stack-acquire stack-spring mt-12">
+          <section className="sheet-card corners p-6 text-center sm:p-10" aria-label="The pilot">
             <SignalLine />
             <h2 className="serif-display text-2xl tracking-tight sm:text-3xl">
               The pilot
@@ -427,6 +430,7 @@ export default function DataRoomComparisonPage() {
               </Link>
             </div>
           </section>
+          </div>
         </div>
       </main>
     </>

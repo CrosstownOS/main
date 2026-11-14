@@ -167,8 +167,8 @@ export default function BuyingACampgroundPage() {
             </p>
             <div className="mt-6 space-y-3">
               {DIFFERENCES.map((d, i) => (
+                <div key={d.title} className="card-stack card-stack-source stack-spring">
                 <div
-                  key={d.title}
                   className="sheet-card corners card-lift p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
@@ -180,6 +180,7 @@ export default function BuyingACampgroundPage() {
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                     {d.body}
                   </p>
+                </div>
                 </div>
               ))}
             </div>
@@ -206,8 +207,8 @@ export default function BuyingACampgroundPage() {
             </p>
             <ul className="mt-6 space-y-3">
               {SEASONAL_TRAPS.map((trap) => (
+                <div key={trap.title} className="card-stack card-stack-source stack-spring">
                 <li
-                  key={trap.title}
                   className="sheet-card corners card-lift p-5"
                 >
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
@@ -217,6 +218,7 @@ export default function BuyingACampgroundPage() {
                     {trap.body}
                   </p>
                 </li>
+                </div>
               ))}
             </ul>
           </section>
@@ -244,7 +246,8 @@ export default function BuyingACampgroundPage() {
               comfort from a seller about permits is worth exactly nothing at
               closing.
             </p>
-            <div className="sheet-card corners mt-6 p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="sheet-card corners p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Triage the utility risk before you spend on engineers: water,
                 sewer, and electric capacity scored red, amber, or green.
@@ -257,6 +260,7 @@ export default function BuyingACampgroundPage() {
                   Run the Utility Capacity Risk Triage
                 </Link>
               </div>
+            </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Capacity proven before the offer is a term of the deal. Capacity assumed is a closing condition waiting to fail.

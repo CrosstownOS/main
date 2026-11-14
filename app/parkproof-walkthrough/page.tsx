@@ -123,9 +123,9 @@ export default function SampleDecisionFilePage() {
                 ["Five claims followed", "Occupancy, NOI, capacity, site count, expansion."],
                 ["One gate still open", "No score. No shortcut around the record."],
               ].map(([title, body]) => (
+                <div key={title} className="card-stack card-stack-acquire stack-spring">
                 <div
-                  key={title}
-                  className="record-card px-4 py-4"
+                  className="h-full record-card px-4 py-4"
                 >
                   <p className="font-sans text-sm font-bold text-foreground">
                     {title}
@@ -133,6 +133,7 @@ export default function SampleDecisionFilePage() {
                   <p className="mt-1 text-sm leading-relaxed text-muted">
                     {body}
                   </p>
+                </div>
                 </div>
               ))}
             </div>

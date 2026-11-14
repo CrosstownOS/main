@@ -71,7 +71,7 @@ export default function ProductLoop() {
               key={module.name}
               room={module.name.toLowerCase() as "source" | "field" | "acquire"}
               data-reveal-item
-              className="stack-spring stack-sheets h-full"
+              className="stack-spring h-full"
             >
               <SheetCard className="flex h-full flex-col p-6">
                 <div className="mb-5 flex items-center justify-between gap-3">

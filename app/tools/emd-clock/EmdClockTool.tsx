@@ -375,6 +375,7 @@ export default function EmdClockTool() {
       pdfHref="/resources/the-emd-countdown-tracker"
       relatedNote={{ href: "/blog/speed-is-a-strategy-for-sellers-not-buyers", label: "Speed Is a Strategy for Sellers, Not Buyers" }}
     >
+      <div className="card-stack card-stack-acquire stack-spring">
       <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The money
@@ -423,8 +424,10 @@ export default function EmdClockTool() {
           sits. This tool does not interpret your contract.
         </p>
       </section>
+      </div>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-acquire stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Contingency register
@@ -527,8 +530,10 @@ export default function EmdClockTool() {
           ))}
         </div>
       </section>
+      </div>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-acquire stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Exposure summary
         </h2>
@@ -567,6 +572,7 @@ export default function EmdClockTool() {
           </div>
         )}
       </section>
+      </div>
     </ToolShell>
   )
 }

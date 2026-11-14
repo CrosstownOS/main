@@ -235,7 +235,8 @@ export default async function BlogPost({ params }: PageProps) {
             </ReactMarkdown>
           </div>
 
-          <div className="sheet-card corners mt-16 p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-field stack-spring mt-16">
+          <div className="sheet-card corners p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               The working papers
             </p>
@@ -282,6 +283,7 @@ export default async function BlogPost({ params }: PageProps) {
                 Apply for a pilot place
               </Link>
             </div>
+          </div>
           </div>
 
           {related.length > 0 && (

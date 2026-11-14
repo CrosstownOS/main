@@ -219,7 +219,8 @@ export default function BuyingAnRvParkPage() {
               usually doing something creative. Normalize first, then
               compare.
             </p>
-            <div className="sheet-card corners mt-6 p-5">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="sheet-card corners p-5">
               <p className="text-sm leading-relaxed text-foreground/85">
                 <strong>Read the table with its caveat first:</strong>{" "}
                 These are broad published ranges, not appraisals: confirm
@@ -234,10 +235,12 @@ export default function BuyingAnRvParkPage() {
                 of inventing one.
               </p>
             </div>
+            </div>
             <p className="mt-6 text-sm font-bold text-foreground sm:text-base">
               Price-per-pad and cap rate benchmarks (Innowave Studio, 2026; see Sources and limits below):
             </p>
-            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="record-card corners p-5 sm:p-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm leading-relaxed text-foreground/85">
                 <thead>
@@ -272,7 +275,9 @@ export default function BuyingAnRvParkPage() {
               </table>
             </div>
             </div>
-            <div className="sheet-card corners mt-6 p-6">
+            </div>
+            <div className="card-stack card-stack-source stack-spring mt-6">
+            <div className="sheet-card corners p-6">
               <p className="text-sm leading-relaxed text-foreground/85">
                 Run the headline numbers in under a minute: implied cap rate,
                 price per pad, and gross potential rent from six inputs.
@@ -285,6 +290,7 @@ export default function BuyingAnRvParkPage() {
                   Try the 60-Second Deal Screener
                 </Link>
               </div>
+            </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">
               Benchmarks start the conversation. Only verified numbers are allowed to finish it.
@@ -303,8 +309,8 @@ export default function BuyingAnRvParkPage() {
             </p>
             <div className="mt-6 space-y-3">
               {GATES.map((gate, i) => (
+                <div key={gate.title} className="card-stack card-stack-source stack-spring">
                 <div
-                  key={gate.title}
                   className="sheet-card corners card-lift p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
@@ -316,6 +322,7 @@ export default function BuyingAnRvParkPage() {
                   <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                     {gate.body}
                   </p>
+                </div>
                 </div>
               ))}
             </div>
@@ -335,8 +342,8 @@ export default function BuyingAnRvParkPage() {
             </p>
             <ul className="mt-6 space-y-3">
               {RED_FLAGS.map((flag) => (
+                <div key={flag.title} className="card-stack card-stack-source stack-spring">
                 <li
-                  key={flag.title}
                   className="sheet-card corners card-lift p-5"
                 >
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
@@ -346,6 +353,7 @@ export default function BuyingAnRvParkPage() {
                     {flag.body}
                   </p>
                 </li>
+                </div>
               ))}
             </ul>
             <p className="mt-4 text-sm leading-relaxed text-foreground/85 sm:text-base">

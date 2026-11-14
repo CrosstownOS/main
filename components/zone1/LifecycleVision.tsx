@@ -136,7 +136,7 @@ export default function LifecycleVision() {
                         | "field"
                         | "acquire"
                     }
-                    className="stack-spring stack-sheets h-full"
+                    className="stack-spring h-full"
                   >
                     <SheetCard className="flex h-full flex-col p-5">
                       <ModuleInterior module={module} index={index} live />

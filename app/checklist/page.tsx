@@ -184,8 +184,8 @@ export default function ChecklistPage() {
             </p>
             <ol className="space-y-3">
               {ITEMS.map((item, i) => (
+                <div key={item.title} className="card-stack card-stack-acquire stack-spring">
                 <li
-                  key={item.title}
                   className="record-card corners p-5"
                 >
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
@@ -228,6 +228,7 @@ export default function ChecklistPage() {
                     </p>
                   )}
                 </li>
+                </div>
               ))}
             </ol>
             <p className="mt-6 text-sm leading-relaxed text-foreground/85 sm:text-base">
@@ -245,7 +246,8 @@ export default function ChecklistPage() {
             </p>
           </section>
 
-          <div className="sheet-card corners mt-10 p-6 text-center sm:p-10">
+          <div className="card-stack card-stack-acquire stack-spring mt-10">
+          <div className="sheet-card corners p-6 text-center sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               Next step
             </p>
@@ -287,6 +289,7 @@ export default function ChecklistPage() {
                 Start Here
               </Link>
             </div>
+          </div>
           </div>
         </div>
       </main>

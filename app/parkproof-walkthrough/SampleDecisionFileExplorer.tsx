@@ -325,6 +325,7 @@ export default function SampleDecisionFileExplorer() {
   }
 
   return (
+    <div className="card-stack card-stack-acquire stack-spring">
     <section
       aria-labelledby="sample-explorer-heading"
       className="record-card corners p-5 sm:p-7"
@@ -1113,5 +1114,6 @@ export default function SampleDecisionFileExplorer() {
         </aside>
       </div>
     </section>
+    </div>
   )
 }

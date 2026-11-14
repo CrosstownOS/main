@@ -320,6 +320,7 @@ export default function PohTohTool() {
       pdfHref="/resources/poh-toh-split-valuation-worksheet"
       relatedNote={{ href: "/blog/manufactured-housing-diligence-starts-with-who-owns-the-homes", label: "Manufactured Housing Diligence Starts With Who Owns the Homes" }}
     >
+      <div className="card-stack card-stack-source stack-spring">
       <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The ask
@@ -339,8 +340,10 @@ export default function PohTohTool() {
           />
         </div>
       </section>
+      </div>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-source stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The two businesses
         </h2>
@@ -405,8 +408,10 @@ export default function PohTohTool() {
           </div>
         </div>
       </section>
+      </div>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-source stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Your underwriting assumptions
         </h2>
@@ -439,6 +444,7 @@ export default function PohTohTool() {
           />
         </div>
       </section>
+      </div>
 
       <section className="mt-8 border border-primary/40 bg-primary/5 p-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
@@ -456,7 +462,8 @@ export default function PohTohTool() {
         </p>
       </section>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-source stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Split valuation
         </h2>
@@ -496,9 +503,11 @@ export default function PohTohTool() {
           supports a Retrade label.
         </p>
       </section>
+      </div>
 
       {openItems.length > 0 && (
-        <section className="theme-cream sheet-card mt-8 p-6">
+        <div className="card-stack card-stack-source stack-spring mt-8">
+        <section className="theme-cream sheet-card p-6">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
             Missing inputs
           </h2>
@@ -511,6 +520,7 @@ export default function PohTohTool() {
             ))}
           </ul>
         </section>
+        </div>
       )}
     </ToolShell>
   )

@@ -230,7 +230,8 @@ export default function ParkProofStandardPage() {
             the deal as it stands, not a pile of documents.
           </p>
 
-          <div className="record-card corners mt-10 p-6 text-center sm:p-8">
+          <div className="card-stack card-stack-acquire stack-spring mt-10">
+          <div className="record-card corners p-6 text-center sm:p-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
               What this page is
             </p>
@@ -239,6 +240,7 @@ export default function ParkProofStandardPage() {
               deal, a park, or a decision. No state is ever assigned by
               silence.
             </p>
+          </div>
           </div>
 
           <section aria-labelledby="standard-states" className="mt-20">
@@ -287,7 +289,8 @@ export default function ParkProofStandardPage() {
               Illustrative example. The claim is the same throughout. The
               record changes only when the evidence changes.
             </p>
-            <div className="record-card corners mt-6 p-5 sm:p-6">
+            <div className="card-stack card-stack-acquire stack-spring mt-6">
+            <div className="record-card corners p-5 sm:p-6">
               <p className="border-b border-border/60 pb-4 text-base font-semibold text-foreground">
                 Claim: water and sewer capacity supports every site in the park.
               </p>
@@ -307,6 +310,7 @@ export default function ParkProofStandardPage() {
                   </li>
                 ))}
               </ul>
+            </div>
             </div>
           </section>
 

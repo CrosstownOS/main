@@ -393,6 +393,7 @@ export default function UtilityTriageTool() {
       pdfHref="/resources/utility-and-wastewater-diligence-sheet"
       relatedNote={{ href: "/blog/the-utility-system-nobody-underwrote", label: "The Utility System Nobody Underwrote" }}
     >
+      <div className="card-stack card-stack-field stack-spring">
       <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           The park
@@ -412,10 +413,12 @@ export default function UtilityTriageTool() {
           />
         </div>
       </section>
+      </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {systems.map((s) => (
-          <section key={s.key} className="theme-cream sheet-card p-6">
+          <div key={s.key} className="card-stack card-stack-field stack-spring">
+          <section className="theme-cream sheet-card p-6">
             <div className="flex items-center justify-between gap-2">
               <h2 className="serif-display text-xl tracking-tight">{s.label}</h2>
               <span
@@ -466,10 +469,12 @@ export default function UtilityTriageTool() {
               />
             </div>
           </section>
+          </div>
         ))}
       </div>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-field stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Capacity scores
         </h2>
@@ -510,8 +515,10 @@ export default function UtilityTriageTool() {
           advisory and does not by itself trigger a Pause label.
         </p>
       </section>
+      </div>
 
-      <section className="theme-cream sheet-card mt-8 p-6">
+      <div className="card-stack card-stack-field stack-spring mt-8">
+      <section className="theme-cream sheet-card p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary">
           Open evidence requests
         </h2>
@@ -566,6 +573,7 @@ export default function UtilityTriageTool() {
           the record until they are resolved or waived with a documented reason.
         </p>
       </section>
+      </div>
     </ToolShell>
   )
 }

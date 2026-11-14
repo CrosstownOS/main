@@ -368,9 +368,10 @@ export default async function ResourcePage({ params }: PageProps) {
           </div>
 
           {showEvidenceLetters && (
+            <div className="card-stack card-stack-acquire stack-spring mt-12">
             <section
               aria-labelledby="resource-evidence-letters"
-              className="record-card corners mt-12 p-6 sm:p-8"
+              className="record-card corners p-6 sm:p-8"
             >
               <h2 id="resource-evidence-letters" className="sr-only">
                 The evidence status letters
@@ -420,6 +421,7 @@ export default async function ResourcePage({ params }: PageProps) {
                 </li>
               </ol>
             </section>
+            </div>
           )}
 
           {inside && (

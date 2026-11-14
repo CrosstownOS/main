@@ -206,7 +206,8 @@ export default function PricingPage() {
         </div>
        ))}
       </div>
-      <div className="record-card corners mt-8 p-6 text-center sm:p-8">
+      <div className="card-stack card-stack-acquire stack-spring mt-8">
+      <div className="record-card corners p-6 text-center sm:p-8">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
         The three doors, side by side.
        </h3>
@@ -232,7 +233,9 @@ export default function PricingPage() {
         </p>
        </div>
       </div>
-      <div className="record-card corners mt-4 p-6 text-center sm:p-8">
+      </div>
+      <div className="card-stack card-stack-acquire stack-spring mt-4">
+      <div className="record-card corners p-6 text-center sm:p-8">
        <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
         Every workspace plan includes
        </h3>
@@ -250,6 +253,7 @@ export default function PricingPage() {
        >
         Read the full Terms of Use
        </Link>
+      </div>
       </div>
      </section>
 

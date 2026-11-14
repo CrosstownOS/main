@@ -216,10 +216,12 @@ export default function CatalogPage() {
             })}
           </div>
 
-          <p className="record-card corners mt-6 p-4 text-sm leading-relaxed text-muted">
+          <div className="card-stack card-stack-field stack-spring mt-6">
+          <p className="record-card corners p-4 text-sm leading-relaxed text-muted">
             Advance, Retrade, Pause, and Walk are evidence-readiness labels.
             They are not recommendations, approvals, or advice.
           </p>
+          </div>
 
           <div className="card-stack card-stack-field stack-spring mt-20">
           <div className="sheet-card p-6 text-center sm:p-10">

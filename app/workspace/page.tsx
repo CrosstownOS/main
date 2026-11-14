@@ -363,6 +363,7 @@ export default function AcquisitionWorkspacePage() {
 
      {/* Section 02: Orientation, the workflow in five steps */}
      <section id="how-it-works" aria-label="The workflow in five steps" className="mt-20 scroll-mt-24">
+      <div className="card-stack card-stack-acquire stack-spring">
       <div className="sheet-card p-5 sm:p-7">
        <SteppedProgress
         steps={WORKFLOW_STEPS.map((step) => ({
@@ -372,6 +373,7 @@ export default function AcquisitionWorkspacePage() {
         current={WORKFLOW_STEPS.length}
         room="acquire"
        />
+      </div>
       </div>
      </section>
 
@@ -401,10 +403,12 @@ export default function AcquisitionWorkspacePage() {
         </div>
        ))}
       </div>
-      <div className="record-card corners mt-6 border-l-2 border-l-primary px-5 py-4 sm:px-6">
+      <div className="card-stack card-stack-field stack-spring mt-6">
+      <div className="record-card corners border-l-2 border-l-primary px-5 py-4 sm:px-6">
        <p className="text-center text-sm font-medium leading-relaxed text-foreground sm:text-base">
         Capital commits only against what the record supports. What the record cannot prove does not get priced, and does not get paid for.
        </p>
+      </div>
       </div>
      </section>
 
@@ -840,10 +844,12 @@ export default function AcquisitionWorkspacePage() {
        </p>
        </div>
       </div>
-      <div className="sheet-card mt-6 border-l-2 border-l-primary px-5 py-4 sm:px-6">
+      <div className="card-stack card-stack-acquire stack-spring mt-6">
+      <div className="sheet-card border-l-2 border-l-primary px-5 py-4 sm:px-6">
        <p className="text-center text-sm font-medium leading-relaxed text-foreground sm:text-base">
         The deal does not advance on open gates. It advances on verification, or on a waiver somebody signed their name to.
        </p>
+      </div>
       </div>
      </section>
 
@@ -921,7 +927,8 @@ export default function AcquisitionWorkspacePage() {
        Monthly buys the whole system, not a piece of it: Source, Field,
        Acquire, and the Feed, connected around one deal record.
       </p>
-      <div className="record-card corners mt-6 p-6 sm:p-8">
+      <div className="card-stack card-stack-acquire stack-spring mt-6">
+      <div className="record-card corners p-6 sm:p-8">
        <ul className="mx-auto grid w-fit gap-3 text-left sm:grid-cols-2">
         {INCLUDED_SHARED.map((item) => (
          <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
@@ -930,6 +937,7 @@ export default function AcquisitionWorkspacePage() {
          </li>
         ))}
        </ul>
+      </div>
       </div>
       <div className="card-stack card-stack-acquire stack-spring mt-4">
       <div className="sheet-card p-6 text-center sm:p-8">

@@ -214,6 +214,7 @@ export default function TermsPage() {
       <Navigation />
       <main id="main" className="relative min-h-screen w-full overflow-hidden bg-background text-foreground">
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+          <div className="card-stack card-stack-acquire stack-spring">
           <div className="sheet-card corners p-6 sm:p-10">
           <h1 className="serif-display text-4xl tracking-tight sm:text-5xl">
             Terms of Use
@@ -234,6 +235,7 @@ export default function TermsPage() {
               ))}
             </section>
           ))}
+          </div>
           </div>
         </div>
       </main>
