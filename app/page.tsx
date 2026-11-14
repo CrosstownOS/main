@@ -6,6 +6,9 @@
 
 import Navigation from "@/components/ui/navigation"
 import Hero from "@/components/zone1/Hero"
+import RegistryBand from "@/components/demonstration/RegistryBand"
+import DocumentsFieldsOut from "@/components/demonstration/DocumentsFieldsOut"
+import WeekAfternoonBand from "@/components/demonstration/WeekAfternoonBand"
 import ProductLoop from "@/components/zone1/ProductLoop"
 import EngagementPaths from "@/components/zone1/PlatformLinks"
 import Chapter5 from "@/components/chapters/chapter5"
@@ -64,6 +67,9 @@ export default function Home() {
           className="relative flex min-h-screen w-full flex-col pt-[6.125rem] focus:outline-none"
         >
           <Hero />
+          <RegistryBand />
+          <DocumentsFieldsOut />
+          <WeekAfternoonBand />
           <Thesis />
           <FieldReality />
           <ProductLoop />
