@@ -131,7 +131,8 @@ export default function ForBrokersLendersPage() {
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {ARRIVAL_ITEMS.map((item) => (
-                <article key={item.title} className="record-card corners card-lift p-6">
+                <div key={item.title} className="card-stack card-stack-acquire stack-spring">
+                <article className="record-card corners card-lift h-full p-6">
                   <h3 className="font-sans text-base font-bold tracking-tight text-foreground">
                     {item.title}
                   </h3>
@@ -139,6 +140,7 @@ export default function ForBrokersLendersPage() {
                     {item.body}
                   </p>
                 </article>
+                </div>
               ))}
             </div>
             <p className="mt-6 max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
@@ -147,6 +149,7 @@ export default function ForBrokersLendersPage() {
           </section>
 
           <section aria-labelledby="toc-heading" className="mt-20">
+            <div className="card-stack card-stack-acquire stack-spring">
             <div className="record-card corners p-6 sm:p-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
                 ParkProof Walkthrough / illustrative
@@ -195,6 +198,7 @@ export default function ForBrokersLendersPage() {
                 . They will arrive with better questions.
               </p>
             </div>
+            </div>
           </section>
 
           <section aria-labelledby="sides-heading" className="mt-20">
@@ -202,7 +206,8 @@ export default function ForBrokersLendersPage() {
               Clear lines on both sides of the table.
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <article className="sheet-card corners card-lift p-6 sm:p-8">
+              <div className="card-stack card-stack-acquire stack-spring">
+              <article className="sheet-card corners card-lift h-full p-6 sm:p-8">
                 <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
                   For brokers and advisers
                 </h3>
@@ -217,7 +222,9 @@ export default function ForBrokersLendersPage() {
                   partnership terms are discussed privately.
                 </p>
               </article>
-              <article className="sheet-card corners card-lift p-6 sm:p-8">
+              </div>
+              <div className="card-stack card-stack-acquire stack-spring">
+              <article className="sheet-card corners card-lift h-full p-6 sm:p-8">
                 <h3 className="font-sans text-lg font-bold tracking-tight text-foreground">
                   For lenders
                 </h3>
@@ -236,6 +243,7 @@ export default function ForBrokersLendersPage() {
                   What arrives is not a summary prepared for the lender. It is the working record itself, with its open items still showing.
                 </p>
               </article>
+              </div>
             </div>
           </section>
 
