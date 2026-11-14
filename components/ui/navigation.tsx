@@ -311,14 +311,11 @@ export default function Navigation() {
             href={item.href}
             aria-current={isCurrent ? "page" : undefined}
             className={cn(
-              "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
-              "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out xl:after:left-3 xl:after:right-3",
-              isCurrent
-                ? "text-primary after:scale-x-100"
-                : "text-muted after:scale-x-0 hover:text-foreground hover:after:scale-x-100",
+              "flex items-center gap-2 bg-[#141923]/30 px-3 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]",
+              isCurrent ? "bg-[#141923]/60 text-white shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004]" : undefined,
             )}
           >
-            <span className={cn("hidden text-[8px]", isCurrent ? "text-primary" : "text-muted/60", "xl:inline")}>
+            <span className={cn("hidden text-[8px]", isCurrent ? "text-white" : "text-[#f7efda]/60", "xl:inline")}>
               {item.index}
             </span>
             <span>{item.label}</span>
@@ -332,16 +329,14 @@ export default function Navigation() {
           aria-current={isCurrent ? "page" : undefined}
           onClick={() => setOpen(false)}
           className={cn(
-            "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-            isCurrent
-              ? "border-l-primary bg-primary/10 text-primary"
-              : "border-l-transparent text-muted hover:border-l-border hover:bg-card/60 hover:text-foreground",
+            "flex items-center gap-4 bg-[#141923]/30 px-4 py-3.5 shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]",
+            isCurrent ? "bg-[#141923]/60 shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004]" : undefined,
           )}
         >
-          <span className={cn("font-mono text-[10px] tracking-[0.2em]", isCurrent ? "text-primary" : "text-muted/60")}>
+          <span className={cn("font-mono text-[10px] tracking-[0.2em]", isCurrent ? "text-white" : "text-[#f7efda]/60")}>
             {item.index}
           </span>
-          <span className="font-serif text-lg tracking-tight">{item.label}</span>
+          <span className={cn("font-serif text-lg font-bold tracking-tight", isCurrent ? "text-white" : "text-[#f7efda]")}>{item.label}</span>
         </Link>
       )
     }
@@ -356,14 +351,11 @@ export default function Navigation() {
           aria-current={isActive ? "location" : undefined}
           onClick={(event) => handleAnchorClick(event, id)}
           className={cn(
-            "relative flex h-16 items-center gap-2 px-2.5 font-mono text-[9px] uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:px-3",
-            "after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out xl:after:left-3 xl:after:right-3",
-            isActive
-              ? "text-primary after:scale-x-100"
-              : "text-muted after:scale-x-0 hover:text-foreground hover:after:scale-x-100",
+            "flex items-center gap-2 bg-[#141923]/30 px-3 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]",
+            isActive ? "bg-[#141923]/60 text-white shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004]" : undefined,
           )}
         >
-          <span className={cn("hidden text-[8px]", isActive ? "text-primary" : "text-muted/60", "xl:inline")}>
+          <span className={cn("hidden text-[8px]", isActive ? "text-white" : "text-[#f7efda]/60", "xl:inline")}>
             {item.index}
           </span>
           <span>{item.label}</span>
@@ -377,16 +369,14 @@ export default function Navigation() {
         aria-current={isActive ? "location" : undefined}
         onClick={(event) => handleAnchorClick(event, id)}
         className={cn(
-          "flex items-center gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          isActive
-            ? "border-l-primary bg-primary/10 text-primary"
-            : "border-l-transparent text-muted hover:border-l-border hover:bg-card/60 hover:text-foreground",
+          "flex items-center gap-4 bg-[#141923]/30 px-4 py-3.5 shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]",
+          isActive ? "bg-[#141923]/60 shadow-[inset_0_0_0_1px_rgba(247,239,218,0.65),inset_0_-2px_0_0_#de7004]" : undefined,
         )}
       >
-        <span className={cn("font-mono text-[10px] tracking-[0.2em]", isActive ? "text-primary" : "text-muted/60")}>
+        <span className={cn("font-mono text-[10px] tracking-[0.2em]", isActive ? "text-white" : "text-[#f7efda]/60")}>
           {item.index}
         </span>
-        <span className="font-serif text-lg tracking-tight">{item.label}</span>
+        <span className={cn("font-serif text-lg font-bold tracking-tight", isActive ? "text-white" : "text-[#f7efda]")}>{item.label}</span>
       </a>
     )
   }
@@ -406,22 +396,34 @@ export default function Navigation() {
           </p>
         </Link>
 
-        <header className="border-b border-border bg-background">
-          <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <header className="relative overflow-hidden border-b border-[#f7efda]/30">
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url(/footer-tiedye.png)" }}
+          />
+          <div aria-hidden className="absolute inset-0 bg-[#141923]/35" />
+          <div className="relative mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
             <button
               type="button"
               onClick={goHome}
               className="group flex min-w-fit items-center text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="Return to the Evidens homepage"
             >
-              <Image
-                src="/logo-tiedye-horizontal.png"
-                alt="Evidens"
-                width={2048}
-                height={496}
-                priority
-                className="h-10 w-auto flex-none"
-              />
+              <span className="flex items-center gap-3">
+                <span className="relative h-11 w-11 flex-none overflow-hidden">
+                  <Image
+                    src="/logo-tiedye-on-ink.png"
+                    alt=""
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </span>
+                <span className="font-serif text-2xl font-bold tracking-tight text-white">
+                  Evidens
+                </span>
+              </span>
             </button>
 
             <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center lg:flex">
@@ -447,7 +449,7 @@ export default function Navigation() {
               aria-expanded={open}
               aria-controls="mobile-navigation"
               aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+              className="flex h-11 w-11 items-center justify-center bg-[#141923]/30 text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda] lg:hidden"
             >
               {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
             </button>
@@ -470,12 +472,18 @@ export default function Navigation() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="mobile-navigation-title"
-            className="drawer-spring fixed inset-x-0 bottom-0 top-[6.125rem] z-[45] overflow-y-auto border-t border-border bg-background lg:hidden"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(20,25,35,0.35), rgba(20,25,35,0.35)), url(/footer-tiedye-portrait.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className="drawer-spring fixed inset-x-0 bottom-0 top-[6.125rem] z-[45] overflow-y-auto border-t border-[#f7efda]/30 lg:hidden"
           >
-            <div className="flex items-center justify-between border-b border-border px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#f7efda]/25 px-5 py-4">
               <p
                 id="mobile-navigation-title"
-                className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary"
+                className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#f7efda]"
               >
                 Section Index
               </p>
@@ -483,21 +491,21 @@ export default function Navigation() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close navigation menu"
-                className="flex h-11 w-11 items-center justify-center border border-border text-muted transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="flex h-11 w-11 items-center justify-center bg-[#141923]/30 text-[#f7efda] shadow-[inset_0_0_0_1px_rgba(247,239,218,0.35)] transition-colors hover:bg-[#141923]/60 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#f7efda]"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
 
             <nav aria-label="Mobile primary" className="px-5 py-5">
-              <ul className="nav-stagger space-y-1">
+              <ul className="nav-stagger space-y-2">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.label}>{renderEntry(item, "mobile")}</li>
                 ))}
               </ul>
             </nav>
 
-            <div className="border-t border-border px-5 py-5">
+            <div className="border-t border-[#f7efda]/25 px-5 py-5">
               <Link
                 href="/workspace"
                 onClick={() => setOpen(false)}
